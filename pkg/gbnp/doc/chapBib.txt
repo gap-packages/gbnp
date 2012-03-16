@@ -1,0 +1,55 @@
+  
+  
+  [1XReferences[0X
+  
+  [[20XBD04[15X]  [16XBaur, K. and Draisma, J.[15X, [17XHigher secant varieties of the minimal
+  adjoint orbit[15X, [18XJ. Algebra[15X, [19X280[15X, 2 (2004), 743--761
+  
+  [[20XCoh07[15X]  [16XCohen,  A.  M.[15X,  [17XNon-commutative  polynomial computations[15X, TU/e
+  (2007), (Eindhoven), Report
+  
+  [[20XCCS99[15X]  [16XCohen, A. M., Cuypers, H. and Sterk, H.[15X, [17XSome Tapas of Computer
+  Algebra[15X,  Springer-Verlag,  Heidelberg,  Algorithms  and  Computation in
+  Mathematics, [19X4[15X (1999)
+  
+  [[20XCGW05[15X]  [16XCohen, A. M., Gijsbers, D. A. H. and Wales, D. B.[15X, [17XBMW algebras
+  of simply laced type[15X, [18XJ. Algebra[15X, [19X286[15X, 1 (2005), 107--153
+  
+  [[20XCon10[15X] [16XCone, R.[15X, [17XNMODoc - Documentation on the NMO package, version 1.0[15X
+  (2010), Report (the package is provided with GBNP from Version 1.0 on)
+  
+  [[20XGra95[15X]  [16XGraham,  J.  J.[15X,  [17XModular representations of Hecke algebras and
+  related algebras.[15X, The University of Sydney (1995)
+  
+  [[20XGre99[15X]  [16XGreen,  E.  L.[15X,  [17XNoncommutative  Gr\"obner bases and projective
+  resolutions[15X,  in Computational Methods for Representations of Groups and
+  Algebras, Birkh{\"a}user (1999), 29-60, ((Essen 1997))
+  
+  [[20XKno04[15X]  [16XKnopper,  J.  W.[15X,  [17XGBNP  and vector enumeration[15X, {TU}/e (2004),
+  (Eindhoven), Report
+  
+  [[20XKro03[15X]  [16XKrook,  C.[15X,  [17XDimensionality  of quotient algebras[15X, TU/e (2003),
+  (Eindhoven), Report
+  
+  [[20XLin93[15X]  [16XLinton, S. A.[15X, [17XOn vector enumeration[15X, [18XLinear Algebra Appl.[15X, [19X192[15X
+  (1993), 235--248, (Computational linear algebra in algebraic and related
+  problems (Essen, 1992))
+  
+  [[20XLN06[15X]  [16XL{\"u}beck,  F.  and Neunh{\"o}ffer, M.[15X, [17XGAPDoc - a GAP package,
+  version 0.99999[15X (2006)
+  
+  [[20XMor94[15X]  [16XMora,  T.[15X,  [17XAn  introduction  to commutative and noncommutative
+  Gr\"obner bases[15X, [18XTheoretical Computer Science[15X, [19X134[15X, 1 (1994), 131--173
+  
+  [[20XSer03[15X]  [16XSerre,  J.-P.[15X,  [17XTrees[15X,  Springer-Verlag, Springer Monographs in
+  Mathematics,  Berlin (2003), x+142, (Translated from the French original
+  by   John   Stillwell,  Corrected  2nd  printing  of  the  1980  English
+  translation)
+  
+  [[20XUfn89[15X]  [16XUfnarovski\u{\i},  V.  A.[15X, [17XOn the use of graphs for calculating
+  the  basis, growth and Hilbert series of associative algebras[15X, [18XMat. Sb.[15X,
+  [19X180[15X, 11 (1989), 1548--1560, 1584
+  
+  
+  
+  -------------------------------------------------------

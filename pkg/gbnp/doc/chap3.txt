@@ -1,0 +1,2279 @@
+  
+  [1X3 Functions[0X
+  
+  
+  [1X3.1 Converting polynomials into different formats[0X
+  
+  [1X3.1-1 GP2NP[0m
+  
+  [2X> GP2NP( [0X[3Xgp[0X[2X ) ______________________________________________________[0Xfunction
+  [6XReturns:[0X  If  [3Xgp[0m  is an element of a free algebra, then the polynomial in NP
+            format  (see Section [14X2.1[0m) corresponding to [3Xgp[0m; if [3Xgp[0m is an element
+            of  a free module, then the vector in NPM format (see Section [14X2.2[0m)
+            corresponding to [3Xgp[0m.
+  
+  This  function  will convert an element of a free algebra to a polynomial in
+  NP format and an element of a free right module to a vector in NPM format.
+  
+  [13XExample:[0m  Let  [10XA[0m be the free associative algebra with one over the rationals
+  on the generators [10Xa[0m and [10Xb[0m. Let [10Xe[0m be the one of the algebra.
+  
+  [4X------------------------------------------------------------------[0X
+    [4Xgap> A:=FreeAssociativeAlgebraWithOne(Rationals,"a","b");;[0X
+    [4Xgap> a:=A.a;;[0X
+    [4Xgap> b:=A.b;;[0X
+    [4Xgap> e:=One(A);;[0X
+    [4Xgap> z:=Zero(A);;[0X
+  [4X------------------------------------------------------------------[0X
+  
+  Now let [10Xgp[0m be the polynomial ba-ab-e.
+  
+  [4X------------------------------------------------------------------[0X
+    [4Xgap> gp:=b*a-a*b-e;[0X
+    [4X(-1)*<identity ...>+(-1)*a*b+(1)*b*a[0X
+  [4X------------------------------------------------------------------[0X
+  
+  The  polynomial  in  NP format, corresponding to [10Xgp[0m can now be obtained with
+  GP2NP:
+  
+  [4X------------------------------------------------------------------[0X
+    [4Xgap> GP2NP(gp);[0X
+    [4X[ [ [ 2, 1 ], [ 1, 2 ], [  ] ], [ 1, -1, -1 ] ][0X
+  [4X------------------------------------------------------------------[0X
+  
+  Let [10XD[0m be the free associative algebra over [10XA[0m of rank 2.
+  
+  [4X------------------------------------------------------------------[0X
+    [4Xgap> D := A^2;;[0X
+  [4X------------------------------------------------------------------[0X
+  
+  Take the following list [10XR[0m of two elements of [10XD[0m.
+  
+  [4X------------------------------------------------------------------[0X
+    [4Xgap> R := [ [b-e, z], [e+a*(e+a+b), -e-a*(e+a+b)] ];;[0X
+  [4X------------------------------------------------------------------[0X
+  
+  Convert the list [10XR[0m to a list of vectors in NPM format.
+  
+  [4X------------------------------------------------------------------[0X
+    [4Xgap> List(R,GP2NP);[0X
+    [4X[ [ [ [ -1, 2 ], [ -1 ] ], [ 1, -1 ] ], [0X
+    [4X  [ [ [ -1, 1, 2 ], [ -1, 1, 1 ], [ -2, 1, 2 ], [ -2, 1, 1 ], [ -1, 1 ], [0X
+    [4X          [ -2, 1 ], [ -1 ], [ -2 ] ], [ 1, 1, -1, -1, 1, -1, 1, -1 ] ] ][0X
+  [4X------------------------------------------------------------------[0X
+  
+  [1X3.1-2 GP2NPList[0m
+  
+  [2X> GP2NPList( [0X[3XLgp[0X[2X ) _________________________________________________[0Xfunction
+  [6XReturns:[0X  The  list  of  polynomials  in  NP  or NPM format corresponding to
+            elements of a free algebra or module occurring in the list [3XLgp[0m.
+  
+  This function has the same effect as [10XList(Lgp,GBNP)[0m.
+  
+  [13XExample:[0m  Let  [10XA[0m be the free associative algebra with one over the rationals
+  on the generators [10Xa[0m and [10Xb[0m. Let [10Xe[0m be the one of the algebra.
+  
+  [4X------------------------------------------------------------------[0X
+    [4Xgap> A:=FreeAssociativeAlgebraWithOne(Rationals,"a","b");;[0X
+    [4Xgap> a:=A.a;;[0X
+    [4Xgap> b:=A.b;;[0X
+    [4Xgap> e:=One(A);;[0X
+  [4X------------------------------------------------------------------[0X
+  
+  Let [10XLgp[0m be the list of polynomials [a^2-e,b^2-e,ba-ab-e].
+  
+  [4X------------------------------------------------------------------[0X
+    [4Xgap> Lgp:=[a^2-e,b^2-e,b*a-a*b-e];[0X
+    [4X[ (-1)*<identity ...>+(1)*a^2, (-1)*<identity ...>+(1)*b^2, [0X
+    [4X  (-1)*<identity ...>+(-1)*a*b+(1)*b*a ][0X
+  [4X------------------------------------------------------------------[0X
+  
+  The polynomial in NP format corresponding to [10Xgp[0m can be obtained with GP2NP:
+  
+  [4X------------------------------------------------------------------[0X
+    [4Xgap> GP2NPList(Lgp);[0X
+    [4X[ [ [ [ 1, 1 ], [  ] ], [ 1, -1 ] ], [ [ [ 2, 2 ], [  ] ], [ 1, -1 ] ], [0X
+    [4X  [ [ [ 2, 1 ], [ 1, 2 ], [  ] ], [ 1, -1, -1 ] ] ][0X
+  [4X------------------------------------------------------------------[0X
+  
+  The  same  result  is  obtained by a simple application of the standard List
+  function in GAP:
+  
+  [4X------------------------------------------------------------------[0X
+    [4Xgap> List(Lgp,GP2NP) = GP2NPList(Lgp);[0X
+    [4Xtrue[0X
+  [4X------------------------------------------------------------------[0X
+  
+  [1X3.1-3 NP2GP[0m
+  
+  [2X> NP2GP( [0X[3Xnp, A[0X[2X ) ___________________________________________________[0Xfunction
+  [6XReturns:[0X  The GAP format of the polynomial [3Xnp[0m in NP format.
+  
+  This  function will convert a polynomial in NP format to a GAP polynomial in
+  the free associative algebra [3XA[0m and a vector in NPM format to a GAP vector in
+  the  free module [3XA[0m. In case of the NP format, the number of variables should
+  not  exceed  the  rank of the free algebra [3XA[0m. In case of the NPM format, the
+  absolute  of  the  negative  numbers  should not exceed the rank of the free
+  module [3XA[0m.
+  
+  [13XExample:[0m  Let  [10XA[0m be the free associative algebra with one over the rationals
+  on the generators [10Xa[0m and [10Xb[0m.
+  
+  [4X------------------------------------------------------------------[0X
+    [4Xgap> A:=FreeAssociativeAlgebraWithOne(GF(3),"a","b");;[0X
+  [4X------------------------------------------------------------------[0X
+  
+  Let [10Xnp[0m be a polynomial in NP format.
+  
+  [4X------------------------------------------------------------------[0X
+    [4Xgap> np:=[ [ [ 2, 1 ], [ 1, 2 ], [  ] ], [ Z(3)^0, Z(3), Z(3) ] ];;[0X
+  [4X------------------------------------------------------------------[0X
+  
+  The  polynomial  can  be  converted  to  the corresponding element of [3XA[0m with
+  NP2GP:
+  
+  [4X------------------------------------------------------------------[0X
+    [4Xgap> NP2GP(np,A);[0X
+    [4X(Z(3)^0)*b*a+(Z(3))*a*b+(Z(3))*<identity ...>[0X
+  [4X------------------------------------------------------------------[0X
+  
+  Note that some information of the coefficient field of a polynomial [10Xnp[0m in NP
+  format can be obtained from the second list of [10Xnp[0m.
+  
+  [4X------------------------------------------------------------------[0X
+    [4Xgap> One(np[2][1]);[0X
+    [4XZ(3)^0[0X
+  [4X------------------------------------------------------------------[0X
+  
+  Now  let [10XM[0m be the module [10XA^2[0m and let [10Xnpm[0m be a polynomial over that module in
+  NPM form.
+  
+  [4X------------------------------------------------------------------[0X
+    [4Xgap> M:=A^2;;[0X
+    [4Xgap> npm:=[ [ [ -1, 1 ], [ -2, 2 ] ], [ Z(3)^0, Z(3)^0 ] ];;[0X
+  [4X------------------------------------------------------------------[0X
+  
+  The element of [3XM[0m corresponding to [10Xnpm[0m is
+  
+  [4X------------------------------------------------------------------[0X
+    [4Xgap> NP2GP(npm,M);[0X
+    [4X[ (Z(3)^0)*a, (Z(3)^0)*b ][0X
+  [4X------------------------------------------------------------------[0X
+  
+  If  [10XM[0m is a module of dimension 2 over [10XA[0m and [10XLnp[0m a list of polynomials in NPM
+  format,   then  the  polynomials  can  be  converted  to  the  corresponding
+  polynomials of [10XM[0m as follows:
+  
+  [4X------------------------------------------------------------------[0X
+    [4Xgap> M:=A^2;;[0X
+    [4Xgap> Lnp:=[ [ [ [ -2, 1, 1 ], [ -2, 1 ] ], [ 1, -1 ] ],[0X
+    [4X>   [ [ [ -1, 2, 2], [-2, 1 ] ], [ 1, -1 ]*Z(3)^0 ] ];;[0X
+    [4Xgap> List(Lnp, m -> NP2GP(m,M));[0X
+    [4X[ [ <zero> of ..., (Z(3))*a+(Z(3)^0)*a^2 ], [ (Z(3)^0)*b^2, (Z(3))*a ] ][0X
+  [4X------------------------------------------------------------------[0X
+  
+  [1X3.1-4 NP2GPList[0m
+  
+  [2X> NP2GPList( [0X[3XLnp, A[0X[2X ) ______________________________________________[0Xfunction
+  [6XReturns:[0X  The list of polynomials corresponding to [3XLnp[0m in GAP format.
+  
+  This  function  will  convert  the list [3XLnp[0m of polynomials in NP format to a
+  list of GAP polynomials in the free associative algebra [3XA[0m.
+  
+  [13XExample:[0m  Let  [10XA[0m be the free associative algebra with one over the rationals
+  on the generators [10Xa[0m and [10Xb[0m.
+  
+  [4X------------------------------------------------------------------[0X
+    [4Xgap> A:=FreeAssociativeAlgebraWithOne(Rationals,"a","b");;[0X
+  [4X------------------------------------------------------------------[0X
+  
+  Let  [10XLnp[0m be a list of polynomials in NP format. Then [10XLnp[0m can be converted to
+  a list of polynomials of [10XA[0m with NP2GPList:
+  
+  [4X------------------------------------------------------------------[0X
+    [4Xgap> Lnp:=[ [ [ [ 1, 1, 1 ], [ 1 ] ], [ 1, -1 ] ],[0X
+    [4X>   [ [ [ 2, 2 ], [ ] ], [ 1, -1 ] ] ];;[0X
+    [4Xgap> NP2GPList(Lnp,A);[0X
+    [4X[ (1)*a^3+(-1)*a, (1)*b^2+(-1)*<identity ...> ][0X
+  [4X------------------------------------------------------------------[0X
+  
+  It has the same effect as the function [10XList[0m applied as follows.
+  
+  [4X------------------------------------------------------------------[0X
+    [4Xgap> List(Lnp, p -> NP2GP(p,A));[0X
+    [4X[ (1)*a^3+(-1)*a, (1)*b^2+(-1)*<identity ...> ][0X
+  [4X------------------------------------------------------------------[0X
+  
+  Now let [10XM[0m be a module of dimension 2 over [10XA[0m and [10XLnp[0m a list of vectors in NPM
+  format.  Then  polynomials [10XLnp[0m can be converted to the corresponding vectors
+  of [10XM[0m with NP2GPList:
+  
+  [4X------------------------------------------------------------------[0X
+    [4Xgap> M:=A^2;;[0X
+    [4Xgap> Lnp:=[ [ [ [ -2, 1, 1 ], [ -2, 1 ] ], [ 1, -1 ] ],[0X
+    [4X>   [ [ [ -1, 1 ], [ -2 ] ], [ 1, -1 ] ] ];;[0X
+    [4Xgap> NP2GPList(Lnp,M);[0X
+    [4X[ [ <zero> of ..., (-1)*a+(1)*a^2 ], [ (1)*a, (-1)*<identity ...> ] ][0X
+  [4X------------------------------------------------------------------[0X
+  
+  The  same  result  can  be  obtained  by  application  of  the standard List
+  function:
+  
+  [4X------------------------------------------------------------------[0X
+    [4Xgap> List(Lnp, m -> NP2GP(m,M)) = NP2GPList(Lnp,M) ;[0X
+    [4Xtrue[0X
+  [4X------------------------------------------------------------------[0X
+  
+  
+  [1X3.2 Printing polynomials in NP format[0X
+  
+  [1X3.2-1 PrintNP[0m
+  
+  [2X> PrintNP( [0X[3Xnp[0X[2X ) ____________________________________________________[0Xfunction
+  
+  This  function  prints a polynomial [3Xnp[0m in NP format, using the letters [10Xa[0m, [10Xb[0m,
+  [10Xc[0m,  ...  for  x_1, x_2, x_3, ..., except that everything beyond l (the 12-th
+  letter) is printed as x.
+  
+  This  function  prints  a  polynomial  [3Xnp[0m  in NP format as configured by the
+  function [2XGBNP.ConfigPrint[0m ([14X3.2-2[0m).
+  
+  [13XExample:[0m Consider the following polynomial in NP format.
+  
+  [4X------------------------------------------------------------------[0X
+    [4Xgap> p := [[[1,1,2],[1,2,2],[]],[1,-2,3]];;[0X
+  [4X------------------------------------------------------------------[0X
+  
+  It  can  be  printed in the guise of a polynomial in [10Xa[0m and [10Xb[0m by the function
+  [10XPrintNP[0m:
+  
+  [4X------------------------------------------------------------------[0X
+    [4Xgap> PrintNP(p);[0X
+    [4X a^2b - 2ab^2 + 3 [0X
+  [4X------------------------------------------------------------------[0X
+  
+  [1X3.2-2 GBNP.ConfigPrint[0m
+  
+  [2X> GBNP.ConfigPrint( [0X[3Xarg[0X[2X ) __________________________________________[0Xfunction
+  
+  By  default  the  generators  of  the  algebra  are printed as [10Xa[0m, ..., [10Xl[0m and
+  everything  after  the  twelfth generator as [10Xx[0m. By calling [10XConfigPrint[0m it is
+  possible  to  alter  this  printing  convention.  The argument(s) will be an
+  algebra  or  arguments  used  for naming algebras in GAP upon creation. More
+  specifically, we have the following choices.
+  
+  [8X[13Xno arguments[0m[8X[0m
+        When  the  function is invoked without arguments the printing is reset
+        to the default (see above).
+  
+  [8Xalgebra[0m
+        When  the  function is invoked with an algebra as argument, generators
+        will be printed as they would be in the algebra.
+  
+  [8Xalgebra,integer[0m
+        When  the  function  is  invoked  with  an algebra and an integer [3Xn[0m as
+        arguments,  generators will be printed as they would be in the algebra
+        and seperated over the [3Xn[0m dimensions.
+  
+  [8Xleftmodule[0m
+        When  the function is invoked with an leftmodule A^n of an associative
+        algebra  as  argument,  generators will be printed as they would be in
+        the algebra, seperated over the [3Xn[0m dimensions.
+  
+  [8Xstring[0m
+        When  the  function  is  invoked  with a string as its argument, it is
+        assumed  that  there is only 1 generator and that this should be named
+        as indicated by the string.
+  
+  [8Xinteger[0m
+        When the function is invoked with an integer as its argument, the [3Xn[0m-th
+        generator will be printed as [10Xx.<n>[0m.
+  
+  [8Xinteger, string[0m
+        When  the function is invoked with a non-negative integer and a string
+        as  its arguments, generators will be printed as [10X<s>.<n>[0m, where [10X<s>[0m is
+        the  string  given  as  argument  and [10X<n>[0m the number of the generator.
+        There  is  no  checking whether the number given as argument is really
+        the  dimension.  So  it  is possible that higher numbers return in the
+        output.  This  way  of  input  is  useful  however,  because  it  is a
+        distinction  from the one-dimensional case and compatible with the way
+        a free algebra is created.
+  
+  [8Xstring, string, ..., string[0m
+        When  the  function  is  invoked  with  a  sequence  of  strings, then
+        generators  will  be printed with the corresponding string or [10Xx[0m if the
+        sequence is not long enough.
+  
+  [13XExample:[0m Consider the following two polynomials in NP format.
+  
+  [4X------------------------------------------------------------------[0X
+    [4Xgap> p1 := [[[1,1,2],[]],[1,-1]];;[0X
+    [4Xgap> p2 := [[[1,2,2],[]],[1,-1]];;[0X
+  [4X------------------------------------------------------------------[0X
+  
+  They can be printed by the function [10XPrintNP[0m.
+  
+  [4X------------------------------------------------------------------[0X
+    [4Xgap> PrintNP(p1);[0X
+    [4X a^2b - 1 [0X
+    [4Xgap> PrintNP(p2);[0X
+    [4X ab^2 - 1 [0X
+  [4X------------------------------------------------------------------[0X
+  
+  We  can  let the variables be printed as [10Xx[0m and [10Xy[0m instead of [10Xa[0m and [10Xb[0m by means
+  of [2XGBNP.ConfigPrint[0m.
+  
+  [4X------------------------------------------------------------------[0X
+    [4Xgap> GBNP.ConfigPrint("x","y");[0X
+    [4Xgap> PrintNP(p1);[0X
+    [4X x^2y - 1 [0X
+    [4Xgap> PrintNP(p2);[0X
+    [4X xy^2 - 1 [0X
+  [4X------------------------------------------------------------------[0X
+  
+  We  can  also let the variables be printed as [10Xx.1[0m and [10Xx.2[0m instead of [10Xa[0m and [10Xb[0m
+  by means of [2XGBNP.ConfigPrint[0m.
+  
+  [4X------------------------------------------------------------------[0X
+    [4Xgap> GBNP.ConfigPrint(2,"x");[0X
+    [4Xgap> PrintNP(p1);[0X
+    [4X x.1^2x.2 - 1 [0X
+    [4Xgap> PrintNP(p2);[0X
+    [4X x.1x.2^2 - 1 [0X
+  [4X------------------------------------------------------------------[0X
+  
+  We can even assign strings to the variables to be printed like [10Xalice[0m and [10Xbob[0m
+  instead of [10Xa[0m and [10Xb[0m by means of [2XGBNP.ConfigPrint[0m.
+  
+  [4X------------------------------------------------------------------[0X
+    [4Xgap> GBNP.ConfigPrint("alice","bob");[0X
+    [4Xgap> PrintNP(p1);[0X
+    [4X alice^2bob - 1 [0X
+    [4Xgap> PrintNP(p2);[0X
+    [4X alicebob^2 - 1 [0X
+  [4X------------------------------------------------------------------[0X
+  
+  Alternatively,  we can introduce the free algebra [3XA[0m with two generators, and
+  print the polynomials as members of [3XA[0m:
+  
+  [4X------------------------------------------------------------------[0X
+    [4Xgap> A:=FreeAssociativeAlgebraWithOne(Rationals,"a","b");;[0X
+    [4Xgap> GBNP.ConfigPrint(A);[0X
+    [4Xgap> PrintNP(p1);[0X
+    [4X a^2b - 1 [0X
+    [4Xgap> PrintNP(p2);[0X
+    [4X ab^2 - 1 [0X
+  [4X------------------------------------------------------------------[0X
+  
+  [1X3.2-3 PrintNPList[0m
+  
+  [2X> PrintNPList( [0X[3XLnp[0X[2X ) _______________________________________________[0Xfunction
+  
+  This  function  prints  a  list  [3XLnp[0m  of polynomials in NP format, using the
+  function [10XPrintNP[0m.
+  
+  [13XExample:[0m We put two polynomials in NP format into the list [10XLnp[0m.
+  
+  [4X------------------------------------------------------------------[0X
+    [4Xgap> p1 := [[[1,1,2],[]],[1,-1]];;[0X
+    [4Xgap> p2 := [[[1,2,2],[]],[1,-1]];;[0X
+    [4Xgap> Lnp := [p1,p2];;[0X
+  [4X------------------------------------------------------------------[0X
+  
+  We can print the list with [2XPrintNPList[0m.
+  
+  [4X------------------------------------------------------------------[0X
+    [4Xgap> PrintNPList(Lnp);[0X
+    [4X a^2b - 1 [0X
+    [4X ab^2 - 1 [0X
+  [4X------------------------------------------------------------------[0X
+  
+  Alternatively, using the function [2XGBNP.ConfigPrint[0m ([14X3.2-2[0m), we can introduce
+  the  free  algebra  [3XA[0m  with two generators, and print the polynomials of the
+  list as members of [3XA[0m:
+  
+  [4X------------------------------------------------------------------[0X
+    [4Xgap> A:=FreeAssociativeAlgebraWithOne(Rationals,"a","b");;[0X
+    [4Xgap> GBNP.ConfigPrint(A);[0X
+    [4Xgap> PrintNPList(Lnp);[0X
+    [4X a^2b - 1 [0X
+    [4X ab^2 - 1 [0X
+  [4X------------------------------------------------------------------[0X
+  
+  
+  [1X3.3 Calculating with polynomials in NP format[0X
+  
+  [1X3.3-1 NumAlgGensNP[0m
+  
+  [2X> NumAlgGensNP( [0X[3Xnp[0X[2X ) _______________________________________________[0Xfunction
+  [6XReturns:[0X  The  minimum  number [10Xt[0m so that [3Xnp[0m belongs to the free algebra on [10Xt[0m
+            generators.
+  
+  When  called  with  an  NP  polynomial [3Xnp[0m, this function returns the minimum
+  number of generators needed for the corresponding algebra to contain the [3Xnp[0m.
+  If  [3Xnp[0m  is  a  polynomial without generators, that is, equivalent to 0 or 1,
+  then [10X0[0m is returned.
+  
+  [13XExample:[0m Consider the following polynomial in NP format.
+  
+  [4X------------------------------------------------------------------[0X
+    [4Xgap> np := [[[2,2,2,1,1,1],[4],[3,2,3]],[1,-3,2]];;[0X
+    [4Xgap> PrintNP(np);[0X
+    [4X b^3a^3 - 3d + 2cbc [0X
+    [4Xgap> NumAlgGensNP(np);[0X
+    [4X4[0X
+  [4X------------------------------------------------------------------[0X
+  
+  [1X3.3-2 NumAlgGensNPList[0m
+  
+  [2X> NumAlgGensNPList( [0X[3XLnp[0X[2X ) __________________________________________[0Xfunction
+  [6XReturns:[0X  The minimum number [10Xt[0m so that each polynomial in [3XLnp[0m belongs to the
+            free algebra on [10Xt[0m generators.
+  
+  When  called  with  a  list of NP polynomials [3XLnp[0m, this function returns the
+  minimum number of generators needed for the corresponding algebra to contain
+  the  NP  polynomials  in  [3XLnp[0m.  If  [3XLnp[0m  only  contains  polynomials without
+  generators, that is equivalent to 0 and 1, then [10X0[0m is returned.
+  
+  [13XExample:[0m Consider the following two polynomials in NP format.
+  
+  [4X------------------------------------------------------------------[0X
+    [4Xgap> p1 := [[[1,1,2,3,1],[2],[1]],[1,-2,1]];;[0X
+    [4Xgap> p2 := [[[2,2,1,4,3],[]],[1,-1]];;[0X
+    [4Xgap> PrintNPList([p1,p2]);[0X
+    [4X a^2bca - 2b + a [0X
+    [4X b^2adc - 1 [0X
+    [4Xgap> NumAlgGensNPList([p1,p2]);[0X
+    [4X4[0X
+  [4X------------------------------------------------------------------[0X
+  
+  [1X3.3-3 NumModGensNP[0m
+  
+  [2X> NumModGensNP( [0X[3Xnpm[0X[2X ) ______________________________________________[0Xfunction
+  [6XReturns:[0X  The minimum number [10Xmt[0m so that [3Xnpm[0m belongs to the free module on [10Xmt[0m
+            generators.
+  
+  When  called  with a polynomial [3Xnpm[0m in NPM format, this function returns the
+  minimum  number of module generators needed for the corresponding algebra to
+  contain  [3Xnpm[0m.  If  [3Xnpm[0m  is  an  NP  polynomial  that does not contain module
+  generators, then [10X0[0m is returned.
+  
+  [13XExample:[0m Consider the following polynomial in NPM format.
+  
+  [4X------------------------------------------------------------------[0X
+    [4Xgap> np := [[[-1,1,2,3,1],[-2],[-1]],[1,-2,1]];;[0X
+    [4Xgap> PrintNP(np);[0X
+    [4X[ abca + 1 , - 2 ][0X
+    [4Xgap> NumModGensNP(np);[0X
+    [4X2[0X
+  [4X------------------------------------------------------------------[0X
+  
+  [1X3.3-4 NumModGensNPList[0m
+  
+  [2X> NumModGensNPList( [0X[3XLnpm[0X[2X ) _________________________________________[0Xfunction
+  [6XReturns:[0X  The  minimum  number  [10Xmt[0m so that each member of [3Xnpm[0m belongs to the
+            free module on [10Xmt[0m generators.
+  
+  When  called  with  a  list of polynomials [3XLnpm[0m in NPM format, this function
+  returns  the  minimum  number  of  module  generators  needed to contain the
+  polynomials  in  [3XLnpm[0m.  If  there are only polynomials in [3XLnpm[0m in NP format,
+  then [10X0[0m is returned.
+  
+  [13XExample:[0m Consider the following two polynomials in NPM format.
+  
+  [4X------------------------------------------------------------------[0X
+    [4Xgap> v1 := [[[-1,1,2,3,1],[-2],[-1]],[1,-2,1]];;[0X
+    [4Xgap> v2 := [[[-2,2,1,4,3],[-3]],[1,-1]];;[0X
+    [4Xgap> PrintNPList([v1,v2]);[0X
+    [4X[ abca + 1 , - 2 ][0X
+    [4X[ 0, badc , - 1 ][0X
+    [4Xgap> NumModGensNPList([v1,v2]);[0X
+    [4X3[0X
+  [4X------------------------------------------------------------------[0X
+  
+  [1X3.3-5 AddNP[0m
+  
+  [2X> AddNP( [0X[3Xu, v, c, d[0X[2X ) ______________________________________________[0Xfunction
+  [6XReturns:[0X  [3Xc[0m*[3Xu[0m+[3Xd[0m*[3Xv[0m
+  
+  Computes  [3Xc[0m*[3Xu[0m+[3Xd[0m*[3Xv[0m where [3Xu[0m and [3Xv[0m are polynomials in NP format and [3Xc[0m and [3Xd[0m are
+  scalars.
+  
+  [13XExample:[0m Consider the following two polynomials in NP format.
+  
+  [4X------------------------------------------------------------------[0X
+    [4Xgap> p1 := [[[1,1,2],[]],[1,-3]];;[0X
+    [4Xgap> p2 := [[[1,2,2],[]],[1,-4]];;[0X
+  [4X------------------------------------------------------------------[0X
+  
+  The second can be subtracted from the first by the function [10XAddNP[0m.
+  
+  [4X------------------------------------------------------------------[0X
+    [4Xgap> PrintNP(AddNP(p1,p2,1,-1));[0X
+    [4X - ab^2 + a^2b + 1 [0X
+  [4X------------------------------------------------------------------[0X
+  
+  [1X3.3-6 BimulNP[0m
+  
+  [2X> BimulNP( [0X[3Xga, np, dr[0X[2X ) ____________________________________________[0Xfunction
+  [6XReturns:[0X  the polynomial [3Xga[0m*[3Xnp[0m*[3Xdr[0m in NP format
+  
+  When called with a polynomial [3Xnp[0m and two monomials [3Xga[0m, [3Xdr[0m, the function will
+  return  [3Xga[0m*[3Xnp[0m*[3Xdr[0m.  Recall from Section [14X2.1[0m that monomials are represented as
+  lists.
+  
+  [13XExample:[0m Consider the following two polynomials in NP format.
+  
+  [4X------------------------------------------------------------------[0X
+    [4Xgap> p1 := [[[1,1,2],[]],[1,-3]];;[0X
+    [4Xgap> p2 := [[[1,2,2],[]],[1,-4]];;[0X
+  [4X------------------------------------------------------------------[0X
+  
+  Multiplying  [10Xp1[0m from the right by [10Xb[0m and multiplying [10Xp2[0m from the left by [10Xa[0m is
+  possible with the function [10XBimulNP[0m:
+  
+  [4X------------------------------------------------------------------[0X
+    [4Xgap> PrintNP(BimulNP([],p1,[2]));[0X
+    [4X a^2b^2 - 3b [0X
+    [4Xgap> PrintNP(BimulNP([1],p2,[]));[0X
+    [4X a^2b^2 - 4a [0X
+  [4X------------------------------------------------------------------[0X
+  
+  [1X3.3-7 CleanNP[0m
+  
+  [2X> CleanNP( [0X[3Xu[0X[2X ) _____________________________________________________[0Xfunction
+  [6XReturns:[0X  The cleaned up version of [3Xu[0m
+  
+  Given  a  polynomial  in  NP  format, this function collects terms with same
+  monomial,  removes trivial monomials, and orders the monomials, with biggest
+  one first.
+  
+  [13XExample:[0m Consider the following polynomial in NP format.
+  
+  [4X------------------------------------------------------------------[0X
+    [4Xgap> p := [[[1,1,2],[],[1,1,2],[]],[1,-3,-2,3]];;[0X
+    [4Xgap> PrintNP(p);[0X
+    [4X a^2b - 3 - 2a^2b + 3 [0X
+  [4X------------------------------------------------------------------[0X
+  
+  The  monomials  [10X[1,1,2][0m  and  [10X[][0m  occur  twice each. For many functions this
+  representation  of  a polynomial in NP format is not allowed. It needs to be
+  cleaned, as by [2XCleanNP[0m:
+  
+  [4X------------------------------------------------------------------[0X
+    [4Xgap> PrintNP(CleanNP(p));[0X
+    [4X - a^2b [0X
+  [4X------------------------------------------------------------------[0X
+  
+  In  order  to  define  a  polynomial over GF(2), the coefficients need to be
+  defined  over this field. Such a list of coefficients can be obtained in GAP
+  from  a  list  of  integers  by multiplying with the identity element of the
+  field.  The  resulting  polynomial  need not be clean, and so should be made
+  clean again with [10XCleanNP[0m.
+  
+  [4X------------------------------------------------------------------[0X
+    [4Xgap> p := [[[1,1,2],[]],One(GF(2))*[1,-2]];;[0X
+    [4Xgap> CleanNP(p);[0X
+    [4X[ [ [ 1, 1, 2 ] ], [ Z(2)^0 ] ][0X
+  [4X------------------------------------------------------------------[0X
+  
+  [1X3.3-8 GtNP[0m
+  
+  [2X> GtNP( [0X[3Xu, v[0X[2X ) _____________________________________________________[0Xfunction
+  [6XReturns:[0X  [10Xtrue[0m if u > v and [10Xfalse[0m if u <= v
+  
+  Greater  than  function for monomials [3Xu[0m and [3Xv[0m represented as in Section [14X2.1[0m.
+  It   tests   whether   [3Xu[0m>[3Xv[0m.   The  ordering  is  done  by  degree  and  then
+  lexicographically.
+  
+  [13XExample:[0m Consider the following two monomials.
+  
+  [4X------------------------------------------------------------------[0X
+    [4Xgap> u := [1,1,2];[0X
+    [4X[ 1, 1, 2 ][0X
+    [4Xgap> v := [2,2,1];[0X
+    [4X[ 2, 2, 1 ][0X
+  [4X------------------------------------------------------------------[0X
+  
+  We test whether [10Xu[0m is greater than [10Xv[0m.
+  
+  [4X------------------------------------------------------------------[0X
+    [4Xgap> GtNP(u,v);[0X
+    [4Xfalse[0X
+  [4X------------------------------------------------------------------[0X
+  
+  [1X3.3-9 LtNP[0m
+  
+  [2X> LtNP( [0X[3Xu, v[0X[2X ) _____________________________________________________[0Xfunction
+  [6XReturns:[0X  [10Xtrue[0m if u < v and [10Xfalse[0m if u >= v
+  
+  Less than function for NP monomials, tests whether [3Xu[0m<[3Xv[0m. The ordering is done
+  by degree and then lexicographically.
+  
+  [13XExample:[0m Consider the following two monomials.
+  
+  [4X------------------------------------------------------------------[0X
+    [4Xgap> u := [1,1,2];[0X
+    [4X[ 1, 1, 2 ][0X
+    [4Xgap> v := [2,2,1];[0X
+    [4X[ 2, 2, 1 ][0X
+  [4X------------------------------------------------------------------[0X
+  
+  We test whether [10Xu[0m is less than [10Xv[0m.
+  
+  [4X------------------------------------------------------------------[0X
+    [4Xgap> LtNP(u,v);[0X
+    [4Xtrue[0X
+  [4X------------------------------------------------------------------[0X
+  
+  [1X3.3-10 LMonsNP[0m
+  
+  [2X> LMonsNP( [0X[3XLnp[0X[2X ) ___________________________________________________[0Xfunction
+  [6XReturns:[0X  A list of leading monomials
+  
+  This  function returns the leading monomials of a list [3XLnp[0m of polynomials in
+  NP  format.  The  polynomials  of  [3XLnp[0m are required to be clean; see Section
+  [14X3.3-7[0m.
+  
+  [13XExample:[0m We put two polynomials in NP format into the list [10XLnp[0m.
+  
+  [4X------------------------------------------------------------------[0X
+    [4Xgap> p1 := [[[1,1,2],[]],[1,-1]];;[0X
+    [4Xgap> p2 := [[[1,2,2],[]],[1,-1]];;[0X
+    [4Xgap> Lnp := [p1,p2];;[0X
+  [4X------------------------------------------------------------------[0X
+  
+  The list of leading monomials is computed by [10XLMonsNP[0m:
+  
+  [4X------------------------------------------------------------------[0X
+    [4Xgap> LMonsNP(Lnp);[0X
+    [4X[ [ 1, 1, 2 ], [ 1, 2, 2 ] ][0X
+  [4X------------------------------------------------------------------[0X
+  
+  For  a nicer printing, the monomials can be converted into polynomials in NP
+  format, and then submitted to PrintNPList:
+  
+  [4X------------------------------------------------------------------[0X
+    [4Xgap> PrintNPList(List(LMonsNP(Lnp), q -> [[q],[1]]));[0X
+    [4X a^2b [0X
+    [4X ab^2 [0X
+  [4X------------------------------------------------------------------[0X
+  
+  [1X3.3-11 MkMonicNP[0m
+  
+  [2X> MkMonicNP( [0X[3Xnp[0X[2X ) __________________________________________________[0Xfunction
+  [6XReturns:[0X  [3Xnp[0m made monic
+  
+  This  function  returns  the scalar multiple of a polynomial [3Xnp[0m in NP format
+  that is monic, i.e., has leading coefficient equal to 1.
+  
+  [13XExample:[0m Consider the following polynomial in NP format.
+  
+  [4X------------------------------------------------------------------[0X
+    [4Xgap> p := [[[1,1,2],[]],[2,-1]];;[0X
+    [4Xgap> PrintNP(p);[0X
+    [4X 2a^2b - 1 [0X
+  [4X------------------------------------------------------------------[0X
+  
+  The  coefficient of the leading term is 2. The function [10XMkMonicNP[0m finds this
+  coefficient and divides all terms by it:
+  
+  [4X------------------------------------------------------------------[0X
+    [4Xgap> PrintNP(MkMonicNP(p));[0X
+    [4X a^2b - 1/2 [0X
+  [4X------------------------------------------------------------------[0X
+  
+  [1X3.3-12 MulNP[0m
+  
+  [2X> MulNP( [0X[3Xnp1, np2[0X[2X ) ________________________________________________[0Xfunction
+  [6XReturns:[0X  [3Xnp1[0m*[3Xnp2[0m
+  
+  When  invoked  with  two polynomials [3Xnp1[0m and [3Xnp2[0m in NP format, this function
+  will return the product [3Xnp1[0m*[3Xnp2[0m.
+  
+  [13XExample:[0m Consider the following two polynomials in NP format.
+  
+  [4X------------------------------------------------------------------[0X
+    [4Xgap> p1 := [[[1,1,2],[]],[1,-1]];;[0X
+    [4Xgap> p2 := [[[1,2,2],[]],[1,-1]];;[0X
+  [4X------------------------------------------------------------------[0X
+  
+  The function [10XMulNP[0m multiplies the two polynomials.
+  
+  [4X------------------------------------------------------------------[0X
+    [4Xgap> PrintNP(MulNP(p1,p2));[0X
+    [4X a^2bab^2 - ab^2 - a^2b + 1 [0X
+  [4X------------------------------------------------------------------[0X
+  
+  The  fact  that this multiplication is not commutative is illustrated by the
+  following comparison, using [10XMulNP[0m twice and [10XAddNP[0m once.
+  
+  [4X------------------------------------------------------------------[0X
+    [4Xgap> PrintNP(AddNP(MulNP(p1,p2),MulNP(p2,p1),1,-1));[0X
+    [4X - ab^2a^2b + a^2bab^2 [0X
+  [4X------------------------------------------------------------------[0X
+  
+  
+  [1X3.4 Gröbner functions, standard variant[0X
+  
+  [1X3.4-1 Grobner[0m
+  
+  [2X> Grobner( [0X[3XLnp[, D][, max][0X[2X ) _______________________________________[0Xfunction
+  [6XReturns:[0X  If the algorithm terminates, a Gröbner Basis or a record if [3Xmax[0m is
+            specified (see description).
+  
+  For  a  list  [3XLnp[0m  of  polynomials  in  NP  format  this  function  will use
+  Buchberger's  algorithm  with  normal  form  to  find  a  Gröbner  Basis (if
+  possible, the general problem is unsolvable).
+  
+  When  called  with  the  optional  argument  [3Xmax[0m, which should be a positive
+  integer,  the  calculation will be interrupted if it has not ended after [3Xmax[0m
+  iterations. The return value will be a record containing lists [10XG[0m and [10Xtodo[0m of
+  polynomials  in  NP  format, a boolean [10Xcompleted[0m, and an integer [10Xiterations[0m.
+  Here  [10XG[0m  and [10Xtodo[0m form a Gröbner pair (see [Coh07]). The number of performed
+  iterations  will  be  placed in [10Xiterations[0m. If the algorithm has terminated,
+  then [10Xtodo[0m will be the empty list and [10Xcompleted[0m will be equal to [10Xtrue[0m. If the
+  algorithm  has  not  terminated,  then  [10Xtodo[0m  will  be  a  non-empty list of
+  polynomials in NP format and [10Xcompleted[0m will be [10Xfalse[0m.
+  
+  By  use  of  the  optional argument [3XD[0m, it is possible to resume a previously
+  interrupted calculation.
+  
+  [13XExample:[0m Consider the following two polynomials in NP format.
+  
+  [4X------------------------------------------------------------------[0X
+    [4Xgap> p1 := [[[1,1,2],[]],[1,-1]];;[0X
+    [4Xgap> p2 := [[[1,2,2],[]],[1,-1]];;[0X
+    [4Xgap> PrintNPList([p1,p2]);[0X
+    [4X a^2b - 1 [0X
+    [4X ab^2 - 1 [0X
+  [4X------------------------------------------------------------------[0X
+  
+  Their Gröbner basis can be computed by the function [10XGrobner[0m.
+  
+  [4X------------------------------------------------------------------[0X
+    [4Xgap> G := Grobner([p1,p2]);;[0X
+    [4Xgap> PrintNPList(G);[0X
+    [4X b - a [0X
+    [4X a^3 - 1 [0X
+  [4X------------------------------------------------------------------[0X
+  
+  One iteration of the Gröbner computations is invoked by use of the parameter
+  [10Xmax[0m:
+  
+  [4X------------------------------------------------------------------[0X
+    [4Xgap> R := Grobner([p1,p2],1);;[0X
+    [4Xgap> PrintNPList(R.G);[0X
+    [4X b - a [0X
+    [4Xgap> PrintNPList(R.todo);[0X
+    [4X a^3 - 1 [0X
+    [4Xgap> R.iterations;[0X
+    [4X1[0X
+    [4Xgap> R.completed;[0X
+    [4Xfalse[0X
+  [4X------------------------------------------------------------------[0X
+  
+  The  above  list [10XR.todo[0m can be used to resume the computation of the Gröbner
+  basis computation with the Gröbner pair [10XR.G[0m, [10XR.todo[0m:
+  
+  [4X------------------------------------------------------------------[0X
+    [4Xgap> PrintNPList(Grobner(R.G,R.todo));[0X
+    [4X b - a [0X
+    [4X a^3 - 1 [0X
+  [4X------------------------------------------------------------------[0X
+  
+  In order to perform the Gröbner basis computation with polynomials in a free
+  algebra over the field GF(2), the coefficients of the polynomials need to be
+  defined over that field.
+  
+  [4X------------------------------------------------------------------[0X
+    [4Xgap> PrintNPList(Grobner([[p1[1],One(GF(2))*p1[2]],[p2[1],One(GF(2))*p1[2]]]));[0X
+    [4X b + a [0X
+    [4X a^3 + Z(2)^0 [0X
+  [4X------------------------------------------------------------------[0X
+  
+  [1X3.4-2 SGrobner[0m
+  
+  [2X> SGrobner( [0X[3XLnp[, todo][, max][0X[2X ) ___________________________________[0Xfunction
+  [6XReturns:[0X  If the algorithm terminates, a Gröbner Basis or a record if [3Xmax[0m is
+            specified (see description).
+  
+  For  a  list  [3XLnp[0m  of  polynomials  in  NP  format  this  function  will use
+  Buchberger's  algorithm  with  strong  normal  form  (see [Coh07]) to find a
+  Gröbner Basis (if possible, the general problem is unsolvable).
+  
+  When  called  with  the  optional  argument  [3Xmax[0m, which should be a positive
+  integer,  the  calculation will be interrupted if it has not ended after [3Xmax[0m
+  iterations. The return value will be a record containing lists [10XG[0m and [10Xtodo[0m of
+  polynomials  in  NP  format, a boolean [10Xcompleted[0m, and an integer [10Xiterations[0m.
+  Here  [10XG[0m  and [10Xtodo[0m form a Gröbner pair (see [Coh07]). The number of performed
+  iterations  will  be  placed in [10Xiterations[0m. If the algorithm has terminated,
+  then [10Xtodo[0m will be the empty list and [10Xcompleted[0m will be equal to [10Xtrue[0m. If the
+  algorithm  has  not  terminated,  then  [10Xtodo[0m  will  be  a  non-empty list of
+  polynomials in NP format and [10Xcompleted[0m will be [10Xfalse[0m.
+  
+  By  use  of  the  optional argument [3XD[0m, it is possible to resume a previously
+  interrupted calculation.
+  
+  [13XExample:[0m Consider the following two polynomials in NP format.
+  
+  [4X------------------------------------------------------------------[0X
+    [4Xgap> p1 := [[[1,1,2],[]],[1,-1]];;[0X
+    [4Xgap> p2 := [[[1,2,2],[]],[1,-1]];;[0X
+    [4Xgap> PrintNPList([p1,p2]);[0X
+    [4X a^2b - 1 [0X
+    [4X ab^2 - 1 [0X
+  [4X------------------------------------------------------------------[0X
+  
+  Their Gröbner basis can be computed by the function [10XGrobner[0m.
+  
+  [4X------------------------------------------------------------------[0X
+    [4Xgap> G := SGrobner([p1,p2]);;[0X
+    [4Xgap> PrintNPList(G);[0X
+    [4X b - a [0X
+    [4X a^3 - 1 [0X
+  [4X------------------------------------------------------------------[0X
+  
+  One iteration of the Gröbner computations is invoked by use of the parameter
+  [10Xmax[0m:
+  
+  [4X------------------------------------------------------------------[0X
+    [4Xgap> R := SGrobner([p1,p2],1);;[0X
+    [4Xgap> PrintNPList(R.G);[0X
+    [4X b - a [0X
+    [4Xgap> PrintNPList(R.todo);[0X
+    [4X a^3 - 1 [0X
+    [4Xgap> R.iterations;[0X
+    [4X1[0X
+    [4Xgap> R.completed;[0X
+    [4Xfalse[0X
+  [4X------------------------------------------------------------------[0X
+  
+  The  above  list [10XR.todo[0m can be used to resume the computation of the Gröbner
+  basis computation with the Gröbner pair [10XR.G[0m, [10XR.todo[0m:
+  
+  [4X------------------------------------------------------------------[0X
+    [4Xgap> PrintNPList(SGrobner(R.G,R.todo));[0X
+    [4X b - a [0X
+    [4X a^3 - 1 [0X
+  [4X------------------------------------------------------------------[0X
+  
+  [1X3.4-3 IsGrobnerBasis[0m
+  
+  [2X> IsGrobnerBasis( [0X[3XG[0X[2X ) ______________________________________________[0Xfunction
+  [6XReturns:[0X  [10Xtrue[0m if [3XG[0m is a Gröbner basis and [10Xfalse[0m otherwise
+  
+  When  invoked  with  a list [3XG[0m of polynomials in NP format (see Section [14X2.1[0m),
+  this  function  will check whether the list is a Gröbner basis. The check is
+  based on Theorem 1.4 from [Coh07].
+  
+  Polynomials representing zero are allowed in [3XG[0m.
+  
+  [13XExample:[0m Consider the following list of two polynomials in NP format.
+  
+  [4X------------------------------------------------------------------[0X
+    [4Xgap> Lnp := [[[[1,1,2],[]],[1,-1]], [[[1,2,2],[]],[1,-1]]];;[0X
+    [4Xgap> PrintNPList(Lnp);[0X
+    [4X a^2b - 1 [0X
+    [4X ab^2 - 1 [0X
+  [4X------------------------------------------------------------------[0X
+  
+  The function [10XIsGrobner[0m checks whether the list is a Gröbner basis.
+  
+  [4X------------------------------------------------------------------[0X
+    [4Xgap> IsGrobnerBasis(Lnp);[0X
+    [4Xfalse[0X
+  [4X------------------------------------------------------------------[0X
+  
+  So the answer should be [10Xtrue[0m for the result of a Gröbner computation:
+  
+  [4X------------------------------------------------------------------[0X
+    [4Xgap> IsGrobnerBasis(Grobner(Lnp));[0X
+    [4Xtrue[0X
+  [4X------------------------------------------------------------------[0X
+  
+  [1X3.4-4 IsStrongGrobnerBasis[0m
+  
+  [2X> IsStrongGrobnerBasis( [0X[3XG[0X[2X ) ________________________________________[0Xfunction
+  [6XReturns:[0X  [10Xtrue[0m if [3XG[0m is a strong Gröbner basis and [10Xfalse[0m otherwise
+  
+  When  invoked  with  a list [3XG[0m of polynomials in NP format (see Section [14X2.1[0m),
+  this  function will check whether the polynomials in this list form a strong
+  Gröbner basis (see [Coh07]).
+  
+  Polynomials representing zero are allowed in [3XG[0m.
+  
+  [13XExample:[0m Consider the following list of two polynomials in NP format.
+  
+  [4X------------------------------------------------------------------[0X
+    [4Xgap> Lnp := [[[[1,1,2],[]],[1,-1]], [[[1,2,2],[]],[1,-1]]];;[0X
+    [4Xgap> PrintNPList(Lnp);[0X
+    [4X a^2b - 1 [0X
+    [4X ab^2 - 1 [0X
+  [4X------------------------------------------------------------------[0X
+  
+  The  function  [10XIsStrongGrobner[0m  checks  whether the list is a strong Gröbner
+  basis.
+  
+  [4X------------------------------------------------------------------[0X
+    [4Xgap> IsStrongGrobnerBasis(Lnp);[0X
+    [4Xfalse[0X
+  [4X------------------------------------------------------------------[0X
+  
+  But  the  answer  should  be  [10Xtrue[0m  for  the  result  of  a  strong  Gröbner
+  computation:
+  
+  [4X------------------------------------------------------------------[0X
+    [4Xgap> IsStrongGrobnerBasis(SGrobner(Lnp));[0X
+    [4Xtrue[0X
+  [4X------------------------------------------------------------------[0X
+  
+  A Gröbner basis that is not a strong Gröbner basis:
+  
+  [4X------------------------------------------------------------------[0X
+    [4Xgap> B := SGrobner(Lnp);;[0X
+    [4Xgap> Add(B,AddNP(Lnp[1],B[1],1,-1));;[0X
+    [4Xgap> PrintNPList(B);[0X
+    [4X b - a [0X
+    [4X a^3 - 1 [0X
+    [4X a^2b - b + a - 1 [0X
+    [4Xgap> IsGrobnerBasis(B);[0X
+    [4Xtrue[0X
+    [4Xgap> IsStrongGrobnerBasis(B);[0X
+    [4Xfalse[0X
+  [4X------------------------------------------------------------------[0X
+  
+  [1X3.4-5 IsGrobnerPair[0m
+  
+  [2X> IsGrobnerPair( [0X[3XG, D[0X[2X ) ____________________________________________[0Xfunction
+  [6XReturns:[0X  A  boolean,  which has the value [10Xtrue[0m if the input forms a Gröbner
+            pair
+  
+  When  called  with  two  lists  of  polynomials  in NP format, this function
+  returns  true  if they form a Gröbner pair. Testing whether [3XD[0m is a basic set
+  for  [3XG[0m  might involve computing the Gröbner basis. Instead of this only some
+  simple  computations  are done to see if it can easily be proven that [3XD[0m is a
+  basic  set  for  [3XG[0m. If this cannot be proven easily, then [10Xfalse[0m is returned,
+  even though G, D might still be a Gröbner pair.
+  
+  [13XExample:[0m Consider the following four polynomials in NP format.
+  
+  [4X------------------------------------------------------------------[0X
+    [4Xgap> p1 := [[[1,1,2],[]],[1,-1]];;[0X
+    [4Xgap> p2 := [[[1,2,2],[]],[1,-1]];;[0X
+    [4Xgap> q1 := [[[2],[1]],[1,-1]];;[0X
+    [4Xgap> q2 := [[[1,1,1],[]],[1,-1]];;[0X
+  [4X------------------------------------------------------------------[0X
+  
+  The  function  [10XIsGrobnerPair[0m  is  used to check whether some combinations of
+  these polynomials in two lists provide Gröbner pairs.
+  
+  [4X------------------------------------------------------------------[0X
+    [4Xgap> IsGrobnerPair([p1,p2,q1],[q2]);[0X
+    [4Xtrue[0X
+    [4Xgap> IsGrobnerPair([q1,q2],[p1,p2]);[0X
+    [4Xfalse[0X
+  [4X------------------------------------------------------------------[0X
+  
+  The  function [10XIsGrobnerPair[0m applied with an empty list as second argument is
+  a check whether the first argument is a Gröbner basis.
+  
+  [4X------------------------------------------------------------------[0X
+    [4Xgap> IsGrobnerPair([p1,p2],[]) = IsGrobnerBasis([p1,p2]);[0X
+    [4Xtrue[0X
+  [4X------------------------------------------------------------------[0X
+  
+  [1X3.4-6 MakeGrobnerPair[0m
+  
+  [2X> MakeGrobnerPair( [0X[3XG, D[0X[2X ) __________________________________________[0Xfunction
+  [6XReturns:[0X  A record containing a new Grobner pair
+  
+  When  called with as arguments a pair G, D, this function cleans [3XG[0m and [3XD[0m and
+  adds some obstructions to [3XD[0m till it is easily provable that [3XD[0m is a basic set
+  for [3XG[0m (see [Coh07]). The result is a record containing the fields [10XG[0m and [10Xtodo[0m
+  representing the Gröbner pair.
+  
+  [13XExample:[0m Consider the following two polynomials in NP format.
+  
+  [4X------------------------------------------------------------------[0X
+    [4Xgap> p1 := [[[1,1,2],[]],[1,-1]];;[0X
+    [4Xgap> p2 := [[[1,2,2],[]],[1,-1]];;[0X
+  [4X------------------------------------------------------------------[0X
+  
+  The  function [10XMakeGrobnerPair[0m turns the list with these two polynomials into
+  a  Gröbner  pair,  once  the  empty  list is added as a second argument. The
+  result is a record whose fields [10XG[0m and [10Xtodo[0m
+  
+  [4X------------------------------------------------------------------[0X
+    [4Xgap> GP := MakeGrobnerPair([p1,p2],[]);;[0X
+    [4Xgap> PrintNPList(GP.G);[0X
+    [4X a^2b - 1 [0X
+    [4X ab^2 - 1 [0X
+    [4Xgap> PrintNPList(GP.todo);[0X
+    [4X b - a [0X
+  [4X------------------------------------------------------------------[0X
+  
+  These fields are ready for use in [10XGrobner[0m
+  
+  [4X------------------------------------------------------------------[0X
+    [4Xgap> GB := Grobner(GP.G,GP.todo);;[0X
+    [4Xgap> PrintNPList(GB);[0X
+    [4X b - a [0X
+    [4X a^3 - 1 [0X
+  [4X------------------------------------------------------------------[0X
+  
+  
+  [1X3.5 Finite-dimensional quotient algebras[0X
+  
+  [1X3.5-1 BaseQA[0m
+  
+  [2X> BaseQA( [0X[3XG, t, maxno[0X[2X ) ____________________________________________[0Xfunction
+  [6XReturns:[0X  A  list  of  terms  forming a basis of the quotient algebra of the
+            (non-commutative) polynomial algebra in [3Xt[0m variables by the 2-sided
+            ideal generated by [3XG[0m
+  
+  When  called  with  a  Gröbner  basis  [3XG[0m,  the number [3Xt[0m of generators of the
+  algebra, and a maximum number of terms to be found [3Xmaxno[0m, BaseQA will return
+  a  (partial)  base of the quotient algebra. If this function is invoked with
+  [3Xmaxno[0m  equal to 0, then a full basis will be given. If the dimension of this
+  quotient  algebra  is  infinite  and  [3Xmaxno[0m  is set to 0, then the algorithm
+  behind this function will not terminate.
+  
+  [13XExample:[0m Consider the following Gröbner basis.
+  
+  [4X------------------------------------------------------------------[0X
+    [4Xgap> p1 := [[[1,1,2],[]],[1,-1]];;[0X
+    [4Xgap> p2 := [[[1,2,2],[]],[1,-1]];;[0X
+    [4Xgap> G := Grobner([p1,p2]);;[0X
+    [4Xgap> PrintNPList(G);[0X
+    [4X b - a [0X
+    [4X a^3 - 1 [0X
+  [4X------------------------------------------------------------------[0X
+  
+  The  function  [10XBaseQA[0m  computes a basis for the quotient algebra of the free
+  algebra  over  the  rationals with generators a and b by the two-sided ideal
+  generated by [10XG[0m.
+  
+  [4X------------------------------------------------------------------[0X
+    [4Xgap> PrintNPList(G);[0X
+    [4X b - a [0X
+    [4X a^3 - 1 [0X
+    [4Xgap> BaseQA(G,2,0);[0X
+    [4X[ [ [ [  ] ], [ 1 ] ], [ [ [ 1 ] ], [ 1 ] ], [ [ [ 1, 1 ] ], [ 1 ] ] ][0X
+    [4Xgap> PrintNPList(BaseQA(G,2,0));[0X
+    [4X 1 [0X
+    [4X a [0X
+    [4X a^2 [0X
+  [4X------------------------------------------------------------------[0X
+  
+  It  is  necessary  for a correct result that the first argument be a Gröbner
+  basis, as will be clear from the following invocation of [10XBaseQA[0m.
+  
+  [4X------------------------------------------------------------------[0X
+    [4Xgap> PrintNPList(BaseQA([p1,p2],2,10));[0X
+    [4X 1 [0X
+    [4X a [0X
+    [4X b [0X
+    [4X a^2 [0X
+    [4X ab [0X
+    [4X ba [0X
+    [4X b^2 [0X
+    [4X a^3 [0X
+    [4X aba [0X
+    [4X ba^2 [0X
+    [4X bab [0X
+    [4X b^2a [0X
+    [4X b^3 [0X
+  [4X------------------------------------------------------------------[0X
+  
+  [1X3.5-2 DimQA[0m
+  
+  [2X> DimQA( [0X[3XG, t[0X[2X ) ____________________________________________________[0Xfunction
+  [6XReturns:[0X  The dimension of the quotient algebra
+  
+  When called with a Gröbner basis [3XG[0m and a number of variables [3Xt[0m, the function
+  [10XDimQA[0m  will return the dimension of the quotient algebra of the free algebra
+  generated  by  [3Xt[0m  variables  by the ideal generated by [3XG[0m if it is finite. It
+  will not terminate if the dimension is infinite.
+  
+  If  [3Xt[0m=0,  the  function  will  compute  the minimal value of [10Xt[0m such that the
+  polynomials in [3XG[0m belong to the free algebra on [10Xt[0m generators.
+  
+  To  check  whether  the  dimension  of the quotient algebra is finite and to
+  determine  the  type  of  growth  if  it is infinite, see also the functions
+  [2XFinCheckQA[0m ([14X3.6-2[0m) and [2XDetermineGrowthQA[0m ([14X3.6-1[0m) in Section [14X3.6[0m.
+  
+  [13XExample:[0m Consider the following Gröbner basis.
+  
+  [4X------------------------------------------------------------------[0X
+    [4Xgap> p1 := [[[1,1,2],[]],[1,-2]];;[0X
+    [4Xgap> p2 := [[[1,2,2],[]],[1,-2]];;[0X
+    [4Xgap> G := Grobner([p1,p2]);;[0X
+    [4Xgap> PrintNPList(G);[0X
+    [4X b - a [0X
+    [4X a^3 - 2 [0X
+  [4X------------------------------------------------------------------[0X
+  
+  The  function  [10XDimQA[0m  computes  the dimension of the quotient algebra of the
+  free  algebra  over  the  rationals with generators a and b by the two-sided
+  ideal generated by [10XG[0m.
+  
+  [4X------------------------------------------------------------------[0X
+    [4Xgap> DimQA(G,2);[0X
+    [4X3[0X
+  [4X------------------------------------------------------------------[0X
+  
+  [1X3.5-3 MatrixQA[0m
+  
+  [2X> MatrixQA( [0X[3Xi, B, GB[0X[2X ) _____________________________________________[0Xfunction
+  [6XReturns:[0X  The  matrix  representation  for the [3Xi[0m-th generator of the algebra
+            for right multiplication in the quotient algebra
+  
+  Given  a basis [3XB[0m of the quotient algebra, a Gröbner basis (record) [3XGB[0m, and a
+  natural number [3Xi[0m, this function creates a matrix representation for the [3Xi[0m-th
+  generator of the algebra for right multiplication.
+  
+  [13XExample:[0m Consider the following two polynomials in NP format.
+  
+  [4X------------------------------------------------------------------[0X
+    [4Xgap> p1 := [[[1,1,1,2],[]],[1,-1]];;[0X
+    [4Xgap> p2 := [[[2,2,2,1],[]],[1,-1]];;[0X
+  [4X------------------------------------------------------------------[0X
+  
+  The  matrix  of  right  multiplication  by  the first indeterminate a on the
+  quotient  algebra  with  respect  to  the  ideal  generated  by [10Xp1[0m and [10Xp2[0m is
+  obtained by applying [10XMatrixQA[0m to the Gröbner basis of these generators and a
+  basis of the quotient algebra as found in [2XBaseQA[0m ([14X3.5-1[0m):
+  
+  [4X------------------------------------------------------------------[0X
+    [4Xgap> GB := Grobner([p1,p2]);;[0X
+    [4Xgap> B := BaseQA(GB,2,0);;[0X
+    [4Xgap> PrintNPList(B);[0X
+    [4X 1 [0X
+    [4X a [0X
+    [4X b [0X
+    [4X a^2 [0X
+    [4X ab [0X
+    [4X a^3 [0X
+    [4X a^2b [0X
+    [4X a^4 [0X
+    [4Xgap> Display(MatrixQA(1, B,GB));[0X
+    [4X[ [  0,  1,  0,  0,  0,  0,  0,  0 ],[0X
+    [4X  [  0,  0,  0,  1,  0,  0,  0,  0 ],[0X
+    [4X  [  0,  0,  0,  0,  1,  0,  0,  0 ],[0X
+    [4X  [  0,  0,  0,  0,  0,  1,  0,  0 ],[0X
+    [4X  [  0,  0,  0,  0,  0,  0,  1,  0 ],[0X
+    [4X  [  0,  0,  0,  0,  0,  0,  0,  1 ],[0X
+    [4X  [  1,  0,  0,  0,  0,  0,  0,  0 ],[0X
+    [4X  [  0,  0,  1,  0,  0,  0,  0,  0 ] ][0X
+  [4X------------------------------------------------------------------[0X
+  
+  The  function  is  also  applicable  to  Gröbner  basis records for modules.
+  Consider the following two vectors.
+  
+  [4X------------------------------------------------------------------[0X
+    [4Xgap> v1 := [[[-1,1,2],[-1]],[1,-1]];;[0X
+    [4Xgap> v2 := [[[-2,2,2],[-2]],[1,-2]];;[0X
+  [4X------------------------------------------------------------------[0X
+  
+  The  Gröbner  basis  record for this data is found by [2XSGrobnerModule[0m ([14X3.9-1[0m)
+  and a quotient module basis by [2XBaseQM[0m ([14X3.9-2[0m):
+  
+  [4X------------------------------------------------------------------[0X
+    [4Xgap> GBR := SGrobnerModule([v1,v2],[p1,p2]);;[0X
+    [4Xgap> B := BaseQM(GBR,2,2,0);;[0X
+  [4X------------------------------------------------------------------[0X
+  
+  The  matrix  of  right  multiplication by a, the first generator of the free
+  algebra, is
+  
+  [4X------------------------------------------------------------------[0X
+    [4Xgap> Display(MatrixQA(1,B,GBR));[0X
+    [4X[ [  0,  1 ],[0X
+    [4X  [  1,  0 ] ][0X
+  [4X------------------------------------------------------------------[0X
+  
+  [1X3.5-4 MatricesQA[0m
+  
+  [2X> MatricesQA( [0X[3Xt, B, GB[0X[2X ) ___________________________________________[0Xfunction
+  [6XReturns:[0X  The  matrix representation for the [3Xt[0m generators of the algebra for
+            right multiplication in the quotient algebra
+  
+  Given  a basis [3XB[0m of the quotient algebra, a Gröbner basis (record) [3XGB[0m, and a
+  natural  number  [3Xt[0m,  this function creates a list of [3Xt[0m matrices representing
+  the  linear  transformations  of  the  generators  of  the  algebra by right
+  multiplication on the quotient algebra.
+  
+  [13XExample:[0m Consider the following two polynomials in NP format.
+  
+  [4X------------------------------------------------------------------[0X
+    [4Xgap> p1 := [[[1,1,1,2],[]],[1,-1]];;[0X
+    [4Xgap> p2 := [[[2,2,2,1],[]],[1,-1]];;[0X
+  [4X------------------------------------------------------------------[0X
+  
+  The function [10XMatricesQA[0m gives the list of matrices found by [2XMatrixQA[0m ([14X3.5-3[0m)
+  when the first argument takes the integer values between 1 and the number of
+  all algebra generators.
+  
+  [4X------------------------------------------------------------------[0X
+    [4Xgap> GB := Grobner([p1,p2]);;[0X
+    [4Xgap> B := BaseQA(GB,2,0);;[0X
+    [4Xgap> mats := MatricesQA(2,B,GB);;[0X
+    [4Xgap> for mat in mats do Display(mat); Print("\n"); od;[0X
+    [4X[ [  0,  1,  0,  0,  0,  0,  0,  0 ],[0X
+    [4X  [  0,  0,  0,  1,  0,  0,  0,  0 ],[0X
+    [4X  [  0,  0,  0,  0,  1,  0,  0,  0 ],[0X
+    [4X  [  0,  0,  0,  0,  0,  1,  0,  0 ],[0X
+    [4X  [  0,  0,  0,  0,  0,  0,  1,  0 ],[0X
+    [4X  [  0,  0,  0,  0,  0,  0,  0,  1 ],[0X
+    [4X  [  1,  0,  0,  0,  0,  0,  0,  0 ],[0X
+    [4X  [  0,  0,  1,  0,  0,  0,  0,  0 ] ][0X
+    [4X[0X
+    [4X[ [  0,  0,  1,  0,  0,  0,  0,  0 ],[0X
+    [4X  [  0,  0,  0,  0,  1,  0,  0,  0 ],[0X
+    [4X  [  0,  0,  0,  1,  0,  0,  0,  0 ],[0X
+    [4X  [  0,  0,  0,  0,  0,  0,  1,  0 ],[0X
+    [4X  [  0,  0,  0,  0,  0,  1,  0,  0 ],[0X
+    [4X  [  1,  0,  0,  0,  0,  0,  0,  0 ],[0X
+    [4X  [  0,  0,  0,  0,  0,  0,  0,  1 ],[0X
+    [4X  [  0,  1,  0,  0,  0,  0,  0,  0 ] ][0X
+    [4X[0X
+  [4X------------------------------------------------------------------[0X
+  
+  The result is also obtainable by use of the List function:
+  
+  [4X------------------------------------------------------------------[0X
+    [4Xgap> MatricesQA(2,B,GB) = List([1,2], q -> MatrixQA(q,B,GB));[0X
+    [4Xtrue[0X
+  [4X------------------------------------------------------------------[0X
+  
+  [1X3.5-5 MulQA[0m
+  
+  [2X> MulQA( [0X[3Xp1, p2, G[0X[2X ) _______________________________________________[0Xfunction
+  [6XReturns:[0X  The strong normal form of the product [3Xp1[0m*[3Xp2[0m with respect to [3XG[0m
+  
+  When  called with two polynomials in NP form, [3Xp1[0m and [3Xp2[0m, and a Gröbner basis
+  [3XG[0m, this function will return the product in the quotient algebra.
+  
+  [13XExample:[0m Consider the following Gröbner basis.
+  
+  [4X------------------------------------------------------------------[0X
+    [4Xgap> p1 := [[[1,1,2],[]],[1,-1]];;[0X
+    [4Xgap> p2 := [[[1,2,2],[]],[1,-1]];;[0X
+    [4Xgap> G := Grobner([p1,p2]);;[0X
+    [4Xgap> PrintNPList(G);[0X
+    [4X b - a [0X
+    [4X a^3 - 1 [0X
+  [4X------------------------------------------------------------------[0X
+  
+  Print  the product in the quotient algebra of the polynomials a-2 and b-3 by
+  use of [10XMulQA[0m:
+  
+  [4X------------------------------------------------------------------[0X
+    [4Xgap> s1 := [[[1],[]],[1,-2]];;[0X
+    [4Xgap> s2 := [[[2],[]],[1,-3]];;[0X
+    [4Xgap> PrintNP(MulQA(s1,s2,G));[0X
+    [4X a^2 - 5a + 6 [0X
+  [4X------------------------------------------------------------------[0X
+  
+  The  result  should be equal to the strong normal form of the product of a-2
+  and b-3 with respect to [10XG[0m:
+  
+  [4X------------------------------------------------------------------[0X
+    [4Xgap> MulQA(s1,s2,G) = StrongNormalFormNP(MulNP(s1,s2),G);[0X
+    [4Xtrue[0X
+  [4X------------------------------------------------------------------[0X
+  
+  [1X3.5-6 StrongNormalFormNP[0m
+  
+  [2X> StrongNormalFormNP( [0X[3Xf, G[0X[2X ) _______________________________________[0Xfunction
+  [6XReturns:[0X  The strong normal form of a polynomial with respect to [3XG[0m
+  
+  When  invoked  with a polynomial in NP format (see Section [14X2.1[0m) and a finite
+  set [3XG[0m of polynomials in NP format, this function will return a strong normal
+  form  (that  is, a polynomial that is equal to [3Xf[0m modulo [3XG[0m, every monomial of
+  which is a multiple of no leading monomial of an element of [3XG[0m).
+  
+  Note  that  the StrongNormalForm with respect to a Gröbner basis is uniquely
+  determined,  but  that for an arbitrary input [3XG[0m the result may depend on the
+  order in which the individual reduction steps are implemented.
+  
+  [13XExample:[0m Consider the following two polynomials in NP format.
+  
+  [4X------------------------------------------------------------------[0X
+    [4Xgap> p1 := [[[1,1,2],[]],[1,-1]];;[0X
+    [4Xgap> p2 := [[[1,2,2],[]],[1,-1]];;[0X
+  [4X------------------------------------------------------------------[0X
+  
+  The strong normal form of the polynomial
+  
+  [4X------------------------------------------------------------------[0X
+    [4Xgap> p := [[[1,1,1,2],[2,1],[]],[1,-1,3]];;[0X
+  [4X------------------------------------------------------------------[0X
+  
+  with  respect  to  the  list  [10X[p1,p2][0m  is  computed  by  use of the function
+  [10XStrongNormalFormNP[0m:
+  
+  [4X------------------------------------------------------------------[0X
+    [4Xgap> PrintNP(StrongNormalFormNP(p,[p1,p2]));[0X
+    [4X - ba + a + 3 [0X
+  [4X------------------------------------------------------------------[0X
+  
+  
+  [1X3.6 Finiteness and Hilbert series[0X
+  
+  [1X3.6-1 DetermineGrowthQA[0m
+  
+  [2X> DetermineGrowthQA( [0X[3XLm, t, exact[0X[2X ) ________________________________[0Xfunction
+  [6XReturns:[0X  If  the quotient algebra is finite dimensional, then the integer [10X0[0m
+            is returned. If the growth is polynomial and the algorithm found a
+            precise  degree [10Xd[0m of the growth polynomial, then [10Xd[0m is returned. If
+            the  growth  is  polynomial  and  no  precise  answer is found, an
+            interval  [10X[d1,d2][0m  is returned in which the dimension lies. If the
+            growth   is   exponential,  the  string  [10X"exponential  growth"[0m  is
+            returned.
+  
+  Given leading monomials [3XLm[0m of some Gröbner basis (these can be obtained with
+  the  function  [2XLMonsNP[0m  ([14X3.3-10[0m)),  the  number  [3Xt[0m  of  generators of a free
+  algebra,  say  A,  in  which  the  monomials  lie, and a boolean [3Xexact[0m, this
+  function  checks whether the quotient algebra of A by the ideal generated by
+  [3XLm[0m  is finite dimensional. In doing so it constructs a graph of normal words
+  which  helps  with  the  computations.  It  also  checks  for exponential or
+  polynomial growth in the infinite case.
+  
+  If  the  precise degree is needed in the polynomial case, the argument [3Xexact[0m
+  should be set to [10Xtrue[0m.
+  
+  The  function [10XDetermineGrowthQA[0m allows preprocessing, which may speed up the
+  computations.  This  can  be  done  with  the  function [2XPreprocessAnalysisQA[0m
+  ([14X3.6-4[0m).
+  
+  [13XExample:[0m For the list of monomials consisting of a single variable in a free
+  algebra  generated  by  two  variables  the  growth is clearly polynomial of
+  degree  1.  This  is  verified  by invoking [10XDetermineGrowthQA[0m with arguments
+  [10X[[1]][0m  (the  list  of the single monomial consisting of the first variable),
+  the  number  of generators of the free algebra to which the monomials belong
+  (which  is  2  here), and the boolean [10Xtrue[0m indicating that we wish a precise
+  degree in case of polynomial growth.
+  
+  [4X------------------------------------------------------------------[0X
+    [4Xgap> DetermineGrowthQA([[1]],2,true);[0X
+    [4X1[0X
+  [4X------------------------------------------------------------------[0X
+  
+  Here is an example of polynomial growth of degree 2:
+  
+  [4X------------------------------------------------------------------[0X
+    [4Xgap> L := [[1,2,1],[2,2,1]];[0X
+    [4X[ [ 1, 2, 1 ], [ 2, 2, 1 ] ][0X
+    [4Xgap> DetermineGrowthQA(L,2,true);[0X
+    [4X2[0X
+  [4X------------------------------------------------------------------[0X
+  
+  In  order  to  show  how  to  apply  the  function to arbitrary polynomials,
+  consider the following two polynomials in NP format.
+  
+  [4X------------------------------------------------------------------[0X
+    [4Xgap> F := GF(256);[0X
+    [4XGF(2^8)[0X
+    [4Xgap> z := GeneratorsOfField(F)[1];[0X
+    [4XZ(2^8)[0X
+    [4Xgap> p1 := [[[1,1,1,2],[]],[z,1]];;[0X
+    [4Xgap> p2 := [[[2,2,2,1],[]],[1,z]];;[0X
+  [4X------------------------------------------------------------------[0X
+  
+  The  polynomials [10Xp1[0m and [10Xp2[0m have coefficients in the field [10XF[0m of order 256. In
+  order  to study the growth of the quotient algebra we first compute the list
+  of   leading  monomials  of  the  Gröbner  basis  elements  and  next  apply
+  [10XDetermineGrowthQA[0m.
+  
+  [4X------------------------------------------------------------------[0X
+    [4Xgap> GB := Grobner([p1,p2]);;[0X
+    [4Xgap> L := LMonsNP(GB);;[0X
+    [4Xgap> for lm  in L  do PrintNP( [ [ lm ], [ 1 ] ] ); od;[0X
+    [4X a^3b [0X
+    [4X b^2 [0X
+    [4X a^5 [0X
+    [4X ba [0X
+    [4Xgap> DetermineGrowthQA(L,2,true);[0X
+    [4X0[0X
+  [4X------------------------------------------------------------------[0X
+  
+  [1X3.6-2 FinCheckQA[0m
+  
+  [2X> FinCheckQA( [0X[3XLm, t[0X[2X ) ______________________________________________[0Xfunction
+  [6XReturns:[0X  [10Xtrue[0m,  if  the  quotient  algebra  is finite dimensional and[10X false[0m
+            otherwise
+  
+  Given  a  list  [3XLm[0m  of  leading  monomials  such  that none of these divides
+  another,  and the number [3Xt[0m of generators of a free algebra in which they are
+  embedded,  this  function  checks  whether  the quotient algebra of the free
+  algebra by the ideal generated by [3XLm[0m is finite dimensional.
+  
+  When  given  a Gröbner basis G, the dimension of the quotient algebra of the
+  free algebra by the ideal generated by G coincides with the the dimension of
+  the  quotient  algebra  of  the  free  algebra by the ideal generated by the
+  leading  terms  of  elements  of  G.  These  can be obtained from G with the
+  function [2XLMonsNP[0m ([14X3.3-10[0m).
+  
+  The   function   [10XFinCheckQA[0m  allows  for  preprocessing  with  the  function
+  [2XPreprocessAnalysisQA[0m ([14X3.6-4[0m). This may speed up the computation.
+  
+  [13XExample:[0m Consider the following list [10XL[0m of two monomials.
+  
+  [4X------------------------------------------------------------------[0X
+    [4Xgap> L := [[1,2,1],[2,2,1]];;[0X
+  [4X------------------------------------------------------------------[0X
+  
+  Finiteness  of  the dimension of the quotient algebra of the free algebra by
+  the  ideal  generated  by  these  two  monomials  can be decided by means of
+  [10XFinCheckQA[0m.  Its  arguments  are  [10XL[0m and the number of generators of the free
+  algebra in which the monomials reside.
+  
+  [4X------------------------------------------------------------------[0X
+    [4Xgap> FinCheckQA(L,2);[0X
+    [4Xfalse[0X
+  [4X------------------------------------------------------------------[0X
+  
+  This   example   turns   out   to   be   infinite  dimensional.  Here  is  a
+  finite-dimensional example.
+  
+  [4X------------------------------------------------------------------[0X
+    [4Xgap> FinCheckQA([[1],[2,2]],2);[0X
+    [4Xtrue[0X
+  [4X------------------------------------------------------------------[0X
+  
+  [1X3.6-3 HilbertSeriesQA[0m
+  
+  [2X> HilbertSeriesQA( [0X[3XLm, t, d[0X[2X ) ______________________________________[0Xfunction
+  [6XReturns:[0X  A list of coefficients of the Hilbert series up to degree [3Xd[0m
+  
+  Given a set of monomials [3XLm[0m, none of which divides another, and the number [3Xn[0m
+  of  generators  of  the  free  algebra  in  which  they occur, this function
+  computes the Hilbert series up to a given degree [3Xd[0m.
+  
+  Internally,  it  builds (part of) the graph of standard words. This function
+  will remove zeroes from the end of the list of coefficients.
+  
+  [13XExample:[0m Consider the following list [10XL[0m of two monomials.
+  
+  [4X------------------------------------------------------------------[0X
+    [4Xgap> L := [[1,2,1],[2,2,1]];;[0X
+  [4X------------------------------------------------------------------[0X
+  
+  Finiteness  of  the dimension of the quotient algebra of the free algebra by
+  the  ideal  generated  by  these  two  monomials  can be decided by means of
+  [10XFinCheckQA[0m.  Its  arguments  are  [10XL[0m and the number of generators of the free
+  algebra in which the monomials reside.
+  
+  [4X------------------------------------------------------------------[0X
+    [4Xgap> HilbertSeriesQA(L,2,10);[0X
+    [4X[ 1, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20 ][0X
+  [4X------------------------------------------------------------------[0X
+  
+  This  indicates that the growth may be polynomial. [2XDetermineGrowthQA[0m ([14X3.6-1[0m)
+  can be used to check this.
+  
+  [1X3.6-4 PreprocessAnalysisQA[0m
+  
+  [2X> PreprocessAnalysisQA( [0X[3XLm, t, iterations[0X[2X ) ________________________[0Xfunction
+  [6XReturns:[0X  The  left-reduced  list  of  `obstructions',  obtained by applying
+            left-reduction recursively
+  
+  This  preprocessing of the list [3XLm[0m of monomials can be applied to the set of
+  leading  terms  of  a  Gröbner basis before calling the functions [2XFinCheckQA[0m
+  ([14X3.6-2[0m)  or  [2XDetermineGrowthQA[0m  ([14X3.6-1[0m),  in  order to speed up calculations
+  using  these  functions.  As  the name suggests, [3Xt[0m should be the size of the
+  alphabet.  The  parameter  [3Xiterations[0m  gives the maximum number of recursion
+  steps  in  the  preprocessing ([3X0[0m means no restriction). For more information
+  about this function see [Kro03].
+  
+  [13XExample:[0m  Consider  the  following  two  polynomials in NP format of which a
+  Gröbner basis is computed.
+  
+  [4X------------------------------------------------------------------[0X
+    [4XF := GF(256);[0X
+    [4Xz := GeneratorsOfField(F)[1];[0X
+    [4Xgap> p1 := [[[1,1,1,1,2],[]],[1,-1]];;[0X
+    [4Xgap> p2 := [[[2,2,2,1,1,1],[]],[1,-1]];;[0X
+    [4Xgap> GB := Grobner([p1,p2]);;[0X
+    [4Xgap> PrintNPList(GB);[0X
+    [4X a^4b - 1 [0X
+    [4X b^2 - a [0X
+    [4X ba - ab [0X
+    [4X a^5 - b [0X
+  [4X------------------------------------------------------------------[0X
+  
+  Application  of  [10XPreprocessAnalysisQA[0m is carried out on the leading terms of
+  [10XGB[0m, with 2, 4, 8, recursions, respectively.
+  
+  [4X------------------------------------------------------------------[0X
+    [4Xgap> L := LMonsNP(GB);[0X
+    [4X[ [ 1, 1, 1, 1, 2 ], [ 2, 2 ], [ 2, 1 ], [ 1, 1, 1, 1, 1 ] ][0X
+    [4Xgap> L1 := PreprocessAnalysisQA(L,2,2);[0X
+    [4X[ [ 1, 1, 1 ], [ 2, 1 ], [ 1, 1, 2 ], [ 2, 2 ] ][0X
+    [4Xgap> L2 := PreprocessAnalysisQA(L1,2,4);[0X
+    [4X[ [ 1 ], [ 2 ] ][0X
+  [4X------------------------------------------------------------------[0X
+  
+  
+  [1X3.7 Functions of the trace variant[0X
+  
+  [1X3.7-1 EvalTrace[0m
+  
+  [2X> EvalTrace( [0X[3Xp, Lnp[0X[2X ) ______________________________________________[0Xfunction
+  [6XReturns:[0X  The trace evaluated to a polynomial in NP format.
+  
+  For  a  traced polynomial [3Xp[0m and a list [3XLnp[0m of polynomials in NP format, this
+  program  evaluates  the trace by substituting the polynomials of [3XLnp[0m back in
+  the  expression  [10Xp.trace[0m  and computing the resulting polynomial. The result
+  should have the same value as [10Xp.pol[0m.
+  
+  [13XExample:[0m  First  we  compute  the  traced  Gröbner  basis of the list of the
+  following two polynomials in NP format.
+  
+  [4X------------------------------------------------------------------[0X
+    [4Xgap> p1 := [[[1,1,2],[]],[1,-1]];;[0X
+    [4Xgap> p2 := [[[2,2,1],[]],[1,-1]];;[0X
+    [4Xgap> Lnp := [p1,p2];;[0X
+    [4Xgap> GBT := SGrobnerTrace(Lnp);;[0X
+  [4X------------------------------------------------------------------[0X
+  
+  In  order to check that the polynomials in [10XGBT[0m belong to the ideal generated
+  by  [10Xp1[0m  and  [10Xp2[0m, we evaluate the trace. For each traced polynomial [10Xp[0m in [10XGBT[0m,
+  the  polynomial  [10Xp.pol[0m  is  equated  to the evaluated expression [10Xp.trace[0m, in
+  which each occurrence of [10XG(i)[0m is replaced by [10XLnp[i][0m by use of [2XEvalTrace[0m.
+  
+  [4X------------------------------------------------------------------[0X
+    [4Xgap> ForAll(GBT,q -> EvalTrace(q,Lnp) = q.pol);[0X
+    [4Xtrue[0X
+  [4X------------------------------------------------------------------[0X
+  
+  [1X3.7-2 PrintTraceList[0m
+  
+  [2X> PrintTraceList( [0X[3XG[0X[2X ) ______________________________________________[0Xfunction
+  
+  When  invoked  with a list [3XG[0m of traced polynomials, this function prints the
+  traces of that list.
+  
+  [13XExample:[0m  First  we  compute  the  traced  Gröbner  basis of the list of two
+  polynomials in NP format and next we print it by use of [10XPrintTraceList[0m.
+  
+  [4X------------------------------------------------------------------[0X
+    [4Xgap> p1 := [[[1,1,2],[]],[1,-1]];;[0X
+    [4Xgap> p2 := [[[2,2,1],[]],[1,-1]];;[0X
+    [4Xgap> GBT := SGrobnerTrace([p1,p2]);;[0X
+    [4Xgap> PrintTraceList(GBT);[0X
+    [4X aG(1) - bG(1) - G(1)ba^2b + a^2G(2)ab [0X
+    [4X[0X
+    [4X G(1)ba^2 + bG(1)ba + G(2) - a^2G(2)a - ba^2G(2) [0X
+  [4X------------------------------------------------------------------[0X
+  
+  [1X3.7-3 PrintTracePol[0m
+  
+  [2X> PrintTracePol( [0X[3Xp[0X[2X ) _______________________________________________[0Xfunction
+  
+  This function prints the trace of an NP polynomial [3Xp[0m.
+  
+  [13XExample:[0m  First  we  compute  the  traced  Gröbner  basis of the list of two
+  polynomials  in NP format. Next we print the trace polynomial of the members
+  of the list by use of [10XPrintTracePol[0m.
+  
+  [4X------------------------------------------------------------------[0X
+    [4Xgap> p1 := [[[1,1,2],[]],[1,-1]];;[0X
+    [4Xgap> p2 := [[[2,2,1],[]],[1,-1]];;[0X
+    [4Xgap> GBT := SGrobnerTrace([p1,p2]);;[0X
+    [4Xgap> for np in GBT do PrintTracePol(np); Print("\n"); od;[0X
+    [4X aG(1) - bG(1) - G(1)ba^2b + a^2G(2)ab [0X
+    [4X[0X
+    [4X G(1)ba^2 + bG(1)ba + G(2) - a^2G(2)a - ba^2G(2) [0X
+    [4X[0X
+  [4X------------------------------------------------------------------[0X
+  
+  [1X3.7-4 PrintNPListTrace[0m
+  
+  [2X> PrintNPListTrace( [0X[3XG[0X[2X ) ____________________________________________[0Xfunction
+  
+  When  invoked  with  a  set  of  traced  non-commutative polynomials [3XG[0m, this
+  function prints the list of the traced polynomials, without the trace.
+  
+  [13XExample:[0m  First  we  compute  the  traced  Gröbner  basis of the list of two
+  polynomials  in  NP  format.  Next  we print the polynomials found by use of
+  [10XPrintNPListTrace[0m.
+  
+  [4X------------------------------------------------------------------[0X
+    [4Xgap> p1 := [[[1,1,2],[]],[1,-1]];;[0X
+    [4Xgap> p2 := [[[2,2,1],[]],[1,-1]];;[0X
+    [4Xgap> GBT := SGrobnerTrace([p1,p2]);;[0X
+    [4Xgap> PrintNPListTrace(GBT);[0X
+    [4X b - a [0X
+    [4X a^3 - 1 [0X
+  [4X------------------------------------------------------------------[0X
+  
+  [1X3.7-5 SGrobnerTrace[0m
+  
+  [2X> SGrobnerTrace( [0X[3XLnp[0X[2X ) _____________________________________________[0Xfunction
+  [6XReturns:[0X  Gröbner Basis, traceable
+  
+  For  a  list  of  noncommutative  polynomials  [3XLnp[0m  this  function  will use
+  Buchberger's algorithm with strong normal form to find a Gröbner Basis [10XG[0m (if
+  possible; the general problem is unsolvable).
+  
+  The  results  will  be traceable. Functions that can print the Gröbner basis
+  are  [2XPrintTraceList[0m  ([14X3.7-2[0m)  (with  the trace) and [2XPrintNPListTrace[0m ([14X3.7-4[0m)
+  (without the trace).
+  
+  [13XExample:[0m  For  the  list  of  the  following two polynomials in NP format, a
+  traced Gröbner basis is computed.
+  
+  [4X------------------------------------------------------------------[0X
+    [4Xgap> p1 := [[[1,1,2],[]],[1,-1]];;[0X
+    [4Xgap> p2 := [[[2,2,1],[]],[1,-1]];;[0X
+    [4Xgap> GBT := SGrobnerTrace([p1,p2]);[0X
+    [4X[ rec( pol := [ [ [ 2 ], [ 1 ] ], [ 1, -1 ] ], [0X
+    [4X      trace := [ [ [  ], 1, [ 2, 1, 1, 2 ], -1 ], [ [ 2 ], 1, [  ], -1 ], [0X
+    [4X          [ [ 1 ], 1, [  ], 1 ], [ [ 1, 1 ], 2, [ 1, 2 ], 1 ] ] ), [0X
+    [4X  rec( pol := [ [ [ 1, 1, 1 ], [  ] ], [ 1, -1 ] ], [0X
+    [4X      trace := [ [ [ 2 ], 1, [ 2, 1 ], 1 ], [ [  ], 1, [ 2, 1, 1 ], 1 ], [0X
+    [4X          [ [  ], 2, [  ], 1 ], [ [ 2, 1, 1 ], 2, [  ], -1 ], [0X
+    [4X          [ [ 1, 1 ], 2, [ 1 ], -1 ] ] ) ][0X
+  [4X------------------------------------------------------------------[0X
+  
+  [1X3.7-6 StrongNormalFormTraceDiff[0m
+  
+  [2X> StrongNormalFormTraceDiff( [0X[3Xnp, GBT[0X[2X ) _____________________________[0Xfunction
+  [6XReturns:[0X  The  traced  polynomial  for  the  difference of [3Xf[0m with the strong
+            normal form of [3Xnp[0m with respect to [3XGBT[0m
+  
+  When  invoked with a polynomial [3Xnp[0m in NP format as its first argument, and a
+  traced  Gröbner  basis  [3XGBT[0m  as  generated  by  [2XSGrobnerTrace[0m  ([14X3.7-5[0m), this
+  function returns the difference of [3Xnp[0m with the strong normal form of [3Xnp[0m with
+  respect  to  [3XGBT[0m.  This difference [10Xd[0m is returned as a traced polynomial. The
+  trace  information  [10Xd.trace[0m gives an expression of [10Xd.pol[0m as a combination of
+  polynomials from the list of polynomials to which the trace parts of [3XGBT[0m are
+  referring.  Typically,  this  is  the  set of relations used as input to the
+  computation of [3XGBT[0m.
+  
+  Note  that the difference of the polynomials [3Xnp[0m and [10Xd.pol[0m is the same as the
+  StrongNormalForm of [3Xnp[0m.
+  
+  [13XExample:[0m  First  we  compute  the  traced  Gröbner  basis of the list of the
+  following two polynomials in NP format.
+  
+  [4X------------------------------------------------------------------[0X
+    [4Xgap> p1 := [[[1,1,2],[]],[1,-1]];;[0X
+    [4Xgap> p2 := [[[2,2,1],[]],[1,-1]];;[0X
+    [4Xgap> GBT := SGrobnerTrace([p1,p2]);;[0X
+  [4X------------------------------------------------------------------[0X
+  
+  Of  the  polynomial  a^6 we compute its difference with the normal form. The
+  result is printed by used of [2XPrintNP[0m ([14X3.2-1[0m) and [2XPrintTraceList[0m ([14X3.7-2[0m).
+  
+  [4X------------------------------------------------------------------[0X
+    [4Xgap> f := [[[1,1,1,1,1,1]],[1]];;[0X
+    [4Xgap> sf := StrongNormalFormTraceDiff(f,GBT);;[0X
+    [4Xgap> PrintNP(sf.pol);[0X
+    [4X a^6 - 1 [0X
+    [4Xgap> PrintTraceList([sf]);[0X
+    [4X G(1)ba^2 + bG(1)ba + G(1)ba^5 + bG(1)ba^4 + G(2) + G(2)a^3 - a^2G([0X
+    [4X2)a - ba^2G(2) - a^2G(2)a^4 - ba^2G(2)a^3 [0X
+  [4X------------------------------------------------------------------[0X
+  
+  
+  [1X3.8 Functions of the truncated variant[0X
+  
+  
+  [1X3.8-1 Examples[0X
+  
+  More about these functions can be found in [14XA.4[0m
+  
+  [1X3.8-2 SGrobnerTrunc[0m
+  
+  [2X> SGrobnerTrunc( [0X[3XLnp, deg, wtv[0X[2X ) ___________________________________[0Xfunction
+  [6XReturns:[0X  A  list of homogeneous NP polynomials if the first argument of the
+            input  is  a  list  of homogeneous NP polynomials, and the boolean
+            [10Xfalse[0m otherwise.
+  
+  This  functions  should  be  invoked  with  a  list [3XLnp[0m of polynomials in NP
+  format,  a  natural number [3Xdeg[0m, and a weight vector [3Xwtv[0m of length the number
+  of generators of the free algebra A containing the elements of [3XLnp[0m, and with
+  positive  integers  for  entries.  If the polynomials of [3XLnp[0m are homogeneous
+  with  respect  to  [3Xwtv[0m,  the  function  will  return  a Gröbner basis of [3XLnp[0m
+  truncated  above [3Xdeg[0m. If the list of polynomials [3XLnp[0m is not homogeneous with
+  respect  to  [3Xwtv[0m, it returns [10Xfalse[0m. The homogeneity check can be carried out
+  by [2XCheckHomogeneousNPs[0m ([14X3.8-3[0m).
+  
+  [13XExample:[0m Consider the following two polynomials in NP format.
+  
+  [4X------------------------------------------------------------------[0X
+    [4Xgap> p1 := [[[1,2,2,1],[2,1,1,2]],[1,-1]];;[0X
+    [4Xgap> p2 := [[[2,2,2],[1,1]],[1,-1]];;[0X
+    [4Xgap> PrintNPList([p1,p2]);[0X
+    [4X ab^2a - ba^2b [0X
+    [4X b^3 - a^2 [0X
+  [4X------------------------------------------------------------------[0X
+  
+  These  are homogeneous with respect to weights [3,2]. The degrees are 10 and
+  6,  respectively.  The  Gröbner  basis truncated above degree 12 of the list
+  [10X[p1,p2][0m is computed and subsequently printed as follows.
+  
+  [4X------------------------------------------------------------------[0X
+    [4Xgap> PrintNPList(SGrobnerTrunc([p1,p2],12,[3,2]));[0X
+    [4X ba^2 - a^2b [0X
+    [4X b^3 - a^2 [0X
+    [4X ab^2a - a^2b^2 [0X
+  [4X------------------------------------------------------------------[0X
+  
+  [1X3.8-3 CheckHomogeneousNPs[0m
+  
+  [2X> CheckHomogeneousNPs( [0X[3XLnp, wtv[0X[2X ) __________________________________[0Xfunction
+  [6XReturns:[0X  A  list  of  weighted  degrees  of  the  polynomials  if these are
+            homogeneous with respect to [3Xwtv[0m, and [10Xfalse[0m otherwise.
+  
+  When  invoked  with  a  list  of  NP polynomials [3XLnp[0m and a weight vector [3Xwtv[0m
+  (whose  entries should be positive integers), this function returns the list
+  of  weighted  degrees of the polynomials in [3XLnp[0m if these are all homogeneous
+  and   nonzero,  and  [10Xfalse[0m  otherwise.  Here,  a  polynomial  is  (weighted)
+  homogeneous  with  respect  to a weight vector w if there is constant d such
+  that,  for  each  monomial  [t_1,...,t_r]  of  the polynomial the sum of all
+  w[t_i]  for  i  in [1..r] is equal to d. The natural number d is then called
+  the weighted degree of the polynomial.
+  
+  [13XExample:[0m Consider the following two polynomials in NP format.
+  
+  [4X------------------------------------------------------------------[0X
+    [4Xgap> p1 := [[[1,2,2,1],[2,1,1,2]],[1,-1]];;[0X
+    [4Xgap> p2 := [[[2,2,2],[1,1]],[1,-1]];;[0X
+    [4Xgap> PrintNPList([p1,p2]);[0X
+    [4X ab^2a - ba^2b [0X
+    [4X b^3 - a^2 [0X
+  [4X------------------------------------------------------------------[0X
+  
+  These  are homogeneous with respect to weights [3,2]. The degrees are 10 and
+  6, respectively. This is checked as follows.
+  
+  [4X------------------------------------------------------------------[0X
+    [4Xgap> CheckHomogeneousNPs([p1,p2],[3,2]);[0X
+    [4X[ 10, 6 ][0X
+  [4X------------------------------------------------------------------[0X
+  
+  [1X3.8-4 BaseQATrunc[0m
+  
+  [2X> BaseQATrunc( [0X[3XLnp, deg, wtv[0X[2X ) _____________________________________[0Xfunction
+  [6XReturns:[0X  A  list  of monomials if the first argument of the input is a list
+            of homogeneous NP polynomials or [10Xfalse[0m.
+  
+  When  invoked  with  a  list of polynomials [3XLnp[0m, a natural number [3Xdeg[0m, and a
+  weight  vector  [3Xwtv[0m  of  length  the  number  of variables and with positive
+  integers  for entries, such that the polynomials of [3XLnp[0m are homogeneous with
+  respect  to  [3Xwtv[0m, it returns a list whose i-th entry is a basis of monomials
+  of  the  homogeneous  part  of  degree  i-1 the quotient algebra of the free
+  noncommutative  algebra  by  the weighted homogeneous ideal generated by [3XLnp[0m
+  truncated  above  [3Xdeg[0m. If the list of polynomials [3XLnp[0m is not homogeneous, it
+  returns [10Xfalse[0m.
+  
+  [13XExample:[0m   Consider  the  truncated  Gröbner  basis  of  the  following  two
+  polynomials in NP format.
+  
+  [4X------------------------------------------------------------------[0X
+    [4Xgap> p1 := [[[1,2,2,1],[2,1,1,2]],[1,-1]];;[0X
+    [4Xgap> p2 := [[[2,2,2],[1,1]],[1,-1]];;[0X
+    [4Xgap> wtv := [3,2];;[0X
+    [4Xgap> GB := SGrobnerTrunc([p1,p2],12,wtv);;[0X
+    [4Xgap> GBNP.ConfigPrint("a","b");[0X
+    [4Xgap> PrintNPList(GB);[0X
+    [4X ba^2 - a^2b [0X
+    [4X b^3 - a^2 [0X
+    [4X ab^2a - a^2b^2 [0X
+  [4X------------------------------------------------------------------[0X
+  
+  A basis of standard monomials is found and printed as follows.
+  
+  [4X------------------------------------------------------------------[0X
+    [4Xgap> BT := BaseQATrunc(GB,12,wtv);;[0X
+    [4Xgap> for degpart in BT do [0X
+    [4X>   for mon in degpart do PrintNP([[mon],[1]]); od;[0X
+    [4X> od;[0X
+    [4X 1 [0X
+    [4X b [0X
+    [4X a [0X
+    [4X b^2 [0X
+    [4X ba [0X
+    [4X ab [0X
+    [4X a^2 [0X
+    [4X b^3 [0X
+    [4X b^2a [0X
+    [4X bab [0X
+    [4X ab^2 [0X
+    [4X aba [0X
+    [4X a^2b [0X
+    [4X b^4 [0X
+    [4X a^3 [0X
+    [4X b^3a [0X
+    [4X b^2ab [0X
+    [4X bab^2 [0X
+    [4X ab^3 [0X
+    [4X baba [0X
+    [4X abab [0X
+    [4X a^2b^2 [0X
+    [4X b^5 [0X
+    [4X a^2ba [0X
+    [4X b^4a [0X
+    [4X a^3b [0X
+    [4X b^3ab [0X
+    [4X b^2ab^2 [0X
+    [4X bab^3 [0X
+    [4X ab^4 [0X
+    [4X a^4 [0X
+    [4X b^2aba [0X
+    [4X ab^3a [0X
+    [4X babab [0X
+    [4X abab^2 [0X
+    [4X a^2b^3 [0X
+    [4X b^6 [0X
+  [4X------------------------------------------------------------------[0X
+  
+  [1X3.8-5 DimsQATrunc[0m
+  
+  [2X> DimsQATrunc( [0X[3XLnp, deg, wtv[0X[2X ) _____________________________________[0Xfunction
+  [6XReturns:[0X  A  list  of monomials if the first argument of the input is a list
+            of homogeneous NP polynomials or [10Xfalse[0m.
+  
+  When  invoked  with  a  list of polynomials [3XLnp[0m, a natural number [3Xdeg[0m, and a
+  weight  vector  [3Xwtv[0m  of  length  the  number  of variables and with positive
+  integers  for entries, such that the polynomials of [3XLnp[0m are homogeneous with
+  respect  to [3Xwtv[0m, it returns a list of dimensions of the homogeneous parts of
+  the  quotient  algebra  of  the  free  noncommutative  algebra  by the ideal
+  generated  by  [3XLnp[0m truncated above [3Xdeg[0m. The i-th entry of the list gives the
+  dimension  of the homogeneous part of degree i-1 of the quotient algebra. If
+  the list of polynomials [3XLnp[0m is not homogeneous, it returns [10Xfalse[0m.
+  
+  [13XExample:[0m   Consider  the  truncated  Gröbner  basis  of  the  following  two
+  polynomials in NP format.
+  
+  [4X------------------------------------------------------------------[0X
+    [4Xgap> p1 := [[[1,2,2,1],[2,1,1,2]],[1,-1]];;[0X
+    [4Xgap> p2 := [[[2,2,2],[1,1]],[1,-1]];;[0X
+    [4Xgap> wtv := [3,2];;[0X
+    [4Xgap> GB := SGrobnerTrunc([p1,p2],12,wtv);;[0X
+  [4X------------------------------------------------------------------[0X
+  
+  Information  on  the  dimensions  of  the  homogeneous parts of the quotient
+  algebra is found as follows,
+  
+  [4X------------------------------------------------------------------[0X
+    [4Xgap> DimsQATrunc(GB,12,wtv);[0X
+    [4X[ 1, 0, 1, 1, 1, 2, 2, 3, 3, 5, 4, 7, 7 ][0X
+  [4X------------------------------------------------------------------[0X
+  
+  [1X3.8-6 FreqsQATrunc[0m
+  
+  [2X> FreqsQATrunc( [0X[3XLnp, deg, wtv[0X[2X ) ____________________________________[0Xfunction
+  [6XReturns:[0X  A  list of multiplicities of frequencies of monomials if the first
+            argument  of  the input is a list of homogeneous polynomials in NP
+            format, and [10Xfalse[0m otherwise.
+  
+  The  frequency  of  a  monomial  is  the list of numbers of occurrences of a
+  variable  in the monomial for each variable; the multiplicity of a frequency
+  is the number of monomials in the standard basis for a quotient algebra with
+  this  frequency.  When  invoked  with a list [3XLnp[0m of polynomials in NP format
+  representing a (truncated) Gröbner basis, a natural number [3Xdeg[0m, and a weight
+  vector  [3Xwtv[0m of length the number of variables and with positive integers for
+  entries,  such  that  the polynomials of [3XLnp[0m are homogeneous with respect to
+  [3Xwtv[0m,  it  returns  a list of frequencies occurring with their multiplicities
+  for  the  quotient  algebra  of the free noncommutative algebra by the ideal
+  generated  by  [3XLnp[0m truncated above [3Xdeg[0m. The i-th entry of the list gives the
+  frequencies  of the weight (i-1) basis monomials of the quotient algebra. If
+  the  list  of  polynomials  [3XLnp[0m  is  not homogeneous with respect to [3Xwtv[0m, it
+  returns [10Xfalse[0m.
+  
+  [13XExample:[0m   Consider  the  truncated  Gröbner  basis  of  the  following  two
+  polynomials in NP format.
+  
+  [4X------------------------------------------------------------------[0X
+    [4Xgap> p1 := [[[1,2,2,1],[2,1,1,2]],[1,-1]];;[0X
+    [4Xgap> p2 := [[[2,2,2],[1,1]],[1,-1]];;[0X
+    [4Xgap> wtv := [3,2];;[0X
+    [4Xgap> GB := SGrobnerTrunc([p1,p2],12,wtv);;[0X
+    [4Xgap> PrintNPList(GB);[0X
+    [4X ba^2 - a^2b [0X
+    [4X b^3 - a^2 [0X
+    [4X ab^2a - a^2b^2 [0X
+  [4X------------------------------------------------------------------[0X
+  
+  The multiplicities of the frequencies of of monomials in a standard basis of
+  the  quotient  algebra with respect to the ideal generated by [10XGB[0m is found as
+  follows, for weights up to and including 8.
+  
+  [4X------------------------------------------------------------------[0X
+    [4Xgap> F := FreqsQATrunc(GB,8,wtv);[0X
+    [4X[ [ [ [  ], 1 ] ], [ [ [ 0, 1 ], 1 ] ], [ [ [ 1, 0 ], 1 ] ], [0X
+    [4X  [ [ [ 0, 2 ], 1 ] ], [ [ [ 1, 1 ], 2 ] ], [0X
+    [4X  [ [ [ 2, 0 ], 1 ], [ [ 0, 3 ], 1 ] ], [ [ [ 1, 2 ], 3 ] ], [0X
+    [4X  [ [ [ 2, 1 ], 2 ], [ [ 0, 4 ], 1 ] ] ][0X
+  [4X------------------------------------------------------------------[0X
+  
+  The interpretation of this data is given by the following lines of code.
+  
+  [4X------------------------------------------------------------------[0X
+    [4Xgap> for f in F do[0X
+    [4X>   if f[1][1] <> [] then[0X
+    [4X>     Print("At level ", wtv * (f[1][1]), " the multiplicities are\n");[0X
+    [4X>     for x in f do[0X
+    [4X>       Print("  for ",x[1],": ",x[2],"\n");[0X
+    [4X>     od;[0X
+    [4X>   else[0X
+    [4X>     Print("At level ", 0 , " the multiplicity of [] is ",f[1][2],"\n");[0X
+    [4X>   fi;[0X
+    [4X>   Print("\n");[0X
+    [4X> od;[0X
+    [4XAt level 0 the multiplicity of [] is 1[0X
+    [4X[0X
+    [4XAt level 2 the multiplicities are[0X
+    [4X  for [ 0, 1 ]: 1[0X
+    [4X[0X
+    [4XAt level 3 the multiplicities are[0X
+    [4X  for [ 1, 0 ]: 1[0X
+    [4X[0X
+    [4XAt level 4 the multiplicities are[0X
+    [4X  for [ 0, 2 ]: 1[0X
+    [4X[0X
+    [4XAt level 5 the multiplicities are[0X
+    [4X  for [ 1, 1 ]: 2[0X
+    [4X[0X
+    [4XAt level 6 the multiplicities are[0X
+    [4X  for [ 2, 0 ]: 1[0X
+    [4X  for [ 0, 3 ]: 1[0X
+    [4X[0X
+    [4XAt level 7 the multiplicities are[0X
+    [4X  for [ 1, 2 ]: 3[0X
+    [4X[0X
+    [4XAt level 8 the multiplicities are[0X
+    [4X  for [ 2, 1 ]: 2[0X
+    [4X  for [ 0, 4 ]: 1[0X
+    [4X[0X
+  [4X------------------------------------------------------------------[0X
+  
+  
+  [1X3.9 Functions of the module variant[0X
+  
+  [1X3.9-1 SGrobnerModule[0m
+  
+  [2X> SGrobnerModule( [0X[3XLnpm, Lnp[0X[2X ) ______________________________________[0Xfunction
+  [6XReturns:[0X  A  record  [10XGBR[0m  containing a Gröbner basis (if found...the general
+            problem  is unsolvable) for modules; [10XGBR.p[0m will contain the prefix
+            rules and [10XGBR.ts[0m will contain the two-sided rules, and [10XGBR.pg[0m will
+            be  the  smallest  rank  of  the  free  module to which all prefix
+            relations belong
+  
+  For  a  list [3XLnpm[0m of vectors in NPM format (see Section [14X2.1[0m), and a list [3XLnp[0m
+  of  polynomials  in NP format, this function will use Buchberger's algorithm
+  with  strong  normal  form  applied  to  the  union of [3XLnpm[0m, [3XLnp[0m, the set of
+  polynomials  x*e-x  and  x*m[i]  for  x  a  standard indeterminate, a module
+  generator m[j] or the dummy indeterminate e, and the set of all e*x -x for x
+  a  standard  indeterminate, to find a Gröbner Basis record [10XGBR[0m (if possible;
+  the  general  problem  is unsolvable). This record will have a Gröbner Basis
+  [10XGBR.ts[0m for the two-sided ideal generated by [3XLnp[0m and an intersection with the
+  module [10XGBR.p[0m representing the module relations needed to find representative
+  vectors  in the module uniquely by means of a strong normal form computation
+  modding out [10XGBR.p[0m and, for the scalars, [10XGBR.ts[0m.
+  
+  [13XExample:[0m Consider the following two polynomials in NP format.
+  
+  [4X------------------------------------------------------------------[0X
+    [4Xgap> p1 := [[[1,1,2],[]],[1,-2]];;[0X
+    [4Xgap> p2 := [[[1,2,2],[]],[1,-3]];;[0X
+  [4X------------------------------------------------------------------[0X
+  
+  Consider also the following two vectors in NPM format.
+  
+  [4X------------------------------------------------------------------[0X
+    [4Xgap> v1 := [[[-1,1,2],[-1]],[1,-1]];;[0X
+    [4Xgap> v2 := [[[-2,2,2],[-2]],[1,-2]];;[0X
+  [4X------------------------------------------------------------------[0X
+  
+  The Gröbner basis record for this data is found by [2XSGrobnerModule[0m:
+  
+  [4X------------------------------------------------------------------[0X
+    [4Xgap> GBR := SGrobnerModule([v1,v2],[p1,p2]);;[0X
+  [4X------------------------------------------------------------------[0X
+  
+  The  record  [10XGBR[0m  has  two  fields,  [10Xp[0m  for prefix relations (vectors in the
+  module) and [10Xts[0m for two-sided relations (polynomials in the algebra):
+  
+  [4X------------------------------------------------------------------[0X
+    [4Xgap> PrintNPList(GBR.p);[0X
+    [4X[ 0, 1 ][0X
+    [4X[ 1 , 0][0X
+    [4Xgap> PrintNPList(GBR.ts);[0X
+    [4X b - 3/2a [0X
+    [4X a^3 - 4/3 [0X
+  [4X------------------------------------------------------------------[0X
+  
+  [1X3.9-2 BaseQM[0m
+  
+  [2X> BaseQM( [0X[3XGBR, t, mt, maxno[0X[2X ) ______________________________________[0Xfunction
+  [6XReturns:[0X  A  basis  of  the  module obtained from the free module of rank [3Xmt[0m
+            over  the  free  algebra  on  [3Xt[0m  generators  by  factoring out the
+            submodule generated by the elements of [3XGBR[0m
+  
+  When called with a Gröbner basis record [3XGBR[0m (see Section [14X2.8[0m), the number of
+  variables  [3Xt[0m,  the  number  of module generators [3Xmt[0m, and a maximum number of
+  terms  to  be found, [3Xmaxno[0m, the function [10XBaseQM[0m will return a (partial) base
+  of the quotient module of A^mt over the free algebra on A on [10Xt[0m generators by
+  the  right  sub  A-module  generated  by  the elements of [3XGBR[0m. Note that the
+  record  [3XGBR[0m  consists of two fields: the list [3XGBR.p[0m of vectors in NPM format
+  representing  elements  of  the  free  module  A^mt,  and the list [3XGBR.ts[0m of
+  polynomials in NP format representing elements of A. The submodule generated
+  by  [3XGBR[0m  is  considered to be the right submodule of A^mt generated by [3XGBR.p[0m
+  and  all  elements  of  the  form  v* np with np in the two-sided ideal of A
+  generated  by  [3XGBR.ts[0m  and v in A^mt. If this function is invoked with [3Xmaxno[0m
+  equal to 0, then a full basis will be given.
+  
+  If [3Xt[0m=0, then [10Xt[0m will be set to the minimal value such that all polynomials of
+  [3XGBR.ts[0m and all polynomials occurring in [3XGBR.p[0m have at most [10Xt[0m variables.
+  
+  If  [3Xmt[0m=0,  then [10Xmt[0m will be set to the minimal value such that all vectors of
+  [3XGBR.p[0m belong to A^mt.
+  
+  If the module is cyclic (that is, has a single generator), it is possible to
+  use  the  Gröbner  basis  of the ideal in the algebra instead of the Gröbner
+  basis  record.  This  can  be done by entering 0 for the number [3Xmt[0m of module
+  generators.
+  
+  [13XExample:[0m Consider the following two polynomials in NP format.
+  
+  [4X------------------------------------------------------------------[0X
+    [4Xgap> p1 := [[[1,1,1,2],[]],[1,-1]];;[0X
+    [4Xgap> p2 := [[[2,2,2,1],[]],[1,-1]];;[0X
+  [4X------------------------------------------------------------------[0X
+  
+  Consider also the following two vectors in NPM format.
+  
+  [4X------------------------------------------------------------------[0X
+    [4Xgap> v1 := [[[-1,1,2],[-1]],[1,-1]];;[0X
+    [4Xgap> v2 := [[[-2,2,2],[-2]],[1,-2]];;[0X
+  [4X------------------------------------------------------------------[0X
+  
+  The Gröbner basis record for this data is found by [2XSGrobnerModule[0m ([14X3.9-1[0m):
+  
+  [4X------------------------------------------------------------------[0X
+    [4Xgap> GBR := SGrobnerModule([v1,v2],[p1,p2]);;[0X
+    [4Xgap> PrintNPList(GBR.ts);[0X
+    [4X ba - ab [0X
+    [4X b^2 - a^2 [0X
+    [4X a^3b - 1 [0X
+    [4X a^5 - b [0X
+    [4Xgap> PrintNPList(GBR.p);[0X
+    [4X[ 0, 1 ][0X
+    [4X[ b - a , 0][0X
+    [4X[ a^2 - 1 , 0][0X
+    [4X[ ab - 1 , 0][0X
+  [4X------------------------------------------------------------------[0X
+  
+  The function [10XBaseQM[0m computes a basis.
+  
+  [4X------------------------------------------------------------------[0X
+    [4Xgap> B := BaseQM(GBR,2,2,0);;[0X
+    [4Xgap> PrintNPList(B);[0X
+    [4X[ 1 , 0][0X
+    [4X[ a , 0][0X
+  [4X------------------------------------------------------------------[0X
+  
+  The  function [10XBaseQM[0m with arguments so as to let the number of dimensions of
+  the module and the number of variables be chosen minimal.
+  
+  [4X------------------------------------------------------------------[0X
+    [4Xgap> B := BaseQM(GBR,0,0,0);;[0X
+    [4Xgap> PrintNPList(B);[0X
+    [4X[ 1 , 0][0X
+    [4X[ a , 0][0X
+  [4X------------------------------------------------------------------[0X
+  
+  The function [10XBaseQM[0m can also be used to ompute the first three elements of a
+  basis.
+  
+  [4X------------------------------------------------------------------[0X
+    [4Xgap> B := BaseQM(GBR,2,2,3);;[0X
+    [4Xgap> PrintNPList(B);[0X
+    [4X[ 1 , 0][0X
+    [4X[ a , 0][0X
+  [4X------------------------------------------------------------------[0X
+  
+  [1X3.9-3 DimQM[0m
+  
+  [2X> DimQM( [0X[3XGBR, t, mt[0X[2X ) ______________________________________________[0Xfunction
+  [6XReturns:[0X  The dimension of the quotient module
+  
+  When  called  with a Gröbner basis record [3XGBR[0m (see Section [14X2.8[0m), a number of
+  variables  [3Xt[0m  at  least  equal  to  the number of generators involved in the
+  polynomials  of  [3XGBR.p[0m  and  [3XGBR.ts[0m, and a number of generators [3Xmt[0m of a free
+  module  containing  the  prefix  relations in [3XGBR.p[0m, the function [10XDimQM[0m will
+  return  the  dimension  over the coefficient field of the quotient module of
+  the  free  right  module  A^mt  of  rank  [3Xmt[0m  over  the  free algebra A on [10Xt[0m
+  generators  by  the  right sub A-module generated by the elements of [3XGBR[0m, if
+  this dimension is finite. Otherwise, the computation invoked by the function
+  will not terminate.
+  
+  If [3Xt[0m=0, then [10Xt[0m will be set to the minimal value such that all polynomials of
+  [3XGBR.ts[0m and all polynomials occurring in [3XGBR.p[0m belong to A^mt.
+  
+  If  [3Xmt[0m=0,  then [10Xmt[0m will be set to the minimal value such that all vectors of
+  [3XGBR.p[0m  belong to A^mt. [13XExample:[0m Consider the following two polynomials in NP
+  format.
+  
+  [4X------------------------------------------------------------------[0X
+    [4Xgap> p1 := [[[1,1,1,2],[]],[1,-1]];;[0X
+    [4Xgap> p2 := [[[2,2,2,1],[]],[1,-1]];;[0X
+  [4X------------------------------------------------------------------[0X
+  
+  Consider also the following two vectors in NPM format.
+  
+  [4X------------------------------------------------------------------[0X
+    [4Xgap> v1 := [[[-1,1,2],[-2]],[1,-1]];;[0X
+    [4Xgap> v2 := [[[-2,2,2],[-1]],[1,-2]];;[0X
+  [4X------------------------------------------------------------------[0X
+  
+  The Gröbner basis record for this data is found by [2XSGrobnerModule[0m ([14X3.9-1[0m):
+  
+  [4X------------------------------------------------------------------[0X
+    [4Xgap> GBR := SGrobnerModule([v1,v2],[p1,p2]);;[0X
+  [4X------------------------------------------------------------------[0X
+  
+  The function [10XDimQM[0m computes the dimension over the rationals of the quotient
+  of  the free module over the free algebra on two generators by the submodule
+  generated  by the vectors [10Xv1[0m, [10Xv2[0m, [p,q], where p and q run over all elements
+  of the two-sided ideal in the free algebra generated by [10Xp1[0m and [10Xp2[0m.
+  
+  [4X------------------------------------------------------------------[0X
+    [4Xgap> SetInfoLevel(InfoGBNP,2);[0X
+    [4Xgap> DimQM(GBR,2,2);[0X
+    [4X0[0X
+  [4X------------------------------------------------------------------[0X
+  
+  The answer should be equal to the size of [10XBaseQM(GBR,t,mt,0)[0m.
+  
+  [4X------------------------------------------------------------------[0X
+    [4Xgap> DimQM(GBR,2,2) = Length(BaseQM(GBR,2,2,0));[0X
+    [4Xtrue[0X
+    [4Xgap> SetInfoLevel(InfoGBNP,0);[0X
+  [4X------------------------------------------------------------------[0X
+  
+  [1X3.9-4 MulQM[0m
+  
+  [2X> MulQM( [0X[3Xp1, p2, GBR[0X[2X ) _____________________________________________[0Xfunction
+  [6XReturns:[0X  The strong normal form of the product [3Xp1[0m*[3Xp2[0m with respect to [3XGBR[0m
+  
+  When  called  with  three  arguments,  the  first  of which, [3Xp1[0m, is a module
+  element in NPM format, the second of which, [3Xp2[0m, is a polynomial in NP format
+  representing an element of the quotient algebra, and the third of which is a
+  Gröbner basis record [3XGBR[0m, this function will return the product [10Xp1*p2[0m in the
+  module.
+  
+  [13XExample:[0m Consider the following two polynomials in NP format.
+  
+  [4X------------------------------------------------------------------[0X
+    [4Xgap> p1 := [[[1,1,2],[]],[1,-1]];;[0X
+    [4Xgap> p2 := [[[1,2,2],[]],[1,-1]];;[0X
+    [4Xgap> PrintNPList([p1,p2]);[0X
+    [4X a^2b - 1 [0X
+    [4X ab^2 - 1 [0X
+  [4X------------------------------------------------------------------[0X
+  
+  Consider also the following two vectors in NPM format.
+  
+  [4X------------------------------------------------------------------[0X
+    [4Xgap> v1 := [[[-1,1,2],[-1]],[1,-1]];;[0X
+    [4Xgap> v2 := [[[-2,2,2],[-2]],[1,-2]];;[0X
+    [4Xgap> PrintNPList([v1,v2]);[0X
+    [4X[ ab - 1 , 0][0X
+    [4X[ 0, b^2 - 2 ][0X
+  [4X------------------------------------------------------------------[0X
+  
+  The Gröbner basis record for this data is found by [2XSGrobnerModule[0m ([14X3.9-1[0m):
+  
+  [4X------------------------------------------------------------------[0X
+    [4Xgap> GBR := SGrobnerModule([v1,v2],[p1,p2]);;[0X
+    [4Xgap> PrintNPList(GBR.ts);[0X
+    [4X b - a [0X
+    [4X a^3 - 1 [0X
+    [4Xgap> PrintNPList(GBR.p);[0X
+    [4X[ 0, 1 ][0X
+    [4X[ a - 1 , 0][0X
+  [4X------------------------------------------------------------------[0X
+  
+  The  function [10XMulQM[0m computes the product of the vector [10Xw[0m with the polynomial
+  [10Xq[0m.
+  
+  [4X------------------------------------------------------------------[0X
+    [4Xgap> w := [[[-1,2],[-2,1]],[1,-4]];;[0X
+    [4Xgap> PrintNP(w);[0X
+    [4X[ b , - 4a ][0X
+    [4Xgap> q := [[[2,2,1],[1]],[2,3]];;[0X
+    [4Xgap> PrintNP(q);[0X
+    [4X 2b^2a + 3a [0X
+    [4Xgap> wq := MulQM(w,q,GBR);;[0X
+    [4Xgap> PrintNP(wq);[0X
+    [4X[ 5 , 0][0X
+  [4X------------------------------------------------------------------[0X
+  
+  [1X3.9-5 StrongNormalFormNPM[0m
+  
+  [2X> StrongNormalFormNPM( [0X[3Xf, GBR[0X[2X ) ____________________________________[0Xfunction
+  [6XReturns:[0X  The  strong  normal form of a polynomial in NP format with respect
+            to [3XGBR[0m
+  
+  When  invoked with a polynomial in NP format (see Section [14X2.1[0m) and a Gröbner
+  basis  record  [3XGBR[0m  (see  Section [14X2.8[0m), this function will return the strong
+  normal form (the polynomial reduced by the prefix and two-sided relations of
+  the Gröbner basis combination).
+  
+  This  function  assumes that [3XGBR.p[0m and [3XGBR.ts[0m are ordered (with the ordering
+  [2XLtNP[0m  ([14X3.3-9[0m)),  that  the  polynomials  in  [3XGBR.ts[0m are monic and clean (see
+  [2XMkMonicNP[0m ([14X3.3-11[0m) and [2XCleanNP[0m ([14X3.3-7[0m)), and that the polynomial [3Xf[0m is clean.
+  Note   that   a  Gröbner  basis  record  as  returned  by  a  function  like
+  [2XSGrobnerModule[0m ([14X3.9-1[0m) is in the required form.
+  
+  [13XExample:[0m Consider the following two polynomials in NP format.
+  
+  [4X------------------------------------------------------------------[0X
+    [4Xgap> p1 := [[[1,1,2],[]],[1,-1]];;[0X
+    [4Xgap> p2 := [[[1,2,2],[]],[1,-1]];;[0X
+    [4Xgap> PrintNPList([p1,p2]);[0X
+    [4X a^2b - 1 [0X
+    [4X ab^2 - 1 [0X
+  [4X------------------------------------------------------------------[0X
+  
+  Consider also the following two vectors in NPM format.
+  
+  [4X------------------------------------------------------------------[0X
+    [4Xgap> v1 := [[[-1,1,2],[-1]],[1,-1]];;[0X
+    [4Xgap> v2 := [[[-2,2,2],[-2]],[1,-2]];;[0X
+    [4Xgap> PrintNPList([v1,v2]);[0X
+    [4X[ ab - 1 , 0][0X
+    [4X[ 0, b^2 - 2 ][0X
+  [4X------------------------------------------------------------------[0X
+  
+  The Gröbner basis record for this data is found by [2XSGrobnerModule[0m ([14X3.9-1[0m):
+  
+  [4X------------------------------------------------------------------[0X
+    [4Xgap> GBR := SGrobnerModule([v1,v2],[p1,p2]);;[0X
+    [4Xgap> PrintNPList(GBR.ts);[0X
+    [4X b - a [0X
+    [4X a^3 - 1 [0X
+    [4Xgap> PrintNPList(GBR.p);[0X
+    [4X[ 0, 1 ][0X
+    [4X[ a - 1 , 0][0X
+  [4X------------------------------------------------------------------[0X
+  
+  The vector [10Xw[0m is brought into strong normal form with respect to [10XGBR[0m:
+  
+  [4X------------------------------------------------------------------[0X
+    [4Xgap> w := [[[-1,2],[-2,1]],[1,-4]];;[0X
+    [4Xgap> PrintNP(w);[0X
+    [4X[ b , - 4a ][0X
+    [4Xgap> v := StrongNormalFormNPM(w,GBR);;[0X
+    [4Xgap> PrintNP(v);[0X
+    [4X[ 1 , 0][0X
+  [4X------------------------------------------------------------------[0X
+  

@@ -1,0 +1,770 @@
+  
+  [1X1 NMO[0X
+  
+  
+  [1X1.1 Introduction[0X
+  
+  What  follows  is  a  description  of  the  largely  experimental project of
+  providing  arbitrary monomial orderings to the [5XGBNP[0m package. The addition of
+  the  orderings  comes  in  the  form  of a library, and a patch to [5XGBNP[0m; the
+  patching process being called at the [5XGBNP[0m user's discretion.
+  
+  More precisely, after a user creates a monomial ordering via the [5XNMO[0m library
+  functions,  a  routine  is  called  which  overwrites the two [5XGBNP[0m functions
+  "LtNP"  and  "GtNP".  In  [5XGBNP[0m,  these  latter  two functions are explicitly
+  length-lexicographic  monomial  comparison functions, and are used in GBNP's
+  Gröbner  Basis  routines. Therefore [5XNMO[0m allows for the creation of arbitrary
+  monomial  ordering  comparison functions, which, after the patching process,
+  will be used by GBNP in place of its native comparison functions.
+  
+  [5XNMO[0m is an acronym for Noncommutative Monomial Orderings. Such orderings play
+  a  key role in research surrounding noncommutative Gröbner basis theory; see
+  [Gre99],  [Mor94]. This package is geared primarily toward the use and study
+  of   noncommutative   (associative)   free   algebras  with  identity,  over
+  computational fields. We have done our best to write code that treats a more
+  general  class  of  algebras,  but the routines have not been as extensively
+  tested  in  those  cases.  Users  of  the  package are encouraged to provide
+  constructive  feedback  about this issue or any others; we have open ears to
+  ways to better these research tools.
+  
+  Flexibility in the creation and use of noncommutative monomial orderings has
+  been  our  guiding  principle  in  writing  [5XNMO[0m.  For example, two (or more)
+  orderings can be chained together to form new orderings. It should be noted,
+  however,  that  efficiency has also been considered in the design of [5XNMO[0m for
+  commonly  used  monomial  orderings  for  noncommutative  rings (e.g. length
+  left-lexicographic).  That  is  to  say,  some monomial orderings that occur
+  regularly in the study of noncommutative algebras have already been included
+  in [5XNMO[0m.
+  
+  Throughout  this  chapter,  methods  and  functions are generally classed as
+  [13XExternal[0m  and [13XInternal[0m routines. [13XExternal[0m routines are methods and functions
+  that  will  be  most useful to the average user, and generally work directly
+  with native [5XGAP[0m algebraic objects. [13XInternal[0m routines usually concern backend
+  operations  and mechanisms, and are often related to operations involving [13XNP
+  representations[0m of [5XGAP[0m algebraic elements, or they are related to attributes
+  of  monomial  orderings.  Many examples of basic code use are provided; with
+  some  examples following the reference material for the functions or methods
+  involved.
+  
+  
+  [1X1.2 NMO Files within GBNP[0X
+  
+  Per  the  [5XGAP[0m  package  standard,  [5XNMO[0m  library code is read in via the file
+  [10Xgbnp/read.g[0m.  The  following  gives  brief descriptions of each of the files
+  loaded   by   [10Xgbnp/read.g[0m,   all   of  which  reside  in  the  [10Xgbnp/lib/nmo/[0m
+  subdirectory:
+  
+  --    [10Xncalgebra.gd[0m
+  
+        Sets up some nice categories and filters in [5XGAP[0m.
+  
+  --    [10Xncordmachine.g*[0m
+  
+        Code  for  creating  the  new  [5XGAP[0m  family  of noncommutative monomial
+        orderings, as well as its attending (internal) machinery.
+  
+  --    [10Xncorderings.g*[0m
+  
+        Sets  up  actual noncommutative monomial orderings. This is where some
+        specific  example  routines  for  monomial orderings are included. The
+        less-than functions determining monomial orderings should be collected
+        here, e.g. the length left-lexicographic ordering is here.
+  
+  --    [10Xncinterface.g*[0m
+  
+        These   files   provide  the  interface  to  comparison  routines  for
+        determining   equivalence,   less-than,  and  greater-than  comparison
+        between two algebraic elements under a given [5XNMO[0m ordering.
+  
+  --    [10Xncutils.g*[0m
+  
+        Helpful  utility  routines, such as: patching [5XGBNP[0m for use with an [5XNMO[0m
+        ordering,  unpatching [5XGBNP[0m, as well as a `String' routine for elements
+        of an associative algebra not already covered in [5XGAP[0m.
+  
+  There is a documentation directory in [10Xgbnp/doc/nmo[0m wherein the [5XGAPDoc[0m source
+  for this chapter may be found.
+  
+  Finally,  there  is an examples directory in [10Xgbnp/doc/examples/nmo[0m where the
+  plain  [5XGAP[0m source can be found for the examples in the Quickstart section of
+  this chapter.
+  
+  
+  [1X1.3 Quickstart[0X
+  
+  This  Quickstart  assumes  you've  already installed the [5XGBNP[0m package in its
+  proper  home.  If  that's yet to be done, please see the [5XGBNP[0m package manual
+  for installation instructions.
+  
+  If  the  user wishes, cutting and pasting the commands which directly follow
+  the  [5XGAP[0m  prompt  [10Xgap>[0m  is  a  good  way to become familiar with [5XNMO[0m via the
+  examples  below. Alternatively, code for the following examples may be found
+  in [10Xgbnp/doc/examples/nmo/example0*.g[0m.
+  
+  This  Quickstart  covers  specific use of the [5XNMO[0m package's functionality as
+  pertaining  to  computing noncommutative Gröbner bases for various examples.
+  There  are  [5XNMO[0m  user-level routines beyond these Gröbner basis applications
+  that may be of interest, all of which are documented in later sections.
+  
+  
+  [1X1.3-1 NMO Example 1[0X
+  
+  Example  1  is  taken  from Dr. Edward Green's paper "Noncommutative Gröbner
+  Bases,  and  Projective  Resolutions",  and  is  referenced as "Example 2.7"
+  there; please see [Gre99] for more information.
+  
+  Load the [5XGBNP[0m package with:
+  
+  [4X---------------------------  Example  ----------------------------[0X
+    [4Xgap> LoadPackage("gbnp");[0X
+    [4Xtrue[0X
+  [4X------------------------------------------------------------------[0X
+  
+  Create  a  noncommutative free algebra on 4 generators over the Rationals in
+  [5XGAP[0m:
+  
+  [4X------------------------------------------------------------------[0X
+    [4Xgap> A := FreeAssociativeAlgebraWithOne(Rationals,"a","b","c","d");[0X
+    [4X<algebra-with-one over Rationals, with 4 generators> [0X
+  [4X------------------------------------------------------------------[0X
+  
+  Label the generators of the algebra:
+  
+  [4X---------------------------  Example  ----------------------------[0X
+    [4Xgap> a := A.a; b := A.b; c := A.c; d := A.d;[0X
+    [4X(1)*a[0X
+    [4X(1)*b[0X
+    [4X(1)*c[0X
+    [4X(1)*d[0X
+  [4X------------------------------------------------------------------[0X
+  
+  Set up our polynomials, and convert them to [5XGBNP[0m NP format:
+  
+  [4X---------------------------  Example  ----------------------------[0X
+    [4Xgap> polys := [c*d*a*b-c*b,b*c-d*a];[0X
+    [4X[ (-1)*c*b+(1)*c*d*a*b, (1)*b*c+(-1)*d*a ][0X
+    [4Xgap> reps := GP2NPList(polys);[0X
+    [4X[ [ [ [ 3, 4, 1, 2 ], [ 3, 2 ] ], [ 1, -1 ] ],[0X
+    [4X           [ [ [ 4, 1 ], [ 2, 3 ] ], [ -1, 1 ] ] ][0X
+  [4X------------------------------------------------------------------[0X
+  
+  Compute   the   Gröbner   basis   via   [5XGBNP[0m   using   its  default  (length
+  left-lexicographic)  ordering;  that  is,  without patching [5XGBNP[0m with an [5XNMO[0m
+  ordering:
+  
+  [4X---------------------------  Example  ----------------------------[0X
+    [4Xgap> gbreps := Grobner(reps);;[0X
+    [4Xgap> gb := NP2GPList(gbreps,A);[0X
+    [4X[ (1)*d*a+(-1)*b*c, (1)*c*b*c*b+(-1)*c*b ][0X
+  [4X------------------------------------------------------------------[0X
+  
+  Create  length left-lexicographic ordering, with generators ordered: a < b <
+  c  <  d. Note: this is the default ordering of generators by [5XNMO[0m, if none is
+  provided:
+  
+  [4X---------------------------  Example  ----------------------------[0X
+    [4Xgap> ml := NCMonomialLeftLengthLexOrdering(A);[0X
+    [4XNCMonomialLeftLengthLexicographicOrdering([ (1)*a, (1)*b, (1)*c, (1)*d ])[0X
+  [4X------------------------------------------------------------------[0X
+  
+  Patch  [5XGBNP[0m  with  the ordering [10Xml[0m, and then run the same example. We should
+  get the same answer as above:
+  
+  [4X---------------------------  Example  ----------------------------[0X
+    [4Xgap> PatchGBNP(ml);[0X
+    [4XLtNP patched.[0X
+    [4XGtNP patched.[0X
+    [4Xgap> gbreps := Grobner(reps);;[0X
+    [4Xgap> gb := NP2GPList(gbreps,A);[0X
+    [4X[ (1)*d*a+(-1)*b*c, (1)*c*b*c*b+(-1)*c*b ][0X
+  [4X------------------------------------------------------------------[0X
+  
+  Create a Length-Lexicographic ordering on the generators such that d < c < b
+  < a:
+  
+  [4X---------------------------  Example  ----------------------------[0X
+    [4Xgap> ml2 := NCMonomialLeftLengthLexOrdering(A,[4,3,2,1]);[0X
+    [4XNCMonomialLeftLengthLexicographicOrdering([ (1)*d, (1)*c, (1)*b, (1)*a ])[0X
+  [4X------------------------------------------------------------------[0X
+  
+  Compute  the  Gröbner  basis  with  respect to this new ordering on the same
+  algebra:
+  
+  [4X---------------------------  Example  ----------------------------[0X
+    [4Xgap> PatchGBNP(ml2);[0X
+    [4XLtNP patched.[0X
+    [4XGtNP patched.[0X
+    [4Xgap> gbreps2 := SGrobner(reps);;[0X
+    [4Xgap> gb2 := NP2GPList(gbreps2,A);[0X
+    [4X[ (1)*b*c+(-1)*d*a, (1)*c*d*a*b+(-1)*c*b, (1)*d*a*d*a*b+(-1)*d*a*b,[0X
+    [4X  (1)*c*d*a*d*a+(-1)*c*d*a, (1)*d*a*d*a*d*a+(-1)*d*a*d*a ][0X
+  [4X------------------------------------------------------------------[0X
+  
+  
+  [1X1.3-2 NMO Example 2[0X
+  
+  This  example  is  the  same  as Example 1 above, except that the length and
+  left-lexicographic  orderings  are created independently and then chained to
+  form the usual length left-lexicographic ordering. Hence, all results should
+  be the same. Note: we assume from this point forward in all further examples
+  that GBNP is loaded.
+  
+  Create  a  noncommutative  free  algebra on 4 generators over the Rationals,
+  label, and set up the example:
+  
+  [4X---------------------------  Example  ----------------------------[0X
+    [4Xgap> A := FreeAssociativeAlgebraWithOne(Rationals,"a","b","c","d");;[0X
+    [4Xgap> a := A.a;; b := A.b;; c := A.c;; d := A.d;;[0X
+    [4Xgap> polys := [c*d*a*b-c*b,b*c-d*a];;[0X
+    [4Xgap> reps := GP2NPList(polys);;[0X
+  [4X------------------------------------------------------------------[0X
+  
+  Create left-lexicographic ordering with a < b < c < d:
+  
+  [4X---------------------------  Example  ----------------------------[0X
+    [4Xgap> lexord := NCMonomialLeftLexicographicOrdering(A);[0X
+    [4XNCMonomialLeftLexicographicOrdering([ (1)*a, (1)*b, (1)*c, (1)*d ])[0X
+  [4X------------------------------------------------------------------[0X
+  
+  Create  a  length  ordering  on  monomials  in  A,  with  ties broken by the
+  lexicographic order [10Xlexord[0m:
+  
+  [4X---------------------------  Example  ----------------------------[0X
+    [4Xgap> lenlex := NCMonomialLengthOrdering(A,lexord);[0X
+    [4XNCMonomialLengthOrdering([ (1)*a, (1)*b, (1)*c, (1)*d ])[0X
+  [4X------------------------------------------------------------------[0X
+  
+  Patch [5XGBNP[0m and proceed with our example:
+  
+  [4X---------------------------  Example  ----------------------------[0X
+    [4Xgap> PatchGBNP(lenlex);;[0X
+    [4XLtNP patched.[0X
+    [4XGtNP patched.[0X
+    [4Xgap> gbreps := Grobner(reps);;[0X
+    [4Xgap> gb := NP2GPList(gbreps,A);[0X
+    [4X[ (1)*d*a+(-1)*b*c, (1)*c*b*c*b+(-1)*c*b ][0X
+  [4X------------------------------------------------------------------[0X
+  
+  Now,  proceed  similarly, with the lexicographic order such that d < c < b <
+  a:
+  
+  [4X---------------------------  Example  ----------------------------[0X
+    [4Xgap> lexord2 := NCMonomialLeftLexicographicOrdering(A,[4,3,2,1]);[0X
+    [4XNCMonomialLeftLexicographicOrdering([ (1)*d, (1)*c, (1)*b, (1)*a ])[0X
+    [4Xgap> lenlex2 := NCMonomialLengthOrdering(A,lexord2);[0X
+    [4XNCMonomialLengthOrdering([ (1)*a, (1)*b, (1)*c, (1)*d ])[0X
+    [4Xgap> PatchGBNP(lenlex2);;[0X
+    [4XLtNP patched.[0X
+    [4XGtNP patched.[0X
+    [4Xgap> gbreps2 := Grobner(reps);;[0X
+    [4Xgap> gb2 := NP2GPList(gbreps2,A);[0X
+    [4X[ (1)*b*c+(-1)*d*a, (1)*c*d*a*b+(-1)*c*b, (1)*d*a*d*a*b+(-1)*d*a*b,[0X
+    [4X  (1)*c*d*a*d*a+(-1)*c*d*a, (1)*d*a*d*a*d*a+(-1)*d*a*d*a ][0X
+  [4X------------------------------------------------------------------[0X
+  
+  An  important  point  can  be made here. Notice that when the [10Xlenlex2[0m length
+  ordering  is created, a lexicographic (generator) ordering table is assigned
+  internally  to the ordering since one was not provided to it. This is merely
+  a  convenience for lexicographically-dependent orderings, and in the case of
+  the  length  order,  it  is not used. Only the lex table for [10Xlexord2[0m is ever
+  used. Some clarification may be provided in examining:
+  
+  [4X---------------------------  Example  ----------------------------[0X
+    [4Xgap> HasNextOrdering(lenlex2);[0X
+    [4Xtrue[0X
+    [4Xgap> NextOrdering(lenlex2);[0X
+    [4XNCMonomialLeftLexicographicOrdering([ (1)*d, (1)*c, (1)*b, (1)*a ])[0X
+    [4Xgap> LexicographicTable(NextOrdering(lenlex2));[0X
+    [4X[ (1)*d, (1)*c, (1)*b, (1)*a ][0X
+  [4X------------------------------------------------------------------[0X
+  
+  
+  [1X1.3-3 NMO Example 3[0X
+  
+  Example  3  is  taken  from  the  book  "Ideals, Varieties, and Algorithms",
+  ([CLO97], Example 2, p. 93-94); it is a commutative example.
+  
+  First,  we  set  up the problem and find a Gröbner basis with respect to the
+  length left-lexicographic ordering implicitly assumed in [5XGBNP[0m:
+  
+  [4X---------------------------  Example  ----------------------------[0X
+    [4Xgap> A := FreeAssociativeAlgebraWithOne(Rationals,"x","y","z");;[0X
+    [4Xgap> x := A.x;; y := A.y;; z := A.z;; id := One(A);;[0X
+    [4Xgap> polys := [ x^2 + y^2 + z^2 - id, x^2 + z^2 - y, x-z,[0X
+    [4X>            x*y-y*x, x*z-z*x, y*z-z*y];;[0X
+    [4Xgap> reps := GP2NPList(polys);;[0X
+    [4Xgap> gb := Grobner(reps);;[0X
+    [4Xgap> NP2GPList(gb,A);[0X
+    [4X[ (1)*z+(-1)*x, (1)*x^2+(-1/2)*y, (1)*y*x+(-1)*x*y,[0X
+    [4X  (1)*y^2+(2)*x^2+(-1)*<identity ...> ][0X
+  [4X------------------------------------------------------------------[0X
+  
+  The  example,  as  presented in the book, uses a left-lexicographic ordering
+  with  z  <  y  <  x.  We create the ordering in [5XNMO[0m, patch [5XGBNP[0m, and get the
+  result expected:
+  
+  [4X---------------------------  Example  ----------------------------[0X
+    [4Xgap> ml := NCMonomialLeftLexicographicOrdering(A,[3,2,1]);[0X
+    [4XNCMonomialLeftLexicographicOrdering([ (1)*z, (1)*y, (1)*x ])[0X
+    [4Xgap> PatchGBNP(ml);[0X
+    [4XLtNP patched.[0X
+    [4XGtNP patched.[0X
+    [4Xgap> gb := Grobner(reps);;[0X
+    [4Xgap> NP2GPList(gb,A);[0X
+    [4X[ (1)*z^4+(1/2)*z^2+(-1/4)*<identity ...>, (1)*y+(-2)*z^2, (1)*x+(-1)*z ][0X
+  [4X------------------------------------------------------------------[0X
+  
+  
+  [1X1.3-4 NMO Example 4[0X
+  
+  Example  4  was  taken  from  page  339  of the book "Some Tapas of Computer
+  Algebra"  by  A.M.  Cohen, H. Cuypers, H. Sterk, [CCS99]; it also appears as
+  Example 6 in the [5XGBNP[0m example set.
+  
+  A  noncommutative free algebra on 6 generators over the Rationals is created
+  in [5XGAP[0m, and the generators are labeled:
+  
+  [4X---------------------------  Example  ----------------------------[0X
+    [4Xgap> A := FreeAssociativeAlgebraWithOne(Rationals,"a","b","c","d","e","f");;[0X
+    [4Xgap> a := A.a;; b := A.b;; c := A.c;; d := A.d;; e := A.e;; f := A.f;;[0X
+  [4X------------------------------------------------------------------[0X
+  
+  Set up list of noncommutative polynomials:
+  
+  [4X---------------------------  Example  ----------------------------[0X
+    [4Xgap> polys := [ e*a, a^3 + f*a, a^9 + c*a^3, a^81 + c*a^9 + d*a^3,[0X
+    [4X>            a^27 + d*a^81 + e*a^9 + f*a^3, b + c*a^27 + e*a^81 + f*a^9,[0X
+    [4X>            c*b + d*a^27 + f*a^81, a + d*b + e*a^27, c*a + e*b + f*a^27,[0X
+    [4X>            d*a + f*b, b^3 - b, a*b - b*a, a*c - c*a, a*d - d*a,[0X
+    [4X>            a*e - e*a, a*f - f*a, b*c - c*b, b*d - d*b, b*e - e*b,[0X
+    [4X>            b*f - f*b, c*d - d*c, c*e - e*c, c*f - f*c, d*e - e*d,[0X
+    [4X>            d*f - f*d, e*f - f*e[0X
+    [4X> ];;[0X
+    [4Xgap> reps := GP2NPList(polys);;[0X
+  [4X------------------------------------------------------------------[0X
+  
+  Create  a  length left-lex ordering with the following (default) ordering on
+  the generators a < b < c < d < e < f:
+  
+  [4X---------------------------  Example  ----------------------------[0X
+    [4Xgap> ml := NCMonomialLeftLengthLexOrdering(A);[0X
+    [4XNCMonomialLeftLengthLexicographicOrdering([ (1)*a, (1)*b, (1)*c, (1)*d,[0X
+    [4X   (1)*e, (1)*f ])[0X
+  [4X------------------------------------------------------------------[0X
+  
+  Patch [5XGBNP[0m and compute the Gröbner basis with respect to the ordering [10Xml[0m:
+  
+  [4X---------------------------  Example  ----------------------------[0X
+    [4Xgap> PatchGBNP(ml);[0X
+    [4XLtNP patched.[0X
+    [4XGtNP patched.[0X
+    [4Xgap> gb := Grobner(reps);;[0X
+    [4Xgap> NP2GPList(gb,A);[0X
+    [4X[ (1)*a, (1)*b, (1)*d*c+(-1)*c*d, (1)*e*c+(-1)*c*e,[0X
+    [4X  (1)*e*d+(-1)*d*e, (1)*f*c+(-1)*c*f,[0X
+    [4X  (1)*f*d+(-1)*d*f, (1)*f*e+(-1)*e*f ][0X
+  [4X------------------------------------------------------------------[0X
+  
+  
+  [1X1.4 Orderings[0X
+  
+  This section describes the current orderings built into the [5XGAP[0m package [5XNMO[0m,
+  and describes some of the internals of the machinery involved.
+  
+  
+  [1X1.4-1 Internals[0X
+  
+  The   orderings   portion   of  [5XNMO[0m  is  divided  codewise  into  the  files
+  [10Xncordmachine.gd,  ncordmachine.gi[0m  and  [10Xncorderings.gd,  ncorderings.gi[0m. The
+  former  file  pair  contains  code  to  set  up  the machinery to create new
+  monomial  orderings  on  noncommutative algebras, whereas the latter sets up
+  actual  orderings.  We  will  first  describe the creation and use of length
+  lexicographic  ordering, afterward describing more of the details of the new
+  [5XGAP[0m family `NoncommutativeMonomialOrdering'.
+  
+  The  [5XNMO[0m package was built with the mindset of allowing great flexibility in
+  creating  new  monomial  orderings  on  noncommutative algebras. All that is
+  required  to  install  a  new  ordering  is to create two [5XGAP[0m functions that
+  determine  less-than comparisons (one non-indexed, and one indexed) and then
+  call  [10XInstallNoncommutativeMonomialOrdering[0m with the comparison functions as
+  arguments.  The  comparison  functions  should  be written to compare simple
+  lists  of  integers,  these  lists  representing monomials as in [5XGBNP[0m's `NP'
+  format,  or  the  letter  representation  format  in  [5XGAP[0m (see "The External
+  Representation  for  Associative  Words"  in  the  [5XGAP[0m reference manual). An
+  example      follows      the      description      of      the     function
+  [10XInstallNoncommutativeMonomialOrdering[0m.
+  
+  A  bit of explanation is due here to address the added complexity introduced
+  by  requiring  that two functions [10X(<function>, <function2>)[0m need be supplied
+  to  [10XInstallNoncommutativeMonomialOrdering[0m  to  create an ordering. The first
+  function  [10X<function>[0m  should be responsible for comparing two given monomial
+  list  representations  in  their  unadultered  forms.  The  second, indexed,
+  function  [10X<function2>[0m  should  be  capable  of  using  a provided index list
+  corresponding  to an order on generators, based on a different lexicographic
+  ordering.   This  accomplishes  something  worthwhile:  two  orderings  with
+  different lexicographic tables can be applied to the same algebra in [5XGAP[0m.
+  
+  One more caveat: [10XInstallNoncommutativeMonomialOrdering[0m will create a default
+  lexicographic  table  for  all  orderings, despite whether or not it will be
+  used  in  the  comparison function. It does this only out of convenience and
+  ease of use.
+  
+  For  example,  in  the creation of the following left-lex ordering, which is
+  installed  via the [10XInstallNoncommutativeMonomialOrdering[0m function, a default
+  ordering  of  a  <  b  <  c is created for [10Xml[0m even though an ordering on the
+  generators is not provided:
+  
+  [4X---------------------------  Example  ----------------------------[0X
+    [4Xgap> A := FreeAssociativeAlgebraWithOne(Rationals,"a","b","c");[0X
+    [4X<algebra-with-one over Rationals, with 3 generators>[0X
+    [4Xgap> lexord := NCMonomialLeftLexicographicOrdering(A);[0X
+    [4XNCMonomialLeftLexicographicOrdering([ (1)*a, (1)*b, (1)*c ])[0X
+  [4X------------------------------------------------------------------[0X
+  
+  Notice  next  that  when  an  ordering  on the generators is provided, it is
+  utilized in the creation of the ordering:
+  
+  [4X---------------------------  Example  ----------------------------[0X
+    [4Xgap> lexord2 := NCMonomialLeftLexicographicOrdering(A,[2,3,1]);[0X
+    [4XNCMonomialLeftLexicographicOrdering([ (1)*b, (1)*c, (1)*a ])[0X
+  [4X------------------------------------------------------------------[0X
+  
+  
+  [1X1.4-2 Internal Routines[0X
+  
+  [2X> InstallNoncommutativeMonomialOrdering( [0X[3X<string>, <function>, <function2>[0X[2X ) [0Xfunction
+  
+  Given  a  name  [10X<string>[0m,  a  direct  comparison function [10X<function>[0m, and an
+  indexed             comparison             function             [10X<function2>[0m,
+  [10XInstallNoncommutativeMonomialOrdering[0m   will  install  a  monomial  ordering
+  function  to allow the creation of a monomial ordering based on the provided
+  functions.
+  
+  For  example,  we  create a length ordering by setting up the two comparison
+  functions,   choosing  a  name  for  the  ordering  type  and  then  calling
+  [10XInstallNoncommutativeMonomialOrdering[0m.
+  
+  [4X---------------------------  Example  ----------------------------[0X
+    [4X  gap> f1 := function(a,b,aux)[0X
+    [4X  >   return Length(a) < Length(b);[0X
+    [4X  > end;[0X
+    [4X  function( a, b, aux ) ... end[0X
+    [4X  gap> f2 := function(a,b,aux,idx)[0X
+    [4X  >   return Length(a) < Length(b);[0X
+    [4X  > end;[0X
+    [4X  function( a, b, aux, idx ) ... end[0X
+    [4X  [0X
+    [4X  DeclareGlobalFunction("lenOrdering");[0X
+    [4X  InstallNoncommutativeMonomialOrdering("lenOrdering",f1,f2);[0X
+    [4X  [0X
+  [4X------------------------------------------------------------------[0X
+  
+  Now  we  create an ordering based on this new function, and make some simple
+  comparisons.  (Note:  we  are  passing in an empty [10Xaux[0m table since it is not
+  being  used.  Also, the comparison function is the non-indexed version since
+  we determined no lex order on the generators):
+  
+  [4X---------------------------  Example  ----------------------------[0X
+    [4X  gap> A := FreeAssociativeAlgebraWithOne(Rationals,"a","b","c");[0X
+    [4X  <algebra-with-one over Rationals, with 3 generators>[0X
+    [4X  gap> ml := lenOrdering(A);[0X
+    [4X  lenOrdering([ (1)*a, (1)*b, (1)*c ])[0X
+    [4X  gap>[0X
+    [4X  gap> LtFunctionListRep(ml)([1,2],[1,1,1],[]);[0X
+    [4X  true[0X
+    [4X  gap> LtFunctionListRep(ml)([1,1],[],[]);[0X
+    [4X  false[0X
+    [4X  [0X
+  [4X------------------------------------------------------------------[0X
+  
+  [2X> IsNoncommutativeMonomialOrdering( [0X[3X<obj>[0X[2X ) ________________________[0XCategory
+  
+  A  noncommutative  monomial  ordering  is  an object representing a monomial
+  ordering on a noncommutative (associative) algebra. All [5XNMO[0m orderings are of
+  this category.
+  
+  [2X> LtFunctionListRep( [0X[3X<NoncommutativeMonomialOrdering>[0X[2X ) ___________[0Xattribute
+  
+  Returns  the  low-level  comparison function used by the given ordering. The
+  function  returned  is a comparison function on the external representations
+  (lists) for monomials in the algebra.
+  
+  [2X> NextOrdering( [0X[3X<NoncommutativeMonomialOrdering>[0X[2X ) ________________[0Xattribute
+  
+  Returns  the  next  noncommutative  monomial  ordering  chained to the given
+  ordering, if one exists. It is usually called after a [10Xtrue[0m determination has
+  been made with a [10XHasNextOrdering[0m call.
+  
+  [2X> ParentAlgebra( [0X[3X<NoncommutativeMonomialOrdering>[0X[2X ) _______________[0Xattribute
+  
+  Returns the parent algebra used in the creation of the given ordering.
+  
+  [2X> LexicographicTable( [0X[3X<NoncommutativeMonomialOrdering>[0X[2X ) __________[0Xattribute
+  
+  Returns the ordering of the generators of the [10XParentAlgebra[0m, as specified in
+  the creation of the given ordering.
+  
+  [2X> LexicographicIndexTable( [0X[3X<NoncommutativeMonomialOrdering>[0X[2X ) _____[0Xattribute
+  
+  Returns the ordering of the generators of the [10XParentAlgebra[0m, as specified in
+  the creation of the given ordering.
+  
+  An  example  here  would  be  useful.  We create a length left-lexicographic
+  ordering  on  an algebra [10XA[0m with an order on the generators of b < a < d < c.
+  Then  in  accessing  the  attributes via the atrributes above we see how the
+  list given by [10XLexicographicIndexTable[0m indexes the ordered generators:
+  
+  [4X---------------------------  Example  ----------------------------[0X
+    [4Xgap> A := FreeAssociativeAlgebraWithOne(Rationals,"a","b","c","d");[0X
+    [4X<algebra-with-one over Rationals, with 4 generators>[0X
+    [4Xgap> ml := NCMonomialLeftLengthLexOrdering(A,2,4,1,3);[0X
+    [4XNCMonomialLeftLengthLexicographicOrdering([ (1)*b, (1)*d, (1)*a, (1)*c ])[0X
+    [4Xgap>  LexicographicTable(ml);[0X
+    [4X[ (1)*b, (1)*d, (1)*a, (1)*c ][0X
+    [4Xgap> LexicographicIndexTable(ml);[0X
+    [4X[ 3, 1, 4, 2 ][0X
+  [4X------------------------------------------------------------------[0X
+  
+  The  index  table  shows  that the generator a is the third in the generator
+  ordering,  b is the least generator in the ordering, c is the greatest and d
+  the second least in order.
+  
+  [2X> LexicographicPermutation( [0X[3X<NoncommutativeMonomialOrdering>[0X[2X ) ____[0Xattribute
+  
+  Experimental  permutation  based  on  the information in [10XLexicographicTable[0m,
+  could possibly be used to make indexed versions of comparison functions more
+  efficient.    Currently   only   used   by   the   [5XNMO[0m   built-in   ordering
+  [10XNCMonomialLLLTestOrdering[0m.
+  
+  [2X> AuxilliaryTable( [0X[3X<NoncommutativeMonomialOrdering>[0X[2X ) _____________[0Xattribute
+  
+  An  extra  table  carried  by  the given ordering which can be used for such
+  things as weight vectors, etc.
+  
+  [2X> OrderingLtFunctionListRep( [0X[3X<NoncommutativeMonomialOrdering>[0X[2X ) ___[0Xoperation
+  
+  [2X> OrderingGtFunctionListRep( [0X[3X<NoncommutativeMonomialOrdering>[0X[2X ) ___[0Xoperation
+  
+  Given  a  noncommutative  monomial  ordering,  [10XOrderingLtFunctionListRep[0m and
+  [10XOrderingLtFunctionListRep[0m   return   functions   which  compare  the  `list'
+  representations  (NP  representations)  of two monomials from the ordering's
+  associated parent algebra. These functions are not typically accessed by the
+  user.
+  
+  
+  [1X1.4-3 Provided Orderings[0X
+  
+  [2X> NCMonomialLeftLengthLexicographicOrdering( [0X[3X<algebra>, <list>[0X[2X ) ___[0Xfunction
+  
+  Given  a  free algebra A, and an optional ordered (possibly partial) ordered
+  list        of        generators        for       the       algebra       A,
+  [10XNCMonomialLeftLengthLexicographicOrdering[0m  returns  a  noncommutative length
+  lexicographic ordering object. If an ordered list of generators is provided,
+  its  order  is  used  in  creation  of the ordering object. If a list is not
+  provided,  then  the  ordering  object  is created based on the order of the
+  generators when the free algebra A was created.
+  
+  Note: the synonym [10XNCMonomialLeftLengthLexOrdering[0m may also be used.
+  
+  [2X> NCMonomialLengthOrdering( [0X[3X<algebra>[0X[2X ) ____________________________[0Xfunction
+  
+  Given  a  free  algebra A, [10XNCMonomialLengthOrdering[0m returns a noncommutative
+  length  ordering object. Only the lengths of the words of monomials in A are
+  compared using this ordering.
+  
+  [2X> NCMonomialLeftLexicographicOrdering( [0X[3X<algebra>, <list>[0X[2X ) _________[0Xfunction
+  
+  Given  a  free algebra A, and an optional ordered (possibly partial) ordered
+  list  of  generators  for the algebra A, [10XNCMonomialLeftLexicographicOrdering[0m
+  returns a simple noncommutative left-lexicographic ordering object.
+  
+  [2X> NCMonomialCommutativeLexicographicOrdering( [0X[3X<algebra>, <list>[0X[2X ) __[0Xfunction
+  
+  Given  a  free algebra A, and an optional ordered (possibly partial) ordered
+  list        of        generators        for       the       algebra       A,
+  [10XNCMonomialCommutativeLexicographicOrdering[0m     returns     a     commutative
+  left-lexicographic  ordering  object.  Under this ordering, monomials from A
+  are compared using their respective commutative analogues.
+  
+  [2X> NCMonomialWeightOrdering( [0X[3X<algebra>, <list>, <list2>[0X[2X ) ___________[0Xfunction
+  
+  Given  a  free  algebra  A,  an ordered (possibly partial) ordered [10X<list>[0m of
+  generators  for  the  algebra A, and a [10X<list2>[0m of respective weights for the
+  generators,   [10XNCMonomialWeightOrdering[0m   returns   a  noncommutative  weight
+  ordering object.
+  
+  
+  [1X1.4-4 Externals[0X
+  
+  All  user-level  interface  routines in the descriptions following allow for
+  the  comparison of not only monomials from a given algebra with respect to a
+  given  ordering,  but  also  compare  general  elements  from  an algebra by
+  comparing  their  leading terms (again, with respect to the given ordering).
+  These routines are located in the files [10Xncinterface.gd[0m and [10Xncinterface.gi[0m.
+  
+  
+  [1X1.4-5 External Routines[0X
+  
+  [2X> NCLessThanByOrdering( [0X[3X<NoncommutativeMonomialOrdering>, <a>, <b>[0X[2X ) [0Xoperation
+  
+  Given  a  [10X<NoncommutativeMonomialOrdering>[0m  on  an  algebra  A and a,b in A,
+  [10XNCLessThanByOrdering[0m  returns  the  (boolean)  result  of  a  <  b,  where <
+  represents       the       comparison       operator      determined      by
+  [10X<NoncommutativeMonomialOrdering>[0m.
+  
+  [2X> NCGreaterThanByOrdering( [0X[3X<NoncommutativeMonomialOrdering>, <a>, <b>[0X[2X ) [0Xoperation
+  
+  Given  a  [10X<NoncommutativeMonomialOrdering>[0m  on  an  algebra  A and a,b in A,
+  [10XNCLessThanByOrdering[0m  returns  the  (boolean)  result  of  a  >  b,  where >
+  represents       the       comparison       operator      determined      by
+  [10X<NoncommutativeMonomialOrdering>[0m.
+  
+  [2X> NCEquivalentByOrdering( [0X[3X<NoncommutativeMonomialOrdering>, <a>, <b>[0X[2X ) [0Xoperation
+  
+  Given  a  [10X<NoncommutativeMonomialOrdering>[0m  on  an  algebra  A and a,b in A,
+  [10XNCLessThanByOrdering[0m  returns  the  (boolean)  result  of  a  =  b,  where =
+  represents       the       comparison       operator      determined      by
+  [10X<NoncommutativeMonomialOrdering>[0m.
+  
+  Some examples of these methods in use:
+  
+  [4X---------------------------  Example  ----------------------------[0X
+    [4Xgap> A := FreeAssociativeAlgebraWithOne(Rationals,"x","y","z");[0X
+    [4X<algebra-with-one over Rationals, with 3 generators>[0X
+    [4Xgap> x := A.x;; y := A.y;; z := A.z;; id := One(A);;[0X
+    [4Xgap> w1 := x*x*y;; w2 := x*y*x;; w3 := z*x;;[0X
+    [4X[0X
+    [4Xgap> ml := NCMonomialLeftLengthLexOrdering(A);[0X
+    [4XNCMonomialLeftLengthLexicographicOrdering([ (1)*x, (1)*y, (1)*z ])[0X
+    [4X[0X
+    [4Xgap> ml2 := NCMonomialLengthOrdering(A);[0X
+    [4XNCMonomialLengthOrdering([ (1)*x, (1)*y, (1)*z ])[0X
+    [4X[0X
+    [4Xgap> ml7 := NCMonomialWeightOrdering(A,[1,2,3],[1,1,2]);[0X
+    [4XNCMonomialWeightOrdering([ (1)*x, (1)*y, (1)*z ])[0X
+    [4X[0X
+    [4Xgap> ml8 := NCMonomialWeightOrdering(A,[2,3,1],[1,1,2]);[0X
+    [4XNCMonomialWeightOrdering([ (1)*y, (1)*z, (1)*x ])[0X
+    [4X[0X
+    [4Xgap> #  Left length-lex ordering, x<y<z:[0X
+    [4Xgap> NCEquivalentByOrdering(ml,w1,w2);[0X
+    [4Xfalse[0X
+    [4Xgap> #  Length ordering:[0X
+    [4Xgap> NCEquivalentByOrdering(ml2,w1,w2);[0X
+    [4Xtrue[0X
+    [4Xgap> NCEquivalentByOrdering(ml2,w3,w2);[0X
+    [4Xfalse[0X
+    [4Xgap> # Weight ordering ( z=2, x=y=1 ):[0X
+    [4Xgap> NCEquivalentByOrdering(ml7,w1,w2);[0X
+    [4Xtrue[0X
+    [4Xgap> NCEquivalentByOrdering(ml7,w3,w2);[0X
+    [4Xtrue[0X
+    [4Xgap> # Weight ordering ( z=2, x=y=1 ), different lex:[0X
+    [4Xgap> NCEquivalentByOrdering(ml8,w1,w2);[0X
+    [4Xtrue[0X
+    [4Xgap> NCEquivalentByOrdering(ml8,w3,w2);[0X
+    [4Xtrue[0X
+  [4X------------------------------------------------------------------[0X
+  
+  [2X> NCSortNP( [0X[3X<NoncommutativeMonomialOrdering>, <list>, <function>[0X[2X ) [0Xoperation
+  
+  Given   a   [10X<list>[0m  of  NP  `list'  representations  for  monomials  from  a
+  noncommutative algebra, and an NP comparison (ordering) function [10X<function>[0m,
+  [10XNCSortNP[0m  returns  a  sorted  version  of  [10X<list>[0m  (with  respect  to the NP
+  comparison  function  [10X<function>[0m).  The sort used here is an insertion sort,
+  per the recommendation from [NR02].
+  
+  
+  [1X1.4-6 Flexibility vs. Efficiency[0X
+  
+  We  recall  that  [10XInstallNoncommutativeMonomialOrdering[0m  completes a list of
+  generators  if  only  a  partial  one  is  provided. An example will provide
+  clarity  here.  It  is  given in terms of length-lex, but the generator list
+  completion  functionality is identical for any [5XNMO[0m ordering. Note: If at all
+  possible,  users are encouraged to use the default ordering on generators as
+  it  is  more  efficient  than  the  indirection  inherent in sorting via the
+  indexed  list  [10XLexicographicIndexTable[0m.  Here  is  the  example  showing the
+  flexibility in requiring only a partial list of the ordering on generators:
+  
+  [4X---------------------------  Example  ----------------------------[0X
+    [4Xgap> A := FreeAssociativeAlgebraWithOne(Rationals,"a","b","c","d");[0X
+    [4X<algebra-with-one over Rationals, with 4 generators>[0X
+    [4Xgap> ml2 := NCMonomialLeftLengthLexOrdering(A,[3,1]);[0X
+    [4XNCMonomialLeftLengthLexicographicOrdering([ (1)*c, (1)*a, (1)*b, (1)*d ])[0X
+    [4Xgap> LexicographicTable(ml2);[0X
+    [4X[ (1)*c, (1)*a, (1)*b, (1)*d ][0X
+  [4X------------------------------------------------------------------[0X
+  
+  
+  [1X1.5 Utility Routines[0X
+  
+  
+  [1X1.5-1 GBNP Patching Routines[0X
+  
+  [2X> PatchGBNP( [0X[3X<NoncommutativeMonomialOrdering>[0X[2X ) ___________________[0Xoperation
+  
+  [2X> UnpatchGBNP( [0X[3X[0X[2X ) __________________________________________________[0Xfunction
+  
+  Let  [10X<NoncommutativeMonomialOrdering>[0m  be a monomial ordering (on an algebra
+  A).  [10XPatchGBNP[0m  overwrites  the [5XGBNP[0m Global functions [10XLtNP[0m and [10XGtNP[0m with the
+  less-than       and       greater-than       functions      defined      for
+  [10X<NoncommutativeMonomialOrdering>[0m. The purpose of such a patching is to force
+  [5XGBNP[0m to use [10X<NoncommutativeMonomialOrdering>[0m in its computation of a Gröbner
+  basis.  [10XUnpatchGBNP()[0m  simply  restores the [10XLtNP[0m and [10XGtNP[0m functions to their
+  original  state.  The  examples in Quickstart section are more illustrative,
+  but here is an example of the use of the patching routines above:
+  
+  [4X---------------------------  Example  ----------------------------[0X
+    [4Xgap> A := FreeAssociativeAlgebraWithOne(Rationals,"x","y","z");[0X
+    [4X<algebra-with-one over Rationals, with 3 generators>[0X
+    [4Xgap> ml := NCMonomialLeftLexicographicOrdering(A,3,2,1);[0X
+    [4XNCMonomialLeftLexicographicOrdering([ (1)*z, (1)*y, (1)*x ])[0X
+    [4Xgap> PatchGBNP(ml);[0X
+    [4XLtNP patched.[0X
+    [4XGtNP patched.[0X
+    [4Xgap> UnpatchGBNP();[0X
+    [4XLtNP restored.[0X
+    [4XGtNP restored.[0X
+  [4X------------------------------------------------------------------[0X
+  
+  
+  [1X1.5-2 Printing Routine[0X
+  
+  [2X> String( [0X[3X<obj>[0X[2X ) _________________________________________________[0Xoperation
+  
+  [5XGAP[0m  seems to be currently lacking a method to convert an object from a free
+  associative  ring to a string version of the same object. This routine fills
+  that gap.
+  
+  Example (after loading [5XNMO[0m via the [5XGBNP[0m package):
+  
+  [4X---------------------------  Example  ----------------------------[0X
+    [4Xgap> A := FreeAssociativeAlgebraWithOne(ZmodpZ(19),"x","y");[0X
+    [4X<algebra-with-one over GF(19), with 2 generators>[0X
+    [4Xgap> x := A.x; y := A.y;[0X
+    [4X(Z(19)^0)*x[0X
+    [4X(Z(19)^0)*y[0X
+    [4Xgap> IsString(String(x^2+x*y*x));[0X
+    [4Xtrue[0X
+    [4Xgap> String(x^2+x*y*x);[0X
+    [4X"(Z(19)^0)*x^2+(Z(19)^0)*x*y*x"[0X
+  [4X------------------------------------------------------------------[0X
+  
+  Example (before loading [5XNMO[0m via the [5XGBNP[0m package):
+  
+  [4X---------------------------  Example  ----------------------------[0X
+    [4Xgap>  A := FreeAssociativeAlgebraWithOne(ZmodpZ(19),"x","y");[0X
+    [4X<lgebra-with-one over GF(19), with 2 generators>[0X
+    [4Xgap> x := A.x; y := A.y;[0X
+    [4X(Z(19)^0)*x[0X
+    [4X(Z(19)^0)*y[0X
+    [4Xgap>  String(x^2+x*y*x);[0X
+    [4XError, no method found! For debugging hints type ?Recovery from NoMethodFound[0X
+    [4XError, no 1st choice method found for `String' on 1 arguments called from[0X
+    [4X<function>( <arguments> ) called from read-eval-loop[0X
+    [4XEntering break read-eval-print loop ...[0X
+    [4Xyou can 'quit;' to quit to outer loop, or[0X
+    [4Xyou can 'return;' to continue[0X
+    [4Xbrk>[0X
+  [4X------------------------------------------------------------------[0X
+  

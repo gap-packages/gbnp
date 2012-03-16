@@ -1,0 +1,147 @@
+gap> ######################### BEGIN COPYRIGHT MESSAGE #########################
+GBNP - computing Gröbner bases of noncommutative polynomials
+Copyright 2001-2010 by Arjeh M. Cohen, Dié A.H. Gijsbers, Jan Willem
+Knopper, Chris Krook. Address: Discrete Algebra and Geometry (DAM) group
+at the Department of Mathematics and Computer Science of Eindhoven
+University of Technology.
+
+For acknowledgements see the manual. The manual can be found in several
+formats in the doc subdirectory of the GBNP distribution. The
+acknowledgements formatted as text can be found in the file chap0.txt.
+
+GBNP is free software; you can redistribute it and/or modify it under
+the terms of the Lesser GNU General Public License as published by the
+Free Software Foundation (FSF); either version 2.1 of the License, or
+(at your option) any later version. For details, see the file 'LGPL' in
+the doc subdirectory of the GBNP distribution or see the FSF's own site:
+http://www.gnu.org/licenses/lgpl.html
+gap> ########################## END COPYRIGHT MESSAGE ##########################
+
+gap> ### filename = "example17.g"
+gap> ### authors Knopper
+
+gap> ### THIS IS A GAP PACKAGE GBNP
+gap> ### FOR COMPUTING WITH NON-COMMUTATIVE POLYNOMIALS
+gap> ### $Id: example17.g,v 1.4 2004/04/15 15:07:40 jwk Exp $
+
+<#GAPDoc Label="Example17">
+<Section Label="Example17"><Heading>An algebra over a finite field</Heading>
+A small example over a field other than the rationals, using the conversion
+functions from <Ref Sect="TransitionFunctions"/>.
+The input relations define the symmetric group of degree 3, 
+denoted <M>S_3</M>.
+<P/>
+First load the package and set the standard infolevel <Ref
+InfoClass="InfoGBNP" Style="Text"/> to 2 and the time infolevel <Ref
+Func="InfoGBNPTime" Style="Text"/> to 1 (for more information about the info
+level, see Chapter <Ref Chap="Info"/>).
+
+<Listing><![CDATA[
+gap> LoadPackage("GBNP","0",false);;
+gap> SetInfoLevel(InfoGBNP,2);
+gap> SetInfoLevel(InfoGBNPTime,1);
+]]></Listing>
+
+Let <C>F</C> be the field GF(2). The relations can be
+entered as elements of a free associative algebra with one <C>A</C> (see
+<Ref BookName="Reference" Label="FreeAssociativeAlgebraWithOne"/>).
+
+<Listing><![CDATA[
+gap> F:=GF(2);;
+gap> A:=FreeAssociativeAlgebraWithOne(F,"a","b");
+<algebra-with-one over GF(2), with 2 generators>
+gap> g:=GeneratorsOfAlgebraWithOne(A);
+[ (Z(2)^0)*a, (Z(2)^0)*b ]
+]]></Listing>
+
+Enter the relations <M>\{a^2-1,b^2-1,(ab)^3-1\}</M>, convert them to NP-form,
+see Section <Ref Sect="NP"/>, with <Ref Func="GP2NPList" Style="Text"/> and
+print them with <Ref Func="PrintNPList" Style="Text"/>:
+
+<Listing><![CDATA[
+gap> KI_GP := [ g[1]^2-g[1]^0, g[2]^2-g[1]^0, (g[1]*g[2])^3-g[1]^0];
+[ (Z(2)^0)*<identity ...>+(Z(2)^0)*a^2, (Z(2)^0)*<identity ...>+(Z(2)^0)*b^2, 
+  (Z(2)^0)*<identity ...>+(Z(2)^0)*a*b*a*b*a*b ]
+gap> KI:=GP2NPList(KI_GP);;
+gap> PrintNPList(KI);
+ a^2 + Z(2)^0 
+ b^2 + Z(2)^0 
+ ababab + Z(2)^0 
+]]></Listing>
+
+Now calculate the Gröbner basis with <Ref Func="SGrobner" Style="Text"/> and
+print it with <Ref Func="PrintNPList" Style="Text"/>:
+
+<Listing><![CDATA[
+gap> GB:=SGrobner(KI);;
+#I  number of entered polynomials is 3
+#I  number of polynomials after reduction is 3
+#I  End of phase I
+#I  End of phase II
+#I  length of G =3
+#I  length of todo is 2
+#I  length of G =3
+#I  length of todo is 1
+#I  length of G =3
+#I  length of todo is 0
+#I  List of todo lengths is [ 2, 2, 1, 0 ]
+#I  End of phase III
+#I  G: Cleaning finished, 0 polynomials reduced
+#I  End of phase IV
+#I  The computation took 8 msecs.
+gap> PrintNPList(GB);
+ a^2 + Z(2)^0 
+ b^2 + Z(2)^0 
+ bab + aba 
+]]></Listing>
+
+Now calculate the dimension of the quotient algebra with <Ref Func="DimQA"
+Style="Text"/> (2 symbols) and a base with <Ref Func="BaseQA" Style="Text"/> 
+(2 symbols, 0 for whole base) and print the base. 
+This will give a list of elements of the group.
+
+<Listing><![CDATA[
+gap> DimQA(GB,2);
+6
+gap> B:=BaseQA(GB,2,0);;
+gap> PrintNPList(B);
+ Z(2)^0 
+ a 
+ b 
+ ab 
+ ba 
+ aba 
+]]></Listing>
+
+We can print the Gröbner basis and the basis of the quotient algebra,
+converted back to GAP polynomials with <Ref Func="NP2GPList" Style="Text"/>.
+The functions used to convert the polynomials also require the algebra as an
+argument. The result is useful for further computations in <M>A</M>.
+
+<Listing><![CDATA[
+gap> NP2GPList(GB,A);
+[ (Z(2)^0)*a^2+(Z(2)^0)*<identity ...>, (Z(2)^0)*b^2+(Z(2)^0)*<identity ...>, 
+  (Z(2)^0)*b*a*b+(Z(2)^0)*a*b*a ]
+gap> NP2GPList(B,A);
+[ (Z(2)^0)*<identity ...>, (Z(2)^0)*a, (Z(2)^0)*b, (Z(2)^0)*a*b, 
+  (Z(2)^0)*b*a, (Z(2)^0)*a*b*a ]
+]]></Listing>
+
+The matrix of right multiplication with the image of the
+first variable
+can be computed by <Ref Func="MatrixQA" Style="Text"/>.
+<Listing><![CDATA[
+gap> Display(MatrixQA(1,B,GB));
+ . 1 . . . .
+ 1 . . . . .
+ . . . . 1 .
+ . . . . . 1
+ . . 1 . . .
+ . . . 1 . .
+]]></Listing>
+
+
+
+
+</Section>
+<#/GAPDoc>

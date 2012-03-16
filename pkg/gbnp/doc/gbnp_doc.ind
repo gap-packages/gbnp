@@ -1,0 +1,96 @@
+\begin{theindex}
+
+  \item \texttt  {AddNP}, \hyperpage{21}
+
+  \indexspace
+
+  \item \texttt  {BaseQA}, \hyperpage{29}
+  \item \texttt  {BaseQATrunc}, \hyperpage{40}
+  \item \texttt  {BaseQM}, \hyperpage{44}
+  \item \texttt  {BimulNP}, \hyperpage{21}
+
+  \indexspace
+
+  \item \texttt  {CheckHomogeneousNPs}, \hyperpage{40}
+  \item \texttt  {CleanNP}, \hyperpage{22}
+
+  \indexspace
+
+  \item \texttt  {DetermineGrowthQA}, \hyperpage{34}
+  \item \texttt  {DimQA}, \hyperpage{30}
+  \item \texttt  {DimQM}, \hyperpage{46}
+  \item \texttt  {DimsQATrunc}, \hyperpage{42}
+
+  \indexspace
+
+  \item \texttt  {EvalTrace}, \hyperpage{36}
+
+  \indexspace
+
+  \item \texttt  {FinCheckQA}, \hyperpage{35}
+  \item \texttt  {FreqsQATrunc}, \hyperpage{42}
+
+  \indexspace
+
+  \item \texttt  {GBNP.ConfigPrint}, \hyperpage{18}
+  \item \texttt  {GP2NP}, \hyperpage{14}
+  \item \texttt  {GP2NPList}, \hyperpage{15}
+  \item \texttt  {Grobner}, \hyperpage{24}
+  \item \texttt  {GtNP}, \hyperpage{22}
+
+  \indexspace
+
+  \item \texttt  {HilbertSeriesQA}, \hyperpage{35}
+
+  \indexspace
+
+  \item \texttt  {InfoGBNP}, \hyperpage{49}
+  \item \texttt  {InfoGBNPTime}, \hyperpage{50}
+  \item \texttt  {IsGrobnerBasis}, \hyperpage{27}
+  \item \texttt  {IsGrobnerPair}, \hyperpage{28}
+  \item \texttt  {IsStrongGrobnerBasis}, \hyperpage{27}
+
+  \indexspace
+
+  \item \texttt  {LMonsNP}, \hyperpage{23}
+  \item \texttt  {LtNP}, \hyperpage{23}
+
+  \indexspace
+
+  \item \texttt  {MakeGrobnerPair}, \hyperpage{28}
+  \item \texttt  {MatricesQA}, \hyperpage{32}
+  \item \texttt  {MatrixQA}, \hyperpage{31}
+  \item \texttt  {MkMonicNP}, \hyperpage{24}
+  \item \texttt  {MulNP}, \hyperpage{24}
+  \item \texttt  {MulQA}, \hyperpage{32}
+  \item \texttt  {MulQM}, \hyperpage{47}
+
+  \indexspace
+
+  \item \texttt  {NP2GP}, \hyperpage{15}
+  \item \texttt  {NP2GPList}, \hyperpage{16}
+  \item \texttt  {NumAlgGensNP}, \hyperpage{20}
+  \item \texttt  {NumAlgGensNPList}, \hyperpage{20}
+  \item \texttt  {NumModGensNP}, \hyperpage{20}
+  \item \texttt  {NumModGensNPList}, \hyperpage{21}
+
+  \indexspace
+
+  \item \texttt  {PreprocessAnalysisQA}, \hyperpage{36}
+  \item \texttt  {PrintNP}, \hyperpage{17}
+  \item \texttt  {PrintNPList}, \hyperpage{19}
+  \item \texttt  {PrintNPListTrace}, \hyperpage{38}
+  \item \texttt  {PrintTraceList}, \hyperpage{37}
+  \item \texttt  {PrintTracePol}, \hyperpage{37}
+
+  \indexspace
+
+  \item \texttt  {SGrobner}, \hyperpage{26}
+  \item \texttt  {SGrobnerModule}, \hyperpage{44}
+  \item \texttt  {SGrobnerTrace}, \hyperpage{38}
+  \item \texttt  {SGrobnerTrunc}, \hyperpage{39}
+  \item \texttt  {StrongNormalFormNP}, \hyperpage{33}
+  \item \texttt  {StrongNormalFormNPM}, \hyperpage{47}
+  \item \texttt  {StrongNormalFormTraceDiff}, \hyperpage{38}
+
+\end{theindex}

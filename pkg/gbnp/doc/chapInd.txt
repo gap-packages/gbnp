@@ -1,0 +1,60 @@
+  
+  
+  [1XIndex[0X
+  
+  [2XAddNP[0X  3.3-5
+  [2XBaseQA[0X  3.5-1
+  [2XBaseQATrunc[0X  3.8-4
+  [2XBaseQM[0X  3.9-2
+  [2XBimulNP[0X  3.3-6
+  [2XCheckHomogeneousNPs[0X  3.8-3
+  [2XCleanNP[0X  3.3-7
+  [2XDetermineGrowthQA[0X  3.6-1
+  [2XDimQA[0X  3.5-2
+  [2XDimQM[0X  3.9-3
+  [2XDimsQATrunc[0X  3.8-5
+  [2XEvalTrace[0X  3.7-1
+  [2XFinCheckQA[0X  3.6-2
+  [2XFreqsQATrunc[0X  3.8-6
+  [2XGBNP.ConfigPrint[0X  3.2-2
+  [2XGP2NP[0X  3.1-1
+  [2XGP2NPList[0X  3.1-2
+  [2XGrobner[0X  3.4-1
+  [2XGtNP[0X  3.3-8
+  [2XHilbertSeriesQA[0X  3.6-3
+  [2XInfoGBNP[0X  4.2-1
+  [2XInfoGBNPTime[0X  4.3-1
+  [2XIsGrobnerBasis[0X  3.4-3
+  [2XIsGrobnerPair[0X  3.4-5
+  [2XIsStrongGrobnerBasis[0X  3.4-4
+  [2XLMonsNP[0X  3.3-10
+  [2XLtNP[0X  3.3-9
+  [2XMakeGrobnerPair[0X  3.4-6
+  [2XMatricesQA[0X  3.5-4
+  [2XMatrixQA[0X  3.5-3
+  [2XMkMonicNP[0X  3.3-11
+  [2XMulNP[0X  3.3-12
+  [2XMulQA[0X  3.5-5
+  [2XMulQM[0X  3.9-4
+  [2XNP2GP[0X  3.1-3
+  [2XNP2GPList[0X  3.1-4
+  [2XNumAlgGensNP[0X  3.3-1
+  [2XNumAlgGensNPList[0X  3.3-2
+  [2XNumModGensNP[0X  3.3-3
+  [2XNumModGensNPList[0X  3.3-4
+  [2XPreprocessAnalysisQA[0X  3.6-4
+  [2XPrintNP[0X  3.2-1
+  [2XPrintNPList[0X  3.2-3
+  [2XPrintNPListTrace[0X  3.7-4
+  [2XPrintTraceList[0X  3.7-2
+  [2XPrintTracePol[0X  3.7-3
+  [2XSGrobner[0X  3.4-2
+  [2XSGrobnerModule[0X  3.9-1
+  [2XSGrobnerTrace[0X  3.7-5
+  [2XSGrobnerTrunc[0X  3.8-2
+  [2XStrongNormalFormNP[0X  3.5-6
+  [2XStrongNormalFormNPM[0X  3.9-5
+  [2XStrongNormalFormTraceDiff[0X  3.7-6
+  
+  
+  -------------------------------------------------------

@@ -1,0 +1,116 @@
+\contentsline {chapter}{\numberline {1}\leavevmode {\color {Chapter }Introduction}}{6}{chapter.1}
+\contentsline {section}{\numberline {1.1}\leavevmode {\color {Chapter }Installation}}{6}{section.1.1}
+\contentsline {section}{\numberline {1.2}\leavevmode {\color {Chapter }Using the package}}{6}{section.1.2}
+\contentsline {section}{\numberline {1.3}\leavevmode {\color {Chapter }Further documentation}}{7}{section.1.3}
+\contentsline {chapter}{\numberline {2}\leavevmode {\color {Chapter }Description}}{8}{chapter.2}
+\contentsline {section}{\numberline {2.1}\leavevmode {\color {Chapter }Non-commutative Polynomials (NPs)}}{8}{section.2.1}
+\contentsline {section}{\numberline {2.2}\leavevmode {\color {Chapter }Non-commutative Polynomials for Modules (NPMs)}}{9}{section.2.2}
+\contentsline {section}{\numberline {2.3}\leavevmode {\color {Chapter }Core functions}}{9}{section.2.3}
+\contentsline {section}{\numberline {2.4}\leavevmode {\color {Chapter }About the implementation}}{10}{section.2.4}
+\contentsline {section}{\numberline {2.5}\leavevmode {\color {Chapter }Tracing variant}}{10}{section.2.5}
+\contentsline {section}{\numberline {2.6}\leavevmode {\color {Chapter }Truncation variant}}{11}{section.2.6}
+\contentsline {section}{\numberline {2.7}\leavevmode {\color {Chapter }Module variant}}{11}{section.2.7}
+\contentsline {section}{\numberline {2.8}\leavevmode {\color {Chapter }Gr{\"o}bner basis records}}{12}{section.2.8}
+\contentsline {section}{\numberline {2.9}\leavevmode {\color {Chapter }Quotient algebras}}{12}{section.2.9}
+\contentsline {chapter}{\numberline {3}\leavevmode {\color {Chapter }Functions}}{14}{chapter.3}
+\contentsline {section}{\numberline {3.1}\leavevmode {\color {Chapter }Converting polynomials into different formats}}{14}{section.3.1}
+\contentsline {subsection}{\numberline {3.1.1}\leavevmode {\color {Chapter }GP2NP}}{14}{subsection.3.1.1}
+\contentsline {subsection}{\numberline {3.1.2}\leavevmode {\color {Chapter }GP2NPList}}{15}{subsection.3.1.2}
+\contentsline {subsection}{\numberline {3.1.3}\leavevmode {\color {Chapter }NP2GP}}{15}{subsection.3.1.3}
+\contentsline {subsection}{\numberline {3.1.4}\leavevmode {\color {Chapter }NP2GPList}}{16}{subsection.3.1.4}
+\contentsline {section}{\numberline {3.2}\leavevmode {\color {Chapter }Printing polynomials in NP format}}{17}{section.3.2}
+\contentsline {subsection}{\numberline {3.2.1}\leavevmode {\color {Chapter }PrintNP}}{17}{subsection.3.2.1}
+\contentsline {subsection}{\numberline {3.2.2}\leavevmode {\color {Chapter }GBNP.ConfigPrint}}{18}{subsection.3.2.2}
+\contentsline {subsection}{\numberline {3.2.3}\leavevmode {\color {Chapter }PrintNPList}}{19}{subsection.3.2.3}
+\contentsline {section}{\numberline {3.3}\leavevmode {\color {Chapter }Calculating with polynomials in NP format}}{20}{section.3.3}
+\contentsline {subsection}{\numberline {3.3.1}\leavevmode {\color {Chapter }NumAlgGensNP}}{20}{subsection.3.3.1}
+\contentsline {subsection}{\numberline {3.3.2}\leavevmode {\color {Chapter }NumAlgGensNPList}}{20}{subsection.3.3.2}
+\contentsline {subsection}{\numberline {3.3.3}\leavevmode {\color {Chapter }NumModGensNP}}{20}{subsection.3.3.3}
+\contentsline {subsection}{\numberline {3.3.4}\leavevmode {\color {Chapter }NumModGensNPList}}{21}{subsection.3.3.4}
+\contentsline {subsection}{\numberline {3.3.5}\leavevmode {\color {Chapter }AddNP}}{21}{subsection.3.3.5}
+\contentsline {subsection}{\numberline {3.3.6}\leavevmode {\color {Chapter }BimulNP}}{21}{subsection.3.3.6}
+\contentsline {subsection}{\numberline {3.3.7}\leavevmode {\color {Chapter }CleanNP}}{22}{subsection.3.3.7}
+\contentsline {subsection}{\numberline {3.3.8}\leavevmode {\color {Chapter }GtNP}}{22}{subsection.3.3.8}
+\contentsline {subsection}{\numberline {3.3.9}\leavevmode {\color {Chapter }LtNP}}{23}{subsection.3.3.9}
+\contentsline {subsection}{\numberline {3.3.10}\leavevmode {\color {Chapter }LMonsNP}}{23}{subsection.3.3.10}
+\contentsline {subsection}{\numberline {3.3.11}\leavevmode {\color {Chapter }MkMonicNP}}{24}{subsection.3.3.11}
+\contentsline {subsection}{\numberline {3.3.12}\leavevmode {\color {Chapter }MulNP}}{24}{subsection.3.3.12}
+\contentsline {section}{\numberline {3.4}\leavevmode {\color {Chapter }Gr{\"o}bner functions, standard variant}}{24}{section.3.4}
+\contentsline {subsection}{\numberline {3.4.1}\leavevmode {\color {Chapter }Grobner}}{24}{subsection.3.4.1}
+\contentsline {subsection}{\numberline {3.4.2}\leavevmode {\color {Chapter }SGrobner}}{26}{subsection.3.4.2}
+\contentsline {subsection}{\numberline {3.4.3}\leavevmode {\color {Chapter }IsGrobnerBasis}}{27}{subsection.3.4.3}
+\contentsline {subsection}{\numberline {3.4.4}\leavevmode {\color {Chapter }IsStrongGrobnerBasis}}{27}{subsection.3.4.4}
+\contentsline {subsection}{\numberline {3.4.5}\leavevmode {\color {Chapter }IsGrobnerPair}}{28}{subsection.3.4.5}
+\contentsline {subsection}{\numberline {3.4.6}\leavevmode {\color {Chapter }MakeGrobnerPair}}{28}{subsection.3.4.6}
+\contentsline {section}{\numberline {3.5}\leavevmode {\color {Chapter }Finite-dimensional quotient algebras}}{29}{section.3.5}
+\contentsline {subsection}{\numberline {3.5.1}\leavevmode {\color {Chapter }BaseQA}}{29}{subsection.3.5.1}
+\contentsline {subsection}{\numberline {3.5.2}\leavevmode {\color {Chapter }DimQA}}{30}{subsection.3.5.2}
+\contentsline {subsection}{\numberline {3.5.3}\leavevmode {\color {Chapter }MatrixQA}}{31}{subsection.3.5.3}
+\contentsline {subsection}{\numberline {3.5.4}\leavevmode {\color {Chapter }MatricesQA}}{32}{subsection.3.5.4}
+\contentsline {subsection}{\numberline {3.5.5}\leavevmode {\color {Chapter }MulQA}}{32}{subsection.3.5.5}
+\contentsline {subsection}{\numberline {3.5.6}\leavevmode {\color {Chapter }StrongNormalFormNP}}{33}{subsection.3.5.6}
+\contentsline {section}{\numberline {3.6}\leavevmode {\color {Chapter }Finiteness and Hilbert series}}{34}{section.3.6}
+\contentsline {subsection}{\numberline {3.6.1}\leavevmode {\color {Chapter }DetermineGrowthQA}}{34}{subsection.3.6.1}
+\contentsline {subsection}{\numberline {3.6.2}\leavevmode {\color {Chapter }FinCheckQA}}{35}{subsection.3.6.2}
+\contentsline {subsection}{\numberline {3.6.3}\leavevmode {\color {Chapter }HilbertSeriesQA}}{35}{subsection.3.6.3}
+\contentsline {subsection}{\numberline {3.6.4}\leavevmode {\color {Chapter }PreprocessAnalysisQA}}{36}{subsection.3.6.4}
+\contentsline {section}{\numberline {3.7}\leavevmode {\color {Chapter }Functions of the trace variant}}{36}{section.3.7}
+\contentsline {subsection}{\numberline {3.7.1}\leavevmode {\color {Chapter }EvalTrace}}{36}{subsection.3.7.1}
+\contentsline {subsection}{\numberline {3.7.2}\leavevmode {\color {Chapter }PrintTraceList}}{37}{subsection.3.7.2}
+\contentsline {subsection}{\numberline {3.7.3}\leavevmode {\color {Chapter }PrintTracePol}}{37}{subsection.3.7.3}
+\contentsline {subsection}{\numberline {3.7.4}\leavevmode {\color {Chapter }PrintNPListTrace}}{38}{subsection.3.7.4}
+\contentsline {subsection}{\numberline {3.7.5}\leavevmode {\color {Chapter }SGrobnerTrace}}{38}{subsection.3.7.5}
+\contentsline {subsection}{\numberline {3.7.6}\leavevmode {\color {Chapter }StrongNormalFormTraceDiff}}{38}{subsection.3.7.6}
+\contentsline {section}{\numberline {3.8}\leavevmode {\color {Chapter }Functions of the truncated variant}}{39}{section.3.8}
+\contentsline {subsection}{\numberline {3.8.1}\leavevmode {\color {Chapter }Examples}}{39}{subsection.3.8.1}
+\contentsline {subsection}{\numberline {3.8.2}\leavevmode {\color {Chapter }SGrobnerTrunc}}{39}{subsection.3.8.2}
+\contentsline {subsection}{\numberline {3.8.3}\leavevmode {\color {Chapter }CheckHomogeneousNPs}}{40}{subsection.3.8.3}
+\contentsline {subsection}{\numberline {3.8.4}\leavevmode {\color {Chapter }BaseQATrunc}}{40}{subsection.3.8.4}
+\contentsline {subsection}{\numberline {3.8.5}\leavevmode {\color {Chapter }DimsQATrunc}}{42}{subsection.3.8.5}
+\contentsline {subsection}{\numberline {3.8.6}\leavevmode {\color {Chapter }FreqsQATrunc}}{42}{subsection.3.8.6}
+\contentsline {section}{\numberline {3.9}\leavevmode {\color {Chapter }Functions of the module variant}}{44}{section.3.9}
+\contentsline {subsection}{\numberline {3.9.1}\leavevmode {\color {Chapter }SGrobnerModule}}{44}{subsection.3.9.1}
+\contentsline {subsection}{\numberline {3.9.2}\leavevmode {\color {Chapter }BaseQM}}{44}{subsection.3.9.2}
+\contentsline {subsection}{\numberline {3.9.3}\leavevmode {\color {Chapter }DimQM}}{46}{subsection.3.9.3}
+\contentsline {subsection}{\numberline {3.9.4}\leavevmode {\color {Chapter }MulQM}}{47}{subsection.3.9.4}
+\contentsline {subsection}{\numberline {3.9.5}\leavevmode {\color {Chapter }StrongNormalFormNPM}}{47}{subsection.3.9.5}
+\contentsline {chapter}{\numberline {4}\leavevmode {\color {Chapter }Info Level}}{49}{chapter.4}
+\contentsline {section}{\numberline {4.1}\leavevmode {\color {Chapter }Introduction}}{49}{section.4.1}
+\contentsline {section}{\numberline {4.2}\leavevmode {\color {Chapter }InfoGBNP}}{49}{section.4.2}
+\contentsline {subsection}{\numberline {4.2.1}\leavevmode {\color {Chapter }InfoGBNP}}{49}{subsection.4.2.1}
+\contentsline {subsection}{\numberline {4.2.2}\leavevmode {\color {Chapter }What will be printed at level 0}}{49}{subsection.4.2.2}
+\contentsline {subsection}{\numberline {4.2.3}\leavevmode {\color {Chapter }What will be printed at level 1}}{49}{subsection.4.2.3}
+\contentsline {subsection}{\numberline {4.2.4}\leavevmode {\color {Chapter }What will be printed at level 2}}{50}{subsection.4.2.4}
+\contentsline {section}{\numberline {4.3}\leavevmode {\color {Chapter }InfoGBNPTime}}{50}{section.4.3}
+\contentsline {subsection}{\numberline {4.3.1}\leavevmode {\color {Chapter }InfoGBNPTime}}{50}{subsection.4.3.1}
+\contentsline {subsection}{\numberline {4.3.2}\leavevmode {\color {Chapter }What will be printed at level 0}}{50}{subsection.4.3.2}
+\contentsline {subsection}{\numberline {4.3.3}\leavevmode {\color {Chapter }What will be printed at level 1}}{50}{subsection.4.3.3}
+\contentsline {subsection}{\numberline {4.3.4}\leavevmode {\color {Chapter }What will be printed at level 2}}{50}{subsection.4.3.4}
+\contentsline {chapter}{\numberline {A}\leavevmode {\color {Chapter }Examples}}{51}{appendix.A}
+\contentsline {section}{\numberline {A.1}\leavevmode {\color {Chapter }Introduction}}{51}{section.A.1}
+\contentsline {section}{\numberline {A.2}\leavevmode {\color {Chapter }A simple commutative Gr{\"o}bner basis computation}}{52}{section.A.2}
+\contentsline {section}{\numberline {A.3}\leavevmode {\color {Chapter }A truncated Gr{\"o}bner basis for Leonard pairs}}{54}{section.A.3}
+\contentsline {section}{\numberline {A.4}\leavevmode {\color {Chapter }The truncated variant on two weighted homogeneous polynomials}}{56}{section.A.4}
+\contentsline {section}{\numberline {A.5}\leavevmode {\color {Chapter }The order of the Weyl group of type E$_6$}}{60}{section.A.5}
+\contentsline {section}{\numberline {A.6}\leavevmode {\color {Chapter }The gcd of some univariate polynomials}}{63}{section.A.6}
+\contentsline {section}{\numberline {A.7}\leavevmode {\color {Chapter }From the Tapas book}}{64}{section.A.7}
+\contentsline {section}{\numberline {A.8}\leavevmode {\color {Chapter }The Birman-Murakami-Wenzl algebra of type A$_3$}}{67}{section.A.8}
+\contentsline {section}{\numberline {A.9}\leavevmode {\color {Chapter }The Birman-Murakami-Wenzl algebra of type A$_2$}}{71}{section.A.9}
+\contentsline {section}{\numberline {A.10}\leavevmode {\color {Chapter }A commutative example by Mora}}{74}{section.A.10}
+\contentsline {section}{\numberline {A.11}\leavevmode {\color {Chapter }Tracing an example by Mora}}{76}{section.A.11}
+\contentsline {section}{\numberline {A.12}\leavevmode {\color {Chapter } Finiteness of the Weyl group of type E$_6$}}{78}{section.A.12}
+\contentsline {section}{\numberline {A.13}\leavevmode {\color {Chapter }Preprocessing for Weyl group computations}}{79}{section.A.13}
+\contentsline {section}{\numberline {A.14}\leavevmode {\color {Chapter }A quotient algebra with exponential growth}}{81}{section.A.14}
+\contentsline {section}{\numberline {A.15}\leavevmode {\color {Chapter }A commutative quotient algebra of polynomial growth}}{82}{section.A.15}
+\contentsline {section}{\numberline {A.16}\leavevmode {\color {Chapter }An algebra over a finite field}}{85}{section.A.16}
+\contentsline {section}{\numberline {A.17}\leavevmode {\color {Chapter }The dihedral group of order 8}}{87}{section.A.17}
+\contentsline {section}{\numberline {A.18}\leavevmode {\color {Chapter }The dihedral group of order 8 on another module}}{89}{section.A.18}
+\contentsline {section}{\numberline {A.19}\leavevmode {\color {Chapter }The dihedral group on a non-cyclic module}}{91}{section.A.19}
+\contentsline {section}{\numberline {A.20}\leavevmode {\color {Chapter }The icosahedral group}}{93}{section.A.20}
+\contentsline {section}{\numberline {A.21}\leavevmode {\color {Chapter }The symmetric inverse monoid for a set of size four}}{96}{section.A.21}
+\contentsline {section}{\numberline {A.22}\leavevmode {\color {Chapter }A module of the Hecke algebra of type A$_3$ over GF(3)}}{99}{section.A.22}
+\contentsline {section}{\numberline {A.23}\leavevmode {\color {Chapter }Generalized Temperley-Lieb algebras}}{101}{section.A.23}
+\contentsline {section}{\numberline {A.24}\leavevmode {\color {Chapter }The universal enveloping algebra of a Lie algebra}}{103}{section.A.24}
+\contentsline {section}{\numberline {A.25}\leavevmode {\color {Chapter }Serre's exercise}}{106}{section.A.25}
+\contentsline {section}{\numberline {A.26}\leavevmode {\color {Chapter }Baur and Draisma's transformations}}{107}{section.A.26}
+\contentsline {section}{\numberline {A.27}\leavevmode {\color {Chapter }The cola gene puzzle}}{108}{section.A.27}

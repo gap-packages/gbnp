@@ -1,0 +1,547 @@
+<!DOCTYPE Book SYSTEM "gapdoc.dtd"> <Book Name="NMO">
+<TitlePage>
+  <Title>Documentation on the <Package>NMO</Package> package</Title>
+  <Version>Version 1.0</Version>
+  <Author>Randall E. Cone <Email>rcone@math.vt.edu</Email></Author>
+  <Date>7 January 2010</Date>
+  <Address>Virginia Tech<Br/>
+  Blacksburg, VA, 24060, USA </Address>
+ <Acknowledgements>
+   <List>
+     <Item>Our immense gratitude to the authors of GBNP for allowing us to make a small contribution.</Item>
+     <Item>Equal gratitude to Dr. Ed Green for his help as mentor and advisor,
+           in both this project and many others.</Item>
+   </List> 
+ </Acknowledgements>
+</TitlePage>
+
+
+<TableOfContents/>
+
+<Body>
+<Chapter><Heading>NMO</Heading>
+<Section><Heading>Introduction</Heading>
+
+What follows is a description of the largely experimental project
+of providing arbitrary monomial orderings to the <Package>GBNP</Package> package.
+The addition of the orderings comes in the form of a library, and a patch to <Package>GBNP</Package>;
+the patching process being called at the <Package>GBNP</Package> user's discretion.
+<P/>
+
+More precisely, after a user creates a monomial ordering via the <Package>NMO</Package>
+library functions, 
+a routine is called which overwrites the two <Package>GBNP</Package> functions
+"LtNP" and "GtNP".  In <Package>GBNP</Package>, these latter two functions are
+explicitly length-lexicographic monomial comparison functions,
+and are used in GBNP's Gröbner Basis routines.  Therefore <Package>NMO</Package>
+allows for the creation of arbitrary monomial ordering comparison
+functions, which, after the patching process, will be used
+by GBNP in place of its native comparison functions.
+<P/>
+
+<Package>NMO</Package> is an acronym for Noncommutative Monomial Orderings.  Such orderings
+play a key role in research surrounding noncommutative Gröbner
+basis theory; see <Cite Key="Green1997"/>, <Cite Key="TCS::Mora1994:131"/>.
+This package is geared primarily toward the use and study of
+noncommutative (associative) free algebras with identity,
+over computational fields.  We have done our best to write code that treats
+a more general class of algebras, but the routines have not been as
+extensively tested in those cases.  Users of the package are encouraged to
+provide constructive feedback about this issue or any others; we have
+open ears to ways to better these research tools.
+<P/>
+
+Flexibility in the creation and use of noncommutative monomial orderings has been our
+guiding principle in writing <Package>NMO</Package>.  For example, two (or more) orderings
+can be chained together to form new orderings.  It should be noted, however,
+that efficiency has also been considered in the design of <Package>NMO</Package> for
+commonly used monomial orderings for noncommutative rings (e.g.
+length left-lexicographic).  That is to say, some monomial orderings that occur
+regularly in the study of noncommutative algebras have already been included
+in <Package>NMO</Package>.
+<P/>
+
+Throughout this chapter, methods and functions are generally classed
+as <E>External</E> and <E>Internal</E> routines.  <E>External</E> routines are
+methods and functions that will be most useful to the average user,
+and generally work directly with native <Package>GAP</Package> algebraic objects.
+<E>Internal</E> routines usually concern backend operations
+and mechanisms, and are often related to operations involving
+<E>NP representations</E> of <Package>GAP</Package> algebraic elements, or they
+are related to attributes of monomial orderings.
+
+Many examples of basic code use are provided; with some examples
+following the reference material for the functions or
+methods involved.
+</Section>
+
+
+<Section><Heading>NMO Files within GBNP</Heading>
+Per the <Package>GAP</Package> package standard,
+<Package>NMO</Package> library code is read in via the
+file <C>gbnp/read.g</C>.  The following gives brief descriptions of
+each of the files loaded by <C>gbnp/read.g</C>, all of which reside
+in the <C>gbnp/lib/nmo/</C> subdirectory:
+<List>
+<Item> <C>ncalgebra.gd</C><P/>
+  Sets up some nice categories and filters in <Package>GAP</Package>.</Item>
+
+<Item><C>ncordmachine.g*</C><P/>
+  Code for creating the new <Package>GAP</Package> family of noncommutative monomial
+  orderings, as well as its attending (internal) machinery.</Item>
+
+<Item><C>ncorderings.g*</C><P/>
+  Sets up actual noncommutative monomial orderings.  This is where
+  some specific example routines for monomial orderings are included.
+  The less-than functions determining monomial orderings should be collected here,
+  e.g. the length left-lexicographic ordering is here.</Item>
+
+<Item><C>ncinterface.g*</C><P/>
+  These files provide the interface to comparison routines
+  for determining equivalence, less-than, and greater-than
+  comparison between two algebraic elements under a given <Package>NMO</Package>
+  ordering.</Item>
+
+<Item><C>ncutils.g*</C><P/>
+  Helpful utility routines, such as: patching <Package>GBNP</Package> for use with
+  an <Package>NMO</Package> ordering, unpatching <Package>GBNP</Package>, as well as a `String'
+  routine for elements of an associative algebra not already
+  covered in <Package>GAP</Package>.</Item>
+</List>
+
+There is a documentation directory in <C>gbnp/doc/nmo</C> wherein
+the <Package>GAPDoc</Package> source for this chapter may be found.
+<P/>
+
+Finally, there is an examples directory in <C>gbnp/doc/examples/nmo</C> where
+the plain <Package>GAP</Package> source can be found for the examples in
+the Quickstart section of this chapter.
+</Section>
+
+
+<Section><Heading>Quickstart</Heading>
+This Quickstart assumes you've already installed the <Package>GBNP</Package> package
+in its proper home.  If that's yet to be done, please
+see the <Package>GBNP</Package> package manual for installation instructions.
+<P/>
+
+If the user wishes, cutting and pasting the commands which directly
+follow the <Package>GAP</Package> prompt <C>gap></C> is a good way to
+become familiar with <Package>NMO</Package> via the examples below.
+Alternatively, code for the following examples may be found in
+<C>gbnp/doc/examples/nmo/example0*.g</C>.
+<P/>
+
+This Quickstart covers specific use of the <Package>NMO</Package> package's
+functionality as pertaining to computing noncommutative Gröbner
+bases for various examples.
+There are <Package>NMO</Package> user-level routines beyond these Gröbner
+basis applications that may be of interest, all of which are documented
+in later sections.
+
+<Subsection><Heading>NMO Example 1</Heading>
+Example 1 is taken from Dr. Edward Green's paper <Q>Noncommutative
+Gröbner Bases, and Projective Resolutions</Q>, and is referenced
+as <Q>Example 2.7</Q> there; please see <Cite Key="Green1997"/> for more information.
+<P/>
+
+Load the <Package>GBNP</Package> package with:
+<Example>
+gap> LoadPackage("gbnp");
+true
+</Example>
+
+Create a noncommutative free algebra on 4 generators over the
+Rationals in <Package>GAP</Package>:
+<Listing>
+gap> A := FreeAssociativeAlgebraWithOne(Rationals,"a","b","c","d");
+<!--<algebra-with-one over Rationals, with 4 generators> -->
+</Listing>
+
+Label the generators of the algebra:
+<Example>
+gap> a := A.a; b := A.b; c := A.c; d := A.d;
+(1)*a
+(1)*b
+(1)*c
+(1)*d
+</Example>
+
+Set up our polynomials, and convert them to <Package>GBNP</Package> NP format:
+<Example>
+gap> polys := [c*d*a*b-c*b,b*c-d*a];
+[ (-1)*c*b+(1)*c*d*a*b, (1)*b*c+(-1)*d*a ]
+gap> reps := GP2NPList(polys);
+[ [ [ [ 3, 4, 1, 2 ], [ 3, 2 ] ], [ 1, -1 ] ],
+           [ [ [ 4, 1 ], [ 2, 3 ] ], [ -1, 1 ] ] ]
+</Example>
+
+Compute the Gröbner basis via <Package>GBNP</Package> using its default
+(length left-lexicographic) ordering; that is, without
+patching <Package>GBNP</Package> with an <Package>NMO</Package> ordering:
+<Example>
+gap> gbreps := Grobner(reps);;
+gap> gb := NP2GPList(gbreps,A);
+[ (1)*d*a+(-1)*b*c, (1)*c*b*c*b+(-1)*c*b ]
+</Example>
+
+Create length left-lexicographic ordering, with generators
+ordered: a &lt; b  &lt; c &lt; d.  Note: this is the default
+ordering of generators by <Package>NMO</Package>, if none is provided:
+<Example>
+gap> ml := NCMonomialLeftLengthLexOrdering(A);
+NCMonomialLeftLengthLexicographicOrdering([ (1)*a, (1)*b, (1)*c, (1)*d ])
+</Example>
+
+Patch <Package>GBNP</Package> with the ordering <C>ml</C>, and then run the same example.
+We should get the same answer as above:
+<Example>
+gap> PatchGBNP(ml);
+LtNP patched.
+GtNP patched.
+gap> gbreps := Grobner(reps);;
+gap> gb := NP2GPList(gbreps,A);
+[ (1)*d*a+(-1)*b*c, (1)*c*b*c*b+(-1)*c*b ]
+</Example>
+
+Create a Length-Lexicographic ordering on the generators such that
+d &lt; c &lt; b &lt; a:
+<Example>
+gap> ml2 := NCMonomialLeftLengthLexOrdering(A,[4,3,2,1]);
+NCMonomialLeftLengthLexicographicOrdering([ (1)*d, (1)*c, (1)*b, (1)*a ])
+</Example>
+
+Compute the Gröbner basis with respect to this new ordering
+on the same algebra:
+<Example>
+gap> PatchGBNP(ml2);
+LtNP patched.
+GtNP patched.
+gap> gbreps2 := SGrobner(reps);;
+gap> gb2 := NP2GPList(gbreps2,A);
+[ (1)*b*c+(-1)*d*a, (1)*c*d*a*b+(-1)*c*b, (1)*d*a*d*a*b+(-1)*d*a*b,
+  (1)*c*d*a*d*a+(-1)*c*d*a, (1)*d*a*d*a*d*a+(-1)*d*a*d*a ]
+</Example>
+</Subsection>
+
+
+<Subsection><Heading>NMO Example 2</Heading>
+This example is the same as Example 1 above, except that the length
+and left-lexicographic orderings are created independently and then
+chained to form the usual length left-lexicographic ordering.  Hence,
+all results should be the same.  Note: we assume from this point forward
+in all further examples that GBNP is loaded.
+<P/>
+
+Create a noncommutative free algebra on 4 generators over the
+Rationals, label, and set up the example:
+<Example>
+gap> A := FreeAssociativeAlgebraWithOne(Rationals,"a","b","c","d");;
+gap> a := A.a;; b := A.b;; c := A.c;; d := A.d;;
+gap> polys := [c*d*a*b-c*b,b*c-d*a];;
+gap> reps := GP2NPList(polys);;
+</Example>
+
+Create left-lexicographic ordering with a &lt; b  &lt; c &lt; d:
+<Example>
+gap> lexord := NCMonomialLeftLexicographicOrdering(A);
+NCMonomialLeftLexicographicOrdering([ (1)*a, (1)*b, (1)*c, (1)*d ])
+</Example>
+
+Create a length ordering on monomials in <M>A</M>, with ties broken by the
+lexicographic order <C>lexord</C>:
+<Example>
+gap> lenlex := NCMonomialLengthOrdering(A,lexord);
+NCMonomialLengthOrdering([ (1)*a, (1)*b, (1)*c, (1)*d ])
+</Example>
+
+Patch <Package>GBNP</Package> and proceed with our example:
+<Example>
+gap> PatchGBNP(lenlex);;
+LtNP patched.
+GtNP patched.
+gap> gbreps := Grobner(reps);;
+gap> gb := NP2GPList(gbreps,A);
+[ (1)*d*a+(-1)*b*c, (1)*c*b*c*b+(-1)*c*b ]
+</Example>
+
+Now, proceed similarly, with the lexicographic order
+such that d &lt; c  &lt; b &lt; a:
+<Example>
+gap> lexord2 := NCMonomialLeftLexicographicOrdering(A,[4,3,2,1]);
+NCMonomialLeftLexicographicOrdering([ (1)*d, (1)*c, (1)*b, (1)*a ])
+gap> lenlex2 := NCMonomialLengthOrdering(A,lexord2);
+NCMonomialLengthOrdering([ (1)*a, (1)*b, (1)*c, (1)*d ])
+gap> PatchGBNP(lenlex2);;
+LtNP patched.
+GtNP patched.
+gap> gbreps2 := Grobner(reps);;
+gap> gb2 := NP2GPList(gbreps2,A);
+[ (1)*b*c+(-1)*d*a, (1)*c*d*a*b+(-1)*c*b, (1)*d*a*d*a*b+(-1)*d*a*b,
+  (1)*c*d*a*d*a+(-1)*c*d*a, (1)*d*a*d*a*d*a+(-1)*d*a*d*a ]
+</Example>
+
+An important point can be made here.  Notice that when the <C>lenlex2</C>
+length ordering is created, a lexicographic (generator) ordering table is
+assigned internally to the ordering since one was not provided to it.
+This is merely a convenience for lexicographically-dependent
+orderings, and in the case of the
+length order, it is not used.  Only the lex table for <C>lexord2</C> is
+ever used.  Some clarification may be provided in examining:
+<Example>
+gap> HasNextOrdering(lenlex2);
+true
+gap> NextOrdering(lenlex2);
+NCMonomialLeftLexicographicOrdering([ (1)*d, (1)*c, (1)*b, (1)*a ])
+gap> LexicographicTable(NextOrdering(lenlex2));
+[ (1)*d, (1)*c, (1)*b, (1)*a ]
+</Example>
+
+</Subsection>
+
+
+<Subsection><Heading>NMO Example 3</Heading>
+Example 3 is taken from the book <Q>Ideals, Varieties, and Algorithms</Q>,
+(<Cite Key="CLO97"/>, Example 2, p. 93-94); it is a commutative example.
+<P/>
+
+First, we set up the problem and find a Gröbner basis with respect to the length
+left-lexicographic ordering implicitly assumed in <Package>GBNP</Package>:
+<Example>
+gap> A := FreeAssociativeAlgebraWithOne(Rationals,"x","y","z");;
+gap> x := A.x;; y := A.y;; z := A.z;; id := One(A);;
+gap> polys := [ x^2 + y^2 + z^2 - id, x^2 + z^2 - y, x-z,
+>            x*y-y*x, x*z-z*x, y*z-z*y];;
+gap> reps := GP2NPList(polys);;
+gap> gb := Grobner(reps);;
+gap> NP2GPList(gb,A);
+[ (1)*z+(-1)*x, (1)*x^2+(-1/2)*y, (1)*y*x+(-1)*x*y,
+  (1)*y^2+(2)*x^2+(-1)*&lt;identity ...> ]
+</Example>
+
+The example, as presented in the book, uses a left-lexicographic ordering
+with z &lt; y  &lt; x.  We create the ordering in <Package>NMO</Package>, patch <Package>GBNP</Package>,
+and get the result expected:
+<Example>
+gap> ml := NCMonomialLeftLexicographicOrdering(A,[3,2,1]);
+NCMonomialLeftLexicographicOrdering([ (1)*z, (1)*y, (1)*x ])
+gap> PatchGBNP(ml);
+LtNP patched.
+GtNP patched.
+gap> gb := Grobner(reps);;
+gap> NP2GPList(gb,A);
+[ (1)*z^4+(1/2)*z^2+(-1/4)*&lt;identity ...>, (1)*y+(-2)*z^2, (1)*x+(-1)*z ]
+</Example>
+</Subsection>
+
+
+<Subsection><Heading>NMO Example 4</Heading>
+Example 4 was taken from page 339 of the book
+<Q>Some Tapas of Computer Algebra</Q> by A.M. Cohen, H. Cuypers, H. Sterk,
+<Cite Key="CohenCuypersSterk1999"/>;
+it also appears as Example 6 in the <Package>GBNP</Package> example set.
+<P/>
+
+A noncommutative free algebra on 6 generators over the Rationals is
+created in <Package>GAP</Package>, and the generators are labeled:
+<Example>
+gap> A := FreeAssociativeAlgebraWithOne(Rationals,"a","b","c","d","e","f");;
+gap> a := A.a;; b := A.b;; c := A.c;; d := A.d;; e := A.e;; f := A.f;;
+</Example>
+
+Set up list of noncommutative polynomials:
+<Example>
+gap> polys := [ e*a, a^3 + f*a, a^9 + c*a^3, a^81 + c*a^9 + d*a^3,
+>            a^27 + d*a^81 + e*a^9 + f*a^3, b + c*a^27 + e*a^81 + f*a^9,
+>            c*b + d*a^27 + f*a^81, a + d*b + e*a^27, c*a + e*b + f*a^27,
+>            d*a + f*b, b^3 - b, a*b - b*a, a*c - c*a, a*d - d*a,
+>            a*e - e*a, a*f - f*a, b*c - c*b, b*d - d*b, b*e - e*b,
+>            b*f - f*b, c*d - d*c, c*e - e*c, c*f - f*c, d*e - e*d,
+>            d*f - f*d, e*f - f*e
+> ];;
+gap> reps := GP2NPList(polys);;
+</Example>
+
+Create a length left-lex ordering with the following (default)
+ordering on the generators
+a &lt; b  &lt; c &lt; d &lt; e &lt; f:
+<Example>
+gap> ml := NCMonomialLeftLengthLexOrdering(A);
+NCMonomialLeftLengthLexicographicOrdering([ (1)*a, (1)*b, (1)*c, (1)*d,
+   (1)*e, (1)*f ])
+</Example>
+
+Patch <Package>GBNP</Package> and compute the Gröbner basis with respect
+to the ordering <C>ml</C>:
+<Example>
+gap> PatchGBNP(ml);
+LtNP patched.
+GtNP patched.
+gap> gb := Grobner(reps);;
+gap> NP2GPList(gb,A);
+[ (1)*a, (1)*b, (1)*d*c+(-1)*c*d, (1)*e*c+(-1)*c*e,
+  (1)*e*d+(-1)*d*e, (1)*f*c+(-1)*c*f,
+  (1)*f*d+(-1)*d*f, (1)*f*e+(-1)*e*f ]
+</Example>
+
+</Subsection>
+</Section>
+
+
+<Section><Heading>Orderings</Heading>
+This section describes the current orderings built into the <Package>GAP</Package>
+package <Package>NMO</Package>, and describes some of the internals of the
+machinery involved.
+<P/>
+
+<Subsection><Heading>Internals</Heading>
+The orderings portion of <Package>NMO</Package> is divided codewise into the files
+<C>ncordmachine.gd, ncordmachine.gi</C> and <C>ncorderings.gd, ncorderings.gi</C>.
+The former file pair contains code to set up the machinery to
+create new monomial orderings on noncommutative algebras,
+whereas the latter sets
+up actual orderings.  We will first describe
+the creation and use of length lexicographic ordering, afterward
+describing more of the details of the new <Package>GAP</Package> family
+`NoncommutativeMonomialOrdering'.
+<P/>
+
+The <Package>NMO</Package> package was built with the mindset of allowing great
+flexibility in creating new monomial orderings on noncommutative algebras.
+All that is required to install a new ordering is to create
+two <Package>GAP</Package> functions that determine less-than comparisons (one
+non-indexed, and one indexed) and then call
+<C>InstallNoncommutativeMonomialOrdering</C> with the comparison functions
+as arguments.  The comparison functions should be written
+to compare simple lists of integers, these lists representing
+monomials as in <Package>GBNP</Package>'s `NP' format, or the letter representation
+format in <Package>GAP</Package> (see
+ "The External Representation for Associative Words"
+in the <Package>GAP</Package> reference manual).  An example follows the description
+of the function <C>InstallNoncommutativeMonomialOrdering</C>.
+<P/>
+
+A bit of explanation is due here to address the added complexity
+introduced by requiring that two functions
+<C>(&lt;function>, &lt;function2>)</C> need be supplied
+to <C>InstallNoncommutativeMonomialOrdering</C> to create an ordering.
+The first function <C>&lt;function></C> should be responsible for comparing
+two given monomial list representations in their unadultered forms.
+The second, indexed, function <C>&lt;function2></C> should be capable
+of using a provided index list corresponding to an order on generators,
+based on a different lexicographic ordering.
+This accomplishes something worthwhile: two orderings with different
+lexicographic tables can be applied to the same algebra in <Package>GAP</Package>.
+<P/>
+
+One more caveat: <C>InstallNoncommutativeMonomialOrdering</C> will
+create a default lexicographic table for all orderings, despite
+whether or not it will be used in the comparison function.
+It does this only out of convenience and ease of use.
+<P/>
+
+For example, in the creation of the following left-lex ordering,
+which is installed via the
+<C>InstallNoncommutativeMonomialOrdering</C> function, a default ordering of
+a &lt; b &lt; c is created for <C>ml</C> even though an ordering
+on the generators is not provided:
+<Example>
+gap> A := FreeAssociativeAlgebraWithOne(Rationals,"a","b","c");
+&lt;algebra-with-one over Rationals, with 3 generators>
+gap> lexord := NCMonomialLeftLexicographicOrdering(A);
+NCMonomialLeftLexicographicOrdering([ (1)*a, (1)*b, (1)*c ])
+</Example>
+
+Notice next that when an ordering on the generators is provided,
+it is utilized in the creation of the ordering:
+<Example>
+gap> lexord2 := NCMonomialLeftLexicographicOrdering(A,[2,3,1]);
+NCMonomialLeftLexicographicOrdering([ (1)*b, (1)*c, (1)*a ])
+</Example>
+</Subsection>
+
+
+<ManSection><Heading>Internal Routines</Heading>
+  <#Include Label="InstallNoncommutativeMonomialOrdering">
+  <#Include Label="IsNoncommutativeMonomialOrdering">
+  <#Include Label="LtFunctionListRep">
+  <#Include Label="NextOrdering">
+  <#Include Label="ParentAlgebra">
+  <#Include Label="LexicographicTable">
+  <#Include Label="LexicographicIndexTable">
+  <#Include Label="LexicographicPermutation">
+  <#Include Label="AuxilliaryTable">
+  <#Include Label="OrderingLtGtFunctions">
+</ManSection>
+
+<ManSection><Heading>Provided Orderings</Heading>
+  <#Include Label="NCMonomialLeftLengthLexicographicOrdering">
+  <#Include Label="NCMonomialLengthOrdering">
+  <#Include Label="NCMonomialLeftLexicographicOrdering">
+  <#Include Label="NCMonomialCommutativeLexicographicOrdering">
+  <#Include Label="NCMonomialWeightOrdering">
+</ManSection>
+
+<Subsection><Heading>Externals</Heading>
+
+All user-level interface routines in the descriptions following
+ allow for the comparison
+of not only monomials from a given algebra with respect to a given ordering, but
+also compare general elements from an algebra by comparing their
+leading terms (again, with respect to the given ordering).
+These routines are located in the files
+<C>ncinterface.gd</C> and <C>ncinterface.gi</C>.
+</Subsection>
+
+<ManSection><Heading>External Routines</Heading>
+  <#Include Label="NCLessThanByOrdering">
+  <#Include Label="NCGreaterThanByOrdering">
+  <#Include Label="NCEquivalentByOrdering">
+  <#Include Label="NCSortNP">
+</ManSection>
+
+<Subsection><Heading>Flexibility vs. Efficiency</Heading>
+We recall that <C>InstallNoncommutativeMonomialOrdering</C> completes
+a list of generators if only a partial one is provided.  An example will
+provide clarity here.  It is given in terms of length-lex,
+but the generator list completion functionality is identical for any
+<Package>NMO</Package> ordering.
+
+Note: If at all possible, users are encouraged to use the default
+ordering on generators as it is more efficient than the indirection
+inherent in sorting via the indexed list <C>LexicographicIndexTable</C>.
+
+Here is the example showing the flexibility in requiring only a partial
+list of the ordering on generators:
+
+<Example>
+gap> A := FreeAssociativeAlgebraWithOne(Rationals,"a","b","c","d");
+&lt;algebra-with-one over Rationals, with 4 generators>
+gap> ml2 := NCMonomialLeftLengthLexOrdering(A,[3,1]);
+NCMonomialLeftLengthLexicographicOrdering([ (1)*c, (1)*a, (1)*b, (1)*d ])
+gap> LexicographicTable(ml2);
+[ (1)*c, (1)*a, (1)*b, (1)*d ]
+</Example>
+
+</Subsection>
+</Section>
+
+
+<Section><Heading>Utility Routines</Heading>
+
+<ManSection><Heading>GBNP Patching Routines</Heading>
+  <#Include Label="PatchGBNP">
+</ManSection>
+<ManSection><Heading>Printing Routine</Heading>
+  <#Include Label="String">
+</ManSection>
+
+</Section>
+
+
+</Chapter>
+</Body>
+
+<Bibliography Databases="../gbnp_doc,nmo_doc" Style="../plainurl"/>
+
+</Book>

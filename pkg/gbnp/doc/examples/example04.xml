@@ -1,0 +1,209 @@
+gap> ######################### BEGIN COPYRIGHT MESSAGE #########################
+GBNP - computing Gröbner bases of noncommutative polynomials
+Copyright 2001-2010 by Arjeh M. Cohen, Dié A.H. Gijsbers, Jan Willem
+Knopper, Chris Krook. Address: Discrete Algebra and Geometry (DAM) group
+at the Department of Mathematics and Computer Science of Eindhoven
+University of Technology.
+
+For acknowledgements see the manual. The manual can be found in several
+formats in the doc subdirectory of the GBNP distribution. The
+acknowledgements formatted as text can be found in the file chap0.txt.
+
+GBNP is free software; you can redistribute it and/or modify it under
+the terms of the Lesser GNU General Public License as published by the
+Free Software Foundation (FSF); either version 2.1 of the License, or
+(at your option) any later version. For details, see the file 'LGPL' in
+the doc subdirectory of the GBNP distribution or see the FSF's own site:
+http://www.gnu.org/licenses/lgpl.html
+gap> ########################## END COPYRIGHT MESSAGE ##########################
+
+gap> ### filename = "Icosahedron.g" 
+gap> ### author Arjeh M. Cohen
+
+<#GAPDoc Label="Example04">
+<Section Label="Example04">
+<Heading>The icosahedral group</Heading>
+In this example 
+the two-sided relations give the group algebra of
+the group with presentation
+<M>\langle a,b,c \mid a^2=b^2=c^2=(ab)^3=(bc)^5=(ac)^2=1\rangle</M>, 
+the icosahedral group of order 120.
+This is the Coxeter group of type H<M>_3</M>.
+The module under construction is a 3-dimensional reflection representation,
+<P/>
+First load the package and set the standard infolevel <Ref
+InfoClass="InfoGBNP" Style="Text"/> to 1 and the time infolevel <Ref
+Func="InfoGBNPTime" Style="Text"/> to 1 (for more information about the info
+level, see Chapter <Ref Chap="Info"/>).
+
+<Listing><![CDATA[
+gap> LoadPackage("GBNP","0",false);;
+gap> SetInfoLevel(InfoGBNP,1);
+gap> SetInfoLevel(InfoGBNPTime,1);
+]]></Listing>
+
+Create the field containing the golden ratio <C>tau</C>.
+
+<Listing><![CDATA[
+gap> x := Indeterminate(Rationals,"x");
+x
+gap> p := x^2+ x-1;
+x^2+x-1
+gap> K := AlgebraicExtension(Rationals,p);
+<algebraic extension over the Rationals of degree 2>
+gap> tau:=RootOfDefiningPolynomial(K);
+(a)
+]]></Listing>
+
+Create the free algebra with three generators over this field:
+
+<Listing><![CDATA[
+gap> A:=FreeAssociativeAlgebraWithOne(K, "a", "b", "c");
+<algebra-with-one over <algebraic extension over the Rationals of degree 
+2>, with 3 generators>
+gap> e:=One(A);; a:=A.a;; b:=A.b;; c:=A.c;;
+]]></Listing>
+
+The ideal for a quotient of the icosahedral group algebra over this field,
+in which <C>b</C><M>*</M><C>c</C> has a quadratic minimal polynomial
+involving <C>tau</C>:
+
+<Listing><![CDATA[
+gap> #(b*c)^2-tau*b*c+e
+gap> Irels:=[a^2-e,b^2-e,c^2-e,a*b*a-b*a*b,((b*c)^2-tau*b*c+e)*(b*c-e),a*c-c*a];
+[ (!-1)*<identity ...>+(!1)*a^2, (!-1)*<identity ...>+(!1)*b^2, 
+  (!-1)*<identity ...>+(!1)*c^2, (!1)*a*b*a+(!-1)*b*a*b, 
+  (!-1)*<identity ...>+((1+a))*b*c+((-1-1*a))*b*c*b*c+(!1)*b*c*b*c*b*c, 
+  (!1)*a*c+(!-1)*c*a ]
+]]></Listing>
+
+We now give module relations. The first two describe group elements
+of a vector stabilizer, the third forces the central element <M>(abc)^5</M>
+to be nontrivial.
+
+<Listing><![CDATA[
+gap> Mrels:=[b*c-e,b-e,(a*b*c)^5+e];;
+]]></Listing>
+
+First the relations are converted into NP format (see <Ref Sect="NP"/>) with
+the function <Ref Func="GP2NPList" Style="Text"/>.
+Next the function
+<Ref Func="SGrobnerModule" Style="Text"/> is called to calculate a Gröbner basis
+record (see <Ref Sect="GBR"/>). 
+
+<Listing><![CDATA[
+gap> GBR:=SGrobnerModule(GP2NPList(Mrels),GP2NPList(Irels));;
+#I  number of entered polynomials is 6
+#I  number of polynomials after reduction is 6
+#I  End of phase I
+#I  End of phase II
+#I  End of phase III
+#I  End of phase IV
+#I  The computation took 28 msecs.
+#I  number of entered polynomials is 12
+#I  number of polynomials after reduction is 12
+#I  End of phase I
+#I  End of phase II
+#I  End of phase III
+#I  End of phase IV
+#I  The computation took 136 msecs.
+gap> PrintNPList(GBR.ts);;
+ a^2 + !-1 
+ b^2 + !-1 
+ ca + !-1ac 
+ c^2 + !-1 
+ bab + !-1aba 
+ cbc + !-1bcb + (-1-1*a)c + (1+a)b 
+ bcba + !-1acba + !-1abcb + abac + cb + !-1bc + (-2-1*a)ba + (2+a)ab 
+ cbac + !-1acba + !-1abcb + abac + cb + !-1bc + !-1ba + (-1-1*a)ac + (2+a)ab 
+ bacba + abacb + !-1cba + !-1bcb + !-1abc + (-2-1*a)aba + c + (2+a)a 
+gap> PrintNPList(GBR.p);;
+[ b + !-1 ]
+[ c + !-1 ]
+[ ac + !-1a ]
+[ aba + !-1ab ]
+[ abc + ab + (-1*a)a + (-1*a) ]
+]]></Listing>
+
+It is now possible to calculate the basis of the quotient algebra
+with the function <Ref Func="BaseQM" Style="Text"/>. This function has as
+arguments the Gröbner basis record <C>GBR</C>, the number of generators of
+the algebra (in this case 3), the number of generators of the
+free module in which the vectors are chosen (in this case 1),
+and a variable <C>maxno</C> for returning
+partial quotient algebras (0 means full basis).
+
+<Listing><![CDATA[
+gap> B:=BaseQM(GBR,3,1,0);;
+gap> PrintNPList(B);
+[ !1 ]
+[ a ]
+[ ab ]
+]]></Listing>
+
+Calculate the dimension of the quotient algebra
+with the function <Ref Func="DimQM" Style="Text"/>. This function has as
+arguments the Gröbner basis record <C>GBR</C>,
+the number of generators of
+the algebra (in this case 3) and
+the number of generators of
+the module (in this case 1).
+
+
+
+<Listing><![CDATA[
+gap> DimQM(GBR,3,1);
+3
+]]></Listing>
+
+Next we write down the matrices for the right action of the generators
+on the module by means of
+<Ref Func="MatrixQA" Style="Text"/>.
+
+<Listing><![CDATA[
+gap> aa := MatrixQA(1,B,GBR);;
+gap> Display(aa);
+[ [  !0,  !1,  !0 ],
+  [  !1,  !0,  !0 ],
+  [  !0,  !0,  !1 ] ]
+gap> bb := MatrixQA(2,B,GBR);;
+gap> Display(bb);
+[ [  !1,  !0,  !0 ],
+  [  !0,  !0,  !1 ],
+  [  !0,  !1,  !0 ] ]
+gap> cc := MatrixQA(3,B,GBR);;
+gap> Display(cc);
+[ [   !1,   !0,   !0 ],
+  [   !0,   !1,   !0 ],
+  [  (a),  (a),  !-1 ] ]
+]]></Listing>
+
+Finally we check the defining relations for the icosahedral group
+on the three new matrix generators. This can be done by verifying if the
+result is equal to the identity matrix or with the function <Ref
+BookName="Reference" Func="IsOne" Style="Text"/>.
+
+<Listing><![CDATA[
+gap> ee := IdentityMat(3,K);;
+gap> Display(ee);
+[ [  !1,  !0,  !0 ],
+  [  !0,  !1,  !0 ],
+  [  !0,  !0,  !1 ] ]
+gap> aa^2 = ee;
+true
+gap> IsOne(aa^2);
+true
+gap> IsOne(bb^2);
+true
+gap> IsOne(cc^2);
+true
+gap> IsOne((aa*bb)^3);
+true
+gap> IsOne((aa*cc)^2);
+true
+gap> IsOne((bb*cc)^5);
+true
+]]></Listing>
+</Section>
+<#/GAPDoc>
+

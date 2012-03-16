@@ -1,0 +1,535 @@
+This is pdfTeXk, Version 3.141592-1.40.3 (Web2C 7.5.6) (format=pdflatex 2009.6.9)  12 MAY 2010 19:52
+entering extended mode
+ %&-line parsing enabled.
+**gbnp_doc
+(./gbnp_doc.tex
+LaTeX2e <2005/12/01>
+Babel <v3.8h> and hyphenation patterns for english, usenglishmax, dumylang, noh
+yphenation, arabic, farsi, croatian, ukrainian, russian, bulgarian, czech, slov
+ak, danish, dutch, finnish, basque, french, german, ngerman, ibycus, greek, mon
+ogreek, ancientgreek, hungarian, italian, latin, mongolian, norsk, icelandic, i
+nterlingua, turkish, coptic, romanian, welsh, serbian, slovenian, estonian, esp
+eranto, uppersorbian, indonesian, polish, portuguese, spanish, catalan, galicia
+n, swedish, ukenglish, loaded.
+(/usr/share/texmf-texlive/tex/latex/base/report.cls
+Document Class: report 2005/09/16 v1.4f Standard LaTeX document class
+(/usr/share/texmf-texlive/tex/latex/base/size11.clo
+File: size11.clo 2005/09/16 v1.4f Standard LaTeX file (size option)
+)
+\c@part=\count79
+\c@chapter=\count80
+\c@section=\count81
+\c@subsection=\count82
+\c@subsubsection=\count83
+\c@paragraph=\count84
+\c@subparagraph=\count85
+\c@figure=\count86
+\c@table=\count87
+\abovecaptionskip=\skip41
+\belowcaptionskip=\skip42
+\bibindent=\dimen102
+)
+(/usr/share/texmf-texlive/tex/latex/ltxmisc/a4wide.sty
+Package: a4wide 1994/08/30
+
+(/usr/share/texmf-texlive/tex/latex/ntgclass/a4.sty
+Package: a4 2004/04/15 v1.2g A4 based page layout
+))
+(/usr/share/texmf-texlive/tex/latex/amsfonts/amssymb.sty
+Package: amssymb 2002/01/22 v2.2d
+
+(/usr/share/texmf-texlive/tex/latex/amsfonts/amsfonts.sty
+Package: amsfonts 2001/10/25 v2.2f
+\@emptytoks=\toks14
+\symAMSa=\mathgroup4
+\symAMSb=\mathgroup5
+LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
+(Font)                  U/euf/m/n --> U/euf/b/n on input line 132.
+))
+(/usr/share/texmf-texlive/tex/latex/base/inputenc.sty
+Package: inputenc 2006/05/05 v1.1b Input encoding file
+\inpenc@prehook=\toks15
+\inpenc@posthook=\toks16
+
+(/usr/share/texmf-texlive/tex/latex/base/latin1.def
+File: latin1.def 2006/05/05 v1.1b Input encoding file
+))
+(/usr/share/texmf-texlive/tex/latex/base/makeidx.sty
+Package: makeidx 2000/03/29 v1.0m Standard LaTeX package
+)
+\@indexfile=\write3
+\openout3 = `gbnp_doc.idx'.
+
+
+Writing index file gbnp_doc.idx
+(/usr/share/texmf-texlive/tex/latex/graphics/color.sty
+Package: color 2005/11/14 v1.0j Standard LaTeX Color (DPC)
+
+(/etc/texmf/tex/latex/config/color.cfg
+File: color.cfg 2007/01/18 v1.5 color configuration of teTeX/TeXLive
+)
+Package color Info: Driver file: pdftex.def on input line 130.
+
+(/usr/share/texmf-texlive/tex/latex/pdftex-def/pdftex.def
+File: pdftex.def 2007/01/08 v0.04d Graphics/color for pdfTeX
+\Gread@gobject=\count88
+))
+(/usr/share/texmf-texlive/tex/latex/fancyvrb/fancyvrb.sty
+Package: fancyvrb 1998/07/17
+
+Style option: `fancyvrb' v2.6, with DG/SPQR fixes <1998/07/17> (tvz)
+(/usr/share/texmf-texlive/tex/latex/graphics/keyval.sty
+Package: keyval 1999/03/16 v1.13 key=value parser (DPC)
+\KV@toks@=\toks17
+)
+\FV@CodeLineNo=\count89
+\FV@InFile=\read1
+\FV@TabBox=\box26
+\c@FancyVerbLine=\count90
+\FV@StepNumber=\count91
+\FV@OutFile=\write4
+
+No file fancyvrb.cfg.
+) (/usr/share/texmf-texlive/tex/latex/pslatex/pslatex.sty
+Package: pslatex 1996/07/24 v1.2 pslatex emulation (DPC)
+LaTeX Font Info:    Redeclaring symbol font `operators' on input line 65.
+LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
+(Font)                  OT1/cmr/m/n --> OT1/ptmcm/m/n on input line 65.
+LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
+(Font)                  OT1/cmr/bx/n --> OT1/ptmcm/m/n on input line 65.
+LaTeX Font Info:    Redeclaring symbol font `letters' on input line 66.
+LaTeX Font Info:    Overwriting symbol font `letters' in version `normal'
+(Font)                  OML/cmm/m/it --> OML/ptmcm/m/it on input line 66.
+LaTeX Font Info:    Overwriting symbol font `letters' in version `bold'
+(Font)                  OML/cmm/b/it --> OML/ptmcm/m/it on input line 66.
+LaTeX Font Info:    Redeclaring symbol font `symbols' on input line 67.
+LaTeX Font Info:    Overwriting symbol font `symbols' in version `normal'
+(Font)                  OMS/cmsy/m/n --> OMS/pzccm/m/n on input line 67.
+LaTeX Font Info:    Overwriting symbol font `symbols' in version `bold'
+(Font)                  OMS/cmsy/b/n --> OMS/pzccm/m/n on input line 67.
+LaTeX Font Info:    Redeclaring symbol font `largesymbols' on input line 68.
+LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `normal'
+(Font)                  OMX/cmex/m/n --> OMX/psycm/m/n on input line 68.
+LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `bold'
+(Font)                  OMX/cmex/m/n --> OMX/psycm/m/n on input line 68.
+\symbold=\mathgroup6
+\symitalic=\mathgroup7
+LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 74.
+LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
+(Font)                  OT1/cmr/bx/n --> OT1/ptm/bx/n on input line 74.
+LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `bold'
+(Font)                  OT1/cmr/bx/n --> OT1/ptm/bx/n on input line 74.
+LaTeX Font Info:    Redeclaring math alphabet \mathit on input line 75.
+LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
+(Font)                  OT1/cmr/m/it --> OT1/ptm/m/it on input line 75.
+LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
+(Font)                  OT1/cmr/bx/it --> OT1/ptm/m/it on input line 75.
+)
+(/usr/share/texmf-texlive/tex/latex/hyperref/hyperref.sty
+Package: hyperref 2007/02/07 v6.75r Hypertext links for LaTeX
+\@linkdim=\dimen103
+\Hy@linkcounter=\count92
+\Hy@pagecounter=\count93
+
+(/usr/share/texmf-texlive/tex/latex/hyperref/pd1enc.def
+File: pd1enc.def 2007/02/07 v6.75r Hyperref: PDFDocEncoding definition (HO)
+)
+(/etc/texmf/tex/latex/config/hyperref.cfg
+File: hyperref.cfg 2002/06/06 v1.2 hyperref configuration of TeXLive
+)
+(/usr/share/texmf-texlive/tex/latex/oberdiek/kvoptions.sty
+Package: kvoptions 2006/08/22 v2.4 Connects package keyval with LaTeX options (
+HO)
+)
+Package hyperref Info: Option `bookmarks' set `false' on input line 2238.
+Package hyperref Info: Option `colorlinks' set `true' on input line 2238.
+Package hyperref Info: Option `breaklinks' set `true' on input line 2238.
+Package hyperref Info: Hyper figures OFF on input line 2288.
+Package hyperref Info: Link nesting OFF on input line 2293.
+Package hyperref Info: Hyper index ON on input line 2296.
+Package hyperref Info: Plain pages OFF on input line 2303.
+Package hyperref Info: Backreferencing ON on input line 2306.
+
+Implicit mode ON; LaTeX internals redefined
+Package hyperref Info: Bookmarks OFF on input line 2450.
+(/usr/share/texmf-texlive/tex/latex/hyperref/backref.sty
+Package: backref 2006/10/06 v1.27 Bibliographical back referencing
+)
+(/usr/share/texmf-texlive/tex/latex/ltxmisc/url.sty
+\Urlmuskip=\muskip10
+Package: url 2005/06/27  ver 3.2  Verb mode for urls, etc.
+)
+LaTeX Info: Redefining \url on input line 2599.
+\Fld@menulength=\count94
+\Field@Width=\dimen104
+\Fld@charsize=\dimen105
+\Choice@toks=\toks18
+\Field@toks=\toks19
+Package hyperref Info: Hyper figures OFF on input line 3102.
+Package hyperref Info: Link nesting OFF on input line 3107.
+Package hyperref Info: Hyper index ON on input line 3110.
+Package hyperref Info: backreferencing ON on input line 3115.
+Package hyperref Info: Link coloring ON on input line 3120.
+\Hy@abspage=\count95
+\c@Item=\count96
+\c@Hfootnote=\count97
+)
+*hyperref using driver hpdftex*
+(/usr/share/texmf-texlive/tex/latex/hyperref/hpdftex.def
+File: hpdftex.def 2007/02/07 v6.75r Hyperref driver for pdfTeX
+\Fld@listcount=\count98
+)
+\pagenrlog=\write5
+\openout5 = `gbnp_doc.pnr'.
+
+ (./gbnp_doc.aux)
+\openout1 = `gbnp_doc.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 43.
+LaTeX Font Info:    ... okay on input line 43.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 43.
+LaTeX Font Info:    ... okay on input line 43.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 43.
+LaTeX Font Info:    ... okay on input line 43.
+LaTeX Font Info:    Checking defaults for OMS/pzccm/m/n on input line 43.
+LaTeX Font Info:    Try loading font information for OMS+pzccm on input line 43
+.
+
+(/usr/share/texmf-texlive/tex/latex/psnfss/omspzccm.fd
+File: omspzccm.fd 2000/01/03 Fontinst v1.801 font definitions for OMS/pzccm.
+)
+LaTeX Font Info:    ... okay on input line 43.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 43.
+LaTeX Font Info:    ... okay on input line 43.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 43.
+LaTeX Font Info:    ... okay on input line 43.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 43.
+LaTeX Font Info:    ... okay on input line 43.
+Package hyperref Info: Link coloring ON on input line 43.
+
+(/usr/share/texmf-texlive/tex/latex/hyperref/nameref.sty
+Package: nameref 2006/12/27 v2.28 Cross-referencing by name of section
+
+(/usr/share/texmf-texlive/tex/latex/oberdiek/refcount.sty
+Package: refcount 2006/02/20 v3.0 Data extraction from references (HO)
+)
+\c@section@level=\count99
+)
+LaTeX Info: Redefining \ref on input line 43.
+LaTeX Info: Redefining \pageref on input line 43.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <24.88> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 47.
+LaTeX Font Info:    Font shape `OT1/phv/bx/n' in size <24.88> not available
+(Font)              Font shape `OT1/phv/b/n' tried instead on input line 47.
+LaTeX Font Info:    Font shape `OT1/phv/b/n' will be
+(Font)              scaled to size 22.39185pt on input line 47.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <12> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 53.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 60.
+
+Underfull \hbox (badness 10000) in paragraph at lines 58--63
+
+ []
+
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10.95> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 64.
+[1
+
+{/home/jwk/.texmf-var/fonts/map/pdftex/updmap/pdftex.map
+
+pdfTeX warning: pdflatex (file /home/jwk/.texmf-var/fonts/map/pdftex/updmap/pdf
+tex.map): fontmap entry for `mtex' already exists, duplicates ignored
+
+
+pdfTeX warning: pdflatex (file /home/jwk/.texmf-var/fonts/map/pdftex/updmap/pdf
+tex.map): fontmap entry for `mtsy' already exists, duplicates ignored
+
+
+pdfTeX warning: pdflatex (file /home/jwk/.texmf-var/fonts/map/pdftex/updmap/pdf
+tex.map): fontmap entry for `rmtmi' already exists, duplicates ignored
+}]
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <14.4> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 71.
+LaTeX Font Info:    Font shape `OT1/phv/m/n' will be
+(Font)              scaled to size 8.99994pt on input line 73.
+
+Underfull \hbox (badness 10000) in paragraph at lines 84--88
+
+ []
+
+LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <10> not available
+(Font)              Font shape `OMS/pzccm/m/n' tried instead on input line 92.
+
+Underfull \hbox (badness 10000) in paragraph at lines 107--108
+
+ []
+
+LaTeX Font Info:    Font shape `OT1/phv/m/sl' will be
+(Font)              scaled to size 7.19995pt on input line 108.
+[2] (./gbnp_doc.toc
+LaTeX Font Info:    Try loading font information for OT1+ptmcm on input line 2.
+
+ (/usr/share/texmf-texlive/tex/latex/psnfss/ot1ptmcm.fd
+File: ot1ptmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OT1/ptmcm.
+)
+LaTeX Font Info:    Try loading font information for OML+ptmcm on input line 2.
+
+
+(/usr/share/texmf-texlive/tex/latex/psnfss/omlptmcm.fd
+File: omlptmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OML/ptmcm.
+)
+LaTeX Font Info:    Try loading font information for OMX+psycm on input line 2.
+
+
+(/usr/share/texmf-texlive/tex/latex/psnfss/omxpsycm.fd
+File: omxpsycm.fd 2000/01/03 Fontinst v1.801 font definitions for OMX/psycm.
+)
+LaTeX Font Info:    Try loading font information for U+msa on input line 2.
+
+(/usr/share/texmf-texlive/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2002/01/19 v2.2g AMS font definitions
+)
+LaTeX Font Info:    Try loading font information for U+msb on input line 2.
+
+(/usr/share/texmf-texlive/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2002/01/19 v2.2g AMS font definitions
+)
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <8> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 2.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <6> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 2.
+ [3
+
+] [4])
+\tf@toc=\write6
+\openout6 = `gbnp_doc.toc'.
+
+ [5]
+Chapter 1.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <20.74> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 116.
+LaTeX Font Info:    Font shape `OT1/phv/m/n' will be
+(Font)              scaled to size 9.85492pt on input line 129.
+
+Overfull \hbox (9.9831pt too wide) in paragraph at lines 129--130
+\OT1/ptm/m/n/10.95 To in-stall GBNP, first down-load it from [][]\OT1/pcr/m/n/1
+0.95 http://mathdox.org/products/gbnp/GBNP-1.0.1.tar.gz[][]\OT1/ptm/m/n/10.95 ,
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 137--138
+[]\OT1/ptm/m/n/10.95 Those who want to down-load this doc-u-men-ta-tion can fin
+d it at
+ []
+
+[6
+
+]
+Underfull \hbox (badness 2680) in paragraph at lines 168--170
+\OT1/ptm/m/n/10.95 port of Di[]e Gi-js-bers, Jan Willem Knop-per, and Chris Kro
+ok) can be down-loaded from
+ []
+
+[7]
+Chapter 2.
+LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <10.95> not available
+(Font)              Font shape `OMS/pzccm/m/n' tried instead on input line 190.
+
+[8
+
+]
+Underfull \hbox (badness 2913) in paragraph at lines 238--240
+\OT1/ptm/m/n/10.95 rep-re-sents $\OT1/ptmcm/m/n/10.95 [1\OML/ptmcm/m/it/10.95 ;
+ \OT1/ptmcm/m/n/10.95 0\OML/ptmcm/m/it/10.95 ; \OT1/ptmcm/m/n/10.95 0]$ \OT1/pt
+m/m/n/10.95 and \OT1/pcr/m/n/10.95 [[[-1,1,2],[-1,2,1],[-3,2,2,2]],[6,-7,9]] \O
+T1/ptm/m/n/10.95 rep-re-sents $\OT1/ptmcm/m/n/10.95 [6\OML/ptmcm/m/it/10.95 x[]
+x[] \OMS/pzccm/m/n/10.95 ^^@
+ []
+
+[9] [10] [11] [12] [13]
+Chapter 3.
+[14
+
+] [15] [16]
+Underfull \hbox (badness 10000) in paragraph at lines 633--636
+
+ []
+
+
+Underfull \hbox (badness 3942) in paragraph at lines 640--641
+[]\OT1/ptm/m/n/10.95 This func-tion prints a poly-no-mial [] in NP for-mat as c
+on-fig-ured by the func-tion
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 658--661
+
+ []
+
+[17]
+LaTeX Font Info:    Font shape `OT1/ptm/bx/it' in size <10.95> not available
+(Font)              Font shape `OT1/ptm/b/it' tried instead on input line 667.
+LaTeX Font Info:    Try loading font information for OML+pcr on input line 678.
+
+ (/usr/share/texmf-texlive/tex/latex/psnfss/omlpcr.fd
+File: omlpcr.fd 
+)
+LaTeX Font Info:    Font shape `OML/pcr/m/n' in size <10.95> not available
+(Font)              Font shape `OML/cmm/m/it' tried instead on input line 678.
+ [18]
+Underfull \hbox (badness 10000) in paragraph at lines 742--745
+
+ []
+
+[19] [20] [21] [22] [23] [24] [25] [26] [27] [28] [29] [30] [31] [32] [33]
+[34] [35] [36]
+Underfull \hbox (badness 10000) in paragraph at lines 1964--1967
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1989--1992
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2016--2019
+
+ []
+
+[37] [38] [39] [40] [41] [42] [43] [44] [45] [46] [47] [48]
+Chapter 4.
+pdfTeX warning (ext4): destination with the same identifier (name{L.X7DFB63A97E
+67C0A1}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.2677 \hyperdef{L}{X7DFB63A97E67C0A1}{}
+                                        
+Underfull \hbox (badness 10000) in paragraph at lines 2697--2700
+
+ []
+
+[49
+
+pdfTeX warning (ext4): destination with the same identifier (name{L.X82D40B0E84
+383BBC}) has been already used, duplicate ignored
+<to be read again> 
+                   \endgroup \set@typeset@protect 
+l.2724 
+       ]
+Underfull \hbox (badness 10000) in paragraph at lines 2748--2751
+
+ []
+
+pdfTeX warning (ext4): destination with the same identifier (name{L.X8222A2F67E
+4CC62B}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.2762 \hyperdef{L}{X8222A2F67E4CC62B}{}
+                                        pdfTeX warning (ext4): destination with
+ the same identifier (name{L.X8552D1FF7EA2B8A6}) has been already used, duplica
+te ignored
+<to be read again> 
+                   \relax 
+l.2769 \hyperdef{L}{X8552D1FF7EA2B8A6}{}
+                                         [50pdfTeX warning (ext4): destination 
+with the same identifier (name{L.X7FAE244E80397B9A}) has been already used, dup
+licate ignored
+<to be read again> 
+                   \endgroup \set@typeset@protect 
+l.2798 \chapter
+               {\textcolor{Chapter }{Examples}}\label{Examples}pdfTeX warning (
+ext4): destination with the same identifier (name{L.X7CC244E47F903B31}) has bee
+n already used, duplicate ignored
+<to be read again> 
+                   \endgroup \set@typeset@protect 
+l.2798 \chapter
+               {\textcolor{Chapter }{Examples}}\label{Examples}]
+Appendix A.
+pdfTeX warning (ext4): destination with the same identifier (name{L.X7A489A5D79
+DA9E5C}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.2800 \hyperdef{L}{X7A489A5D79DA9E5C}{}
+                                        pdfTeX warning (ext4): destination with
+ the same identifier (name{L.X7DFB63A97E67C0A1}) has been already used, duplica
+te ignored
+<to be read again> 
+                   \relax 
+l.2805 \hyperdef{L}{X7DFB63A97E67C0A1}{}
+                                         [51
+
+] [52] [53] [54] [55] [56] [57]
+[58] [59] [60] [61] [62] [63] [64] [65] [66] [67] [68] [69] [70] [71] [72]
+[73] [74] [75] [76] [77] [78] [79] [80] [81] [82] [83] [84] [85] [86]
+Underfull \hbox (badness 1184) in paragraph at lines 4697--4698
+\OT1/ptm/m/n/10.95 First the re-la-tions are con-verted into NP for-mat, see Se
+c-tion [][]2.1[][], af-ter which the func-tion
+ []
+
+[87] [88] [89] [90] [91] [92] [93] [94] [95]
+Underfull \hbox (badness 2302) in paragraph at lines 5151--5152
+\OT1/ptm/m/n/10.95 It is pos-si-ble to print sym-bols like they are printed in 
+the al-ge-bra \OT1/pcr/m/n/10.95 A \OT1/ptm/m/n/10.95 with the func-tion
+ []
+
+[96] [97] [98] [99]
+Underfull \hbox (badness 2443) in paragraph at lines 5306--5307
+\OT1/ptm/m/n/10.95 In or-der to print the vari-ables like they are printed in t
+he al-ge-bra \OT1/pcr/m/n/10.95 A \OT1/ptm/m/n/10.95 with the func-tion
+ []
+
+[100] [101]
+Underfull \hbox (badness 2302) in paragraph at lines 5433--5434
+\OT1/ptm/m/n/10.95 It is pos-si-ble to print sym-bols like they are printed in 
+the al-ge-bra \OT1/pcr/m/n/10.95 A \OT1/ptm/m/n/10.95 with the func-tion
+ []
+
+[102] [103] [104] [105]
+! Extra \right.
+\rangle ->\delimiter "526930B 
+                              
+l.5614 aca^{-1}c^{-2}\}\right\rangle
+                                    $ is the trivial group. Here we solve th...
+I'm ignoring a \right that had no matching \left.
+
+[106] [107] [108] [109]
+Underfull \hbox (badness 2221) in paragraph at lines 5829--5831
+\OT1/ptm/m/n/10.95 Compare milk and cola af-ter tak-ing their strong nor-mal fo
+rms with re-spect to \OT1/pcr/m/n/10.95 GB \OT1/ptm/m/n/10.95 us-ing
+ []
+
+[110] [111] [112] [113] [114] (./gbnp_doc.bbl (./gbnp_doc.brf)
+\tf@brf=\write7
+\openout7 = `gbnp_doc.brf'.
+
+ [115] [116
+
+])
+(./gbnp_doc.ind [117] [118
+
+]) (./gbnp_doc.aux) ) 
+Here is how much of TeX's memory you used:
+ 4030 strings out of 94080
+ 56004 string characters out of 1165312
+ 111613 words of memory out of 1500000
+ 6864 multiletter control sequences out of 10000+50000
+ 54631 words of font info for 106 fonts, out of 1200000 for 2000
+ 645 hyphenation exceptions out of 8191
+ 27i,7n,30p,1251b,623s stack positions out of 5000i,500n,6000p,200000b,5000s
+ </home/jwk/.texmf-var/fonts/pk/ljfour/public/cm/cmmi10.48
+0pk> </home/jwk/.texmf-var/fonts/pk/ljfour/public/cm/cmex10.657pk>{/usr/share/t
+exmf-texlive/fonts/enc/dvips/base/8r.enc} </home/jwk/.texmf-var/fonts/pk/ljfour
+/public/cm/cmr10.657pk> </home/jwk/.texmf-var/fonts/pk/ljfour/public/cm/cmmi10.
+657pk></usr/share/texmf-texlive/fonts/type1/bluesky/cm/cmsy10.pfb></usr/share/t
+exmf-texlive/fonts/type1/bluesky/ams/msam10.pfb></usr/share/texmf-texlive/fonts
+/type1/bluesky/ams/msbm10.pfb></usr/share/texmf-texlive/fonts/type1/urw/courier
+/ucrr8a.pfb></usr/share/texmf-texlive/fonts/type1/urw/times/utmr8a.pfb>
+Output written on gbnp_doc.pdf (118 pages, 540061 bytes).
+PDF statistics:
+ 1593 PDF objects out of 1728 (max. 8388607)
+ 367 named destinations out of 1000 (max. 131072)
+ 17 words of extra memory for PDF output out of 10000 (max. 10000000)
+

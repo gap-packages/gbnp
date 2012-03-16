@@ -1,0 +1,1152 @@
+gap> ReadTest("test01.test");
+-----------------------------------------------------------------------------
+Loading  GBNP 0.9 (Non-commutative Gröbner bases)
+by A.M. Cohen (http://www.win.tue.nl/~amc) and
+   D.A.H. Gijsbers (D.A.H.Gijsbers@tue.nl).
+-----------------------------------------------------------------------------
+true
+[ [ [ [ 1, 2 ], [ 2, 1 ] ], [ 1, -1 ] ] ]
+[ [ [ 1, 1, 2 ], [  ] ], [ 1, -1 ] ]
+[ [ [ 1, 2, 2 ], [  ] ], [ 1, -1 ] ]
+ a^2b - 1
+ ab - ba
+ ab^2 - 1
+#I  number of entered polynomials is 3
+#I  number of polynomials after reduction is 3
+#I  End of fase I
+#I  End of fase II
+.
+#I  length of G =2
+#I  length of todo is 0
+#I  List of todo lengths is [ 1, 0 ]
+#I  End of fase III
+#I  End of fase IV
+#I  elapsed time is 30
+[ [ [ [ 2 ], [ 1 ] ], [ 1, -1 ] ], [ [ [ 1, 1, 1 ], [  ] ], [ 1, -1 ] ] ]
+ b - a
+ a^3 - 1
+3
+[ [ [ [  ] ], [ 1 ] ], [ [ [ 1 ] ], [ 1 ] ], [ [ [ 1, 1 ] ], [ 1 ] ] ]
+ 1
+ a
+ a^2
+test01
+GAP4stones: 200
+true
+gap> ReadTest("test02.test");
+true
+function( n, q ) ... end
+651/25
+function( l ) ... end
+#I  number of entered polynomials is 258
+#I  number of polynomials after reduction is 114
+#I  End of fase I
+#I  End of fase II
+#I  List of todo lengths is [ 1, 1, 0 ]
+#I  End of fase III
+#I  End of fase IV
+#I  elapsed time is 5370
+ ba^3 - 651/25aba^2 + 651/25a^2ba - a^3b
+ b^3a - 651/25b^2ab + 651/25bab^2 - ab^3
+ b^2a^2ba - bab^2a^2 - baba^2b + ba^2bab + ab^2aba - abab^2a - aba^2b^2 + a^2b\
+^2ab
+ b^2ab^2a^2 - 651/25b^2ababa + b^2aba^2b + 626/25bab^2aba - bab^2a^2b + babab^\
+2a - ba^2b^2ab + ba^2bab^2 - 651/25ab^2ab^2a + ab^2abab + 423176/625abab^2ab -\
+ 423801/625ababab^2 + 626/25aba^2b^3 - 406901/625a^2b^2ab^2 + 423176/625a^2bab\
+^3 - 651/25a^3b^4
+ a^8
+ a^7b
+ a^6ba
+ a^6b^2
+ a^5ba^2
+ a^5bab
+ a^5b^2a
+ a^5b^3
+ a^4ba^2b
+ a^4baba
+ a^4bab^2
+ a^4b^2a^2
+ a^4b^2ab
+ a^4b^4
+ a^3ba^2ba
+ a^3ba^2b^2
+ a^3baba^2
+ a^3babab
+ a^3bab^2a
+ a^3bab^3
+ a^3b^2a^2b
+ a^3b^2aba
+ a^3b^2ab^2
+ a^3b^5
+ a^2ba^2ba^2
+ a^2ba^2bab
+ a^2ba^2b^2a
+ a^2ba^2b^3
+ a^2baba^2b
+ a^2bababa
+ a^2babab^2
+ a^2bab^2a^2
+ a^2bab^2ab
+ a^2bab^4
+ a^2b^2a^2b^2
+ a^2b^2aba^2
+ a^2b^2abab
+ a^2b^2ab^2a
+ a^2b^2ab^3
+ a^2b^6
+ aba^2ba^2b
+ aba^2baba
+ aba^2bab^2
+ aba^2b^2a^2
+ aba^2b^2ab
+ aba^2b^4
+ ababa^2ba
+ ababa^2b^2
+ abababa^2
+ abababab
+ ababab^2a
+ ababab^3
+ abab^2a^2b
+ abab^2aba
+ abab^2ab^2
+ abab^5
+ ab^2a^2b^2a
+ ab^2a^2b^3
+ ab^2aba^2b
+ ab^2ababa
+ ab^2abab^2
+ ab^2ab^2ab
+ ab^2ab^4
+ ab^7
+ ba^2ba^2ba
+ ba^2ba^2b^2
+ ba^2baba^2
+ ba^2babab
+ ba^2bab^2a
+ ba^2bab^3
+ ba^2b^2a^2b
+ ba^2b^2aba
+ ba^2b^2ab^2
+ ba^2b^5
+ baba^2ba^2
+ baba^2bab
+ baba^2b^2a
+ baba^2b^3
+ bababa^2b
+ babababa
+ bababab^2
+ babab^2a^2
+ babab^2ab
+ babab^4
+ bab^2a^2b^2
+ bab^2aba^2
+ bab^2abab
+ bab^2ab^2a
+ bab^2ab^3
+ bab^6
+ b^2a^2b^2a^2
+ b^2a^2b^2ab
+ b^2a^2b^4
+ b^2aba^2ba
+ b^2aba^2b^2
+ b^2ababa^2
+ b^2ababab
+ b^2abab^2a
+ b^2abab^3
+ b^2ab^2aba
+ b^2ab^2ab^2
+ b^2ab^5
+ b^8
+#I  The computation took 0 msecs.
+157
+test02
+GAP4stones: 1
+true
+gap> ReadTest("test03.test");
+true
+ aca - cac
+ dcd - cdc
+ dbd - bdb
+ ded - ede
+ fef - efe
+ ab - ba
+ ad - da
+ ae - ea
+ af - fa
+ bc - cb
+ be - eb
+ bf - fb
+ ce - ec
+ cf - fc
+ df - fd
+ a^2 - 1
+ b^2 - 1
+ c^2 - 1
+ d^2 - 1
+ e^2 - 1
+ f^2 - 1
+#I  number of entered polynomials is 21
+#I  number of polynomials after reduction is 21
+#I  End of fase I
+#I  End of fase II
+#I  List of todo lengths is [ 7, 6, 6, 6, 6, 7, 6, 6, 9, 8, 8, 8, 7, 11, 13,
+  13, 12, 9, 14, 20, 21, 28, 30, 23, 21, 16, 13, 13, 5, 0 ]
+#I  End of fase III
+#I  End of fase IV
+#I  elapsed time is 2440
+ a^2 - 1
+ ba - ab
+ b^2 - 1
+ cb - bc
+ c^2 - 1
+ da - ad
+ d^2 - 1
+ ea - ae
+ eb - be
+ ec - ce
+ e^2 - 1
+ fa - af
+ fb - bf
+ fc - cf
+ fd - df
+ f^2 - 1
+ cab - bca
+ cac - aca
+ dbd - bdb
+ dcd - cdc
+ ede - ded
+ fef - efe
+ dcad - cdca
+ edbe - dedb
+ edce - dedc
+ fedf - efed
+ dbcdb - cdbcd
+ dbcdc - bdbcd
+ edbce - dedbc
+ edcae - dedca
+ fedbf - efedb
+ fedcf - efedc
+ dbcadb - cdbcad
+ edbcae - dedbca
+ fedbcf - efedbc
+ fedcaf - efedca
+ dbcadca - bdbcadc
+ edbcded - dedbcde
+ fedbcaf - efedbca
+ fedbcdf - efedbcd
+ edbcaded - dedbcade
+ fedbcadf - efedbcad
+ fedbcadcf - efedbcadc
+ fedbcdefe - efedbcdef
+ edbcadcedc - dedbcadced
+ fedbcadefe - efedbcadef
+ edbcadcedbc - dedbcadcedb
+ fedbcadcefe - efedbcadcef
+ fedbcadcedfed - efedbcadcedfe
+ fedbcadcedbfedb - efedbcadcedbfed
+#I  The computation took 2580 msecs.
+51840
+51840
+test03
+GAP4stones: 1
+true
+gap> ReadTest("test04.test");
+true
+[ [ [ 1 ], [  ] ], [ 1, 1 ] ]
+[ [ [ 1 ], [  ] ], [ 1, 2 ] ]
+[ [ [ [ 1 ], [  ] ], [ 1, 1 ] ], [ [ [ 1 ], [  ] ], [ 1, 2 ] ] ]
+ a + 1
+ a + 2
+#I  number of entered polynomials is 2
+#I  number of polynomials after reduction is 1
+#I  End of fase I
+#I  End of fase II
+#I  End of fase III
+#I  End of fase IV
+#I  elapsed time is 0
+[ [ [ [  ] ], [ 1 ] ] ]
+ 1
+test04
+GAP4stones: infinity
+true
+gap> ReadTest("test05.test");
+true
+ a^3 + a + 1
+ a^4 - a^2 + a
+ - 10a^5 + 3a^4 + 14a^3 - 13a^2 + 7a + 4
+ 100a^6 - 60a^5 - 127a^4 + 172a^3 - 113a^2 - 15a + 12
+ - 1000a^7 + 900a^6 + 1050a^5 - 2089a^4 + 1702a^3 - 241a^2 - 137a + 52
+ 10000a^8 - 12000a^7 - 7400a^6 + 23800a^5 - 23795a^4 + 8204a^3 + 195a^2 - 991a\
+ + 204
+ - 100000a^9 + 150000a^8 + 34000a^7 - 256600a^6 + 313550a^5 - 161781a^4 + 2947\
+0a^3 + 9531a^2 - 5561a + 820
+ 1000000a^10 - 1800000a^9 + 150000a^8 + 2620000a^7 - 3934900a^6 + 2653660a^5 -\
+ 875223a^4 + 25916a^3 + 84983a^2 - 28847a + 3276
+ - 10000000a^11 + 21000000a^10 - 7300000a^9 - 25150000a^8 + 47345000a^7 - 3936\
+7700a^6 + 17967410a^5 - 3531953a^4 - 654202a^3 + 581543a^2 - 141545a + 13108
+ 100000000a^12 - 240000000a^11 + 140000000a^10 + 222400000a^9 - 548300000a^8 +\
+ 546192000a^7 - 313516800a^6 + 99836400a^5 - 7554731a^4 - 7674372a^3 + 3500011\
+a^2 - 671103a + 52428
+ - 1000000000a^13 + 2700000000a^12 - 2160000000a^11 - 1720000000a^10 + 6121000\
+000a^9 - 7207420000a^8 + 4963124000a^7 - 2096385200a^6 + 446926150a^5 + 399517\
+15a^4 - 60640034a^3 + 19537235a^2 - 3103769a + 209716
+ 10000000000a^14 - 30000000000a^13 + 30100000000a^12 + 9760000000a^11 - 658100\
+00000a^10 + 91326800000a^9 - 73446700000a^8 + 38037992000a^7 - 12012484300a^6 \
++ 1340606900a^5 + 696036561a^4 - 407989940a^3 + 103649439a^2 - 14092879a + 838\
+860
+ - 100000000000a^15 + 330000000000a^14 - 395000000000a^13 + 3500000000a^12 + 6\
+78740000000a^11 - 1117578000000a^10 + 1032931400000a^9 - 629549700000a^8 + 254\
+091315000a^7 - 57829062700a^6 - 1150840310a^5 + 6327815943a^4 - 2503024346a^3 \
++ 530026047a^2 - 63082313a + 3355444
+13
+#I  number of entered polynomials is 13
+#I  number of polynomials after reduction is 1
+#I  End of fase I
+#I  End of fase II
+#I  End of fase III
+#I  End of fase IV
+#I  elapsed time is 10
+[ [ [ [  ] ], [ 1 ] ] ]
+ 1
+test05
+GAP4stones: 1000
+true
+gap> ReadTest("test06.test");
+true
+ ea
+ a^3 + fa
+ a^9 + ca^3
+ a^81 + ca^9 + da^3
+ ca^81 + da^9 + ea^3
+ a^27 + da^81 + ea^9 + fa^3
+ b + ca^27 + ea^81 + fa^9
+ cb + da^27 + fa^81
+ a + db + ea^27
+ ca + eb + fa^27
+ da + fb
+ b^3 - b
+ ab - ba
+ ac - ca
+ ad - da
+ ae - ea
+ af - fa
+ bc - cb
+ bd - db
+ be - eb
+ bf - fb
+ cd - dc
+ ce - ec
+ cf - fc
+ de - ed
+ df - fd
+ ef - fe
+27
+true
+#I  number of entered polynomials is 27
+#I  number of polynomials after reduction is 8
+#I  End of fase I
+#I  End of fase II
+#I  List of todo lengths is [ 0 ]
+#I  End of fase III
+#I  End of fase IV
+#I  elapsed time is 5110
+ a
+ b
+ dc - cd
+ ec - ce
+ ed - de
+ fc - cf
+ fd - df
+ fe - ef
+test06
+GAP4stones: 1
+true
+gap> ReadTest("test07.test");
+true
+7
+ d - 11/7a^2 - 11a + 11/7
+ e - 11/7b^2 - 11b + 11/7
+ f - 11/7c^2 - 11c + 11/7
+ aba - bab
+ bcb - cbc
+ ac - ca
+ ad - 1/11d
+ be - 1/11e
+ cf - 1/11f
+ dbd - 11d
+ eae - 11e
+ ece - 11e
+ fbf - 11f
+ ded - d
+ ede - e
+ efe - e
+ fef - f
+17
+#I  number of entered polynomials is 17
+#I  number of polynomials after reduction is 17
+#I  End of fase I
+#I  End of fase II
+#I  List of todo lengths is [ 18, 17, 21, 20, 19, 18, 19, 18, 21, 20, 19, 19,
+  22, 20, 20, 23, 25, 26, 25, 24, 33, 33, 36, 39, 41, 40, 42, 43, 43, 43, 43,
+  42, 42, 41, 40, 39, 39, 37, 34, 31, 30, 30, 29, 28, 28, 27, 26, 25, 24, 23,
+  22, 21, 20, 19, 18, 17, 16, 15, 14, 13, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2,
+  1, 0 ]
+#I  End of fase III
+#I  End of fase IV
+#I  elapsed time is 1600
+ a^2 - 7/11d + 7a - 1
+ ad - 1/11d
+ b^2 - 7/11e + 7b - 1
+ be - 1/11e
+ ca - ac
+ c^2 - 7/11f + 7c - 1
+ cf - 1/11f
+ da - 1/11d
+ dc - cd
+ d^2 + 43/77d
+ eb - 1/11e
+ e^2 + 43/77e
+ fa - af
+ fc - 1/11f
+ fd - df
+ f^2 + 43/77f
+ abd - ed
+ acd - 1/11cd
+ aed + 7ed - bd - 7d
+ bab - aba
+ bae - de
+ bce - fe
+ bdb - aea - 7ea + 7db + 7bd - 7ae - 49e + 49d
+ bde + 7de - ae - 7e
+ bfe + 7fe - ce - 7e
+ cbc - bcb
+ cbf - ef
+ cdf - 1/11df
+ cec - bfb - 7fb + 7ec + 7ce - 7bf - 49f + 49e
+ cef + 7ef - bf - 7f
+ dba - bae
+ dbd - 11d
+ dea + 7de - db - 7d
+ ded - d
+ eab - abd
+ eae - 11e
+ ecb - cbf
+ ece - 11e
+ edb + 7ed - ea - 7e
+ ede - e
+ efb + 7ef - ec - 7e
+ efe - e
+ fbc - bce
+ fbf - 11f
+ fec + 7fe - fb - 7f
+ fef - f
+ abcd - ecd
+ acbd - ced
+ aced + 7ced - cbd - 7cd
+ aecd + 7ecd - bcd - 7cd
+ afbd - fed
+ afed + 7fed - fbd - 7df
+ cbac - bcba
+ cbaf - eaf
+ cbdf - edf
+ cdbf - def
+ cdef + 7def - dbf - 7df
+ ceac - bfba - 7fba + 7eac + 7cea - 7baf + 49ea - 49af
+ ceaf + 7eaf - baf - 7af
+ cedf + 7edf - bdf - 7df
+ dbcb - cdbc
+ dbcd - 11cd
+ dbfb - cdec + 7dfb - 7dec + 7dbf - 7cde + 49df - 49de
+ decd - cd
+ dfba - dfe
+ dfbd - 11df
+ dfea + 7dfe - dfb - 7df
+ dfed - df
+ ecde - eafe
+ edfe + 7eafe - eace - 77e
+ fbac - fea
+ fbaf - 11af
+ fbdf - 11df
+ feac + 7fea - fba - 7af
+ feaf - af
+ fedf - df
+ abace - bafe
+ abafe + 7bafe - bace - 7de
+ abcbd - bfbd - 7fbd + 7ecd + 7ced - 7bdf + 49ed - 49df
+ abfbd + 7bfbd - bcbd + 7fed + 49fbd + 7edf - 7cbd + 49bdf - 7bcd + 343df - 49\
+cd - 49bd - 350d
+ aeace + 7eace - bdfe - 7bcde - 7dfe - 49cde + 77ae + 539e
+ aeafe + 7eafe - bcde - 7cde
+ bcdbc - aeacb - 7eacb + 7cdbc + 7bcdb + 49cdb - 7aef - 49ef
+ bcdec - aeafb - 7eafb + 7cdec + 7bcde - 7aeaf - 49eaf + 49cde
+ eacba - cbafb
+ eacea - cbdfb - 7ecdb + 7eace - 7cbdf - 49ecd + 77ea + 539e
+ eafba + 7eafb - eacb - 7ed
+ eafea - ecdb + 7eafe - 7ecd
+ ecdbc + 7ecdb - eacb - 7ef
+105
+test07
+GAP4stones: 6
+true
+gap> ReadTest("test08.test");
+true
+ c - 3/2a^2 - 3a + 3/2
+ d - 3/2b^2 - 3b + 3/2
+ aba - bab
+ ac - 1/3c
+ bd - 1/3d
+ cbc - 3c
+ dad - 3d
+ cdc - c
+ dcd - d
+#I  number of entered polynomials is 9
+#I  number of polynomials after reduction is 9
+#I  End of fase I
+#I  End of fase II
+#I  List of todo lengths is [ 8, 7, 6, 5, 4, 6, 4, 4, 4, 3, 3, 2, 1, 0 ]
+#I  End of fase III
+#I  End of fase IV
+#I  elapsed time is 160
+ a^2 - 2/3c + 2a - 1
+ ac - 1/3c
+ b^2 - 2/3d + 2b - 1
+ bd - 1/3d
+ ca - 1/3c
+ c^2 + 1/3c
+ db - 1/3d
+ d^2 + 1/3d
+ abc - dc
+ adc + 2dc - bc - 2c
+ bab - aba
+ bad - cd
+ bcb - ada - 2da + 2cb + 2bc - 2ad - 4d + 4c
+ bcd + 2cd - ad - 2d
+ cba - bad
+ cbc - 3c
+ cda + 2cd - cb - 2c
+ cdc - c
+ dab - abc
+ dad - 3d
+ dcb + 2dc - da - 2d
+ dcd - d
+- 2/3G(1)
+ G(4)
+ 3/7bG(1)adc - 3/7baG(1)dc - 9/7bG(1)bac + 3/7bcbG(1)bac + 6/7cbG(1)bac + 6/
+7G(1)adc - 6/7aG(1)dc - 6/7bG(1)badc - 12/7G(1)badc - 18/7G(1)bac - 3/
+7bcb^2aG(2)c - 6/7b^2aG(2)dc + 9/7b^2aG(2)c + 18/7baG(2)c - 6/7cb^2aG(2)c - 2/
+7bcG(2)adc + 2/3G(2)adc + 6/7b^2aG(2)dc - 12/7baG(2)dc - 4/7cG(2)adc + 12/
+7baG(2)dc + 9/14bcbaG(3)c - 9/7baG(3)dc - 27/7aG(3)c - 27/7bG(3)c - 27/14baG(
+3)c + 9/7bcbG(3)c + 9/7cbaG(3)c + 9/14bcbG(3)bc + 9/7cbG(3)bc - 9/7bG(3)bdc -
+18/7aG(3)dc - 18/7bG(3)dc - 36/7G(3)dc - 27/7G(3)bc + 18/7cbG(3)c - 54/7G(
+3)c - 27/14bG(3)bc - 18/7G(3)bdc + 3/7bG(4)dc + 6/7G(4)dc - 9/7b^2abG(5)c -
+18/7babG(5)c - 3b^2aG(5)c - 6baG(5)c - 3/7bG(6)bac - 6/7G(6)bac - 2/3G(7)c +
+4/7cG(7)c + 2/7bcG(7)c + bG(8) + 2G(8)
+test08
+GAP4stones: 62
+true
+gap> ReadTest("test09.test");
+true
+[ [ [ 1, 2, 1 ], [ 2 ] ], [ 1, -1 ] ]
+[ [ [ 2, 1, 2 ], [ 2 ] ], [ 1, -1 ] ]
+[ [ [ [ 1, 2, 1 ], [ 2 ] ], [ 1, -1 ] ],
+  [ [ [ 2, 1, 2 ], [ 2 ] ], [ 1, -1 ] ] ]
+ aba - b
+ bab - b
+#I  number of entered polynomials is 2
+#I  number of polynomials after reduction is 2
+#I  End of fase I
+#I  End of fase II
+#I  j =2
+#I  Current number of elements in todo is 1
+#I  j =3
+#I  Current number of elements in todo is 0
+#I  List of todo lengths is [ 2, 1, 0 ]
+#I  End of fase III
+#I  End of fase IV
+#I  elapsed time is 0
+[ rec( pol := [ [ [ 2, 1 ], [ 1, 2 ] ], [ 1, -1 ] ],
+      trace := [ [ [  ], 1, [ 2 ], -1 ], [ [ 2 ], 1, [  ], 1 ],
+          [ [ 1 ], 2, [  ], 1 ], [ [  ], 2, [ 1 ], -1 ] ] ),
+  rec( pol := [ [ [ 2, 2 ], [ 2, 1 ] ], [ 1, -1 ] ],
+      trace := [ [ [ 2 ], 1, [  ], -1 ], [ [  ], 2, [ 1 ], 1 ] ] ),
+  rec( pol := [ [ [ 1, 1, 2 ], [ 2 ] ], [ 1, -1 ] ],
+      trace := [ [ [  ], 1, [  ], 1 ], [ [ 1 ], 1, [ 2 ], 1 ],
+          [ [ 1, 2 ], 1, [  ], -1 ], [ [ 1, 1 ], 2, [  ], -1 ],
+          [ [ 1 ], 2, [ 1 ], 1 ] ] ) ]
+ ba - ab
+ b^2 - ba
+ a^2b - b
+- G(1)b + bG(1) + aG(2) - G(2)a
+
+- bG(1) + G(2)a
+
+ G(1) + aG(1)b - abG(1) - a^2G(2) + aG(2)a
+test09
+GAP4stones: 1000
+true
+gap> ReadTest("test11.test");
+true
+[ [ [ [ 1, 1, 1, 2, 2 ], [ 1, 1, 1, 1, 1, 1 ], [ 2, 2, 2, 2 ] ], [ 1, -1, 1 ]
+     ],
+  [ [ [ 2, 2, 1, 1, 1 ], [ 1, 2, 1, 2, 1 ], [ 1, 1, 2, 1, 2 ] ], [ 1, 1, 1 ]
+     ] ]
+ a^3b^2 - a^6 + b^4
+ b^2a^3 + ababa + a^2bab
+#I  number of entered polynomials is 2
+#I  number of polynomials after reduction is 2
+#I  End of fase I
+#I  Reached level 16
+#I  end of the algorithm
+#I  The computation took 0 msecs.
+ b^2a^3 + ababa + a^2bab
+ a^6 - a^3b^2 - b^4
+ a^3b^2a - a^4b^2 + b^4a - ab^4
+List of occuring arguments
+
+Number of arguments is 2
+The weigths of the arguments are [ 2, 3 ]
+
+Level 0
+Number of monomials this level is 1
+Set [  ] occurs 1 times
+
+Level 1
+Number of monomials this level is 0
+No monomials of this degree occur
+
+Level 2
+Number of monomials this level is 1
+Set [ 1, 0 ] occurs 1 times
+
+Level 3
+Number of monomials this level is 1
+Set [ 0, 1 ] occurs 1 times
+
+Level 4
+Number of monomials this level is 1
+Set [ 2, 0 ] occurs 1 times
+
+Level 5
+Number of monomials this level is 2
+Set [ 1, 1 ] occurs 2 times
+
+Level 6
+Number of monomials this level is 2
+Set [ 3, 0 ] occurs 1 times
+Set [ 0, 2 ] occurs 1 times
+
+Level 7
+Number of monomials this level is 3
+Set [ 2, 1 ] occurs 3 times
+
+Level 8
+Number of monomials this level is 4
+Set [ 4, 0 ] occurs 1 times
+Set [ 1, 2 ] occurs 3 times
+
+Level 9
+Number of monomials this level is 5
+Set [ 3, 1 ] occurs 4 times
+Set [ 0, 3 ] occurs 1 times
+
+Level 10
+Number of monomials this level is 7
+Set [ 5, 0 ] occurs 1 times
+Set [ 2, 2 ] occurs 6 times
+
+Level 11
+Number of monomials this level is 9
+Set [ 4, 1 ] occurs 5 times
+Set [ 1, 3 ] occurs 4 times
+
+Level 12
+Number of monomials this level is 10
+Set [ 3, 2 ] occurs 9 times
+Set [ 0, 4 ] occurs 1 times
+
+Level 13
+Number of monomials this level is 16
+Set [ 5, 1 ] occurs 6 times
+Set [ 2, 3 ] occurs 10 times
+
+Level 14
+Number of monomials this level is 17
+Set [ 4, 2 ] occurs 12 times
+Set [ 1, 4 ] occurs 5 times
+
+Level 15
+Number of monomials this level is 24
+Set [ 6, 1 ] occurs 5 times
+Set [ 3, 3 ] occurs 18 times
+Set [ 0, 5 ] occurs 1 times
+
+Level 16
+Number of monomials this level is 31
+Set [ 5, 2 ] occurs 16 times
+Set [ 2, 4 ] occurs 15 times
+
+test11
+GAP4stones: infinity
+true
+gap> ReadTest("test12.test");
+true
+[ [ [ [ 1, 1, 1, 2 ], [ 1, 1, 2, 1 ], [ 1, 2, 1, 1 ], [ 2, 1, 1, 1 ] ],
+      [ 1, -651/25, 651/25, -1 ] ],
+  [ [ [ 2, 2, 2, 1 ], [ 2, 2, 1, 2 ], [ 2, 1, 2, 2 ], [ 1, 2, 2, 2 ] ],
+      [ 1, -651/25, 651/25, -1 ] ] ]
+ a^3b - 651/25a^2ba + 651/25aba^2 - ba^3
+ b^3a - 651/25b^2ab + 651/25bab^2 - ab^3
+#I  number of entered polynomials is 2
+#I  number of polynomials after reduction is 2
+#I  End of fase I
+#I  Reached level 7
+#I  end of the algorithm
+#I  The computation took 10 msecs.
+ ba^3 - 651/25aba^2 + 651/25a^2ba - a^3b
+ b^3a - 651/25b^2ab + 651/25bab^2 - ab^3
+ b^2a^2ba - bab^2a^2 - baba^2b + ba^2bab + ab^2aba - abab^2a - aba^2b^2 + a^2b\
+^2ab
+ b^2ab^2a^2 - 651/25b^2ababa + b^2aba^2b + 626/25bab^2aba - bab^2a^2b + babab^\
+2a - ba^2b^2ab + ba^2bab^2 - 651/25ab^2ab^2a + ab^2abab + 423176/625abab^2ab -\
+ 423801/625ababab^2 + 626/25aba^2b^3 - 406901/625a^2b^2ab^2 + 423176/625a^2bab\
+^3 - 651/25a^3b^4
+List of occuring arguments
+
+Number of arguments is 2
+The weigths of the arguments are [ 1, 1 ]
+
+Level 0
+Number of monomials this level is 1
+Set [  ] occurs 1 times
+
+Level 1
+Number of monomials this level is 2
+Set [ 1, 0 ] occurs 1 times
+Set [ 0, 1 ] occurs 1 times
+
+Level 2
+Number of monomials this level is 4
+Set [ 2, 0 ] occurs 1 times
+Set [ 1, 1 ] occurs 2 times
+Set [ 0, 2 ] occurs 1 times
+
+Level 3
+Number of monomials this level is 8
+Set [ 3, 0 ] occurs 1 times
+Set [ 2, 1 ] occurs 3 times
+Set [ 1, 2 ] occurs 3 times
+Set [ 0, 3 ] occurs 1 times
+
+Level 4
+Number of monomials this level is 14
+Set [ 4, 0 ] occurs 1 times
+Set [ 3, 1 ] occurs 3 times
+Set [ 2, 2 ] occurs 6 times
+Set [ 1, 3 ] occurs 3 times
+Set [ 0, 4 ] occurs 1 times
+
+Level 5
+Number of monomials this level is 24
+Set [ 5, 0 ] occurs 1 times
+Set [ 4, 1 ] occurs 3 times
+Set [ 3, 2 ] occurs 8 times
+Set [ 2, 3 ] occurs 8 times
+Set [ 1, 4 ] occurs 3 times
+Set [ 0, 5 ] occurs 1 times
+
+Level 6
+Number of monomials this level is 40
+Set [ 6, 0 ] occurs 1 times
+Set [ 5, 1 ] occurs 3 times
+Set [ 4, 2 ] occurs 9 times
+Set [ 3, 3 ] occurs 14 times
+Set [ 2, 4 ] occurs 9 times
+Set [ 1, 5 ] occurs 3 times
+Set [ 0, 6 ] occurs 1 times
+
+Level 7
+Number of monomials this level is 64
+Set [ 7, 0 ] occurs 1 times
+Set [ 6, 1 ] occurs 3 times
+Set [ 5, 2 ] occurs 9 times
+Set [ 4, 3 ] occurs 19 times
+Set [ 3, 4 ] occurs 19 times
+Set [ 2, 5 ] occurs 9 times
+Set [ 1, 6 ] occurs 3 times
+Set [ 0, 7 ] occurs 1 times
+
+test12
+GAP4stones: 1000
+true
+gap> ReadTest("test13.test");
+true
+ aca - cac
+ dcd - cdc
+ dbd - bdb
+ ded - ede
+ fef - efe
+ ab - ba
+ ad - da
+ ae - ea
+ af - fa
+ bc - cb
+ be - eb
+ bf - fb
+ ce - ec
+ cf - fc
+ df - fd
+ a^2 - 1
+ b^2 - 1
+ c^2 - 1
+ d^2 - 1
+ e^2 - 1
+ f^2 - 1
+#I  number of entered polynomials is 21
+#I  number of polynomials after reduction is 21
+#I  End of fase I
+#I  End of fase II
+#I  List of todo lengths is [ 7, 6, 6, 6, 6, 7, 6, 6, 9, 8, 8, 8, 7, 11, 13,
+  13, 12, 9, 14, 20, 21, 28, 30, 23, 21, 16, 13, 13, 5, 0 ]
+#I  End of fase III
+#I  End of fase IV
+#I  elapsed time is 2540
+true
+#I  The computation took 2280 msecs.
+test13
+GAP4stones: 1
+Syntax error: fi expected in test13.test line 128
+^
+true
+gap> ReadTest("test14.test");
+true
+#I  number of entered polynomials is 21
+#I  number of polynomials after reduction is 21
+#I  End of fase I
+#I  End of fase II
+#I  List of todo lengths is [ 7, 6, 6, 6, 6, 7, 6, 6, 9, 8, 8, 8, 7, 11, 13,
+  13, 12, 9, 14, 20, 21, 28, 30, 23, 21, 16, 13, 13, 5, 0 ]
+#I  End of fase III
+#I  End of fase IV
+#I  elapsed time is 2740
+true
+#I  The computation took 2110 msecs.
+51840
+test14
+GAP4stones: 2
+true
+gap> ReadTest("test15.test");
+true
+[ [ [ [ 2, 2, 2, 2 ], [ 2, 2 ] ], [ 1, -1 ] ],
+  [ [ [ 1, 1, 2 ], [ 1, 2 ] ], [ 1, -1 ] ] ]
+#I  number of entered polynomials is 2
+#I  number of polynomials after reduction is 2
+#I  End of fase I
+#I  End of fase II
+#I  List of todo lengths is [ 0 ]
+#I  End of fase III
+#I  End of fase IV
+#I  elapsed time is 10
+ a^2b - ab
+ b^4 - b^2
+[ [ 1, 1, 2 ], [ 2, 2, 2, 2 ] ]
+false
+"infinite: exponential growth"
+test15
+GAP4stones: 1000
+true
+gap> ReadTest("test16.test");
+true
+ ea
+ a^3 + fa
+ a^9 + ca^3
+ a^81 + ca^9 + da^3
+ ca^81 + da^9 + ea^3
+ a^27 + da^81 + ea^9 + fa^3
+ b + ca^27 + ea^81 + fa^9
+ cb + da^27 + fa^81
+ a + db + ea^27
+ ca + eb + fa^27
+ da + fb
+ b^3 - b
+ ab - ba
+ ac - ca
+ ad - da
+ ae - ea
+ af - fa
+ bc - cb
+ bd - db
+ be - eb
+ bf - fb
+ cd - dc
+ ce - ec
+ cf - fc
+ de - ed
+ df - fd
+ ef - fe
+#I  number of entered polynomials is 27
+#I  number of polynomials after reduction is 8
+#I  End of fase I
+#I  End of fase II
+#I  List of todo lengths is [ 0 ]
+#I  End of fase III
+#I  End of fase IV
+#I  elapsed time is 6170
+[ [ [ [ 1 ] ], [ 1 ] ], [ [ [ 2 ] ], [ 1 ] ],
+  [ [ [ 4, 3 ], [ 3, 4 ] ], [ 1, -1 ] ], [ [ [ 5, 3 ], [ 3, 5 ] ], [ 1, -1 ] ]
+    , [ [ [ 5, 4 ], [ 4, 5 ] ], [ 1, -1 ] ],
+  [ [ [ 6, 3 ], [ 3, 6 ] ], [ 1, -1 ] ], [ [ [ 6, 4 ], [ 4, 6 ] ], [ 1, -1 ] ]
+    , [ [ [ 6, 5 ], [ 5, 6 ] ], [ 1, -1 ] ] ]
+ a
+ b
+ dc - cd
+ ec - ce
+ ed - de
+ fc - cf
+ fd - df
+ fe - ef
+infinite: polynomial growth of degree d = 4
+4
+[ 1, 4, 10, 20, 35 ]
+test16
+GAP4stones: 1
+true
+gap> ReadTest("test20.test");
+true
+<algebra-with-one over GF(2), with 2 generators>
+[ (Z(2)^0)*a, (Z(2)^0)*b ]
+[ (Z(2)^0)*<identity ...>+(Z(2)^0)*a^2, (Z(2)^0)*<identity ...>+(Z(2)^0)*b^2,
+  (Z(2)^0)*<identity ...>+(Z(2)^0)*a*b*a*b*a*b ]
+ a^2 + Z(2)^0
+ b^2 + Z(2)^0
+ ababab + Z(2)^0
+#I  number of entered polynomials is 3
+#I  number of polynomials after reduction is 3
+#I  End of fase I
+#I  End of fase II
+#I  length of G =3
+#I  length of todo is 3
+#I  length of G =3
+#I  length of todo is 2
+#I  length of G =3
+#I  length of todo is 0
+#I  List of todo lengths is [ 2, 3, 2, 0 ]
+#I  End of fase III
+#I  End of fase IV
+#I  elapsed time is 0
+ a^2 + Z(2)^0
+ b^2 + Z(2)^0
+ bab + aba
+6
+ Z(2)^0
+ a
+ b
+ ab
+ ba
+ aba
+[ (Z(2)^0)*a^2+(Z(2)^0)*<identity ...>, (Z(2)^0)*b^2+(Z(2)^0)*<identity ...>,
+  (Z(2)^0)*b*a*b+(Z(2)^0)*a*b*a ]
+[ (Z(2)^0)*<identity ...>, (Z(2)^0)*a, (Z(2)^0)*b, (Z(2)^0)*a*b,
+  (Z(2)^0)*b*a, (Z(2)^0)*a*b*a ]
+test20
+GAP4stones: 500
+true
+gap> ReadTest("test3l.test");
+false
+gap> ReadTest("test32.test");
+true
+<algebra-with-one over Rationals, with 2 generators>
+#I  TWO-SIDED
+#I  number of entered polynomials is 2 prefix and 3 two-sided.
+#I  Generating a Gröbner basis of the two-sided relations.
+#I  number of entered polynomials is 3
+#I  number of polynomials after reduction is 3
+#I  End of fase I
+#I  End of fase II
+#I  List of todo lengths is [ 2, 3, 2, 3, 0 ]
+#I  End of fase III
+#I  End of fase IV
+#I  elapsed time is 0
+#I  Length of the Gröbner basis is 6
+#I  PREFIX
+#I  number of prefix relations after reduction is 2
+#I  End of fase I
+#I  End of fase II
+Variable: 'GBset' must have an assigned value
+Variable: 'GBR' must have a value
+
+Variable: 'GBR' must have a value
+
+Variable: 'GBR' must have a value
+
+ Z(2)^0
+ a
+ b
+ ab
+ ba
+ aba
+Variable: 'GBR' must have a value
+
+Variable: 'GBR' must have a value
+
+Variable: 'GBR' must have a value
+
+List Element: <list>[1] must have an assigned value
+test32
+GAP4stones: 250
+true
+gap> ReadTest("test33.test");
+true
+<algebra-with-one over Rationals, with 2 generators>
+[ b - 1 , 0]
+[ 0, b - 1 ]
+[ ab + a^2 + a + 1 , - ab - a^2 - a - 1 ]
+#I  TWO-SIDED
+#I  number of entered polynomials is 3 prefix and 3 two-sided.
+#I  Generating a Gröbner basis of the two-sided relations.
+#I  number of entered polynomials is 3
+#I  number of polynomials after reduction is 3
+#I  End of fase I
+#I  End of fase II
+#I  List of todo lengths is [ 2, 3, 2, 3, 0 ]
+#I  End of fase III
+#I  End of fase IV
+#I  elapsed time is 10
+#I  Length of the Gröbner basis is 6
+#I  PREFIX
+#I  number of prefix relations after reduction is 3
+#I  End of fase I
+#I  End of fase II
+Variable: 'GBset' must have an assigned value
+Variable: 'GBR' must have a value
+
+Variable: 'GBR' must have a value
+
+Variable: 'GBR' must have a value
+
+List Element: <list>[1] must have an assigned value
+test33
+GAP4stones: 1000
+true
+gap> ReadTest("test34.test");
+true
+<algebra-with-one over Rationals, with 4 generators>
+[ (-1)*<identity ...>+(1)*s1^2, (-1)*<identity ...>+(1)*s2^2,
+  (-1)*<identity ...>+(1)*s3^2, (-1)*<identity ...>+(1)*s1*s2*s1*s2*s1*s2,
+  (-1)*<identity ...>+(1)*s2*s3*s2*s3*s2*s3,
+  (-1)*<identity ...>+(1)*s1*s3*s1*s3, (-1)*e+(1)*e^2, (1)*s1*e+(-1)*e*s1,
+  (1)*s2*e+(-1)*e*s2, (1)*e*s3*e+(-1)*e*s3*e*s3, (1)*e*s3*e+(-1)*s3*e*s3*e ]
+[ (1)*e, (-1)*<identity ...>+(1)*s1, (-1)*<identity ...>+(1)*s2,
+  (-1)*s3+(1)*s3*e ]
+#I  TWO-SIDED
+#I  number of entered polynomials is 4 prefix and 11 two-sided.
+#I  Generating a Gröbner basis of the two-sided relations.
+#I  number of entered polynomials is 11
+#I  number of polynomials after reduction is 11
+#I  End of fase I
+#I  End of fase II
+#I  List of todo lengths is [ 8, 8, 5, 6, 5, 3, 5, 6, 6, 4, 6, 7, 8, 8, 9, 9,
+  9, 8, 9, 9, 9, 8, 7, 6, 6, 6, 6, 5, 4, 4, 4, 3, 3, 2, 1, 0 ]
+#I  End of fase III
+#I  End of fase IV
+#I  elapsed time is 230
+#I  Length of the Gröbner basis is 38
+#I  PREFIX
+#I  number of prefix relations after reduction is 4
+#I  End of fase I
+#I  End of fase II
+Variable: 'GBset' must have an assigned value
+Variable: 'GBR' must have a value
+
+Variable: 'GBR' must have a value
+
+Variable: 'GBR' must have a value
+
+ Z(2)^0
+ s1
+ s2
+ s1s2
+ s2s1
+ s1s2s1
+Variable: 'GBR' must have a value
+
+Variable: 'GBR' must have a value
+
+Variable: 'GBR' must have a value
+
+List Element: <list>[1] must have an assigned value
+test34
+GAP4stones: 40
+true
+gap> ReadTest("test35.test");
+true
+<algebra-with-one over GF(3), with 3 generators>
+[ (Z(3)^0)*<identity ...>+(Z(3))*x+(Z(3)^0)*x^2,
+  (Z(3)^0)*<identity ...>+(Z(3))*y+(Z(3)^0)*y^2,
+  (Z(3)^0)*<identity ...>+(Z(3))*z+(Z(3)^0)*z^2, (Z(3))*x*y*x+(Z(3)^0)*y*x*y,
+  (Z(3))*y*z*y+(Z(3)^0)*z*y*z, (Z(3))*x*z+(Z(3)^0)*z*x ]
+[ (Z(3)^0)*<identity ...>+(Z(3)^0)*x, (Z(3)^0)*<identity ...>+(Z(3)^0)*y ]
+#I  TWO-SIDED
+#I  number of entered polynomials is 2 prefix and 6 two-sided.
+#I  Generating a Gröbner basis of the two-sided relations.
+#I  number of entered polynomials is 6
+#I  number of polynomials after reduction is 6
+#I  End of fase I
+#I  End of fase II
+#I  List of todo lengths is [ 1, 0 ]
+#I  End of fase III
+#I  End of fase IV
+#I  elapsed time is 10
+#I  Length of the Gröbner basis is 7
+#I  PREFIX
+#I  number of prefix relations after reduction is 2
+#I  End of fase I
+#I  End of fase II
+#I  List of todo lengths is [ 0 ]
+#I  End of fase III
+#I  End of fase IV
+#I  elapsed time is 10
+ s1^2 + Z(3)s1 + Z(3)^0
+ s2^2 + Z(3)s2 + Z(3)^0
+ s3s1 + Z(3)s1s3
+ s3^2 + Z(3)s3 + Z(3)^0
+ s2s1s2 + Z(3)s1s2s1
+ s3s2s3 + Z(3)s2s3s2
+ s3s2s1s3 + Z(3)s2s3s2s1
+ s1 + Z(3)^0
+ s2 + Z(3)^0
+ Z(3)^0
+ s3
+ s3s2
+ s3s2s1
+[ [ (Z(3)^0)*<identity ...>+(Z(3)^0)*x ],
+  [ (Z(3)^0)*<identity ...>+(Z(3)^0)*y ] ]
+#I  TWO-SIDED
+#I  number of entered polynomials is 2 prefix and 7 two-sided.
+#I  Generating a Gröbner basis of the two-sided relations.
+#I  number of entered polynomials is 7
+#I  number of polynomials after reduction is 7
+#I  End of fase I
+#I  End of fase II
+#I  List of todo lengths is [ 0 ]
+#I  End of fase III
+#I  End of fase IV
+#I  elapsed time is 10
+#I  Length of the Gröbner basis is 7
+#I  PREFIX
+#I  number of prefix relations after reduction is 2
+#I  End of fase I
+#I  End of fase II
+#I  List of todo lengths is [ 0 ]
+#I  End of fase III
+#I  End of fase IV
+#I  elapsed time is 10
+[ s1 + Z(3)^0 ]
+[ s2 + Z(3)^0 ]
+[ Z(3)^0 ]
+[ s3 ]
+[ s3s2 ]
+[ s3s2s1 ]
+test35
+GAP4stones: 166
+true
+gap> 

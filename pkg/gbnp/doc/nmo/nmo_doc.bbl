@@ -1,0 +1,35 @@
+\begin{thebibliography}{1}
+
+\bibitem{CohenCuypersSterk1999}
+Arjeh~M. Cohen, Hans Cuypers, and Hans Sterk.
+\newblock {\em Some Tapas of Computer Algebra}, volume~4 of {\em Algorithms and
+  Computation in Mathematics}.
+\newblock Springer-Verlag, Heidelberg, 1999.
+
+\bibitem{CLO97}
+David Cox, John Little, and Donal O'Shea.
+\newblock {\em Ideals, varieties, and algorithms}.
+\newblock Undergraduate Texts in Mathematics. Springer-Verlag, New York, second
+  edition, 1997.
+\newblock An introduction to computational algebraic geometry and commutative
+  algebra.
+
+\bibitem{Green1997}
+Edward~L. Green.
+\newblock Noncommutative {G}r{\"o}bner bases and projective resolutions.
+\newblock In {\em Computational Methods for Representations of Groups and
+  Algebras}, pages 29--60. Birkh{\"a}user, 1999.
+\newblock (Essen 1997).
+
+\bibitem{TCS::Mora1994:131}
+Teo Mora.
+\newblock An introduction to commutative and noncommutative {G}r{\"o}bner
+  bases.
+\newblock {\em Theoretical Computer Science}, 134(1):131--173, Nov 1994.
+
+\bibitem{gN02}
+Gonzalo Navarro and Mathieu Raffinot.
+\newblock {\em Flexible Pattern Matching in Strings}.
+\newblock Cambridge University Press, 2002.
+
+\end{thebibliography}

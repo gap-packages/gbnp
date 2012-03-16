@@ -1,0 +1,95 @@
+\begin{thebibliography}{10}
+
+\bibitem{MR2090062}
+Karin Baur and Jan Draisma.
+\newblock Higher secant varieties of the minimal adjoint orbit.
+\newblock {\em J. Algebra}, 280(2):743--761, 2004.
+
+\bibitem{CohenGijsbersEtAl2007}
+Arjeh~M. Cohen.
+\newblock Non-commutative polynomial computations.
+\newblock Report, 2007.
+\newblock Available from World Wide Web:
+  \url{http://mathdox.org/grobner/gbnp.pdf}.
+\newblock Eindhoven.
+
+\bibitem{CohenCuypersSterk1999}
+Arjeh~M. Cohen, Hans Cuypers, and Hans Sterk.
+\newblock {\em Some Tapas of Computer Algebra}, volume~4 of {\em Algorithms and
+  Computation in Mathematics}.
+\newblock Springer-Verlag, Heidelberg, 1999.
+
+\bibitem{MR2124811}
+Arjeh~M. Cohen, Di{\'e} A.~H. Gijsbers, and David~B. Wales.
+\newblock B{MW} algebras of simply laced type.
+\newblock {\em J. Algebra}, 286(1):107--153, 2005.
+
+\bibitem{NMODoc}
+Randall Cone.
+\newblock {NMOD}oc - documentation on the nmo package, version 1.0.
+\newblock Report (the package is provided with GBNP from Version 1.0 on), Jan
+  2010.
+\newblock Available from World Wide Web:
+  \url{http://www.mathdox.org/grobner/nmo/manual.pdf}.
+
+\bibitem{Graham1995}
+John~J. Graham.
+\newblock {\em Modular representations of Hecke algebras and related algebras.}
+\newblock PhD thesis, The University of Sydney, Sep 1995.
+
+\bibitem{Green1997}
+Edward~L. Green.
+\newblock Noncommutative {G}r{\"o}bner bases and projective resolutions.
+\newblock In {\em Computational Methods for Representations of Groups and
+  Algebras}, pages 29--60. Birkh{\"a}user, 1999.
+\newblock (Essen 1997).
+
+\bibitem{Knopper2004}
+Jan~Willem Knopper.
+\newblock {GBNP} and vector enumeration.
+\newblock Report, 2004.
+\newblock Available from World Wide Web:
+  \url{http://mathdox.org/grobner/knopper.pdf}.
+\newblock Eindhoven.
+
+\bibitem{Krook2003}
+Chris Krook.
+\newblock Dimensionality of quotient algebras.
+\newblock Report, 2003.
+\newblock Available from World Wide Web:
+  \url{http://mathdox.org/grobner/dqa.pdf}.
+\newblock Eindhoven.
+
+\bibitem{MR94k:20022}
+Steve~A. Linton.
+\newblock On vector enumeration.
+\newblock {\em Linear Algebra Appl.}, 192:235--248, 1993.
+\newblock Computational linear algebra in algebraic and related problems
+  (Essen, 1992).
+
+\bibitem{GAPDoc}
+Frank L{\"u}beck and Max Neunh{\"o}ffer.
+\newblock {GAPD}oc - a {GAP} package, version 0.99999, Jan 2006.
+\newblock Available from World Wide Web:
+  \url{http://www.math.rwth-aachen.de/~Frank.Luebeck/GAPDoc/}.
+
+\bibitem{TCS::Mora1994:131}
+Teo Mora.
+\newblock An introduction to commutative and noncommutative {G}r{\"o}bner
+  bases.
+\newblock {\em Theoretical Computer Science}, 134(1):131--173, Nov 1994.
+
+\bibitem{MR1954121}
+Jean-Pierre Serre.
+\newblock {\em Trees}.
+\newblock Springer Monographs in Mathematics. Springer-Verlag, Berlin, 2003.
+\newblock Translated from the French original by John Stillwell, Corrected 2nd
+  printing of the 1980 English translation.
+
+\bibitem{MR91d:16053}
+V.~A. Ufnarovski\u{\i}.
+\newblock On the use of graphs for calculating the basis, growth and {H}ilbert
+  series of associative algebras.
+\newblock {\em Mat. Sb.}, 180(11):1548--1560, 1584, 1989.
+
+\end{thebibliography}

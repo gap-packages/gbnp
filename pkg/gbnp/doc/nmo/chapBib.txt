@@ -1,0 +1,26 @@
+  
+  
+  [1XReferences[0X
+  
+  [[20XCCS99[15X]  [16XCohen, A. M., Cuypers, H. and Sterk, H.[15X, [17XSome Tapas of Computer
+  Algebra[15X,  Springer-Verlag,  Heidelberg,  Algorithms  and  Computation in
+  Mathematics, [19X4[15X (1999)
+  
+  [[20XCLO97[15X]  [16XCox,  D.,  Little,  J.  and  O'Shea, D.[15X, [17XIdeals, varieties, and
+  algorithms[15X,  Springer-Verlag,  Second  edition,  Undergraduate  Texts in
+  Mathematics,   New   York  (1997),  (An  introduction  to  computational
+  algebraic geometry and commutative algebra)
+  
+  [[20XGre99[15X]  [16XGreen,  E.  L.[15X,  [17XNoncommutative  Gr\"obner bases and projective
+  resolutions[15X,  in Computational Methods for Representations of Groups and
+  Algebras, Birkh{\"a}user (1999), 29-60, ((Essen 1997))
+  
+  [[20XMor94[15X]  [16XMora,  T.[15X,  [17XAn  introduction  to commutative and noncommutative
+  Gr\"obner bases[15X, [18XTheoretical Computer Science[15X, [19X134[15X, 1 (1994), 131--173
+  
+  [[20XNR02[15X]  [16XNavarro,  G.  and  Raffinot,  M.[15X,  [17XFlexible  Pattern Matching in
+  Strings[15X, Cambridge University Press (2002)
+  
+  
+  
+  -------------------------------------------------------

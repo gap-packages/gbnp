@@ -1,0 +1,119 @@
+gap> ######################### BEGIN COPYRIGHT MESSAGE #########################
+GBNP - computing Gröbner bases of noncommutative polynomials
+Copyright 2001-2010 by Arjeh M. Cohen, Dié A.H. Gijsbers, Jan Willem
+Knopper, Chris Krook. Address: Discrete Algebra and Geometry (DAM) group
+at the Department of Mathematics and Computer Science of Eindhoven
+University of Technology.
+
+For acknowledgements see the manual. The manual can be found in several
+formats in the doc subdirectory of the GBNP distribution. The
+acknowledgements formatted as text can be found in the file chap0.txt.
+
+GBNP is free software; you can redistribute it and/or modify it under
+the terms of the Lesser GNU General Public License as published by the
+Free Software Foundation (FSF); either version 2.1 of the License, or
+(at your option) any later version. For details, see the file 'LGPL' in
+the doc subdirectory of the GBNP distribution or see the FSF's own site:
+http://www.gnu.org/licenses/lgpl.html
+gap> ########################## END COPYRIGHT MESSAGE ##########################
+
+gap> ### filename = "example24.g" 
+gap> ### author amc
+gap> ### amc last edited 31 May 2007
+
+<#GAPDoc Label="Example24">
+<Section Label="Example24"><Heading>Serre's exercise</Heading>
+
+<Listing><![CDATA[
+gap> LoadPackage("GBNP","0",false);;
+gap> SetInfoLevel(InfoGBNP,1);
+gap> SetInfoLevel(InfoGBNPTime,1);
+]]></Listing>
+
+In Serre's book <Cite Key="MR1954121"/> the following exercise can be found: 
+Prove  that the group
+<M> \langle \{a,b,c\}\mid \{ bab^{-1}a^{-2}, cbc^{-1}b^{-2}, aca^{-1}c^{-2}\}\right\rangle</M>
+is the trivial group.
+Here we solve the exercise by running the trace variant of the 
+Gröbner basis function with input the set of equations
+<M>ba - a^2 b, cb - b^2c, ac - c^2a</M>
+together with relations forcing that <M>a,b,c</M> are invertible
+with inverse <M>A,B,C</M>.
+
+<Listing><![CDATA[
+gap> KI := [ [[[2,1],[1,1,2]],[1,-1]],
+>         [[[3,2],[2,2,3]],[1,-1]],
+>         [[[1,3],[3,3,1]],[1,-1]],
+>         [[[1,4], []],[1,-1]],
+>         [[[4,1], []],[1,-1]],
+>         [[[2,5], []],[1,-1]],
+>         [[[5,2], []],[1,-1]],
+>         [[[3,6], []],[1,-1]],
+>         [[[6,3], []],[1,-1]],
+>       ];;
+gap> PrintNPList(KI);
+ ba - a^2b 
+ cb - b^2c 
+ ac - c^2a 
+ ad - 1 
+ da - 1 
+ be - 1 
+ eb - 1 
+ cf - 1 
+ fc - 1 
+]]></Listing>
+
+We use <Ref Func="SGrobnerTrace" Style="Text"/>,
+the trace variant of the Gröbner basis computation,
+
+<Listing><![CDATA[
+gap> GB := SGrobnerTrace(KI);;
+#I  number of entered polynomials is 9
+#I  number of polynomials after reduction is 9
+#I  End of phase I
+#I  End of phase II
+#I  List of todo lengths is [ 9, 10, 11, 12, 14, 16, 18, 20, 21, 22, 24, 26, 
+  28, 31, 34, 33, 35, 37, 40, 43, 46, 49, 52, 56, 59, 62, 61, 60, 64, 64, 65, 
+  65, 68, 71, 76, 76, 80, 88, 93, 94, 99, 110, 115, 117, 131, 139, 146, 150, 
+  158, 171, 186, 198, 206, 220, 229, 246, 260, 263, 102, 40, 19, 9, 3, 0 ]
+#I  End of phase III
+#I  End of phase IV
+#I  The computation took 209905 msecs.
+]]></Listing>
+
+The dimension of the quotient algebra is 1, showing that the group algebra
+is 1-dimensional. This implies that the group with the above presentation
+is trivial.
+<Listing><![CDATA[
+gap> GBpols := List([1..Length(GB)], x -> GB[x].pol);;
+gap> PrintNPList(GBpols);
+ a - 1 
+ b - 1 
+ c - 1 
+ d - 1 
+ e - 1 
+ f - 1 
+gap> DimQA(GBpols,6);
+1
+]]></Listing>
+
+Since the output is large and might spoil the exercise, 
+we confine ourselves to
+the printing first polynomial <C>GB[1]</C> and the length of its trace.
+As the trace polynomial expresses 
+<C>GB[1]</C>, which is equal to <M>a-1</M>, as a combination of the binomials
+in <C>KI</C>, it gives a proof that <M>a</M> can be rewritten within the
+group to the trivial element. It is easy to derive from this that
+<M>b</M> and <M>c</M> are also trivial in the group.
+This justifies the restriction to <C>GB[1]</C>.
+
+<Listing><![CDATA[
+gap> PrintNP(GB[1].pol);
+ a - 1 
+gap> Length(GB[1].trace);
+1119
+]]></Listing>
+
+</Section>
+<#/GAPDoc>
+
