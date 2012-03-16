@@ -1,0 +1,5 @@
+<#GAPDoc Label="timing">
+Timing results are obtained on an Intel Pentium 4 3.00GHz processor running
+Linux (2.6.28-15-generic #49-Ubuntu SMP Tue Aug 18 18:40:08 UTC 2009 i686
+GNU/Linux) and using GAP 4.4.10.
+<#/GAPDoc>

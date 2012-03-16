@@ -1,0 +1,126 @@
+gap> ######################### BEGIN COPYRIGHT MESSAGE #########################
+GBNP - computing Gröbner bases of noncommutative polynomials
+Copyright 2001-2010 by Arjeh M. Cohen, Dié A.H. Gijsbers, Jan Willem
+Knopper, Chris Krook. Address: Discrete Algebra and Geometry (DAM) group
+at the Department of Mathematics and Computer Science of Eindhoven
+University of Technology.
+
+For acknowledgements see the manual. The manual can be found in several
+formats in the doc subdirectory of the GBNP distribution. The
+acknowledgements formatted as text can be found in the file chap0.txt.
+
+GBNP is free software; you can redistribute it and/or modify it under
+the terms of the Lesser GNU General Public License as published by the
+Free Software Foundation (FSF); either version 2.1 of the License, or
+(at your option) any later version. For details, see the file 'LGPL' in
+the doc subdirectory of the GBNP distribution or see the FSF's own site:
+http://www.gnu.org/licenses/lgpl.html
+gap> ########################## END COPYRIGHT MESSAGE ##########################
+
+gap> ### filename = "example09.g" 
+gap> ### authors Cohen & Gijsbers
+gap> ### vs 0.8.1
+
+gap> ### THIS IS A GAP PACKAGE FOR COMPUTING NON-COMMUTATIVE GROBNER BASES 
+gap>  
+gap> ### Last change: amc May 24 2007. 
+gap> ### dahg
+
+<#GAPDoc Label="Example09">
+<Section Label="Example09"><Heading>Tracing an example by Mora</Heading>
+This example of a non-commutative Gröbner basis computation
+is from page 18 of 
+<Q>An introduction to commutative and non-commutative Gröbner Bases</Q>, by
+Teo Mora <Cite Key="TCS::Mora1994:131"/>.
+The traced version of the algorithm will be used.
+The input is <M>\{xyx-y,yxy-y\}</M>.
+The answer should be <M>\{yy-xy,yx-xy,xxy-y\}</M>.
+<P/>
+First load the package and set the standard infolevel <Ref
+InfoClass="InfoGBNP" Style="Text"/> to 2 and the time infolevel <Ref
+Func="InfoGBNPTime" Style="Text"/> to 1 (for more information about the info
+level, see Chapter <Ref Chap="Info"/>).
+
+<Listing><![CDATA[
+gap> LoadPackage("GBNP","0",false);;
+gap> SetInfoLevel(InfoGBNP,2);
+gap> SetInfoLevel(InfoGBNPTime,1);
+]]></Listing>
+
+Let the variables be printed as <M>x</M> and <M>y</M> instead of <M>a</M> and <M>b</M> by means of
+<Ref Func="GBNP.ConfigPrint" Style="Text"/>
+<Listing><![CDATA[
+gap> GBNP.ConfigPrint("x","y");
+]]></Listing>
+
+Next we input the relations in NP format (see Section <Ref Sect="NP"/>). They
+will be assigned to <C>KI</C>. 
+
+<Listing><![CDATA[
+gap> xyx := [[[1,2,1],[2]],[1,-1]];;
+gap> yxy := [[[2,1,2],[2]],[1,-1]];;
+gap> KI:=[xyx,yxy];;
+]]></Listing>
+
+The relations can be shown with <Ref Func="PrintNPList" Style="Text"/>:
+
+<Listing><![CDATA[
+gap> PrintNPList(KI);
+ xyx - y 
+ yxy - y 
+]]></Listing>
+
+The Gröbner basis with trace can now be calculated with 
+<Ref Func="SGrobnerTrace" Style="Text"/>:
+
+<Listing><![CDATA[
+gap> GB := SGrobnerTrace(KI);
+#I  number of entered polynomials is 2
+#I  number of polynomials after reduction is 2
+#I  End of phase I
+#I  End of phase II
+#I  j =2
+#I  Current number of elements in todo is 1
+#I  j =3
+#I  Current number of elements in todo is 0
+#I  List of todo lengths is [ 2, 1, 0 ]
+#I  End of phase III
+#I  End of phase IV
+#I  The computation took 8 msecs.
+[ rec( pol := [ [ [ 2, 1 ], [ 1, 2 ] ], [ 1, -1 ] ], 
+      trace := [ [ [  ], 1, [ 2 ], -1 ], [ [ 2 ], 1, [  ], 1 ], 
+          [ [ 1 ], 2, [  ], 1 ], [ [  ], 2, [ 1 ], -1 ] ] ), 
+  rec( pol := [ [ [ 2, 2 ], [ 1, 2 ] ], [ 1, -1 ] ], 
+      trace := [ [ [ 2 ], 1, [  ], -1 ], [ [  ], 1, [ 2 ], -1 ], 
+          [ [ 2 ], 1, [  ], 1 ], [ [  ], 2, [ 1 ], 1 ], [ [ 1 ], 2, [  ], 1 ],
+          [ [  ], 2, [ 1 ], -1 ] ] ), 
+  rec( pol := [ [ [ 1, 1, 2 ], [ 2 ] ], [ 1, -1 ] ], 
+      trace := [ [ [  ], 1, [  ], 1 ], [ [ 1 ], 1, [ 2 ], 1 ], 
+          [ [ 1, 2 ], 1, [  ], -1 ], [ [ 1, 1 ], 2, [  ], -1 ], 
+          [ [ 1 ], 2, [ 1 ], 1 ] ] ) ]
+]]></Listing>
+
+The Gröbner basis can be printed with 
+<Ref Func="PrintNPListTrace" Style="Text"/>:
+
+<Listing><![CDATA[
+gap> PrintNPListTrace(GB);
+ yx - xy 
+ y^2 - xy 
+ x^2y - y 
+]]></Listing>
+
+The trace of the Gröbner basis can be printed with
+<Ref Func="PrintTraceList" Style="Text"/>:
+
+<Listing><![CDATA[
+gap> PrintTraceList(GB);
+- G(1)y + yG(1) - G(2)x + xG(2) 
+
+- G(1)y + xG(2) 
+
+ G(1) + xG(1)y - xyG(1) + xG(2)x - x^2G(2) 
+]]></Listing>
+
+</Section>
+<#/GAPDoc>

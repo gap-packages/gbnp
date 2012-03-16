@@ -1,0 +1,200 @@
+gap> ######################### BEGIN COPYRIGHT MESSAGE #########################
+GBNP - computing Gröbner bases of noncommutative polynomials
+Copyright 2001-2010 by Arjeh M. Cohen, Dié A.H. Gijsbers, Jan Willem
+Knopper, Chris Krook. Address: Discrete Algebra and Geometry (DAM) group
+at the Department of Mathematics and Computer Science of Eindhoven
+University of Technology.
+
+For acknowledgements see the manual. The manual can be found in several
+formats in the doc subdirectory of the GBNP distribution. The
+acknowledgements formatted as text can be found in the file chap0.txt.
+
+GBNP is free software; you can redistribute it and/or modify it under
+the terms of the Lesser GNU General Public License as published by the
+Free Software Foundation (FSF); either version 2.1 of the License, or
+(at your option) any later version. For details, see the file 'LGPL' in
+the doc subdirectory of the GBNP distribution or see the FSF's own site:
+http://www.gnu.org/licenses/lgpl.html
+gap> ########################## END COPYRIGHT MESSAGE ##########################
+
+gap> ### filename = "example16.g" 
+gap> ### authors Cohen & Gijsbers & Krook
+gap>  
+gap> ### THIS IS A GAP PACKAGE GBNP
+gap> ### FOR COMPUTING WITH NON-COMMUTATIVE POLYNOMIALS
+gap> ### ADD-ON: STUDY GROWTH OF FACTOR ALGEBRA
+
+gap> ### $Id: example16.g,v 1.7 2004/04/16 14:37:38 jwk Exp $
+
+<#GAPDoc Label="Example16">
+<Section Label="Example16"><Heading>A commutative quotient algebra of polynomial growth</Heading>
+This example extends <Ref Sect="Example06"/>,
+a commutative example from Some Tapas of Computer Algebra <Cite
+Key="CohenCuypersSterk1999"/>, page 339.
+<P/>
+The result of the Gröbner basis computation
+should be the union of <M>\{a,b\}</M> and 
+the set of 6 homogeneous binomials 
+(that is, polynomials with two terms) of degree 2 forcing
+commuting between <M>c</M>, <M>d</M>, <M>e</M>, and <M>f</M>, as before. 
+After computation of the Gröbner basis, the quotient algebra is studied and
+found to be infinite dimensional of polynomial growth of degree 4. The
+function <Ref Func="DetermineGrowthQA" Style="Text"/> is used for this
+computation. Then part of its Hilbert series is computed. The function <Ref
+Func="HilbertSeriesQA" Style="Text"/> is used for the computations.
+<P/>
+First load the package and set the standard infolevel <Ref
+InfoClass="InfoGBNP" Style="Text"/> to 2 and the time infolevel <Ref
+Func="InfoGBNPTime" Style="Text"/> to 1 (for more information about the info
+level, see Chapter <Ref Chap="Info"/>).
+
+<Listing><![CDATA[
+gap> LoadPackage("GBNP","0",false);;
+gap> SetInfoLevel(InfoGBNP,2);
+gap> SetInfoLevel(InfoGBNPTime,1);
+]]></Listing>
+
+Now define some functions which will help in the construction of relations.
+The function <C>powermon(i, exp)</C> will return the monomial <M>i^{exp}</M>.
+The function <C>comm(aa, bb)</C> will return a relation forcing commutativity
+between its two arguments <C>aa</C> and <C>bb</C>.
+
+<Listing><![CDATA[
+gap> powermon := function(base, exp)
+>  local ans,i;
+>  ans := [];
+>  for i in [1..exp] do ans :=  Concatenation(ans,[base]); od;
+>  return ans;
+> end;;
+
+gap> comm := function(aa,bb)
+>   return [[[aa,bb],[bb,aa]],[1,-1]];
+> end;;
+]]></Listing>
+
+Now the relations are entered:
+
+<Listing><![CDATA[
+gap> p1 := [[[5,1]],[1]];;
+gap> p2 := [[powermon(1,3),[6,1]],[1,1]];;
+gap> p3 := [[powermon(1,9),Concatenation([3],powermon(1,3))],[1,1]];;
+gap> p4 := [[powermon(1,81),Concatenation([3],powermon(1,9)),Concatenation([4],
+> 	powermon(1,3))],[1,1,1]];;
+gap> p5 := [[Concatenation([3],powermon(1,81)),Concatenation([4],powermon(1,9)),
+> 	Concatenation([5],powermon(1,3))],[1,1,1]];;
+gap> p6 := [[powermon(1,27),Concatenation([4],powermon(1,81)),Concatenation([5],
+> 	powermon(1,9)),Concatenation([6],powermon(1,3))],[1,1,1,1]];;
+gap> p7 := [[powermon(2,1),Concatenation([3],powermon(1,27)),Concatenation([5],
+> 	powermon(1,81)),Concatenation([6],powermon(1,9))],[1,1,1,1]];;
+gap> p8 := [[Concatenation([3],powermon(2,1)),Concatenation([4],powermon(1,27)),
+> 	Concatenation([6],powermon(1,81))],[1,1,1]];;
+gap> p9 := [[Concatenation([],powermon(1,1)),Concatenation([4],powermon(2,1)),
+> 	Concatenation([5],powermon(1,27))],[1,1,1]];;
+gap> p10 := [[Concatenation([3],powermon(1,1)),Concatenation([5],powermon(2,1)),
+> 	Concatenation([6],powermon(1,27))],[1,1,1]];;
+gap> p11 := [[Concatenation([4],powermon(1,1)),Concatenation([6],powermon(2,1))],
+> 	[1,1]];;
+gap> p12 := [[Concatenation([],powermon(2,3)),Concatenation([],powermon(2,1))],
+> 	[1,-1]];;
+gap> KI := [p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12];;
+gap> for i in [1..5] do
+>     for j in [i+1..6] do
+>         Add(KI,comm(i,j));
+>     od;
+> od;
+]]></Listing>
+
+The relations can be shown with <Ref Func="PrintNPList" Style="Text"/>:
+
+<Listing><![CDATA[
+gap> PrintNPList(KI);
+ ea 
+ a^3 + fa 
+ a^9 + ca^3 
+ a^81 + ca^9 + da^3 
+ ca^81 + da^9 + ea^3 
+ a^27 + da^81 + ea^9 + fa^3 
+ b + ca^27 + ea^81 + fa^9 
+ cb + da^27 + fa^81 
+ a + db + ea^27 
+ ca + eb + fa^27 
+ da + fb 
+ b^3 - b 
+ ab - ba 
+ ac - ca 
+ ad - da 
+ ae - ea 
+ af - fa 
+ bc - cb 
+ bd - db 
+ be - eb 
+ bf - fb 
+ cd - dc 
+ ce - ec 
+ cf - fc 
+ de - ed 
+ df - fd 
+ ef - fe 
+]]></Listing>
+
+It is usually easier to use the function <Ref Func="GP2NP" Style="Text"/> or
+the function <Ref Func="GP2NPList" Style="Text"/> to enter relations.
+Entering the first twelve relations and then converting them with <Ref
+Func="GP2NPList" Style="Text"/> is demonstrated in example 6 (<Ref
+Sect="Example06"/>). More about converting can be read in Section <Ref
+Sect="TransitionFunctions"/>.
+<P/>
+The Gröbner basis can now be calculated with <Ref Func="SGrobner"
+Style="Text"/> and printed with <Ref Func="PrintNPList" Style="Text"/>.
+
+<Listing><![CDATA[
+gap> GB := SGrobner(KI);
+#I  number of entered polynomials is 27
+#I  number of polynomials after reduction is 8
+#I  End of phase I
+#I  End of phase II
+#I  List of todo lengths is [ 0 ]
+#I  End of phase III
+#I  G: Cleaning finished, 0 polynomials reduced
+#I  End of phase IV
+#I  The computation took 1224 msecs.
+[ [ [ [ 1 ] ], [ 1 ] ], [ [ [ 2 ] ], [ 1 ] ], 
+  [ [ [ 4, 3 ], [ 3, 4 ] ], [ 1, -1 ] ], [ [ [ 5, 3 ], [ 3, 5 ] ], [ 1, -1 ] ]
+    , [ [ [ 5, 4 ], [ 4, 5 ] ], [ 1, -1 ] ], 
+  [ [ [ 6, 3 ], [ 3, 6 ] ], [ 1, -1 ] ], [ [ [ 6, 4 ], [ 4, 6 ] ], [ 1, -1 ] ]
+    , [ [ [ 6, 5 ], [ 5, 6 ] ], [ 1, -1 ] ] ]
+gap> PrintNPList(GB);
+ a 
+ b 
+ dc - cd 
+ ec - ce 
+ ed - de 
+ fc - cf 
+ fd - df 
+ fe - ef 
+]]></Listing>
+
+The growth of the quotient algebra can be studied with <Ref
+Func="DetermineGrowthQA" Style="Text"/>. The first argument is the list
+of leading
+monomials, which can be calculated with <Ref Func="LMonsNP" Style="Text"/>.
+The second argument is the size of the alphabet.
+
+<Listing><![CDATA[
+gap> L:=LMonsNP(GB);;
+gap> DetermineGrowthQA(L,6,false);
+4
+gap> time;
+0
+]]></Listing>
+
+Now compute the first 10 terms of the Hilbert Series with <Ref
+Func="HilbertSeriesQA" Style="Text"/> 
+(note that trailing zeroes are removed):
+
+<Listing><![CDATA[
+gap> HilbertSeriesQA(L,6,10);
+[ 1, 4, 10, 20, 35, 56, 84, 120, 165, 220, 286 ]
+]]></Listing>
+</Section>
+<#/GAPDoc>

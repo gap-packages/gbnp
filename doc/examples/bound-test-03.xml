@@ -1,0 +1,186 @@
+gap> ######################### BEGIN COPYRIGHT MESSAGE #########################
+GBNP - computing Gröbner bases of noncommutative polynomials
+Copyright 2001-2010 by Arjeh M. Cohen, Dié A.H. Gijsbers, Jan Willem
+Knopper, Chris Krook. Address: Discrete Algebra and Geometry (DAM) group
+at the Department of Mathematics and Computer Science of Eindhoven
+University of Technology.
+
+For acknowledgements see the manual. The manual can be found in several
+formats in the doc subdirectory of the GBNP distribution. The
+acknowledgements formatted as text can be found in the file chap0.txt.
+
+GBNP is free software; you can redistribute it and/or modify it under
+the terms of the Lesser GNU General Public License as published by the
+Free Software Foundation (FSF); either version 2.1 of the License, or
+(at your option) any later version. For details, see the file 'LGPL' in
+the doc subdirectory of the GBNP distribution or see the FSF's own site:
+http://www.gnu.org/licenses/lgpl.html
+gap> ########################## END COPYRIGHT MESSAGE ##########################
+
+gap> LoadPackage("gbnp");
+-----------------------------------------------------------------------------
+Loading  GBNP 1.0.1 (Non-commutative Gröbner bases)
+by A.M. Cohen (http://www.win.tue.nl/~amc) and
+   J.W. Knopper (J.W.Knopper@tue.nl).
+-----------------------------------------------------------------------------
+true
+
+calculation examples 
+
+NumAlgGensNP
+gap> NumAlgGensNP([[],[]])=0;
+true
+gap> NumAlgGensNP([[[]],[1]])=0;
+true
+gap> NumAlgGensNP([[[1,2],[3]],[1,-1]])=3;
+true
+
+NumAlgGensNPList
+gap> NumAlgGensNPList([])=0;
+true
+gap> NumAlgGensNPList([[[],[]]])=0;
+true
+gap> NumAlgGensNPList([[[],[]],[[[]],[1]]])=0;
+true
+gap> NumAlgGensNPList([[[],[]],[[[]],[1]],[[[1,2],[3]],[1,-1]]])=3;
+true
+
+NumModGensNP
+gap> NumModGensNP([[],[]])=0;
+true
+gap> NumModGensNP([[[]],[1]])=0;
+true
+gap> NumModGensNP([[[1,2],[3]],[1,-1]])=0;
+true
+
+AddNP
+gap> F:=Rationals;;
+gap> NPzero:=[[],[]];;
+gap> NPone:=[[[]],[One(F)]];;
+gap> AddNP(NPzero,NPzero,One(F),One(F))=NPzero;
+true
+gap> AddNP(NPone,NPone,One(F),-One(F))=NPzero;
+true
+gap> AddNP(NPzero,NPone,One(F),One(F))=NPone;
+true
+gap> AddNP(NPone,NPone,One(F),One(F))=AddNP(NPone,NPzero,One(F)+One(F),One(F));
+true
+gap> F:=GF(2);;
+gap> NPone:=[[[]],[One(F)]];;
+gap> AddNP(NPzero,NPzero,One(F),One(F))=NPzero;
+true
+gap> AddNP(NPone,NPone,One(F),-One(F))=NPzero;
+true
+gap> AddNP(NPzero,NPone,One(F),One(F))=NPone;
+true
+gap> AddNP(NPone,NPone,One(F),One(F))=AddNP(NPone,NPzero,One(F)+One(F),One(F));
+true
+gap> AddNP(NPone,NPone,One(F),One(F))=NPzero; #field
+true
+
+BimulNP
+NOTE only testing zero/one case
+gap> F:=Rationals;;
+gap> NPzero:=[[],[]];;
+gap> NPone:=[[[]],[One(F)]];;
+gap> BimulNP([],NPzero,[])=NPzero;
+true
+gap> BimulNP([1],NPzero,[2])=NPzero;
+true
+gap> BimulNP([],NPzero,[2])=NPzero;
+true
+gap> BimulNP([1],NPzero,[])=NPzero;
+true
+gap> BimulNP([1],NPone,[])=[[[1]],[One(F)]];
+true
+gap> BimulNP([],NPone,[2])=[[[2]],[One(F)]];
+true
+gap> BimulNP([1],NPone,[2])=[[[1,2]],[One(F)]];
+true
+
+CleanNP
+gap> F:=Rationals;;
+gap> NPzero:=[[],[]];;
+gap> NPone:=[[[]],[One(F)]];;
+gap> CleanNP(NPzero)=NPzero;
+true
+gap> CleanNP(NPone)=NPone;
+true
+gap> F:=GF(2);;
+gap> NPzero:=[[],[]];;
+gap> NPone:=[[[]],[One(F)]];;
+gap> CleanNP(NPzero)=NPzero;
+true
+gap> CleanNP(NPone)=NPone;
+true
+gap> CleanNP(2*NPone)=NPzero;
+true
+gap> CleanNP([[[1],[1]],[One(F),One(F)]])=NPzero; # field
+true
+
+GtNP
+gap> M0:=[];;
+gap> M1:=[1];;
+gap> GtNP(M0,M0)=false;
+true
+gap> GtNP(M0,M1)=false;
+true
+gap> GtNP(M1,M0)=true;
+true
+gap> GtNP(M1,M1)=false;
+true
+
+LtNP
+gap> M0:=[];;
+gap> M1:=[1];;
+gap> LtNP(M0,M0)=false;
+true
+gap> LtNP(M0,M1)=true;
+true
+gap> LtNP(M1,M0)=false;
+true
+gap> LtNP(M1,M1)=false;
+true
+
+LMonsNP
+gap> F:=Rationals;;
+gap> NPzero:=[[],[]];;
+gap> NPone:=[[[]],[One(F)]];;
+gap> M0:=[];;
+
+fails if zero occurs in the list -> what is the leading monomial of zero ??
+not sure what the desired action should be (fail perhaps ?)
+might be better to document this
+gap> LMonsNP([])=[];
+true
+gap> #LMonsNP([NPzero])=[]; 
+gap> LMonsNP([NPone])=[M0];
+true
+gap> #LMonsNP([NPone,NPzero])=[M0];
+gap> LMonsNP([NPone,NPone])=[M0,M0];
+true
+
+MkMonicNP
+gap> F:=Rationals;;
+gap> NPzero:=[[],[]];;
+gap> NPone:=[[[]],[One(F)]];;
+gap> MkMonicNP(NPzero)=NPzero;
+true
+gap> MkMonicNP(NPone)=NPone;
+true
+gap> MkMonicNP(2*NPone)=NPone;
+true
+
+MulNP
+gap> F:=Rationals;;
+gap> NPzero:=[[],[]];;
+gap> NPone:=[[[]],[One(F)]];;
+gap> MulNP(NPzero,NPzero)=NPzero;
+true
+gap> MulNP(NPone,NPzero)=NPzero;
+true
+gap> MulNP(NPone,NPzero)=NPzero;
+true
+gap> MulNP(NPone,NPone)=NPone;
+true
+

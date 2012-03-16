@@ -1,0 +1,15 @@
+The options record contains the following names:
+
+Alphabetsize : the number of generators
+CancellativeMonoid : if bound then g_i(w1+w2+...+w_i)=0 -> w1+w2+...+w_i=0 
+	(same for (w1+w2+...+w_i)g_i ) (if i>1)
+	requires alphabetsize 
+	NOTE: g_i+n will be used for the cancellation of g_i
+	(make sure to set up algebras and GBNP.ConfigPrint accordingly)
+pg ? : number of prefix generators (not used yet)
+PrintLetterFunction : set automatically by GBNP.ConfigPrint
+cleancount ? : cleaning the GB with itself each cleancount times
+cleanpolys ? : clean the GB with itself after the first next loop.
+PrintTraceAsGP : if Algebra is also set, print the trace as GP
+Algebra : the FreeAssociativeAlgebraWithOne corresponding to the relations 
+

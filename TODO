@@ -1,0 +1,97 @@
+unclassified:
+
+- introduce cancellation everywhere (some progress made, what is wanted in the
+  prefix case ?)
+last update: 3 June 2007
+-> cheak after release
+
+SHORT TERM:
+- restructure functions and file names. Remove empty placeholders.
+- allow to break a grobnerloop, so that G and todo are produced with which only
+  the last iteration/phase has to be redone
+- allow to automatically break a computation after (time or number of runs or
+  .. ?)
+- try to speed up reducepol2 (so computations can be continued with long
+  partial grobner bases): remove double loop and occur
+- functions to check whether some G is a Grobner basis, or G and todo are a
+  partial Grobner basis.
+  -> only partially done
+- avoid confusion with gbnp_doc.xml.in and gbnp_doc.xml by creating the
+  gnbp_doc.xml in a different directory
+
+-explain difference between LoadPackage("GBNP") 
+ and LoadPackage("GBNP","0",false).
+
++decide to establish GBR.pg as a field. Decision NOT PUBLIC
+
+-document argument Num??Gens better
+
+-choose for BaseQAPTS etc,. to have  four arguments; CHECK uitwerking en
+ documentatie
+
+-similar for DimQAPTS
+
+-define Strong Grobner Basis
+
+- In introduction to examples, specify version of FreeBSD and GAP version.
+
+- Functions DetermineGrowth and DimsQATrunc print more than their output.
+  Cheap option: Discuss this in explanatory sections (3.6.2 and 3.8.5).
+  Posher option: turn output into a record containing the info printed.
+
+-remove the word "Obstructions" from public part of Krook's code.
+
+-"Timing info will be printed as well" bij level 2 van InfoGBNP. Hoe verhoudt
+   zich dat tot InfoGBNPTime?
+
+- Combine DetermineGrowth and DetermineGrowthObs
+
+- Adjust output of DetermineGrowth and DetermineGrowthObs etc
+ so that in similar cases similar output is given ("finite" vs "0" offends
+ this rule from  DetermineGrowth and DetermineGrowthObs, respectively)
+
+- ngens.g verwerken tot basis functies die min aantal variabelen
+  en minimale moduulrang opgeven. Beantwoord:
+  Read off the number of variables a list of polynomials needs to be
+  defined. This would enable a default option (without the number t of
+  generators of the free algebra) in most cases. Exception: when you have
+  a case of polynomials in say t variables generating an ideal in the free
+  algebra with more than t generators.
+  NumAlgGensNP, etc.
+
++ rename
++        occurtree PTS ? -> no rename in this version
++        DONE: SGrobnerPTS -> SGrobnerModule
++        DONE: QAPTS -> QM
++        DONE: PTSNP -> NPM
++        DONE: LTermsNP -> LMonsNP
++        DONE: HilbertSeries -> HilbertSeriesQA
++        DONE: DetermineGrowth -> DetermineGrowthQA
+
++ check hilbertseries vs determinegrowth for [1,2,1], [2,2,1]
+  -> polynomial of degree 2, that is correct (total vs ingremental)
+
+- StrongNormalFormNPTrunc: voorbeeld: gebruik
+  gewone StrongNormalFormNP ***Let op bovengrens graad***
+
+LONG TERM:
+
+- USES/USED IN are not up to date
+- check input with more than one polys with same lt
+- reduce PTS routines
+- merge SGrobner variants (some progress made)
+- SGrobnerLoop: ObsT(all) sorts todo, move this to the end of the loop in
+  	SGrobnerloop, combine this with a fase IIId that reduces todo without 
+	costly removing/inserting but by using a new StrongNormalForm variant
+- merge ReducePol (some progress made)
+- tree merge + trace inclusion in "all"
+- 3-HEAP
+- reduction of the length of traces
+- GBNP.StrongNormalForm2TS all version?
+- naming: StrongNormal versus SGrobner
+- Add original relations to the Gröbner basis trace record ?
+- Calculate the StrongNormalFormTraceDiff with respect to the Gröbner basis
+  instead of with respect to the original relations
+- It might be interesting to count monomials in the trace in example 24
+- put the date in a single file (the GNUMakefile ?)
+- add a link in the manual to the other available manual formats 

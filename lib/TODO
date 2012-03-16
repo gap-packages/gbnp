@@ -1,0 +1,179 @@
+Summary:
+A) Resuming Grobnerloop
+  - better documentation is needed, preferably in the form of a well documented
+    example (new or modified ?) example07m.g is a bit of a start, but a new
+    example might be better.
+  - documentation of new functions should be checked as well
+B) Examples (in particular for all functions)
+  - There is a list as below. Some examples could be extended. A plan of
+    approach should be made.
+  - inventarisation
+    - example with NP <-> GP conversion: not fully done
+    - example with printing: not fully done
+    - example with NP arithmetic: not fully done
+    - example with Grobner (instead of SGrobner): not present
+    - example needed for interrupted
+      SGrobner/IsGrobnerPair/MakeGrobnerPair/IsGrobnerBasis
+      (see above)
+    - section needed where these functions are described:
+      SGrobner/IsGrobnerPair/MakeGrobnerPair/IsGrobnerBasis
+    - example with quotient algebras and representations/calculations
+      why use compressed matrices ?
+      StrongNormalForm (and how to make it quicker)
+    - example with finiteness: split between 13-16: create one combined example
+    - example for trace exists: colagen, add EvalTrace, PrintTraceList
+    - example for trunc exists: two weighted homogeneous polynomials
+    - example for modules: 4,18-22 combine all functions in one (?)
+C) Other
+  - Is 0 homogeneous ? The implementations says no, is that correct ?
+D) Some things for the next version
+  - make a list here
+
+some draft items below
+
+=======================================
+First version of time schedule
+
+now: 22 april
+summary of todo items:
+- make inventarisation of tasks *mostly done*
+- make elaborate time schedule allowing to finish in May *mostly done*
+- look at examples (usage of functions) (4) *mostly done*
+! finish grobnerloop resuming (1,3,5) *check*
+29th of april
+- add new examples where needed/reference to examples (4)
+- JW: test truncated code
+  -> examples seem good (although A.3 does not use truncation and does not say
+     anything about being homogeneous, so it might be confusing, *discuss with
+     Arjeh*)
+  -> code review:
+     . check NondivMonsByLevel zero case (*done*) 
+     ! for CheckHomogeneousNPs : is zero homogeneous ? (answer seems to be no,
+       *ask Arjeh*) (*urgent*)
+     + false should become fail (-> next version)
+     + it would make sense for GBNP.CheckHom to use WieghtedDegreeMon (> next version)
+     + ObsTrunc might be made quicker by using the normal function to get
+       Obstructions using lists
+- check new theory (2) 
+8 may 
+- new versions (what does this mean)
+- add other todo items that need to be done here
+15 may
+- final reading and testing
+20 may
+- spare week, for things that take longer and things that come up after
+  inventarisation and can not be done earlier
+
+URGENT: 
+
+SHORT TERM:
+- MakeGrobnerPair function (create a [weak] partial pair)
+  DONE:
+  - first version
+  - automatically stop (S)Grobner calculations after a certain number of
+    iterations 
+  TODO:
+  - (1) check difference between IsGrobnerPair and IsGrobner
+    -> 1) elements of a Grobner basis don't have to be monic (can contain <0>)
+    	  or leading coefficients different from <1>
+    -> 2) how about being able to reduce with itself /multiple entries ?
+          -> seems to be allowed in both cases.
+    - decide what to do : combine ?
+  - (2) amc: check updated documentation for (S)Grobner (jwk: ok)
+  - (3)create example that (first version 7m)
+    - (S)Grobner stopping after a certain number of iterations
+    - IsGrobnerPair (leaving out something from or adding something to todo)
+    - MakeGrobnerPair
+    - possibly IsGrobner
+- Examples for more functions
+  TODO: (4)
+  - inventarisation
+    - example with NP <-> GP conversion: not fully done
+    - example with printing: not fully done
+    - example with NP arithmetic: not fully done
+    - example with Grobner (instead of SGrobner): not present
+    - example needed for interrupted
+      SGrobner/IsGrobnerPair/MakeGrobnerPair/IsGrobnerBasis
+      (see above)
+    - section needed where these functions are described:
+      SGrobner/IsGrobnerPair/MakeGrobnerPair/IsGrobnerBasis
+    - example with quotient algebras and representations/calculations
+      why use compressed matrices ?
+      StrongNormalForm (and how to make it quicker)
+    - example with finiteness: split between 13-16: create one combined example
+    - example for trace exists: colagen, add EvalTrace, PrintTraceList
+    - example for trunc exists: two weighted homogeneous polynomials
+    - example for modules: 4,18-22 combine all functions in one (?)
+  - create examples
+DONE
+  - name change (if amc agrees) (to be done by jwk)
+  - make GBNP.IsGrobnerPair global
+  - make GBNP.MakeGrobnerPair global
+  - rename IsGrobnerBasisTest IsGrobnerBasis
+  - rename IsStrongGrobnerBasisTest IsStrongGrobnerBasis
+  - document new global functions where no documentation was available
+  - also rename in documentation/examples/top of files
+========================================
+- options.gi: describe better how options work, which options there are and
+  where they are used -> already in OPTIONS
+- jwk: check status: tree/occurtree vs graphs
+- jwk: describe cancellation
+- jwk: printing.gi: fix code duplication in PrintNP and GBNP.PrintNPnonewline
+- jwk: make kary-heap optional/remove it (too complicated)
+- jwk: tree.gi: see if code using tree.gi can be rewritten to use occurtree
+- jwk: describe various functions for (strong) normal form
+- jwk: make inventarization which functions have multiple versions (and add documenting these to the todo list)
+- make test cases for performance testing
+
+NOT urgent:
+- occurtree: idea: make interface easier with objects
+- check whether all functions use funcs.strong
+- combine ReducePolTails/ReducePolTailsPTS 
+- ReducePol2 can be faster: remove Occur (at XXX)
+
+Urgent but not directly possible:
+- fix reducepol functions (what/how?)
+- functions for splitting np/npm polynomials (???)
+- PTS + Cancellation (what is required here, now prefix generators cannot be
+  cancelled, is this wat is intended)
+
+- DimQA that gets pg from the GBR record
+- DimQA that does not calculate the whole QA but only counts (depth first)
+- reduce the number of prefix functions further (by using the two-sided
+  functions instead)
+- options in a record for every calculation, possibly initialized with standard
+  options at the beginning of the calculation
+- make cleancount/cleanpolys options
+- possible to use lt, gt everywhere (add ?/conditions)
+- Gröbner basis record / objects
+- remove function StrongNormalForm2 (by adding occur trees to a Gröbner basis
+  record)
+- put the prefix generators in the end of the list for trees -> saves space
+
+NOTES: 
+ReducePol2:
+	- trace.gi:GBNP.ReducePolTrace2
+
+ReducePol: (probably no changing)
+	- trace.gi:GBNP.ReducePolTrace
+
+ReducePol functions:
+
+grobner.gi:GBNP.ReducePol
+	calls ReducePol2
+
+grobner_t.gi:GBNP.ReducePol2		G, GLOT
+	trees, poss prefix-unaware: StrongNormalForm2TS
+trace.gi:GBNP.ReducePolTrace2
+trace.gi:GBNP.ReducePolTrace
+
+grobnerloops2.gi:GBNP.ReducePolTailsPTS
+	not a reduce function -> Cleans -> Name is confusing
+
+
+
+functions that need to know pg:
+-> now in occurtree, only CreateOccurTreeLR remains
+
+for CreateOccurTreeLR: nog doen tree.g graphs.g fincheck.g
+	AllObs, LeftObsT, RightObsT, ReducePol2, StrongNormalFormT (grobner_t.gi)
