@@ -157,7 +157,7 @@ gap> GB := SGrobner(KI);
 #I  End of phase III
 #I  G: Cleaning finished, 0 polynomials reduced
 #I  End of phase IV
-#I  The computation took 1224 msecs.
+#I  The computation took 728 msecs.
 [ [ [ [ 1 ] ], [ 1 ] ], [ [ [ 2 ] ], [ 1 ] ], 
   [ [ [ 4, 3 ], [ 3, 4 ] ], [ 1, -1 ] ], [ [ [ 5, 3 ], [ 3, 5 ] ], [ 1, -1 ] ]
     , [ [ [ 5, 4 ], [ 4, 5 ] ], [ 1, -1 ] ], 

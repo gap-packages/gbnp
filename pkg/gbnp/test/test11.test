@@ -1,4 +1,4 @@
-gap> START_TEST("test11");
+gap> START_TEST("GBNP test11");
 gap> ######################### BEGIN COPYRIGHT MESSAGE #########################
 gap> # GBNP - computing Gröbner bases of noncommutative polynomials
 gap> # Copyright 2001-2010 by Arjeh M. Cohen, Dié A.H. Gijsbers, Jan Willem
@@ -103,7 +103,7 @@ gap> G := SGrobnerTrunc(K,n,weights);;
 #I  Input is homogeneous
 #I  Reached level 16
 #I  end of the algorithm
-#I  The computation took 4 msecs.
+#I  The computation took 0 msecs.
 gap> # </L>
 gap> 
 gap> # The Gröbner basis of the truncated quotient algebra can be printed with <Ref
@@ -221,7 +221,7 @@ gap> DimsQATrunc(G,n,weights);
 #I  Input is homogeneous
 #I  Reached level 16
 #I  end of the algorithm
-#I  The computation took 0 msecs.
+#I  The computation took 4 msecs.
 [ 1, 0, 1, 1, 1, 2, 2, 3, 4, 5, 7, 9, 10, 16, 17, 24, 31 ]
 gap> # </L>
 gap> 
@@ -241,7 +241,7 @@ gap> FreqsQATrunc(G,n,weights);
 #I  Input is homogeneous
 #I  Reached level 16
 #I  end of the algorithm
-#I  The computation took 4 msecs.
+#I  The computation took 0 msecs.
 [ [ [ [  ], 1 ] ], [ [ [ 1, 0 ], 1 ] ], [ [ [ 0, 1 ], 1 ] ], 
   [ [ [ 2, 0 ], 1 ] ], [ [ [ 1, 1 ], 2 ] ], 
   [ [ [ 3, 0 ], 1 ], [ [ 0, 2 ], 1 ] ], [ [ [ 2, 1 ], 3 ] ], 

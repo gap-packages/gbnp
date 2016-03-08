@@ -74,10 +74,10 @@ Now the relations are entered:
 gap> twosidrels:=[s1^2-o,s2^2-o,s3^2-o,(s1*s2)^3-o,(s2*s3)^3-o,(s1*s3)^2-o,
 > 	e^2-e,s1*e-e*s1,s2*e-e*s2,e*s3*e-(e*s3)^2,e*s3*e-(s3*e)^2];
 [ (-1)*<identity ...>+(1)*s1^2, (-1)*<identity ...>+(1)*s2^2, 
-  (-1)*<identity ...>+(1)*s3^2, (-1)*<identity ...>+(1)*s1*s2*s1*s2*s1*s2, 
-  (-1)*<identity ...>+(1)*s2*s3*s2*s3*s2*s3, 
-  (-1)*<identity ...>+(1)*s1*s3*s1*s3, (-1)*e+(1)*e^2, (1)*s1*e+(-1)*e*s1, 
-  (1)*s2*e+(-1)*e*s2, (1)*e*s3*e+(-1)*e*s3*e*s3, (1)*e*s3*e+(-1)*s3*e*s3*e ]
+  (-1)*<identity ...>+(1)*s3^2, (-1)*<identity ...>+(1)*(s1*s2)^3, 
+  (-1)*<identity ...>+(1)*(s2*s3)^3, (-1)*<identity ...>+(1)*(s1*s3)^2, 
+  (-1)*e+(1)*e^2, (1)*s1*e+(-1)*e*s1, (1)*s2*e+(-1)*e*s2, 
+  (1)*e*s3*e+(-1)*(e*s3)^2, (1)*e*s3*e+(-1)*(s3*e)^2 ]
 gap> prefixrels:=[e,s1-o,s2-o,s3*e-s3];
 [ (1)*e, (-1)*<identity ...>+(1)*s1, (-1)*<identity ...>+(1)*s2, 
   (-1)*s3+(1)*s3*e ]
@@ -95,14 +95,14 @@ gap> GBR:=SGrobnerModule(GP2NPList(prefixrels),GP2NPList(twosidrels));;
 #I  End of phase II
 #I  End of phase III
 #I  End of phase IV
-#I  The computation took 36 msecs.
+#I  The computation took 24 msecs.
 #I  number of entered polynomials is 42
 #I  number of polynomials after reduction is 42
 #I  End of phase I
 #I  End of phase II
 #I  End of phase III
 #I  End of phase IV
-#I  The computation took 24 msecs.
+#I  The computation took 20 msecs.
 ]]></Listing>
 
 The record GBR has two members: the two-sided relations <C>GBR.ts</C> and the

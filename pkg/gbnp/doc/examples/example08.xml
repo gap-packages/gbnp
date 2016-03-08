@@ -62,7 +62,7 @@ l
 gap> mm := Indeterminate(Rationals,"m");
 m
 gap> F := Field(ll,mm);
-<field in characteristic 0>
+<algebra-with-one over Field( [ 1 ] )>
 gap> gens := GeneratorsOfField(F);
 [ l, m ]
 gap> l := gens[1];;
@@ -107,8 +107,8 @@ gap> PrintNPList(KI);
  e1 + -l/mg1^2 + -lg1 + l/m 
  e2 + -l/mg2^2 + -lg2 + l/m 
  g1g2g1 + -1g2g1g2 
- g1e1 + -1/le1 
- g2e2 + -1/le2 
+ g1e1 + -l^-1e1 
+ g2e2 + -l^-1e2 
  e1g2e1 + -le1 
  e2g1e2 + -le2 
  e1e2e1 + -1e1 
@@ -127,7 +127,7 @@ gap> GB := SGrobnerTrace(KI);;
 #I  List of todo lengths is [ 8, 7, 6, 5, 4, 6, 4, 4, 4, 3, 3, 2, 1, 0 ]
 #I  End of phase III
 #I  End of phase IV
-#I  The computation took 1092 msecs.
+#I  The computation took 484 msecs.
 ]]></Listing>
 
 The full trace can be printed with <Ref Func="PrintTraceList" Style="Text"/>,
@@ -140,9 +140,9 @@ with <Ref Func="PrintTracePol" Style="Text"/>:
 <Listing><![CDATA[
 gap> PrintNPListTrace(GB);
  g1^2 + m/-le1 + mg1 + -1 
- g1e1 + -1/le1 
+ g1e1 + -l^-1e1 
  g2^2 + m/-le2 + mg2 + -1 
- g2e2 + -1/le2 
+ g2e2 + -l^-1e2 
  e1g1 + 1/-le1 
  e1^2 + (l^2-l*m-1)/(l*m)e1 
  e2g2 + 1/-le2 
@@ -209,9 +209,9 @@ Func="BaseQA" Style="Text"/>.
 gap> GB_pols:=List(GB,x->x.pol);;
 gap> PrintNPList(GB_pols);
  g1^2 + m/-le1 + mg1 + -1 
- g1e1 + -1/le1 
+ g1e1 + -l^-1e1 
  g2^2 + m/-le2 + mg2 + -1 
- g2e2 + -1/le2 
+ g2e2 + -l^-1e2 
  e1g1 + 1/-le1 
  e1^2 + (l^2-l*m-1)/(l*m)e1 
  e2g2 + 1/-le2 

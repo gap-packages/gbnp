@@ -12,7 +12,8 @@
 \contentsline {subsection}{\numberline {1.4.3}\leavevmode {\color {Chapter }Provided Orderings}}{12}{subsection.1.4.3}
 \contentsline {subsection}{\numberline {1.4.4}\leavevmode {\color {Chapter }Externals}}{13}{subsection.1.4.4}
 \contentsline {subsection}{\numberline {1.4.5}\leavevmode {\color {Chapter }External Routines}}{13}{subsection.1.4.5}
-\contentsline {subsection}{\numberline {1.4.6}\leavevmode {\color {Chapter }Flexibility vs. Efficiency}}{15}{subsection.1.4.6}
+\contentsline {subsection}{\numberline {1.4.6}\leavevmode {\color {Chapter }Flexibility vs. Efficiency}}{14}{subsection.1.4.6}
 \contentsline {section}{\numberline {1.5}\leavevmode {\color {Chapter }Utility Routines}}{15}{section.1.5}
 \contentsline {subsection}{\numberline {1.5.1}\leavevmode {\color {Chapter }GBNP Patching Routines}}{15}{subsection.1.5.1}
 \contentsline {subsection}{\numberline {1.5.2}\leavevmode {\color {Chapter }Printing Routine}}{15}{subsection.1.5.2}
+\contentsline {chapter}{References}{17}{chapter*.3}

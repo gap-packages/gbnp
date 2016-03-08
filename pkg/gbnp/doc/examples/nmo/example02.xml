@@ -1,0 +1,53 @@
+This example was taken from Dr. Edward Green's paper ``Noncommutative
+Grobner Bases, and Projective Resolutions'', and is referenced
+as ``Example 2.7'' there; please see the manual for more information.
+
+This example is the same as Example 1 above, except that the length
+and lexicographic orderings are created independently and then
+chained to form the usual length left-lexicographic ordering. 
+
+gap> LoadPackage("gbnp");
+─────────────────────────────────────────────────────────────────────────────
+Loading  GBNP 1.0.2 (Non-commutative Gröbner bases)
+by A.M. Cohen (http://www.win.tue.nl/~amc) and
+   J.W. Knopper (J.W.Knopper@tue.nl).
+Homepage: http://mathdox.org/products/gbnp/
+─────────────────────────────────────────────────────────────────────────────
+true
+
+gap> A := FreeAssociativeAlgebraWithOne(Rationals,"a","b","c","d");;
+gap> a := A.a;; b := A.b;; c := A.c;; d := A.d;;
+gap> polys := [c*d*a*b-c*b,b*c-d*a];;
+gap> reps := GP2NPList(polys);;
+
+gap> lexord := NCMonomialLeftLexicographicOrdering(A);
+NCMonomialLeftLexicographicOrdering([ (1)*a, (1)*b, (1)*c, (1)*d ])
+gap> lenlex := NCMonomialLengthOrdering(A,lexord);
+NCMonomialLengthOrdering([ (1)*a, (1)*b, (1)*c, (1)*d ])
+
+gap> PatchGBNP(lenlex);;
+LtNP patched.
+GtNP patched.
+gap> gbreps := Grobner(reps);;
+gap> gb := NP2GPList(gbreps,A);
+[ (1)*d*a+(-1)*b*c, (1)*(c*b)^2+(-1)*c*b ]
+
+gap> lexord2 := NCMonomialLeftLexicographicOrdering(A,[4,3,2,1]);
+NCMonomialLeftLexicographicOrdering([ (1)*d, (1)*c, (1)*b, (1)*a ])
+gap> lenlex2 := NCMonomialLengthOrdering(A,lexord2);
+NCMonomialLengthOrdering([ (1)*a, (1)*b, (1)*c, (1)*d ])
+gap> PatchGBNP(lenlex2);;
+LtNP patched.
+GtNP patched.
+gap> gbreps2 := Grobner(reps);;
+gap> gb2 := NP2GPList(gbreps2,A);
+[ (1)*b*c+(-1)*d*a, (1)*c*d*a*b+(-1)*c*b, (1)*(d*a)^2*b+(-1)*d*a*b, 
+  (1)*c*(d*a)^2+(-1)*c*d*a, (1)*(d*a)^3+(-1)*(d*a)^2 ]
+
+gap> HasNextOrdering(lenlex2);
+true
+gap> NextOrdering(lenlex2);
+NCMonomialLeftLexicographicOrdering([ (1)*d, (1)*c, (1)*b, (1)*a ])
+gap> LexicographicTable(NextOrdering(lenlex2));
+[ (1)*d, (1)*c, (1)*b, (1)*a ]
+

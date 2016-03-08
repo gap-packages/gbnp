@@ -1,4 +1,4 @@
-gap> START_TEST("test12");
+gap> START_TEST("GBNP test12");
 gap> ######################### BEGIN COPYRIGHT MESSAGE #########################
 gap> # GBNP - computing Gröbner bases of noncommutative polynomials
 gap> # Copyright 2001-2010 by Arjeh M. Cohen, Dié A.H. Gijsbers, Jan Willem
@@ -39,11 +39,12 @@ gap> # level, see Chapter <Ref Chap="Info"/>).
 gap> 
 gap> # <L>
 gap> LoadPackage("GBNP");
------------------------------------------------------------------------------
-Loading  GBNP 1.0.1 (Non-commutative Gröbner bases)
+─────────────────────────────────────────────────────────────────────────────
+Loading  GBNP 1.0.2 (Non-commutative Gröbner bases)
 by A.M. Cohen (http://www.win.tue.nl/~amc) and
    J.W. Knopper (J.W.Knopper@tue.nl).
------------------------------------------------------------------------------
+Homepage: http://mathdox.org/products/gbnp/
+─────────────────────────────────────────────────────────────────────────────
 true
 gap> 
 gap> SetInfoLevel(InfoGBNP,0);

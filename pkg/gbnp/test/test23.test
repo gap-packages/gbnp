@@ -1,4 +1,4 @@
-gap> START_TEST("test23");
+gap> START_TEST("GBNP test23");
 gap> ######################### BEGIN COPYRIGHT MESSAGE #########################
 gap> # GBNP - computing Gröbner bases of noncommutative polynomials
 gap> # Copyright 2001-2010 by Arjeh M. Cohen, Dié A.H. Gijsbers, Jan Willem
@@ -128,7 +128,7 @@ gap>
 gap> # <L>
 gap> relsNP:=GP2NPList(rels);;
 gap> GB:=SGrobner(relsNP);;
-#I  The computation took 412 msecs.
+#I  The computation took 184 msecs.
 gap> # </L>
 gap> 
 gap> # It is now possible to calculate the dimension of the quotient algebra

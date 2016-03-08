@@ -1,0 +1,68 @@
+PartialGroebnerBasis
+GroebnerBasis
+
+polynomialNP vs polynomial
+monomialNP vs monomial
+NPFamily vs associative algebra family
+
+QuotientAlgebra
+monomialQA,
+polynomialQA,
+QAFamily
+
+functions for polynomials in NP form:
+====================================
+LtNP, GtNP, AddNP, MulNP, BimulNP
+
+cleanup/util functions for polynomials in NP form:
+--------------------------------------------
+CleanNP
+MkMonicNP
+LMonsNP (for list)
+
+other
+-----
+NumAlgGensNP (+List)
+NumModGensNP (+List)
+
+functions for QA
+================
+finiteness
+----------
+DetermineGrowthQA
+FinCheckQA
+HilbertSeriesQA
+PreprocessAnalysisQA
+
+functions for finite QA
+-----------------------
+BaseQA
+DimQA
+MatrixQA
+MatricesQA
+MulQA *
+StrongNormalFormNP *
+
+
+functions for partial GB/ideal
+==============================
+Grobner
+SGrobner
+IsGrobnerBasis
+IsStrongGrobnerBasis
+IsGrobnerPair
+MakeGrobnerPair
+
+
+=================================================
+functions for QA:
+Generators(QA);
+GeneratorsOfAlgebraModule(QA);
+GeneratorsOfAlgebraWithOne(QA);
+
+QA.grobnerbasis
+QA.grobnerbasis.tree
+QA.dimension -> dimqa
+original algebra/module
+left acting domain
+display

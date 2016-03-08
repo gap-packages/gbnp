@@ -1,6 +1,6 @@
   
   
-                        [1XDocumentation on the [5XNMO[0m[1X package[0m
+                        [1XDocumentation on the [5XNMO[105X package[101X
   
   
                                   Version 1.0
@@ -14,45 +14,45 @@
   
   
   Randall E. Cone
-      Email:    [7Xmailto:rcone@math.vt.edu[0m
+      Email:    [7Xmailto:rcone@math.vt.edu[107X
   
   
-  Address: Virginia Tech
-           Blacksburg, VA, 24060, USA
-  
-  
-  -------------------------------------------------------
-  [1XAcknowledgements[0m
-  --    Our immense gratitude to the authors of GBNP for allowing us to make a
-        small contribution.
-  
-  --    Equal gratitude to Dr. Ed Green for his help as mentor and advisor, in
-        both this project and many others.
+  Address: [33X[0;9YVirginia Tech[133X
+           [33X[0;9YBlacksburg, VA, 24060, USA[133X
   
   
   -------------------------------------------------------
+  [1XAcknowledgements[101X
+  [30X    [33X[0;6YOur immense gratitude to the authors of GBNP for allowing us to make a
+        small contribution.[133X
   
-  
-  [1XContents (NMO)[0X
-  
-  1 NMO
-    1.1 Introduction
-    1.2 NMO Files within GBNP
-    1.3 Quickstart
-      1.3-1 NMO Example 1
-      1.3-2 NMO Example 2
-      1.3-3 NMO Example 3
-      1.3-4 NMO Example 4
-    1.4 Orderings
-      1.4-1 Internals
-      1.4-2 Internal Routines
-      1.4-3 Provided Orderings
-      1.4-4 Externals
-      1.4-5 External Routines
-      1.4-6 Flexibility vs. Efficiency
-    1.5 Utility Routines
-      1.5-1 GBNP Patching Routines
-      1.5-2 Printing Routine
+  [30X    [33X[0;6YEqual gratitude to Dr. Ed Green for his help as mentor and advisor, in
+        both this project and many others.[133X
   
   
   -------------------------------------------------------
+  
+  
+  [1XContents (NMO)[101X
+  
+  1 [33X[0;0YNMO[133X
+    1.1 [33X[0;0YIntroduction[133X
+    1.2 [33X[0;0YNMO Files within GBNP[133X
+    1.3 [33X[0;0YQuickstart[133X
+      1.3-1 [33X[0;0YNMO Example 1[133X
+      1.3-2 [33X[0;0YNMO Example 2[133X
+      1.3-3 [33X[0;0YNMO Example 3[133X
+      1.3-4 [33X[0;0YNMO Example 4[133X
+    1.4 [33X[0;0YOrderings[133X
+      1.4-1 [33X[0;0YInternals[133X
+      1.4-2 [33X[0;0YInternal Routines[133X
+      1.4-3 [33X[0;0YProvided Orderings[133X
+      1.4-4 [33X[0;0YExternals[133X
+      1.4-5 [33X[0;0YExternal Routines[133X
+      1.4-6 [33X[0;0YFlexibility vs. Efficiency[133X
+    1.5 [33X[0;0YUtility Routines[133X
+      1.5-1 [33X[0;0YGBNP Patching Routines[133X
+      1.5-2 [33X[0;0YPrinting Routine[133X
+  
+  
+  [32X

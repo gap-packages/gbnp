@@ -40,11 +40,11 @@ Subtitle := "computing Gröbner bases of noncommutative polynomials",
 ##  See '?Extending: Version Numbers' in GAP help for an explanation
 ##  of valid version numbers. For an automatic package distribution update
 ##  you must provide a new version number even after small changes.
-Version := "1.0.1",
+Version := "1.0.3",
 
 ##  Release date of the current version in dd/mm/yyyy format.
 # 
-Date := "12/05/2010",
+Date := "08/03/2016",
 
 ##  URL of the archive(s) of the current package release, but *without*
 ##  the format extension(s), like '.zoo', which are given next.
@@ -55,7 +55,7 @@ Date := "12/05/2010",
 ##  example/init.g, ...    or  example-1.3/init.g, ...  )
 # 
 ArchiveURL := 
-          "http://mathdox.org/products/gbnp/GBNP-1.0.1",
+          "http://mathdox.org/products/gbnp/GBNP-1.0.3",
 
 ##  All provided formats as list of file extensions, separated by white
 ##  space or commas.
@@ -251,11 +251,8 @@ PackageWWWHome := "http://mathdox.org/products/gbnp/",
 PackageDoc := rec(
   # use same as in GAP            
   BookName  := "GBNP",
-  # format/extension can be one of .zoo, .tar.gz, .tar.bz2, -win.zip
-  Archive := 
-      "http://mathdox.org/products/gbnp/GBNPdoc-1.0.1.tar.gz",
-  ArchiveURLSubset := ["doc", "htm"],
-  HTMLStart := "doc/chap0.htm",
+  ArchiveURLSubset := ["doc"],
+  HTMLStart := "doc/chap0.html",
   PDFFile   := "doc/manual.pdf",
   # the path to the .six file used by GAP's help system
   SixFile   := "doc/manual.six",
@@ -279,7 +276,7 @@ Dependencies := rec(
   # insensitive, least version denoted with '>=' prepended to version string.
   # without these, the package will not load
   # NeededOtherPackages := [["GAPDoc", ">= 0.99"]],
-  NeededOtherPackages := [],
+  NeededOtherPackages := [["GAPDoc", ">= 0.99"]],
   # without these the package will issue a warning while loading
   # SuggestedOtherPackages := [],
   SuggestedOtherPackages := [],
@@ -345,7 +342,7 @@ Autoload := false,
 
 ##  *Optional*, but recommended: path relative to package root to a file which 
 ##  contains as many tests of the package functionality as sensible.
-TestFile := "testall.g",
+TestFile := "test/test-all.tst",
 
 ##  *Optional*: Here you can list some keyword related to the topic 
 ##  of the package.

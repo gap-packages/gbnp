@@ -25,7 +25,7 @@ then
 	exit 1;
 fi
 
-echo "gap> START_TEST(\"$1\");" >"$1".test
+echo "gap> START_TEST(\"GBNP $1\");" >"$1".test
 cat "$1".txt >>"$1".test
 echo >>"$1".test
 echo "gap> STOP_TEST(\"$1.g\",10000);" >>"$1".test

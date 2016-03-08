@@ -1,9 +1,9 @@
 <!DOCTYPE Book SYSTEM "gapdoc.dtd"> <Book Name="GBNP"> <TitlePage>
 <Title>Documentation on the <Package>GBNP</Package> package</Title>
-<Version>Version 1.0.1</Version> 
+<Version>Version 1.0.3</Version> 
 <Author>Arjeh M. Cohen <Email>A.M.Cohen@tue.nl</Email></Author>
 <Author>Jan Willem Knopper <Email>J.W.Knopper@tue.nl</Email></Author>
-<Date>12 May 2010</Date> 
+<Date>8 March 2016</Date> 
 <Address>TU/e,<Br/> POB
 513, 5600 MB Eindhoven, the Netherlands </Address> <Abstract> We provide
 algorithms, written in the <Package>GAP</Package> 4 programming language, for
@@ -80,12 +80,12 @@ and as an pdf document at
 
 <Section><Heading>Installation</Heading>	
 To install GBNP, first download it from 
-<URL>http://mathdox.org/products/gbnp/GBNP-1.0.1.tar.gz</URL>, then unpack
-<F>GBNP-1.0.1.tar.gz</F> in the <C>pkg</C> subdirectory of
+<URL>http://mathdox.org/products/gbnp/GBNP-1.0.3.tar.gz</URL>, then unpack
+<F>GBNP-1.0.3.tar.gz</F> in the <C>pkg</C> subdirectory of
 your <Package>GAP</Package> installation (or in the <C>pkg</C> subdirectory of
 any other <Package>GAP</Package> root directory, for example one added with the
 <C>-l</C> argument) with the following command: 
-<Code>tar -xvzf GBNP-1.0.1.tar.gz</Code>.
+<Code>tar -xvzf GBNP-1.0.3.tar.gz</Code>.
 <P/>
 GBNP is then loaded with the GAP command
 <Listing>
@@ -93,9 +93,9 @@ gap> LoadPackage( "GBNP" );
 </Listing>
 <P/>
 Those who want to download this documentation can find it at
-<URL>http://mathdox.org/products/gbnp/GBNPdoc-1.0.1.tar.gz</URL>
+<URL>http://mathdox.org/products/gbnp/GBNPdoc-1.0.3.tar.gz</URL>
 and extract it with 
-<Code>tar -xvzf GBNPdoc-1.0.1.tar.gz</Code>.
+<Code>tar -xvzf GBNPdoc-1.0.3.tar.gz</Code>.
 It is also included in the package.
 </Section>
 

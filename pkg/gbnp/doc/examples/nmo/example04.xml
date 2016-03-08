@@ -1,0 +1,40 @@
+Many examples provided with {\GBNP} have been tested with the native
+length left-lex ordering patched with the same ordering but a {\NMO}
+version.  All such examples tested thus far work as intended, as
+the following example shows.  It was taken from the book page 339 of
+``Some Tapas of Computer Algebra'' by A.M. Cohen, H. Cuypers, H. Sterk,
+\cite{CCS99}; it also appears as example 6 in the {\GBNP} example set.
+
+
+gap> LoadPackage("gbnp");
+─────────────────────────────────────────────────────────────────────────────
+Loading  GBNP 1.0.2 (Non-commutative Gröbner bases)
+by A.M. Cohen (http://www.win.tue.nl/~amc) and
+   J.W. Knopper (J.W.Knopper@tue.nl).
+Homepage: http://mathdox.org/products/gbnp/
+─────────────────────────────────────────────────────────────────────────────
+true
+
+gap> A := FreeAssociativeAlgebraWithOne(Rationals,"a","b","c","d","e","f");;
+gap> a := A.a;; b := A.b;; c := A.c;; d := A.d;; e := A.e;; f := A.f;;
+
+gap> polys := [ e*a, a^3 + f*a, a^9 + c*a^3, a^81 + c*a^9 + d*a^3,
+>            a^27 + d*a^81 + e*a^9 + f*a^3, b + c*a^27 + e*a^81 + f*a^9,
+>            c*b + d*a^27 + f*a^81, a + d*b + e*a^27, c*a + e*b + f*a^27,
+>            d*a + f*b, b^3 - b, a*b - b*a, a*c - c*a, a*d - d*a,
+>            a*e - e*a, a*f - f*a, b*c - c*b, b*d - d*b, b*e - e*b,
+>            b*f - f*b, c*d - d*c, c*e - e*c, c*f - f*c, d*e - e*d,
+>            d*f - f*d, e*f - f*e
+> ];;
+gap> reps := GP2NPList(polys);;
+
+gap> ml := NCMonomialLeftLengthLexOrdering(A);
+NCMonomialLeftLengthLexicographicOrdering([ (1)*a, (1)*b, (1)*c, (1)*d, (1)*e,\
+ (1)*f ])
+gap> PatchGBNP(ml);
+LtNP patched.
+GtNP patched.
+gap> gb := Grobner(reps);;
+gap> NP2GPList(gb,A);
+[ (1)*a, (1)*b, (1)*d*c+(-1)*c*d, (1)*e*c+(-1)*c*e, (1)*e*d+(-1)*d*e, 
+  (1)*f*c+(-1)*c*f, (1)*f*d+(-1)*d*f, (1)*f*e+(-1)*e*f ]

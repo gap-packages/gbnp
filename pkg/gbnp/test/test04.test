@@ -1,4 +1,4 @@
-gap> START_TEST("test04");
+gap> START_TEST("GBNP test04");
 gap> ######################### BEGIN COPYRIGHT MESSAGE #########################
 gap> # GBNP - computing Gröbner bases of noncommutative polynomials
 gap> # Copyright 2001-2010 by Arjeh M. Cohen, Dié A.H. Gijsbers, Jan Willem
@@ -53,7 +53,7 @@ x^2+x-1
 gap> K := AlgebraicExtension(Rationals,p);
 <algebraic extension over the Rationals of degree 2>
 gap> tau:=RootOfDefiningPolynomial(K);
-(a)
+a
 gap> # </L>
 gap> 
 gap> # Create the free algebra with three generators over this field:
@@ -74,7 +74,7 @@ gap> #(b*c)^2-tau*b*c+e
 gap> Irels:=[a^2-e,b^2-e,c^2-e,a*b*a-b*a*b,((b*c)^2-tau*b*c+e)*(b*c-e),a*c-c*a];
 [ (!-1)*<identity ...>+(!1)*a^2, (!-1)*<identity ...>+(!1)*b^2, 
   (!-1)*<identity ...>+(!1)*c^2, (!1)*a*b*a+(!-1)*b*a*b, 
-  (!-1)*<identity ...>+((1+a))*b*c+((-1-1*a))*b*c*b*c+(!1)*b*c*b*c*b*c, 
+  (!-1)*<identity ...>+(a+1)*b*c+(-a-1)*(b*c)^2+(!1)*(b*c)^3, 
   (!1)*a*c+(!-1)*c*a ]
 gap> # </L>
 gap> 
@@ -100,30 +100,30 @@ gap> GBR:=SGrobnerModule(GP2NPList(Mrels),GP2NPList(Irels));;
 #I  End of phase II
 #I  End of phase III
 #I  End of phase IV
-#I  The computation took 32 msecs.
+#I  The computation took 16 msecs.
 #I  number of entered polynomials is 12
 #I  number of polynomials after reduction is 12
 #I  End of phase I
 #I  End of phase II
 #I  End of phase III
 #I  End of phase IV
-#I  The computation took 132 msecs.
+#I  The computation took 24 msecs.
 gap> PrintNPList(GBR.ts);;
  a^2 + !-1 
  b^2 + !-1 
  ca + !-1ac 
  c^2 + !-1 
  bab + !-1aba 
- cbc + !-1bcb + (-1-1*a)c + (1+a)b 
- bcba + !-1acba + !-1abcb + abac + cb + !-1bc + (-2-1*a)ba + (2+a)ab 
- cbac + !-1acba + !-1abcb + abac + cb + !-1bc + !-1ba + (-1-1*a)ac + (2+a)ab 
- bacba + abacb + !-1cba + !-1bcb + !-1abc + (-2-1*a)aba + c + (2+a)a 
+ cbc + !-1bcb + -a-1c + a+1b 
+ bcba + !-1acba + !-1abcb + abac + cb + !-1bc + -a-2ba + a+2ab 
+ cbac + !-1acba + !-1abcb + abac + cb + !-1bc + !-1ba + -a-1ac + a+2ab 
+ bacba + abacb + !-1cba + !-1bcb + !-1abc + -a-2aba + c + a+2a 
 gap> PrintNPList(GBR.p);;
 [ b + !-1 ]
 [ c + !-1 ]
 [ ac + !-1a ]
 [ aba + !-1ab ]
-[ abc + ab + (-1*a)a + (-1*a) ]
+[ abc + ab + -aa + -a ]
 gap> # </L>
 gap> 
 gap> # It is now possible to calculate the basis of the quotient algebra
@@ -176,7 +176,7 @@ gap> cc := MatrixQA(3,B,GBR);;
 gap> Display(cc);
 [ [   !1,   !0,   !0 ],
   [   !0,   !1,   !0 ],
-  [  (a),  (a),  !-1 ] ]
+  [    a,    a,  !-1 ] ]
 gap> # </L>
 gap> 
 gap> # Finally we check the defining relations for the icosahedral group

@@ -61,7 +61,7 @@ print them with <Ref Func="PrintNPList" Style="Text"/>:
 <Listing><![CDATA[
 gap> KI_GP := [ g[1]^2-g[1]^0, g[2]^2-g[1]^0, (g[1]*g[2])^3-g[1]^0];
 [ (Z(2)^0)*<identity ...>+(Z(2)^0)*a^2, (Z(2)^0)*<identity ...>+(Z(2)^0)*b^2, 
-  (Z(2)^0)*<identity ...>+(Z(2)^0)*a*b*a*b*a*b ]
+  (Z(2)^0)*<identity ...>+(Z(2)^0)*(a*b)^3 ]
 gap> KI:=GP2NPList(KI_GP);;
 gap> PrintNPList(KI);
  a^2 + Z(2)^0 
@@ -88,7 +88,7 @@ gap> GB:=SGrobner(KI);;
 #I  End of phase III
 #I  G: Cleaning finished, 0 polynomials reduced
 #I  End of phase IV
-#I  The computation took 8 msecs.
+#I  The computation took 0 msecs.
 gap> PrintNPList(GB);
  a^2 + Z(2)^0 
  b^2 + Z(2)^0 

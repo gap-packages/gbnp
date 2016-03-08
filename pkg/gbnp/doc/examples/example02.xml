@@ -120,7 +120,7 @@ gap> GB := SGrobner(I);;
 #I  End of phase III
 #I  Time needed to clean G :0
 #I  End of phase IV
-#I  The computation took 232 msecs.
+#I  The computation took 176 msecs.
 ]]></Listing>
 
 Now print the first part of the Gröbner basis with <Ref Func="PrintNPList"

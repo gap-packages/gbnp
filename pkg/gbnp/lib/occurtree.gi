@@ -17,7 +17,7 @@
 # http://www.gnu.org/licenses/lgpl.html
 ########################## END COPYRIGHT MESSAGE ##########################
 
-# $Id: occurtree.gi 12772 2010-01-15 13:10:24Z jwk $
+# $Id: occurtree.gi 14294 2011-05-24 12:54:55Z jwk $
 
 # createtree
 # special case GB 1
@@ -500,22 +500,16 @@ local	i,o,
 	ansind,
 	ans;
 
-	allans:=[];ansind:=[];
+	ans:=[];
 	for i in [1..Length(mon)] do
 		for o in GBNP.LookUpOccurTreeForObsPTSLRPos(mon,GOT,left,i)
 		do
-			if not (i=1 and o=j) then
-				if not IsBound(allans[o]) then 
-					allans[o]:=i;
-					AddSet(ansind,o);
-				fi;
+			if not (i=1 and o=j) then # why this condition ?
+		        	Add(ans,[o,i]);
 			fi;
 		od;
 	od;
-	ans:=[];
-	for i in ansind do
-		Add(ans,[i,allans[i]]);
-	od;
+
 	return ans;# not sorted
 end;
 

@@ -1,323 +1,323 @@
   
-  [1X2 Description[0X
+  [1X2 [33X[0;0YDescription[133X[101X
   
   
-  [1X2.1 Non-commutative Polynomials (NPs)[0X
+  [1X2.1 [33X[0;0YNon-commutative Polynomials (NPs)[133X[101X
   
-  The  main  datatype  of  the  GBNP  package  is  a  list  of non-commutative
-  polynomials  (NPs). The data type for a [13Xnon-commutative polynomial[0m, referred
-  to as its NP format, is a list of two lists:
+  [33X[0;0YThe  main  datatype  of  the  GBNP  package  is  a  list  of non-commutative
+  polynomials  (NPs). The data type for a [13Xnon-commutative polynomial[113X, referred
+  to as its NP format, is a list of two lists:[133X
   
-  --    The first list is a list [10Xm[0m of monomials.
+  [30X    [33X[0;6YThe first list is a list [10Xm[110X of monomials.[133X
   
-  --    The second list is a list [10Xc[0m of coefficients of these monomials.
+  [30X    [33X[0;6YThe second list is a list [10Xc[110X of coefficients of these monomials.[133X
   
-  The  two  lists  have  the  same  length.  The polynomial represented by the
-  ordered pair [10X[m,c][0m is sum_i c_i m_i.
+  [33X[0;0YThe  two  lists  have  the  same  length.  The polynomial represented by the
+  ordered pair [10X[m,c][110X is [22X∑_i c_i m_i[122X.[133X
   
-  A  monomial  is  a  list  of  positive integers. They are interpreted as the
-  indices of the variables. So, if [10Xk = [1,2,3,2,1][0m and the variables are x,y,z
-  (in  this order), then [10Xk[0m represents the monomial xyzyx. By the way, the name
+  [33X[0;0YA  monomial  is  a  list  of  positive integers. They are interpreted as the
+  indices of the variables. So, if [10Xk = [1,2,3,2,1][110X and the variables are [22Xx[122X,[22Xy[122X,[22Xz[122X
+  (in  this order), then [10Xk[110X represents the monomial [22Xxyzyx[122X. By the way, the name
   of  the  variables has no meaning. There are various ways to print these but
-  the default is a,b,c,... (see below).
+  the default is [22Xa[122X,[22Xb[122X,[22Xc[122X,[22X...[122X (see below).[133X
   
-  The  zero  polynomial  is  represented  by  [10X[[],[]][0m.  The  polynomial  1  is
-  represented by [10X[[[]],[1]][0m.
+  [33X[0;0YThe  zero  polynomial  is  represented  by  [10X[[],[]][110X.  The  polynomial  1  is
+  represented by [10X[[[]],[1]][110X.[133X
   
-  The algorithms work for the algebra F<< x_1,x_2,...,x_t>> of non-commutative
-  polynomials  in [3Xt[0m variables over the field F. Accordingly, the list [10Xc[0m should
-  contain  elements  of F. It is not always easy to recover F from the list [10Xc[0m.
-  The GAP functions [10XOne[0m and [10XZero[0m can be of some help.
+  [33X[0;0YThe algorithms work for the algebra [22XF⟨⟨ x_1,x_2,...,x_t⟩⟩[122X of non-commutative
+  polynomials  in [3Xt[103X variables over the field [22XF[122X. Accordingly, the list [10Xc[110X should
+  contain  elements  of [22XF[122X. It is not always easy to recover [22XF[122X from the list [10Xc[110X.
+  The GAP functions [10XOne[110X and [10XZero[110X can be of some help.[133X
   
-  In  order  to  facilitate  viewing  the polynomials, we provide the function
-  [2XPrintNP[0m ([14X3.2-1[0m). For instance
+  [33X[0;0YIn  order  to  facilitate  viewing  the polynomials, we provide the function
+  [2XPrintNP[102X ([14X3.2-1[114X). For instance[133X
   
-  [4X------------------------------------------------------------------[0X
-    [4XPrintNP([[[1,2],[2,1]],[3,-1]]);[0X
-  [4X------------------------------------------------------------------[0X
+  [4X[32X[104X
+    [4XPrintNP([[[1,2],[2,1]],[3,-1]]);[104X
+  [4X[32X[104X
   
-  yields
+  [33X[0;0Yyields[133X
   
-  [4X------------------------------------------------------------------[0X
-    [4X3ab - ba[0X
-  [4X------------------------------------------------------------------[0X
+  [4X[32X[104X
+    [4X3ab - ba[104X
+  [4X[32X[104X
   
-  Indeed,  we have the names: [10Xa[0m, [10Xb[0m, [10Xc[0m, ... for x_1, x_2, x_3, ..., except that
-  everything  beyond  l  (the  12-th  letter)  is called x. This can be easily
-  changed  by  calling  the  function  [10XGBNP.ConfigPrint[0m, which can be found in
-  Section [14X3.2[0m.
+  [33X[0;0YIndeed,  we have the names: [10Xa[110X, [10Xb[110X, [10Xc[110X, [22X...[122X for [22Xx_1[122X, [22Xx_2[122X, [22Xx_3[122X, [22X...[122X, except that
+  everything  beyond  [22Xl[122X  (the  12-th  letter)  is called [22Xx[122X. This can be easily
+  changed  by  calling  the  function  [10XGBNP.ConfigPrint[110X, which can be found in
+  Section [14X3.2[114X.[133X
   
-  The  function  [2XPrintNPList[0m  ([14X3.2-3[0m)  is available for printing a list of NPs
-  (=non-commutative polynomials).
+  [33X[0;0YThe  function  [2XPrintNPList[102X  ([14X3.2-3[114X)  is available for printing a list of NPs
+  (=non-commutative polynomials).[133X
   
-  In  order  to  facilitate  testing whether two data structures represent the
-  same NP, we use the convention that polynomials are "clean". This means that
-  they  look  as  if they are output of the function [2XCleanNP[0m ([14X3.3-7[0m). In other
-  words:
+  [33X[0;0YIn  order  to  facilitate  testing whether two data structures represent the
+  same  NP,  we use the convention that polynomials are [21Xclean[121X. This means that
+  they  look  as  if they are output of the function [2XCleanNP[102X ([14X3.3-7[114X). In other
+  words:[133X
   
-  --    each monomial occurs at most once in the list of monomials,
+  [30X    [33X[0;6Yeach monomial occurs at most once in the list of monomials,[133X
   
-  --    no monomials occur whose coefficients are zero,
+  [30X    [33X[0;6Yno monomials occur whose coefficients are zero,[133X
   
-  --    the monomials are ordered (total degree first, then lexicographically)
-        from big to small.
+  [30X    [33X[0;6Ythe monomials are ordered (total degree first, then lexicographically)
+        from big to small.[133X
   
-  An advantage of the ordering is that the leading monomial of an NP [10Xp[0m is just
-  [10Xp[1][1][0m  and that its leading coefficient is [10Xp[2][1][0m. Users who want to work
+  [33X[0;0YAn advantage of the ordering is that the leading monomial of an NP [10Xp[110X is just
+  [10Xp[1][1][110X  and that its leading coefficient is [10Xp[2][1][110X. Users who want to work
   with  other  orderings  can  use  the functions defined in the NMO extension
-  [Con10] to GBNP.
+  [Con10] to GBNP.[133X
   
   
-  [1X2.2 Non-commutative Polynomials for Modules (NPMs)[0X
+  [1X2.2 [33X[0;0YNon-commutative Polynomials for Modules (NPMs)[133X[101X
   
-  In  Section  [14X2.1[0m  the  NP  format  for  elements  of  a  free  algebra  A of
+  [33X[0;0YIn  Section  [14X2.1[114X  the  NP  format  for  elements  of  a  free  algebra  [22XA[122X of
   non-commutative  polynomials  in  a  fixed number of variables is described.
   This format can be adjusted slightly to allow the use of a free right module
-  A^n of finite rank n over A. The internal format of an element of the module
+  [22XA^n[122X of finite rank [22Xn[122X over [22XA[122X. The internal format of an element of the module
   is  similar to that of a non-commutative polynomial. The only change is that
   each  monomial will start with a negative number. The absolute value of this
-  number is the index of the standard basis vector of the free module.
+  number is the index of the standard basis vector of the free module.[133X
   
-  For  example  in  the  free  F<<  x_1,  x_2,..., x_t>>-module of rank 3, the
-  expression         [10X[[[-1]],[1]][0m         represents        [1,0,0]        and
-  [10X[[[-1,1,2],[-1,2,1],[-3,2,2,2]],[6,-7,9]][0m                         represents
-  [6x_1x_2-7x_2x_1,0,9x_2^3].  The  zero vector is the represented in the same
-  way  as its NP format counterpart in [14X2.1[0m and the only one without a negative
-  entry: [10X[[],[]][0m. We refer to this format as the NPM format.
+  [33X[0;0YFor  example  in  the  free  [22XF⟨⟨  x_1,  x_2,..., x_t⟩⟩[122X-module of rank 3, the
+  expression         [10X[[[-1]],[1]][110X         represents        [22X[1,0,0][122X        and
+  [10X[[[-1,1,2],[-1,2,1],[-3,2,2,2]],[6,-7,9]][110X                         represents
+  [22X[6x_1x_2-7x_2x_1,0,9x_2^3][122X.  The  zero vector is the represented in the same
+  way  as its NP format counterpart in [14X2.1[114X and the only one without a negative
+  entry: [10X[[],[]][110X. We refer to this format as the NPM format.[133X
   
-  Elements  of  modules  are printed as vectors. See Section [14X3.9[0m on how to use
-  modules. Examples [14XA.19[0m, [14XA.21[0m, and [14XA.20[0m are also recommended.
+  [33X[0;0YElements  of  modules  are printed as vectors. See Section [14X3.9[114X on how to use
+  modules. Examples [14XA.19[114X, [14XA.21[114X, and [14XA.20[114X are also recommended.[133X
   
   
-  [1X2.3 Core functions[0X
+  [1X2.3 [33X[0;0YCore functions[133X[101X
   
-  The core function is [2XSGrobner[0m ([14X3.4-2[0m) (which is short for Strong Gröbner, as
-  we  use  the  Strong  Normal  Form, discussed in Section [2XStrongNormalFormNPM[0m
-  ([14X3.9-5[0m),  most  of the time). It takes a list of NPs in a free algebra A and
-  prepares two lists for treatment in a loop:
+  [33X[0;0YThe core function is [2XSGrobner[102X ([14X3.4-2[114X) (which is short for Strong Gröbner, as
+  we  use  the  Strong  Normal  Form, discussed in Section [2XStrongNormalFormNPM[102X
+  ([14X3.9-5[114X),  most  of the time). It takes a list of NPs in a free algebra [22XA[122X and
+  prepares two lists for treatment in a loop:[133X
   
-  --    First  the  list  itself,  called  [10XG[0m.  Before  entering the loop, [10XG[0m is
+  [30X    [33X[0;6YFirst  the  list  itself,  called  [10XG[110X.  Before  entering the loop, [10XG[110X is
         cleaned, ordered, and its elements are made monic, that is, multiplied
         by  a scalar so that the leading coefficient becomes one. The ordering
         is  done  by  comparison of leading monomials. The ordering on leading
         monomials  is length lexicographic. For other orderings, the functions
-        of the NMO extension can be used; see [Con10].
+        of the NMO extension can be used; see [Con10].[133X
   
-  --    Second the list of all normal forms with respect to [10XG[0m of S-polynomials
-        of  elements  of  [10XG[0m.  This  list is called [10XD[0m. For a Gröbner basis, the
-        S-polynomials of polynomials in [10XD[0m (possibly with an element of [10XG[0m) need
-        to be computed. If [10XD[0m is empty then [10XG[0m is a Gröbner basis.
+  [30X    [33X[0;6YSecond the list of all normal forms with respect to [10XG[110X of S-polynomials
+        of  elements  of  [10XG[110X.  This  list is called [10XD[110X. For a Gröbner basis, the
+        S-polynomials of polynomials in [10XD[110X (possibly with an element of [10XG[110X) need
+        to be computed. If [10XD[110X is empty then [10XG[110X is a Gröbner basis.[133X
   
-  Then, the function calls the routine [10XGBNP.SGrobnerLoop[0m on the arguments [10XG[0m, [10XD[0m
-  which  are  changed  in  an  attempt  to modify [10XG[0m while still preserving the
-  following two properties.
+  [33X[0;0YThen, the function calls the routine [10XGBNP.SGrobnerLoop[110X on the arguments [10XG[110X, [10XD[110X
+  which  are  changed  in  an  attempt  to modify [10XG[110X while still preserving the
+  following two properties.[133X
   
-  (1)   [10XG[0m generates the same two-sided ideal I in A as before.
+  [31X1[131X   [33X[0;6Y[10XG[110X generates the same two-sided ideal [22XI[122X in [22XA[122X as before.[133X
   
-  (2)   [10XD[0m  contains  all  normal  forms  with respect to [10XG[0m of S-polynomials of
-        elements  from  [10XG[0m  that  need  to reduce to zero for the basis to be a
-        Gröbner basis.
+  [31X2[131X   [33X[0;6Y[10XD[110X  contains  all  normal  forms  with respect to [10XG[110X of S-polynomials of
+        elements  from  [10XG[110X  that  need  to reduce to zero for the basis to be a
+        Gröbner basis.[133X
   
-  The  importance  of  this feature is that, in case of huge computations, the
-  user  may  store  [10XG[0m  and  [10XD[0m at almost any time and resume the computation by
-  reloading  [10XG[0m  and [10XD[0m and calling the loop function [10XGBNP.SGrobnerLoop[0m whenever
+  [33X[0;0YThe  importance  of  this feature is that, in case of huge computations, the
+  user  may  store  [10XG[110X  and  [10XD[110X at almost any time and resume the computation by
+  reloading  [10XG[110X  and [10XD[110X and calling the loop function [10XGBNP.SGrobnerLoop[110X whenever
   convenient.  The only technical detail to handle is that the last element of
-  the list [10XG[0m should be copied into the [10XD[0m list. The loop itself performs a step
-  towards making [10XG[0m more like a Gröbner basis of I. As in the commutative case,
+  the list [10XG[110X should be copied into the [10XD[110X list. The loop itself performs a step
+  towards making [10XG[110X more like a Gröbner basis of [22XI[122X. As in the commutative case,
   the  progress  can  be indicated by use of an ordering on the set of leading
-  monomials of the elements of [10XG[0m.
+  monomials of the elements of [10XG[110X.[133X
   
-  In  contrast  to  the  commutative  case, however, this ordering is not well
+  [33X[0;0YIn  contrast  to  the  commutative  case, however, this ordering is not well
   founded,  and  there  is  no a priori guarantee that the loop will be exited
-  after a finite number of iterations. The loop ends when the list [10XD[0m is empty,
+  after a finite number of iterations. The loop ends when the list [10XD[110X is empty,
   in which case the work is essentially done: after some internal cleaning and
-  a bit of further rewriting, the computation is over.
+  a bit of further rewriting, the computation is over.[133X
   
-  There  is  also  a  [2XGrobner[0m  ([14X3.4-1[0m)  function. It uses (at some places) the
+  [33X[0;0YThere  is  also  a  [2XGrobner[102X  ([14X3.4-1[114X)  function. It uses (at some places) the
   Normal  Form  instead  of  the  Strong Normal Form algorithm. In most of our
   applications,  this  usually  led  to slower performance, so we are not very
-  keen to use it.
+  keen to use it.[133X
   
-  In  many  of  our  own  applications,  the  full  polynomial ring modulo the
-  two-sided  ideal  I generated by [10XG[0m is a finite-dimensional quotient algebra.
+  [33X[0;0YIn  many  of  our  own  applications,  the  full  polynomial ring modulo the
+  two-sided  ideal  [22XI[122X generated by [10XG[110X is a finite-dimensional quotient algebra.
   In  such  cases,  one  would like to know the dimension (whence the function
-  [2XDimQA[0m  ([14X3.5-2[0m),  QA for Quotient Algebra), find a basis (whence the function
-  [2XBaseQA[0m  ([14X3.5-1[0m)),  or just the monomials up to a certain degree that are not
-  divisible  by  a  leading  term  of [10XG[0m (whence the function [10XGBNP.NondivMons[0m).
-  Actually  by  use  of  [2XMulQA[0m  ([14X3.5-5[0m), you can even multiply elements of the
+  [2XDimQA[102X  ([14X3.5-2[114X),  QA for Quotient Algebra), find a basis (whence the function
+  [2XBaseQA[102X  ([14X3.5-1[114X)),  or just the monomials up to a certain degree that are not
+  divisible  by  a  leading  term  of [10XG[110X (whence the function [10XGBNP.NondivMons[110X).
+  Actually  by  use  of  [2XMulQA[102X  ([14X3.5-5[114X), you can even multiply elements of the
   quotient  algebra.  In  case  it  is unknown whether the quotient algebra is
-  finite  or  infinite,  one  can  use  the  functions  [2XFinCheckQA[0m ([14X3.6-2[0m) and
-  [2XDetermineGrowthQA[0m ([14X3.6-1[0m). When the quotient algebra is infinite dimensional
+  finite  or  infinite,  one  can  use  the  functions  [2XFinCheckQA[102X ([14X3.6-2[114X) and
+  [2XDetermineGrowthQA[102X ([14X3.6-1[114X). When the quotient algebra is infinite dimensional
   you  may want to determine its partial Hilbert Series. This can be done with
-  the function [2XHilbertSeriesQA[0m ([14X3.6-3[0m).
+  the function [2XHilbertSeriesQA[102X ([14X3.6-3[114X).[133X
   
   
-  [1X2.4 About the implementation[0X
+  [1X2.4 [33X[0;0YAbout the implementation[133X[101X
   
-  Rather  than  storing all obstructions, the Gröbner basis algorithm computes
-  the  (Strong)  Normal  Form  of  obstructions  from  [10XG[0m  and puts them into [10XD[0m
+  [33X[0;0YRather  than  storing all obstructions, the Gröbner basis algorithm computes
+  the  (Strong)  Normal  Form  of  obstructions  from  [10XG[110X  and puts them into [10XD[110X
   whenever nonzero. At the beginning of the loop, we take the first element of
-  the  [10XD[0m list and prepare it for addition to [10XG[0m. We are then concerned with two
-  goals:
+  the  [10XD[110X list and prepare it for addition to [10XG[110X. We are then concerned with two
+  goals:[133X
   
-  (1)   to restore the invariant properties,
+  [31X1[131X   [33X[0;6Yto restore the invariant properties,[133X
   
-  (2)   to clean up G (that is, reduce it to a more succinct, shorter set).
+  [31X2[131X   [33X[0;6Yto clean up G (that is, reduce it to a more succinct, shorter set).[133X
   
-  This  is  mainly  done  by  means of additional S-polynomial and Normal Form
-  computations.
+  [33X[0;0YThis  is  mainly  done  by  means of additional S-polynomial and Normal Form
+  computations.[133X
   
-  As  for data management, we have chosen to work with lists in situ, that is,
+  [33X[0;0YAs  for data management, we have chosen to work with lists in situ, that is,
   not  to  copy the list but rather perform all operations on one and the same
-  list.  To  this  end  we  use  operations  like  [10XRemoveElmList[0m  and [10XAdd[0m, see
-  [14XReference:   Add[0m.  The  idea  here  is  to  economize  on  space  for  large
+  list.  To  this  end  we  use  operations  like  [10XRemoveElmList[110X  and [10XAdd[110X, see
+  [14XReference:   Add[114X.  The  idea  here  is  to  economize  on  space  for  large
   computations.  We  do  not  use  in  situ  operations  everywhere,  but have
-  concentrated on the potentially biggest lists: [10XG[0m and [10XD[0m.
+  concentrated on the potentially biggest lists: [10XG[110X and [10XD[110X.[133X
   
-  For  checking  whether a monomial can be reduced, an internal tree structure
-  is used.
+  [33X[0;0YFor  checking  whether a monomial can be reduced, an internal tree structure
+  is used.[133X
   
   
-  [1X2.5 Tracing variant[0X
+  [1X2.5 [33X[0;0YTracing variant[133X[101X
   
-  When  computing with small examples, it may be handy to provide the elements
-  of  the  Gröbner  basis with a way of expressing them as elements in [10XI[0m, that
+  [33X[0;0YWhen  computing with small examples, it may be handy to provide the elements
+  of  the  Gröbner  basis with a way of expressing them as elements in [10XI[110X, that
   is, as combinations of elements of the input. This can be done, not only for
-  elements  of  [10XG[0m,  but for any element, by the functions in the file [11Xtrace.g[0m.
-  This  file  calls  the  file  [11Xnparith.g[0m  for arithmetic keeping track of the
+  elements  of  [10XG[110X,  but for any element, by the functions in the file [11Xtrace.g[111X.
+  This  file  calls  the  file  [11Xnparith.g[111X  for arithmetic keeping track of the
   expressions  of  polynomials  as  combinations of elements from the original
-  basis.  With  respect to a given input basis [10XB[0m, a polynomial [10Xp[0m in the traced
+  basis.  With  respect to a given input basis [10XB[110X, a polynomial [10Xp[110X in the traced
   version  is  a  record,  called  the traced polynomial, with two fields. One
-  field,  denoted  [10Xp.pol[0m,  is  the  usual  polynomial in NP format. The other,
-  denoted [10Xp.trace[0m, is a list of elements indexed by [10XB[0m. Each element of [10Xp.trace[0m
-  is  a  list  whose  elements are four-tuples [10X[ml,i,mr,c][0m where [10Xml[0m and [10Xmr[0m are
-  monomials,  [10Xi[0m  is  an  index  of  an  element  of  [10XB[0m  and [10Xc[0m is a scalar. The
-  interpretation  of  this  data structure is that [10Xp.pol[0m can be written as the
-  sum  over all four-tuples [10X[ml,i,mr,c][0m of c*ml*B_i*mr. Functions for printing
+  field,  denoted  [10Xp.pol[110X,  is  the  usual  polynomial in NP format. The other,
+  denoted [10Xp.trace[110X, is a list of elements indexed by [10XB[110X. Each element of [10Xp.trace[110X
+  is  a  list  whose  elements are four-tuples [10X[ml,i,mr,c][110X where [10Xml[110X and [10Xmr[110X are
+  monomials,  [10Xi[110X  is  an  index  of  an  element  of  [10XB[110X  and [10Xc[110X is a scalar. The
+  interpretation  of  this  data structure is that [10Xp.pol[110X can be written as the
+  sum  over all four-tuples [10X[ml,i,mr,c][110X of [22Xc*ml*B_i*mr[122X. Functions for printing
   these  expressions  in  a  human understandable way are described in Section
-  [14X3.7[0m.
+  [14X3.7[114X.[133X
   
   
-  [1X2.6 Truncation variant[0X
+  [1X2.6 [33X[0;0YTruncation variant[133X[101X
   
-  For  computations  with large and/or infinite examples, it may be convenient
+  [33X[0;0YFor  computations  with large and/or infinite examples, it may be convenient
   to  truncate  everything  above  a  certain  degree. In fact, we encountered
   various  examples  where the polynomials are (weighted) homogeneous and then
   it  makes  perfect  sense to truncate the polynomials, that is, to disregard
   everything above a certain degree. For then the Grobner basis, if it exists,
   will  be  also  be  homogeneous  and  the  part  consisting  of  all  of its
-  polynomials  of  degree  less  than a given degree d is equal to the Grobner
+  polynomials  of  degree  less  than a given degree [22Xd[122X is equal to the Grobner
   basis  of the join of the original list of polynomials with all monomials of
-  degree  d+1.  Here  an NP polynomial in n variables is called homogeneous of
-  degree d with respect to v, a vector with non-negative integers of length n,
-  if, for each of its monomials [t_1,...,t_k], the sum over all v_t_i is equal
-  to  d.  The  most classical choice for v is the all-one vector in which case
+  degree  [22Xd+1[122X.  Here  an NP polynomial in [22Xn[122X variables is called homogeneous of
+  degree [22Xd[122X with respect to [22Xv[122X, a vector with non-negative integers of length [22Xn[122X,
+  if, for each of its monomials [22X[t_1,...,t_k][122X, the sum over all [22Xv_t_i[122X is equal
+  to  [22Xd[122X.  The  most classical choice for [22Xv[122X is the all-one vector in which case
   one  often  speaks  of homogeneous without mentioning the all-one vector. If
-  two  polynomials  are  homogeneous  with  respect  to  v,  then so are their
-  S-polynomials.  If K is a list of homogeneous polynomials with respect to v,
-  then  the  normal  form  with  respect to K of any homogeneous polynomial of
-  degree  d with respect to v is again homogeneous of degree d with respect to
-  v.  In  particular,  the  Gröbner  basis  of  a list of polynomials that are
-  homogeneous  with  respect  to  v,  consists of homogeneous polynomials, and
+  two  polynomials  are  homogeneous  with  respect  to  [22Xv[122X,  then so are their
+  S-polynomials.  If [22XK[122X is a list of homogeneous polynomials with respect to [22Xv[122X,
+  then  the  normal  form  with  respect to [22XK[122X of any homogeneous polynomial of
+  degree  [22Xd[122X with respect to [22Xv[122X is again homogeneous of degree [22Xd[122X with respect to
+  [22Xv[122X.  In  particular,  the  Gröbner  basis  of  a list of polynomials that are
+  homogeneous  with  respect  to  [22Xv[122X,  consists of homogeneous polynomials, and
   those  input polynomials contributing to polynomials in the Gröbner basis of
-  degree  at  most  d have degree at most d themselves. These facts enable the
+  degree  at  most  [22Xd[122X have degree at most [22Xd[122X themselves. These facts enable the
   computation  of  the  truncated Gröbner basis. The functions of this variant
-  can be found in Section [14X3.8[0m.
+  can be found in Section [14X3.8[114X.[133X
   
   
-  [1X2.7 Module variant[0X
+  [1X2.7 [33X[0;0YModule variant[133X[101X
   
-  Suppose we are given a finite set G of polynomials in a free non-commutative
-  algebra  A  generated  by,  say  t indeterminates, and a positive integer s.
-  Denote  by  I  the two-sided ideal of A generated by G. We can work with the
-  free  right  A/I module (A/I)^s. See Section [14X2.2[0m on how to represent vectors
-  of  (A/I)^s  by  elements  of  the free module A^s. Given a subset W of A^s,
-  whose  elements  are  called  prefix  relations,  let  W'  be  the submodule
-  generated  by the image of W in (A/I)^s. The function [2XSGrobnerModule[0m ([14X3.9-1[0m)
-  is  meant  to  determine  the  quotient  module (A/I)^s/W'. If the algorithm
-  terminates,  it  delivers a Gröbner basis for I as well as a suitable set of
-  generators   for  W',  with  Gröbner  like  properties.  This  implies  that
-  [2XStrongNormalFormNPM[0m  ([14X3.9-5[0m),  a strong normal form computation, can be used
-  to  find  the  canonical  representative in A^s of an element in (A/I)^s/W'.
-  Theoretic   details   can   be   found   in  [Coh07].  If  (A/I)^s/W'  is  a
-  finite-dimensional  vector  space  over  the  coefficient field of A, then a
-  basis  can  be  found  by  use  of  [2XBaseQM[0m  ([14X3.9-2[0m) and its dimension can be
-  computed by use of [2XDimQM[0m ([14X3.9-3[0m).
+  [33X[0;0YSuppose we are given a finite set [22XG[122X of polynomials in a free non-commutative
+  algebra  [22XA[122X  generated  by,  say  [22Xt[122X indeterminates, and a positive integer [22Xs[122X.
+  Denote  by  [22XI[122X  the two-sided ideal of [22XA[122X generated by [22XG[122X. We can work with the
+  free  right  [22XA/I[122X module [22X(A/I)^s[122X. See Section [14X2.2[114X on how to represent vectors
+  of  [22X(A/I)^s[122X  by  elements  of  the free module [22XA^s[122X. Given a subset [22XW[122X of [22XA^s[122X,
+  whose  elements  are  called  prefix  relations,  let  [22XW'[122X  be  the submodule
+  generated  by the image of [22XW[122X in [22X(A/I)^s[122X. The function [2XSGrobnerModule[102X ([14X3.9-1[114X)
+  is  meant  to  determine  the  quotient  module [22X(A/I)^s/W'[122X. If the algorithm
+  terminates,  it  delivers a Gröbner basis for [22XI[122X as well as a suitable set of
+  generators   for  [22XW'[122X,  with  Gröbner  like  properties.  This  implies  that
+  [2XStrongNormalFormNPM[102X  ([14X3.9-5[114X),  a strong normal form computation, can be used
+  to  find  the  canonical  representative in [22XA^s[122X of an element in [22X(A/I)^s/W'[122X.
+  Theoretic   details   can   be   found   in  [Coh07].  If  [22X(A/I)^s/W'[122X  is  a
+  finite-dimensional  vector  space  over  the  coefficient field of [22XA[122X, then a
+  basis  can  be  found  by  use  of  [2XBaseQM[102X  ([14X3.9-2[114X) and its dimension can be
+  computed by use of [2XDimQM[102X ([14X3.9-3[114X).[133X
   
   
-  [1X2.8 Gröbner basis records[0X
+  [1X2.8 [33X[0;0YGröbner basis records[133X[101X
   
-  The function [2XSGrobnerModule[0m ([14X3.9-1[0m) calculates a Gröbner basis consisting of
+  [33X[0;0YThe function [2XSGrobnerModule[102X ([14X3.9-1[114X) calculates a Gröbner basis consisting of
   some  two-sided relations in the algebra and some prefix or module relations
-  in  the  vector  space.  These  are  returned in a record [10XGBR[0m. The two-sided
-  relations  can be found under the name [10XGBR.ts[0m and the prefix relations under
-  the name [10XGBR.p[0m. Some other information is stored in this record as well.
+  in  the  vector  space.  These  are  returned in a record [10XGBR[110X. The two-sided
+  relations  can be found under the name [10XGBR.ts[110X and the prefix relations under
+  the name [10XGBR.p[110X. Some other information is stored in this record as well.[133X
   
-  The  prefix  conditions  are  in  NPM  format  (see  [14X2.2[0m)  and the two-sided
-  relations are in NP format.
+  [33X[0;0YThe  prefix  conditions  are  in  NPM  format  (see  [14X2.2[114X)  and the two-sided
+  relations are in NP format.[133X
   
   
-  [1X2.9 Quotient algebras[0X
+  [1X2.9 [33X[0;0YQuotient algebras[133X[101X
   
-  Once  a  Gröbner  basis  of  a  list G of polynomials in NP format, defining
-  elements  of  a free algebra A, is computed, the quotient algebra QA of A by
-  the  two-sided  ideal  generated  by  G  (or, which amounts to the same, the
+  [33X[0;0YOnce  a  Gröbner  basis  of  a  list [22XG[122X of polynomials in NP format, defining
+  elements  of  a free algebra [22XA[122X, is computed, the quotient algebra [22XQA[122X of [22XA[122X by
+  the  two-sided  ideal  generated  by  [22XG[122X  (or, which amounts to the same, the
   Gröbner  basis)  can  be  analyzed.  A  number of functions are available to
-  determine whether QA is finite dimensional or not.
+  determine whether [22XQA[122X is finite dimensional or not.[133X
   
-  Elements  of  QA are represented by elements of A. Two elements are equal if
-  and  only  if  their  strong  normal  forms coincide; see [2XStrongNormalFormNP[0m
-  ([14X3.5-6[0m).  The  multiplication  is  take  care  of by [2XMulQA[0m ([14X3.5-5[0m), which is
+  [33X[0;0YElements  of  [22XQA[122X are represented by elements of [22XA[122X. Two elements are equal if
+  and  only  if  their  strong  normal  forms coincide; see [2XStrongNormalFormNP[102X
+  ([14X3.5-6[114X).  The  multiplication  is  take  care  of by [2XMulQA[102X ([14X3.5-5[114X), which is
   little more than the strong normal form of the product of two polynomials in
-  NP format representing elements of QA.
+  NP format representing elements of [22XQA[122X.[133X
   
-  If  QA  is  finite dimensional, a basis of it over the field can be found by
-  [2XBaseQA[0m  ([14X3.5-1[0m).  The size of the base, in other words, the dimension of QA,
-  can be computed with [2XDimQA[0m ([14X3.5-2[0m). Right multiplication by an element of QA
+  [33X[0;0YIf  [22XQA[122X  is  finite dimensional, a basis of it over the field can be found by
+  [2XBaseQA[102X  ([14X3.5-1[114X).  The size of the base, in other words, the dimension of [22XQA[122X,
+  can be computed with [2XDimQA[102X ([14X3.5-2[114X). Right multiplication by an element of [22XQA[122X
   is  a  linear  transformation. The matrix of this linear transformation with
   respect  to  the  base,  in  case  the  element  belongs to the base, can be
-  computed by [2XMatrixQA[0m ([14X3.5-3[0m) or, for all basis elements, [2XMatricesQA[0m ([14X3.5-4[0m).
+  computed by [2XMatrixQA[102X ([14X3.5-3[114X) or, for all basis elements, [2XMatricesQA[102X ([14X3.5-4[114X).[133X
   
-  A  list  of  leading  terms  of  the Gröbner basis G can be constructed with
-  [2XLMonsNP[0m  ([14X3.3-10[0m).  The  dimension  of  QA  only depends on this list and is
-  computationally  easier  to  work  with  than  G. Most functions designed to
+  [33X[0;0YA  list  of  leading  terms  of  the Gröbner basis [22XG[122X can be constructed with
+  [2XLMonsNP[102X  ([14X3.3-10[114X).  The  dimension  of  [22XQA[122X  only depends on this list and is
+  computationally  easier  to  work  with  than  [22XG[122X. Most functions designed to
   analyze  dimensionality  work  with  a  monomial ideal generated by a strong
   Gröbner  basis,  which  in this case means that no element divides any other
-  element.
+  element.[133X
   
-  The  function [2XFinCheckQA[0m ([14X3.6-2[0m) determines whether QA is finite or infinite
-  dimensional.  More generally, the growth of QA can be determined by means of
-  the function [2XDetermineGrowthQA[0m ([14X3.6-1[0m), which either returns the information
-  that  QA  is  finite dimensional, or that QA has polynomial growth, in which
-  case  it  gives  bounds  for the degree of polynomial growth, or that QA has
-  exponential  growth.  Finally, with the function [2XHilbertSeriesQA[0m ([14X3.6-3[0m) one
-  can compute coefficients of the Hilbert series.
+  [33X[0;0YThe  function [2XFinCheckQA[102X ([14X3.6-2[114X) determines whether [22XQA[122X is finite or infinite
+  dimensional.  More generally, the growth of [22XQA[122X can be determined by means of
+  the function [2XDetermineGrowthQA[102X ([14X3.6-1[114X), which either returns the information
+  that  [22XQA[122X  is  finite dimensional, or that [22XQA[122X has polynomial growth, in which
+  case  it  gives  bounds  for the degree of polynomial growth, or that [22XQA[122X has
+  exponential  growth.  Finally, with the function [2XHilbertSeriesQA[102X ([14X3.6-3[114X) one
+  can compute coefficients of the Hilbert series.[133X
   
-  The  purpose  of  the  functions  [2XFinCheckQA[0m  ([14X3.6-2[0m)  and [2XDetermineGrowthQA[0m
-  ([14X3.6-1[0m) are closely related. The former is faster, while the latter provides
-  more information, as illustrated from the following table.
+  [33X[0;0YThe  purpose  of  the  functions  [2XFinCheckQA[102X  ([14X3.6-2[114X)  and [2XDetermineGrowthQA[102X
+  ([14X3.6-1[114X) are closely related. The former is faster, while the latter provides
+  more information, as illustrated from the following table.[133X
   
-     ------------------------------------------------------------
-      |                    | [10XFinCheckQA[0m | [10XDetermineGrowthQA[0m    | 
-     ------------------------------------------------------------
-      | finite             | [10Xtrue[0m       | [10X0[0m                    | 
-      | polynomial growth  | [10Xfalse[0m      | [10Xd[0m or [10X[d1,d2][0m         | 
-      | exponential growth | [10Xfalse[0m      | [10X"exponential growth"[0m | 
-     ------------------------------------------------------------
+      ┌────────────────────┬────────────┬──────────────────────┐
+      │                    │ [10XFinCheckQA[110X │ [10XDetermineGrowthQA[110X    │ 
+      ├────────────────────┼────────────┼──────────────────────┤
+      │ finite             │ [10Xtrue[110X       │ [10X0[110X                    │ 
+      │ polynomial growth  │ [10Xfalse[110X      │ [10Xd[110X or [10X[d1,d2][110X         │ 
+      │ exponential growth │ [10Xfalse[110X      │ [10X"exponential growth"[110X │ 
+      └────────────────────┴────────────┴──────────────────────┘
   
-       [1XTable:[0X  dimensionality functions; [10Xd[0m stands for degree, [10X[d1,d2][0m for
+       [1XTable:[101X  dimensionality functions; [10Xd[110X stands for degree, [10X[d1,d2][110X for
        an interval containing the degree
   
   
-  The  function  [2XDetermineGrowthQA[0m  ([14X3.6-1[0m)  may  find  the  exact  degree  of
+  [33X[0;0YThe  function  [2XDetermineGrowthQA[102X  ([14X3.6-1[114X)  may  find  the  exact  degree  of
   polynomial  growth  (if  at  hand).  If  this  is  the  case, that degree is
-  returned.  It  may  also happen that only an interval [10X[d1,d2][0m is returned in
+  returned.  It  may  also happen that only an interval [10X[d1,d2][110X is returned in
   which  the  dimension  lies.  To  force  an exact answer, its third argument
-  should be [10Xtrue[0m.
+  should be [10Xtrue[110X.[133X
   
-  With  the  function  [2XPreprocessAnalysisQA[0m  ([14X3.6-4[0m), the computations done by
+  [33X[0;0YWith  the  function  [2XPreprocessAnalysisQA[102X  ([14X3.6-4[114X), the computations done by
   these   3   functions  can  be  sped  up.  Note  however  that  by  applying
   preprocessing  of  the  data,  the  set  of  monomials in the ideal basis is
   changed  and  corresponds  no  longer to the same quotient algebra (but to a
-  quotient algebra with the same growth).
+  quotient algebra with the same growth).[133X
   

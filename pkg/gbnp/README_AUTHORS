@@ -99,6 +99,8 @@ For a release:
 - (optional) update the copyright text (see item above)
 
 - check the version in GNUmakefile
+- check the date (two formats!) in GNUmakefile
+- check doc/timing.xml
 - gmake clean
 - gmake workspace
 - copy the line to set $GAP (if it is not already set)
@@ -107,3 +109,4 @@ For a release:
 - copy www to the webdirectory and enter the url of the PackageInfo.g at
   http://www.gap-system.org/Packages/Authors/authors.html
   to verify it.
+

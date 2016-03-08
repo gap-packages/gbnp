@@ -4,7 +4,7 @@
 
   \indexspace
 
-  \item \texttt  {InstallNoncommutativeMonomialOrdering}, 
+  \item \texttt  {Install}\discretionary {-}{}{}\texttt  {Noncommutative}\discretionary {-}{}{}\texttt  {Monomial}\discretionary {-}{}{}\texttt  {Ordering}, 
 		\hyperpage{10}
   \item \texttt  {IsNoncommutativeMonomialOrdering}, \hyperpage{11}
 

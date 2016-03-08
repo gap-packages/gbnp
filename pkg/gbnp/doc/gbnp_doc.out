@@ -1,0 +1,58 @@
+\BOOKMARK [0][-]{chapter.1}{Introduction}{}% 1
+\BOOKMARK [1][-]{section.1.1}{Installation}{chapter.1}% 2
+\BOOKMARK [1][-]{section.1.2}{Using the package}{chapter.1}% 3
+\BOOKMARK [1][-]{section.1.3}{Further documentation}{chapter.1}% 4
+\BOOKMARK [0][-]{chapter.2}{Description}{}% 5
+\BOOKMARK [1][-]{section.2.1}{Non-commutative Polynomials \(NPs\)}{chapter.2}% 6
+\BOOKMARK [1][-]{section.2.2}{Non-commutative Polynomials for Modules \(NPMs\)}{chapter.2}% 7
+\BOOKMARK [1][-]{section.2.3}{Core functions}{chapter.2}% 8
+\BOOKMARK [1][-]{section.2.4}{About the implementation}{chapter.2}% 9
+\BOOKMARK [1][-]{section.2.5}{Tracing variant}{chapter.2}% 10
+\BOOKMARK [1][-]{section.2.6}{Truncation variant}{chapter.2}% 11
+\BOOKMARK [1][-]{section.2.7}{Module variant}{chapter.2}% 12
+\BOOKMARK [1][-]{section.2.8}{Gr\366bner basis records}{chapter.2}% 13
+\BOOKMARK [1][-]{section.2.9}{Quotient algebras}{chapter.2}% 14
+\BOOKMARK [0][-]{chapter.3}{Functions}{}% 15
+\BOOKMARK [1][-]{section.3.1}{Converting polynomials into different formats}{chapter.3}% 16
+\BOOKMARK [1][-]{section.3.2}{Printing polynomials in NP format}{chapter.3}% 17
+\BOOKMARK [1][-]{section.3.3}{Calculating with polynomials in NP format}{chapter.3}% 18
+\BOOKMARK [1][-]{section.3.4}{Gr\366bner functions, standard variant}{chapter.3}% 19
+\BOOKMARK [1][-]{section.3.5}{Finite-dimensional quotient algebras}{chapter.3}% 20
+\BOOKMARK [1][-]{section.3.6}{Finiteness and Hilbert series}{chapter.3}% 21
+\BOOKMARK [1][-]{section.3.7}{Functions of the trace variant}{chapter.3}% 22
+\BOOKMARK [1][-]{section.3.8}{Functions of the truncated variant}{chapter.3}% 23
+\BOOKMARK [1][-]{section.3.9}{Functions of the module variant}{chapter.3}% 24
+\BOOKMARK [0][-]{chapter.4}{Info Level}{}% 25
+\BOOKMARK [1][-]{section.4.1}{Introduction}{chapter.4}% 26
+\BOOKMARK [1][-]{section.4.2}{InfoGBNP}{chapter.4}% 27
+\BOOKMARK [1][-]{section.4.3}{InfoGBNPTime}{chapter.4}% 28
+\BOOKMARK [0][-]{appendix.A}{Examples}{}% 29
+\BOOKMARK [1][-]{section.A.1}{Introduction}{appendix.A}% 30
+\BOOKMARK [1][-]{section.A.2}{A simple commutative Gr\366bner basis computation}{appendix.A}% 31
+\BOOKMARK [1][-]{section.A.3}{A truncated Gr\366bner basis for Leonard pairs}{appendix.A}% 32
+\BOOKMARK [1][-]{section.A.4}{The truncated variant on two weighted homogeneous polynomials}{appendix.A}% 33
+\BOOKMARK [1][-]{section.A.5}{The order of the Weyl group of type E6}{appendix.A}% 34
+\BOOKMARK [1][-]{section.A.6}{The gcd of some univariate polynomials}{appendix.A}% 35
+\BOOKMARK [1][-]{section.A.7}{From the Tapas book}{appendix.A}% 36
+\BOOKMARK [1][-]{section.A.8}{The Birman-Murakami-Wenzl algebra of type A3}{appendix.A}% 37
+\BOOKMARK [1][-]{section.A.9}{The Birman-Murakami-Wenzl algebra of type A2}{appendix.A}% 38
+\BOOKMARK [1][-]{section.A.10}{A commutative example by Mora}{appendix.A}% 39
+\BOOKMARK [1][-]{section.A.11}{Tracing an example by Mora}{appendix.A}% 40
+\BOOKMARK [1][-]{section.A.12}{ Finiteness of the Weyl group of type E6}{appendix.A}% 41
+\BOOKMARK [1][-]{section.A.13}{Preprocessing for Weyl group computations}{appendix.A}% 42
+\BOOKMARK [1][-]{section.A.14}{A quotient algebra with exponential growth}{appendix.A}% 43
+\BOOKMARK [1][-]{section.A.15}{A commutative quotient algebra of polynomial growth}{appendix.A}% 44
+\BOOKMARK [1][-]{section.A.16}{An algebra over a finite field}{appendix.A}% 45
+\BOOKMARK [1][-]{section.A.17}{The dihedral group of order 8}{appendix.A}% 46
+\BOOKMARK [1][-]{section.A.18}{The dihedral group of order 8 on another module}{appendix.A}% 47
+\BOOKMARK [1][-]{section.A.19}{The dihedral group on a non-cyclic module}{appendix.A}% 48
+\BOOKMARK [1][-]{section.A.20}{The icosahedral group}{appendix.A}% 49
+\BOOKMARK [1][-]{section.A.21}{The symmetric inverse monoid for a set of size four}{appendix.A}% 50
+\BOOKMARK [1][-]{section.A.22}{A module of the Hecke algebra of type A3 over GF\(3\)}{appendix.A}% 51
+\BOOKMARK [1][-]{section.A.23}{Generalized Temperley-Lieb algebras}{appendix.A}% 52
+\BOOKMARK [1][-]{section.A.24}{The universal enveloping algebra of a Lie algebra}{appendix.A}% 53
+\BOOKMARK [1][-]{section.A.25}{Serre's exercise}{appendix.A}% 54
+\BOOKMARK [1][-]{section.A.26}{Baur and Draisma's transformations}{appendix.A}% 55
+\BOOKMARK [1][-]{section.A.27}{The cola gene puzzle}{appendix.A}% 56
+\BOOKMARK [0][-]{appendix*.4}{References}{}% 57
+\BOOKMARK [0][-]{section*.5}{Index}{}% 58

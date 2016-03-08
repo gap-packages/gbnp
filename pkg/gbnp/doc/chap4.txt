@@ -1,110 +1,110 @@
   
-  [1X4 Info Level[0X
+  [1X4 [33X[0;0YInfo Level[133X[101X
   
   
-  [1X4.1 Introduction[0X
+  [1X4.1 [33X[0;0YIntroduction[133X[101X
   
-  Many  functions  of  the  GBNP  package  can produce additional output. Such
+  [33X[0;0YMany  functions  of  the  GBNP  package  can produce additional output. Such
   output  might  be useful for long calculations, to see where the calculation
-  is or to gain more information about the calculation itself.
+  is or to gain more information about the calculation itself.[133X
   
-  [5XGAP[0m  provides  the tools to be able to tune the output of the functions. All
-  of the functions of this package use the [10XInfoClass[0m [2XInfoGBNP[0m ([14X4.2-1[0m) and some
-  use  the [10XInfoClass[0m [2XInfoGBNPTime[0m ([14X4.3-1[0m). As usual with GAP when this is left
+  [33X[0;0Y[5XGAP[105X  provides  the tools to be able to tune the output of the functions. All
+  of the functions of this package use the [10XInfoClass[110X [2XInfoGBNP[102X ([14X4.2-1[114X) and some
+  use  the [10XInfoClass[110X [2XInfoGBNPTime[102X ([14X4.3-1[114X). As usual with GAP when this is left
   at  0, the functions will hardly print additional information. It can be set
-  to  1  or  2  with  [10XSetInfoLevel[0m  (more  about this function can be found at
-  [14XReference:  SetInfoLevel[0m).  A brief explanation about each infolevel will be
-  given in the next sections.
+  to  1  or  2  with  [10XSetInfoLevel[110X  (more  about this function can be found at
+  [14XReference:  SetInfoLevel[114X).  A brief explanation about each infolevel will be
+  given in the next sections.[133X
   
   
-  [1X4.2 InfoGBNP[0X
+  [1X4.2 [33X[0;0YInfoGBNP[133X[101X
   
-  [1X4.2-1 InfoGBNP[0m
+  [1X4.2-1 InfoGBNP[101X
   
-  [2X> InfoGBNP________________________________________________________[0Xinfo class
+  [29X[2XInfoGBNP[102X[32X info class
   
-  The  [10XInfoClass[0m  for  this package is used in almost all functions. To change
+  [33X[0;0YThe  [10XInfoClass[110X  for  this package is used in almost all functions. To change
   this  level to 1 (some information) or 2 (more information, also information
-  from calculation loops) use the function [10XSetInfoLevel[0m.
+  from calculation loops) use the function [10XSetInfoLevel[110X.[133X
   
   
-  [1X4.2-2 What will be printed at level 0[0X
+  [1X4.2-2 [33X[0;0YWhat will be printed at level 0[133X[101X
   
-  At  level  0  no  information  is  printed  beyond what functions themselves
-  command  to  be  printed.  These  include  functions  like  [2XPrintNP[0m ([14X3.2-1[0m),
-  [2XPrintNPList[0m  ([14X3.2-3[0m),  [2XPrintTraceList[0m  ([14X3.7-2[0m) and [2XPrintNPListTrace[0m ([14X3.7-4[0m),
-  but  it  also  includes  the  function [2XDetermineGrowthQA[0m ([14X3.6-1[0m), which only
-  prints  one  or two lines and [2XDimsQATrunc[0m ([14X3.8-5[0m) which produces information
-  about a truncated Gröbner basis.
+  [33X[0;0YAt  level  0  no  information  is  printed  beyond what functions themselves
+  command  to  be  printed.  These  include  functions  like  [2XPrintNP[102X ([14X3.2-1[114X),
+  [2XPrintNPList[102X  ([14X3.2-3[114X),  [2XPrintTraceList[102X  ([14X3.7-2[114X) and [2XPrintNPListTrace[102X ([14X3.7-4[114X),
+  but  it  also  includes  the  function [2XDetermineGrowthQA[102X ([14X3.6-1[114X), which only
+  prints  one  or two lines and [2XDimsQATrunc[102X ([14X3.8-5[114X) which produces information
+  about a truncated Gröbner basis.[133X
   
   
-  [1X4.2-3 What will be printed at level 1[0X
+  [1X4.2-3 [33X[0;0YWhat will be printed at level 1[133X[101X
   
-  The infolevel can be set to 1 with the following command:
+  [33X[0;0YThe infolevel can be set to 1 with the following command:[133X
   
-  [4X------------------------------------------------------------------[0X
-    [4XSetInfoLevel(InfoGBNP,1);[0X
-  [4X------------------------------------------------------------------[0X
+  [4X[32X[104X
+    [4XSetInfoLevel(InfoGBNP,1);[104X
+  [4X[32X[104X
   
-  At  level  1  a large set of functions will produce a bit of output. Most of
+  [33X[0;0YAt  level  1  a large set of functions will produce a bit of output. Most of
   this  information reports on the phase of the algorithm the calculations are
-  in or some simple statistics about the input or output.
+  in or some simple statistics about the input or output.[133X
   
   
-  [1X4.2-4 What will be printed at level 2[0X
+  [1X4.2-4 [33X[0;0YWhat will be printed at level 2[133X[101X
   
-  The infolevel can be set to 2 with the following command.
+  [33X[0;0YThe infolevel can be set to 2 with the following command.[133X
   
-  [4X------------------------------------------------------------------[0X
-    [4XSetInfoLevel(InfoGBNP,2);[0X
-  [4X------------------------------------------------------------------[0X
+  [4X[32X[104X
+    [4XSetInfoLevel(InfoGBNP,2);[104X
+  [4X[32X[104X
   
-  At  level  2  a  large  set  of functions will produce a lot of output. This
+  [33X[0;0YAt  level  2  a  large  set  of functions will produce a lot of output. This
   mostly concerns information on loops in the calculations. Timing information
-  will be printed as well.
+  will be printed as well.[133X
   
   
-  [1X4.3 InfoGBNPTime[0X
+  [1X4.3 [33X[0;0YInfoGBNPTime[133X[101X
   
-  [1X4.3-1 InfoGBNPTime[0m
+  [1X4.3-1 InfoGBNPTime[101X
   
-  [2X> InfoGBNPTime____________________________________________________[0Xinfo class
+  [29X[2XInfoGBNPTime[102X[32X info class
   
-  The  [10XInfoClass[0m for timing is used in producing information about the runtime
-  of the algorithm in certain possibly lengthy calculations.
+  [33X[0;0YThe  [10XInfoClass[110X for timing is used in producing information about the runtime
+  of the algorithm in certain possibly lengthy calculations.[133X
   
-  To  change  this  level to 1 (Gröbner functions give information) or 2 (more
+  [33X[0;0YTo  change  this  level to 1 (Gröbner functions give information) or 2 (more
   information,  also  information from other functions, which might not always
-  take a long time and from inside loops) use the function [10XSetInfoLevel[0m.
+  take a long time and from inside loops) use the function [10XSetInfoLevel[110X.[133X
   
   
-  [1X4.3-2 What will be printed at level 0[0X
+  [1X4.3-2 [33X[0;0YWhat will be printed at level 0[133X[101X
   
-  No  timing information will be printed at level 0. This can be desirable for
-  small examples or when producing test output, for use with [10XReadTest[0m.
-  
-  
-  [1X4.3-3 What will be printed at level 1[0X
-  
-  The infolevel can be set to 1 with the following command:
-  
-  [4X------------------------------------------------------------------[0X
-    [4XSetInfoLevel(InfoGBNPTime,1);[0X
-  [4X------------------------------------------------------------------[0X
-  
-  At  level  one  there will be time information printed by the functions from
-  different variants of the Gröbner basis algorithm: [2XGrobner[0m ([14X3.4-1[0m), [2XSGrobner[0m
-  ([14X3.4-2[0m), [2XSGrobnerTrace[0m ([14X3.7-5[0m), and [2XSGrobnerTrunc[0m ([14X3.8-2[0m).
+  [33X[0;0YNo  timing information will be printed at level 0. This can be desirable for
+  small examples or when producing test output, for use with [10XReadTest[110X.[133X
   
   
-  [1X4.3-4 What will be printed at level 2[0X
+  [1X4.3-3 [33X[0;0YWhat will be printed at level 1[133X[101X
   
-  The infolevel can be set to 2 with the following command:
+  [33X[0;0YThe infolevel can be set to 1 with the following command:[133X
   
-  [4X------------------------------------------------------------------[0X
-    [4XSetInfoLevel(InfoGBNPTime,2);[0X
-  [4X------------------------------------------------------------------[0X
+  [4X[32X[104X
+    [4XSetInfoLevel(InfoGBNPTime,1);[104X
+  [4X[32X[104X
   
-  At  level  two  there will also be some information printed from a loop from
-  within [2XSGrobnerTrunc[0m ([14X3.8-2[0m).
+  [33X[0;0YAt  level  one  there will be time information printed by the functions from
+  different variants of the Gröbner basis algorithm: [2XGrobner[102X ([14X3.4-1[114X), [2XSGrobner[102X
+  ([14X3.4-2[114X), [2XSGrobnerTrace[102X ([14X3.7-5[114X), and [2XSGrobnerTrunc[102X ([14X3.8-2[114X).[133X
+  
+  
+  [1X4.3-4 [33X[0;0YWhat will be printed at level 2[133X[101X
+  
+  [33X[0;0YThe infolevel can be set to 2 with the following command:[133X
+  
+  [4X[32X[104X
+    [4XSetInfoLevel(InfoGBNPTime,2);[104X
+  [4X[32X[104X
+  
+  [33X[0;0YAt  level  two  there will also be some information printed from a loop from
+  within [2XSGrobnerTrunc[102X ([14X3.8-2[114X).[133X
   

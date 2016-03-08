@@ -1,4 +1,4 @@
-gap> START_TEST("test16");
+gap> START_TEST("GBNP test16");
 gap> ######################### BEGIN COPYRIGHT MESSAGE #########################
 gap> # GBNP - computing Gröbner bases of noncommutative polynomials
 gap> # Copyright 2001-2010 by Arjeh M. Cohen, Dié A.H. Gijsbers, Jan Willem
@@ -158,7 +158,7 @@ gap> GB := SGrobner(KI);
 #I  End of phase III
 #I  G: Cleaning finished, 0 polynomials reduced
 #I  End of phase IV
-#I  The computation took 1224 msecs.
+#I  The computation took 772 msecs.
 [ [ [ [ 1 ] ], [ 1 ] ], [ [ [ 2 ] ], [ 1 ] ], 
   [ [ [ 4, 3 ], [ 3, 4 ] ], [ 1, -1 ] ], [ [ [ 5, 3 ], [ 3, 5 ] ], [ 1, -1 ] ]
     , [ [ [ 5, 4 ], [ 4, 5 ] ], [ 1, -1 ] ], 

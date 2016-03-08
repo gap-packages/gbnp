@@ -102,7 +102,7 @@ The Gröbner basis can now be calculated with
 <Listing><![CDATA[
 gap> GB := SGrobner(KI);;
 #I  Time needed to clean G :0
-#I  The computation took 220 msecs.
+#I  The computation took 104 msecs.
 ]]></Listing>
 
 Check the dimensionality of the quotient algebra.
@@ -121,11 +121,11 @@ instead of 4 as a parameter for the number of recursions.
 gap> L:=LMonsNP(GB);;
 gap> L:=PreprocessAnalysisQA(L,6,4);;
 gap> time;
-12
+4
 gap> fd:=FinCheckQA(L,6);
 true
 gap> time;
-8
+4
 ]]></Listing>
 
 If a quotient algebra is finite dimensional, the dimension can be calculated
@@ -136,7 +136,7 @@ information from <Ref Func="DimQA" Style="Text"/>:
 
 <Listing><![CDATA[
 gap> dim := DimQA(GB,6);
-#I  The computation took 276 msecs.
+#I  The computation took 176 msecs.
 51840
 ]]></Listing>
 </Section>
