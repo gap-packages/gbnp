@@ -1,4 +1,4 @@
-gap> START_TEST("test-functions");
+gap> START_TEST("GBNP test-functions");
 gap> ######################### BEGIN COPYRIGHT MESSAGE #########################
 gap> # GBNP - computing Gröbner bases of noncommutative polynomials
 gap> # Copyright 2001-2010 by Arjeh M. Cohen, Dié A.H. Gijsbers, Jan Willem
@@ -1299,19 +1299,15 @@ gap> # <L>
 gap> GB := Grobner([p1,p2]);
 [ [ [ [ 1, 1, 1, 2 ], [  ] ], [ Z(2)^0, Z(2^8)^254 ] ], 
   [ [ [ 2, 2 ], [ 1, 1 ] ], [ Z(2)^0, Z(2^8)^2 ] ], 
-  [ [ [ 1, 1, 1, 1, 1 ], [ 2 ] ], [ Z(2)^0, Z(2^8)^252 ] ], 
-  [ [ [ 2, 1 ], [ 1, 2 ] ], [ Z(2)^0, Z(2)^0 ] ] ]
+  [ [ [ 2, 1 ], [ 1, 2 ] ], [ Z(2)^0, Z(2)^0 ] ], 
+  [ [ [ 1, 1, 1, 1, 1 ], [ 2 ] ], [ Z(2)^0, Z(2^8)^252 ] ] ]
 gap> B := BaseQA(GB,2,0);
 [ [ [ [  ] ], [ Z(2)^0 ] ], [ [ [ 1 ] ], [ Z(2)^0 ] ], 
   [ [ [ 2 ] ], [ Z(2)^0 ] ], [ [ [ 1, 1 ] ], [ Z(2)^0 ] ], 
   [ [ [ 1, 2 ] ], [ Z(2)^0 ] ], [ [ [ 1, 1, 1 ] ], [ Z(2)^0 ] ], 
   [ [ [ 1, 1, 2 ] ], [ Z(2)^0 ] ], [ [ [ 1, 1, 1, 1 ] ], [ Z(2)^0 ] ] ]
 gap> MatrixQAC(1, B,GB);
-[ <a GF2 vector of length 8>, <a GF2 vector of length 8>, 
-  <a GF2 vector of length 8>, <a GF2 vector of length 8>, 
-  <a GF2 vector of length 8>, <a GF2 vector of length 8>, 
-  [ Z(2^8)^254, 0*Z(2), 0*Z(2), 0*Z(2), 0*Z(2), 0*Z(2), 0*Z(2), 0*Z(2) ], 
-  [ 0*Z(2), 0*Z(2), Z(2^8)^252, 0*Z(2), 0*Z(2), 0*Z(2), 0*Z(2), 0*Z(2) ] ]
+< mutable compressed matrix 8x8 over GF(256) >
 gap> # </L>
 gap> 
 gap> # <#/GAPDoc>
@@ -1339,28 +1335,16 @@ gap> # <L>
 gap> GB := Grobner([p1,p2]);
 [ [ [ [ 1, 1, 1, 2 ], [  ] ], [ Z(2)^0, Z(2^8)^254 ] ], 
   [ [ [ 2, 2 ], [ 1, 1 ] ], [ Z(2)^0, Z(2^8)^2 ] ], 
-  [ [ [ 1, 1, 1, 1, 1 ], [ 2 ] ], [ Z(2)^0, Z(2^8)^252 ] ], 
-  [ [ [ 2, 1 ], [ 1, 2 ] ], [ Z(2)^0, Z(2)^0 ] ] ]
+  [ [ [ 2, 1 ], [ 1, 2 ] ], [ Z(2)^0, Z(2)^0 ] ], 
+  [ [ [ 1, 1, 1, 1, 1 ], [ 2 ] ], [ Z(2)^0, Z(2^8)^252 ] ] ]
 gap> B := BaseQA(GB,2,0);
 [ [ [ [  ] ], [ Z(2)^0 ] ], [ [ [ 1 ] ], [ Z(2)^0 ] ], 
   [ [ [ 2 ] ], [ Z(2)^0 ] ], [ [ [ 1, 1 ] ], [ Z(2)^0 ] ], 
   [ [ [ 1, 2 ] ], [ Z(2)^0 ] ], [ [ [ 1, 1, 1 ] ], [ Z(2)^0 ] ], 
   [ [ [ 1, 1, 2 ] ], [ Z(2)^0 ] ], [ [ [ 1, 1, 1, 1 ] ], [ Z(2)^0 ] ] ]
 gap> MatricesQAC(2,B,GB);
-[ [ <a GF2 vector of length 8>, <a GF2 vector of length 8>, 
-      <a GF2 vector of length 8>, <a GF2 vector of length 8>, 
-      <a GF2 vector of length 8>, <a GF2 vector of length 8>, 
-      [ Z(2^8)^254, 0*Z(2), 0*Z(2), 0*Z(2), 0*Z(2), 0*Z(2), 0*Z(2), 0*Z(2) ], 
-      [ 0*Z(2), 0*Z(2), Z(2^8)^252, 0*Z(2), 0*Z(2), 0*Z(2), 0*Z(2), 0*Z(2) ] ]
-    , 
-  [ <a GF2 vector of length 8>, <a GF2 vector of length 8>, [ 0*Z(2), 0*Z(2), 
-          0*Z(2), Z(2^8)^2, 0*Z(2), 0*Z(2), 0*Z(2), 0*Z(2) ], 
-      <a GF2 vector of length 8>, 
-      [ 0*Z(2), 0*Z(2), 0*Z(2), 0*Z(2), 0*Z(2), Z(2^8)^2, 0*Z(2), 0*Z(2) ], 
-      [ Z(2^8)^254, 0*Z(2), 0*Z(2), 0*Z(2), 0*Z(2), 0*Z(2), 0*Z(2), 0*Z(2) ], 
-      [ 0*Z(2), 0*Z(2), 0*Z(2), 0*Z(2), 0*Z(2), 0*Z(2), 0*Z(2), Z(2^8)^2 ], 
-      [ 0*Z(2), Z(2^8)^254, 0*Z(2), 0*Z(2), 0*Z(2), 0*Z(2), 0*Z(2), 0*Z(2) ] 
-     ] ]
+[ < mutable compressed matrix 8x8 over GF(256) >, 
+  < mutable compressed matrix 8x8 over GF(256) > ]
 gap> # </L>
 gap> 
 gap> # <#/GAPDoc>
@@ -1380,8 +1364,8 @@ gap> p2 := [[[2,2,2,1,1,1],[]],[1,-1]];;
 gap> GB := Grobner([p1,p2]);;
 gap> PrintNPList(GB);
  a^4b - 1 
- b^2 - a 
  ba - ab 
+ b^2 - a 
  a^5 - b 
 gap> # </L>
 gap> 
@@ -1389,7 +1373,7 @@ gap> # Application of <C>PreprocessAnalysisQA</C> is carried out on the leading 
 gap> # <C>GB</C>, with 2, 4, 8, recursions, respectively.
 gap> # <L>
 gap> L := LMonsNP(GB);
-[ [ 1, 1, 1, 1, 2 ], [ 2, 2 ], [ 2, 1 ], [ 1, 1, 1, 1, 1 ] ]
+[ [ 1, 1, 1, 1, 2 ], [ 2, 1 ], [ 2, 2 ], [ 1, 1, 1, 1, 1 ] ]
 gap> L1 := PreprocessAnalysisQA(L,2,2);
 [ [ 1, 1, 1 ], [ 2, 1 ], [ 1, 1, 2 ], [ 2, 2 ] ]
 gap> L2 := PreprocessAnalysisQA(L1,2,4);
@@ -1833,8 +1817,8 @@ gap> L := LMonsNP(GB);;
 gap> for lm  in L  do PrintNP( [ [ lm ], [ 1 ] ] ); od;
  a^3b 
  b^2 
- a^5 
  ba 
+ a^5 
 gap> DetermineGrowthQA(L,2,true);
 0
 gap> # </L>

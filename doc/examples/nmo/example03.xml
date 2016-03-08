@@ -1,0 +1,33 @@
+Example 3 is taken from the book "Ideals, Varieties, and Algorithms",
+(example 2, p. 93-94), and it is a commutative example.
+
+First, we set up the problem and find a Grobner basis w.r.t. the length
+left-lexicographic ordering implicitly assumed in {\GBNP}:
+
+gap> LoadPackage("gbnp");
+─────────────────────────────────────────────────────────────────────────────
+Loading  GBNP 1.0.2 (Non-commutative Gröbner bases)
+by A.M. Cohen (http://www.win.tue.nl/~amc) and
+   J.W. Knopper (J.W.Knopper@tue.nl).
+Homepage: http://mathdox.org/products/gbnp/
+─────────────────────────────────────────────────────────────────────────────
+true
+gap> A := FreeAssociativeAlgebraWithOne(Rationals,"x","y","z");;
+gap> x := A.x;; y := A.y;; z := A.z;; id := One(A);;
+gap> polys := [ x^2 + y^2 + z^2 - id, x^2 + z^2 - y, x-z,
+>            x*y-y*x, x*z-z*x, y*z-z*y];;
+gap> reps := GP2NPList(polys);;
+gap> gb := Grobner(reps);;
+gap> NP2GPList(gb,A);
+[ (1)*z+(-1)*x, (1)*x^2+(-1/2)*y, (1)*y*x+(-1)*x*y, 
+  (1)*y^2+(2)*x^2+(-1)*<identity ...> ]
+
+gap> ml := NCMonomialLeftLexicographicOrdering(A,[3,2,1]);
+NCMonomialLeftLexicographicOrdering([ (1)*z, (1)*y, (1)*x ])
+gap> PatchGBNP(ml);
+LtNP patched.
+GtNP patched.
+gap> gb := Grobner(reps);;
+gap> NP2GPList(gb,A);
+[ (1)*z^4+(1/2)*z^2+(-1/4)*<identity ...>, (1)*y+(-2)*z^2, (1)*x+(-1)*z ]
+

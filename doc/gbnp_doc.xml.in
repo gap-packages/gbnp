@@ -3,7 +3,7 @@
 <Version>Version $VERSION</Version> 
 <Author>Arjeh M. Cohen <Email>A.M.Cohen@tue.nl</Email></Author>
 <Author>Jan Willem Knopper <Email>J.W.Knopper@tue.nl</Email></Author>
-<Date>12 May 2010</Date> 
+<Date>$DATE</Date> 
 <Address>TU/e,<Br/> POB
 513, 5600 MB Eindhoven, the Netherlands </Address> <Abstract> We provide
 algorithms, written in the <Package>GAP</Package> 4 programming language, for

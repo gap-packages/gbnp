@@ -21,6 +21,12 @@
 LANG=en_UK.UTF-8
 export LANG
 
+#checks for $GAP
+if [ -z "$GAP" ] 
+then
+	GAP=gap
+fi
+
 mkdir -p build/pkg/gbnp
 for i in * 
 do 
@@ -29,9 +35,9 @@ do
     ln -sf $(/bin/pwd)/"${i}" build/pkg/gbnp/"${i}";
   fi
 done
-{ echo 'SaveWorkspace("build/gbnp.wks");'; } | gap -l \;$(/bin/pwd)/build 
+{ echo 'SaveWorkspace("build/gbnp.wks");'; } | eval ${GAP} -l \\\;$(/bin/pwd)/build 
 gzip -9f build/gbnp.wks
 
 echo "It is now possible to set \$GAP with the command"
 echo
-echo "export GAP=\"gap -L $(/bin/pwd)/build/gbnp.wks -l \\;$(/bin/pwd)/build\""
+echo "export GAP=\"${GAP} -L $(/bin/pwd)/build/gbnp.wks -l \\;$(/bin/pwd)/build\""

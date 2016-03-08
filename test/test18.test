@@ -1,4 +1,4 @@
-gap> START_TEST("test18");
+gap> START_TEST("GBNP test18");
 gap> ######################### BEGIN COPYRIGHT MESSAGE #########################
 gap> # GBNP - computing Gröbner bases of noncommutative polynomials
 gap> # Copyright 2001-2010 by Arjeh M. Cohen, Dié A.H. Gijsbers, Jan Willem
@@ -78,7 +78,7 @@ gap> GBR:=SGrobnerModule(GP2NPList(prefixrels),GP2NPList(twosidrels));;
 #I  End of phase II
 #I  End of phase III
 #I  End of phase IV
-#I  The computation took 8 msecs.
+#I  The computation took 4 msecs.
 #I  number of entered polynomials is 7
 #I  number of polynomials after reduction is 7
 #I  End of phase I
@@ -142,7 +142,7 @@ gap> GBR:=SGrobnerModule(GP2NPList(prefixrelsdom),GBR.ts);;
 #I  End of phase II
 #I  End of phase III
 #I  End of phase IV
-#I  The computation took 4 msecs.
+#I  The computation took 0 msecs.
 #I  number of entered polynomials is 7
 #I  number of polynomials after reduction is 7
 #I  End of phase I

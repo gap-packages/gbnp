@@ -126,7 +126,7 @@ gap> GB := SGrobner(KI);;
 #I  End of phase III
 #I  Time needed to clean G :0
 #I  End of phase IV
-#I  The computation took 220 msecs.
+#I  The computation took 132 msecs.
 gap> PrintNPList(GB);
  r.1^2 - 1 
  r.2r.1 - r.1r.2 
@@ -199,7 +199,7 @@ timing information from <Ref Func="DimQA" Style="Text"/>:
 
 <Listing><![CDATA[
 gap> DimQA(GB,6);
-#I  The computation took 280 msecs.
+#I  The computation took 172 msecs.
 51840
 ]]></Listing>
 

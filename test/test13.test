@@ -1,4 +1,4 @@
-gap> START_TEST("test13");
+gap> START_TEST("GBNP test13");
 gap> ######################### BEGIN COPYRIGHT MESSAGE #########################
 gap> # GBNP - computing Gröbner bases of noncommutative polynomials
 gap> # Copyright 2001-2010 by Arjeh M. Cohen, Dié A.H. Gijsbers, Jan Willem
@@ -93,7 +93,7 @@ gap> GB := SGrobner(KI);;
 #I  End of phase III
 #I  Time needed to clean G :0
 #I  End of phase IV
-#I  The computation took 220 msecs.
+#I  The computation took 108 msecs.
 gap> # </L>
 gap> 
 gap> # We will check whether the quotient algebra is finite dimensional or infinite
@@ -118,7 +118,7 @@ gap> # timing information from <Ref Func="DimQA" Style="Text"/>:
 gap> 
 gap> # <L>
 gap> dim := DimQA(GB,6);
-#I  The computation took 272 msecs.
+#I  The computation took 152 msecs.
 51840
 gap> # </L>
 gap> # </Section>

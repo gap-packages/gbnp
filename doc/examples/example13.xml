@@ -92,7 +92,7 @@ gap> GB := SGrobner(KI);;
 #I  End of phase III
 #I  Time needed to clean G :0
 #I  End of phase IV
-#I  The computation took 220 msecs.
+#I  The computation took 96 msecs.
 ]]></Listing>
 
 We will check whether the quotient algebra is finite dimensional or infinite
@@ -108,7 +108,7 @@ gap> L:=LMonsNP(GB);;
 gap> FinCheckQA(L,6);
 true
 gap> time;
-84
+60
 ]]></Listing>
 
 If a quotient algebra is finite dimensional, the dimension can be calculated
@@ -119,7 +119,7 @@ timing information from <Ref Func="DimQA" Style="Text"/>:
 
 <Listing><![CDATA[
 gap> dim := DimQA(GB,6);
-#I  The computation took 272 msecs.
+#I  The computation took 144 msecs.
 51840
 ]]></Listing>
 </Section>

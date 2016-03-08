@@ -38,11 +38,12 @@ level, see Chapter <Ref Chap="Info"/>).
 
 <Listing><![CDATA[
 gap> LoadPackage("GBNP");
------------------------------------------------------------------------------
-Loading  GBNP 1.0.1 (Non-commutative Gröbner bases)
+─────────────────────────────────────────────────────────────────────────────
+Loading  GBNP 1.0.3 (Non-commutative Gröbner bases)
 by A.M. Cohen (http://www.win.tue.nl/~amc) and
    J.W. Knopper (J.W.Knopper@tue.nl).
------------------------------------------------------------------------------
+Homepage: http://mathdox.org/products/gbnp/
+─────────────────────────────────────────────────────────────────────────────
 true
 
 gap> SetInfoLevel(InfoGBNP,0);

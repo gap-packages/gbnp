@@ -44,7 +44,7 @@ Version := "$VERSION",
 
 ##  Release date of the current version in dd/mm/yyyy format.
 # 
-Date := "12/05/2010",
+Date := "$DATE2",
 
 ##  URL of the archive(s) of the current package release, but *without*
 ##  the format extension(s), like '.zoo', which are given next.
@@ -251,11 +251,8 @@ PackageWWWHome := "$URLBASE/",
 PackageDoc := rec(
   # use same as in GAP            
   BookName  := "GBNP",
-  # format/extension can be one of .zoo, .tar.gz, .tar.bz2, -win.zip
-  Archive := 
-      "$URLBASE/GBNPdoc-$VERSION.tar.gz",
-  ArchiveURLSubset := ["doc", "htm"],
-  HTMLStart := "doc/chap0.htm",
+  ArchiveURLSubset := ["doc"],
+  HTMLStart := "doc/chap0.html",
   PDFFile   := "doc/manual.pdf",
   # the path to the .six file used by GAP's help system
   SixFile   := "doc/manual.six",
@@ -279,7 +276,7 @@ Dependencies := rec(
   # insensitive, least version denoted with '>=' prepended to version string.
   # without these, the package will not load
   # NeededOtherPackages := [["GAPDoc", ">= 0.99"]],
-  NeededOtherPackages := [],
+  NeededOtherPackages := [["GAPDoc", ">= 0.99"]],
   # without these the package will issue a warning while loading
   # SuggestedOtherPackages := [],
   SuggestedOtherPackages := [],
@@ -345,7 +342,7 @@ Autoload := false,
 
 ##  *Optional*, but recommended: path relative to package root to a file which 
 ##  contains as many tests of the package functionality as sensible.
-TestFile := "testall.g",
+TestFile := "test/test-all.tst",
 
 ##  *Optional*: Here you can list some keyword related to the topic 
 ##  of the package.

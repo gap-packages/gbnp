@@ -130,7 +130,7 @@ gap> GB := SGrobner(KI);;
 #I  End of phase II
 #I  End of phase III
 #I  End of phase IV
-#I  The computation took 144 msecs.
+#I  The computation took 76 msecs.
 gap> PrintNPList(GB);
  g1^2 - 7/11e1 + 7g1 - 1 
  g1e1 - 1/11e1 

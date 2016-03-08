@@ -114,7 +114,7 @@ gap> GB := SGrobner(KI);;
 #I  End of phase III
 #I  G: Cleaning finished, 0 polynomials reduced
 #I  End of phase IV
-#I  The computation took 8 msecs.
+#I  The computation took 0 msecs.
 ]]></Listing>
 
 Printed it looks like:

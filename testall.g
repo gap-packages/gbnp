@@ -17,6 +17,8 @@
 # http://www.gnu.org/licenses/lgpl.html
 ########################## END COPYRIGHT MESSAGE ##########################
 
+LoadPackage("gbnp");
+
 RT:=function(name)
   	ReadTest(name);
 	# reset printing

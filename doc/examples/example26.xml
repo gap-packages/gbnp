@@ -176,7 +176,7 @@ by use of <Ref Func="PrintTracePol" Style="Text"/>.
 <Listing><![CDATA[
 gap> p := StrongNormalFormTraceDiff(CleanNP(GP2NP(milk-cola)),GTrace);;
 gap> NP2GP(p.pol,ALG);
-(1)*T*A*G*C*T*A*G*C*T*A*G*C*T+(-1)*C*T*G*A*C*T*G*A*C*T
+(1)*(T*A*G*C)^3*T+(-1)*(C*T*G*A)^2*C*T
 gap> PrintTracePol(p);
 - TGATGAG(1) + TAGG(1)ATAT - TATATAGG(1) - TGAG(1)GACT + TGATGACG(1) - G(
 1)GACTGACT - TAGCG(1)ATAT - TATAGG(1)AGT + TATATAGCG(1) + TGACG(1)GACT + CG(
@@ -220,7 +220,7 @@ gap> UnusedIndices := Set([1..lev]);;
 gap> RunningTerm :=  milkNP[1][1];;
 gap> stepno := 0;;
 gap> NP2GP(milkNP,ALG);
-(1)*T*A*G*C*T*A*G*C*T*A*G*C*T
+(1)*(T*A*G*C)^3*T
 gap> while Length(UnusedIndices) > 0 do
 >   i := 0;
 >   notfnd := true;
@@ -427,7 +427,7 @@ gap> while Length(UnusedIndices) > 0 do
          GACTGACT 
  -->  CTGACTGACT 
 gap> NP2GP(colaNP,ALG);
-(1)*C*T*G*A*C*T*G*A*C*T
+(1)*(C*T*G*A)^2*C*T
 ]]></Listing>
 
 

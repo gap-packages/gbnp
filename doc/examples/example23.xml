@@ -127,7 +127,7 @@ calculate a Gröbner basis.
 <Listing><![CDATA[
 gap> relsNP:=GP2NPList(rels);;
 gap> GB:=SGrobner(relsNP);;
-#I  The computation took 396 msecs.
+#I  The computation took 184 msecs.
 ]]></Listing>
 
 It is now possible to calculate the dimension of the quotient algebra

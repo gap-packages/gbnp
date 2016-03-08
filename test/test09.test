@@ -1,4 +1,4 @@
-gap> START_TEST("test09");
+gap> START_TEST("GBNP test09");
 gap> ######################### BEGIN COPYRIGHT MESSAGE #########################
 gap> # GBNP - computing Gröbner bases of noncommutative polynomials
 gap> # Copyright 2001-2010 by Arjeh M. Cohen, Dié A.H. Gijsbers, Jan Willem
@@ -87,7 +87,7 @@ gap> GB := SGrobnerTrace(KI);
 #I  List of todo lengths is [ 2, 1, 0 ]
 #I  End of phase III
 #I  End of phase IV
-#I  The computation took 8 msecs.
+#I  The computation took 4 msecs.
 [ rec( pol := [ [ [ 2, 1 ], [ 1, 2 ] ], [ 1, -1 ] ], 
       trace := [ [ [  ], 1, [ 2 ], -1 ], [ [ 2 ], 1, [  ], 1 ], 
           [ [ 1 ], 2, [  ], 1 ], [ [  ], 2, [ 1 ], -1 ] ] ), 

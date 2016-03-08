@@ -77,14 +77,14 @@ gap> GBR:=SGrobnerModule(GP2NPList(prefixrels),GP2NPList(twosidrels));;
 #I  End of phase II
 #I  End of phase III
 #I  End of phase IV
-#I  The computation took 8 msecs.
+#I  The computation took 0 msecs.
 #I  number of entered polynomials is 7
 #I  number of polynomials after reduction is 7
 #I  End of phase I
 #I  End of phase II
 #I  End of phase III
 #I  End of phase IV
-#I  The computation took 0 msecs.
+#I  The computation took 4 msecs.
 ]]></Listing>
 
 The record GBR has two members: the two-sided relations <C>GBR.ts</C> and the

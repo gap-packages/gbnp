@@ -193,7 +193,7 @@ gap> GB := SGrobner(KI);;
 #I  End of phase III
 #I  G: Cleaning finished, 0 polynomials reduced
 #I  End of phase IV
-#I  The computation took 1220 msecs.
+#I  The computation took 748 msecs.
 gap> PrintNPList(GB);
  a 
  b 

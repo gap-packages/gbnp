@@ -102,7 +102,7 @@ gap> G := SGrobnerTrunc(K,n,weights);;
 #I  Input is homogeneous
 #I  Reached level 16
 #I  end of the algorithm
-#I  The computation took 8 msecs.
+#I  The computation took 4 msecs.
 ]]></Listing>
 
 The Gröbner basis of the truncated quotient algebra can be printed with <Ref
@@ -132,7 +132,7 @@ gap> B := BaseQATrunc(K,n,weights);;
 #I  Input is homogeneous
 #I  Reached level 16
 #I  end of the algorithm
-#I  The computation took 4 msecs.
+#I  The computation took 0 msecs.
 gap> i := Length(B);
 17
 gap> Print("at level ",i-1," the standard monomials are:\n");
@@ -183,7 +183,7 @@ gap> B2 := BaseQATrunc(G,n,weights);;
 #I  Input is homogeneous
 #I  Reached level 16
 #I  end of the algorithm
-#I  The computation took 4 msecs.
+#I  The computation took 0 msecs.
 gap> B = B2;
 true
 ]]></Listing>
