@@ -7,7 +7,7 @@ SetPackageInfo( rec(
 
 PackageName := "GBNP",
 Subtitle := "computing Gröbner bases of noncommutative polynomials",
-Version := "1.0.3",
+Version := "1.0dev",
 Date := "08/03/2016",
 
 ArchiveURL := 
