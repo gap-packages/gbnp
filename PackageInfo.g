@@ -8,7 +8,8 @@ SetPackageInfo( rec(
 PackageName := "GBNP",
 Subtitle := "computing Gröbner bases of noncommutative polynomials",
 Version := "1.0dev",
-Date := "08/03/2016",
+Date := "08/03/2016", # dd/mm/yyyy format
+License := "LGPL-2.1-or-later", # SPDX identifier
 
 ArchiveURL := 
           "http://mathdox.org/products/gbnp/GBNP-1.0.3",
