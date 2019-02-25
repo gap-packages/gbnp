@@ -11,11 +11,6 @@ Version := "1.0dev",
 Date := "08/03/2016", # dd/mm/yyyy format
 License := "LGPL-2.1-or-later", # SPDX identifier
 
-ArchiveURL := 
-          "http://mathdox.org/products/gbnp/GBNP-1.0.3",
-
-ArchiveFormats := ".tar.gz",
-
 Persons := [
   rec( 
     LastName      := "Cohen",
@@ -56,10 +51,18 @@ Status := "accepted",
 CommunicatedBy := "Alexander Hulpke (Fort Collins, CO)",
 AcceptDate := "05/2010",
 
-README_URL := 
-  "http://mathdox.org/products/gbnp/README",
-PackageInfoURL := 
-  "http://mathdox.org/products/gbnp/PackageInfo.g",
+PackageWWWHome  := "https://gap-packages.github.io/gbnp/",
+README_URL      := Concatenation( ~.PackageWWWHome, "README.md" ),
+PackageInfoURL  := Concatenation( ~.PackageWWWHome, "PackageInfo.g" ),
+SourceRepository := rec(
+    Type := "git",
+    URL := "https://github.com/gap-packages/gbnp",
+),
+IssueTrackerURL := Concatenation( ~.SourceRepository.URL, "/issues" ),
+ArchiveURL      := Concatenation( ~.SourceRepository.URL,
+                                 "/releases/download/v", ~.Version,
+                                 "/gbnp-", ~.Version ),
+ArchiveFormats := ".tar.gz",
 
 AbstractHTML := 
   "The <span class=\"pkgname\">GBNP</spam> package provides algorithms for \
@@ -71,8 +74,6 @@ AbstractHTML :=
    interpreted loosely here: in general one cannot expect such an algorithm \
    to terminate, as it would imply solvability of the word problem for \
    finitely presented (semi)groups.",
-
-PackageWWWHome := "http://mathdox.org/products/gbnp/",
                
 PackageDoc := rec(
   BookName  := "GBNP",
