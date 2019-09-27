@@ -35,5 +35,5 @@ fi
 LANG=en_UK.UTF-8
 export LANG
 
-{ echo "LogTo(\"${1}.txt\");"; cat "${1}.g"; } | eval ${GAP} -r 
+{ echo "LogTo(\"${1}.txt\");"; cat "${1}.g"; } | eval ${GAP} -A -r 
 printf '\033[37;0m'
