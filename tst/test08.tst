@@ -63,8 +63,7 @@ gap> ll := Indeterminate(Rationals,"l");
 l
 gap> mm := Indeterminate(Rationals,"m");
 m
-gap> F := Field(ll,mm);
-<field in characteristic 0>
+gap> F := Field(ll,mm);;
 gap> gens := GeneratorsOfField(F);
 [ l, m ]
 gap> l := gens[1];;

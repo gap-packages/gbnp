@@ -59,7 +59,7 @@ GBNP.ConfigPrint("g1","g2","e1","e2");
 # <L>
 ll := Indeterminate(Rationals,"l");
 mm := Indeterminate(Rationals,"m");
-F := Field(ll,mm);
+F := Field(ll,mm);;
 gens := GeneratorsOfField(F);
 l := gens[1];;
 m := gens[2];

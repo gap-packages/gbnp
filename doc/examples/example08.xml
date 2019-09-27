@@ -62,8 +62,7 @@ gap> ll := Indeterminate(Rationals,"l");
 l
 gap> mm := Indeterminate(Rationals,"m");
 m
-gap> F := Field(ll,mm);
-<algebra-with-one over Field( [ 1 ] )>
+gap> F := Field(ll,mm);;
 gap> gens := GeneratorsOfField(F);
 [ l, m ]
 gap> l := gens[1];;
