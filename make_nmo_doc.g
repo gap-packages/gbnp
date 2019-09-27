@@ -12,3 +12,4 @@ str := ComposedXMLString(path,main,files);;
 r := ParseTreeXMLString(str);;
 CheckAndCleanGapDocTree(r);
 MakeGAPDocDoc(path, main, files, bookname);
+CopyHTMLStyleFiles(path);

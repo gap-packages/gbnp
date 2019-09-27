@@ -52,6 +52,7 @@ CheckAndCleanGapDocTree(r);
 #Print("files: "); Print(files); Print("\n");Print("\n");
 #Print("bookname: "); Print(bookname); Print("\n");Print("\n");
 MakeGAPDocDoc(path, main, files, bookname);;
+CopyHTMLStyleFiles(path);
 
 # make doc for nmo part
 Read("make_nmo_doc.g");
