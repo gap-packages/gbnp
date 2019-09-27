@@ -44,7 +44,7 @@ computerinfo:
 	etc/maketiming > doc/timing.xml
 
 distclean:
-	rm -rf GBNPdoc-${VERSION}.tar.gz GBNP-${VERSION}.tar.gz doc/examples/*xml .depend doc/examples/.depend examples/.depend tst/.depend .depend make_doc.txt build www
+	rm -rf GBNPdoc-${VERSION}.tar.gz GBNP-${VERSION}.tar.gz doc/examples/*xml .depend doc/examples/.depend examples/.depend tst/.depend .depend make_doc.txt build
 
 doc: depend computerinfo
 	cd doc/examples && ${MAKE} allxml
@@ -56,7 +56,7 @@ GBNPdoc-${VERSION}.tar.gz: doc builddir
 	tar -cvzf build/archives/GBNPdoc-${VERSION}.tar.gz --exclude '*CVS*' --exclude '*.svn*' --exclude '.depend' doc
 
 GBNP-${VERSION}.tar.gz: doc tests builddir
-	tar -cvzf build/archives/GBNP-${VERSION}.tar.gz -C .. --exclude 'build/archives' --exclude '*.svn*' --exclude '*CVS*' --exclude 'build' --exclude 'www' --exclude '.depend' gbnp
+	tar -cvzf build/archives/GBNP-${VERSION}.tar.gz -C .. --exclude 'build/archives' --exclude '*.git*' --exclude 'build' --exclude '.depend' gbnp
 
 depend: workspace
 	etc/makedepend
@@ -76,17 +76,6 @@ tests: depend
 	cd tst && ${MAKE} all && cd ..
 
 workspace: build/gbnp.wks.gz
-
-www: doc archives
-	mkdir -p www www/nmo
-	cp build/archives/GBNPdoc-${VERSION}.tar.gz build/archives/GBNP-${VERSION}.tar.gz www/
-	cp doc/chap* www/
-	cp doc/manual* www/
-	cp doc/nmo/chap* www/nmo/
-	cp doc/nmo/manual* www/nmo/
-	cp doc/articles/* www/
-	cp PackageInfo.g README www/
-	cd www && ln -fs chap0.html index.html && cd -
 
 build/gbnp.wks.gz: 
 	etc/workspace
