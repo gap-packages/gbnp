@@ -1,9 +1,11 @@
-<!DOCTYPE Book SYSTEM "gapdoc.dtd"> <Book Name="GBNP"> <TitlePage>
+<!DOCTYPE Book SYSTEM "gapdoc.dtd" [ <#Include Label="PKGVERSIONDATA"> ] >
+<Book Name="GBNP">
+<TitlePage>
 <Title>Documentation on the <Package>GBNP</Package> package</Title>
-<Version>Version 1.0.3</Version> 
+<Version>Version &VERSION;</Version> 
 <Author>Arjeh M. Cohen <Email>A.M.Cohen@tue.nl</Email></Author>
 <Author>Jan Willem Knopper <Email>J.W.Knopper@tue.nl</Email></Author>
-<Date>8 March 2016</Date> 
+<Date>&DATE;</Date> 
 <Address>TU/e,<Br/> POB
 513, 5600 MB Eindhoven, the Netherlands </Address> <Abstract> We provide
 algorithms, written in the <Package>GAP</Package> 4 programming language, for
@@ -73,30 +75,23 @@ Chapter <Ref Chap="Description"/>, explains the functions of the package in
 Chapter <Ref Chap="Functions"/>, and provides more than twenty four worked out
 examples in Appendix <Ref Chap="Examples"/>.
 It is available as an HTML document at
-<URL>http://mathdox.org/products/gbnp/</URL>
-and as an pdf document at
-<URL>http://mathdox.org/products/gbnp/manual.pdf</URL>.
+<URL>https://gap-packages.github.io/gbnp/doc/chap0.html</URL>.
 
 
 <Section><Heading>Installation</Heading>	
-To install GBNP, first download it from 
-<URL>http://mathdox.org/products/gbnp/GBNP-1.0.3.tar.gz</URL>, then unpack
-<F>GBNP-1.0.3.tar.gz</F> in the <C>pkg</C> subdirectory of
+To install GBNP, first download <F>GBNP-&VERSION;.tar.gz</F> from 
+<URL>https://gap-packages.github.io/gbnp/</URL>, then unpack
+<F>GBNP-&VERSION;.tar.gz</F> in the <C>pkg</C> subdirectory of
 your <Package>GAP</Package> installation (or in the <C>pkg</C> subdirectory of
 any other <Package>GAP</Package> root directory, for example one added with the
 <C>-l</C> argument) with the following command: 
-<Code>tar -xvzf GBNP-1.0.3.tar.gz</Code>.
+<Code>tar -xvzf GBNP-&VERSION;.tar.gz</Code>.
 <P/>
 GBNP is then loaded with the GAP command
 <Listing>
 gap> LoadPackage( "GBNP" ); 
 </Listing>
 <P/>
-Those who want to download this documentation can find it at
-<URL>http://mathdox.org/products/gbnp/GBNPdoc-1.0.3.tar.gz</URL>
-and extract it with 
-<Code>tar -xvzf GBNPdoc-1.0.3.tar.gz</Code>.
-It is also included in the package.
 </Section>
 
 <Section Label="intro"><Heading>Using the package</Heading>	
@@ -162,15 +157,15 @@ but not deemed necessary for a first time user.
 	The report <Q>Non-commutative polynomial computations</Q>, by Arjeh
 	M. Cohen (with support of Dié Gijsbers, Jan Willem Knopper, and Chris Krook)
 can be downloaded from
-	<URL>http://mathdox.org/products/gbnp/gbnp.pdf</URL>.
+	<URL> http://mathdox.org/products/gbnp/gbnp.pdf</URL>.
 	<P/>
 	The report <Q>Dimensionality of quotient algebras</Q>, by Chris
 	Krook can be downloaded from
-	<URL>http://mathdox.org/products/gbnp/dqa.pdf</URL>.
+	<URL> http://mathdox.org/products/gbnp/dqa.pdf</URL>.
 	<P/>
 	The report <Q>GBNP and vector enumeration</Q>, by Jan Willem Knopper
          can be downloaded from
-	<URL>http://mathdox.org/products/gbnp/knopper.pdf</URL>.
+	<URL> http://mathdox.org/products/gbnp/knopper.pdf</URL>.
 
 </Section>
 </Chapter>
