@@ -29,7 +29,7 @@ Files that are overwritten automatically: (do not edit)
 - README and PackageInfo.g
 - in doc: gbnp_doc.xml and also manual.* chap*
 - in examples: *xml
-- in test: all files
+- in tst: all files
 
 To rebuild the documentation:
 =============================
@@ -105,7 +105,7 @@ For a release:
 - gmake workspace
 - copy the line to set $GAP (if it is not already set)
 - gmake www
-- cd test && gmake svn (to check for undesired changes)
+- cd tst && gmake svn (to check for undesired changes)
 - copy www to the webdirectory and enter the url of the PackageInfo.g at
   http://www.gap-system.org/Packages/Authors/authors.html
   to verify it.

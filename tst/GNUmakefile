@@ -18,17 +18,17 @@ test-functions.g: ../doc/examples/functions.g
 test-all.g: ${TESTSG}
 	../scripts/combine-tests test-functions.g test-bound*.g > test-all.g
 
-test-all.tst: test-all.test
+test-all.tst: test-all.tst
 	grep -v '^gap> START_TEST' "$<" |grep -v '^gap> STOP_TEST' |sed -e 's/#START_TEST/START_TEST/' -e 's/#STOP_TEST/STOP_TEST/' > "$@"
 
-%.test: %.txt
+%.tst: %.txt
 	../scripts/testscript "$*"
 %.txt: %.g
 	../scripts/gapscript "$*"
 %.xml: %.txt txt2xml.sed
 	sed -f txt2xml.sed "$<" > "$@"
-%.chk: %.test
+%.chk: %.tst
 	../scripts/chkscript "$*"
 
 svn: 	${TESTS}
-	svn diff --diff-cmd `which diff` -x --ignore-matching-lines='^#I.*' *.test
+	svn diff --diff-cmd `which diff` -x --ignore-matching-lines='^#I.*' *.tst

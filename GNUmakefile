@@ -38,13 +38,13 @@ builddir:
 	mkdir -p build/archives
 
 clean: distclean
-	rm -rf test/*test 
+	rm -rf tst/*tst 
 
 computerinfo: 
 	scripts/maketiming > doc/timing.xml
 
 distclean:
-	rm -rf GBNPdoc-${VERSION}.tar.gz GBNP-${VERSION}.tar.gz doc/examples/*xml .depend doc/examples/.depend examples/.depend test/.depend .depend make_doc.txt build www
+	rm -rf GBNPdoc-${VERSION}.tar.gz GBNP-${VERSION}.tar.gz doc/examples/*xml .depend doc/examples/.depend examples/.depend tst/.depend .depend make_doc.txt build www
 
 doc: depend computerinfo
 	cd doc/examples && ${MAKE} allxml
@@ -61,7 +61,7 @@ GBNP-${VERSION}.tar.gz: doc tests builddir
 depend: workspace
 	scripts/makedepend
 	cp .depend examples
-	cp .depend test
+	cp .depend tst
 	cp .depend doc/examples
 	sed -e 's/$$VERSION/${VERSION}/g' -e 's,$$URLBASE,${URLBASE},g' -e 's,$$DATE2,${DATE2},g' -e 's,$$DATE,${DATE},g' version/PackageInfo.g >PackageInfo.g
 	sed -e 's/$$VERSION/${VERSION}/g' -e 's,$$URLBASE,${URLBASE},g' -e 's,$$DATE2,${DATE2},g' -e 's,$$DATE,${DATE},g' version/README.in >README
@@ -73,7 +73,7 @@ examples:
 	cd examples && ${MAKE} all && cd ..
 
 tests: depend 
-	cd test && ${MAKE} all && cd ..
+	cd tst && ${MAKE} all && cd ..
 
 workspace: build/gbnp.wks.gz
 

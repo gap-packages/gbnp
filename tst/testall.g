@@ -92,15 +92,15 @@ end;
 ##  sed -e 's: );: ],:'
 ##
 TEST_FILES := [
-[ "test-bound-01.test", 1000000 ],
-[ "test-bound-02.test", 1000000 ],
-[ "test-bound-03.test", 1000000 ],
-[ "test-bound-04.test", 1000000 ],
-[ "test-bound-05.test", 1000000 ],
-[ "test-bound-06.test", 1000000 ],
-[ "test-bound-07.test", 1000000 ],
-[ "test-bound-08.test", 1000000 ],
-[ "test-bound-09.test", 1000000 ],
+[ "test-bound-01.tst", 1000000 ],
+[ "test-bound-02.tst", 1000000 ],
+[ "test-bound-03.tst", 1000000 ],
+[ "test-bound-04.tst", 1000000 ],
+[ "test-bound-05.tst", 1000000 ],
+[ "test-bound-06.tst", 1000000 ],
+[ "test-bound-07.tst", 1000000 ],
+[ "test-bound-08.tst", 1000000 ],
+[ "test-bound-09.tst", 1000000 ],
 ];
 
 Sort( TEST_FILES, function(a,b) return a[2] < b[2]; end );
@@ -123,7 +123,7 @@ Print("-------------------------------------------\n");
 infoRead1 := InfoRead1;  InfoRead1 := Ignore;
 infoRead2 := InfoRead2;  InfoRead2 := Ignore;
 
-TestDir := DirectoriesPackageLibrary( "GBNP", "test" );
+TestDir := DirectoriesPackageLibrary( "GBNP", "tst" );
 
 for i  in [ 1 .. Length(TEST_FILES) ]  do
     name := Filename( TestDir, TEST_FILES[i][1] );

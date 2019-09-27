@@ -46,7 +46,7 @@ echo
 printf "TESTS="
 for e in $EXAMPLES
 do
-	printf "%s" " ${e}.test"
+	printf "%s" " ${e}.tst"
 done |sed -e 's/example/test/g' -e 's/functions/test-functions/g' -e 's/bound-test/test-bound/g'
 echo
 printf "TESTSG="
