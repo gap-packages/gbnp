@@ -31,5 +31,3 @@ depend:
 	../../scripts/gapscript "$*"
 %.xml: %.txt txt2xml.sed
 	sed -f txt2xml.sed "$<" > "$@"
-%.chk: %.txt
-	../../scripts/chkscript "$*"

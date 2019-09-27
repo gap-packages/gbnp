@@ -21,8 +21,3 @@ test-functions.g: ../doc/examples/functions.g
 	../scripts/gapscript "$*"
 %.xml: %.txt txt2xml.sed
 	sed -f txt2xml.sed "$<" > "$@"
-%.chk: %.tst
-	../scripts/chkscript "$*"
-
-svn: 	${TESTS}
-	svn diff --diff-cmd `which diff` -x --ignore-matching-lines='^#I.*' *.tst
