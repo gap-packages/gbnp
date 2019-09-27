@@ -43,7 +43,7 @@ gap> # <L>
 gap> LoadPackage("gbnp", false);
 true
 gap> SetInfoLevel(InfoGBNP,1);
-gap> SetInfoLevel(InfoGBNPTime,1);
+gap> SetInfoLevel(InfoGBNPTime,0);
 gap> # </L>
 gap> 
 gap> # Now enter the relations as GAP polynomials. It is possible to enter them with
@@ -79,14 +79,12 @@ gap> GBR:=SGrobnerModule(GP2NPList(prefixrels),GP2NPList(twosidrels));;
 #I  End of phase II
 #I  End of phase III
 #I  End of phase IV
-#I  The computation took 4 msecs.
 #I  number of entered polynomials is 7
 #I  number of polynomials after reduction is 7
 #I  End of phase I
 #I  End of phase II
 #I  End of phase III
 #I  End of phase IV
-#I  The computation took 0 msecs.
 gap> # </L>
 gap> 
 gap> # The record GBR has two members: the two-sided relations <C>GBR.ts</C> and the
@@ -143,14 +141,12 @@ gap> GBR:=SGrobnerModule(GP2NPList(prefixrelsdom),GBR.ts);;
 #I  End of phase II
 #I  End of phase III
 #I  End of phase IV
-#I  The computation took 0 msecs.
 #I  number of entered polynomials is 7
 #I  number of polynomials after reduction is 7
 #I  End of phase I
 #I  End of phase II
 #I  End of phase III
 #I  End of phase IV
-#I  The computation took 0 msecs.
 gap> PrintNPList(GBR.p);;
 [ b - 1 ]
 [ a^3 - ab ]

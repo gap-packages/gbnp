@@ -41,7 +41,7 @@
 # <L>
 LoadPackage("gbnp", false);
 SetInfoLevel(InfoGBNP,1);
-SetInfoLevel(InfoGBNPTime,1);
+SetInfoLevel(InfoGBNPTime,0);
 # </L>
 
 # Create the free associative algebra to enter the relations in:

@@ -41,7 +41,7 @@ gap> # <L>
 gap> LoadPackage("gbnp", false);
 true
 gap> SetInfoLevel(InfoGBNP,1);
-gap> SetInfoLevel(InfoGBNPTime,2);
+gap> SetInfoLevel(InfoGBNPTime,0);
 gap> # </L>
 gap> 
 gap> # We truncate the example by putting all monomials of degree <M>n</M> in the
@@ -120,9 +120,7 @@ gap> GB := SGrobner(I);;
 #I  End of phase I
 #I  End of phase II
 #I  End of phase III
-#I  Time needed to clean G :0
 #I  End of phase IV
-#I  The computation took 172 msecs.
 gap> # </L>
 gap> 
 gap> # Now print the first part of the Gröbner basis with <Ref Func="PrintNPList"
@@ -165,7 +163,6 @@ gap> # Func="DimQA" Style="Text"/>:
 gap> 
 gap> # <L>
 gap> DimQA(GB,2);
-#I  The computation took 0 msecs.
 157
 gap> # </L>
 gap> 

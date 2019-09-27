@@ -48,7 +48,7 @@ gap> # <L>
 gap> LoadPackage("gbnp", false);
 true
 gap> SetInfoLevel(InfoGBNP,1);
-gap> SetInfoLevel(InfoGBNPTime,2);
+gap> SetInfoLevel(InfoGBNPTime,0);
 gap> # </L>
 gap> 
 gap> # Then input the relations in NP format (see Section <Ref Sect="NP"/>). They
@@ -92,9 +92,7 @@ gap> GB := SGrobner(KI);;
 #I  End of phase I
 #I  End of phase II
 #I  End of phase III
-#I  Time needed to clean G :0
 #I  End of phase IV
-#I  The computation took 108 msecs.
 gap> # </L>
 gap> 
 gap> # We will check whether the quotient algebra is finite dimensional or infinite
@@ -119,7 +117,6 @@ gap> # timing information from <Ref Func="DimQA" Style="Text"/>:
 gap> 
 gap> # <L>
 gap> dim := DimQA(GB,6);
-#I  The computation took 152 msecs.
 51840
 gap> # </L>
 gap> # </Section>

@@ -29,7 +29,7 @@ gap> # <L>
 gap> LoadPackage("gbnp", false);
 true
 gap> SetInfoLevel(InfoGBNP,1);
-gap> SetInfoLevel(InfoGBNPTime,1);
+gap> SetInfoLevel(InfoGBNPTime,0);
 gap> # </L>
 gap> 
 gap> # In Serre's book <Cite Key="MR1954121"/> the following exercise can be found: 
@@ -80,7 +80,6 @@ gap> GB := SGrobnerTrace(KI);;
   220, 229, 246, 260, 263, 102, 40, 19, 9, 3, 0 ]
 #I  End of phase III
 #I  End of phase IV
-#I  The computation took 19688 msecs.
 gap> # </L>
 gap> 
 gap> # The dimension of the quotient algebra is 1, showing that the group algebra

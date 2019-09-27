@@ -39,7 +39,7 @@
 # <L>
 LoadPackage("gbnp", false);
 SetInfoLevel(InfoGBNP,1);
-SetInfoLevel(InfoGBNPTime,1);
+SetInfoLevel(InfoGBNPTime,0);
 # </L>
 
 # Create the field containing the golden ratio <C>tau</C>.

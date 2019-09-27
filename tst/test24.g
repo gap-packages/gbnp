@@ -27,7 +27,7 @@
 # <L>
 LoadPackage("gbnp", false);
 SetInfoLevel(InfoGBNP,1);
-SetInfoLevel(InfoGBNPTime,1);
+SetInfoLevel(InfoGBNPTime,0);
 # </L>
 
 # In Serre's book <Cite Key="MR1954121"/> the following exercise can be found: 

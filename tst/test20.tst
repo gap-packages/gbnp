@@ -43,7 +43,7 @@ gap> # <L>
 gap> LoadPackage("gbnp", false);
 true
 gap> SetInfoLevel(InfoGBNP,1);
-gap> SetInfoLevel(InfoGBNPTime,1);
+gap> SetInfoLevel(InfoGBNPTime,0);
 gap> # </L>
 gap> 
 gap> # Create the free associative algebra to enter the relations in:
@@ -92,14 +92,12 @@ gap> GBR:=SGrobnerModule(modrelsNP,GP2NPList(twosidrels));;
 #I  End of phase II
 #I  End of phase III
 #I  End of phase IV
-#I  The computation took 0 msecs.
 #I  number of entered polynomials is 9
 #I  number of polynomials after reduction is 9
 #I  End of phase I
 #I  End of phase II
 #I  End of phase III
 #I  End of phase IV
-#I  The computation took 0 msecs.
 gap> # </L>
 gap> 
 gap> # The record <C>GBR</C> has two members: the two-sided relations <C>GBR.ts</C>

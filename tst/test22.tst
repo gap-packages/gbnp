@@ -46,7 +46,7 @@ gap> # <L>
 gap> LoadPackage("gbnp", false);
 true
 gap> SetInfoLevel(InfoGBNP,1);
-gap> SetInfoLevel(InfoGBNPTime,1);
+gap> SetInfoLevel(InfoGBNPTime,0);
 gap> # </L>
 gap> 
 gap> # Now enter the relations as GAP polynomials. The module is one dimensional so
@@ -101,14 +101,12 @@ gap> GBR:=SGrobnerModule(GP2NPList(prefixrels),GP2NPList(twosidrels));;
 #I  End of phase II
 #I  End of phase III
 #I  End of phase IV
-#I  The computation took 8 msecs.
 #I  number of entered polynomials is 9
 #I  number of polynomials after reduction is 9
 #I  End of phase I
 #I  End of phase II
 #I  End of phase III
 #I  End of phase IV
-#I  The computation took 8 msecs.
 gap> # </L>
 gap> 
 gap> # The record GBR has three members: 

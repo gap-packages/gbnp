@@ -48,7 +48,7 @@ gap> # <L>
 gap> LoadPackage("gbnp", false);
 true
 gap> SetInfoLevel(InfoGBNP,2);
-gap> SetInfoLevel(InfoGBNPTime,1);
+gap> SetInfoLevel(InfoGBNPTime,0);
 gap> # </L>
 gap> 
 gap> # Let the variables be printed as <M>x</M> and <M>y</M> instead of <M>a</M> and <M>b</M> by means of
@@ -83,7 +83,6 @@ gap> GB := SGrobner(KI);;
 #I  End of phase III
 #I  G: Cleaning finished, 0 polynomials reduced
 #I  End of phase IV
-#I  The computation took 4 msecs.
 gap> PrintNPList(GB);
  x^2y - xy 
  y^4 - y^2 

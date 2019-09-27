@@ -38,7 +38,7 @@
 # <L>
 LoadPackage("gbnp", false);
 SetInfoLevel(InfoGBNP,0);
-SetInfoLevel(InfoGBNPTime,1);
+SetInfoLevel(InfoGBNPTime,0);
 # </L>
 
 # The relations are generated automatically from the Coxeter diagram. 

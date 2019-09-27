@@ -51,7 +51,7 @@
 # <L>
 LoadPackage("gbnp", false);
 SetInfoLevel(InfoGBNP,2);
-SetInfoLevel(InfoGBNPTime,1);
+SetInfoLevel(InfoGBNPTime,0);
 # </L>
 
 # Now define some functions which will help in the construction of relations.

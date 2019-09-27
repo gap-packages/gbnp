@@ -43,7 +43,7 @@ gap> # <L>
 gap> LoadPackage("gbnp", false);
 true
 gap> SetInfoLevel(InfoGBNP,1);
-gap> SetInfoLevel(InfoGBNPTime,1);
+gap> SetInfoLevel(InfoGBNPTime,0);
 gap> # </L>
 gap> 
 gap> # The variables are <M>g_1</M>, <M>g_2</M>,
@@ -64,7 +64,7 @@ l
 gap> mm := Indeterminate(Rationals,"m");
 m
 gap> F := Field(ll,mm);
-<algebra-with-one over Field( [ 1 ] )>
+<field in characteristic 0>
 gap> gens := GeneratorsOfField(F);
 [ l, m ]
 gap> l := gens[1];;
@@ -129,7 +129,6 @@ gap> GB := SGrobnerTrace(KI);;
 #I  List of todo lengths is [ 8, 7, 6, 5, 4, 6, 4, 4, 4, 3, 3, 2, 1, 0 ]
 #I  End of phase III
 #I  End of phase IV
-#I  The computation took 536 msecs.
 gap> # </L>
 gap> 
 gap> # The full trace can be printed with <Ref Func="PrintTraceList" Style="Text"/>,

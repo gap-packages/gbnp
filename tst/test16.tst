@@ -53,7 +53,7 @@ gap> # <L>
 gap> LoadPackage("gbnp", false);
 true
 gap> SetInfoLevel(InfoGBNP,2);
-gap> SetInfoLevel(InfoGBNPTime,1);
+gap> SetInfoLevel(InfoGBNPTime,0);
 gap> # </L>
 gap> 
 gap> # Now define some functions which will help in the construction of relations.
@@ -159,7 +159,6 @@ gap> GB := SGrobner(KI);
 #I  End of phase III
 #I  G: Cleaning finished, 0 polynomials reduced
 #I  End of phase IV
-#I  The computation took 772 msecs.
 [ [ [ [ 1 ] ], [ 1 ] ], [ [ [ 2 ] ], [ 1 ] ], 
   [ [ [ 4, 3 ], [ 3, 4 ] ], [ 1, -1 ] ], [ [ [ 5, 3 ], [ 3, 5 ] ], [ 1, -1 ] ]
     , [ [ [ 5, 4 ], [ 4, 5 ] ], [ 1, -1 ] ], 

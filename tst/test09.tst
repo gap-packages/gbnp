@@ -46,7 +46,7 @@ gap> # <L>
 gap> LoadPackage("gbnp", false);
 true
 gap> SetInfoLevel(InfoGBNP,2);
-gap> SetInfoLevel(InfoGBNPTime,1);
+gap> SetInfoLevel(InfoGBNPTime,0);
 gap> # </L>
 gap> 
 gap> # Let the variables be printed as <M>x</M> and <M>y</M> instead of <M>a</M> and <M>b</M> by means of
@@ -88,7 +88,6 @@ gap> GB := SGrobnerTrace(KI);
 #I  List of todo lengths is [ 2, 1, 0 ]
 #I  End of phase III
 #I  End of phase IV
-#I  The computation took 4 msecs.
 [ rec( pol := [ [ [ 2, 1 ], [ 1, 2 ] ], [ 1, -1 ] ], 
       trace := [ [ [  ], 1, [ 2 ], -1 ], [ [ 2 ], 1, [  ], 1 ], 
           [ [ 1 ], 2, [  ], 1 ], [ [  ], 2, [ 1 ], -1 ] ] ), 

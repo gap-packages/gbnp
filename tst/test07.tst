@@ -43,7 +43,7 @@ gap> # <L>
 gap> LoadPackage("gbnp", false);
 true
 gap> SetInfoLevel(InfoGBNP,1);
-gap> SetInfoLevel(InfoGBNPTime,1);
+gap> SetInfoLevel(InfoGBNPTime,0);
 gap> # </L>
 gap> 
 gap> # The variables are <M>g_1</M>, <M>g_2</M>, <M>g_3</M>, 
@@ -132,7 +132,6 @@ gap> GB := SGrobner(KI);;
 #I  End of phase II
 #I  End of phase III
 #I  End of phase IV
-#I  The computation took 68 msecs.
 gap> PrintNPList(GB);
  g1^2 - 7/11e1 + 7g1 - 1 
  g1e1 - 1/11e1 

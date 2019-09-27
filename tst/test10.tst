@@ -44,7 +44,7 @@ gap> # <L>
 gap> LoadPackage("gbnp", false);
 true
 gap> SetInfoLevel(InfoGBNP,1);
-gap> SetInfoLevel(InfoGBNPTime,1);
+gap> SetInfoLevel(InfoGBNPTime,0);
 gap> # </L>
 gap> 
 gap> # The relations will be entered as GAP polynomials and converted to NP form
@@ -102,7 +102,6 @@ gap> GB := SGrobner(KI);;
 #I  End of phase II
 #I  End of phase III
 #I  End of phase IV
-#I  The computation took 25088 msecs.
 gap> PrintNPList(GB);
  a 
  b 

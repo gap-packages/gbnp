@@ -48,7 +48,7 @@ gap> # <L>
 gap> LoadPackage("gbnp", false);
 true
 gap> SetInfoLevel(InfoGBNP,2);
-gap> SetInfoLevel(InfoGBNPTime,1);
+gap> SetInfoLevel(InfoGBNPTime,0);
 gap> # </L>
 gap> 
 gap> # Then input the relations in NP format (see Section <Ref Sect="NP"/>). 
@@ -100,7 +100,6 @@ gap> GB := SGrobner(Lnp);
 #I  End of phase III
 #I  G: Cleaning finished, 0 polynomials reduced
 #I  End of phase IV
-#I  The computation took 0 msecs.
 [ [ [ [ 2 ], [ 1 ] ], [ 1, -1 ] ], [ [ [ 1, 1, 1 ], [  ] ], [ 1, -1 ] ] ]
 gap> # </L>
 gap> 

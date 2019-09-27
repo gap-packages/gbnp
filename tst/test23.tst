@@ -40,7 +40,7 @@ gap> # <L>
 gap> LoadPackage("gbnp", false);
 true
 gap> SetInfoLevel(InfoGBNP,0);
-gap> SetInfoLevel(InfoGBNPTime,1);
+gap> SetInfoLevel(InfoGBNPTime,0);
 gap> # </L>
 gap> 
 gap> # The relations are generated automatically from the Coxeter diagram. 
@@ -129,7 +129,6 @@ gap>
 gap> # <L>
 gap> relsNP:=GP2NPList(rels);;
 gap> GB:=SGrobner(relsNP);;
-#I  The computation took 184 msecs.
 gap> # </L>
 gap> 
 gap> # It is now possible to calculate the dimension of the quotient algebra

@@ -39,7 +39,7 @@
 # <L>
 LoadPackage("gbnp", false);
 SetInfoLevel(InfoGBNP,1);
-SetInfoLevel(InfoGBNPTime,2);
+SetInfoLevel(InfoGBNPTime,0);
 # </L>
 
 # We truncate the example by putting all monomials of degree <M>n</M> in the

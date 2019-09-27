@@ -65,7 +65,7 @@ gap> # <L>
 gap> LoadPackage("gbnp", false);
 true
 gap> SetInfoLevel(InfoGBNP,0);
-gap> SetInfoLevel(InfoGBNPTime,2);
+gap> SetInfoLevel(InfoGBNPTime,0);
 gap> # </L>
 gap> 
 gap> # Then input the relations in NP format (see Section <Ref Sect="NP"/>). They
@@ -103,8 +103,6 @@ gap> # <Ref Func="SGrobner" Style="Text"/>:
 gap> 
 gap> # <L>
 gap> GB := SGrobner(KI);;
-#I  Time needed to clean G :0
-#I  The computation took 108 msecs.
 gap> # </L>
 gap> 
 gap> # Check the dimensionality of the quotient algebra.
@@ -134,7 +132,6 @@ gap> # information from <Ref Func="DimQA" Style="Text"/>:
 gap> 
 gap> # <L>
 gap> dim := DimQA(GB,6);
-#I  The computation took 168 msecs.
 51840
 gap> # </L>
 gap> # </Section>

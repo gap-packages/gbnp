@@ -49,7 +49,7 @@ gap> # <L>
 gap> LoadPackage("gbnp", false);
 true
 gap> SetInfoLevel(InfoGBNP,1);
-gap> SetInfoLevel(InfoGBNPTime,1);
+gap> SetInfoLevel(InfoGBNPTime,0);
 gap> # </L>
 gap> 
 gap> # The variables will be printed as <M>x</M> and <M>y</M>.
@@ -104,7 +104,6 @@ gap> G := SGrobnerTrunc(K,n,weights);;
 #I  Input is homogeneous
 #I  Reached level 16
 #I  end of the algorithm
-#I  The computation took 0 msecs.
 gap> # </L>
 gap> 
 gap> # The Gröbner basis of the truncated quotient algebra can be printed with <Ref
@@ -134,7 +133,6 @@ gap> B := BaseQATrunc(K,n,weights);;
 #I  Input is homogeneous
 #I  Reached level 16
 #I  end of the algorithm
-#I  The computation took 0 msecs.
 gap> i := Length(B);
 17
 gap> Print("at level ",i-1," the standard monomials are:\n");
@@ -185,7 +183,6 @@ gap> B2 := BaseQATrunc(G,n,weights);;
 #I  Input is homogeneous
 #I  Reached level 16
 #I  end of the algorithm
-#I  The computation took 4 msecs.
 gap> B = B2;
 true
 gap> # </L>
@@ -202,7 +199,6 @@ gap> B3 := BaseQATrunc(List( LMonsNP(G), qq -> [[qq],[1]]),n,weights);;
 #I  Input is homogeneous
 #I  Reached level 16
 #I  end of the algorithm
-#I  The computation took 0 msecs.
 gap> B = B3;
 true
 gap> # </L>
@@ -222,7 +218,6 @@ gap> DimsQATrunc(G,n,weights);
 #I  Input is homogeneous
 #I  Reached level 16
 #I  end of the algorithm
-#I  The computation took 4 msecs.
 [ 1, 0, 1, 1, 1, 2, 2, 3, 4, 5, 7, 9, 10, 16, 17, 24, 31 ]
 gap> # </L>
 gap> 
@@ -242,7 +237,6 @@ gap> FreqsQATrunc(G,n,weights);
 #I  Input is homogeneous
 #I  Reached level 16
 #I  end of the algorithm
-#I  The computation took 0 msecs.
 [ [ [ [  ], 1 ] ], [ [ [ 1, 0 ], 1 ] ], [ [ [ 0, 1 ], 1 ] ], 
   [ [ [ 2, 0 ], 1 ] ], [ [ [ 1, 1 ], 2 ] ], 
   [ [ [ 3, 0 ], 1 ], [ [ 0, 2 ], 1 ] ], [ [ [ 2, 1 ], 3 ] ], 

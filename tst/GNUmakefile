@@ -7,13 +7,13 @@ all: ${TESTS}
 
 functions.g: ../doc/examples/functions.g
 test%.g: ../doc/examples/example%.g
-	grep -v '^time' ../doc/examples/example"$*".g |grep -v '^Info(InfoGBNPTime' > test"$*".g
+	grep -v '^time' ../doc/examples/example"$*".g |sed 's/InfoGBNPTime,[12345]/InfoGBNPTime,0/' > test"$*".g
 
 test-bound%.g: ../doc/examples/bound-test%.g
-	grep -v '^time' ../doc/examples/bound-test"$*".g |grep -v '^Info(InfoGBNPTime' > test-bound"$*".g
+	grep -v '^time' ../doc/examples/bound-test"$*".g |sed 's/InfoGBNPTime,[12345]/InfoGBNPTime,0/' > test-bound"$*".g
 
 test-functions.g: ../doc/examples/functions.g
-	grep -v '^time' ../doc/examples/functions.g |grep -v '^Info(InfoGBNPTime' > test-functions.g
+	grep -v '^time' ../doc/examples/functions.g |sed 's/InfoGBNPTime,[12345]/InfoGBNPTime,0/' > test-functions.g
 
 %.tst: %.txt
 	../scripts/testscript "$*"

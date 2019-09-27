@@ -41,7 +41,7 @@
 # <L>
 LoadPackage("gbnp", false);
 SetInfoLevel(InfoGBNP,1);
-SetInfoLevel(InfoGBNPTime,1);
+SetInfoLevel(InfoGBNPTime,0);
 # </L>
 
 # The variables are <M>g_1</M>, <M>g_2</M>, <M>g_3</M>, 

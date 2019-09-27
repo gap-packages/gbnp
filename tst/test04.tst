@@ -41,7 +41,7 @@ gap> # <L>
 gap> LoadPackage("gbnp", false);
 true
 gap> SetInfoLevel(InfoGBNP,1);
-gap> SetInfoLevel(InfoGBNPTime,1);
+gap> SetInfoLevel(InfoGBNPTime,0);
 gap> # </L>
 gap> 
 gap> # Create the field containing the golden ratio <C>tau</C>.
@@ -101,14 +101,12 @@ gap> GBR:=SGrobnerModule(GP2NPList(Mrels),GP2NPList(Irels));;
 #I  End of phase II
 #I  End of phase III
 #I  End of phase IV
-#I  The computation took 16 msecs.
 #I  number of entered polynomials is 12
 #I  number of polynomials after reduction is 12
 #I  End of phase I
 #I  End of phase II
 #I  End of phase III
 #I  End of phase IV
-#I  The computation took 24 msecs.
 gap> PrintNPList(GBR.ts);;
  a^2 + !-1 
  b^2 + !-1 

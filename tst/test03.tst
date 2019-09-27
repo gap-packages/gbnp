@@ -42,7 +42,7 @@ gap> # <L>
 gap> LoadPackage("gbnp", false);
 true
 gap> SetInfoLevel(InfoGBNP,1);
-gap> SetInfoLevel(InfoGBNPTime,2);
+gap> SetInfoLevel(InfoGBNPTime,0);
 gap> # </L>
 gap> 
 gap> # Then input the relations in NP format (see <Ref Sect="NP"/>). 
@@ -126,9 +126,7 @@ gap> GB := SGrobner(KI);;
 #I  End of phase I
 #I  End of phase II
 #I  End of phase III
-#I  Time needed to clean G :0
 #I  End of phase IV
-#I  The computation took 120 msecs.
 gap> PrintNPList(GB);
  r.1^2 - 1 
  r.2r.1 - r.1r.2 
@@ -201,7 +199,6 @@ gap> # timing information from <Ref Func="DimQA" Style="Text"/>:
 gap> 
 gap> # <L>
 gap> DimQA(GB,6);
-#I  The computation took 160 msecs.
 51840
 gap> # </L>
 gap> 

@@ -40,7 +40,7 @@
 # <L>
 LoadPackage("gbnp", false);
 SetInfoLevel(InfoGBNP,1);
-SetInfoLevel(InfoGBNPTime,2);
+SetInfoLevel(InfoGBNPTime,0);
 # </L>
 
 # Then input the relations in NP format (see <Ref Sect="NP"/>). 
