@@ -17,7 +17,6 @@
 # https://www.gnu.org/licenses/lgpl.html
 ########################## END COPYRIGHT MESSAGE ##########################
 
-# $Id: grobnerloops.gi 12772 2010-01-15 13:10:24Z jwk $
 
 #GBNP.SGrobnerLoops:=function(G,todo,funcs)
 #GBNP.SGrobnerLoop:=function(G,todo)

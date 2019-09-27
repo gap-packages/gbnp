@@ -22,7 +22,6 @@
 ### 	made to accompany "nparith.gi" from Cohen & Gijsbers 
 ###
 ### This is a part of the GBNP package, version 0.9
-### $Id: nparith.gd 12772 2010-01-15 13:10:24Z jwk $
 
 DeclareGlobalFunction("LtNP");
 DeclareGlobalFunction("GtNP");

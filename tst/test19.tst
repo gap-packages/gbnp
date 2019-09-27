@@ -21,7 +21,6 @@ gap>
 gap> ### filename = "example19.g" 
 gap> ### author Knopper
 gap> ### amc edited 22 March 2007
-gap> ### $Id: example19.g,v 1.8 2004/04/16 14:37:38 jwk Exp $
 gap> 
 gap> ### THIS IS A GAP PACKAGE FOR COMPUTING NON-COMMUTATIVE GROBNER BASES 
 gap> ### Last change: September 25 2003

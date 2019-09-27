@@ -23,7 +23,6 @@ gap> ### authors Knopper
 gap> 
 gap> ### THIS IS A GAP PACKAGE GBNP
 gap> ### FOR COMPUTING WITH NON-COMMUTATIVE POLYNOMIALS
-gap> ### $Id: example17.g,v 1.4 2004/04/15 15:07:40 jwk Exp $
 gap> 
 gap> # <#GAPDoc Label="Example17">
 gap> # <Section Label="Example17"><Heading>An algebra over a finite field</Heading>

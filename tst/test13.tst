@@ -25,7 +25,6 @@ gap>
 gap> ### THIS IS A GAP PACKAGE GBNP
 gap> ### FOR COMPUTING WITH NON-COMMUTATIVE POLYNOMIALS
 gap> ### ADD-ON: STUDY GROWTH OF FACTOR ALGEBRA
-gap> ### $Id: example13.g,v 1.8 2004/04/16 14:37:38 jwk Exp $
 gap> 
 gap> # <#GAPDoc Label="Example13">
 gap> # <Section Label="Example13"><Heading> Finiteness of the Weyl group of type E<M>_6</M></Heading>

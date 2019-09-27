@@ -19,7 +19,6 @@
 
 ### filename = "npformat.gi" 
 ### author Cohen & Gijsbers
-### vs 0.9 $Id: npformat.gi 12772 2010-01-15 13:10:24Z jwk $
 
 # THIS IS PART OF A NON COMMUTATIVE GROBNER BASIS PACKAGE FOR GAP
  

@@ -24,7 +24,6 @@ gap> ### THIS IS A GAP PACKAGE GBNP
 gap> ### FOR COMPUTING WITH NON-COMMUTATIVE POLYNOMIALS
 gap> ### ADD-ON: STUDY GROWTH OF FACTOR ALGEBRA
 
-gap> ### $Id: example15.g,v 1.5 2004/04/16 14:37:38 jwk Exp $
 
 <#GAPDoc Label="Example15">
 <Section Label="Example15"><Heading>A quotient algebra with exponential growth</Heading>

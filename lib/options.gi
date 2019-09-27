@@ -17,7 +17,6 @@
 # https://www.gnu.org/licenses/lgpl.html
 ########################## END COPYRIGHT MESSAGE ##########################
 
-# $Id: options.gi 12772 2010-01-15 13:10:24Z jwk $
 
 # this file enables options
 # WARNING the option records are not copied (not with set and not with get)

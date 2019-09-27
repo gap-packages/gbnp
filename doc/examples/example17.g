@@ -22,7 +22,6 @@
 
 ### THIS IS A GAP PACKAGE GBNP
 ### FOR COMPUTING WITH NON-COMMUTATIVE POLYNOMIALS
-### $Id: example17.g,v 1.4 2004/04/15 15:07:40 jwk Exp $
 
 # <#GAPDoc Label="Example17">
 # <Section Label="Example17"><Heading>An algebra over a finite field</Heading>

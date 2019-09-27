@@ -19,7 +19,6 @@
 
 ### filename = "nparith.gi"
 ### vs 0.9
-### $Id: nparith.gi 12772 2010-01-15 13:10:24Z jwk $
  
 ### THIS IS PART OF A GAP PACKAGE FOR COMPUTING WITH NON-COMMUTATIVE POLYNOMIALS
  

@@ -19,7 +19,6 @@
 
 ### filename = "example05.g" 
 ### authors Cohen & Gijsbers
-### $Id: example05.g,v 1.5 2004/04/16 14:12:41 jwk Exp $
 
 ### THIS IS A GAP PACKAGE FOR COMPUTING NON-COMMUTATIVE GROBNER BASES 
  

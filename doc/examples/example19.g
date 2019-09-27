@@ -20,7 +20,6 @@
 ### filename = "example19.g" 
 ### author Knopper
 ### amc edited 22 March 2007
-### $Id: example19.g,v 1.8 2004/04/16 14:37:38 jwk Exp $
 
 ### THIS IS A GAP PACKAGE FOR COMPUTING NON-COMMUTATIVE GROBNER BASES 
 ### Last change: September 25 2003

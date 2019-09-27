@@ -25,7 +25,6 @@
 ### FOR COMPUTING WITH NON-COMMUTATIVE POLYNOMIALS
 ### ADD-ON: STUDY GROWTH OF FACTOR ALGEBRA
 
-### $Id: example14.g,v 1.6 2004/04/16 14:37:38 jwk Exp $
 
 # <#GAPDoc Label="Example14">
 # <Section Label="Example14"><Heading>Preprocessing for Weyl group computations</Heading>

@@ -20,7 +20,6 @@
 ### filename = "example20.g" 
 ### author Knopper
 ### amc last edited 25 May 2007 problem with GBNP(y[1]+y[2])
-### $Id: example20.g,v 1.7 2004/04/16 14:37:38 jwk Exp $
 
 # <#GAPDoc Label="Example20">
 # <Section Label="Example20"><Heading>The dihedral group on a non-cyclic module</Heading>
