@@ -77,7 +77,7 @@ ArchiveURL      := Concatenation( ~.SourceRepository.URL,
 ArchiveFormats := ".tar.gz",
 
 AbstractHTML := 
-  "The <span class=\"pkgname\">GBNP</spam> package provides algorithms for \
+  "The <span class=\"pkgname\">GBNP</span> package provides algorithms for \
    computing Grobner bases of noncommutative polynomials with coefficients \
    from a field implemented in <span class=\"pkgname\">GAP</span> and with \
    respect to the \"total degree first then lexicographical\" ordering. \
@@ -111,5 +111,3 @@ TestFile := "tst/testall.g",
 Keywords := ["Grobner basis", "noncommutative polynomial", "partial Hilbert series"],
 
 ));
-
-
