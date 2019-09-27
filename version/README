@@ -1,6 +1,0 @@
-To change the version edit ../GNUMakefile and change the variable VERSION.
-
-After a make depend the version should be changed everywhere.
-
-Remember that the documentation and examples might have to be rebuild to be
-updated.

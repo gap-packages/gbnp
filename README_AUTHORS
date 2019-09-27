@@ -86,7 +86,7 @@ This generates build/COPYRIGHTcmt and a vim-script build/changecomment.vim
 which allows to modify the comment semi-automatically with 
   vim -s ${SCRIPTNAME} ${SOURCEFILE}
 Example:
-- for i in lib/*.gd lib/*.gi etc/* read.g init.g make_doc.g testall.g doc/examples/*.g doc/examples/GNUmakefile doc/examples/makedepend GNUmakefile; do \
+- for i in lib/*.gd lib/*.gi etc/* read.g init.g makedoc.g doc/examples/*.g doc/examples/GNUmakefile doc/examples/makedepend GNUmakefile; do \
     vim -s build/changecomment.vim "$i" ;\
   done
 

@@ -39,7 +39,7 @@ Apply(examples, x->Concatenation(exampledir,"/example",x,".xml"));
 Add(examples, Concatenation(exampledir,"/","functions.xml"));
 # The files that are to be included are  
 files := Concatenation(sources,examples);;
-Append(files, [ "timing.xml" ]);
+Append(files, [ "timing.xml", "../PackageInfo.g" ]);
 # the name of the book
 bookname := "gbnp_book";;
 # the next three commands aren't useful, except for checking the xml integrity.

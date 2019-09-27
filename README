@@ -1,14 +1,5 @@
-README of the Grobner Package for GAP 4
-=======================================
-
-Date:
-=====
-         8 March 2016
-
-Version:
-========
-
-         1.0.3
+README of the GAP package `GBNP`
+================================
 
 Summary: 
 ======== 
@@ -24,11 +15,12 @@ of the word problem for finitely presented (semi)groups.
 
 Installation:
 =============
-To install GBNP, just unpack GBNP-1.0.3.tar.gz in the pkg subdirectory
+To install GBNP, just unpack GBNP-VERSION.tar.gz in the pkg subdirectory
 of your GAP installation (or in the pkg subdirectory of any other
-GAP root directory) with the following command:
+GAP root directory) with the following command (where 'VERSION' is replaced
+by the actual version):
 
-tar -xvzf GBNP-1.0.3.tar.gz
+tar -xvzf GBNP-VERSION.tar.gz
 
 GBNP is then loaded with the GAP command
 

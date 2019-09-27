@@ -11,6 +11,11 @@ Version := "1.0dev",
 Date := "08/03/2016", # dd/mm/yyyy format
 License := "LGPL-2.1-or-later", # SPDX identifier
 
+##  <#GAPDoc Label="PKGVERSIONDATA">
+##  <!ENTITY VERSION "1.0dev">
+##  <!ENTITY DATE "8 March 2016">
+##  <#/GAPDoc>
+
 Persons := [
   rec( 
     LastName      := "Cohen",

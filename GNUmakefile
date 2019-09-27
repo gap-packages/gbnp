@@ -17,26 +17,13 @@
 # https://www.gnu.org/licenses/lgpl.html
 ########################## END COPYRIGHT MESSAGE ##########################
 
-.PHONY:doc depend tests examples archives workspace comment builddir
-
-VERSION=1.0.3
-# date as text
-DATE=8 March 2016
-# date as dd/mm/yyyy
-DATE2=08/03/2016
-URLBASE='http://mathdox.org/products/gbnp'
+.PHONY:doc depend tests examples workspace comment
 
 # set $GAP to the gap command you want to use (if not set it will try to run
 # gap from the path
 
-all: depend doc examples tests archives workspace
+all: depend doc examples tests workspace
 	
-archives: GBNPdoc-${VERSION}.tar.gz GBNP-${VERSION}.tar.gz
-
-builddir:
-	mkdir -p build
-	mkdir -p build/archives
-
 clean: distclean
 	rm -rf tst/*tst 
 
@@ -44,28 +31,19 @@ computerinfo:
 	etc/maketiming > doc/timing.xml
 
 distclean:
-	rm -rf GBNPdoc-${VERSION}.tar.gz GBNP-${VERSION}.tar.gz doc/examples/*xml .depend doc/examples/.depend examples/.depend tst/.depend .depend make_doc.txt build
+	rm -rf doc/examples/*xml .depend doc/examples/.depend examples/.depend tst/.depend .depend makedoc.txt build
 
 doc: depend computerinfo
 	cd doc/examples && ${MAKE} allxml
 	cd ../..
-	etc/gapscript make_doc
-	rm -f make_doc.txt
-
-GBNPdoc-${VERSION}.tar.gz: doc builddir
-	tar -cvzf build/archives/GBNPdoc-${VERSION}.tar.gz --exclude '*CVS*' --exclude '*.svn*' --exclude '.depend' doc
-
-GBNP-${VERSION}.tar.gz: doc tests builddir
-	tar -cvzf build/archives/GBNP-${VERSION}.tar.gz -C .. --exclude 'build/archives' --exclude '*.git*' --exclude 'build' --exclude '.depend' gbnp
+	etc/gapscript makedoc
+	rm -f makedoc.txt
 
 depend: workspace
 	etc/makedepend
 	cp .depend examples
 	cp .depend tst
 	cp .depend doc/examples
-	sed -e 's/$$VERSION/${VERSION}/g' -e 's,$$URLBASE,${URLBASE},g' -e 's,$$DATE2,${DATE2},g' -e 's,$$DATE,${DATE},g' version/PackageInfo.g >PackageInfo.g
-	sed -e 's/$$VERSION/${VERSION}/g' -e 's,$$URLBASE,${URLBASE},g' -e 's,$$DATE2,${DATE2},g' -e 's,$$DATE,${DATE},g' version/README.in >README
-	sed -e 's/$$VERSION/${VERSION}/g' -e 's,$$URLBASE,${URLBASE},g' -e 's,$$DATE2,${DATE2},g' -e 's,$$DATE,${DATE},g' doc/gbnp_doc.xml.in >doc/gbnp_doc.xml
 
 .depend: depend
 
@@ -80,7 +58,8 @@ workspace: build/gbnp.wks.gz
 build/gbnp.wks.gz: 
 	etc/workspace
 
-build/COPYRIGHTcmt: COPYRIGHT etc/copyrightcomment builddir
+build/COPYRIGHTcmt: COPYRIGHT etc/copyrightcomment
+	mkdir -p build
 	etc/copyrightcomment <COPYRIGHT >build/COPYRIGHTcmt
 
 build/changecomment.vim: etc/changecomment.vim.sh build/COPYRIGHTcmt
