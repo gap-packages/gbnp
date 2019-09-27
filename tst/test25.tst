@@ -26,7 +26,8 @@ gap> # <#GAPDoc Label="Example25">
 gap> # <Section Label="Example25"><Heading>Baur and Draisma's transformations</Heading>
 gap> 
 gap> # <L>
-gap> LoadPackage("GBNP","0",false);;
+gap> LoadPackage("gbnp", false);
+true
 gap> SetInfoLevel(InfoGBNP,0);
 gap> SetInfoLevel(InfoGBNPTime,0);
 gap> # </L>

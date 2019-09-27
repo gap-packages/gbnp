@@ -54,7 +54,8 @@ Func="InfoGBNPTime" Style="Text"/> to 1 (for more information about the info
 level, see Chapter <Ref Chap="Info"/>).
 
 <Listing><![CDATA[
-gap> LoadPackage("GBNP","0",false);;
+gap> LoadPackage("gbnp", false);
+true
 gap> SetInfoLevel(InfoGBNP,2);
 gap> SetInfoLevel(InfoGBNPTime,1);
 ]]></Listing>

@@ -6,7 +6,7 @@
 # \cite{CCS99}; it also appears as example 6 in the {\GBNP} example set.
 
 
-LoadPackage("gbnp");
+LoadPackage("gbnp", false);
 
 A := FreeAssociativeAlgebraWithOne(Rationals,"a","b","c","d","e","f");;
 a := A.a;; b := A.b;; c := A.c;; d := A.d;; e := A.e;; f := A.f;;

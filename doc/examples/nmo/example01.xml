@@ -2,13 +2,7 @@ This example was taken from Dr. Edward Green's paper ``Noncommutative
 Grobner Bases, and Projective Resolutions'', and is referenced
 as ``Example 2.7'' there; please see the manual for more information.
 
-gap> LoadPackage("gbnp");
-─────────────────────────────────────────────────────────────────────────────
-Loading  GBNP 1.0.2 (Non-commutative Gröbner bases)
-by A.M. Cohen (http://www.win.tue.nl/~amc) and
-   J.W. Knopper (J.W.Knopper@tue.nl).
-Homepage: http://mathdox.org/products/gbnp/
-─────────────────────────────────────────────────────────────────────────────
+gap> LoadPackage("gbnp", false);
 true
 gap> A := FreeAssociativeAlgebraWithOne(Rationals,"a","b","c","d");
 <algebra-with-one over Rationals, with 4 generators>

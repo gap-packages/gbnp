@@ -19,7 +19,7 @@
 
 # First load the gap package (before the example)
 
-LoadPackage("GBNP","0",false);
+LoadPackage("gbnp", false);
 
 # <#GAPDoc Label="example-GP2NP">
 

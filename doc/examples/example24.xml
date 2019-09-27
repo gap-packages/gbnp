@@ -25,7 +25,8 @@ gap> ### amc last edited 31 May 2007
 <Section Label="Example24"><Heading>Serre's exercise</Heading>
 
 <Listing><![CDATA[
-gap> LoadPackage("GBNP","0",false);;
+gap> LoadPackage("gbnp", false);
+true
 gap> SetInfoLevel(InfoGBNP,1);
 gap> SetInfoLevel(InfoGBNPTime,1);
 ]]></Listing>

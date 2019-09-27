@@ -6,13 +6,7 @@ the following example shows.  It was taken from the book page 339 of
 \cite{CCS99}; it also appears as example 6 in the {\GBNP} example set.
 
 
-gap> LoadPackage("gbnp");
-─────────────────────────────────────────────────────────────────────────────
-Loading  GBNP 1.0.2 (Non-commutative Gröbner bases)
-by A.M. Cohen (http://www.win.tue.nl/~amc) and
-   J.W. Knopper (J.W.Knopper@tue.nl).
-Homepage: http://mathdox.org/products/gbnp/
-─────────────────────────────────────────────────────────────────────────────
+gap> LoadPackage("gbnp", false);
 true
 
 gap> A := FreeAssociativeAlgebraWithOne(Rationals,"a","b","c","d","e","f");;

@@ -2,7 +2,7 @@
 # Grobner Bases, and Projective Resolutions'', and is referenced
 # as ``Example 2.7'' there; please see the manual for more information.
 
-LoadPackage("gbnp");
+LoadPackage("gbnp", false);
 A := FreeAssociativeAlgebraWithOne(Rationals,"a","b","c","d");
 a := A.a; b := A.b; c := A.c; d := A.d;
 polys := [c*d*a*b-c*b,b*c-d*a];

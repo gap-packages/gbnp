@@ -20,7 +20,7 @@ gap> ########################## END COPYRIGHT MESSAGE ##########################
 gap> 
 gap> # First load the gap package (before the example)
 gap> 
-gap> LoadPackage("GBNP","0",false);
+gap> LoadPackage("gbnp", false);
 true
 gap> 
 gap> # <#GAPDoc Label="example-GP2NP">

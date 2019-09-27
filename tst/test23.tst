@@ -37,7 +37,8 @@ gap> # Func="InfoGBNPTime" Style="Text"/> to 1 (for more information about timin
 gap> # see Chapter <Ref Chap="Info"/>).
 gap> 
 gap> # <L>
-gap> LoadPackage("GBNP","0",false);;
+gap> LoadPackage("gbnp", false);
+true
 gap> SetInfoLevel(InfoGBNP,0);
 gap> SetInfoLevel(InfoGBNPTime,1);
 gap> # </L>

@@ -26,7 +26,8 @@ gap> # <#GAPDoc Label="Example24">
 gap> # <Section Label="Example24"><Heading>Serre's exercise</Heading>
 gap> 
 gap> # <L>
-gap> LoadPackage("GBNP","0",false);;
+gap> LoadPackage("gbnp", false);
+true
 gap> SetInfoLevel(InfoGBNP,1);
 gap> SetInfoLevel(InfoGBNPTime,1);
 gap> # </L>

@@ -62,7 +62,8 @@ gap> # data regarding the computation (for more information about the info
 gap> # level, see Chapter <Ref Chap="Info"/>).
 gap> 
 gap> # <L>
-gap> LoadPackage("GBNP","0",false);;
+gap> LoadPackage("gbnp", false);
+true
 gap> SetInfoLevel(InfoGBNP,0);
 gap> SetInfoLevel(InfoGBNPTime,0);
 gap> # </L>

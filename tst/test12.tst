@@ -38,13 +38,7 @@ gap> # Func="InfoGBNPTime" Style="Text"/> to 0 (for more information about the i
 gap> # level, see Chapter <Ref Chap="Info"/>).
 gap> 
 gap> # <L>
-gap> LoadPackage("GBNP");
-─────────────────────────────────────────────────────────────────────────────
-Loading  GBNP 1.0.2 (Non-commutative Gröbner bases)
-by A.M. Cohen (http://www.win.tue.nl/~amc) and
-   J.W. Knopper (J.W.Knopper@tue.nl).
-Homepage: http://mathdox.org/products/gbnp/
-─────────────────────────────────────────────────────────────────────────────
+gap> LoadPackage("gbnp", false);
 true
 gap> 
 gap> SetInfoLevel(InfoGBNP,0);

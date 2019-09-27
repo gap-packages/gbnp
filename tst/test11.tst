@@ -46,7 +46,8 @@ gap> # level, see Chapter <Ref Chap="Info"/>).
 gap> 
 gap> 
 gap> # <L>
-gap> LoadPackage("GBNP","0",false);;
+gap> LoadPackage("gbnp", false);
+true
 gap> SetInfoLevel(InfoGBNP,1);
 gap> SetInfoLevel(InfoGBNPTime,1);
 gap> # </L>

@@ -4,7 +4,7 @@
 # First, we set up the problem and find a Grobner basis w.r.t. the length
 # left-lexicographic ordering implicitly assumed in {\GBNP}:
 
-LoadPackage("gbnp");
+LoadPackage("gbnp", false);
 A := FreeAssociativeAlgebraWithOne(Rationals,"x","y","z");;
 x := A.x;; y := A.y;; z := A.z;; id := One(A);;
 polys := [ x^2 + y^2 + z^2 - id, x^2 + z^2 - y, x-z,

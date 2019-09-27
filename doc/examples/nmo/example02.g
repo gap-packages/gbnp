@@ -6,7 +6,7 @@
 # and lexicographic orderings are created independently and then
 # chained to form the usual length left-lexicographic ordering. 
 
-LoadPackage("gbnp");
+LoadPackage("gbnp", false);
 
 A := FreeAssociativeAlgebraWithOne(Rationals,"a","b","c","d");;
 a := A.a;; b := A.b;; c := A.c;; d := A.d;;

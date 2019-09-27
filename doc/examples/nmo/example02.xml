@@ -6,13 +6,7 @@ This example is the same as Example 1 above, except that the length
 and lexicographic orderings are created independently and then
 chained to form the usual length left-lexicographic ordering. 
 
-gap> LoadPackage("gbnp");
-─────────────────────────────────────────────────────────────────────────────
-Loading  GBNP 1.0.2 (Non-commutative Gröbner bases)
-by A.M. Cohen (http://www.win.tue.nl/~amc) and
-   J.W. Knopper (J.W.Knopper@tue.nl).
-Homepage: http://mathdox.org/products/gbnp/
-─────────────────────────────────────────────────────────────────────────────
+gap> LoadPackage("gbnp", false);
 true
 
 gap> A := FreeAssociativeAlgebraWithOne(Rationals,"a","b","c","d");;

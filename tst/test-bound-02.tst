@@ -18,13 +18,7 @@ gap> # the doc subdirectory of the GBNP distribution or see the FSF's own site:
 gap> # http://www.gnu.org/licenses/lgpl.html
 gap> ########################## END COPYRIGHT MESSAGE ##########################
 gap> 
-gap> LoadPackage("gbnp");
-─────────────────────────────────────────────────────────────────────────────
-Loading  GBNP 1.0.2 (Non-commutative Gröbner bases)
-by A.M. Cohen (http://www.win.tue.nl/~amc) and
-   J.W. Knopper (J.W.Knopper@tue.nl).
-Homepage: http://mathdox.org/products/gbnp/
-─────────────────────────────────────────────────────────────────────────────
+gap> LoadPackage("gbnp", false);
 true
 gap> 
 gap> # printing examples (more can be added)

@@ -17,7 +17,7 @@
 # http://www.gnu.org/licenses/lgpl.html
 ########################## END COPYRIGHT MESSAGE ##########################
 
-LoadPackage("gbnp");
+LoadPackage("gbnp", false);
 
 # SGrobnerTrunc
 F:=Rationals;;

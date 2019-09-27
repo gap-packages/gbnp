@@ -44,7 +44,7 @@
 # level, see Chapter <Ref Chap="Info"/>).
 
 # <L>
-LoadPackage("GBNP","0",false);;
+LoadPackage("gbnp", false);
 SetInfoLevel(InfoGBNP,2);
 SetInfoLevel(InfoGBNPTime,1);
 # </L>

@@ -25,7 +25,8 @@ gap> ### amc last edited 1 June 2007
 <Section Label="Example25"><Heading>Baur and Draisma's transformations</Heading>
 
 <Listing><![CDATA[
-gap> LoadPackage("GBNP","0",false);;
+gap> LoadPackage("gbnp", false);
+true
 gap> SetInfoLevel(InfoGBNP,0);
 gap> SetInfoLevel(InfoGBNPTime,0);
 ]]></Listing>

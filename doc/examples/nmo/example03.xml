@@ -4,13 +4,7 @@ Example 3 is taken from the book "Ideals, Varieties, and Algorithms",
 First, we set up the problem and find a Grobner basis w.r.t. the length
 left-lexicographic ordering implicitly assumed in {\GBNP}:
 
-gap> LoadPackage("gbnp");
-─────────────────────────────────────────────────────────────────────────────
-Loading  GBNP 1.0.2 (Non-commutative Gröbner bases)
-by A.M. Cohen (http://www.win.tue.nl/~amc) and
-   J.W. Knopper (J.W.Knopper@tue.nl).
-Homepage: http://mathdox.org/products/gbnp/
-─────────────────────────────────────────────────────────────────────────────
+gap> LoadPackage("gbnp", false);
 true
 gap> A := FreeAssociativeAlgebraWithOne(Rationals,"x","y","z");;
 gap> x := A.x;; y := A.y;; z := A.z;; id := One(A);;

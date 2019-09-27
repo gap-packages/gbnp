@@ -25,7 +25,7 @@
 # <Section Label="Example25"><Heading>Baur and Draisma's transformations</Heading>
 
 # <L>
-LoadPackage("GBNP","0",false);;
+LoadPackage("gbnp", false);
 SetInfoLevel(InfoGBNP,0);
 SetInfoLevel(InfoGBNPTime,0);
 # </L>
