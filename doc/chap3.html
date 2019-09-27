@@ -19,6 +19,7 @@
 
 <div class="chlinkprevnexttop">&nbsp;<a href="chap0.html">[Top of Book]</a>&nbsp;  <a href="chap0.html#contents">[Contents]</a>&nbsp;  &nbsp;<a href="chap2.html">[Previous Chapter]</a>&nbsp;  &nbsp;<a href="chap4.html">[Next Chapter]</a>&nbsp;  </div>
 
+<p id="mathjaxlink" class="pcenter"></p>
 <p><a id="X86FA580F8055B274" name="X86FA580F8055B274"></a></p>
 <div class="ChapSects"><a href="chap3.html#X86FA580F8055B274">3 <span class="Heading">Functions</span></a>
 <div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap3.html#X81ABB91B79E00229">3.1 <span class="Heading">Converting polynomials
@@ -126,7 +127,7 @@
 
 <h5>3.1-1 GP2NP</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; GP2NP</code>( <var class="Arg">gp</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; GP2NP</code>( <var class="Arg">gp</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p>Returns: If <var class="Arg">gp</var> is an element of a free algebra, then the polynomial in NP format (see Section <a href="chap2.html#X7FDF3E5E7F33D3A2"><span class="RefLink">2.1</span></a>) corresponding to <var class="Arg">gp</var>; if <var class="Arg">gp</var> is an element of a free module, then the vector in NPM format (see Section <a href="chap2.html#X7B27E2D1784538DE"><span class="RefLink">2.2</span></a>) corresponding to <var class="Arg">gp</var>.</p>
 
 <p>This function will convert an element of a free algebra to a polynomial in NP format and an element of a free right module to a vector in NPM format.</p>
@@ -186,7 +187,7 @@ gap&gt; List(R,GP2NP);
 
 <h5>3.1-2 GP2NPList</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; GP2NPList</code>( <var class="Arg">Lgp</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; GP2NPList</code>( <var class="Arg">Lgp</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p>Returns: The list of polynomials in NP or NPM format corresponding to elements of a free algebra or module occurring in the list <var class="Arg">Lgp</var>.</p>
 
 <p>This function has the same effect as <code class="code">List(Lgp,GBNP)</code>.</p>
@@ -231,7 +232,7 @@ true
 
 <h5>3.1-3 NP2GP</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; NP2GP</code>( <var class="Arg">np</var>, <var class="Arg">A</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; NP2GP</code>( <var class="Arg">np</var>, <var class="Arg">A</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p>Returns: The GAP format of the polynomial <var class="Arg">np</var> in NP format.</p>
 
 <p>This function will convert a polynomial in NP format to a GAP polynomial in the free associative algebra <var class="Arg">A</var> and a vector in NPM format to a GAP vector in the free module <var class="Arg">A</var>. In case of the NP format, the number of variables should not exceed the rank of the free algebra <var class="Arg">A</var>. In case of the NPM format, the absolute of the negative numbers should not exceed the rank of the free module <var class="Arg">A</var>.</p>
@@ -297,7 +298,7 @@ gap&gt; List(Lnp, m -&gt; NP2GP(m,M));
 
 <h5>3.1-4 NP2GPList</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; NP2GPList</code>( <var class="Arg">Lnp</var>, <var class="Arg">A</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; NP2GPList</code>( <var class="Arg">Lnp</var>, <var class="Arg">A</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p>Returns: The list of polynomials corresponding to <var class="Arg">Lnp</var> in GAP format.</p>
 
 <p>This function will convert the list <var class="Arg">Lnp</var> of polynomials in NP format to a list of GAP polynomials in the free associative algebra <var class="Arg">A</var>.</p>
@@ -354,7 +355,7 @@ true
 
 <h5>3.2-1 PrintNP</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; PrintNP</code>( <var class="Arg">np</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; PrintNP</code>( <var class="Arg">np</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p>This function prints a polynomial <var class="Arg">np</var> in NP format, using the letters <code class="code">a</code>, <code class="code">b</code>, <code class="code">c</code>, <span class="SimpleMath">...</span> for <span class="SimpleMath">x_1</span>, <span class="SimpleMath">x_2</span>, <span class="SimpleMath">x_3</span>, <span class="SimpleMath">...</span>, except that everything beyond <span class="SimpleMath">l</span> (the 12-th letter) is printed as <span class="SimpleMath">x</span>.</p>
 
 <p>This function prints a polynomial <var class="Arg">np</var> in NP format as configured by the function <code class="func">GBNP.ConfigPrint</code> (<a href="chap3.html#X7F7510A878045D3A"><span class="RefLink">3.2-2</span></a>).</p>
@@ -378,7 +379,7 @@ gap&gt; PrintNP(p);
 
 <h5>3.2-2 GBNP.ConfigPrint</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; GBNP.ConfigPrint</code>( <var class="Arg">arg</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; GBNP.ConfigPrint</code>( <var class="Arg">arg</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p>By default the generators of the algebra are printed as <code class="code">a</code>, ..., <code class="code">l</code> and everything after the twelfth generator as <code class="code">x</code>. By calling <code class="code">ConfigPrint</code> it is possible to alter this printing convention. The argument(s) will be an algebra or arguments used for naming algebras in GAP upon creation. More specifically, we have the following choices.</p>
 
 
@@ -483,7 +484,7 @@ gap&gt; PrintNP(p2);
 
 <h5>3.2-3 PrintNPList</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; PrintNPList</code>( <var class="Arg">Lnp</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; PrintNPList</code>( <var class="Arg">Lnp</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p>This function prints a list <var class="Arg">Lnp</var> of polynomials in NP format, using the function <code class="code">PrintNP</code>.</p>
 
 <p><em>Example:</em> We put two polynomials in NP format into the list <code class="code">Lnp</code>.</p>
@@ -523,7 +524,7 @@ gap&gt; PrintNPList(Lnp);
 
 <h5>3.3-1 NumAlgGensNP</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; NumAlgGensNP</code>( <var class="Arg">np</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; NumAlgGensNP</code>( <var class="Arg">np</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p>Returns: The minimum number <code class="code">t</code> so that <var class="Arg">np</var> belongs to the free algebra on <code class="code">t</code> generators.</p>
 
 <p>When called with an NP polynomial <var class="Arg">np</var>, this function returns the minimum number of generators needed for the corresponding algebra to contain the <var class="Arg">np</var>. If <var class="Arg">np</var> is a polynomial without generators, that is, equivalent to <span class="SimpleMath">0</span> or <span class="SimpleMath">1</span>, then <code class="code">0</code> is returned.</p>
@@ -543,7 +544,7 @@ gap&gt; NumAlgGensNP(np);
 
 <h5>3.3-2 NumAlgGensNPList</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; NumAlgGensNPList</code>( <var class="Arg">Lnp</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; NumAlgGensNPList</code>( <var class="Arg">Lnp</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p>Returns: The minimum number <code class="code">t</code> so that each polynomial in <var class="Arg">Lnp</var> belongs to the free algebra on <code class="code">t</code> generators.</p>
 
 <p>When called with a list of NP polynomials <var class="Arg">Lnp</var>, this function returns the minimum number of generators needed for the corresponding algebra to contain the NP polynomials in <var class="Arg">Lnp</var>. If <var class="Arg">Lnp</var> only contains polynomials without generators, that is equivalent to <span class="SimpleMath">0</span> and <span class="SimpleMath">1</span>, then <code class="code">0</code> is returned.</p>
@@ -565,7 +566,7 @@ gap&gt; NumAlgGensNPList([p1,p2]);
 
 <h5>3.3-3 NumModGensNP</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; NumModGensNP</code>( <var class="Arg">npm</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; NumModGensNP</code>( <var class="Arg">npm</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p>Returns: The minimum number <code class="code">mt</code> so that <var class="Arg">npm</var> belongs to the free module on <code class="code">mt</code> generators.</p>
 
 <p>When called with a polynomial <var class="Arg">npm</var> in NPM format, this function returns the minimum number of module generators needed for the corresponding algebra to contain <var class="Arg">npm</var>. If <var class="Arg">npm</var> is an NP polynomial that does not contain module generators, then <code class="code">0</code> is returned.</p>
@@ -585,7 +586,7 @@ gap&gt; NumModGensNP(np);
 
 <h5>3.3-4 NumModGensNPList</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; NumModGensNPList</code>( <var class="Arg">Lnpm</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; NumModGensNPList</code>( <var class="Arg">Lnpm</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p>Returns: The minimum number <code class="code">mt</code> so that each member of <var class="Arg">npm</var> belongs to the free module on <code class="code">mt</code> generators.</p>
 
 <p>When called with a list of polynomials <var class="Arg">Lnpm</var> in NPM format, this function returns the minimum number of module generators needed to contain the polynomials in <var class="Arg">Lnpm</var>. If there are only polynomials in <var class="Arg">Lnpm</var> in NP format, then <code class="code">0</code> is returned.</p>
@@ -607,7 +608,7 @@ gap&gt; NumModGensNPList([v1,v2]);
 
 <h5>3.3-5 AddNP</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; AddNP</code>( <var class="Arg">u</var>, <var class="Arg">v</var>, <var class="Arg">c</var>, <var class="Arg">d</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; AddNP</code>( <var class="Arg">u</var>, <var class="Arg">v</var>, <var class="Arg">c</var>, <var class="Arg">d</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p>Returns: <var class="Arg">c</var><span class="SimpleMath">*</span><var class="Arg">u</var><span class="SimpleMath">+</span><var class="Arg">d</var><span class="SimpleMath">*</span><var class="Arg">v</var></p>
 
 <p>Computes <var class="Arg">c</var><span class="SimpleMath">*</span><var class="Arg">u</var><span class="SimpleMath">+</span><var class="Arg">d</var><span class="SimpleMath">*</span><var class="Arg">v</var> where <var class="Arg">u</var> and <var class="Arg">v</var> are polynomials in NP format and <var class="Arg">c</var> and <var class="Arg">d</var> are scalars.</p>
@@ -632,7 +633,7 @@ gap&gt; PrintNP(AddNP(p1,p2,1,-1));
 
 <h5>3.3-6 BimulNP</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; BimulNP</code>( <var class="Arg">ga</var>, <var class="Arg">np</var>, <var class="Arg">dr</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; BimulNP</code>( <var class="Arg">ga</var>, <var class="Arg">np</var>, <var class="Arg">dr</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p>Returns: the polynomial <var class="Arg">ga</var><span class="SimpleMath">*</span><var class="Arg">np</var><span class="SimpleMath">*</span><var class="Arg">dr</var> in NP format</p>
 
 <p>When called with a polynomial <var class="Arg">np</var> and two monomials <var class="Arg">ga</var>, <var class="Arg">dr</var>, the function will return <var class="Arg">ga</var><span class="SimpleMath">*</span><var class="Arg">np</var><span class="SimpleMath">*</span><var class="Arg">dr</var>. Recall from Section <a href="chap2.html#X7FDF3E5E7F33D3A2"><span class="RefLink">2.1</span></a> that monomials are represented as lists.</p>
@@ -659,7 +660,7 @@ gap&gt; PrintNP(BimulNP([1],p2,[]));
 
 <h5>3.3-7 CleanNP</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; CleanNP</code>( <var class="Arg">u</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; CleanNP</code>( <var class="Arg">u</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p>Returns: The cleaned up version of <var class="Arg">u</var></p>
 
 <p>Given a polynomial in NP format, this function collects terms with same monomial, removes trivial monomials, and orders the monomials, with biggest one first.</p>
@@ -694,7 +695,7 @@ gap&gt; CleanNP(p);
 
 <h5>3.3-8 GtNP</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; GtNP</code>( <var class="Arg">u</var>, <var class="Arg">v</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; GtNP</code>( <var class="Arg">u</var>, <var class="Arg">v</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p>Returns: <code class="code">true</code> if <span class="SimpleMath">u &gt; v</span> and <code class="code">false</code> if <span class="SimpleMath">u ≤ v</span></p>
 
 <p>Greater than function for monomials <var class="Arg">u</var> and <var class="Arg">v</var> represented as in Section <a href="chap2.html#X7FDF3E5E7F33D3A2"><span class="RefLink">2.1</span></a>. It tests whether <var class="Arg">u</var><span class="SimpleMath">&gt;</span><var class="Arg">v</var>. The ordering is done by degree and then lexicographically.</p>
@@ -721,7 +722,7 @@ false
 
 <h5>3.3-9 LtNP</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; LtNP</code>( <var class="Arg">u</var>, <var class="Arg">v</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; LtNP</code>( <var class="Arg">u</var>, <var class="Arg">v</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p>Returns: <code class="code">true</code> if <span class="SimpleMath">u &lt; v</span> and <code class="code">false</code> if <span class="SimpleMath">u ≥ v</span></p>
 
 <p>Less than function for NP monomials, tests whether <var class="Arg">u</var><span class="SimpleMath">&lt;</span><var class="Arg">v</var>. The ordering is done by degree and then lexicographically.</p>
@@ -748,7 +749,7 @@ true
 
 <h5>3.3-10 LMonsNP</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; LMonsNP</code>( <var class="Arg">Lnp</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; LMonsNP</code>( <var class="Arg">Lnp</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p>Returns: A list of leading monomials</p>
 
 <p>This function returns the leading monomials of a list <var class="Arg">Lnp</var> of polynomials in NP format. The polynomials of <var class="Arg">Lnp</var> are required to be clean; see Section <a href="chap3.html#X855F3D4C783000E3"><span class="RefLink">3.3-7</span></a>.</p>
@@ -783,7 +784,7 @@ gap&gt; PrintNPList(List(LMonsNP(Lnp), q -&gt; [[q],[1]]));
 
 <h5>3.3-11 MkMonicNP</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; MkMonicNP</code>( <var class="Arg">np</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; MkMonicNP</code>( <var class="Arg">np</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p>Returns: <var class="Arg">np</var> made monic</p>
 
 <p>This function returns the scalar multiple of a polynomial <var class="Arg">np</var> in NP format that is monic, i.e., has leading coefficient equal to 1.</p>
@@ -809,7 +810,7 @@ gap&gt; PrintNP(MkMonicNP(p));
 
 <h5>3.3-12 MulNP</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; MulNP</code>( <var class="Arg">np1</var>, <var class="Arg">np2</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; MulNP</code>( <var class="Arg">np1</var>, <var class="Arg">np2</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p>Returns: <var class="Arg">np1</var><span class="SimpleMath">*</span><var class="Arg">np2</var></p>
 
 <p>When invoked with two polynomials <var class="Arg">np1</var> and <var class="Arg">np2</var> in NP format, this function will return the product <var class="Arg">np1</var><span class="SimpleMath">*</span><var class="Arg">np2</var>.</p>
@@ -846,7 +847,7 @@ gap&gt; PrintNP(AddNP(MulNP(p1,p2),MulNP(p2,p1),1,-1));
 
 <h5>3.4-1 Grobner</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Grobner</code>( <var class="Arg">Lnp</var>[, <var class="Arg">D</var>][, <var class="Arg">max</var>] )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Grobner</code>( <var class="Arg">Lnp</var>[, <var class="Arg">D</var>][, <var class="Arg">max</var>] )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p>Returns: If the algorithm terminates, a Gröbner Basis or a record if <var class="Arg">max</var> is specified (see description).</p>
 
 <p>For a list <var class="Arg">Lnp</var> of polynomials in NP format this function will use Buchberger's algorithm with normal form to find a Gröbner Basis (if possible, the general problem is unsolvable).</p>
@@ -913,7 +914,7 @@ gap&gt; PrintNPList(Grobner([[p1[1],One(GF(2))*p1[2]],[p2[1],One(GF(2))*p1[2]]])
 
 <h5>3.4-2 SGrobner</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; SGrobner</code>( <var class="Arg">Lnp</var>[, <var class="Arg">todo</var>][, <var class="Arg">max</var>] )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; SGrobner</code>( <var class="Arg">Lnp</var>[, <var class="Arg">todo</var>][, <var class="Arg">max</var>] )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p>Returns: If the algorithm terminates, a Gröbner Basis or a record if <var class="Arg">max</var> is specified (see description).</p>
 
 <p>For a list <var class="Arg">Lnp</var> of polynomials in NP format this function will use Buchberger's algorithm with strong normal form (see <a href="chapBib.html#biBCohenGijsbersEtAl2007">[Coh07]</a>) to find a Gröbner Basis (if possible, the general problem is unsolvable).</p>
@@ -971,7 +972,7 @@ gap&gt; PrintNPList(SGrobner(R.G,R.todo));
 
 <h5>3.4-3 IsGrobnerBasis</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsGrobnerBasis</code>( <var class="Arg">G</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsGrobnerBasis</code>( <var class="Arg">G</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p>Returns: <code class="code">true</code> if <var class="Arg">G</var> is a Gröbner basis and <code class="code">false</code> otherwise</p>
 
 <p>When invoked with a list <var class="Arg">G</var> of polynomials in NP format (see Section <a href="chap2.html#X7FDF3E5E7F33D3A2"><span class="RefLink">2.1</span></a>), this function will check whether the list is a Gröbner basis. The check is based on Theorem 1.4 from <a href="chapBib.html#biBCohenGijsbersEtAl2007">[Coh07]</a>.</p>
@@ -1008,7 +1009,7 @@ true
 
 <h5>3.4-4 IsStrongGrobnerBasis</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsStrongGrobnerBasis</code>( <var class="Arg">G</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsStrongGrobnerBasis</code>( <var class="Arg">G</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p>Returns: <code class="code">true</code> if <var class="Arg">G</var> is a strong Gröbner basis and <code class="code">false</code> otherwise</p>
 
 <p>When invoked with a list <var class="Arg">G</var> of polynomials in NP format (see Section <a href="chap2.html#X7FDF3E5E7F33D3A2"><span class="RefLink">2.1</span></a>), this function will check whether the polynomials in this list form a strong Gröbner basis (see <a href="chapBib.html#biBCohenGijsbersEtAl2007">[Coh07]</a>).</p>
@@ -1061,7 +1062,7 @@ false
 
 <h5>3.4-5 IsGrobnerPair</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsGrobnerPair</code>( <var class="Arg">G</var>, <var class="Arg">D</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsGrobnerPair</code>( <var class="Arg">G</var>, <var class="Arg">D</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p>Returns: A boolean, which has the value <code class="code">true</code> if the input forms a Gröbner pair</p>
 
 <p>When called with two lists of polynomials in NP format, this function returns true if they form a Gröbner pair. Testing whether <var class="Arg">D</var> is a basic set for <var class="Arg">G</var> might involve computing the Gröbner basis. Instead of this only some simple computations are done to see if it can easily be proven that <var class="Arg">D</var> is a basic set for <var class="Arg">G</var>. If this cannot be proven easily, then <code class="code">false</code> is returned, even though <span class="SimpleMath">G, D</span> might still be a Gröbner pair.</p>
@@ -1098,7 +1099,7 @@ true
 
 <h5>3.4-6 MakeGrobnerPair</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; MakeGrobnerPair</code>( <var class="Arg">G</var>, <var class="Arg">D</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; MakeGrobnerPair</code>( <var class="Arg">G</var>, <var class="Arg">D</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p>Returns: A record containing a new Grobner pair</p>
 
 <p>When called with as arguments a pair <span class="SimpleMath">G, D</span>, this function cleans <var class="Arg">G</var> and <var class="Arg">D</var> and adds some obstructions to <var class="Arg">D</var> till it is easily provable that <var class="Arg">D</var> is a basic set for <var class="Arg">G</var> (see <a href="chapBib.html#biBCohenGijsbersEtAl2007">[Coh07]</a>). The result is a record containing the fields <code class="code">G</code> and <code class="code">todo</code> representing the Gröbner pair.</p>
@@ -1142,7 +1143,7 @@ gap&gt; PrintNPList(GB);
 
 <h5>3.5-1 BaseQA</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; BaseQA</code>( <var class="Arg">G</var>, <var class="Arg">t</var>, <var class="Arg">maxno</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; BaseQA</code>( <var class="Arg">G</var>, <var class="Arg">t</var>, <var class="Arg">maxno</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p>Returns: A list of terms forming a basis of the quotient algebra of the (non-commutative) polynomial algebra in <var class="Arg">t</var> variables by the 2-sided ideal generated by <var class="Arg">G</var></p>
 
 <p>When called with a Gröbner basis <var class="Arg">G</var>, the number <var class="Arg">t</var> of generators of the algebra, and a maximum number of terms to be found <var class="Arg">maxno</var>, BaseQA will return a (partial) base of the quotient algebra. If this function is invoked with <var class="Arg">maxno</var> equal to 0, then a full basis will be given. If the dimension of this quotient algebra is infinite and <var class="Arg">maxno</var> is set to 0, then the algorithm behind this function will not terminate.</p>
@@ -1198,7 +1199,7 @@ gap&gt; PrintNPList(BaseQA([p1,p2],2,10));
 
 <h5>3.5-2 DimQA</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; DimQA</code>( <var class="Arg">G</var>, <var class="Arg">t</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; DimQA</code>( <var class="Arg">G</var>, <var class="Arg">t</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p>Returns: The dimension of the quotient algebra</p>
 
 <p>When called with a Gröbner basis <var class="Arg">G</var> and a number of variables <var class="Arg">t</var>, the function <code class="code">DimQA</code> will return the dimension of the quotient algebra of the free algebra generated by <var class="Arg">t</var> variables by the ideal generated by <var class="Arg">G</var> if it is finite. It will not terminate if the dimension is infinite.</p>
@@ -1231,7 +1232,7 @@ gap&gt; DimQA(G,2);
 
 <h5>3.5-3 MatrixQA</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; MatrixQA</code>( <var class="Arg">i</var>, <var class="Arg">B</var>, <var class="Arg">GB</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; MatrixQA</code>( <var class="Arg">i</var>, <var class="Arg">B</var>, <var class="Arg">GB</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p>Returns: The matrix representation for the <var class="Arg">i</var>-th generator of the algebra for right multiplication in the quotient algebra</p>
 
 <p>Given a basis <var class="Arg">B</var> of the quotient algebra, a Gröbner basis (record) <var class="Arg">GB</var>, and a natural number <var class="Arg">i</var>, this function creates a matrix representation for the <var class="Arg">i</var>-th generator of the algebra for right multiplication.</p>
@@ -1299,7 +1300,7 @@ gap&gt; Display(MatrixQA(1,B,GBR));
 
 <h5>3.5-4 MatricesQA</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; MatricesQA</code>( <var class="Arg">t</var>, <var class="Arg">B</var>, <var class="Arg">GB</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; MatricesQA</code>( <var class="Arg">t</var>, <var class="Arg">B</var>, <var class="Arg">GB</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p>Returns: The matrix representation for the <var class="Arg">t</var> generators of the algebra for right multiplication in the quotient algebra</p>
 
 <p>Given a basis <var class="Arg">B</var> of the quotient algebra, a Gröbner basis (record) <var class="Arg">GB</var>, and a natural number <var class="Arg">t</var>, this function creates a list of <var class="Arg">t</var> matrices representing the linear transformations of the generators of the algebra by right multiplication on the quotient algebra.</p>
@@ -1352,7 +1353,7 @@ true
 
 <h5>3.5-5 MulQA</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; MulQA</code>( <var class="Arg">p1</var>, <var class="Arg">p2</var>, <var class="Arg">G</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; MulQA</code>( <var class="Arg">p1</var>, <var class="Arg">p2</var>, <var class="Arg">G</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p>Returns: The strong normal form of the product <var class="Arg">p1</var><span class="SimpleMath">*</span><var class="Arg">p2</var> with respect to <var class="Arg">G</var></p>
 
 <p>When called with two polynomials in NP form, <var class="Arg">p1</var> and <var class="Arg">p2</var>, and a Gröbner basis <var class="Arg">G</var>, this function will return the product in the quotient algebra.</p>
@@ -1391,7 +1392,7 @@ true
 
 <h5>3.5-6 StrongNormalFormNP</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; StrongNormalFormNP</code>( <var class="Arg">f</var>, <var class="Arg">G</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; StrongNormalFormNP</code>( <var class="Arg">f</var>, <var class="Arg">G</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p>Returns: The strong normal form of a polynomial with respect to <var class="Arg">G</var></p>
 
 <p>When invoked with a polynomial in NP format (see Section <a href="chap2.html#X7FDF3E5E7F33D3A2"><span class="RefLink">2.1</span></a>) and a finite set <var class="Arg">G</var> of polynomials in NP format, this function will return a strong normal form (that is, a polynomial that is equal to <var class="Arg">f</var> modulo <var class="Arg">G</var>, every monomial of which is a multiple of no leading monomial of an element of <var class="Arg">G</var>).</p>
@@ -1429,7 +1430,7 @@ gap&gt; PrintNP(StrongNormalFormNP(p,[p1,p2]));
 
 <h5>3.6-1 DetermineGrowthQA</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; DetermineGrowthQA</code>( <var class="Arg">Lm</var>, <var class="Arg">t</var>, <var class="Arg">exact</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; DetermineGrowthQA</code>( <var class="Arg">Lm</var>, <var class="Arg">t</var>, <var class="Arg">exact</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p>Returns: If the quotient algebra is finite dimensional, then the integer <code class="code">0</code> is returned. If the growth is polynomial and the algorithm found a precise degree <code class="code">d</code> of the growth polynomial, then <code class="code">d</code> is returned. If the growth is polynomial and no precise answer is found, an interval <code class="code">[d1,d2]</code> is returned in which the dimension lies. If the growth is exponential, the string <code class="code">"exponential growth"</code> is returned.</p>
 
 <p>Given leading monomials <var class="Arg">Lm</var> of some Gröbner basis (these can be obtained with the function <code class="func">LMonsNP</code> (<a href="chap3.html#X86ECA4F57C720E45"><span class="RefLink">3.3-10</span></a>)), the number <var class="Arg">t</var> of generators of a free algebra, say <span class="SimpleMath">A</span>, in which the monomials lie, and a boolean <var class="Arg">exact</var>, this function checks whether the quotient algebra of <span class="SimpleMath">A</span> by the ideal generated by <var class="Arg">Lm</var> is finite dimensional. In doing so it constructs a graph of normal words which helps with the computations. It also checks for exponential or polynomial growth in the infinite case.</p>
@@ -1487,7 +1488,7 @@ gap&gt; DetermineGrowthQA(L,2,true);
 
 <h5>3.6-2 FinCheckQA</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; FinCheckQA</code>( <var class="Arg">Lm</var>, <var class="Arg">t</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; FinCheckQA</code>( <var class="Arg">Lm</var>, <var class="Arg">t</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p>Returns: <code class="code">true</code>, if the quotient algebra is finite dimensional and<code class="code"> false</code> otherwise</p>
 
 <p>Given a list <var class="Arg">Lm</var> of leading monomials such that none of these divides another, and the number <var class="Arg">t</var> of generators of a free algebra in which they are embedded, this function checks whether the quotient algebra of the free algebra by the ideal generated by <var class="Arg">Lm</var> is finite dimensional.</p>
@@ -1523,7 +1524,7 @@ true
 
 <h5>3.6-3 HilbertSeriesQA</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; HilbertSeriesQA</code>( <var class="Arg">Lm</var>, <var class="Arg">t</var>, <var class="Arg">d</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; HilbertSeriesQA</code>( <var class="Arg">Lm</var>, <var class="Arg">t</var>, <var class="Arg">d</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p>Returns: A list of coefficients of the Hilbert series up to degree <var class="Arg">d</var></p>
 
 <p>Given a set of monomials <var class="Arg">Lm</var>, none of which divides another, and the number <var class="Arg">n</var> of generators of the free algebra in which they occur, this function computes the Hilbert series up to a given degree <var class="Arg">d</var>.</p>
@@ -1551,7 +1552,7 @@ gap&gt; HilbertSeriesQA(L,2,10);
 
 <h5>3.6-4 PreprocessAnalysisQA</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; PreprocessAnalysisQA</code>( <var class="Arg">Lm</var>, <var class="Arg">t</var>, <var class="Arg">iterations</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; PreprocessAnalysisQA</code>( <var class="Arg">Lm</var>, <var class="Arg">t</var>, <var class="Arg">iterations</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p>Returns: The left-reduced list of `obstructions', obtained by applying left-reduction recursively</p>
 
 <p>This preprocessing of the list <var class="Arg">Lm</var> of monomials can be applied to the set of leading terms of a Gröbner basis before calling the functions <code class="func">FinCheckQA</code> (<a href="chap3.html#X792E39A98717D779"><span class="RefLink">3.6-2</span></a>) or <code class="func">DetermineGrowthQA</code> (<a href="chap3.html#X83C57C3A7DCF0471"><span class="RefLink">3.6-1</span></a>), in order to speed up calculations using these functions. As the name suggests, <var class="Arg">t</var> should be the size of the alphabet. The parameter <var class="Arg">iterations</var> gives the maximum number of recursion steps in the preprocessing (<var class="Arg">0</var> means no restriction). For more information about this function see <a href="chapBib.html#biBKrook2003">[Kro03]</a>.</p>
@@ -1593,7 +1594,7 @@ gap&gt; L2 := PreprocessAnalysisQA(L1,2,4);
 
 <h5>3.7-1 EvalTrace</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; EvalTrace</code>( <var class="Arg">p</var>, <var class="Arg">Lnp</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; EvalTrace</code>( <var class="Arg">p</var>, <var class="Arg">Lnp</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p>Returns: The trace evaluated to a polynomial in NP format.</p>
 
 <p>For a traced polynomial <var class="Arg">p</var> and a list <var class="Arg">Lnp</var> of polynomials in NP format, this program evaluates the trace by substituting the polynomials of <var class="Arg">Lnp</var> back in the expression <code class="code">p.trace</code> and computing the resulting polynomial. The result should have the same value as <code class="code">p.pol</code>.</p>
@@ -1620,7 +1621,7 @@ true
 
 <h5>3.7-2 PrintTraceList</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; PrintTraceList</code>( <var class="Arg">G</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; PrintTraceList</code>( <var class="Arg">G</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p>When invoked with a list <var class="Arg">G</var> of traced polynomials, this function prints the traces of that list.</p>
 
 <p><em>Example:</em> First we compute the traced Gröbner basis of the list of two polynomials in NP format and next we print it by use of <code class="code">PrintTraceList</code>.</p>
@@ -1640,7 +1641,7 @@ gap&gt; PrintTraceList(GBT);
 
 <h5>3.7-3 PrintTracePol</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; PrintTracePol</code>( <var class="Arg">p</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; PrintTracePol</code>( <var class="Arg">p</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p>This function prints the trace of an NP polynomial <var class="Arg">p</var>.</p>
 
 <p><em>Example:</em> First we compute the traced Gröbner basis of the list of two polynomials in NP format. Next we print the trace polynomial of the members of the list by use of <code class="code">PrintTracePol</code>.</p>
@@ -1661,7 +1662,7 @@ gap&gt; for np in GBT do PrintTracePol(np); Print("\n"); od;
 
 <h5>3.7-4 PrintNPListTrace</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; PrintNPListTrace</code>( <var class="Arg">G</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; PrintNPListTrace</code>( <var class="Arg">G</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p>When invoked with a set of traced non-commutative polynomials <var class="Arg">G</var>, this function prints the list of the traced polynomials, without the trace.</p>
 
 <p><em>Example:</em> First we compute the traced Gröbner basis of the list of two polynomials in NP format. Next we print the polynomials found by use of <code class="code">PrintNPListTrace</code>.</p>
@@ -1680,7 +1681,7 @@ gap&gt; PrintNPListTrace(GBT);
 
 <h5>3.7-5 SGrobnerTrace</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; SGrobnerTrace</code>( <var class="Arg">Lnp</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; SGrobnerTrace</code>( <var class="Arg">Lnp</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p>Returns: Gröbner Basis, traceable</p>
 
 <p>For a list of noncommutative polynomials <var class="Arg">Lnp</var> this function will use Buchberger's algorithm with strong normal form to find a Gröbner Basis <code class="code">G</code> (if possible; the general problem is unsolvable).</p>
@@ -1707,7 +1708,7 @@ gap&gt; GBT := SGrobnerTrace([p1,p2]);
 
 <h5>3.7-6 StrongNormalFormTraceDiff</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; StrongNormalFormTraceDiff</code>( <var class="Arg">np</var>, <var class="Arg">GBT</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; StrongNormalFormTraceDiff</code>( <var class="Arg">np</var>, <var class="Arg">GBT</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p>Returns: The traced polynomial for the difference of <var class="Arg">f</var> with the strong normal form of <var class="Arg">np</var> with respect to <var class="Arg">GBT</var></p>
 
 <p>When invoked with a polynomial <var class="Arg">np</var> in NP format as its first argument, and a traced Gröbner basis <var class="Arg">GBT</var> as generated by <code class="func">SGrobnerTrace</code> (<a href="chap3.html#X78AE6EED83B97595"><span class="RefLink">3.7-5</span></a>), this function returns the difference of <var class="Arg">np</var> with the strong normal form of <var class="Arg">np</var> with respect to <var class="Arg">GBT</var>. This difference <code class="code">d</code> is returned as a traced polynomial. The trace information <code class="code">d.trace</code> gives an expression of <code class="code">d.pol</code> as a combination of polynomials from the list of polynomials to which the trace parts of <var class="Arg">GBT</var> are referring. Typically, this is the set of relations used as input to the computation of <var class="Arg">GBT</var>.</p>
@@ -1750,7 +1751,7 @@ gap&gt; PrintTraceList([sf]);
 
 <h5>3.8-2 SGrobnerTrunc</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; SGrobnerTrunc</code>( <var class="Arg">Lnp</var>, <var class="Arg">deg</var>, <var class="Arg">wtv</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; SGrobnerTrunc</code>( <var class="Arg">Lnp</var>, <var class="Arg">deg</var>, <var class="Arg">wtv</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p>Returns: A list of homogeneous NP polynomials if the first argument of the input is a list of homogeneous NP polynomials, and the boolean <code class="code">false</code> otherwise.</p>
 
 <p>This functions should be invoked with a list <var class="Arg">Lnp</var> of polynomials in NP format, a natural number <var class="Arg">deg</var>, and a weight vector <var class="Arg">wtv</var> of length the number of generators of the free algebra <span class="SimpleMath">A</span> containing the elements of <var class="Arg">Lnp</var>, and with positive integers for entries. If the polynomials of <var class="Arg">Lnp</var> are homogeneous with respect to <var class="Arg">wtv</var>, the function will return a Gröbner basis of <var class="Arg">Lnp</var> truncated above <var class="Arg">deg</var>. If the list of polynomials <var class="Arg">Lnp</var> is not homogeneous with respect to <var class="Arg">wtv</var>, it returns <code class="code">false</code>. The homogeneity check can be carried out by <code class="func">CheckHomogeneousNPs</code> (<a href="chap3.html#X83C9E598798D5809"><span class="RefLink">3.8-3</span></a>).</p>
@@ -1780,7 +1781,7 @@ gap&gt; PrintNPList(SGrobnerTrunc([p1,p2],12,[3,2]));
 
 <h5>3.8-3 CheckHomogeneousNPs</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; CheckHomogeneousNPs</code>( <var class="Arg">Lnp</var>, <var class="Arg">wtv</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; CheckHomogeneousNPs</code>( <var class="Arg">Lnp</var>, <var class="Arg">wtv</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p>Returns: A list of weighted degrees of the polynomials if these are homogeneous with respect to <var class="Arg">wtv</var>, and <code class="code">false</code> otherwise.</p>
 
 <p>When invoked with a list of NP polynomials <var class="Arg">Lnp</var> and a weight vector <var class="Arg">wtv</var> (whose entries should be positive integers), this function returns the list of weighted degrees of the polynomials in <var class="Arg">Lnp</var> if these are all homogeneous and nonzero, and <code class="code">false</code> otherwise. Here, a polynomial is (weighted) homogeneous with respect to a weight vector <span class="SimpleMath">w</span> if there is constant <span class="SimpleMath">d</span> such that, for each monomial <span class="SimpleMath">[t_1,...,t_r]</span> of the polynomial the sum of all <span class="SimpleMath">w[t_i]</span> for <span class="SimpleMath">i</span> in <span class="SimpleMath">[1..r]</span> is equal to <span class="SimpleMath">d</span>. The natural number <span class="SimpleMath">d</span> is then called the weighted degree of the polynomial.</p>
@@ -1808,7 +1809,7 @@ gap&gt; CheckHomogeneousNPs([p1,p2],[3,2]);
 
 <h5>3.8-4 BaseQATrunc</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; BaseQATrunc</code>( <var class="Arg">Lnp</var>, <var class="Arg">deg</var>, <var class="Arg">wtv</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; BaseQATrunc</code>( <var class="Arg">Lnp</var>, <var class="Arg">deg</var>, <var class="Arg">wtv</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p>Returns: A list of monomials if the first argument of the input is a list of homogeneous NP polynomials or <code class="code">false</code>.</p>
 
 <p>When invoked with a list of polynomials <var class="Arg">Lnp</var>, a natural number <var class="Arg">deg</var>, and a weight vector <var class="Arg">wtv</var> of length the number of variables and with positive integers for entries, such that the polynomials of <var class="Arg">Lnp</var> are homogeneous with respect to <var class="Arg">wtv</var>, it returns a list whose <span class="SimpleMath">i</span>-th entry is a basis of monomials of the homogeneous part of degree <span class="SimpleMath">i-1</span> the quotient algebra of the free noncommutative algebra by the weighted homogeneous ideal generated by <var class="Arg">Lnp</var> truncated above <var class="Arg">deg</var>. If the list of polynomials <var class="Arg">Lnp</var> is not homogeneous, it returns <code class="code">false</code>.</p>
@@ -1879,7 +1880,7 @@ gap&gt; for degpart in BT do
 
 <h5>3.8-5 DimsQATrunc</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; DimsQATrunc</code>( <var class="Arg">Lnp</var>, <var class="Arg">deg</var>, <var class="Arg">wtv</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; DimsQATrunc</code>( <var class="Arg">Lnp</var>, <var class="Arg">deg</var>, <var class="Arg">wtv</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p>Returns: A list of monomials if the first argument of the input is a list of homogeneous NP polynomials or <code class="code">false</code>.</p>
 
 <p>When invoked with a list of polynomials <var class="Arg">Lnp</var>, a natural number <var class="Arg">deg</var>, and a weight vector <var class="Arg">wtv</var> of length the number of variables and with positive integers for entries, such that the polynomials of <var class="Arg">Lnp</var> are homogeneous with respect to <var class="Arg">wtv</var>, it returns a list of dimensions of the homogeneous parts of the quotient algebra of the free noncommutative algebra by the ideal generated by <var class="Arg">Lnp</var> truncated above <var class="Arg">deg</var>. The <span class="SimpleMath">i</span>-th entry of the list gives the dimension of the homogeneous part of degree <span class="SimpleMath">i-1</span> of the quotient algebra. If the list of polynomials <var class="Arg">Lnp</var> is not homogeneous, it returns <code class="code">false</code>.</p>
@@ -1906,7 +1907,7 @@ gap&gt; DimsQATrunc(GB,12,wtv);
 
 <h5>3.8-6 FreqsQATrunc</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; FreqsQATrunc</code>( <var class="Arg">Lnp</var>, <var class="Arg">deg</var>, <var class="Arg">wtv</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; FreqsQATrunc</code>( <var class="Arg">Lnp</var>, <var class="Arg">deg</var>, <var class="Arg">wtv</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p>Returns: A list of multiplicities of frequencies of monomials if the first argument of the input is a list of homogeneous polynomials in NP format, and <code class="code">false</code> otherwise.</p>
 
 <p>The frequency of a monomial is the list of numbers of occurrences of a variable in the monomial for each variable; the multiplicity of a frequency is the number of monomials in the standard basis for a quotient algebra with this frequency. When invoked with a list <var class="Arg">Lnp</var> of polynomials in NP format representing a (truncated) Gröbner basis, a natural number <var class="Arg">deg</var>, and a weight vector <var class="Arg">wtv</var> of length the number of variables and with positive integers for entries, such that the polynomials of <var class="Arg">Lnp</var> are homogeneous with respect to <var class="Arg">wtv</var>, it returns a list of frequencies occurring with their multiplicities for the quotient algebra of the free noncommutative algebra by the ideal generated by <var class="Arg">Lnp</var> truncated above <var class="Arg">deg</var>. The <span class="SimpleMath">i</span>-th entry of the list gives the frequencies of the weight <span class="SimpleMath">(i-1)</span> basis monomials of the quotient algebra. If the list of polynomials <var class="Arg">Lnp</var> is not homogeneous with respect to <var class="Arg">wtv</var>, it returns <code class="code">false</code>.</p>
@@ -1986,7 +1987,7 @@ At level 8 the multiplicities are
 
 <h5>3.9-1 SGrobnerModule</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; SGrobnerModule</code>( <var class="Arg">Lnpm</var>, <var class="Arg">Lnp</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; SGrobnerModule</code>( <var class="Arg">Lnpm</var>, <var class="Arg">Lnp</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p>Returns: A record <code class="code">GBR</code> containing a Gröbner basis (if found...the general problem is unsolvable) for modules; <code class="code">GBR.p</code> will contain the prefix rules and <code class="code">GBR.ts</code> will contain the two-sided rules, and <code class="code">GBR.pg</code> will be the smallest rank of the free module to which all prefix relations belong</p>
 
 <p>For a list <var class="Arg">Lnpm</var> of vectors in NPM format (see Section <a href="chap2.html#X7FDF3E5E7F33D3A2"><span class="RefLink">2.1</span></a>), and a list <var class="Arg">Lnp</var> of polynomials in NP format, this function will use Buchberger's algorithm with strong normal form applied to the union of <var class="Arg">Lnpm</var>, <var class="Arg">Lnp</var>, the set of polynomials <span class="SimpleMath">x*e-x</span> and <span class="SimpleMath">x*m[i]</span> for <span class="SimpleMath">x</span> a standard indeterminate, a module generator <span class="SimpleMath">m[j]</span> or the dummy indeterminate <span class="SimpleMath">e</span>, and the set of all <span class="SimpleMath">e*x -x</span> for <span class="SimpleMath">x</span> a standard indeterminate, to find a Gröbner Basis record <code class="code">GBR</code> (if possible; the general problem is unsolvable). This record will have a Gröbner Basis <code class="code">GBR.ts</code> for the two-sided ideal generated by <var class="Arg">Lnp</var> and an intersection with the module <code class="code">GBR.p</code> representing the module relations needed to find representative vectors in the module uniquely by means of a strong normal form computation modding out <code class="code">GBR.p</code> and, for the scalars, <code class="code">GBR.ts</code>.</p>
@@ -2030,7 +2031,7 @@ gap&gt; PrintNPList(GBR.ts);
 
 <h5>3.9-2 BaseQM</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; BaseQM</code>( <var class="Arg">GBR</var>, <var class="Arg">t</var>, <var class="Arg">mt</var>, <var class="Arg">maxno</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; BaseQM</code>( <var class="Arg">GBR</var>, <var class="Arg">t</var>, <var class="Arg">mt</var>, <var class="Arg">maxno</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p>Returns: A basis of the module obtained from the free module of rank <var class="Arg">mt</var> over the free algebra on <var class="Arg">t</var> generators by factoring out the submodule generated by the elements of <var class="Arg">GBR</var></p>
 
 <p>When called with a Gröbner basis record <var class="Arg">GBR</var> (see Section <a href="chap2.html#X80DAE0A97CFC95DD"><span class="RefLink">2.8</span></a>), the number of variables <var class="Arg">t</var>, the number of module generators <var class="Arg">mt</var>, and a maximum number of terms to be found, <var class="Arg">maxno</var>, the function <code class="code">BaseQM</code> will return a (partial) base of the quotient module of <span class="SimpleMath">A^mt</span> over the free algebra on <span class="SimpleMath">A</span> on <code class="code">t</code> generators by the right sub <span class="SimpleMath">A</span>-module generated by the elements of <var class="Arg">GBR</var>. Note that the record <var class="Arg">GBR</var> consists of two fields: the list <var class="Arg">GBR.p</var> of vectors in NPM format representing elements of the free module <span class="SimpleMath">A^mt</span>, and the list <var class="Arg">GBR.ts</var> of polynomials in NP format representing elements of <span class="SimpleMath">A</span>. The submodule generated by <var class="Arg">GBR</var> is considered to be the right submodule of <span class="SimpleMath">A^mt</span> generated by <var class="Arg">GBR.p</var> and all elements of the form <span class="SimpleMath">v⋅ np</span> with <span class="SimpleMath">np</span> in the two-sided ideal of <span class="SimpleMath">A</span> generated by <var class="Arg">GBR.ts</var> and <span class="SimpleMath">v</span> in <span class="SimpleMath">A^mt</span>. If this function is invoked with <var class="Arg">maxno</var> equal to 0, then a full basis will be given.</p>
@@ -2108,7 +2109,7 @@ gap&gt; PrintNPList(B);
 
 <h5>3.9-3 DimQM</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; DimQM</code>( <var class="Arg">GBR</var>, <var class="Arg">t</var>, <var class="Arg">mt</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; DimQM</code>( <var class="Arg">GBR</var>, <var class="Arg">t</var>, <var class="Arg">mt</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p>Returns: The dimension of the quotient module</p>
 
 <p>When called with a Gröbner basis record <var class="Arg">GBR</var> (see Section <a href="chap2.html#X80DAE0A97CFC95DD"><span class="RefLink">2.8</span></a>), a number of variables <var class="Arg">t</var> at least equal to the number of generators involved in the polynomials of <var class="Arg">GBR.p</var> and <var class="Arg">GBR.ts</var>, and a number of generators <var class="Arg">mt</var> of a free module containing the prefix relations in <var class="Arg">GBR.p</var>, the function <code class="code">DimQM</code> will return the dimension over the coefficient field of the quotient module of the free right module <span class="SimpleMath">A^mt</span> of rank <var class="Arg">mt</var> over the free algebra <span class="SimpleMath">A</span> on <code class="code">t</code> generators by the right sub <span class="SimpleMath">A</span>-module generated by the elements of <var class="Arg">GBR</var>, if this dimension is finite. Otherwise, the computation invoked by the function will not terminate.</p>
@@ -2160,7 +2161,7 @@ gap&gt; SetInfoLevel(InfoGBNP,0);
 
 <h5>3.9-4 MulQM</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; MulQM</code>( <var class="Arg">p1</var>, <var class="Arg">p2</var>, <var class="Arg">GBR</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; MulQM</code>( <var class="Arg">p1</var>, <var class="Arg">p2</var>, <var class="Arg">GBR</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p>Returns: The strong normal form of the product <var class="Arg">p1</var><span class="SimpleMath">*</span><var class="Arg">p2</var> with respect to <var class="Arg">GBR</var></p>
 
 <p>When called with three arguments, the first of which, <var class="Arg">p1</var>, is a module element in NPM format, the second of which, <var class="Arg">p2</var>, is a polynomial in NP format representing an element of the quotient algebra, and the third of which is a Gröbner basis record <var class="Arg">GBR</var>, this function will return the product <code class="code">p1*p2</code> in the module.</p>
@@ -2219,7 +2220,7 @@ gap&gt; PrintNP(wq);
 
 <h5>3.9-5 StrongNormalFormNPM</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; StrongNormalFormNPM</code>( <var class="Arg">f</var>, <var class="Arg">GBR</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; StrongNormalFormNPM</code>( <var class="Arg">f</var>, <var class="Arg">GBR</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p>Returns: The strong normal form of a polynomial in NP format with respect to <var class="Arg">GBR</var></p>
 
 <p>When invoked with a polynomial in NP format (see Section <a href="chap2.html#X7FDF3E5E7F33D3A2"><span class="RefLink">2.1</span></a>) and a Gröbner basis record <var class="Arg">GBR</var> (see Section <a href="chap2.html#X80DAE0A97CFC95DD"><span class="RefLink">2.8</span></a>), this function will return the strong normal form (the polynomial reduced by the prefix and two-sided relations of the Gröbner basis combination).</p>

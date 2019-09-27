@@ -5,15 +5,15 @@
   [[20XBD04[120X]  [16XBaur,  K.  and  Draisma,  J.[116X, [17XHigher secant varieties of the minimal
   adjoint orbit[117X, [18XJ. Algebra[118X, [19X280[119X, 2 (2004), 743--761.
   
-  [[20XCoh07[120X]  [16XCohen, A. M.[116X, [17XNon-commutative polynomial computations[117X, TU/e (2007),
-  ((Eindhoven)), Report.
-  
   [[20XCCS99[120X]  [16XCohen,  A.  M.,  Cuypers,  H. and Sterk, H.[116X, [17XSome Tapas of Computer
   Algebra[117X,   Springer-Verlag,   Heidelberg,   Algorithms  and  Computation  in
   Mathematics, [19X4[119X (1999).
   
   [[20XCGW05[120X]  [16XCohen,  A. M., Gijsbers, D. A. H. and Wales, D. B.[116X, [17XBMW algebras of
   simply laced type[117X, [18XJ. Algebra[118X, [19X286[119X, 1 (2005), 107--153.
+  
+  [[20XCoh07[120X]  [16XCohen, A. M.[116X, [17XNon-commutative polynomial computations[117X, TU/e (2007),
+  ((Eindhoven)), Report.
   
   [[20XCon10[120X]  [16XCone,  R.[116X,  [17XNMODoc  - Documentation on the NMO package, version 1.0[117X
   (2010), Report (the package is provided with GBNP from Version 1.0 on).

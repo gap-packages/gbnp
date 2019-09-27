@@ -19,6 +19,7 @@
 
 <div class="chlinkprevnexttop">&nbsp;<a href="chap0.html">[Top of Book]</a>&nbsp;  <a href="chap0.html#contents">[Contents]</a>&nbsp;  &nbsp;<a href="chap3.html">[Previous Chapter]</a>&nbsp;  &nbsp;<a href="chapA.html">[Next Chapter]</a>&nbsp;  </div>
 
+<p id="mathjaxlink" class="pcenter"></p>
 <p><a id="X79C5DF3782576D98" name="X79C5DF3782576D98"></a></p>
 <div class="ChapSects"><a href="chap4.html#X79C5DF3782576D98">4 <span class="Heading">Info Level</span></a>
 <div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap4.html#X7DFB63A97E67C0A1">4.1 <span class="Heading">Introduction</span></a>
@@ -56,7 +57,7 @@
 
 <p>Many functions of the GBNP package can produce additional output. Such output might be useful for long calculations, to see where the calculation is or to gain more information about the calculation itself.</p>
 
-<p><strong class="pkg">GAP</strong> provides the tools to be able to tune the output of the functions. All of the functions of this package use the <code class="code">InfoClass</code> <code class="func">InfoGBNP</code> (<a href="chap4.html#X82D40B0E84383BBC"><span class="RefLink">4.2-1</span></a>) and some use the <code class="code">InfoClass</code> <code class="func">InfoGBNPTime</code> (<a href="chap4.html#X7FAE244E80397B9A"><span class="RefLink">4.3-1</span></a>). As usual with GAP when this is left at 0, the functions will hardly print additional information. It can be set to 1 or 2 with <code class="code">SetInfoLevel</code> (more about this function can be found at <a href="/usr/share/gap/doc/ref/chap7.html#X7A43B9E68765EE9E"><span class="RefLink">Reference: SetInfoLevel</span></a>). A brief explanation about each infolevel will be given in the next sections.</p>
+<p><strong class="pkg">GAP</strong> provides the tools to be able to tune the output of the functions. All of the functions of this package use the <code class="code">InfoClass</code> <code class="func">InfoGBNP</code> (<a href="chap4.html#X82D40B0E84383BBC"><span class="RefLink">4.2-1</span></a>) and some use the <code class="code">InfoClass</code> <code class="func">InfoGBNPTime</code> (<a href="chap4.html#X7FAE244E80397B9A"><span class="RefLink">4.3-1</span></a>). As usual with GAP when this is left at 0, the functions will hardly print additional information. It can be set to 1 or 2 with <code class="code">SetInfoLevel</code> (more about this function can be found at <a href="/Users/mhorn/Projekte/GAP/gap.github/doc/ref/chap7.html#X7B2ADC37783104B9"><span class="RefLink">Reference: InfoLevel</span></a>). A brief explanation about each infolevel will be given in the next sections.</p>
 
 <p><a id="X82D40B0E84383BBC" name="X82D40B0E84383BBC"></a></p>
 
@@ -66,7 +67,7 @@
 
 <h5>4.2-1 InfoGBNP</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; InfoGBNP</code></td><td class="tdright">( info class )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; InfoGBNP</code></td><td class="tdright">(&nbsp;info class&nbsp;)</td></tr></table></div>
 <p>The <code class="code">InfoClass</code> for this package is used in almost all functions. To change this level to 1 (some information) or 2 (more information, also information from calculation loops) use the function <code class="code">SetInfoLevel</code>.</p>
 
 <p><a id="X8222A2F67E4CC62B" name="X8222A2F67E4CC62B"></a></p>
@@ -109,7 +110,7 @@ SetInfoLevel(InfoGBNP,2);
 
 <h5>4.3-1 InfoGBNPTime</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; InfoGBNPTime</code></td><td class="tdright">( info class )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; InfoGBNPTime</code></td><td class="tdright">(&nbsp;info class&nbsp;)</td></tr></table></div>
 <p>The <code class="code">InfoClass</code> for timing is used in producing information about the runtime of the algorithm in certain possibly lengthy calculations.</p>
 
 <p>To change this level to 1 (Gröbner functions give information) or 2 (more information, also information from other functions, which might not always take a long time and from inside loops) use the function <code class="code">SetInfoLevel</code>.</p>
@@ -118,7 +119,7 @@ SetInfoLevel(InfoGBNP,2);
 
 <h5>4.3-2 <span class="Heading">What will be printed at level 0</span></h5>
 
-<p>No timing information will be printed at level 0. This can be desirable for small examples or when producing test output, for use with <code class="code">ReadTest</code>.</p>
+<p>No timing information will be printed at level 0. This can be desirable for small examples or when producing test output, for use with <code class="code">Test</code>.</p>
 
 <p><a id="X8552D1FF7EA2B8A6" name="X8552D1FF7EA2B8A6"></a></p>
 

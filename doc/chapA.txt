@@ -6,9 +6,9 @@
   
   [33X[0;0YIn this chapter all available commented examples can be found. Those without
   comments  are in the directory [11Xgbnp/examples[111X. Timing results are obtained on
-  an  Intel(R)  Xeon(R)  CPU  E5-2630  v3  @  2.40GHz  processor running Linux
-  (3.19.0-42-generic  #48~14.04.1-Ubuntu SMP Fri Dec 18 10:24:49 UTC 2015) and
-  using GAP 4.6.5.[133X
+  an  processor running Linux (18.7.0 Darwin Kernel Version 18.7.0: Tue Aug 20
+  16:57:14  PDT  2019;  root:xnu-4903.271.2~2/RELEASE_X86_64)  and  using  GAP
+  4.dev.[133X
   
   [30X    [33X[0;6Y[14XA.2[114X [14X'[33X[0;0YA simple commutative Gröbner basis computation[133X'[114X[133X
   
@@ -85,7 +85,8 @@
   the info level, see Chapter [14X4[114X).[133X
   
   [4X[32X[104X
-    [4Xgap> LoadPackage("GBNP","0",false);;[104X
+    [4Xgap> LoadPackage("gbnp", false);[104X
+    [4Xtrue[104X
     [4Xgap> SetInfoLevel(InfoGBNP,2);[104X
     [4Xgap> SetInfoLevel(InfoGBNPTime,1);[104X
   [4X[32X[104X
@@ -194,7 +195,8 @@
   the info level, see Chapter [14X4[114X).[133X
   
   [4X[32X[104X
-    [4Xgap> LoadPackage("GBNP","0",false);;[104X
+    [4Xgap> LoadPackage("gbnp", false);[104X
+    [4Xtrue[104X
     [4Xgap> SetInfoLevel(InfoGBNP,1);[104X
     [4Xgap> SetInfoLevel(InfoGBNPTime,2);[104X
   [4X[32X[104X
@@ -363,7 +365,8 @@
   the info level, see Chapter [14X4[114X).[133X
   
   [4X[32X[104X
-    [4Xgap> LoadPackage("GBNP","0",false);;[104X
+    [4Xgap> LoadPackage("gbnp", false);[104X
+    [4Xtrue[104X
     [4Xgap> SetInfoLevel(InfoGBNP,1);[104X
     [4Xgap> SetInfoLevel(InfoGBNPTime,1);[104X
   [4X[32X[104X
@@ -566,7 +569,8 @@
   the info level, see Chapter [14X4[114X).[133X
   
   [4X[32X[104X
-    [4Xgap> LoadPackage("GBNP","0",false);;[104X
+    [4Xgap> LoadPackage("gbnp", false);[104X
+    [4Xtrue[104X
     [4Xgap> SetInfoLevel(InfoGBNP,1);[104X
     [4Xgap> SetInfoLevel(InfoGBNPTime,2);[104X
   [4X[32X[104X
@@ -748,7 +752,8 @@
   the info level, see Chapter [14X4[114X).[133X
   
   [4X[32X[104X
-    [4Xgap> LoadPackage("GBNP","0",false);;[104X
+    [4Xgap> LoadPackage("gbnp", false);[104X
+    [4Xtrue[104X
     [4Xgap> SetInfoLevel(InfoGBNP,2);[104X
     [4Xgap> SetInfoLevel(InfoGBNPTime,1);[104X
   [4X[32X[104X
@@ -849,7 +854,8 @@
   the info level, see Chapter [14X4[114X).[133X
   
   [4X[32X[104X
-    [4Xgap> LoadPackage("GBNP","0",false);;[104X
+    [4Xgap> LoadPackage("gbnp", false);[104X
+    [4Xtrue[104X
     [4Xgap> SetInfoLevel(InfoGBNP,2);[104X
     [4Xgap> SetInfoLevel(InfoGBNPTime,1);[104X
   [4X[32X[104X
@@ -1009,7 +1015,8 @@
   the info level, see Chapter [14X4[114X).[133X
   
   [4X[32X[104X
-    [4Xgap> LoadPackage("GBNP","0",false);;[104X
+    [4Xgap> LoadPackage("gbnp", false);[104X
+    [4Xtrue[104X
     [4Xgap> SetInfoLevel(InfoGBNP,1);[104X
     [4Xgap> SetInfoLevel(InfoGBNPTime,1);[104X
   [4X[32X[104X
@@ -1222,7 +1229,8 @@
   the info level, see Chapter [14X4[114X).[133X
   
   [4X[32X[104X
-    [4Xgap> LoadPackage("GBNP","0",false);;[104X
+    [4Xgap> LoadPackage("gbnp", false);[104X
+    [4Xtrue[104X
     [4Xgap> SetInfoLevel(InfoGBNP,1);[104X
     [4Xgap> SetInfoLevel(InfoGBNPTime,1);[104X
   [4X[32X[104X
@@ -1241,8 +1249,7 @@
     [4Xl[104X
     [4Xgap> mm := Indeterminate(Rationals,"m");[104X
     [4Xm[104X
-    [4Xgap> F := Field(ll,mm);[104X
-    [4X<algebra-with-one over Field( [ 1 ] )>[104X
+    [4Xgap> F := Field(ll,mm);;[104X
     [4Xgap> gens := GeneratorsOfField(F);[104X
     [4X[ l, m ][104X
     [4Xgap> l := gens[1];;[104X
@@ -1432,7 +1439,8 @@
   the info level, see Chapter [14X4[114X).[133X
   
   [4X[32X[104X
-    [4Xgap> LoadPackage("GBNP","0",false);;[104X
+    [4Xgap> LoadPackage("gbnp", false);[104X
+    [4Xtrue[104X
     [4Xgap> SetInfoLevel(InfoGBNP,1);[104X
     [4Xgap> SetInfoLevel(InfoGBNPTime,1);[104X
   [4X[32X[104X
@@ -1553,7 +1561,8 @@
   the info level, see Chapter [14X4[114X).[133X
   
   [4X[32X[104X
-    [4Xgap> LoadPackage("GBNP","0",false);;[104X
+    [4Xgap> LoadPackage("gbnp", false);[104X
+    [4Xtrue[104X
     [4Xgap> SetInfoLevel(InfoGBNP,2);[104X
     [4Xgap> SetInfoLevel(InfoGBNPTime,1);[104X
   [4X[32X[104X
@@ -1648,7 +1657,8 @@
   the info level, see Chapter [14X4[114X).[133X
   
   [4X[32X[104X
-    [4Xgap> LoadPackage("GBNP","0",false);;[104X
+    [4Xgap> LoadPackage("gbnp", false);[104X
+    [4Xtrue[104X
     [4Xgap> SetInfoLevel(InfoGBNP,1);[104X
     [4Xgap> SetInfoLevel(InfoGBNPTime,2);[104X
   [4X[32X[104X
@@ -1752,7 +1762,8 @@
   the info level, see Chapter [14X4[114X).[133X
   
   [4X[32X[104X
-    [4Xgap> LoadPackage("GBNP","0",false);;[104X
+    [4Xgap> LoadPackage("gbnp", false);[104X
+    [4Xtrue[104X
     [4Xgap> SetInfoLevel(InfoGBNP,0);[104X
     [4Xgap> SetInfoLevel(InfoGBNPTime,2);[104X
   [4X[32X[104X
@@ -1844,7 +1855,8 @@
   the info level, see Chapter [14X4[114X).[133X
   
   [4X[32X[104X
-    [4Xgap> LoadPackage("GBNP","0",false);;[104X
+    [4Xgap> LoadPackage("gbnp", false);[104X
+    [4Xtrue[104X
     [4Xgap> SetInfoLevel(InfoGBNP,2);[104X
     [4Xgap> SetInfoLevel(InfoGBNPTime,1);[104X
   [4X[32X[104X
@@ -1947,7 +1959,8 @@
   the info level, see Chapter [14X4[114X).[133X
   
   [4X[32X[104X
-    [4Xgap> LoadPackage("GBNP","0",false);;[104X
+    [4Xgap> LoadPackage("gbnp", false);[104X
+    [4Xtrue[104X
     [4Xgap> SetInfoLevel(InfoGBNP,2);[104X
     [4Xgap> SetInfoLevel(InfoGBNPTime,1);[104X
   [4X[32X[104X
@@ -2103,14 +2116,15 @@
   the info level, see Chapter [14X4[114X).[133X
   
   [4X[32X[104X
-    [4Xgap> LoadPackage("GBNP","0",false);;[104X
+    [4Xgap> LoadPackage("gbnp", false);[104X
+    [4Xtrue[104X
     [4Xgap> SetInfoLevel(InfoGBNP,2);[104X
     [4Xgap> SetInfoLevel(InfoGBNPTime,1);[104X
   [4X[32X[104X
   
   [33X[0;0YLet [10XF[110X be the field GF(2). The relations can be entered as elements of a free
   associative algebra with one [10XA[110X (see [14XReference: FreeAssociativeAlgebraWithOne
-  (for ring, rank (and name))[114X).[133X
+  for ring, rank (and name)[114X).[133X
   
   [4X[32X[104X
     [4Xgap> F:=GF(2);;[104X
@@ -2218,7 +2232,8 @@
   the info level, see Chapter [14X4[114X).[133X
   
   [4X[32X[104X
-    [4Xgap> LoadPackage("GBNP","0",false);;[104X
+    [4Xgap> LoadPackage("gbnp", false);[104X
+    [4Xtrue[104X
     [4Xgap> SetInfoLevel(InfoGBNP,1);[104X
     [4Xgap> SetInfoLevel(InfoGBNPTime,1);[104X
   [4X[32X[104X
@@ -2227,7 +2242,7 @@
   with  and  without  module  generators.  First  it is shown how to enter the
   relations  without  using a module. It is possible to enter them with a free
   associative algebra with one over the field (the rational numbers) (see also
-  [14XReference:  FreeAssociativeAlgebraWithOne  (for ring, rank (and name))[114X). For
+  [14XReference:  FreeAssociativeAlgebraWithOne  for  ring,  rank (and name)[114X). For
   convenience  we  use the variables [10Xa[110X and [10Xb[110X for the generators of the algebra
   and [10Xe[110X for the one of the algebra.[133X
   
@@ -2365,7 +2380,8 @@
   the info level, see Chapter [14X4[114X).[133X
   
   [4X[32X[104X
-    [4Xgap> LoadPackage("GBNP","0",false);;[104X
+    [4Xgap> LoadPackage("gbnp", false);[104X
+    [4Xtrue[104X
     [4Xgap> SetInfoLevel(InfoGBNP,0);[104X
     [4Xgap> SetInfoLevel(InfoGBNPTime,0);[104X
   [4X[32X[104X
@@ -2375,8 +2391,8 @@
   relations  here  are  entered  without  a  module,  since the module is only
   one-dimensional.  It  is  possible  to  enter  them using a free associative
   algebra  with one over the field (the rational numbers) (see also [14XReference:
-  FreeAssociativeAlgebraWithOne  (for ring, rank (and name))[114X). For convenience
-  we use the variables [10Xa[110X and [10Xb[110X for the generators of the algebra and [10Xe[110X for the
+  FreeAssociativeAlgebraWithOne for ring, rank (and name)[114X). For convenience we
+  use  the  variables  [10Xa[110X and [10Xb[110X for the generators of the algebra and [10Xe[110X for the
   one of the algebra.[133X
   
   [4X[32X[104X
@@ -2448,7 +2464,8 @@
   info level, see Chapter [14X4[114X).[133X
   
   [4X[32X[104X
-    [4Xgap> LoadPackage("GBNP","0",false);;[104X
+    [4Xgap> LoadPackage("gbnp", false);[104X
+    [4Xtrue[104X
     [4Xgap> SetInfoLevel(InfoGBNP,1);[104X
     [4Xgap> SetInfoLevel(InfoGBNPTime,1);[104X
   [4X[32X[104X
@@ -2615,7 +2632,8 @@
   the info level, see Chapter [14X4[114X).[133X
   
   [4X[32X[104X
-    [4Xgap> LoadPackage("GBNP","0",false);;[104X
+    [4Xgap> LoadPackage("gbnp", false);[104X
+    [4Xtrue[104X
     [4Xgap> SetInfoLevel(InfoGBNP,1);[104X
     [4Xgap> SetInfoLevel(InfoGBNPTime,1);[104X
   [4X[32X[104X
@@ -2789,7 +2807,8 @@
   the info level, see Chapter [14X4[114X).[133X
   
   [4X[32X[104X
-    [4Xgap> LoadPackage("GBNP","0",false);;[104X
+    [4Xgap> LoadPackage("gbnp", false);[104X
+    [4Xtrue[104X
     [4Xgap> SetInfoLevel(InfoGBNP,1);[104X
     [4Xgap> SetInfoLevel(InfoGBNPTime,1);[104X
   [4X[32X[104X
@@ -2798,8 +2817,8 @@
   it  is  possible to enter it with and without a module. In Example 18 ([14XA.17[114X)
   both  ways  are  shown. Here the relations will be entered without a module,
   with  a  free  associative  algebra  with  one  over the field (the rational
-  numbers)  (see also [14XReference: FreeAssociativeAlgebraWithOne (for ring, rank
-  (and name))[114X). For convenience we use the variables [10Xs1[110X, [10Xs2[110X, [10Xs3[110X, and [10Xe[110X for the
+  numbers)  (see  also [14XReference: FreeAssociativeAlgebraWithOne for ring, rank
+  (and  name)[114X). For convenience we use the variables [10Xs1[110X, [10Xs2[110X, [10Xs3[110X, and [10Xe[110X for the
   generators of the algebra, and [10Xo[110X for the identity element of the algebra.[133X
   
   [4X[32X[104X
@@ -2973,7 +2992,8 @@
   the info level, see Chapter [14X4[114X).[133X
   
   [4X[32X[104X
-    [4Xgap> LoadPackage("GBNP","0",false);;[104X
+    [4Xgap> LoadPackage("gbnp", false);[104X
+    [4Xtrue[104X
     [4Xgap> SetInfoLevel(InfoGBNP,1);[104X
     [4Xgap> SetInfoLevel(InfoGBNPTime,1);[104X
   [4X[32X[104X
@@ -2982,8 +3002,8 @@
   it  is  possible  to  enter  it  with and without a module. Both are used in
   Example  [14XA.17[114X.  Here  the  relations will be entered without using a module.
   First  a free associative algebra with one is created over the field (GF(3))
-  (see  also  [14XReference:  FreeAssociativeAlgebraWithOne  (for  ring, rank (and
-  name))[114X).  For convenience we use the variables [10Xa[110X and [10Xb[110X for the generators of
+  (see  also  [14XReference:  FreeAssociativeAlgebraWithOne  for  ring,  rank (and
+  name)[114X).  For  convenience we use the variables [10Xa[110X and [10Xb[110X for the generators of
   the algebra and [10Xe[110X for the one of the algebra.[133X
   
   [4X[32X[104X
@@ -3108,7 +3128,8 @@
   timing; see Chapter [14X4[114X).[133X
   
   [4X[32X[104X
-    [4Xgap> LoadPackage("GBNP","0",false);;[104X
+    [4Xgap> LoadPackage("gbnp", false);[104X
+    [4Xtrue[104X
     [4Xgap> SetInfoLevel(InfoGBNP,0);[104X
     [4Xgap> SetInfoLevel(InfoGBNPTime,1);[104X
   [4X[32X[104X
@@ -3142,7 +3163,7 @@
   
   [33X[0;0YNow enter the relations as GAP polynomials. First a free associative algebra
   with  identity  element  is  created over the Rationals (see also [14XReference:
-  FreeAssociativeAlgebraWithOne  (for ring, rank (and name))[114X). For convenience
+  FreeAssociativeAlgebraWithOne  for  ring,  rank (and name)[114X). For convenience
   the generators are stored in [10Xgens[110X.[133X
   
   [4X[32X[104X
@@ -3223,15 +3244,8 @@
   the info level, see Chapter [14X4[114X).[133X
   
   [4X[32X[104X
-    [4Xgap> LoadPackage("GBNP");[104X
-    [4X─────────────────────────────────────────────────────────────────────────────[104X
-    [4XLoading  GBNP 1.0.3 (Non-commutative Gröbner bases)[104X
-    [4Xby A.M. Cohen (http://www.win.tue.nl/~amc) and[104X
-    [4X   J.W. Knopper (J.W.Knopper@tue.nl).[104X
-    [4XHomepage: http://mathdox.org/products/gbnp/[104X
-    [4X─────────────────────────────────────────────────────────────────────────────[104X
+    [4Xgap> LoadPackage("gbnp", false);[104X
     [4Xtrue[104X
-    [4X[104X
     [4Xgap> SetInfoLevel(InfoGBNP,0);[104X
     [4Xgap> SetInfoLevel(InfoGBNPTime,0);[104X
   [4X[32X[104X
@@ -3375,7 +3389,8 @@
   [1XA.25 [33X[0;0YSerre's exercise[133X[101X
   
   [4X[32X[104X
-    [4Xgap> LoadPackage("GBNP","0",false);;[104X
+    [4Xgap> LoadPackage("gbnp", false);[104X
+    [4Xtrue[104X
     [4Xgap> SetInfoLevel(InfoGBNP,1);[104X
     [4Xgap> SetInfoLevel(InfoGBNPTime,1);[104X
   [4X[32X[104X
@@ -3463,7 +3478,8 @@
   [1XA.26 [33X[0;0YBaur and Draisma's transformations[133X[101X
   
   [4X[32X[104X
-    [4Xgap> LoadPackage("GBNP","0",false);;[104X
+    [4Xgap> LoadPackage("gbnp", false);[104X
+    [4Xtrue[104X
     [4Xgap> SetInfoLevel(InfoGBNP,0);[104X
     [4Xgap> SetInfoLevel(InfoGBNPTime,0);[104X
   [4X[32X[104X
@@ -3582,7 +3598,8 @@
   see Chapter [14X4[114X).[133X
   
   [4X[32X[104X
-    [4Xgap> LoadPackage("GBNP","0",false);;[104X
+    [4Xgap> LoadPackage("gbnp", false);[104X
+    [4Xtrue[104X
     [4Xgap> SetInfoLevel(InfoGBNP,0);[104X
     [4Xgap> SetInfoLevel(InfoGBNPTime,0);[104X
   [4X[32X[104X

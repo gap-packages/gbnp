@@ -13,7 +13,7 @@
   use  the [10XInfoClass[110X [2XInfoGBNPTime[102X ([14X4.3-1[114X). As usual with GAP when this is left
   at  0, the functions will hardly print additional information. It can be set
   to  1  or  2  with  [10XSetInfoLevel[110X  (more  about this function can be found at
-  [14XReference:  SetInfoLevel[114X).  A brief explanation about each infolevel will be
+  [14XReference:  InfoLevel[114X).  A  brief  explanation  about each infolevel will be
   given in the next sections.[133X
   
   
@@ -21,7 +21,7 @@
   
   [1X4.2-1 InfoGBNP[101X
   
-  [29X[2XInfoGBNP[102X[32X info class
+  [33X[1;0Y[29X[2XInfoGBNP[102X[32X info class[133X
   
   [33X[0;0YThe  [10XInfoClass[110X  for  this package is used in almost all functions. To change
   this  level to 1 (some information) or 2 (more information, also information
@@ -68,7 +68,7 @@
   
   [1X4.3-1 InfoGBNPTime[101X
   
-  [29X[2XInfoGBNPTime[102X[32X info class
+  [33X[1;0Y[29X[2XInfoGBNPTime[102X[32X info class[133X
   
   [33X[0;0YThe  [10XInfoClass[110X for timing is used in producing information about the runtime
   of the algorithm in certain possibly lengthy calculations.[133X
@@ -81,7 +81,7 @@
   [1X4.3-2 [33X[0;0YWhat will be printed at level 0[133X[101X
   
   [33X[0;0YNo  timing information will be printed at level 0. This can be desirable for
-  small examples or when producing test output, for use with [10XReadTest[110X.[133X
+  small examples or when producing test output, for use with [10XTest[110X.[133X
   
   
   [1X4.3-3 [33X[0;0YWhat will be printed at level 1[133X[101X

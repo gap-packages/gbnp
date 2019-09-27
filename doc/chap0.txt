@@ -3,7 +3,7 @@
                        [1XDocumentation on the [5XGBNP[105X package[101X
   
   
-                                 Version 1.0.3
+                                 Version 1.0dev
   
   
                                   8 March 2016

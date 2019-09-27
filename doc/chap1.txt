@@ -11,28 +11,22 @@
   [33X[0;0YThis  documentation gives a short description of the mathematical content in
   Chapter  [14X2[114X, explains the functions of the package in Chapter [14X3[114X, and provides
   more  than twenty four worked out examples in Appendix [14XA[114X. It is available as
-  an HTML document at [7Xhttp://mathdox.org/products/gbnp/[107X and as an pdf document
-  at [7Xhttp://mathdox.org/products/gbnp/manual.pdf[107X.[133X
+  an HTML document at [7Xhttps://gap-packages.github.io/gbnp/doc/chap0.html[107X.[133X
   
   
   [1X1.1 [33X[0;0YInstallation[133X[101X
   
-  [33X[0;0YTo        install       GBNP,       first       download       it       from
-  [7Xhttp://mathdox.org/products/gbnp/GBNP-1.0.3.tar.gz[107X,        then       unpack
-  [11XGBNP-1.0.3.tar.gz[111X  in  the  [10Xpkg[110X subdirectory of your [5XGAP[105X installation (or in
-  the  [10Xpkg[110X subdirectory of any other [5XGAP[105X root directory, for example one added
-  with   the   [10X-l[110X   argument)   with   the   following   command:   [10Xtar  -xvzf
-  GBNP-1.0.3.tar.gz[110X.[133X
+  [33X[0;0YTo     install     GBNP,    first    download    [11XGBNP-1.0dev.tar.gz[111X>    from
+  [7Xhttps://gap-packages.github.io/gbnp/[107X,  then unpack [11XGBNP-1.0dev.tar.gz[111X in the
+  [10Xpkg[110X subdirectory of your [5XGAP[105X installation (or in the [10Xpkg[110X subdirectory of any
+  other  [5XGAP[105X  root directory, for example one added with the [10X-l[110X argument) with
+  the following command: [10Xtar -xvzf GBNP-1.0dev.tar.gz[110X.[133X
   
   [33X[0;0YGBNP is then loaded with the GAP command[133X
   
   [4X[32X[104X
     [4Xgap> LoadPackage( "GBNP" ); [104X
   [4X[32X[104X
-  
-  [33X[0;0YThose   who   want   to   download   this   documentation  can  find  it  at
-  [7Xhttp://mathdox.org/products/gbnp/GBNPdoc-1.0.3.tar.gz[107X  and  extract  it with
-  [10Xtar -xvzf GBNPdoc-1.0.3.tar.gz[110X. It is also included in the package.[133X
   
   
   [1X1.2 [33X[0;0YUsing the package[133X[101X

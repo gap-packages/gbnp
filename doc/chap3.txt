@@ -6,7 +6,7 @@
   
   [1X3.1-1 GP2NP[101X
   
-  [29X[2XGP2NP[102X( [3Xgp[103X ) [32X function
+  [33X[1;0Y[29X[2XGP2NP[102X( [3Xgp[103X ) [32X function[133X
   [6XReturns:[106X  [33X[0;10YIf  [3Xgp[103X  is an element of a free algebra, then the polynomial in NP
             format  (see Section [14X2.1[114X) corresponding to [3Xgp[103X; if [3Xgp[103X is an element
             of  a free module, then the vector in NPM format (see Section [14X2.2[114X)
@@ -64,7 +64,7 @@
   
   [1X3.1-2 GP2NPList[101X
   
-  [29X[2XGP2NPList[102X( [3XLgp[103X ) [32X function
+  [33X[1;0Y[29X[2XGP2NPList[102X( [3XLgp[103X ) [32X function[133X
   [6XReturns:[106X  [33X[0;10YThe  list  of  polynomials  in  NP  or NPM format corresponding to
             elements of a free algebra or module occurring in the list [3XLgp[103X.[133X
   
@@ -106,7 +106,7 @@
   
   [1X3.1-3 NP2GP[101X
   
-  [29X[2XNP2GP[102X( [3Xnp[103X, [3XA[103X ) [32X function
+  [33X[1;0Y[29X[2XNP2GP[102X( [3Xnp[103X, [3XA[103X ) [32X function[133X
   [6XReturns:[106X  [33X[0;10YThe GAP format of the polynomial [3Xnp[103X in NP format.[133X
   
   [33X[0;0YThis  function will convert a polynomial in NP format to a GAP polynomial in
@@ -174,7 +174,7 @@
   
   [1X3.1-4 NP2GPList[101X
   
-  [29X[2XNP2GPList[102X( [3XLnp[103X, [3XA[103X ) [32X function
+  [33X[1;0Y[29X[2XNP2GPList[102X( [3XLnp[103X, [3XA[103X ) [32X function[133X
   [6XReturns:[106X  [33X[0;10YThe list of polynomials corresponding to [3XLnp[103X in GAP format.[133X
   
   [33X[0;0YThis  function  will  convert  the list [3XLnp[103X of polynomials in NP format to a
@@ -229,7 +229,7 @@
   
   [1X3.2-1 PrintNP[101X
   
-  [29X[2XPrintNP[102X( [3Xnp[103X ) [32X function
+  [33X[1;0Y[29X[2XPrintNP[102X( [3Xnp[103X ) [32X function[133X
   
   [33X[0;0YThis  function  prints a polynomial [3Xnp[103X in NP format, using the letters [10Xa[110X, [10Xb[110X,
   [10Xc[110X,  [22X...[122X  for  [22Xx_1[122X, [22Xx_2[122X, [22Xx_3[122X, [22X...[122X, except that everything beyond [22Xl[122X (the 12-th
@@ -254,7 +254,7 @@
   
   [1X3.2-2 GBNP.ConfigPrint[101X
   
-  [29X[2XGBNP.ConfigPrint[102X( [3Xarg[103X ) [32X function
+  [33X[1;0Y[29X[2XGBNP.ConfigPrint[102X( [3Xarg[103X ) [32X function[133X
   
   [33X[0;0YBy  default  the  generators  of  the  algebra  are printed as [10Xa[110X, ..., [10Xl[110X and
   everything  after  the  twelfth generator as [10Xx[110X. By calling [10XConfigPrint[110X it is
@@ -367,7 +367,7 @@
   
   [1X3.2-3 PrintNPList[101X
   
-  [29X[2XPrintNPList[102X( [3XLnp[103X ) [32X function
+  [33X[1;0Y[29X[2XPrintNPList[102X( [3XLnp[103X ) [32X function[133X
   
   [33X[0;0YThis  function  prints  a  list  [3XLnp[103X  of polynomials in NP format, using the
   function [10XPrintNP[110X.[133X
@@ -405,7 +405,7 @@
   
   [1X3.3-1 NumAlgGensNP[101X
   
-  [29X[2XNumAlgGensNP[102X( [3Xnp[103X ) [32X function
+  [33X[1;0Y[29X[2XNumAlgGensNP[102X( [3Xnp[103X ) [32X function[133X
   [6XReturns:[106X  [33X[0;10YThe  minimum  number [10Xt[110X so that [3Xnp[103X belongs to the free algebra on [10Xt[110X
             generators.[133X
   
@@ -426,7 +426,7 @@
   
   [1X3.3-2 NumAlgGensNPList[101X
   
-  [29X[2XNumAlgGensNPList[102X( [3XLnp[103X ) [32X function
+  [33X[1;0Y[29X[2XNumAlgGensNPList[102X( [3XLnp[103X ) [32X function[133X
   [6XReturns:[106X  [33X[0;10YThe minimum number [10Xt[110X so that each polynomial in [3XLnp[103X belongs to the
             free algebra on [10Xt[110X generators.[133X
   
@@ -449,7 +449,7 @@
   
   [1X3.3-3 NumModGensNP[101X
   
-  [29X[2XNumModGensNP[102X( [3Xnpm[103X ) [32X function
+  [33X[1;0Y[29X[2XNumModGensNP[102X( [3Xnpm[103X ) [32X function[133X
   [6XReturns:[106X  [33X[0;10YThe minimum number [10Xmt[110X so that [3Xnpm[103X belongs to the free module on [10Xmt[110X
             generators.[133X
   
@@ -470,7 +470,7 @@
   
   [1X3.3-4 NumModGensNPList[101X
   
-  [29X[2XNumModGensNPList[102X( [3XLnpm[103X ) [32X function
+  [33X[1;0Y[29X[2XNumModGensNPList[102X( [3XLnpm[103X ) [32X function[133X
   [6XReturns:[106X  [33X[0;10YThe  minimum  number  [10Xmt[110X so that each member of [3Xnpm[103X belongs to the
             free module on [10Xmt[110X generators.[133X
   
@@ -493,7 +493,7 @@
   
   [1X3.3-5 AddNP[101X
   
-  [29X[2XAddNP[102X( [3Xu[103X, [3Xv[103X, [3Xc[103X, [3Xd[103X ) [32X function
+  [33X[1;0Y[29X[2XAddNP[102X( [3Xu[103X, [3Xv[103X, [3Xc[103X, [3Xd[103X ) [32X function[133X
   [6XReturns:[106X  [33X[0;10Y[3Xc[103X[22X*[122X[3Xu[103X[22X+[122X[3Xd[103X[22X*[122X[3Xv[103X[133X
   
   [33X[0;0YComputes  [3Xc[103X[22X*[122X[3Xu[103X[22X+[122X[3Xd[103X[22X*[122X[3Xv[103X where [3Xu[103X and [3Xv[103X are polynomials in NP format and [3Xc[103X and [3Xd[103X are
@@ -515,7 +515,7 @@
   
   [1X3.3-6 BimulNP[101X
   
-  [29X[2XBimulNP[102X( [3Xga[103X, [3Xnp[103X, [3Xdr[103X ) [32X function
+  [33X[1;0Y[29X[2XBimulNP[102X( [3Xga[103X, [3Xnp[103X, [3Xdr[103X ) [32X function[133X
   [6XReturns:[106X  [33X[0;10Ythe polynomial [3Xga[103X[22X*[122X[3Xnp[103X[22X*[122X[3Xdr[103X in NP format[133X
   
   [33X[0;0YWhen called with a polynomial [3Xnp[103X and two monomials [3Xga[103X, [3Xdr[103X, the function will
@@ -541,7 +541,7 @@
   
   [1X3.3-7 CleanNP[101X
   
-  [29X[2XCleanNP[102X( [3Xu[103X ) [32X function
+  [33X[1;0Y[29X[2XCleanNP[102X( [3Xu[103X ) [32X function[133X
   [6XReturns:[106X  [33X[0;10YThe cleaned up version of [3Xu[103X[133X
   
   [33X[0;0YGiven  a  polynomial  in  NP  format, this function collects terms with same
@@ -579,7 +579,7 @@
   
   [1X3.3-8 GtNP[101X
   
-  [29X[2XGtNP[102X( [3Xu[103X, [3Xv[103X ) [32X function
+  [33X[1;0Y[29X[2XGtNP[102X( [3Xu[103X, [3Xv[103X ) [32X function[133X
   [6XReturns:[106X  [33X[0;10Y[10Xtrue[110X if [22Xu > v[122X and [10Xfalse[110X if [22Xu ≤ v[122X[133X
   
   [33X[0;0YGreater  than  function for monomials [3Xu[103X and [3Xv[103X represented as in Section [14X2.1[114X.
@@ -604,7 +604,7 @@
   
   [1X3.3-9 LtNP[101X
   
-  [29X[2XLtNP[102X( [3Xu[103X, [3Xv[103X ) [32X function
+  [33X[1;0Y[29X[2XLtNP[102X( [3Xu[103X, [3Xv[103X ) [32X function[133X
   [6XReturns:[106X  [33X[0;10Y[10Xtrue[110X if [22Xu < v[122X and [10Xfalse[110X if [22Xu ≥ v[122X[133X
   
   [33X[0;0YLess than function for NP monomials, tests whether [3Xu[103X[22X<[122X[3Xv[103X. The ordering is done
@@ -628,7 +628,7 @@
   
   [1X3.3-10 LMonsNP[101X
   
-  [29X[2XLMonsNP[102X( [3XLnp[103X ) [32X function
+  [33X[1;0Y[29X[2XLMonsNP[102X( [3XLnp[103X ) [32X function[133X
   [6XReturns:[106X  [33X[0;10YA list of leading monomials[133X
   
   [33X[0;0YThis  function returns the leading monomials of a list [3XLnp[103X of polynomials in
@@ -661,7 +661,7 @@
   
   [1X3.3-11 MkMonicNP[101X
   
-  [29X[2XMkMonicNP[102X( [3Xnp[103X ) [32X function
+  [33X[1;0Y[29X[2XMkMonicNP[102X( [3Xnp[103X ) [32X function[133X
   [6XReturns:[106X  [33X[0;10Y[3Xnp[103X made monic[133X
   
   [33X[0;0YThis  function  returns  the scalar multiple of a polynomial [3Xnp[103X in NP format
@@ -685,7 +685,7 @@
   
   [1X3.3-12 MulNP[101X
   
-  [29X[2XMulNP[102X( [3Xnp1[103X, [3Xnp2[103X ) [32X function
+  [33X[1;0Y[29X[2XMulNP[102X( [3Xnp1[103X, [3Xnp2[103X ) [32X function[133X
   [6XReturns:[106X  [33X[0;10Y[3Xnp1[103X[22X*[122X[3Xnp2[103X[133X
   
   [33X[0;0YWhen  invoked  with  two polynomials [3Xnp1[103X and [3Xnp2[103X in NP format, this function
@@ -718,7 +718,7 @@
   
   [1X3.4-1 Grobner[101X
   
-  [29X[2XGrobner[102X( [3XLnp[103X[, [3XD[103X][, [3Xmax[103X] ) [32X function
+  [33X[1;0Y[29X[2XGrobner[102X( [3XLnp[103X[, [3XD[103X][, [3Xmax[103X] ) [32X function[133X
   [6XReturns:[106X  [33X[0;10YIf the algorithm terminates, a Gröbner Basis or a record if [3Xmax[103X is
             specified (see description).[133X
   
@@ -794,7 +794,7 @@
   
   [1X3.4-2 SGrobner[101X
   
-  [29X[2XSGrobner[102X( [3XLnp[103X[, [3Xtodo[103X][, [3Xmax[103X] ) [32X function
+  [33X[1;0Y[29X[2XSGrobner[102X( [3XLnp[103X[, [3Xtodo[103X][, [3Xmax[103X] ) [32X function[133X
   [6XReturns:[106X  [33X[0;10YIf the algorithm terminates, a Gröbner Basis or a record if [3Xmax[103X is
             specified (see description).[133X
   
@@ -860,7 +860,7 @@
   
   [1X3.4-3 IsGrobnerBasis[101X
   
-  [29X[2XIsGrobnerBasis[102X( [3XG[103X ) [32X function
+  [33X[1;0Y[29X[2XIsGrobnerBasis[102X( [3XG[103X ) [32X function[133X
   [6XReturns:[106X  [33X[0;10Y[10Xtrue[110X if [3XG[103X is a Gröbner basis and [10Xfalse[110X otherwise[133X
   
   [33X[0;0YWhen  invoked  with  a list [3XG[103X of polynomials in NP format (see Section [14X2.1[114X),
@@ -894,7 +894,7 @@
   
   [1X3.4-4 IsStrongGrobnerBasis[101X
   
-  [29X[2XIsStrongGrobnerBasis[102X( [3XG[103X ) [32X function
+  [33X[1;0Y[29X[2XIsStrongGrobnerBasis[102X( [3XG[103X ) [32X function[133X
   [6XReturns:[106X  [33X[0;10Y[10Xtrue[110X if [3XG[103X is a strong Gröbner basis and [10Xfalse[110X otherwise[133X
   
   [33X[0;0YWhen  invoked  with  a list [3XG[103X of polynomials in NP format (see Section [14X2.1[114X),
@@ -945,7 +945,7 @@
   
   [1X3.4-5 IsGrobnerPair[101X
   
-  [29X[2XIsGrobnerPair[102X( [3XG[103X, [3XD[103X ) [32X function
+  [33X[1;0Y[29X[2XIsGrobnerPair[102X( [3XG[103X, [3XD[103X ) [32X function[133X
   [6XReturns:[106X  [33X[0;10YA  boolean,  which has the value [10Xtrue[110X if the input forms a Gröbner
             pair[133X
   
@@ -985,7 +985,7 @@
   
   [1X3.4-6 MakeGrobnerPair[101X
   
-  [29X[2XMakeGrobnerPair[102X( [3XG[103X, [3XD[103X ) [32X function
+  [33X[1;0Y[29X[2XMakeGrobnerPair[102X( [3XG[103X, [3XD[103X ) [32X function[133X
   [6XReturns:[106X  [33X[0;10YA record containing a new Grobner pair[133X
   
   [33X[0;0YWhen  called with as arguments a pair [22XG, D[122X, this function cleans [3XG[103X and [3XD[103X and
@@ -1027,7 +1027,7 @@
   
   [1X3.5-1 BaseQA[101X
   
-  [29X[2XBaseQA[102X( [3XG[103X, [3Xt[103X, [3Xmaxno[103X ) [32X function
+  [33X[1;0Y[29X[2XBaseQA[102X( [3XG[103X, [3Xt[103X, [3Xmaxno[103X ) [32X function[133X
   [6XReturns:[106X  [33X[0;10YA  list  of  terms  forming a basis of the quotient algebra of the
             (non-commutative) polynomial algebra in [3Xt[103X variables by the 2-sided
             ideal generated by [3XG[103X[133X
@@ -1088,7 +1088,7 @@
   
   [1X3.5-2 DimQA[101X
   
-  [29X[2XDimQA[102X( [3XG[103X, [3Xt[103X ) [32X function
+  [33X[1;0Y[29X[2XDimQA[102X( [3XG[103X, [3Xt[103X ) [32X function[133X
   [6XReturns:[106X  [33X[0;10YThe dimension of the quotient algebra[133X
   
   [33X[0;0YWhen called with a Gröbner basis [3XG[103X and a number of variables [3Xt[103X, the function
@@ -1125,7 +1125,7 @@
   
   [1X3.5-3 MatrixQA[101X
   
-  [29X[2XMatrixQA[102X( [3Xi[103X, [3XB[103X, [3XGB[103X ) [32X function
+  [33X[1;0Y[29X[2XMatrixQA[102X( [3Xi[103X, [3XB[103X, [3XGB[103X ) [32X function[133X
   [6XReturns:[106X  [33X[0;10YThe  matrix  representation  for the [3Xi[103X-th generator of the algebra
             for right multiplication in the quotient algebra[133X
   
@@ -1195,7 +1195,7 @@
   
   [1X3.5-4 MatricesQA[101X
   
-  [29X[2XMatricesQA[102X( [3Xt[103X, [3XB[103X, [3XGB[103X ) [32X function
+  [33X[1;0Y[29X[2XMatricesQA[102X( [3Xt[103X, [3XB[103X, [3XGB[103X ) [32X function[133X
   [6XReturns:[106X  [33X[0;10YThe  matrix representation for the [3Xt[103X generators of the algebra for
             right multiplication in the quotient algebra[133X
   
@@ -1249,7 +1249,7 @@
   
   [1X3.5-5 MulQA[101X
   
-  [29X[2XMulQA[102X( [3Xp1[103X, [3Xp2[103X, [3XG[103X ) [32X function
+  [33X[1;0Y[29X[2XMulQA[102X( [3Xp1[103X, [3Xp2[103X, [3XG[103X ) [32X function[133X
   [6XReturns:[106X  [33X[0;10YThe strong normal form of the product [3Xp1[103X[22X*[122X[3Xp2[103X with respect to [3XG[103X[133X
   
   [33X[0;0YWhen  called with two polynomials in NP form, [3Xp1[103X and [3Xp2[103X, and a Gröbner basis
@@ -1286,7 +1286,7 @@
   
   [1X3.5-6 StrongNormalFormNP[101X
   
-  [29X[2XStrongNormalFormNP[102X( [3Xf[103X, [3XG[103X ) [32X function
+  [33X[1;0Y[29X[2XStrongNormalFormNP[102X( [3Xf[103X, [3XG[103X ) [32X function[133X
   [6XReturns:[106X  [33X[0;10YThe strong normal form of a polynomial with respect to [3XG[103X[133X
   
   [33X[0;0YWhen  invoked  with a polynomial in NP format (see Section [14X2.1[114X) and a finite
@@ -1324,7 +1324,7 @@
   
   [1X3.6-1 DetermineGrowthQA[101X
   
-  [29X[2XDetermineGrowthQA[102X( [3XLm[103X, [3Xt[103X, [3Xexact[103X ) [32X function
+  [33X[1;0Y[29X[2XDetermineGrowthQA[102X( [3XLm[103X, [3Xt[103X, [3Xexact[103X ) [32X function[133X
   [6XReturns:[106X  [33X[0;10YIf  the quotient algebra is finite dimensional, then the integer [10X0[110X
             is returned. If the growth is polynomial and the algorithm found a
             precise  degree [10Xd[110X of the growth polynomial, then [10Xd[110X is returned. If
@@ -1401,7 +1401,7 @@
   
   [1X3.6-2 FinCheckQA[101X
   
-  [29X[2XFinCheckQA[102X( [3XLm[103X, [3Xt[103X ) [32X function
+  [33X[1;0Y[29X[2XFinCheckQA[102X( [3XLm[103X, [3Xt[103X ) [32X function[133X
   [6XReturns:[106X  [33X[0;10Y[10Xtrue[110X,  if  the  quotient  algebra  is finite dimensional and[10X false[110X
             otherwise[133X
   
@@ -1445,7 +1445,7 @@
   
   [1X3.6-3 HilbertSeriesQA[101X
   
-  [29X[2XHilbertSeriesQA[102X( [3XLm[103X, [3Xt[103X, [3Xd[103X ) [32X function
+  [33X[1;0Y[29X[2XHilbertSeriesQA[102X( [3XLm[103X, [3Xt[103X, [3Xd[103X ) [32X function[133X
   [6XReturns:[106X  [33X[0;10YA list of coefficients of the Hilbert series up to degree [3Xd[103X[133X
   
   [33X[0;0YGiven a set of monomials [3XLm[103X, none of which divides another, and the number [3Xn[103X
@@ -1476,7 +1476,7 @@
   
   [1X3.6-4 PreprocessAnalysisQA[101X
   
-  [29X[2XPreprocessAnalysisQA[102X( [3XLm[103X, [3Xt[103X, [3Xiterations[103X ) [32X function
+  [33X[1;0Y[29X[2XPreprocessAnalysisQA[102X( [3XLm[103X, [3Xt[103X, [3Xiterations[103X ) [32X function[133X
   [6XReturns:[106X  [33X[0;10YThe  left-reduced  list  of  `obstructions',  obtained by applying
             left-reduction recursively[133X
   
@@ -1521,7 +1521,7 @@
   
   [1X3.7-1 EvalTrace[101X
   
-  [29X[2XEvalTrace[102X( [3Xp[103X, [3XLnp[103X ) [32X function
+  [33X[1;0Y[29X[2XEvalTrace[102X( [3Xp[103X, [3XLnp[103X ) [32X function[133X
   [6XReturns:[106X  [33X[0;10YThe trace evaluated to a polynomial in NP format.[133X
   
   [33X[0;0YFor  a  traced polynomial [3Xp[103X and a list [3XLnp[103X of polynomials in NP format, this
@@ -1551,7 +1551,7 @@
   
   [1X3.7-2 PrintTraceList[101X
   
-  [29X[2XPrintTraceList[102X( [3XG[103X ) [32X function
+  [33X[1;0Y[29X[2XPrintTraceList[102X( [3XG[103X ) [32X function[133X
   
   [33X[0;0YWhen  invoked  with a list [3XG[103X of traced polynomials, this function prints the
   traces of that list.[133X
@@ -1571,7 +1571,7 @@
   
   [1X3.7-3 PrintTracePol[101X
   
-  [29X[2XPrintTracePol[102X( [3Xp[103X ) [32X function
+  [33X[1;0Y[29X[2XPrintTracePol[102X( [3Xp[103X ) [32X function[133X
   
   [33X[0;0YThis function prints the trace of an NP polynomial [3Xp[103X.[133X
   
@@ -1592,7 +1592,7 @@
   
   [1X3.7-4 PrintNPListTrace[101X
   
-  [29X[2XPrintNPListTrace[102X( [3XG[103X ) [32X function
+  [33X[1;0Y[29X[2XPrintNPListTrace[102X( [3XG[103X ) [32X function[133X
   
   [33X[0;0YWhen  invoked  with  a  set  of  traced  non-commutative polynomials [3XG[103X, this
   function prints the list of the traced polynomials, without the trace.[133X
@@ -1612,7 +1612,7 @@
   
   [1X3.7-5 SGrobnerTrace[101X
   
-  [29X[2XSGrobnerTrace[102X( [3XLnp[103X ) [32X function
+  [33X[1;0Y[29X[2XSGrobnerTrace[102X( [3XLnp[103X ) [32X function[133X
   [6XReturns:[106X  [33X[0;10YGröbner Basis, traceable[133X
   
   [33X[0;0YFor  a  list  of  noncommutative  polynomials  [3XLnp[103X  this  function  will use
@@ -1641,7 +1641,7 @@
   
   [1X3.7-6 StrongNormalFormTraceDiff[101X
   
-  [29X[2XStrongNormalFormTraceDiff[102X( [3Xnp[103X, [3XGBT[103X ) [32X function
+  [33X[1;0Y[29X[2XStrongNormalFormTraceDiff[102X( [3Xnp[103X, [3XGBT[103X ) [32X function[133X
   [6XReturns:[106X  [33X[0;10YThe  traced  polynomial  for  the  difference of [3Xf[103X with the strong
             normal form of [3Xnp[103X with respect to [3XGBT[103X[133X
   
@@ -1689,7 +1689,7 @@
   
   [1X3.8-2 SGrobnerTrunc[101X
   
-  [29X[2XSGrobnerTrunc[102X( [3XLnp[103X, [3Xdeg[103X, [3Xwtv[103X ) [32X function
+  [33X[1;0Y[29X[2XSGrobnerTrunc[102X( [3XLnp[103X, [3Xdeg[103X, [3Xwtv[103X ) [32X function[133X
   [6XReturns:[106X  [33X[0;10YA  list of homogeneous NP polynomials if the first argument of the
             input  is  a  list  of homogeneous NP polynomials, and the boolean
             [10Xfalse[110X otherwise.[133X
@@ -1726,7 +1726,7 @@
   
   [1X3.8-3 CheckHomogeneousNPs[101X
   
-  [29X[2XCheckHomogeneousNPs[102X( [3XLnp[103X, [3Xwtv[103X ) [32X function
+  [33X[1;0Y[29X[2XCheckHomogeneousNPs[102X( [3XLnp[103X, [3Xwtv[103X ) [32X function[133X
   [6XReturns:[106X  [33X[0;10YA  list  of  weighted  degrees  of  the  polynomials  if these are
             homogeneous with respect to [3Xwtv[103X, and [10Xfalse[110X otherwise.[133X
   
@@ -1759,7 +1759,7 @@
   
   [1X3.8-4 BaseQATrunc[101X
   
-  [29X[2XBaseQATrunc[102X( [3XLnp[103X, [3Xdeg[103X, [3Xwtv[103X ) [32X function
+  [33X[1;0Y[29X[2XBaseQATrunc[102X( [3XLnp[103X, [3Xdeg[103X, [3Xwtv[103X ) [32X function[133X
   [6XReturns:[106X  [33X[0;10YA  list  of monomials if the first argument of the input is a list
             of homogeneous NP polynomials or [10Xfalse[110X.[133X
   
@@ -1835,7 +1835,7 @@
   
   [1X3.8-5 DimsQATrunc[101X
   
-  [29X[2XDimsQATrunc[102X( [3XLnp[103X, [3Xdeg[103X, [3Xwtv[103X ) [32X function
+  [33X[1;0Y[29X[2XDimsQATrunc[102X( [3XLnp[103X, [3Xdeg[103X, [3Xwtv[103X ) [32X function[133X
   [6XReturns:[106X  [33X[0;10YA  list  of monomials if the first argument of the input is a list
             of homogeneous NP polynomials or [10Xfalse[110X.[133X
   
@@ -1868,7 +1868,7 @@
   
   [1X3.8-6 FreqsQATrunc[101X
   
-  [29X[2XFreqsQATrunc[102X( [3XLnp[103X, [3Xdeg[103X, [3Xwtv[103X ) [32X function
+  [33X[1;0Y[29X[2XFreqsQATrunc[102X( [3XLnp[103X, [3Xdeg[103X, [3Xwtv[103X ) [32X function[133X
   [6XReturns:[106X  [33X[0;10YA  list of multiplicities of frequencies of monomials if the first
             argument  of  the input is a list of homogeneous polynomials in NP
             format, and [10Xfalse[110X otherwise.[133X
@@ -1959,7 +1959,7 @@
   
   [1X3.9-1 SGrobnerModule[101X
   
-  [29X[2XSGrobnerModule[102X( [3XLnpm[103X, [3XLnp[103X ) [32X function
+  [33X[1;0Y[29X[2XSGrobnerModule[102X( [3XLnpm[103X, [3XLnp[103X ) [32X function[133X
   [6XReturns:[106X  [33X[0;10YA  record  [10XGBR[110X  containing a Gröbner basis (if found...the general
             problem  is unsolvable) for modules; [10XGBR.p[110X will contain the prefix
             rules and [10XGBR.ts[110X will contain the two-sided rules, and [10XGBR.pg[110X will
@@ -2012,7 +2012,7 @@
   
   [1X3.9-2 BaseQM[101X
   
-  [29X[2XBaseQM[102X( [3XGBR[103X, [3Xt[103X, [3Xmt[103X, [3Xmaxno[103X ) [32X function
+  [33X[1;0Y[29X[2XBaseQM[102X( [3XGBR[103X, [3Xt[103X, [3Xmt[103X, [3Xmaxno[103X ) [32X function[133X
   [6XReturns:[106X  [33X[0;10YA  basis  of  the  module obtained from the free module of rank [3Xmt[103X
             over  the  free  algebra  on  [3Xt[103X  generators  by  factoring out the
             submodule generated by the elements of [3XGBR[103X[133X
@@ -2102,7 +2102,7 @@
   
   [1X3.9-3 DimQM[101X
   
-  [29X[2XDimQM[102X( [3XGBR[103X, [3Xt[103X, [3Xmt[103X ) [32X function
+  [33X[1;0Y[29X[2XDimQM[102X( [3XGBR[103X, [3Xt[103X, [3Xmt[103X ) [32X function[133X
   [6XReturns:[106X  [33X[0;10YThe dimension of the quotient module[133X
   
   [33X[0;0YWhen  called  with a Gröbner basis record [3XGBR[103X (see Section [14X2.8[114X), a number of
@@ -2161,7 +2161,7 @@
   
   [1X3.9-4 MulQM[101X
   
-  [29X[2XMulQM[102X( [3Xp1[103X, [3Xp2[103X, [3XGBR[103X ) [32X function
+  [33X[1;0Y[29X[2XMulQM[102X( [3Xp1[103X, [3Xp2[103X, [3XGBR[103X ) [32X function[133X
   [6XReturns:[106X  [33X[0;10YThe strong normal form of the product [3Xp1[103X[22X*[122X[3Xp2[103X with respect to [3XGBR[103X[133X
   
   [33X[0;0YWhen  called  with  three  arguments,  the  first  of which, [3Xp1[103X, is a module
@@ -2219,7 +2219,7 @@
   
   [1X3.9-5 StrongNormalFormNPM[101X
   
-  [29X[2XStrongNormalFormNPM[102X( [3Xf[103X, [3XGBR[103X ) [32X function
+  [33X[1;0Y[29X[2XStrongNormalFormNPM[102X( [3Xf[103X, [3XGBR[103X ) [32X function[133X
   [6XReturns:[106X  [33X[0;10YThe  strong  normal form of a polynomial in NP format with respect
             to [3XGBR[103X[133X
   
