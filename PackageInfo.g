@@ -50,6 +50,13 @@ Persons := [
     Place         := "Eindhoven",
     Institution   := "Eindhoven University of Technology"
   ),
+  rec(
+    LastName      := "GAP Team",
+    FirstNames    := "The",
+    IsAuthor      := false,
+    IsMaintainer  := true,
+    Email         := "support@gap-system.org",
+  ),
 ],
 
 Status := "accepted",
