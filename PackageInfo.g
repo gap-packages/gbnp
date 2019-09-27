@@ -95,7 +95,7 @@ Dependencies := rec(
 
 AvailabilityTest := ReturnTrue,
 
-TestFile := "tst/test-all.tst",
+TestFile := "tst/testall.g",
 
 Keywords := ["Grobner basis", "noncommutative polynomial", "partial Hilbert series"],
 
