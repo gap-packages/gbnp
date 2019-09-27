@@ -542,6 +542,6 @@ gap> LexicographicTable(ml2);
 </Chapter>
 </Body>
 
-<Bibliography Databases="../gbnp_doc,nmo_doc" Style="../plainurl"/>
+<Bibliography Databases="../gbnp_doc,nmo_doc"/>
 
 </Book>

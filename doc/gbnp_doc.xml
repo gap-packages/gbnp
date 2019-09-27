@@ -875,7 +875,7 @@ This example also extends  Example <Ref
 	<#Include Label="Example25">
 	<#Include Label="ExampleColagen">
 </Appendix>
-<Bibliography Databases="gbnp_doc" Style="plainurl"/>
+<Bibliography Databases="gbnp_doc"/>
 <!-- -->
 <TheIndex/>
 </Book>
