@@ -15,7 +15,7 @@ gap> # the terms of the Lesser GNU General Public License as published by the
 gap> # Free Software Foundation (FSF); either version 2.1 of the License, or
 gap> # (at your option) any later version. For details, see the file 'LGPL' in
 gap> # the doc subdirectory of the GBNP distribution or see the FSF's own site:
-gap> # http://www.gnu.org/licenses/lgpl.html
+gap> # https://www.gnu.org/licenses/lgpl.html
 gap> ########################## END COPYRIGHT MESSAGE ##########################
 gap> 
 gap> ### filename = "example09.g" 
