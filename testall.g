@@ -20,7 +20,7 @@
 LoadPackage("gbnp");
 
 RT:=function(name)
-  	ReadTest(name);
+  	Test(name);
 	# reset printing
 	GBNP.ConfigPrint();
 

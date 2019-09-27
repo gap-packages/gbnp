@@ -755,7 +755,7 @@ purposes in the future.
 <Subsection><Heading>What will be printed at level 0</Heading>
 	No timing information will be printed at level 0. This can be desirable
 	for small examples or when producing test output, for use with
-	<C>ReadTest</C>.
+	<C>Test</C>.
 </Subsection>
 <Subsection><Heading>What will be printed at level 1</Heading>
 	The infolevel can be set to 1 with the following command:

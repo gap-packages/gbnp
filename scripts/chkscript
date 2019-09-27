@@ -33,7 +33,7 @@ fi
 
 { cat <<-EOF 
 	LogTo("${1}.chk");
-	ReadTest("${1}.txt");
+	Test("${1}.txt");
 EOF
 }|$GAP -r -q
 printf '\033[37;0m'

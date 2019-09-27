@@ -1,4 +1,4 @@
-ReadTest("all.txt");
+Test("all.txt");
 false
 false
 false
