@@ -20,7 +20,6 @@ gap> ########################## END COPYRIGHT MESSAGE ##########################
 gap> 
 gap> ### filename = "example21.g" 
 gap> ### author Knoppe21
-gap> ### $Id: example21.g,v 1.7 2004/04/16 14:37:38 jwk Exp $
 gap> 
 gap> ### THIS IS A GAP PACKAGE FOR COMPUTING NON-COMMUTATIVE GROBNER BASES 
 gap> 

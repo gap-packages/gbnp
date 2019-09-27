@@ -19,7 +19,6 @@
 
 ### file "printing.gi"
 ### 
-### vs 0.8.3 $Id: printing.gi 12772 2010-01-15 13:10:24Z jwk $
 
 # THIS IS PART OF A NON COMMUTATIVE GROBNER BASIS PACKAGE FOR GAP
 

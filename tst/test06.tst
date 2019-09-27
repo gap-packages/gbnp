@@ -20,7 +20,6 @@ gap> ########################## END COPYRIGHT MESSAGE ##########################
 gap> 
 gap> ### filename = "example06.g" 
 gap> ### authors Cohen & Gijsbers
-gap> ### $Id: example06.g,v 1.6 2004/04/16 14:37:37 jwk Exp $
 gap> 
 gap> ### THIS IS A GAP PACKAGE FOR COMPUTING NON-COMMUTATIVE GROBNER BASES 
 gap>  

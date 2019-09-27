@@ -22,7 +22,6 @@
 ### vs 0.9
 
 ### THIS IS PART OF A GAP PACKAGE FOR COMPUTING NON-COMMUTATIVE GROBNER BASES 
-### $Id: grobner.gi 12772 2010-01-15 13:10:24Z jwk $
  
 #functions defined in this file:
 #GBNP.RightOccur:=function(u,v)

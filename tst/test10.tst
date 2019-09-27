@@ -18,7 +18,6 @@ gap> # the doc subdirectory of the GBNP distribution or see the FSF's own site:
 gap> # https://www.gnu.org/licenses/lgpl.html
 gap> ########################## END COPYRIGHT MESSAGE ##########################
 gap> 
-gap> # $Id: example10.g,v 1.7 2004/04/16 14:12:42 jwk Exp $
 gap> 
 gap> # <#GAPDoc Label="Example10">
 gap> # <Section Label="Example10"><Heading>A commutative example by Mora</Heading>

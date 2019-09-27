@@ -17,7 +17,6 @@
 # https://www.gnu.org/licenses/lgpl.html
 ########################## END COPYRIGHT MESSAGE ##########################
 
-# $Id: example10.g,v 1.7 2004/04/16 14:12:42 jwk Exp $
 
 # <#GAPDoc Label="Example10">
 # <Section Label="Example10"><Heading>A commutative example by Mora</Heading>

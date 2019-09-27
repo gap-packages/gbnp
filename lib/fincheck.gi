@@ -20,7 +20,6 @@
 ### filename = "fincheck.gi"
 ### author: Chris Krook
 ### This is an add on for the GBNP package, since version 0.8.3
-### $Id: fincheck.gi 12659 2009-11-12 16:04:56Z jwk $
 
 # This files contains some functions to investigate the growth of a
 # monomial algebra. (The growth of the quotient algebra by an ideal with

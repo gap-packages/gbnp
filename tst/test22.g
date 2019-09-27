@@ -19,7 +19,6 @@
 
 ### filename = "example22.g" 
 ### author Knopper
-### $Id: example22.g,v 1.7 2004/04/16 14:37:39 jwk Exp $
 
 ### THIS IS A GAP PACKAGE FOR COMPUTING NON-COMMUTATIVE GROBNER BASES 
 

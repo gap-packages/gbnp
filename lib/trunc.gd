@@ -23,7 +23,6 @@
 ### 	made to accompany "trunc.gi" from Cohen & Gijsbers 
 ###
 ### This is a part of the GBNP package, version 0.9
-### $Id: trunc.gd 12772 2010-01-15 13:10:24Z jwk $
 
 DeclareGlobalFunction("CheckHomogeneousNPs");
 DeclareGlobalFunction("SGrobnerTrunc");

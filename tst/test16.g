@@ -24,7 +24,6 @@
 ### FOR COMPUTING WITH NON-COMMUTATIVE POLYNOMIALS
 ### ADD-ON: STUDY GROWTH OF FACTOR ALGEBRA
 
-### $Id: example16.g,v 1.7 2004/04/16 14:37:38 jwk Exp $
 
 # <#GAPDoc Label="Example16">
 # <Section Label="Example16"><Heading>A commutative quotient algebra of polynomial growth</Heading>

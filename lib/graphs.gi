@@ -20,7 +20,6 @@
 ### filename = "graphs.gi"
 ### author: Chris Krook
 ### This is an add-on for the GBNP package, since version 0.8.3
-### $Id: graphs.gi 12772 2010-01-15 13:10:24Z jwk $
 
 # This file contains some auxiliary functions used by the file fincheck.g
 # for the purpose of Hilbert Series calculations. Moreover it contains

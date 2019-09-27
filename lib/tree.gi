@@ -20,7 +20,6 @@
 ### filename = "tree.gi"
 ### author: Chris Krook
 ### This is an add-on for the GBNP package, version 0.9
-### $Id: tree.gi 12772 2010-01-15 13:10:24Z jwk $
 
 # This file contains auxiliary functions that are used by the file
 # fincheck.g. All functions in this file are constructors or operators on

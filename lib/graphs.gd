@@ -22,7 +22,6 @@
 ### 	made to accompany "graphs.gi" from Chris Krook
 ###
 ### This is an add on for the GBNP package, version 0.9
-### $Id: graphs.gd 12772 2010-01-15 13:10:24Z jwk $
 
 DeclareGlobalFunction("DetermineGrowthObs");
 DeclareGlobalFunction("GraphOfNormalWords");

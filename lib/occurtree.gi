@@ -17,7 +17,6 @@
 # https://www.gnu.org/licenses/lgpl.html
 ########################## END COPYRIGHT MESSAGE ##########################
 
-# $Id: occurtree.gi 14294 2011-05-24 12:54:55Z jwk $
 
 # createtree
 # special case GB 1

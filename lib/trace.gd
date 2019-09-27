@@ -22,7 +22,6 @@
 ### 	made to accompany "trace.gi" from Cohen & Gijsbers 
 ###
 ### This is a part of the GBNP package, version 0.9
-### $Id: trace.gd 11992 2009-02-09 12:40:38Z jwk $
 
 DeclareGlobalFunction("EvalTrace");
 DeclareGlobalFunction("SGrobnerTrace");
