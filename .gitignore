@@ -2,7 +2,7 @@ chap*.html
 chap*.txt
 *.css
 *.js
-/doc/chooser.html
+chooser.html
 *.aux
 *.bbl
 *.blg
