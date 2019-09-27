@@ -28,6 +28,6 @@ depend:
 	./makedepend
 
 %.txt: %.g
-	../../scripts/gapscript "$*"
+	../../etc/gapscript "$*"
 %.xml: %.txt txt2xml.sed
 	sed -f txt2xml.sed "$<" > "$@"

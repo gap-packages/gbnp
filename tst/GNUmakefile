@@ -16,8 +16,8 @@ test-functions.g: ../doc/examples/functions.g
 	grep -v '^time' ../doc/examples/functions.g |sed 's/InfoGBNPTime,[12345]/InfoGBNPTime,0/' > test-functions.g
 
 %.tst: %.txt
-	../scripts/testscript "$*"
+	../etc/testscript "$*"
 %.txt: %.g
-	../scripts/gapscript "$*"
+	../etc/gapscript "$*"
 %.xml: %.txt txt2xml.sed
 	sed -f txt2xml.sed "$<" > "$@"

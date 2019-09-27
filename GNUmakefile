@@ -41,7 +41,7 @@ clean: distclean
 	rm -rf tst/*tst 
 
 computerinfo: 
-	scripts/maketiming > doc/timing.xml
+	etc/maketiming > doc/timing.xml
 
 distclean:
 	rm -rf GBNPdoc-${VERSION}.tar.gz GBNP-${VERSION}.tar.gz doc/examples/*xml .depend doc/examples/.depend examples/.depend tst/.depend .depend make_doc.txt build www
@@ -49,7 +49,7 @@ distclean:
 doc: depend computerinfo
 	cd doc/examples && ${MAKE} allxml
 	cd ../..
-	scripts/gapscript make_doc
+	etc/gapscript make_doc
 	rm -f make_doc.txt
 
 GBNPdoc-${VERSION}.tar.gz: doc builddir
@@ -59,7 +59,7 @@ GBNP-${VERSION}.tar.gz: doc tests builddir
 	tar -cvzf build/archives/GBNP-${VERSION}.tar.gz -C .. --exclude 'build/archives' --exclude '*.svn*' --exclude '*CVS*' --exclude 'build' --exclude 'www' --exclude '.depend' gbnp
 
 depend: workspace
-	scripts/makedepend
+	etc/makedepend
 	cp .depend examples
 	cp .depend tst
 	cp .depend doc/examples
@@ -89,13 +89,13 @@ www: doc archives
 	cd www && ln -fs chap0.html index.html && cd -
 
 build/gbnp.wks.gz: 
-	scripts/workspace
+	etc/workspace
 
-build/COPYRIGHTcmt: COPYRIGHT scripts/copyrightcomment builddir
-	scripts/copyrightcomment <COPYRIGHT >build/COPYRIGHTcmt
+build/COPYRIGHTcmt: COPYRIGHT etc/copyrightcomment builddir
+	etc/copyrightcomment <COPYRIGHT >build/COPYRIGHTcmt
 
-build/changecomment.vim: scripts/changecomment.vim.sh build/COPYRIGHTcmt
-	scripts/changecomment.vim.sh >build/changecomment.vim
+build/changecomment.vim: etc/changecomment.vim.sh build/COPYRIGHTcmt
+	etc/changecomment.vim.sh >build/changecomment.vim
 
 comment: build/COPYRIGHTcmt build/changecomment.vim
 
