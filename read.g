@@ -21,7 +21,7 @@
 ### made by Jan Willem Knopper on 13 august 2003
 ### part of GBNP package since version 0.9
 
-InstallValue(GBNP,rec());
+BindGlobal("GBNP",rec());
 
 ReadPackage("GBNP", "lib/nparith.gi");
 ReadPackage("GBNP", "lib/npformat.gi");

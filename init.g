@@ -19,9 +19,6 @@
 
 ### init file for GBNP, reads all the .gd files
 
-#protect the name GBNP, but not the record entries GBNP.*
-DeclareGlobalVariable("GBNP");
-
 ReadPackage("GBNP", "lib/fincheck.gd");
 ReadPackage("GBNP", "lib/graphs.gd");
 ReadPackage("GBNP", "lib/grobner.gd");
