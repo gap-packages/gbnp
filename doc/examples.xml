@@ -1,0 +1,88 @@
+<Appendix Label="Examples"><Heading>Examples</Heading>
+<Section Label="ExamplesIntroduction"><Heading>Introduction</Heading>
+In this chapter all available commented examples can be found.
+Those without comments are in the directory
+		<F>gbnp/examples</F>.
+        <#Include SYSTEM "timing.xml">
+<List>
+<Item><Ref Sect="Example01"/> <Ref Sect="Example01"  Style="Text"/></Item>
+<Item><Ref Sect="Example02"/> <Ref Sect="Example02"  Style="Text"/></Item>
+<Item><Ref Sect="Example11"/> <Ref Sect="Example11"  Style="Text"/></Item>
+<Item><Ref Sect="Example03"/> <Ref Sect="Example03"  Style="Text"/></Item>
+<Item><Ref Sect="Example05"/> <Ref Sect="Example05"  Style="Text"/></Item>
+<Item><Ref Sect="Example06"/> <Ref Sect="Example06"  Style="Text"/></Item>
+<Item><Ref Sect="Example07"/> <Ref Sect="Example07"  Style="Text"/></Item>
+<Item><Ref Sect="Example08"/> <Ref Sect="Example08"  Style="Text"/></Item>
+<Item><Ref Sect="Example10"/> <Ref Sect="Example10"  Style="Text"/></Item>
+<Item><Ref Sect="Example09"/> <Ref Sect="Example09"  Style="Text"/></Item>
+<Item><Ref Sect="Example13"/> <Ref Sect="Example13"  Style="Text"/>
+<P/>
+This extends Example <Ref Sect="Example03"/>.
+</Item>
+<Item><Ref Sect="Example14"/> <Ref Sect="Example14"  Style="Text"/>
+<P/>
+This extends two earlier examples <Ref Sect="Example03"/> and  <Ref
+Sect="Example13"/>.
+</Item>
+<Item><Ref Sect="Example15"/> <Ref Sect="Example15"  Style="Text"/></Item>
+<Item><Ref Sect="Example16"/> <Ref Sect="Example16"  Style="Text"/>
+<P/>
+This extends Example <Ref Sect="Example06"/>.
+</Item>
+<Item><Ref Sect="Example17"/> <Ref Sect="Example17"  Style="Text"/></Item>
+<Item><Ref Sect="Example18"/> <Ref Sect="Example18"  Style="Text"/> 
+<!-- Permutation module of dim 4 of the dihedral gp of order 8-->
+</Item>
+<Item><Ref Sect="Example19"/> <Ref Sect="Example19"  Style="Text"/>
+<!-- Module example, permutation module of
+		dimension 4 of the dihedral group of order 8, with the all ones
+	vector fixed--> 
+<P/>
+This extends Example <Ref Sect="Example18"/>.
+</Item>
+<Item><Ref Sect="Example20"/> <Ref Sect="Example20"  Style="Text"/>
+<P/>
+This example also extends  Example <Ref
+			Sect="Example18"/>.
+</Item>
+<Item><Ref Sect="Example04"/> <Ref Sect="Example04"  Style="Text"/></Item>
+<Item><Ref Sect="Example21"/> <Ref Sect="Example21"  Style="Text"/></Item>
+<Item><Ref Sect="Example22"/> <Ref Sect="Example22"  Style="Text"/>
+<!--Module example: Hecke Algebra of type
+     A<M>_3</M> <B>over</B> GF(3), obtaining a 4-dimensional representation
+-->
+</Item>
+<Item><Ref Sect="Example23"/> <Ref Sect="Example23"  Style="Text"/></Item>
+<Item><Ref Sect="Example12"/> <Ref Sect="Example12"  Style="Text"/></Item>
+<Item><Ref Sect="Example24"/> <Ref Sect="Example24"  Style="Text"/></Item>
+<Item><Ref Sect="Example25"/> <Ref Sect="Example25"  Style="Text"/></Item>
+<Item><Ref Sect="ExampleColagen"/> <Ref Sect="ExampleColagen"  Style="Text"/></Item>
+</List>
+</Section>
+	<#Include Label="Example01">
+	<#Include Label="Example02">
+	<#Include Label="Example11">
+	<#Include Label="Example03">
+	<#Include Label="Example05">
+	<#Include Label="Example06">
+	<#Include Label="Example07">
+	<#Include Label="Example08">
+	<#Include Label="Example10">
+	<#Include Label="Example09">
+	<#Include Label="Example13">
+	<#Include Label="Example14">
+	<#Include Label="Example15">
+	<#Include Label="Example16">
+	<#Include Label="Example17">
+	<#Include Label="Example18">
+	<#Include Label="Example19">
+	<#Include Label="Example20">
+	<#Include Label="Example04">
+	<#Include Label="Example21">
+	<#Include Label="Example22">
+	<#Include Label="Example23">
+	<#Include Label="Example12">
+	<#Include Label="Example24">
+	<#Include Label="Example25">
+	<#Include Label="ExampleColagen">
+</Appendix>

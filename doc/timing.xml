@@ -1,5 +1,3 @@
-<#GAPDoc Label="timing">
 Timing results are obtained on an  Intel(R) Xeon(R) CPU E5-2630 v3 @ 2.40GHz processor running
 Linux (3.19.0-42-generic #48~14.04.1-Ubuntu SMP Fri Dec 18 10:24:49 UTC 2015) 
 and using GAP 4.6.5.
-<#/GAPDoc>
