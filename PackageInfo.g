@@ -94,7 +94,6 @@ PackageDoc := rec(
   PDFFile   := "doc/manual.pdf",
   SixFile   := "doc/manual.six",
   LongTitle := "Non-commutative Gröbner bases",
-  Autoload  := true
 ),
 
 Dependencies := rec(
