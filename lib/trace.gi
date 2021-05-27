@@ -55,7 +55,7 @@
 ### EvalTrace ###
 #################
 ### <#GAPDoc Label="EvalTrace">
-### <ManSection Label="EvalTrace">
+### <ManSection>
 ### <Func Name="EvalTrace" Comm="Evaluates the trace of a traced polynomial" Arg="p,
 ### Lnp"/>
 ###
@@ -277,7 +277,7 @@ end;;
 
 ################### 
 ### <#GAPDoc Label="StrongNormalFormTraceDiff">
-### <ManSection Label="StrongNormalFormTraceDiff">
+### <ManSection>
 ### <Func Name="StrongNormalFormTraceDiff" Comm="computes the difference with
 ### the strong normal form of an NP polynomial with trace
 ### information" Arg="np, GBT"
@@ -603,7 +603,7 @@ end;;
 ################## 
 ### SGrobnerTrace
 ### <#GAPDoc Label="SGrobnerTrace">
-### <ManSection Label="SGrobnerTrace">
+### <ManSection>
 ### <Func Name="SGrobnerTrace" Comm="Buchberger's algorithm with normalform" Arg="Lnp" />
 ### <Returns>
 ### Gröbner Basis, traceable

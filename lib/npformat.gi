@@ -93,7 +93,7 @@ end;
 #############
 ### 
 ### <#GAPDoc Label="GP2NP">
-### <ManSection Label="GP2NP">
+### <ManSection>
 ### <Func Name="GP2NP" Comm="Convert polynomials to NP form" Arg="gp"/>
 ###
 ### <Returns>If <A>gp</A> is an element of a free algebra,
@@ -133,7 +133,7 @@ end);
 ### GP2NPList ###
 ################# 
 ### <#GAPDoc Label="GP2NPList">
-### <ManSection Label="GP2NPList">
+### <ManSection>
 ### <Func Name="GP2NPList" Comm="Convert a list of polynomials to NP format." 
 ### Arg="Lgp"/>
 ###
@@ -186,7 +186,7 @@ end;
 ### NP2GP ###
 ############# 
 ### <#GAPDoc Label="NP2GP">
-### <ManSection Label="NP2GP">
+### <ManSection>
 ### <Func Name="NP2GP" Comm="Convert polynomials from NP format" Arg="np, A"/>
 ###
 ### <Returns>The GAP format of the polynomial <A>np</A> in NP format.</Returns>
@@ -253,7 +253,7 @@ end);
 ### NP2GPList ###
 ################# 
 ### <#GAPDoc Label="NP2GPList">
-### <ManSection Label="NP2GPList">
+### <ManSection>
 ### <Func Name="NP2GPList" Comm="Convert a list of polynomials from NP format" 
 ### Arg="Lnp, A"/>
 ###
@@ -372,7 +372,7 @@ end;
 ###################
 ### 
 ### <#GAPDoc Label="GP2NPM">
-### <ManSection Label="GP2NPM">
+### <ManSection>
 ### <Func Name="GP2NPM" Comm="Convert polynomials to NPM format" Arg="gp"/>
 ###
 ### <Returns>The polynomial <A>gp</A> converted to NP module form</Returns>
@@ -414,7 +414,7 @@ end;
 ### GBNP.NPM2GP ###
 ###################
 ### <#GAPDoc Label="NPM2GP">
-### <ManSection Label="NPM2GP">
+### <ManSection>
 ### <Func Name="NPM2GP" Comm="Convert polynomials from NPM format" Arg="np, D"/>
 ###
 ### <Returns>The polynomial <A>np</A> converted from the NPM format</Returns>
@@ -529,7 +529,7 @@ end;
 ### MatrixQA ###
 ################
 ### <#GAPDoc Label="MatrixQA">
-### <ManSection Label="MatrixQA">
+### <ManSection>
 ### <Func Name="MatrixQA" Comm="Creates a matrix representation" Arg="i, B, GB" />
 ### <Returns>
 ### The matrix representation for the <A>i</A>-th generator of the algebra for
@@ -585,7 +585,7 @@ end);
 ### MatricesQA ###
 ##################
 ### <#GAPDoc Label="MatricesQA">
-### <ManSection Label="MatricesQA">
+### <ManSection>
 ### <Func Name="MatricesQA" Comm="Creates the matrix representations"
 ### Arg="t, B, GB" />
 ### <Returns>
@@ -620,7 +620,7 @@ end);
 ### MatrixQAC ###
 #################
 ### <#GAPDoc Label="MatrixQAC">
-### <ManSection Label="MatrixQAC">
+### <ManSection>
 ### <Func Name="MatrixQAC" Comm="Creates a compressed matrix representation"
 ###  Arg="i, B, GB" />
 ### <Returns>
@@ -664,7 +664,7 @@ end);
 ### MatricesQAC ###
 ###################
 ### <#GAPDoc Label="MatricesQAC">
-### <ManSection Label="MatricesQAC">
+### <ManSection>
 ### <Func Name="MatricesQAC" Comm="Creates the compressed matrix
 ### representations" Arg="t, B, GB" />
 ### <Returns>

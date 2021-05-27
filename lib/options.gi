@@ -141,7 +141,7 @@ end;
 ########################
 ### XXX integer -> discarded 
 ### <#GAPDoc Label="GBNP.ConfigPrint">
-### <ManSection Label="GBNP.ConfigPrint">
+### <ManSection>
 ### <Func Name="GBNP.ConfigPrint" Comm="Set GBNP print options" Arg="arg" />
 ### <Description>
 ### By default the generators of the algebra are printed as <C>a</C>, ...,
