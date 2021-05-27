@@ -19,7 +19,7 @@
 
 DeclareCategory("IsQuotientAlgebra", IsObject);
 QuotientAlgebraFam:=NewFamily("IsQuotientAlgebra");
-IsQuotientAlgebraRep:=NewRepresentation("IsQuotientAlgebra", IsDataObjectRep, [ "GrobnerBasis", 
-"Algebra" ]); 
+DeclareRepresentation("IsQuotientAlgebraRep", IsDataObjectRep, [ "GrobnerBasis",
+"Algebra" ]);
 QuotientAlgebraType:=NewType(QuotientAlgebraFam, IsQuotientAlgebra and IsQuotientAlgebraRep);
 DeclareGlobalFunction("QuotientAlgebra");
