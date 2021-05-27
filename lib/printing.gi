@@ -38,7 +38,7 @@
 ###############
 ### Printing the polynomial np
 ### <#GAPDoc Label="PrintNP">
-### <ManSection Label="PrintNP">
+### <ManSection>
 ### <Func Name="PrintNP" Comm="Print a polynomial in NP format" Arg="np"/>
 ###
 ### <Description>
@@ -109,7 +109,7 @@ end);;
 ###################
 ### Printing nicely 
 ### <#GAPDoc Label="PrintNPList">
-### <ManSection Label="PrintNPList">
+### <ManSection>
 ### <Func Name="PrintNPList" Comm="Print a list of polynomial in NP format" Arg="Lnp"/>
 ###
 ### <Description>
@@ -178,7 +178,7 @@ end;;
 ################
 ### Printing the polynomial np
 ### <#GAPDoc Label="PrintNPM">
-### <ManSection Label="PrintNPM">
+### <ManSection>
 ### <Func Name="PrintNPM" Comm="Print a polynomial in NPM format" Arg="np, mt"/>
 ###
 ### <Description>
@@ -355,7 +355,7 @@ end;
 ### PrintTracePol ###
 #####################
 ### <#GAPDoc Label="PrintTracePol">
-### <ManSection Label="PrintTracePol">
+### <ManSection>
 ### <Func Name="PrintTracePol" Comm="Prints the trace of a traced non-commutative polynomial" Arg="p" />
 ### <Description>
 ### This function prints the trace of an NP polynomial <A>p</A>.
@@ -395,7 +395,7 @@ end);
 ### PrintTraceList ###
 ######################
 ### <#GAPDoc Label="PrintTraceList">
-### <ManSection Label="PrintTraceList">
+### <ManSection>
 ### <Func Name="PrintTraceList" Comm="prints the traces of a list of non-commutative polynomials" Arg="G" />
 ### <Description>
 ### When invoked with a list  <A>G</A> of traced polynomials,
@@ -430,7 +430,7 @@ end);
 ### PrintNPListTrace ###
 ########################
 ### <#GAPDoc Label="PrintNPListTrace">
-### <ManSection Label="PrintNPListTrace">
+### <ManSection>
 ### <Func Name="PrintNPListTrace" Comm="Prints the a list of traced non-commutative polynomials, NOT using the trace." Arg="G" />
 ### <Description>
 ### When invoked with a set of traced non-commutative polynomials <A>G</A>,

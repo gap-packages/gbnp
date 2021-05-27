@@ -351,7 +351,7 @@ end;
 ################## 
 ### CheckHomogeneousNPs
 ### <#GAPDoc Label="CheckHomogeneousNPs">
-### <ManSection Label="CheckHomogeneousNPs">
+### <ManSection>
 ### <Func Name="CheckHomogeneousNPs" Arg="Lnp, wtv" />
 ### <Returns>
 ### A list of weighted degrees of the polynomials if these are homogeneous
@@ -553,7 +553,7 @@ GBNP.MakeArgumentLevel:=function(mons,n) local i,hlp,mon,ans,arg;
 ################## 
 ### SGrobnerTrunc
 ### <#GAPDoc Label="SGrobnerTrunc">
-### <ManSection Label="SGrobnerTrunc">
+### <ManSection>
 ### <Func Name="SGrobnerTrunc"  Arg="Lnp, deg, wtv" />
 ### <Returns>
 ### A list of homogeneous NP polynomials if the first argument
@@ -603,7 +603,7 @@ end);
 ################## 
 ### BaseQATrunc
 ### <#GAPDoc Label="BaseQATrunc">
-### <ManSection Label="BaseQATrunc">
+### <ManSection>
 ### <Func Name="BaseQATrunc" Arg="Lnp, deg, wtv" />
 ### <Returns>
 ### A list of monomials if the first argument
@@ -651,7 +651,7 @@ end);
 ################## 
 ### DimsQATrunc
 ### <#GAPDoc Label="DimsQATrunc">
-### <ManSection Label="DimsQATrunc">
+### <ManSection>
 ### <Func Name="DimsQATrunc" Arg="Lnp, deg, wtv" />
 ### <Returns>
 ### A list of monomials if the first argument
@@ -705,7 +705,7 @@ end);
 ################## 
 ### FreqsQATrunc
 ### <#GAPDoc Label="FreqsQATrunc">
-### <ManSection Label="FreqsQATrunc">
+### <ManSection>
 ### <Func Name="FreqsQATrunc"  Arg="Lnp, deg, wtv" />
 ### <Returns>
 ### A list of multiplicities of frequencies of monomials if the first argument

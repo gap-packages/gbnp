@@ -125,7 +125,7 @@ end;
 ##################
 ### PreprocessAnalysisQA
 ### <#GAPDoc Label="PreprocessAnalysisQA">
-### <ManSection Label="PreprocessAnalysisQA">
+### <ManSection>
 ### <Func Name="PreprocessAnalysisQA" Comm="computes the left-reduced set for some monomial obstructional set" Arg="Lm, t, iterations" />
 ### <Returns>
 ### The left-reduced list of `obstructions', 
@@ -213,7 +213,7 @@ end);;
 ### FinCheckQA
 ###
 ### <#GAPDoc Label="FinCheckQA">
-### <ManSection Label="FinCheckQA">
+### <ManSection>
 ### <Func Name="FinCheckQA" Comm="determine wether a monomial algebra is finite or infinite dimensional" Arg="Lm, t" />
 ### <Returns>
 ### <Code>true</Code>, if the quotient algebra is finite dimensional and<Code>
@@ -336,7 +336,7 @@ end);
 ### DetermineGrowthQA
 ###
 ### <#GAPDoc Label="DetermineGrowthQA">
-### <ManSection Label="DetermineGrowthQA">
+### <ManSection>
 ### <Func Name="DetermineGrowthQA" Comm=" determine the growth of a monomial
 ### algebra 
 ### (finite, polynomial growth of degree d, exponential growth)" Arg="Lm, t, exact" />
@@ -583,7 +583,7 @@ end);
 ###################################
 ### function HilbertSeriesQA
 ### <#GAPDoc Label="HilbertSeriesQA">
-### <ManSection Label="HilbertSeriesQA">
+### <ManSection>
 ### <Func Name="HilbertSeriesQA" Comm="compute partial Hilbert series" Arg="Lm, t, d" />
 ### <Returns>
 ### A list of coefficients of the Hilbert series up to degree <A>d</A>

@@ -155,7 +155,7 @@ end;
 ##########################################
 ### function GraphOfNormalWords
 ### <#GAPDoc Label="GraphOfNormalWords">
-### <ManSection Label="GraphOfNormalWords">
+### <ManSection>
 ### <Func Name="GraphOfNormalWords" Comm="" Arg="O, n" />
 ### <Returns>
 ### <C>Edgeset</C>, the set of edges of the graph of normal words.
@@ -375,7 +375,7 @@ end;
 ####################################
 ### function DetermineGrowthObs
 ### <#GAPDoc Label="DetermineGrowthObs">
-### <ManSection Label="DetermineGrowthObs">
+### <ManSection>
 ### <Func Name="DetermineGrowthObs" Arg="L, n" />
 ### <Returns>
 ### If the dimension of the quotient algebra is finite, <M>0</M> is returned. 
@@ -444,7 +444,7 @@ end);
 ###################################
 ### function GraphOfChains
 ### <#GAPDoc Label="GraphOfChains">
-### <ManSection Label="GraphOfChains">
+### <ManSection>
 ### <Func Name="GraphOfChains" Comm="computes the graph of chains" Arg="O, n" />
 ### <Returns>
 ### A list <C>[ESet,LSet]</C>, where
@@ -529,7 +529,7 @@ end);
 ###################################
 ### function HilbertSeriesG
 ### <#GAPDoc Label="HilbertSeriesG">
-### <ManSection Label="HilbertSeriesG">
+### <ManSection>
 ### <Func Name="HilbertSeriesG" Arg="ESet, LSet, n, d" />
 ### <Returns>
 ### A list of coefficients of the Hilbert series up to degree <A>d</A>
