@@ -32,7 +32,7 @@ SetInfoLevel(InfoGBNPTime,1);
 
 # In Serre's book <Cite Key="MR1954121"/> the following exercise can be found: 
 # Prove  that the group
-# <M> \langle \{a,b,c\}\mid \{ bab^{-1}a^{-2}, cbc^{-1}b^{-2}, aca^{-1}c^{-2}\}\right\rangle</M>
+# <M> \left\langle \{a,b,c\}\mid \{ bab^{-1}a^{-2}, cbc^{-1}b^{-2}, aca^{-1}c^{-2}\}\right\rangle</M>
 # is the trivial group.
 # Here we solve the exercise by running the trace variant of the 
 # Gröbner basis function with input the set of equations

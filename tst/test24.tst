@@ -34,7 +34,7 @@ gap> # </L>
 gap> 
 gap> # In Serre's book <Cite Key="MR1954121"/> the following exercise can be found: 
 gap> # Prove  that the group
-gap> # <M> \langle \{a,b,c\}\mid \{ bab^{-1}a^{-2}, cbc^{-1}b^{-2}, aca^{-1}c^{-2}\}\right\rangle</M>
+gap> # <M> \left\langle \{a,b,c\}\mid \{ bab^{-1}a^{-2}, cbc^{-1}b^{-2}, aca^{-1}c^{-2}\}\right\rangle</M>
 gap> # is the trivial group.
 gap> # Here we solve the exercise by running the trace variant of the 
 gap> # Gröbner basis function with input the set of equations
