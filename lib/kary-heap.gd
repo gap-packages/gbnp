@@ -24,8 +24,8 @@
 
 DeclareCategory("IsTHeapOT", IsObject);
 THeapOTFam:=NewFamily("THeapOT");
-IsTHeapOTRep:=NewRepresentation("IsTHeapOT", IsDataObjectRep, [ "list", 
-"OT" ]); # add lterms ??, not storing ?
+DeclareRepresentation("IsTHeapOTRep", IsDataObjectRep, [ "list",
+"OT" ]);
 THeapOTType:=NewType(THeapOTFam, IsTHeapOT and IsTHeapOTRep);
 
 DeclareOperation("Add", 		[IsTHeapOT, IsObject]);
