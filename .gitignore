@@ -19,6 +19,7 @@ chooser.html
 *.toc
 /doc/manual.pdf
 /doc/title.xml
+/doc/GBNP.xml
 /doc/nmo/nmo_doc.tex
 /doc/nmo/manual.pdf
 
