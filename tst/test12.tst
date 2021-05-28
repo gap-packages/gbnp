@@ -40,7 +40,6 @@ gap>
 gap> # <L>
 gap> LoadPackage("gbnp", false);
 true
-gap> 
 gap> SetInfoLevel(InfoGBNP,0);
 gap> SetInfoLevel(InfoGBNPTime,0);
 gap> # </L>
