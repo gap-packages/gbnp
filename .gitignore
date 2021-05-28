@@ -26,5 +26,9 @@ chooser.html
 .depend
 /example/*.g
 
+/build/
+/misc/
+/examples/
+
 /tmp/
 /gh-pages/
