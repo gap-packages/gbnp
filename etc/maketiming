@@ -7,7 +7,7 @@ fi
 
 
 CPU_INFO=$(cat /proc/cpuinfo|grep 'model name'|head -n 1|cut -d: -f 2)
-OS_INFO="Linux ($(uname -vr))"
+OS_INFO="$(uname -s) ($(uname -vr))"
 GAP_INFO=$($GAP -h 2>&1 |grep Version|sed -e 's/.*Version //')
 
 cat <<-EOF 
