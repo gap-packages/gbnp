@@ -6,9 +6,9 @@
   
   [33X[0;0YIn this chapter all available commented examples can be found. Those without
   comments  are in the directory [11Xgbnp/examples[111X. Timing results are obtained on
-  an  processor running Linux (18.7.0 Darwin Kernel Version 18.7.0: Tue Aug 20
-  16:57:14  PDT  2019;  root:xnu-4903.271.2~2/RELEASE_X86_64)  and  using  GAP
-  4.dev.[133X
+  an  Intel(R)  Xeon(R)  CPU  E5-2630  v3  @  2.40GHz  processor running Linux
+  (3.19.0-42-generic  #48~14.04.1-Ubuntu SMP Fri Dec 18 10:24:49 UTC 2015) and
+  using GAP 4.6.5.[133X
   
   [30X    [33X[0;6Y[14XA.2[114X [14X'[33X[0;0YA simple commutative Gröbner basis computation[133X'[114X[133X
   

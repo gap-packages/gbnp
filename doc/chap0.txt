@@ -1,23 +1,26 @@
   
   
-                       [1XDocumentation on the [5XGBNP[105X package[101X
+                                     [1X GBNP [101X
   
   
-                                 Version 1.0dev
+            [1X computing Gröbner bases of noncommutative polynomials [101X
   
   
-                                  8 March 2016
+                                     1.0.4
   
   
-                                 Arjeh M. Cohen
-  
-                               Jan Willem Knopper
+                                  28 May 2021
   
   
+                                   A.M. Cohen
   
-  Arjeh M. Cohen
+                                  J.W. Knopper
+  
+  
+  
+  A.M. Cohen
       Email:    [7Xmailto:A.M.Cohen@tue.nl[107X
-  Jan Willem Knopper
+  J.W. Knopper
       Email:    [7Xmailto:J.W.Knopper@tue.nl[107X
   
   
@@ -45,6 +48,13 @@
   
   
   -------------------------------------------------------
+  [1XCopyright[101X
+  [33X[0;0Y©  2001-2010 by Arjeh M. Cohen, Dié A.H. Gijsbers, Jan Willem Knopper, Chris
+  Krook.  Address: Discrete Algebra and Geometry (DAM) group at the Department
+  of Mathematics and Computer Science of Eindhoven University of Technology.[133X
+  
+  
+  -------------------------------------------------------
   [1XAcknowledgements[101X
   [30X    [33X[0;6YThe package is based on an earlier version by Rosane Ushirobira.[133X
   
@@ -69,8 +79,6 @@
         GBNP  user  to choose a wider selection of monomial orderings than the
         standard one built into GBNP itself. Documentation on NMO can be found
         in the NMO manual [Con10].[133X
-  
-  [33X[0;0Y [133X
   
   
   -------------------------------------------------------
