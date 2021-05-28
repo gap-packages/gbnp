@@ -103,10 +103,8 @@ in the <C>gbnp/lib/nmo/</C> subdirectory:
   ordering.</Item>
 
 <Item><C>ncutils.g*</C><P/>
-  Helpful utility routines, such as: patching <Package>GBNP</Package> for use with
-  an <Package>NMO</Package> ordering, unpatching <Package>GBNP</Package>, as well as a `String'
-  routine for elements of an associative algebra not already
-  covered in <Package>GAP</Package>.</Item>
+  Helpful utility routines for patching and unpatching <Package>GBNP</Package>
+  for use with an <Package>NMO</Package> ordering.</Item>
 </List>
 
 There is a documentation directory in <C>gbnp/doc/nmo</C> wherein
@@ -531,9 +529,6 @@ gap> LexicographicTable(ml2);
 
 <ManSection><Heading>GBNP Patching Routines</Heading>
   <#Include Label="PatchGBNP">
-</ManSection>
-<ManSection><Heading>Printing Routine</Heading>
-  <#Include Label="String">
 </ManSection>
 
 </Section>

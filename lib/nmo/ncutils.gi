@@ -6,37 +6,6 @@
 ##
 #############################################################################
 
-# String routine for elements of algebras.
-InstallMethod(
-  String,
-  "free magma element",
-  [ IsElementOfFreeAssociativeRing ],
-  function(el)
-    local i, rep, len, str;
-
-    rep := CoefficientsAndMagmaElements(el);
-    len := Length(rep);
-
-    if (len = 0) then
-      str := "0";
-    else
-      str := "";
-
-      for i in [2,4 .. len] do
-        if (i = len) then
-          str := Concatenation(str, "(", String(rep[i]), ")*", String(rep[i-1]) );
-        else
-          str := Concatenation(str, "(", String(rep[i]), ")*", String(rep[i-1]), "+" );
-        fi;
-      od;
-
-    fi;
-
-    return str;
-  end
-);
-
-
 InstallMethod(
   PatchGBNP,
   "patches GBNP to use new orderings",
@@ -109,7 +78,3 @@ InstallGlobalFunction(
 
   end
 );;
-
-
-##
-#E
