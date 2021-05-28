@@ -1,3 +1,18 @@
+This file describes changes in the GBNP package.
+
+Changes for 1.0.4 (2021-05-28)
+ - Move package to a new home at GitHub (with a new homepage,
+   issue tracker, public git repository, etc.)
+ - Many, many janitorial changes; the most important bit is that
+   now new releases of this package can be made quickly, if e.g.
+   someone submits a bugfix
+
+Changes for 1.0.3 (2016-03-08)
+ - ???
+
+Changes for 1.0.1 (2010-05-12)
+ - ???
+
 Changes for 0.9.5:
  - added examples 24 and 25 
  - changed some examples and the order of the examples
