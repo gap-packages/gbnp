@@ -1,5 +1,8 @@
 This file describes changes in the GBNP package.
 
+Changes for 1.0.5 (2022-03-09)
+ - Various janitorial changes
+
 Changes for 1.0.4 (2021-05-28)
  - Move package to a new home at GitHub (with a new homepage,
    issue tracker, public git repository, etc.)
