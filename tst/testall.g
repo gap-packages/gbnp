@@ -19,5 +19,7 @@ START_TEST := function( name )
 end;
 
 dirs := DirectoriesPackageLibrary("GBNP", "tst");
-TestDirectory(dirs, rec(exitGAP := true));
+TestDirectory(dirs,
+  rec(exitGAP     := true,
+      testOptions := rec(compareFunction := "uptowhitespace") ) );
 FORCE_QUIT_GAP(1);
