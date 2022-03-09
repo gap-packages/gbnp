@@ -1,6 +1,6 @@
 name: GBNP
-version: 1.0.4
-date: 2021-05-28
+version: 1.0.5
+date: 2022-03-09
 description: |
     computing Gröbner bases of noncommutative polynomials
 
@@ -27,7 +27,7 @@ packageinfo: https://gap-packages.github.io/gbnp/PackageInfo.g
 
 downloads:
     - name: .tar.gz
-      url: https://github.com/gap-packages/gbnp/releases/download/v1.0.4/gbnp-1.0.4.tar.gz
+      url: https://github.com/gap-packages/gbnp/releases/download/v1.0.5/gbnp-1.0.5.tar.gz
 
 abstract: |
     The <span class="pkgname">GBNP</span> package provides algorithms for    computing Grobner bases of noncommutative polynomials with coefficients    from a field implemented in <span class="pkgname">GAP</span> and with    respect to the "total degree first then lexicographical" ordering.    Further provided are some variations, such as a weighted and truncated    version and a tracing facility. The word "algorithm" is to be    interpreted loosely here: in general one cannot expect such an algorithm    to terminate, as it would imply solvability of the word problem for    finitely presented (semi)groups.
@@ -39,28 +39,28 @@ keywords: |
     Grobner basis, noncommutative polynomial, partial Hilbert series.
 citeas: |
     <p class='BibEntry'>
-    [<span class='BibKey'>CKT21</span>]   <b class='BibAuthor'>Cohen, A., Knopper, J. and GAP Team, T.</b>,
+    [<span class='BibKey'>CKT22</span>]   <b class='BibAuthor'>Cohen, A., Knopper, J. and GAP Team, T.</b>,
      <i class='BibTitle'>GBNP, computing Gröbner bases of noncommutative polynomials,
-             Version 1.0.4</i>
-     (<span class='BibYear'>2021</span>)<br />
+             Version 1.0.5</i>
+     (<span class='BibYear'>2022</span>)<br />
     (<span class='BibNote'>Refereed GAP package</span>),
     <span class='BibHowpublished'><a href="https://gap-packages.github.io/gbnp/">https://gap-packages.github.io/gbnp/</a></span>.
     </p>
     
 
 bibtex: |
-    @misc{ GBNP1.0.4,
+    @misc{ GBNP1.0.5,
       author =           {Cohen, A. and Knopper, J. and GAP Team, T.},
       title =            {{GBNP},  computing Gr{\"o}bner bases of noncommutative
-                          polynomials, {V}ersion 1.0.4},
-      month =            {May},
-      year =             {2021},
+                          polynomials, {V}ersion 1.0.5},
+      month =            {Mar},
+      year =             {2022},
       note =             {Refereed GAP package},
       howpublished =     {\href           {https://gap-packages.github.io/gbnp/}
                           {\texttt{https://gap-packages.github.io/}\discretionary
                           {}{}{}\texttt{gbnp/}}},
       keywords =         {Grobner   basis;  noncommutative  polynomial;  partial
                           Hilbert series},
-      printedkey =       {CKT21}
+      printedkey =       {CKT22}
     }
 

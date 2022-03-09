@@ -6,10 +6,10 @@
             [1X computing Gröbner bases of noncommutative polynomials [101X
   
   
-                                     1.0.4
+                                     1.0.5
   
   
-                                  28 May 2021
+                                  9 March 2022
   
   
                                    A.M. Cohen
