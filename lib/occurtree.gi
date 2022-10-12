@@ -20,7 +20,7 @@
 
 # createtree
 # special case GB 1
-# different defintion.
+# different definition.
 # integer in place 1 of the array or in place pg+1 of the PTS array
 
 ### things to search for (first line a monomial, second the list represented by
