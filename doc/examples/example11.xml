@@ -227,7 +227,7 @@ gap> DimsQATrunc(G,n,weights);
 
 
 Even more detailed information is given by the list of
-frequences up to degree <C>n</C>. 
+frequencies up to degree <C>n</C>. 
 This is obtained by means of
 <Ref Func="FreqsQATrunc" Style="Text"/>
 with arguments <C>G</C>, <C>n</C>, and <C>weights</C>.

@@ -25,7 +25,7 @@
 ### Last change: Sep 23, 2008 amc
 ### still todo: check if lists start right (0 or 1 for degrees)
 ### still todo: check if lists end right (at d or d-1 for truncation at d)
-### still todo: verify outpout
+### still todo: verify output
 ### still todo: test GB containing the identity
 ### Last change: August 13, 2003. 
 ### jwk - split into .gd/.gi and added GAPDoc comments

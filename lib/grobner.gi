@@ -2022,7 +2022,7 @@ MakeGrobnerPair,function(G,D)
 	# definition 10 from CohenGijsbersEtAl2007
 	# 1) all polynomials are monic
 	# NOTE: what happens with zero polynomials ?
-	# NOTE: it is ok to considere them monic (but MkMonic might need
+	# NOTE: it is ok to consider them monic (but MkMonic might need
 	#   adjustment)
 	
 	newG:=GBNP.MakeGrobnerPairMakeMonic(G);
