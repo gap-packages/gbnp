@@ -113,7 +113,7 @@ DeclareAttribute("LexicographicTable", IsNoncommutativeMonomialOrdering);
 ##  a length left-lexicographic ordering on an algebra <C>A</C>
 ##  with an order
 ##  on the generators of <M>b &lt; a &lt; d &lt; c</M>.  Then in accessing the attributes
-##  via the atrributes above we see how the list given by <C>LexicographicIndexTable</C>
+##  via the attributes above we see how the list given by <C>LexicographicIndexTable</C>
 ##  indexes the ordered generators:
 ##  <Example>
 ##  gap> A := FreeAssociativeAlgebraWithOne(Rationals,"a","b","c","d");

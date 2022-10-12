@@ -31,7 +31,7 @@
 # which determine the algebra. Let n be the alphabet size.
 #
 # One can:
-# 1. determine wether a monomial algebra is finite or infinite dimensional
+# 1. determine whether a monomial algebra is finite or infinite dimensional
 #    USE: FinCheckQA(M,n);
 # 2. determine the growth of a monomial algebra (finite, [d_min,d_max]:polynomial
 #    growth of degree d s.t. d_min<=d<=d_max, exponential growth)
@@ -214,7 +214,7 @@ end);;
 ###
 ### <#GAPDoc Label="FinCheckQA">
 ### <ManSection>
-### <Func Name="FinCheckQA" Comm="determine wether a monomial algebra is finite or infinite dimensional" Arg="Lm, t" />
+### <Func Name="FinCheckQA" Comm="determine whether a monomial algebra is finite or infinite dimensional" Arg="Lm, t" />
 ### <Returns>
 ### <Code>true</Code>, if the quotient algebra is finite dimensional and<Code>
 ### false</Code> otherwise

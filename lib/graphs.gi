@@ -379,7 +379,7 @@ end;
 ### <Func Name="DetermineGrowthObs" Arg="L, n" />
 ### <Returns>
 ### If the dimension of the quotient algebra is finite, <M>0</M> is returned. 
-### If the growth ofthe quotient algebra is polynomial, the
+### If the growth of the quotient algebra is polynomial, the
 ### degree <C>d</C> of the growth polynomial is returned.
 ### If the growth is exponential, the string
 ### <Q>exponential growth</Q> is returned.

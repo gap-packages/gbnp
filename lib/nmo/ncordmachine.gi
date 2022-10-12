@@ -181,7 +181,7 @@ InstallMethod(OrderGenerators,
   function(A, table)
     local gens, len, el, idx, i, oldtable;
 
-    # If we have a one, we need to alway make that
+    # If we have a one, we need to always make that
     # first so we take it out list of possible
     # generators:
     if (HasOne(A)) then

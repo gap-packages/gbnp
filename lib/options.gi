@@ -158,10 +158,10 @@ end;
 ### algebra.</Item> 
 ### <Mark>algebra,integer</Mark><Item>When the function is invoked with an
 ### algebra and an integer <A>n</A> as arguments, generators will be printed as
-### they would be in the algebra and seperated over the <A>n</A> dimensions.</Item>
+### they would be in the algebra and separated over the <A>n</A> dimensions.</Item>
 ### <Mark>leftmodule</Mark><Item>When the function is invoked with an
 ### leftmodule <M>A^n</M> of an associative algebra as argument, generators
-### will be printed as they would be in the algebra, seperated over the
+### will be printed as they would be in the algebra, separated over the
 ### <A>n</A> dimensions.</Item>
 ### <Mark>string</Mark><Item>When the function is invoked with a string as its
 ### argument, it is assumed that there is only 1 generator and that this should

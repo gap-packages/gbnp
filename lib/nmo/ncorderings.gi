@@ -146,7 +146,7 @@ InstallNoncommutativeMonomialOrdering( NCMonomialCommutativeLexicographicOrderin
   function(a, b, aux)
     local arep, brep, alen, blen, i;
 
-    # Intialize commutative representations of a and b:
+    # Initialize commutative representations of a and b:
     arep := [];
     brep := [];
 
@@ -174,7 +174,7 @@ InstallNoncommutativeMonomialOrdering( NCMonomialCommutativeLexicographicOrderin
   function(a, b, aux, idx)
     local arep, brep, arep2, brep2, alen, blen, i, idxlen;
 
-    # Intialize commutative representations of a and b:
+    # Initialize commutative representations of a and b:
     idxlen := Length(idx);
     arep := ListWithIdenticalEntries(idxlen,0);
     brep := ListWithIdenticalEntries(idxlen,0);

@@ -20,7 +20,7 @@
 # file that defines a kary-heap object KaryHeap
 # supported operations: 
 # Add, Remove, List, Set, ELM_LIST, 
-# treerenum/treeswap needed aswell (OT.arr2tree/OT.tree2arr)
+# treerenum/treeswap needed as well (OT.arr2tree/OT.tree2arr)
 
 DeclareCategory("IsTHeapOT", IsObject);
 THeapOTFam:=NewFamily("THeapOT");

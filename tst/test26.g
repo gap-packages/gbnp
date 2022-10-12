@@ -120,7 +120,7 @@ GB := SGrobner(KNP);;
 # with respect to <C>GB</C>
 # using
 # <Ref Func="StrongNormalFormNP" Style="Text"/>.
-# We oberve that they have the same normal form and so there is
+# We observe that they have the same normal form and so there is
 # a way to transform the milk gene into the cola gene.
 
 # <L>

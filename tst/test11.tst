@@ -223,7 +223,7 @@ gap>
 gap> 
 gap> 
 gap> # Even more detailed information is given by the list of
-gap> # frequences up to degree <C>n</C>. 
+gap> # frequencies up to degree <C>n</C>. 
 gap> # This is obtained by means of
 gap> # <Ref Func="FreqsQATrunc" Style="Text"/>
 gap> # with arguments <C>G</C>, <C>n</C>, and <C>weights</C>.

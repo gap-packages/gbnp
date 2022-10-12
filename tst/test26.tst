@@ -127,7 +127,7 @@ gap> # Compare milk and cola after taking their strong normal forms
 gap> # with respect to <C>GB</C>
 gap> # using
 gap> # <Ref Func="StrongNormalFormNP" Style="Text"/>.
-gap> # We oberve that they have the same normal form and so there is
+gap> # We observe that they have the same normal form and so there is
 gap> # a way to transform the milk gene into the cola gene.
 gap> 
 gap> # <L>
