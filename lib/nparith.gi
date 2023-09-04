@@ -19,12 +19,16 @@
 
 ### filename = "nparith.gi"
 ### vs 0.9
+### (04/09/23) added LMonNP, LTermNP and LTermsNP 
  
 ### THIS IS PART OF A GAP PACKAGE FOR COMPUTING WITH NON-COMMUTATIVE POLYNOMIALS
  
 #AddNP:=function(u,v,c,d) local ans,hlp; -> now in nparith3.gi
 #LtNP:=function(u,v)  
 #GtNP:=function(u,v)  
+#LMonsNP:=function(pol) local i;
+#LMonsNP:=function(pol) local i;
+#LMonsNP:=function(pol) local i;
 #LMonsNP:=function(pol) local i;
 #CleanNP:=function(pol) local i,h,l,v,mons,polh,coeffs,ansmons,anscoeffs;   
 #MkMonicNP:=function(pol)
@@ -215,29 +219,32 @@ GtNP,function(u,v)
 end);; 
  
 ################## 
-### LMonsNP
+### LMonNP and LMonsNP
 ###
 ### <#GAPDoc Label="LMonsNP">
 ### <ManSection>
+### <Func Name="LMonNP" Comm="returns the leading monomial of a noncommutative polynomial" Arg="Lnp" />
 ### <Func Name="LMonsNP" Comm="returns the leading monomials of a list of noncommutative polynomials" Arg="Lnp" />
 ###
 ### <Returns>
-### A list of leading monomials
+### The leading monomial or a list of leading monomials.
 ### </Returns>
 ###
 ### <Description>
-### This function returns the leading monomials of a list <A>Lnp</A>
-### of polynomials in NP format. The polynomials of <A>Lnp</A> are required to
-### be clean; see Section <Ref Sect="CleanNP"/>.
+### These functions return the leading monomial of a polynomial 
+### (resp. the leading monomials of a list of polynomials) in NP format. 
+### The polynomials of <A>Lnp</A> are required to be clean; 
+### see Section <Ref Sect="CleanNP"/>.
 ### <P/>
 ### <#Include Label="example-LMonsNP">
 ### </Description>
 ### </ManSection>
 ### <#/GAPDoc>
 ###
-### - Returns the leading monomials of a list of Noncommutative Polynomials.
-### The polynomials are not zero and ordered such that 
-### the leading monomial comes first.
+### - Returns the leading monomial(s) of a (list of) 
+### Noncommutative Polynomials.
+### The polynomials are ordered such that the leading monomial comes first.
+### If the zero polynomial is given as argument then 'fail' is returned.
 ###
 ### Arguments:
 ### pol 	- list of Noncommutative Polynomials
@@ -250,8 +257,69 @@ end);;
 ###
 
 InstallGlobalFunction(
-LMonsNP,function(pol) local i;
-    return(List(pol,i->i[1][1])); 
+LMonNP,function(pol) local i;
+    if IsZero(pol) then 
+        return fail; 
+    else
+        return pol[1][1]; 
+    fi;
+end); 
+ 
+InstallGlobalFunction(
+LMonsNP,function(lst) local i;
+    return(List(lst,i->LMonNP(i))); 
+end); 
+ 
+################## 
+### LTermNP and LTermsNP
+###
+### <#GAPDoc Label="LTermNP">
+### <ManSection>
+### <Func Name="LTermNP" Comm="returns the leading term of a noncommutative polynomial" Arg="Lnp" />
+### <Func Name="LTermsNP" Comm="returns the leading terms of a list of noncommutative polynomials" Arg="Lnp" />
+###
+### <Returns>
+### The leading term or a list of leading terms.
+### </Returns>
+###
+### <Description>
+### These functions return the leading term of a polynomial 
+### (resp. the leading terms of a list of polynomials) in NP format. 
+### The polynomials of <A>Lnp</A> are required to be clean; 
+### see Section <Ref Sect="CleanNP"/>.
+### <P/>
+### <#Include Label="example-LTermNP">
+### </Description>
+### </ManSection>
+### <#/GAPDoc>
+###
+### - Returns the leading term(s) of a (list of) 
+### Noncommutative Polynomials.
+### The polynomials are ordered such that the leading monomial comes first.
+### If the zero polynomial is given as argument then 'fail' is returned.
+###
+### Arguments:
+### pol 	- list of Noncommutative Polynomials
+###
+### Returns:
+### - a list of leading monomials
+###
+### #LTermNP uses:#
+### #LTermNP is used in:#
+###
+
+InstallGlobalFunction(
+LTermNP,function(pol) local i;
+    if IsZero(pol) then 
+        return fail; 
+    else
+        return [ pol[1][1], pol[2][1] ]; 
+    fi;
+end); 
+ 
+InstallGlobalFunction(
+LTermsNP,function(lst) local i;
+    return(List(lst,i->LTermNP(i))); 
 end); 
  
 ################## 

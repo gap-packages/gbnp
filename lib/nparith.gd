@@ -25,7 +25,10 @@
 
 DeclareGlobalFunction("LtNP");
 DeclareGlobalFunction("GtNP");
+DeclareGlobalFunction("LMonNP");
 DeclareGlobalFunction("LMonsNP");
+DeclareGlobalFunction("LTermNP");
+DeclareGlobalFunction("LTermsNP");
 DeclareGlobalFunction("CleanNP");
 DeclareGlobalFunction("MkMonicNP");
 DeclareGlobalFunction("AddNP");

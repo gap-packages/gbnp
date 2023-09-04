@@ -147,12 +147,14 @@ gap>
 gap> # fails if zero occurs in the list -> what is the leading monomial of zero ??
 gap> # not sure what the desired action should be (fail perhaps ?)
 gap> # might be better to document this
+gap> # (04/09/23) the function now returns 'fail' 
 gap> LMonsNP([])=[];
 true
 gap> #LMonsNP([NPzero])=[]; 
 gap> LMonsNP([NPone])=[M0];
 true
-gap> #LMonsNP([NPone,NPzero])=[M0];
+gap> LMonsNP([NPone,NPzero]);
+[ [  ], fail ]
 gap> LMonsNP([NPone,NPone])=[M0,M0];
 true
 gap> 
