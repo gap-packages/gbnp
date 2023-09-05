@@ -1,4 +1,4 @@
-gap> START_TEST("GBNP test-functions");
+gap> START_TEST("GBNP functions");
 gap> ######################### BEGIN COPYRIGHT MESSAGE #########################
 gap> # GBNP - computing Gröbner bases of noncommutative polynomials
 gap> # Copyright 2001-2010 by Arjeh M. Cohen, Dié A.H. Gijsbers, Jan Willem
@@ -1948,4 +1948,4 @@ gap> NumModGensNPList([v1,v2]);
 gap> # </L>
 gap> # <#/GAPDoc>
 gap> 
-gap> STOP_TEST("test-functions.g",10000);
+gap> STOP_TEST("GBNP functions",10000);
