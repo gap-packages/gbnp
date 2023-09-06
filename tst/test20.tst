@@ -60,6 +60,7 @@ gap> # <L>
 gap> twosidrels:=[a^4-e,b^2-e,(a*b)^2-e];;
 gap> D:=A^2;;
 gap> y:=GeneratorsOfLeftModule(D);;
+gap> GBNP.SetOption("pg", Length(y));
 gap> modrels:=[y[1]*b-y[1], y[2]*b-y[2], y[1]+y[1]*a*(e+a+b) -y[2]-y[2]*a*(e+a+b)];;
 gap> # </L>
 gap> 
