@@ -28,6 +28,10 @@ gap> # Noncommutative Gröbner Bases, and Projective Resolutions,
 gap> # and is referenced as Example 2.7 there; 
 gap> # please see <Cite Key="Green1997"/> for more information.
 gap> # 
+gap> # remove any previous orderings 
+gap> UnpatchGBNP();
+LtNP restored.
+GtNP restored.
 gap> # Create a noncommutative free algebra on 4 gens over the Rationals 
 gap> A := FreeAssociativeAlgebraWithOne(Rationals,"a","b","c","d");
 <algebra-with-one over Rationals, with 4 generators>
@@ -86,6 +90,10 @@ gap> # and left-lexicographic orderings are created independently and then
 gap> # chained to form the usual length left-lexicographic ordering.  
 gap> # Hence, all results should be the same.  
 gap> 
+gap> # remove any previous orderings 
+gap> UnpatchGBNP();
+LtNP restored.
+GtNP restored.
 gap> # Create a noncommutative free algebra on 4 generators over the
 gap> # Rationals, label, and set up the example:
 gap> A := FreeAssociativeAlgebraWithOne(Rationals,"a","b","c","d");;
@@ -142,6 +150,10 @@ gap> # 'Ideals, Varieties, and Algorithms', (<Cite Key="CLO97"/>,
 gap> # Example 2, p. 93-94); it is a commutative example.
 gap> # First, set up the problem and find a Gröbner basis w.r.t. the length
 gap> # left-lexicographic ordering implicitly assumed in GBNP:
+gap> # remove any previous orderings 
+gap> UnpatchGBNP();
+LtNP restored.
+GtNP restored.
 gap> A3 := FreeAssociativeAlgebraWithOne( Rationals, "x", "y", "z" );;
 gap> x := A3.x;; y := A3.y;; z := A3.z;; id := One(A3);;
 gap> polys3 := [ x^2 + y^2 + z^2 - id, x^2 + z^2 - y, x-z,
@@ -149,8 +161,8 @@ gap> polys3 := [ x^2 + y^2 + z^2 - id, x^2 + z^2 - y, x-z,
 gap> reps3 := GP2NPList( polys3 );;
 gap> gb3 := Grobner( reps3 );;
 gap> NP2GPList( gb3, A3 );
-[ (1)*x+(-1)*z, (1)*z^2+(-1/2)*y, (1)*y*z+(-1)*z*y, 
-  (1)*y^2+(2)*z^2+(-1)*<identity ...> ]
+[ (1)*z+(-1)*x, (1)*x^2+(-1/2)*y, (1)*y*x+(-1)*x*y, 
+  (1)*y^2+(2)*x^2+(-1)*<identity ...> ]
 gap> 
 gap> # The example, as presented in the book, uses a left-lexicographic 
 gap> # ordering with z &lt; y  &lt; x.  We create the ordering in NMO, 
@@ -172,6 +184,10 @@ gap> # <Cite Key="CohenCuypersSterk1999"/>;
 gap> # it also appears as Example 6 in the GBNP example set.
 gap> # A noncommutative free algebra on 6 generators over the Rationals 
 gap> # is created in GAP, and the generators are labeled:
+gap> # remove any previous orderings 
+gap> UnpatchGBNP();
+LtNP restored.
+GtNP restored.
 gap> A4 := FreeAssociativeAlgebraWithOne(Rationals,"a","b","c","d","e","f");;
 gap> a := A4.a;; b := A4.b;; c := A4.c;; d := A4.d;; e := A4.e;; f := A4.f;;
 gap> # Set up list of noncommutative polynomials:
