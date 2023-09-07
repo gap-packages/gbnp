@@ -497,8 +497,8 @@ gap> # <#GAPDoc Label="example-LMonsNP">
 gap> # <E>Example:</E>
 gap> # We put two polynomials in NP format into the list <C>Lnp</C>.
 gap> # <L>
-gap> p1 := [[[1,1,2],[]],[1,-1]];;
-gap> p2 := [[[1,2,2],[]],[1,-1]];;
+gap> p1 := [[[1,1,2],[1]],[6,-7]];;
+gap> p2 := [[[1,2,2],[2]],[8,-9]];;
 gap> Lnp := [p1,p2];;
 gap> # </L>
 gap> 
@@ -509,17 +509,19 @@ gap> LMonsNP(Lnp);
 [ [ 1, 1, 2 ], [ 1, 2, 2 ] ]
 gap> # </L>
 gap> 
-gap> 
-gap> # For a nicer printing, the monomials can be converted into polynomials in NP format,
-gap> # and then submitted to PrintNPList:
-gap> 
-gap> # <L>
-gap> PrintNPList(List(LMonsNP(Lnp), q -> [[q],[1]]));
- a^2b 
- ab^2 
-gap> # </L>
-gap> 
+gap> # For a nicer printing, use <C>LTermsNP{/C> and <C>PrintNPList</C>.
 gap> # <#/GAPDoc>
+gap> 
+gap> # GAPDoc code for LTermNP znd LTermsNP is in nparith.gi 
+gap> p1 := [[[1,1,2],[1]],[6,-7]];;
+gap> p2 := [[[1,2,2],[2]],[8,-9]];;
+gap> Lnp := [p1,p2];;
+gap> LTermNP( p1 );             
+[ [ [ 1, 1, 2 ] ], [ 6 ] ]
+gap> LTnp := LTermsNP( Lnp );
+[ [ [ [ 1, 1, 2 ] ], [ 6 ] ], [ [ [ 1, 2, 2 ] ], [ 8 ] ] ]
+gap> List( LTnp, p -> NP2GP(p,A));
+[ (6)*a^2*b, (8)*a*b^2 ]
 gap> 
 gap> # <#GAPDoc Label="example-MkMonicNP">
 gap> # <E>Example:</E>

@@ -288,9 +288,20 @@ end);
 ### The polynomials of <A>Lnp</A> are required to be clean; 
 ### see Section <Ref Sect="CleanNP"/>.
 ### <P/>
-### <#Include Label="example-LTermNP">
 ### </Description>
 ### </ManSection>
+### <Example>
+### gap> p1 := [[[1,1,2],[1]],[6,-7]];;
+### gap> p2 := [[[1,2,2],[2]],[8,-9]];;
+### gap> Lnp := [p1,p2];;
+### gap> LTermNP( p1 );             
+### [ [ [ 1, 1, 2 ] ], [ 6 ] ]
+### gap> LTnp := LTermsNP( Lnp );
+### [ [ [ [ 1, 1, 2 ] ], [ 6 ] ], [ [ [ 1, 2, 2 ] ], [ 8 ] ] ]
+### gap> PrintNPList( LTnp );
+### 6a^2b 
+### 8ab^2 
+### </Example>
 ### <#/GAPDoc>
 ###
 ### - Returns the leading term(s) of a (list of) 
@@ -313,13 +324,13 @@ LTermNP,function(pol) local i;
     if IsZero(pol) then 
         return fail; 
     else
-        return [ pol[1][1], pol[2][1] ]; 
+        return [ [ pol[1][1] ], [ pol[2][1] ] ]; 
     fi;
 end); 
  
 InstallGlobalFunction(
 LTermsNP,function(lst) local i;
-    return(List(lst,i->LTermNP(i))); 
+    return(List(lst,p->LTermNP(p))); 
 end); 
  
 ################## 
