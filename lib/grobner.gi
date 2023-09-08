@@ -629,7 +629,6 @@ end);;
 GBNP.ReducePol2:=function(arg) 
 local i,j,jl,h,ind,lts,new,lans,newind,temp,G,GLOT,done,one;
     G:=arg[1]; 
-    one:=One(G[1][2][1]);
     if Length(arg)>=2 then
     	GLOT:=arg[2]; 
         lts:=LMonsNP(G); 
@@ -662,9 +661,10 @@ local i,j,jl,h,ind,lts,new,lans,newind,temp,G,GLOT,done,one;
                 for i in Reversed( [1..Length(lts)-1] ) do 
                      if ( lts[i] = lts[i+1] ) then
                          done := false; 
-## Print( "G[i],G[i+1] = ", G[i], G[i+1], "\n" ); 
+Print( "G[i],G[i+1] = ", G[i], G[i+1], "\n" ); 
+                         one:=One(G[i][2][1]);
                          G[i+1] := CleanNP(AddNP(G[i+1],G[i],one,-one));
-## Print( "new G[i+1] = ", G[i+1], "\n" );
+Print( "new G[i+1] = ", G[i+1], "\n" );
                      fi;
                 od;
                 if not done then 
@@ -918,7 +918,6 @@ Grobner,function(arg) local tt,todo,G, funcs,KI,loop, withpair;
 # - Compute internal NormalForm 
 
      Info(InfoGBNP,1,"number of entered polynomials is ",Length(KI));
-
      if (withpair) then
          # no cleaning should be needed when continuing
          G:= ShallowCopy(KI);
@@ -1053,7 +1052,6 @@ SGrobner,function(arg) local tt,todo,G,GLOT,funcs,KI,loop,withpair;
     else
       KI:=arg[1];
     fi;
-
     tt:=Runtime(); 
 
     if Length(arg)>=2 and IsInt(arg[Length(arg)]) then
