@@ -661,10 +661,10 @@ local i,j,jl,h,ind,lts,new,lans,newind,temp,G,GLOT,done,one;
                 for i in Reversed( [1..Length(lts)-1] ) do 
                      if ( lts[i] = lts[i+1] ) then
                          done := false; 
-Print( "G[i],G[i+1] = ", G[i], G[i+1], "\n" ); 
+## Print( "G[i],G[i+1] = ", G[i], G[i+1], "\n" ); 
                          one:=One(G[i][2][1]);
                          G[i+1] := CleanNP(AddNP(G[i+1],G[i],one,-one));
-Print( "new G[i+1] = ", G[i+1], "\n" );
+## Print( "new G[i+1] = ", G[i+1], "\n" );
                      fi;
                 od;
                 if not done then 
