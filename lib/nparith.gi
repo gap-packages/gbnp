@@ -20,6 +20,7 @@
 ### filename = "nparith.gi"
 ### vs 0.9
 ### (04/09/23) added LMonNP, LTermNP and LTermsNP 
+### (21/09/23) added FactorOutGcdNP 
  
 ### THIS IS PART OF A GAP PACKAGE FOR COMPUTING WITH NON-COMMUTATIVE POLYNOMIALS
  
@@ -32,6 +33,7 @@
 #LMonsNP:=function(pol) local i;
 #CleanNP:=function(pol) local i,h,l,v,mons,polh,coeffs,ansmons,anscoeffs;   
 #MkMonicNP:=function(pol)
+#FactorOutGcdNP:=function(pol)
 #BimulNP:=function(ga,u,dr) local i,ans; 
 #MulNP:=function(u,v) local ans,i,j;
 #GBNP.LTermsTrace:=function(pol) local i;
@@ -428,6 +430,46 @@ MkMonicNP,function(pol)
     if pol=[[],[]] then return(pol); fi; 
     if IsOne(pol[2][1]) then return(pol); fi;  
     return([pol[1],pol[2]/pol[2][1]]); 
+end);; 
+ 
+################## 
+### FactorOutGcdNP
+### <#GAPDoc Label="FactorOutGcdNP">
+### <ManSection>
+### <Func Name="FactorOutGcdNP" Comm="divides an NP monic by the Gcd of itw coefficients." Arg="np" />
+### <Returns>
+### <A>np</A> with Gcd(coefficients) factored out
+### </Returns>
+### <Description>
+### This function returns the scalar multiple of a polynomial
+### <A>np</A> in NP format such that its coefficients have Gcd equal to 1.
+### <P/>
+### <#Include Label="example-FactorOutGcdNP">
+### </Description>
+### </ManSection>
+### <#/GAPDoc>
+### - Makes a non-commutative polynomial
+###   monic by multiplying with the right scalar  
+### 
+### Assumptions:  
+### - The polynomial is cleaned.
+### - The leading term comes first. 
+###
+### Arguments:
+### pol	 	- non-commutative polynomial
+###
+### Returns:
+### pol		- the non-commutative polynomial divided by Gcd(coefficients)
+###
+### #FactorOutGcdNP uses:#
+### #FactorOutGcdNP is used in: #
+###
+
+InstallGlobalFunction(
+FactorOutGcdNP,function(pol) local g;
+    if pol=[[],[]] then return(pol); fi; 
+    g := Gcd( pol[2] );
+    return([pol[1],pol[2]/g]); 
 end);; 
  
 ################# 

@@ -31,6 +31,7 @@ DeclareGlobalFunction("LTermNP");
 DeclareGlobalFunction("LTermsNP");
 DeclareGlobalFunction("CleanNP");
 DeclareGlobalFunction("MkMonicNP");
+DeclareGlobalFunction("FactorOutGcdNP");
 DeclareGlobalFunction("AddNP");
 DeclareGlobalFunction("MulNP");
 DeclareGlobalFunction("BimulNP");

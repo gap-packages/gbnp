@@ -497,8 +497,8 @@ gap> # <#GAPDoc Label="example-LMonsNP">
 gap> # <E>Example:</E>
 gap> # We put two polynomials in NP format into the list <C>Lnp</C>.
 gap> # <L>
-gap> p1 := [[[1,1,2],[1]],[6,-7]];;
-gap> p2 := [[[1,2,2],[2]],[8,-9]];;
+gap> p1 := [[[1,1,2],[]],[1,-1]];;
+gap> p2 := [[[1,2,2],[]],[1,-1]];;
 gap> Lnp := [p1,p2];;
 gap> # </L>
 gap> 
@@ -509,19 +509,39 @@ gap> LMonsNP(Lnp);
 [ [ 1, 1, 2 ], [ 1, 2, 2 ] ]
 gap> # </L>
 gap> 
-gap> # For a nicer printing, use <C>LTermsNP{/C> and <C>PrintNPList</C>.
+gap> # For a nicer printing, the monomials can be converted into polynomials 
+gap> # in NP format, and then submitted to PrintNPList:
+gap> 
+gap> # <L>
+gap> PrintNPList(List(LMonsNP(Lnp), q -> [[q],[1]]));
+ a^2b 
+ ab^2 
+gap> # </L>
 gap> # <#/GAPDoc>
 gap> 
-gap> # GAPDoc code for LTermNP znd LTermsNP is in nparith.gi 
+gap> 
+gap> # <#GAPDoc Label="example-LTermNP">
+gap> # <E>Example:</E>
+gap> # We put two polynomials in NP format into the list <C>Lnp</C>.
+gap> # <L>
 gap> p1 := [[[1,1,2],[1]],[6,-7]];;
 gap> p2 := [[[1,2,2],[2]],[8,-9]];;
 gap> Lnp := [p1,p2];;
+gap> # </L>
+gap> 
+gap> # The leading term of a polynomial is returned by <C>LTermNP</C>, 
+gap> # and the list of leading terms is computed by <C>LTermsNP</C>:
+gap> 
+gap> # <L>
 gap> LTermNP( p1 );             
 [ [ [ 1, 1, 2 ] ], [ 6 ] ]
 gap> LTnp := LTermsNP( Lnp );
 [ [ [ [ 1, 1, 2 ] ], [ 6 ] ], [ [ [ 1, 2, 2 ] ], [ 8 ] ] ]
 gap> List( LTnp, p -> NP2GP(p,A));
 [ (6)*a^2*b, (8)*a*b^2 ]
+gap> # <L>
+gap> 
+gap> # <#/GAPDoc>
 gap> 
 gap> # <#GAPDoc Label="example-MkMonicNP">
 gap> # <E>Example:</E>
@@ -538,6 +558,26 @@ gap>
 gap> # <L>
 gap> PrintNP(MkMonicNP(p));
  a^2b - 1/2 
+gap> # </L>
+gap> 
+gap> # <#/GAPDoc>
+gap> 
+gap> 
+gap> # <#GAPDoc Label="example-FactorOutGcdNP">
+gap> # <E>Example:</E>
+gap> # Consider the following polynomial in NP format.
+gap> # <L>
+gap> p := [[[1,1,2],[1,2],[1]],[30,70,105]];;
+gap> PrintNP(p);
+ 30a^2b + 70ab + 105a 
+gap> # </L>
+gap> 
+gap> # The <C>Gcd</C> of the coefficients <M>[30,70,105]</M> is <M>5</M>. 
+gap> # The function <C>FactorOutGcdNP</C> divides the polynomial by <M>5</M>:
+gap> 
+gap> # <L>
+gap> PrintNP(FactorOutGcdNP(p));
+ 6a^2b + 14ab + 21a
 gap> # </L>
 gap> 
 gap> # <#/GAPDoc>
