@@ -59,6 +59,8 @@ gap> # function <Ref Func="GP2NPList" Style="Text"/> and can be subsequently
 gap> # displayed with <Ref Func="PrintNPList" Style="Text"/>.
 gap> 
 gap> # <L>
+gap> # add the next command in case other tests have changed the alphabet:
+gap> GBNP.ConfigPrint("a","b","c");
 gap> uerelsNP:=GP2NPList(uerels);;
 gap> PrintNPList(uerelsNP);
  ba - ab + c 
