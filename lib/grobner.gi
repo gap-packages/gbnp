@@ -627,7 +627,7 @@ end);;
 ###
 
 GBNP.ReducePol2:=function(arg) 
-local i,j,jl,h,ind,lts,new,lans,newind,temp,G,GLOT,done,one;
+local i,j,jl,h,ind,lts,new,lans,newind,temp,G,GLOT;
     G:=arg[1]; 
     if Length(arg)>=2 then
     	GLOT:=arg[2]; 
@@ -650,38 +650,13 @@ local i,j,jl,h,ind,lts,new,lans,newind,temp,G,GLOT,done,one;
     	SortParallel(lts,G,LtNP);
     	GBNP.SortParallelLOT(temp,GLOT,LtNP);
     else
-        done := false; 
-        while not done do
-    		for i in [1..Length(G)] do
-	    		G[i]:=GBNP.ReduceCancellation(G[i]);
-		od;
-        	lts:=LMonsNP(G);
-    		SortParallel(lts,G,LtNP);
-                done := true; 
-                for i in Reversed( [1..Length(lts)-1] ) do 
-                     if ( lts[i] = lts[i+1] ) then
-                         done := false; 
-## Print( "G[i],G[i+1] = ", G[i], G[i+1], "\n" ); 
-                         one:=One(G[i][2][1]);
-                         G[i+1] := CleanNP(AddNP(G[i+1],G[i],one,-one));
-## Print( "new G[i+1] = ", G[i+1], "\n" );
-                     fi;
-                od;
-                if not done then 
-                    ## need to resort G 
-                    lts:=LMonsNP(G); 
-    	            SortParallel(lts,G,LtNP);
-## Print( "resorted lts and G:\n", lts, "\n", G, "\n" ); 
-                fi; 
-        od; 
-
-## Print( "after SortParallel G and lts =:\n", G, "\n", lts, "\n" ); 
-
+    	for i in [1..Length(G)] do
+		G[i]:=GBNP.ReduceCancellation(G[i]);
+	od;
+        lts:=LMonsNP(G);
+    	SortParallel(lts,G,LtNP);
 	GLOT:=GBNP.CreateOccurTreePTSLR(lts,GBNP.CalculatePGlts(lts),true);
     fi;
-
-## Print( "initial GLOT:\n", GLOT, "\n" ); 
-
     lans:=Length(lts);
     ind:=[1..lans];
 
@@ -690,9 +665,6 @@ local i,j,jl,h,ind,lts,new,lans,newind,temp,G,GLOT,done,one;
         RemoveSet(ind,i);
         j:=i+1;
 	while j <= lans do 
-
-## Print( "[i,j] = ", [i,j], "\n" ); 
-
 	    if #IsSubsetBlist(Gset[j],Gset[i]) and 
 	    		GBNP.Occur(G[i][1][1],G[j][1][1]) <> 0 
 		# XXX can this occur be removed
@@ -918,15 +890,14 @@ Grobner,function(arg) local tt,todo,G, funcs,KI,loop, withpair;
 # - Compute internal NormalForm 
 
      Info(InfoGBNP,1,"number of entered polynomials is ",Length(KI));
+
      if (withpair) then
          # no cleaning should be needed when continuing
          G:= ShallowCopy(KI);
      else
          G:= GBNP.ReducePol(KI);
      fi;
-
-## Print( "here is the resulting G\n", G, "\n" ); 
-
+   
      # only call GBNP.CalculatePG after reduction
      funcs.pg:=GBNP.CalculatePG(G);
 
@@ -1052,6 +1023,7 @@ SGrobner,function(arg) local tt,todo,G,GLOT,funcs,KI,loop,withpair;
     else
       KI:=arg[1];
     fi;
+
     tt:=Runtime(); 
 
     if Length(arg)>=2 and IsInt(arg[Length(arg)]) then
@@ -1336,17 +1308,11 @@ end);;
  
 GBNP.StrongNormalForm2TS:=function(G,j,GLOT) 
     local g,h,il,i1,l,dr,ga,tt,lth,iid;
-
-## Print( "in StrongNormalForm2TS G[j] = ", G[j], "\n" ); 
-
     h:=StructuralCopy(G[j]); 
     iid := 1; 
     while iid <= Length(h[1]) do 
       lth:=h[1][iid];  
       il:=GBNP.LookUpOccurTreeAllLstPTSLR(lth,GLOT,true); 
-
-## Print( "il = ", il, "\n" ); 
-
       il:=Filtered(il,x->x[1]<>j);
       while il<>[] do 
 	   i1:=il[1];
