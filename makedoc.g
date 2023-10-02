@@ -11,13 +11,13 @@ files := AUTODOC_FindMatchingFiles(DirectoryCurrent(), [ "doc/examples" ], [ "xm
 
 AutoDoc(rec(
     gapdoc := rec(
-        scan_dirs := [ "lib" ],
+        scan_dirs := [ "lib", "lib/nmo" ],
         files := files,
     ),
     #autodoc := rec( files := [ "doc/Intros.autodoc" ] ),
     scaffold := rec(
         bib := "gbnp_doc",
-        includes := [ "gbnp_doc.xml" ],
+        includes := [ "gbnp_doc.xml", "nmo.xml" ],
         appendix := [ "examples.xml" ],
     ),
 ));

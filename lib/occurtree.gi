@@ -121,7 +121,7 @@ end;
 ###
 
 GBNP.CreateOccurTreePTSLR:=function(L,pg,left)
-        if (pg <> GBNP.GetOptions().pg) then
+        if (pg <> GBNP.GetOptions().pg) then 
 		Info(InfoGBNP,2,"Warning: CreateOccurTreePTSLR: pg argument (",pg,") is not the same as pg option (",GBNP.GetOptions().pg,")\n");
 	fi;
 	
