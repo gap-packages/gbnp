@@ -85,6 +85,8 @@ gap>
 gap> I := Concatenation([s1,s2],MkTrLst(n));;
 gap> # </L>
 gap> 
+gap> # add the next command in case other tests have changed the alphabet:
+gap> GBNP.ConfigPrint("a","b","c");
 gap> # To give an impression, we print the first 20 entries of this list:
 gap> # <L>
 gap> PrintNPList(I{[1..20]});

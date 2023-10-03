@@ -1,26 +1,35 @@
-<!DOCTYPE Book SYSTEM "gapdoc.dtd"> <Book Name="NMO">
-<TitlePage>
-  <Title>Documentation on the <Package>NMO</Package> package</Title>
-  <Version>Version 1.0</Version>
-  <Author>Randall E. Cone <Email>rcone@math.vt.edu</Email></Author>
-  <Date>7 January 2010</Date>
-  <Address>Virginia Tech<Br/>
-  Blacksburg, VA, 24060, USA </Address>
- <Acknowledgements>
-   <List>
-     <Item>Our immense gratitude to the authors of GBNP for allowing us to make a small contribution.</Item>
-     <Item>Equal gratitude to Dr. Ed Green for his help as mentor and advisor,
-           in both this project and many others.</Item>
-   </List> 
- </Acknowledgements>
-</TitlePage>
+<!-- ------------------------------------------------------------------- -->
+<!--                                                                     -->
+<!--  nmo.xml              GBNP documentation            Randall E. Cone -->
+<!--                                                                     -->
+<!--  Copyright (C) 2010-2023, The GAP Group,                            --> 
+<!--                                                                     -->
+<!--  The NMO manual, incorporated as chapter 5 in the GBNP manual       -->
+<!--  <Author>Randall E. Cone <Email>rcone@math.vt.edu</Email></Author>  -->
+<!--  <Address>Virginia Tech<Br/> Blacksburg, VA, 24060, USA </Address>  -->
+<!--  <Version>Version 1.0</Version>  <Date>7 January 2010</Date>        -->
+<!--  <Acknowledgements>                                                 -->
+<!--  Our immense gratitude to the authors of GBNP for allowing us to    -->
+<!--  make a small contribution.                                         -->
+<!--  Equal gratitude to Dr. Ed Green for his help as mentor and advisor -->
+<!--  in both this project and many others.                              -->
+<!--  </Acknowledgements>                                                -->
+<!--                                                                     -->
+<!-- ------------------------------------------------------------------- -->
 
+<?xml version="1.0" encoding="UTF-8"?>
 
-<TableOfContents/>
+<Chapter Label="chap-nmo">
+<Heading>NMO Manual</Heading>
 
-<Body>
-<Chapter><Heading>NMO</Heading>
-<Section><Heading>Introduction</Heading>
+<Section Label="sec-nmo-intro">
+<Heading>Introduction</Heading>
+
+Up until September 2023 the <Package>NMO</Package> manual was provided by 
+<Package>GBNP</Package> as a separate <File>manual.pdf</File>. 
+The <Package>NMO</Package> manual now forms this chapter 
+in the <Package>GBNP</Package> manual. 
+<P/>
 
 What follows is a description of the largely experimental project
 of providing arbitrary monomial orderings to the <Package>GBNP</Package> package.
@@ -72,7 +81,20 @@ are related to attributes of monomial orderings.
 
 Many examples of basic code use are provided; with some examples
 following the reference material for the functions or
-methods involved.
+methods involved. 
+<P/> 
+
+<B>Acknowledgements</B> 
+<List>
+<Item>
+Our immense gratitude to the authors of <Package>GBNP</Package> 
+for allowing us to make a small contribution. 
+</Item>
+<Item>
+Equal gratitude to Dr. Ed Green for his help as mentor and advisor, 
+in both this project and many others. 
+</Item>
+</List>
 </Section>
 
 
@@ -145,8 +167,12 @@ as <Q>Example 2.7</Q> there; please see <Cite Key="Green1997"/> for more informa
 
 Load the <Package>GBNP</Package> package with:
 <Example>
-gap> LoadPackage("gbnp");
+gap> LoadPackage("gbnp", false);
 true
+gap> # remove any previous orderings
+gap> UnpatchGBNP();
+LtNP restored
+GtNP restored
 </Example>
 
 Create a noncommutative free algebra on 4 generators over the
@@ -165,11 +191,11 @@ gap> a := A.a; b := A.b; c := A.c; d := A.d;
 (1)*d
 </Example>
 
-Set up our polynomials, and convert them to <Package>GBNP</Package> NP format:
+Set up our polynomials, and convert them to NP format:
 <Example>
-gap> polys := [c*d*a*b-c*b,b*c-d*a];
+gap> polys := [c*d*a*b-c*b, b*c-d*a];
 [ (-1)*c*b+(1)*c*d*a*b, (1)*b*c+(-1)*d*a ]
-gap> reps := GP2NPList(polys);
+gap> reps := GP2NPList( polys );
 [ [ [ [ 3, 4, 1, 2 ], [ 3, 2 ] ], [ 1, -1 ] ],
            [ [ [ 4, 1 ], [ 2, 3 ] ], [ -1, 1 ] ] ]
 </Example>
@@ -178,12 +204,12 @@ Compute the Gröbner basis via <Package>GBNP</Package> using its default
 (length left-lexicographic) ordering; that is, without
 patching <Package>GBNP</Package> with an <Package>NMO</Package> ordering:
 <Example>
-gap> gbreps := Grobner(reps);;
-gap> gb := NP2GPList(gbreps,A);
-[ (1)*d*a+(-1)*b*c, (1)*c*b*c*b+(-1)*c*b ]
+gap> gbreps := Grobner( reps );;
+gap> gb := NP2GPList( gbreps, A );
+[ (1)*d*a+(-1)*b*c, (1)*(c*b)^2+(-1)*c*b ]
 </Example>
 
-Create length left-lexicographic ordering, with generators
+Create a (length left-lexicographic ordering, with generators
 ordered: a &lt; b  &lt; c &lt; d.  Note: this is the default
 ordering of generators by <Package>NMO</Package>, if none is provided:
 <Example>
@@ -194,18 +220,18 @@ NCMonomialLeftLengthLexicographicOrdering([ (1)*a, (1)*b, (1)*c, (1)*d ])
 Patch <Package>GBNP</Package> with the ordering <C>ml</C>, and then run the same example.
 We should get the same answer as above:
 <Example>
-gap> PatchGBNP(ml);
+gap> PatchGBNP( ml );
 LtNP patched.
 GtNP patched.
-gap> gbreps := Grobner(reps);;
-gap> gb := NP2GPList(gbreps,A);
-[ (1)*d*a+(-1)*b*c, (1)*c*b*c*b+(-1)*c*b ]
+gap> gbreps := Grobner( reps );;
+gap> gb := NP2GPList( gbreps, A );
+[ (1)*d*a+(-1)*b*c, (1)*(c*b)^2+(-1)*c*b ]
 </Example>
 
-Create a Length-Lexicographic ordering on the generators such that
+Now create a Length-Lexicographic ordering on the generators such that
 d &lt; c &lt; b &lt; a:
 <Example>
-gap> ml2 := NCMonomialLeftLengthLexOrdering(A,[4,3,2,1]);
+gap> ml2 := NCMonomialLeftLengthLexOrdering( A, [4,3,2,1] );
 NCMonomialLeftLengthLexicographicOrdering([ (1)*d, (1)*c, (1)*b, (1)*a ])
 </Example>
 
@@ -215,10 +241,10 @@ on the same algebra:
 gap> PatchGBNP(ml2);
 LtNP patched.
 GtNP patched.
-gap> gbreps2 := SGrobner(reps);;
-gap> gb2 := NP2GPList(gbreps2,A);
-[ (1)*b*c+(-1)*d*a, (1)*c*d*a*b+(-1)*c*b, (1)*d*a*d*a*b+(-1)*d*a*b,
-  (1)*c*d*a*d*a+(-1)*c*d*a, (1)*d*a*d*a*d*a+(-1)*d*a*d*a ]
+gap> gbreps2 := SGrobner( reps );;
+gap> gb2 := NP2GPList( gbreps2, A );
+[ (1)*b*c+(-1)*d*a, (1)*c*d*a*b+(-1)*c*b, (1)*(d*a)^2*b+(-1)*d*a*b,
+  (1)*c*(d*a)^2+(-1)*c*d*a, (1)*(d*a)^3+(-1)*(d*a)^2 ]
 </Example>
 </Subsection>
 
@@ -227,56 +253,59 @@ gap> gb2 := NP2GPList(gbreps2,A);
 This example is the same as Example 1 above, except that the length
 and left-lexicographic orderings are created independently and then
 chained to form the usual length left-lexicographic ordering.  Hence,
-all results should be the same.  Note: we assume from this point forward
-in all further examples that GBNP is loaded.
+all results should be the same. 
 <P/>
 
+Remove any previous orderings. 
 Create a noncommutative free algebra on 4 generators over the
 Rationals, label, and set up the example:
 <Example>
+gap> UnpatchGBNP();
+LtNP restored
+GtNP restored
 gap> A := FreeAssociativeAlgebraWithOne(Rationals,"a","b","c","d");;
 gap> a := A.a;; b := A.b;; c := A.c;; d := A.d;;
-gap> polys := [c*d*a*b-c*b,b*c-d*a];;
-gap> reps := GP2NPList(polys);;
+gap> polys := [ c*d*a*b-c*b, b*c-d*a ];;
+gap> reps := GP2NPList( polys );;
 </Example>
 
 Create left-lexicographic ordering with a &lt; b  &lt; c &lt; d:
 <Example>
-gap> lexord := NCMonomialLeftLexicographicOrdering(A);
+gap> lexord := NCMonomialLeftLexicographicOrdering( A );
 NCMonomialLeftLexicographicOrdering([ (1)*a, (1)*b, (1)*c, (1)*d ])
 </Example>
 
-Create a length ordering on monomials in <M>A</M>, with ties broken by the
-lexicographic order <C>lexord</C>:
+Create a length ordering on monomials in <M>A</M>, 
+with ties broken by the lexicographic order <C>lexord</C>:
 <Example>
-gap> lenlex := NCMonomialLengthOrdering(A,lexord);
+gap> lenlex := NCMonomialLengthOrdering( A, lexord );
 NCMonomialLengthOrdering([ (1)*a, (1)*b, (1)*c, (1)*d ])
 </Example>
 
 Patch <Package>GBNP</Package> and proceed with our example:
 <Example>
-gap> PatchGBNP(lenlex);;
+gap> PatchGBNP( lenlex );;
 LtNP patched.
 GtNP patched.
-gap> gbreps := Grobner(reps);;
-gap> gb := NP2GPList(gbreps,A);
-[ (1)*d*a+(-1)*b*c, (1)*c*b*c*b+(-1)*c*b ]
+gap> gbreps := Grobner( reps );;
+gap> gb := NP2GPList( gbreps, A );
+[ (1)*d*a+(-1)*b*c, (1)*(c*b)^2+(-1)*c*b ]
 </Example>
 
 Now, proceed similarly, with the lexicographic order
 such that d &lt; c  &lt; b &lt; a:
 <Example>
-gap> lexord2 := NCMonomialLeftLexicographicOrdering(A,[4,3,2,1]);
+gap> lexord2 := NCMonomialLeftLexicographicOrdering( A, [4,3,2,1] );
 NCMonomialLeftLexicographicOrdering([ (1)*d, (1)*c, (1)*b, (1)*a ])
-gap> lenlex2 := NCMonomialLengthOrdering(A,lexord2);
+gap> lenlex2 := NCMonomialLengthOrdering( A, lexord2 );
 NCMonomialLengthOrdering([ (1)*a, (1)*b, (1)*c, (1)*d ])
-gap> PatchGBNP(lenlex2);;
+gap> PatchGBNP( lenlex2 );;
 LtNP patched.
 GtNP patched.
-gap> gbreps2 := Grobner(reps);;
-gap> gb2 := NP2GPList(gbreps2,A);
-[ (1)*b*c+(-1)*d*a, (1)*c*d*a*b+(-1)*c*b, (1)*d*a*d*a*b+(-1)*d*a*b,
-  (1)*c*d*a*d*a+(-1)*c*d*a, (1)*d*a*d*a*d*a+(-1)*d*a*d*a ]
+gap> gbreps2 := Grobner( reps );;
+gap> gb2 := NP2GPList( gbreps2, A );
+[ (1)*b*c+(-1)*d*a, (1)*c*d*a*b+(-1)*c*b, (1)*(d*a)^2*b+(-1)*d*a*b,
+  (1)*c*(d*a)^2+(-1)*c*d*a, (1)*(d*a)^3+(-1)*(d*a)^2 ]
 </Example>
 
 An important point can be made here.  Notice that when the <C>lenlex2</C>
@@ -287,11 +316,11 @@ orderings, and in the case of the
 length order, it is not used.  Only the lex table for <C>lexord2</C> is
 ever used.  Some clarification may be provided in examining:
 <Example>
-gap> HasNextOrdering(lenlex2);
+gap> HasNextOrdering( lenlex2 );
 true
-gap> NextOrdering(lenlex2);
+gap> NextOrdering( lenlex2 );
 NCMonomialLeftLexicographicOrdering([ (1)*d, (1)*c, (1)*b, (1)*a ])
-gap> LexicographicTable(NextOrdering(lenlex2));
+gap> LexicographicTable( NextOrdering( lenlex2 ) );
 [ (1)*d, (1)*c, (1)*b, (1)*a ]
 </Example>
 
@@ -303,16 +332,20 @@ Example 3 is taken from the book <Q>Ideals, Varieties, and Algorithms</Q>,
 (<Cite Key="CLO97"/>, Example 2, p. 93-94); it is a commutative example.
 <P/>
 
-First, we set up the problem and find a Gröbner basis with respect to the length
-left-lexicographic ordering implicitly assumed in <Package>GBNP</Package>:
+First, set up the problem and find a Gröbner basis with respect to the length
+left-lexicographic ordering implicitly assumed in <Package>GBNP</Package>, 
+after removing any previous orderings: 
 <Example>
-gap> A := FreeAssociativeAlgebraWithOne(Rationals,"x","y","z");;
-gap> x := A.x;; y := A.y;; z := A.z;; id := One(A);;
-gap> polys := [ x^2 + y^2 + z^2 - id, x^2 + z^2 - y, x-z,
->            x*y-y*x, x*z-z*x, y*z-z*y];;
-gap> reps := GP2NPList(polys);;
-gap> gb := Grobner(reps);;
-gap> NP2GPList(gb,A);
+gap> UnpatchGBNP();
+LtNP restored.
+GtNP restored.
+gap> A3 := FreeAssociativeAlgebraWithOne( Rationals, "x", "y", "z" );;
+gap> x := A3.x;; y := A3.y;; z := A3.z;; id := One(A3);;
+gap> polys3 := [ x^2 + y^2 + z^2 - id, x^2 + z^2 - y, x-z,
+>                x*y-y*x, x*z-z*x, y*z-z*y ];;
+gap> reps3 := GP2NPList( polys3 );;
+gap> gb3 := Grobner( reps3 );;
+gap> NP2GPList( gb3, A3 );
 [ (1)*z+(-1)*x, (1)*x^2+(-1/2)*y, (1)*y*x+(-1)*x*y,
   (1)*y^2+(2)*x^2+(-1)*&lt;identity ...> ]
 </Example>
@@ -321,13 +354,13 @@ The example, as presented in the book, uses a left-lexicographic ordering
 with z &lt; y  &lt; x.  We create the ordering in <Package>NMO</Package>, patch <Package>GBNP</Package>,
 and get the result expected:
 <Example>
-gap> ml := NCMonomialLeftLexicographicOrdering(A,[3,2,1]);
+gap> ml3 := NCMonomialLeftLexicographicOrdering( A3, [3,2,1] );
 NCMonomialLeftLexicographicOrdering([ (1)*z, (1)*y, (1)*x ])
-gap> PatchGBNP(ml);
+gap> PatchGBNP( ml3 );
 LtNP patched.
 GtNP patched.
-gap> gb := Grobner(reps);;
-gap> NP2GPList(gb,A);
+gap> gb3 := Grobner( reps3 );;
+gap> NP2GPList( gb3, A3 );
 [ (1)*z^4+(1/2)*z^2+(-1/4)*&lt;identity ...>, (1)*y+(-2)*z^2, (1)*x+(-1)*z ]
 </Example>
 </Subsection>
@@ -343,40 +376,42 @@ it also appears as Example 6 in the <Package>GBNP</Package> example set.
 A noncommutative free algebra on 6 generators over the Rationals is
 created in <Package>GAP</Package>, and the generators are labeled:
 <Example>
-gap> A := FreeAssociativeAlgebraWithOne(Rationals,"a","b","c","d","e","f");;
-gap> a := A.a;; b := A.b;; c := A.c;; d := A.d;; e := A.e;; f := A.f;;
+gap> UnpatchGBNP();
+LtNP restored.
+GtNP restored.
+gap> A4 := FreeAssociativeAlgebraWithOne(Rationals,"a","b","c","d","e","f");;
+gap> a := A4.a;; b := A4.b;; c := A4.c;; d := A4.d;; e := A4.e;; f := A4.f;;
 </Example>
 
 Set up list of noncommutative polynomials:
 <Example>
-gap> polys := [ e*a, a^3 + f*a, a^9 + c*a^3, a^81 + c*a^9 + d*a^3,
->            a^27 + d*a^81 + e*a^9 + f*a^3, b + c*a^27 + e*a^81 + f*a^9,
->            c*b + d*a^27 + f*a^81, a + d*b + e*a^27, c*a + e*b + f*a^27,
->            d*a + f*b, b^3 - b, a*b - b*a, a*c - c*a, a*d - d*a,
->            a*e - e*a, a*f - f*a, b*c - c*b, b*d - d*b, b*e - e*b,
->            b*f - f*b, c*d - d*c, c*e - e*c, c*f - f*c, d*e - e*d,
->            d*f - f*d, e*f - f*e
-> ];;
-gap> reps := GP2NPList(polys);;
+gap> polys4 := [ e*a, a^3 + f*a, a^9 + c*a^3, a^81 + c*a^9 + d*a^3,
+>                a^27 + d*a^81 + e*a^9 + f*a^3, b + c*a^27 + e*a^81 + f*a^9,
+>                c*b + d*a^27 + f*a^81, a + d*b + e*a^27, c*a + e*b + f*a^27,
+>                d*a + f*b, b^3 - b, a*b - b*a, a*c - c*a, a*d - d*a,
+>                a*e - e*a, a*f - f*a, b*c - c*b, b*d - d*b, b*e - e*b,
+>                b*f - f*b, c*d - d*c, c*e - e*c, c*f - f*c, d*e - e*d,
+>                d*f - f*d, e*f - f*e ];;
+gap> reps4 := GP2NPList( polys4 );;
 </Example>
 
 Create a length left-lex ordering with the following (default)
 ordering on the generators
 a &lt; b  &lt; c &lt; d &lt; e &lt; f:
 <Example>
-gap> ml := NCMonomialLeftLengthLexOrdering(A);
+gap> ml4 := NCMonomialLeftLengthLexOrdering( A4 );
 NCMonomialLeftLengthLexicographicOrdering([ (1)*a, (1)*b, (1)*c, (1)*d,
    (1)*e, (1)*f ])
 </Example>
 
 Patch <Package>GBNP</Package> and compute the Gröbner basis with respect
-to the ordering <C>ml</C>:
+to the ordering <C>ml4</C>:
 <Example>
-gap> PatchGBNP(ml);
+gap> PatchGBNP( ml4 );
 LtNP patched.
 GtNP patched.
-gap> gb := Grobner(reps);;
-gap> NP2GPList(gb,A);
+gap> gb4 := Grobner( reps4 );;
+gap> NP2GPList( gb4, A4 );
 [ (1)*a, (1)*b, (1)*d*c+(-1)*c*d, (1)*e*c+(-1)*c*e,
   (1)*e*d+(-1)*d*e, (1)*f*c+(-1)*c*f,
   (1)*f*d+(-1)*d*f, (1)*f*e+(-1)*e*f ]
@@ -533,10 +568,5 @@ gap> LexicographicTable(ml2);
 
 </Section>
 
-
 </Chapter>
-</Body>
 
-<Bibliography Databases="../gbnp_doc,nmo_doc"/>
-
-</Book>

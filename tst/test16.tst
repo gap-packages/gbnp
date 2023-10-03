@@ -107,6 +107,8 @@ gap> # </L>
 gap> 
 gap> # The relations can be shown with <Ref Func="PrintNPList" Style="Text"/>:
 gap> 
+gap> # add the next command in case other tests have changed the alphabet:
+gap> GBNP.ConfigPrint("a","b","c","d","e","f");
 gap> # <L>
 gap> PrintNPList(KI);
  ea 

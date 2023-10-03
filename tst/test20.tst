@@ -60,6 +60,15 @@ gap> # <L>
 gap> twosidrels:=[a^4-e,b^2-e,(a*b)^2-e];;
 gap> D:=A^2;;
 gap> y:=GeneratorsOfLeftModule(D);;
+gap> #
+gap> # (Sept. 2023) The following GBNP.SetOption command has been added
+gap> # because the PrintNPList(modrelsNP); command below was throwing 
+gap> # an error, printing [ b - 1 ] instead of [ b - 1, 0]. 
+gap> # This was due to GAP not knowing that the dimension is 2. 
+gap> # The fix is labelled 'temporary' because SetOption commands 
+gap> # ought not to be used in a test situation.
+gap> #
+gap> GBNP.SetOption("pg", Length(y));
 gap> modrels:=[y[1]*b-y[1], y[2]*b-y[2], y[1]+y[1]*a*(e+a+b) -y[2]-y[2]*a*(e+a+b)];;
 gap> # </L>
 gap> 

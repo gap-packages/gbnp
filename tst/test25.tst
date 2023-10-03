@@ -103,6 +103,8 @@ gap> # using <Ref Func="MatricesQA" Style="Text"/>
 gap> # and determine the minimal polynomial of the sum of the three matrices.
 gap> 
 gap> # <L>
+gap> # add the next command in case other tests have changed the alphabet:
+gap> GBNP.ConfigPrint("x");
 gap> B := BaseQA(GB,3,0);;
 gap> M := MatricesQA(3,B,GB);;
 gap> f := MinimalPolynomial(Rationals,M[1]+M[2]+M[3]);

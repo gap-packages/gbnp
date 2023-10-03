@@ -101,6 +101,8 @@ gap> GB := SGrobner(KI);;
 #I  End of phase II
 #I  End of phase III
 #I  End of phase IV
+gap> # add the next command in case other tests have changed the alphabet:
+gap> GBNP.ConfigPrint("a","b","c","d","e","f","g");
 gap> PrintNPList(GB);
  a 
  b 
