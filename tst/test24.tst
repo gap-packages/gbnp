@@ -53,6 +53,8 @@ gap> KI := [ [[[2,1],[1,1,2]],[1,-1]],
 >         [[[3,6], []],[1,-1]],
 >         [[[6,3], []],[1,-1]],
 >       ];;
+gap> # add the next command in case other tests have changed the alphabet:
+gap> GBNP.ConfigPrint("a","b","c","d","e","f");
 gap> PrintNPList(KI);
  ba - a^2b 
  cb - b^2c 
