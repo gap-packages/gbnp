@@ -520,8 +520,9 @@ PrintNP(p);
 
 # <L>
 PrintNP(FactorOutGcdNP(p));
-# </L>
-
+m := MkMonicNP(p);
+#</L>
+fm := FactorOutGcdNP(m);
 # <#/GAPDoc>
 
 
