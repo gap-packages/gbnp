@@ -553,8 +553,9 @@ gap> PrintNP(p);
  2a^2b - 1 
 ]]></Listing>
 
-The coefficient of the leading term is <M>2</M>. The function <C>MkMonicNP</C> finds
-this coefficient and divides all terms by it:
+The coefficient of the leading term is <M>2</M>. 
+The function <C>MkMonicNP</C> finds this coefficient 
+and divides every term by it:
 
 <Listing><![CDATA[
 gap> PrintNP(MkMonicNP(p));

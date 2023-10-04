@@ -491,7 +491,7 @@ PrintNPList( LTnp );
 
 # <#/GAPDoc>
 
-# <#GAPDoc Label="example-MkMonicNPNP">
+# <#GAPDoc Label="example-MkMonicNP">
 # <E>Example:</E>
 # Consider the following polynomial in NP format.
 # <L>
@@ -499,6 +499,12 @@ p := [[[1,1,2],[]],[2,-1]];;
 PrintNP(p);
 # </L>
 
+# The coefficient of the leading term is <M>2</M>. 
+# The function <C>MkMonicNP</C> finds this coefficient 
+# and divides every term by it:
+# <L>
+PrintNP(MkMonicNP(p));
+# </L>
 # <#/GAPDoc>
 
 # <#GAPDoc Label="example-FactorOutGcdNP">
