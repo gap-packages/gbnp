@@ -509,8 +509,8 @@ GBNP.StrongNormalForm2:=function(f,G,G2)
       i1:=GBNP.OccurInLst(lth,ltsG); 
       i2:=GBNP.OccurInLst(lth,ltsG2); 
       while i1[1]+i2[1]>0 do 
-Print("starting while loop with in StrongNormalForm2 with\n ");
-Print(" i1[1]+i2[1] = ", i1[1]+i2[1]," and h=");  PrintNP(h);
+# Print("starting while loop with in StrongNormalForm2 with\n ");
+# Print(" i1[1]+i2[1] = ", i1[1]+i2[1]," and h=");  PrintNP(h);
             if i1[1]>0 then
 		g:=G[i1[1]]; 
 		ga:=lth{[1..i1[2]-1]}; 
@@ -651,24 +651,25 @@ local i,j,jl,h,ind,lts,new,lans,newind,temp,G,GLOT,done,one,count;
     	GBNP.SortParallelLOT(temp,GLOT,LtNP);
     else
 count:=0;
-Print( "starting at count = 0\n" ); 
         done := false; 
         while not done do
+count:=count+1;
+Print( "\ncount = ", count, "\n" ); 
     		for i in [1..Length(G)] do
 	    		G[i]:=GBNP.ReduceCancellation(G[i]);
 		od;
         	lts:=LMonsNP(G);
     		SortParallel(lts,G,LtNP);
+if (count=1) then 
+Print("after initial sorting, G = \n", G ); 
+fi;
                 done := true; 
                 for i in Reversed( [1..Length(lts)-1] ) do 
                      if ( lts[i] = lts[i+1] ) then
-                         done := false; 
-count := count+1;
-Print( "\ncount = ", count, ",    i = ", i, "\n" ); 
+                         done := false;
 Print( "G[i],G[i+1] = ", G[i], G[i+1], "\n" ); 
                          one:=One(G[i][2][1]);
-                         G[i+1] := CleanNP(AddNP(G[i+1],G[i],one,-one));
-                         G[i+1] := MkMonicNP( G[i+1] ); 
+                         G[i+1] := MkMonicNP(CleanNP(AddNP(G[i+1],G[i],one,-one))); 
 Print( "new G[i+1] = ", G[i+1], "\n" );
                      fi;
                 od;
@@ -678,9 +679,6 @@ Print( "new G[i+1] = ", G[i+1], "\n" );
     	            SortParallel(lts,G,LtNP);
 Print( "resorted lts and G:\n", lts, "\n", G, "\n" ); 
                 fi; 
-
-if (count=5) then return 0; fi;
-
         od; 
 
 Print( "after SortParallel G and lts =:\n", G, "\n", lts, "\n" ); 
@@ -753,9 +751,6 @@ GBNP.ReducePol:=function(B) local ans;
 
 	ans:=List(B,x -> MkMonicNP(CleanNP(x))); 
      	ans:=Filtered(ans, x -> x <> [[],[]]);
-
-Print( "in GBNP.ReducePol, ans = ", ans, "\n" ); 
-
 	GBNP.ReducePol2(ans);
 	return(ans);
 end;;
