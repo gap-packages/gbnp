@@ -162,7 +162,7 @@ gap> reps3 := GP2NPList( polys3 );;
 gap> gb3 := Grobner( reps3 );;
 gap> NP2GPList( gb3, A3 );
 [ (1)*z+(-1)*x, (1)*x^2+(-1/2)*y, (1)*y*x+(-1)*x*y, 
-  (1)*y^2+(2)*x^2+(-1)*<identity ...> ]
+  (1)*y^2+(1)*y+(-1)*<identity ...> ]
 gap> 
 gap> # The example, as presented in the book, uses a left-lexicographic 
 gap> # ordering with z &lt; y  &lt; x.  We create the ordering in NMO, 
