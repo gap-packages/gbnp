@@ -17,11 +17,10 @@ chooser.html
 *.six
 *.tex
 *.toc
+/doc/_*.xml
 /doc/manual.pdf
 /doc/title.xml
 /doc/GBNP.xml
-/doc/nmo/nmo_doc.tex
-/doc/nmo/manual.pdf
 
 .depend
 /example/*.g
