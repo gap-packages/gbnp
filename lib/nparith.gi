@@ -27,10 +27,10 @@
 #AddNP:=function(u,v,c,d) local ans,hlp; -> now in nparith3.gi
 #LtNP:=function(u,v)  
 #GtNP:=function(u,v)  
-#LMonsNP:=function(pol) local i;
-#LMonsNP:=function(pol) local i;
-#LMonsNP:=function(pol) local i;
-#LMonsNP:=function(pol) local i;
+#LMonNP:=function(pol)
+#LMonsNP:=function(lst)
+#LTermNP:=function(pol)
+#LTermsNP:=function(lst)
 #CleanNP:=function(pol) local i,h,l,v,mons,polh,coeffs,ansmons,anscoeffs;   
 #MkMonicNP:=function(pol)
 #FactorOutGcdNP:=function(pol)
@@ -257,9 +257,7 @@ InstallGlobalFunction( LMonNP, function(pol)
     fi;
 end); 
  
-InstallGlobalFunction( LMonsNP, function(lst)
-    return( List(lst,i->LMonNP(i)) ); 
-end); 
+InstallGlobalFunction(LMonsNP, lst -> List(lst,LMonNP));
  
 ################## 
 ### LTermNP and LTermsNP
@@ -318,9 +316,7 @@ InstallGlobalFunction( LTermNP, function(pol)
     fi;
 end); 
  
-InstallGlobalFunction( LTermsNP, function(lst)
-    return(List(lst,p->LTermNP(p))); 
-end); 
+InstallGlobalFunction(LTermsNP, lst -> List(lst,LTermNP)); 
  
 ################## 
 ### CleanNP
