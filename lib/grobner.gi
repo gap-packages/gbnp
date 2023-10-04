@@ -509,8 +509,8 @@ GBNP.StrongNormalForm2:=function(f,G,G2)
       i1:=GBNP.OccurInLst(lth,ltsG); 
       i2:=GBNP.OccurInLst(lth,ltsG2); 
       while i1[1]+i2[1]>0 do 
-#   Print("starting while loop with in StrongNormalForm2 with\n ");
-#   Print(" i1[1]+i2[1] = ", i1[1]+i2[1]," and h=");  PrintNP(h);
+Print("starting while loop with in StrongNormalForm2 with\n ");
+Print(" i1[1]+i2[1] = ", i1[1]+i2[1]," and h=");  PrintNP(h);
             if i1[1]>0 then
 		g:=G[i1[1]]; 
 		ga:=lth{[1..i1[2]-1]}; 
@@ -541,7 +541,7 @@ GBNP.StrongNormalForm2:=function(f,G,G2)
        od; 
        iid := iid+1; 
     od; 
-#   Info(InfoGBNP,3, "computation time of the StrongNormalFormNP = ",Runtime()-tt); 
+Info(InfoGBNP,3, "computation time of the StrongNormalFormNP = ",Runtime()-tt); 
     return(h); 
 end;; 
 
@@ -627,7 +627,7 @@ end);;
 ###
 
 GBNP.ReducePol2:=function(arg) 
-local i,j,jl,h,ind,lts,new,lans,newind,temp,G,GLOT,done,one;
+local i,j,jl,h,ind,lts,new,lans,newind,temp,G,GLOT,done,one,count;
     G:=arg[1]; 
     if Length(arg)>=2 then
     	GLOT:=arg[2]; 
@@ -650,6 +650,8 @@ local i,j,jl,h,ind,lts,new,lans,newind,temp,G,GLOT,done,one;
     	SortParallel(lts,G,LtNP);
     	GBNP.SortParallelLOT(temp,GLOT,LtNP);
     else
+count:=0;
+Print( "starting at count = 0\n" ); 
         done := false; 
         while not done do
     		for i in [1..Length(G)] do
@@ -661,26 +663,30 @@ local i,j,jl,h,ind,lts,new,lans,newind,temp,G,GLOT,done,one;
                 for i in Reversed( [1..Length(lts)-1] ) do 
                      if ( lts[i] = lts[i+1] ) then
                          done := false; 
-## Print( "G[i],G[i+1] = ", G[i], G[i+1], "\n" ); 
+count := count+1;
+Print( "\ncount = ", count, ",    i = ", i, "\n" ); 
+Print( "G[i],G[i+1] = ", G[i], G[i+1], "\n" ); 
                          one:=One(G[i][2][1]);
                          G[i+1] := CleanNP(AddNP(G[i+1],G[i],one,-one));
-## Print( "new G[i+1] = ", G[i+1], "\n" );
+                         G[i+1] := MkMonicNP( G[i+1] ); 
+Print( "new G[i+1] = ", G[i+1], "\n" );
                      fi;
                 od;
                 if not done then 
                     ## need to resort G 
                     lts:=LMonsNP(G); 
     	            SortParallel(lts,G,LtNP);
-## Print( "resorted lts and G:\n", lts, "\n", G, "\n" ); 
+Print( "resorted lts and G:\n", lts, "\n", G, "\n" ); 
                 fi; 
+
+if (count=5) then return 0; fi;
+
         od; 
 
-## Print( "after SortParallel G and lts =:\n", G, "\n", lts, "\n" ); 
+Print( "after SortParallel G and lts =:\n", G, "\n", lts, "\n" ); 
 
 	GLOT:=GBNP.CreateOccurTreePTSLR(lts,GBNP.CalculatePGlts(lts),true);
     fi;
-
-## Print( "initial GLOT:\n", GLOT, "\n" ); 
 
     lans:=Length(lts);
     ind:=[1..lans];
@@ -691,7 +697,7 @@ local i,j,jl,h,ind,lts,new,lans,newind,temp,G,GLOT,done,one;
         j:=i+1;
 	while j <= lans do 
 
-## Print( "[i,j] = ", [i,j], "\n" ); 
+Print( "[i,j] = ", [i,j], "\n" ); 
 
 	    if #IsSubsetBlist(Gset[j],Gset[i]) and 
 	    		GBNP.Occur(G[i][1][1],G[j][1][1]) <> 0 
@@ -747,6 +753,9 @@ GBNP.ReducePol:=function(B) local ans;
 
 	ans:=List(B,x -> MkMonicNP(CleanNP(x))); 
      	ans:=Filtered(ans, x -> x <> [[],[]]);
+
+Print( "in GBNP.ReducePol, ans = ", ans, "\n" ); 
+
 	GBNP.ReducePol2(ans);
 	return(ans);
 end;;
