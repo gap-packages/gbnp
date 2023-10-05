@@ -689,6 +689,7 @@ Print( "after SortParallel G and lts =:\n", G, "\n", lts, "\n" );
     fi;
     lans:=Length(lts);
     ind:=[1..lans];
+Print( "ind = ", ind, "\n" ); 
     while ind <> [] do
 	i:=ind[1];
         RemoveSet(ind,i);
@@ -753,8 +754,7 @@ GBNP.ReducePol:=function(B) local ans;
 	ans:=List(B,x -> MkMonicNP(CleanNP(x))); 
      	ans:=Filtered(ans, x -> x <> [[],[]]);
 	GBNP.ReducePol2(ans);
-
-Print( "in ReducePol, ans[3] = ", ans[3], "\n" ); 
+Print( "in ReducePol after ReducePol2, ans[3] = ", ans[3], "\n" ); 
 
 	return(ans);
 end;;
