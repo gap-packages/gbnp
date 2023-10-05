@@ -588,8 +588,8 @@ end;;
 ###
 
 
-InstallGlobalFunction(
-StrongNormalFormNP,function(f,G) local ih, fm, Gl, lts, lcf, hlp;
+InstallGlobalFunction( StrongNormalFormNP, function(f,G) 
+    local ih, fm, Gl, lts, lcf, hlp;
     fm := CleanNP(f);
     if fm = [[],[]] then return fm; fi;
     lcf := fm[2][1];
@@ -661,22 +661,24 @@ Print( "\ncount = ", count, "\n" );
         	lts:=LMonsNP(G);
     		SortParallel(lts,G,LtNP);
 if (count=1) then 
-Print("after initial sorting, G = \n", G ); 
+Print("after initial sorting, G has length ", Length(G), "\n", G, "\n" ); 
 fi;
                 done := true; 
                 for i in Reversed( [1..Length(lts)-1] ) do 
                      if ( lts[i] = lts[i+1] ) then
                          done := false;
-Print( "G[i],G[i+1] = ", G[i], G[i+1], "\n" ); 
+## Print( "G[i],G[i+1] = ", G[i], G[i+1], "\n" ); 
                          one:=One(G[i][2][1]);
                          G[i+1] := MkMonicNP(CleanNP(AddNP(G[i+1],G[i],one,-one))); 
-Print( "new G[i+1] = ", G[i+1], "\n" );
+## Print( "new G[i+1] = ", G[i+1], "\n" );
                      fi;
                 od;
                 if not done then 
                     ## need to resort G 
+                    G := Filtered( G, L -> L <> [ [ ], [ ] ] );  
                     lts:=LMonsNP(G); 
     	            SortParallel(lts,G,LtNP);
+Print( "G now has length ", Length(G), "\n" ); 
 Print( "resorted lts and G:\n", lts, "\n", G, "\n" ); 
                 fi; 
         od; 
@@ -685,23 +687,22 @@ Print( "after SortParallel G and lts =:\n", G, "\n", lts, "\n" );
 
 	GLOT:=GBNP.CreateOccurTreePTSLR(lts,GBNP.CalculatePGlts(lts),true);
     fi;
-
     lans:=Length(lts);
     ind:=[1..lans];
-
     while ind <> [] do
 	i:=ind[1];
         RemoveSet(ind,i);
         j:=i+1;
 	while j <= lans do 
 
-Print( "[i,j] = ", [i,j], "\n" ); 
+## Print( "[i,j], G[3] = ", [i,j], G[3], "\n" ); 
 
 	    if #IsSubsetBlist(Gset[j],Gset[i]) and 
 	    		GBNP.Occur(G[i][1][1],G[j][1][1]) <> 0 
 		# XXX can this occur be removed
                 then
 		new:=GBNP.StrongNormalForm2TS(G,j,GLOT);
+Print("new = ", new, "  at [i,j] = ", [i,j], "\n" );
 		if new = [[],[]] then
 		   GBNP.RemoveMonFromTreePTSLR(G[j][1][1],j,GLOT,true);
 		   RemoveElmList(G,j);
@@ -729,7 +730,7 @@ Print( "[i,j] = ", [i,j], "\n" );
 	    fi;
 	od;
     od;
-
+Print( "in ReducePol2 at end of [i,j] loop, G[3] = ", G[3], "\n" ); 
     return GLOT;
 end;;
 
@@ -752,6 +753,9 @@ GBNP.ReducePol:=function(B) local ans;
 	ans:=List(B,x -> MkMonicNP(CleanNP(x))); 
      	ans:=Filtered(ans, x -> x <> [[],[]]);
 	GBNP.ReducePol2(ans);
+
+Print( "in ReducePol, ans[3] = ", ans[3], "\n" ); 
+
 	return(ans);
 end;;
 
@@ -889,8 +893,8 @@ end;;
 ### #Grobner is used in:#
 ###
 
-InstallGlobalFunction( 
-Grobner,function(arg) local tt,todo,G, funcs,KI,loop, withpair;
+InstallGlobalFunction( Grobner, function(arg) 
+    local tt,todo,G, funcs,KI,loop, withpair;
 
     # set the default options
     funcs:=ShallowCopy(GBNP.GrobnerLoopRec);
@@ -929,7 +933,7 @@ Grobner,function(arg) local tt,todo,G, funcs,KI,loop, withpair;
          G:= GBNP.ReducePol(KI);
      fi;
 
-## Print( "here is the resulting G\n", G, "\n" ); 
+Print( "here is the resulting G\n", G, "\n" ); 
 
      # only call GBNP.CalculatePG after reduction
      funcs.pg:=GBNP.CalculatePG(G);
@@ -1045,8 +1049,8 @@ end);
 ### #SGrobner is used in: SGrobnerModule#
 ###
 
-InstallGlobalFunction(
-SGrobner,function(arg) local tt,todo,G,GLOT,funcs,KI,loop,withpair;
+InstallGlobalFunction( SGrobner, function(arg) 
+    local tt,todo,G,GLOT,funcs,KI,loop,withpair;
 
     # set the default options
     funcs:=ShallowCopy(GBNP.SGrobnerLoopRec);
@@ -1081,8 +1085,13 @@ SGrobner,function(arg) local tt,todo,G,GLOT,funcs,KI,loop,withpair;
          # no cleaning should be needed when continuing
          G:= ShallowCopy(KI);
      else
+Print( "in SGrobner KI[3] = ", KI[3], "\n" ); 
          G:= GBNP.ReducePol(KI);
+Print( "in SGrobner G[3] = ", G[3], "\n" ); 
      fi;
+
+Print( "after call of GBNP.ReducePol: \n" );
+Print( "G[3] = ", G[3], "\n" );  
 
      # only call GBNP.CalculatePG after reduction
      funcs.pg:=GBNP.CalculatePG(G);
@@ -1195,8 +1204,8 @@ end);
 ### #BaseQA is used in:#
 ###
 
-InstallGlobalFunction(
-BaseQA , function(G,t,maxno) local ans, hlst, i, h, GF,one;
+InstallGlobalFunction( BaseQA, function(G,t,maxno) 
+    local ans, hlst, i, h, GF,one;
     # estimate the number of generators
     if t = 0 then
         t := NumAlgGensNPList(G);
@@ -1260,8 +1269,8 @@ end);;
 ### #DimQA is used in:#
 ###
 
-InstallGlobalFunction(
-DimQA , function(G,n) local s,t0;
+InstallGlobalFunction( DimQA, function(G,n) 
+ local s,t0;
 
  if n = 0 then
     n := NumAlgGensNPList(G);
@@ -1307,8 +1316,7 @@ end);;
 ### #MulQA is used in: MatrixQA#
 ###
 
-InstallGlobalFunction(
-MulQA , function(p1,p2,G) 
+InstallGlobalFunction( MulQA, function(p1,p2,G) 
   return StrongNormalFormNP(MulNP(p1,p2),G);
 end);;
 
@@ -1674,8 +1682,7 @@ end;;
 ### #IsStrongGrobnerBasis uses: GBNP.IsGrobnerBasisTest#
 ### #IsStrongGrobnerBasis used in:#
 
-InstallGlobalFunction(
-IsStrongGrobnerBasis,function(G)
+InstallGlobalFunction( IsStrongGrobnerBasis, function(G)
 	return GBNP.IsGrobnerBasisTest(G,true);
 end);
 
@@ -1710,8 +1717,7 @@ end);
 ### #IsGrobnerBasis uses: GBNP.IsGrobnerBasisTest#
 ### #IsGrobnerBasis used in:#
 
-InstallGlobalFunction(
-IsGrobnerBasis,function(G)
+InstallGlobalFunction( IsGrobnerBasis, function(G)
 	return GBNP.IsGrobnerBasisTest(G,false);
 end);
 
@@ -1892,8 +1898,7 @@ end;
 ### - true if it can be proved that (G,D) is a Gröbner pair.
 ### 
 
-InstallGlobalFunction(
-IsGrobnerPair,function(G,D)
+InstallGlobalFunction( IsGrobnerPair, function(G,D)
 	local 	pol,  	# NP polynomial, counter
 		pol2,   # NP polynomial
 		GLOT, 	# Left Occur Tree of G
@@ -2044,8 +2049,7 @@ end;
 ### - A record containing the new G, todo
 ### 
 
-InstallGlobalFunction(
-MakeGrobnerPair,function(G,D)
+InstallGlobalFunction( MakeGrobnerPair, function(G,D)
 	local 	pol,  	# NP polynomial, counter
 		pol2,   # NP polynomial
 		GLOT, 	# Left Occur Tree of G
@@ -2188,8 +2192,7 @@ end);
 ### #StrongNormalFormNPM is used in: MulQM#
 ###
 
-InstallGlobalFunction(
-StrongNormalFormNPM,function(v,GR)
+InstallGlobalFunction( StrongNormalFormNPM, function(v,GR)
 	if v=[[],[]] then 
 		return v; 
 	else
@@ -2268,8 +2271,8 @@ end);
 ### #SGrobnerModule is used in:#
 ###
 
-InstallGlobalFunction(
-SGrobnerModule,function(KI_p,KI_ts) local tt,todo,G,GB_ts,temp;   
+InstallGlobalFunction( SGrobnerModule, function(KI_p,KI_ts) 
+    local tt,todo,G,GB_ts,temp;   
     # XXX check for module generators
 
     G:=Filtered(KI_p,x->x<>[[],[]]);
@@ -2349,8 +2352,7 @@ end);;
 ### #MulQM is used in: MatrixQA#
 ###
 
-InstallGlobalFunction(
-MulQM , function(p1,p2,GBR)
+InstallGlobalFunction( MulQM, function(p1,p2,GBR)
   
   if (Length(p2[1])=0) then
     # the second argument is zero
@@ -2432,9 +2434,8 @@ end);;
 ### #BaseQM is used in:#
 ###
 
-InstallGlobalFunction(
-BaseQM,function(GBR,t,mt,maxno) 
-local ans, hlst, i, h, one, mn;
+InstallGlobalFunction( BaseQM, function(GBR,t,mt,maxno) 
+    local ans, hlst, i, h, one, mn;
    if t = 0 then 
        t := Maximum(NumAlgGensNPList(GBR.ts), NumAlgGensNPList(GBR.p));
    fi;
@@ -2522,8 +2523,8 @@ end);;
 ### #DimQM is used in:#
 ###
 
-InstallGlobalFunction(
-DimQM , function(GBR,n,mt) local s,t0, mn;
+InstallGlobalFunction( DimQM, function(GBR,n,mt) 
+ local s,t0, mn;
  t0 := Runtime();
  if n = 0 then 
     n := Maximum(NumAlgGensNPList(GBR.ts), NumAlgGensNPList(GBR.p));
