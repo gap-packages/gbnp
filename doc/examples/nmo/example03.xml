@@ -6,22 +6,22 @@ left-lexicographic ordering implicitly assumed in {\GBNP}:
 
 gap> LoadPackage("gbnp", false);
 true
-gap> A := FreeAssociativeAlgebraWithOne(Rationals,"x","y","z");;
-gap> x := A.x;; y := A.y;; z := A.z;; id := One(A);;
-gap> polys := [ x^2 + y^2 + z^2 - id, x^2 + z^2 - y, x-z,
->            x*y-y*x, x*z-z*x, y*z-z*y];;
-gap> reps := GP2NPList(polys);;
-gap> gb := Grobner(reps);;
-gap> NP2GPList(gb,A);
+gap> A3 := FreeAssociativeAlgebraWithOne(Rationals,"x","y","z");;
+gap> x := A3.x;; y := A3.y;; z := A3.z;; id := One(A3);;
+gap> polys3 := [ x^2 + y^2 + z^2 - id, x^2 + z^2 - y, x-z,
+>                x*y-y*x, x*z-z*x, y*z-z*y];;
+gap> reps3 := GP2NPList(polys3);;
+gap> gb3 := Grobner(reps3);;
+gap> NP2GPList(gb3,A3);
 [ (1)*z+(-1)*x, (1)*x^2+(-1/2)*y, (1)*y*x+(-1)*x*y, 
-  (1)*y^2+(2)*x^2+(-1)*<identity ...> ]
+  (1)*y^2+(1)*y+(-1)*<identity ...> ]
 
-gap> ml := NCMonomialLeftLexicographicOrdering(A,[3,2,1]);
+gap> ml3 := NCMonomialLeftLexicographicOrdering(A3,[3,2,1]);
 NCMonomialLeftLexicographicOrdering([ (1)*z, (1)*y, (1)*x ])
-gap> PatchGBNP(ml);
+gap> PatchGBNP(ml3);
 LtNP patched.
 GtNP patched.
-gap> gb := Grobner(reps);;
-gap> NP2GPList(gb,A);
+gap> gb3 := Grobner(reps3);;
+gap> NP2GPList(gb3,A3);
 [ (1)*z^4+(1/2)*z^2+(-1/4)*<identity ...>, (1)*y+(-2)*z^2, (1)*x+(-1)*z ]
 
