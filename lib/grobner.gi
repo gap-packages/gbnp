@@ -686,25 +686,23 @@ Print( "resorted lts and G:\n", lts, "\n", G, "\n" );
 Print( "after SortParallel G and lts =:\n", G, "\n", lts, "\n" ); 
 
 	GLOT:=GBNP.CreateOccurTreePTSLR(lts,GBNP.CalculatePGlts(lts),true);
+
     fi;
     lans:=Length(lts);
     ind:=[1..lans];
-Print( "ind = ", ind, "\n" ); 
+
     while ind <> [] do
 	i:=ind[1];
         RemoveSet(ind,i);
         j:=i+1;
 	while j <= lans do 
-
-## Print( "[i,j], G[3] = ", [i,j], G[3], "\n" ); 
-
 	    if #IsSubsetBlist(Gset[j],Gset[i]) and 
 	    		GBNP.Occur(G[i][1][1],G[j][1][1]) <> 0 
 		# XXX can this occur be removed
                 then
 		new:=GBNP.StrongNormalForm2TS(G,j,GLOT);
-Print("new = ", new, "  at [i,j] = ", [i,j], "\n" );
 		if new = [[],[]] then
+Print( "new at [i,j] = ", [i,j], "\n" ); 
 		   GBNP.RemoveMonFromTreePTSLR(G[j][1][1],j,GLOT,true);
 		   RemoveElmList(G,j);
 		   RemoveSet(ind,lans);
@@ -731,7 +729,8 @@ Print("new = ", new, "  at [i,j] = ", [i,j], "\n" );
 	    fi;
 	od;
     od;
-Print( "in ReducePol2 at end of [i,j] loop, G[3] = ", G[3], "\n" ); 
+Print( "in ReducePol2 at end of [i,j] loop:\n" );
+Print( "G has length ", Length(G), ",  G[3] = ", G[3], "\n" ); 
     return GLOT;
 end;;
 
@@ -743,7 +742,7 @@ end;;
 ### G		- list of non-commutative polynomials
 ###
 ### Returns:
-### G		- Cleaned, reduced, ordered list of non trivial S-polynomials.
+### G		- Cleaned, reduced, ordered list of non-trivial S-polynomials.
 ###
 ### #GBNP.ReducePol uses: CleanNP GBNP.ReducePol2 MkMonicNP#
 ### #GBNP.ReducePol is used in: GBNP.SGrobnerTrunc GBNP.SGrobnerTruncLevel Grobner SGrobner#
@@ -754,8 +753,8 @@ GBNP.ReducePol:=function(B) local ans;
 	ans:=List(B,x -> MkMonicNP(CleanNP(x))); 
      	ans:=Filtered(ans, x -> x <> [[],[]]);
 	GBNP.ReducePol2(ans);
-Print( "in ReducePol after ReducePol2, ans[3] = ", ans[3], "\n" ); 
-
+Print( "in ReducePol after ReducePol2:\n" ); 
+Print("ans has length ", Length(ans), ",  ans[3] = ", ans[3], "\n" );
 	return(ans);
 end;;
 
@@ -1085,13 +1084,12 @@ InstallGlobalFunction( SGrobner, function(arg)
          # no cleaning should be needed when continuing
          G:= ShallowCopy(KI);
      else
-Print( "in SGrobner KI[3] = ", KI[3], "\n" ); 
          G:= GBNP.ReducePol(KI);
-Print( "in SGrobner G[3] = ", G[3], "\n" ); 
+Print( "in SGrobner G has length ", Length(G), ",  G[3] = ", G[3], "\n" );
      fi;
 
 Print( "after call of GBNP.ReducePol: \n" );
-Print( "G[3] = ", G[3], "\n" );  
+Print( "G has length ", Length(G), ",  G[3] = ", G[3], "\n" );  
 
      # only call GBNP.CalculatePG after reduction
      funcs.pg:=GBNP.CalculatePG(G);
