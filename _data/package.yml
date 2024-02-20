@@ -1,5 +1,6 @@
 name: GBNP
-version: 1.0.5
+version: "1.0.5"
+license: "LGPL-2.1-or-later"
 date: 2022-03-09
 description: |
     computing Gröbner bases of noncommutative polynomials
