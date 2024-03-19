@@ -11,6 +11,7 @@
 #############################################################################
 ##
 ##  <#GAPDoc Label="IsNoncommutativeMonomialOrdering">
+##  <ManSection>
 ##  <Filt Name="IsNoncommutativeMonomialOrdering"
 ##        Arg="&lt;obj>"
 ##        Type="Category"/>
@@ -21,7 +22,7 @@
 ##  orderings are of this category. 
 ##  <P/>
 ##  </Description>
-##
+##  </ManSection>
 ##  <#/GAPDoc>
 ##
 DeclareCategory("IsNoncommutativeMonomialOrdering",IsObject);
@@ -30,6 +31,7 @@ DeclareCategory("IsNoncommutativeMonomialOrdering",IsObject);
 #############################################################################
 ##
 ##  <#GAPDoc Label="LtFunctionListRep">
+##  <ManSection>
 ##  <Attr Name="LtFunctionListRep"
 ##        Arg="&lt;NoncommutativeMonomialOrdering>"/>
 ##  
@@ -41,7 +43,7 @@ DeclareCategory("IsNoncommutativeMonomialOrdering",IsObject);
 ##  algebra.
 ##  <P/>
 ##  </Description>
-##
+##  </ManSection>
 ##  <#/GAPDoc>
 ##
 DeclareAttribute("LtFunctionListRep", IsNoncommutativeMonomialOrdering);
@@ -50,6 +52,7 @@ DeclareAttribute("LtFunctionListRep", IsNoncommutativeMonomialOrdering);
 #############################################################################
 ##
 ##  <#GAPDoc Label="NextOrdering">
+##  <ManSection>
 ##  <Attr Name="NextOrdering"
 ##        Arg="&lt;NoncommutativeMonomialOrdering>"/>
 ##  
@@ -59,7 +62,7 @@ DeclareAttribute("LtFunctionListRep", IsNoncommutativeMonomialOrdering);
 ##  has been made with a <C>HasNextOrdering</C> call.
 ##  <P/>
 ##  </Description>
-##
+##  </ManSection>
 ##  <#/GAPDoc>
 ##
 DeclareAttribute("NextOrdering",IsNoncommutativeMonomialOrdering);
@@ -68,6 +71,7 @@ DeclareAttribute("NextOrdering",IsNoncommutativeMonomialOrdering);
 #############################################################################
 ##
 ##  <#GAPDoc Label="ParentAlgebra">
+##  <ManSection>
 ##  <Attr Name="ParentAlgebra"
 ##        Arg="&lt;NoncommutativeMonomialOrdering>"/>
 ##  
@@ -76,7 +80,7 @@ DeclareAttribute("NextOrdering",IsNoncommutativeMonomialOrdering);
 ##  ordering.
 ##  <P/>
 ##  </Description>
-##
+##  </ManSection>
 ##  <#/GAPDoc>
 ##
 DeclareAttribute("ParentAlgebra", IsNoncommutativeMonomialOrdering );
@@ -85,6 +89,7 @@ DeclareAttribute("ParentAlgebra", IsNoncommutativeMonomialOrdering );
 #############################################################################
 ##
 ##  <#GAPDoc Label="LexicographicTable">
+##  <ManSection>
 ##  <Attr Name="LexicographicTable"
 ##        Arg="&lt;NoncommutativeMonomialOrdering>"/>
 ##  
@@ -93,7 +98,7 @@ DeclareAttribute("ParentAlgebra", IsNoncommutativeMonomialOrdering );
 ##   as specified in the creation of the given ordering.
 ##  <P/>
 ##  </Description>
-##
+##  </ManSection>
 ##  <#/GAPDoc>
 ##
 DeclareAttribute("LexicographicTable", IsNoncommutativeMonomialOrdering);
@@ -102,6 +107,7 @@ DeclareAttribute("LexicographicTable", IsNoncommutativeMonomialOrdering);
 #############################################################################
 ##
 ##  <#GAPDoc Label="LexicographicIndexTable">
+##  <ManSection>
 ##  <Attr Name="LexicographicIndexTable"
 ##        Arg="&lt;NoncommutativeMonomialOrdering>"/>
 ##  
@@ -131,7 +137,7 @@ DeclareAttribute("LexicographicTable", IsNoncommutativeMonomialOrdering);
 ##  and <M>d</M> the second least in order.
 ##  <P/>
 ##  </Description>
-##
+##  </ManSection>
 ##  <#/GAPDoc>
 ##
 DeclareAttribute("LexicographicIndexTable", IsNoncommutativeMonomialOrdering);
@@ -140,6 +146,7 @@ DeclareAttribute("LexicographicIndexTable", IsNoncommutativeMonomialOrdering);
 #############################################################################
 ##
 ##  <#GAPDoc Label="LexicographicPermutation">
+##  <ManSection>
 ##  <Attr Name="LexicographicPermutation"
 ##        Arg="&lt;NoncommutativeMonomialOrdering>"/>
 ##  
@@ -150,7 +157,7 @@ DeclareAttribute("LexicographicIndexTable", IsNoncommutativeMonomialOrdering);
 ##  by the <Package>NMO</Package> built-in ordering <C>NCMonomialLLLTestOrdering</C>.
 ##  <P/>
 ##  </Description>
-##
+##  </ManSection>
 ##  <#/GAPDoc>
 ##
 DeclareAttribute("LexicographicPermutation", IsNoncommutativeMonomialOrdering);
@@ -159,6 +166,7 @@ DeclareAttribute("LexicographicPermutation", IsNoncommutativeMonomialOrdering);
 #############################################################################
 ##
 ##  <#GAPDoc Label="AuxilliaryTable">
+##  <ManSection>
 ##  <Attr Name="AuxilliaryTable"
 ##        Arg="&lt;NoncommutativeMonomialOrdering>"/>
 ##  
@@ -167,7 +175,7 @@ DeclareAttribute("LexicographicPermutation", IsNoncommutativeMonomialOrdering);
 ##  for such things as weight vectors, etc.
 ##  <P/>
 ##  </Description>
-##
+##  </ManSection>
 ##  <#/GAPDoc>
 ##
 DeclareAttribute("AuxilliaryTable", IsNoncommutativeMonomialOrdering);
@@ -191,6 +199,7 @@ BindGlobal("NoncommutativeMonomialOrderingsFamily",
 #############################################################################
 ##
 ##  <#GAPDoc Label="InstallNoncommutativeMonomialOrdering">
+##  <ManSection>
 ##  <Func Name="InstallNoncommutativeMonomialOrdering"
 ##        Arg="&lt;string>, &lt;function>, &lt;function2>"/>
 ##
@@ -238,7 +247,7 @@ BindGlobal("NoncommutativeMonomialOrderingsFamily",
 ##    <P/>
 ##    
 ##  </Description>
-##
+##  </ManSection>
 ##  <#/GAPDoc>
 ##
 DeclareGlobalFunction("InstallNoncommutativeMonomialOrdering");
@@ -247,6 +256,7 @@ DeclareGlobalFunction("InstallNoncommutativeMonomialOrdering");
 #############################################################################
 ##
 ##  <#GAPDoc Label="OrderingLtGtFunctions">
+##  <ManSection>
 ##  <Oper Name="OrderingLtFunctionListRep"
 ##        Arg="&lt;NoncommutativeMonomialOrdering>"/>
 ##  
@@ -265,7 +275,7 @@ DeclareGlobalFunction("InstallNoncommutativeMonomialOrdering");
 ##  These functions are not typically accessed by the user.
 ##  <P/>
 ##  </Description>
-##
+##  </ManSection>
 ##  <#/GAPDoc>
 ##
 DeclareOperation("OrderingLtFunctionListRep",

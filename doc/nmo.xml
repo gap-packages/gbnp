@@ -25,7 +25,8 @@
 <Section Label="sec-nmo-intro">
 <Heading>Introduction</Heading>
 
-Up until September 2023 the <Package>NMO</Package> manual was provided by 
+Up until September 2023 the manual for Randall Cone's package 
+<Package>NMO</Package> was provided by 
 <Package>GBNP</Package> as a separate <File>manual.pdf</File>. 
 The <Package>NMO</Package> manual now forms this chapter 
 in the <Package>GBNP</Package> manual. 
@@ -421,13 +422,12 @@ gap> NP2GPList( gb4, A4 );
 </Section>
 
 
-<Section><Heading>Orderings</Heading>
-This section describes the current orderings built into the <Package>GAP</Package>
-package <Package>NMO</Package>, and describes some of the internals of the
-machinery involved.
+<Section><Heading>Orderings - Internals</Heading>
+This section, and the following two, describe the current orderings 
+built into the <Package>GAP</Package> package <Package>NMO</Package>, 
+and describes some of the internals of the machinery involved.
 <P/>
 
-<Subsection><Heading>Internals</Heading>
 The orderings portion of <Package>NMO</Package> is divided codewise into the files
 <C>ncordmachine.gd, ncordmachine.gi</C> and <C>ncorderings.gd, ncorderings.gi</C>.
 The former file pair contains code to set up the machinery to
@@ -491,47 +491,44 @@ it is utilized in the creation of the ordering:
 gap> lexord2 := NCMonomialLeftLexicographicOrdering(A,[2,3,1]);
 NCMonomialLeftLexicographicOrdering([ (1)*b, (1)*c, (1)*a ])
 </Example>
-</Subsection>
+
+<#Include Label="InstallNoncommutativeMonomialOrdering">
+<#Include Label="IsNoncommutativeMonomialOrdering">
+<#Include Label="LtFunctionListRep">
+<#Include Label="NextOrdering">
+<#Include Label="ParentAlgebra">
+<#Include Label="LexicographicTable">
+<#Include Label="LexicographicIndexTable">
+<#Include Label="LexicographicPermutation">
+<#Include Label="AuxilliaryTable">
+<#Include Label="OrderingLtGtFunctions">
+</Section>
 
 
-<ManSection><Heading>Internal Routines</Heading>
-  <#Include Label="InstallNoncommutativeMonomialOrdering">
-  <#Include Label="IsNoncommutativeMonomialOrdering">
-  <#Include Label="LtFunctionListRep">
-  <#Include Label="NextOrdering">
-  <#Include Label="ParentAlgebra">
-  <#Include Label="LexicographicTable">
-  <#Include Label="LexicographicIndexTable">
-  <#Include Label="LexicographicPermutation">
-  <#Include Label="AuxilliaryTable">
-  <#Include Label="OrderingLtGtFunctions">
-</ManSection>
+<Section><Heading>Provided Orderings</Heading>
+<#Include Label="NCMonomialLeftLengthLexicographicOrdering">
+<#Include Label="NCMonomialLengthOrdering">
+<#Include Label="NCMonomialLeftLexicographicOrdering">
+<#Include Label="NCMonomialCommutativeLexicographicOrdering">
+<#Include Label="NCMonomialWeightOrdering">
+</Section>
 
-<ManSection><Heading>Provided Orderings</Heading>
-  <#Include Label="NCMonomialLeftLengthLexicographicOrdering">
-  <#Include Label="NCMonomialLengthOrdering">
-  <#Include Label="NCMonomialLeftLexicographicOrdering">
-  <#Include Label="NCMonomialCommutativeLexicographicOrdering">
-  <#Include Label="NCMonomialWeightOrdering">
-</ManSection>
 
-<Subsection><Heading>Externals</Heading>
+<Section><Heading>Orderings - Externals</Heading>
 
 All user-level interface routines in the descriptions following
- allow for the comparison
-of not only monomials from a given algebra with respect to a given ordering, but
+allow for the comparisonof not only monomials from a given algebra 
+with respect to a given ordering, but
 also compare general elements from an algebra by comparing their
 leading terms (again, with respect to the given ordering).
 These routines are located in the files
 <C>ncinterface.gd</C> and <C>ncinterface.gi</C>.
-</Subsection>
+<P/>
 
-<ManSection><Heading>External Routines</Heading>
-  <#Include Label="NCLessThanByOrdering">
-  <#Include Label="NCGreaterThanByOrdering">
-  <#Include Label="NCEquivalentByOrdering">
-  <#Include Label="NCSortNP">
-</ManSection>
+<#Include Label="NCLessThanByOrdering">
+<#Include Label="NCGreaterThanByOrdering">
+<#Include Label="NCEquivalentByOrdering">
+<#Include Label="NCSortNP">
 
 <Subsection><Heading>Flexibility vs. Efficiency</Heading>
 We recall that <C>InstallNoncommutativeMonomialOrdering</C> completes
