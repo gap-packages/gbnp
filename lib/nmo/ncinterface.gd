@@ -13,6 +13,7 @@
 #############################################################################
 ##
 ##  <#GAPDoc Label="NCLessThanByOrdering">
+##  <ManSection>
 ##  <Oper Name="NCLessThanByOrdering"
 ##        Arg="&lt;NoncommutativeMonomialOrdering>, &lt;a>, &lt;b>"/>
 ##  
@@ -24,7 +25,7 @@
 ##  determined by <C>&lt;NoncommutativeMonomialOrdering></C>.
 ##  <P/>
 ##  </Description>
-##
+##  </ManSection>
 ##  <#/GAPDoc>
 ##
 DeclareOperation("NCLessThanByOrdering",
@@ -37,6 +38,7 @@ DeclareOperation("NCLessThanByOrdering",
 #############################################################################
 ##
 ##  <#GAPDoc Label="NCGreaterThanByOrdering">
+##  <ManSection>
 ##  <Oper Name="NCGreaterThanByOrdering"
 ##        Arg="&lt;NoncommutativeMonomialOrdering>, &lt;a>, &lt;b>"/>
 ##  
@@ -49,7 +51,7 @@ DeclareOperation("NCLessThanByOrdering",
 ##  <P/>
 ##  <P/>
 ##  </Description>
-##
+##  </ManSection>
 ##  <#/GAPDoc>
 ##
 DeclareOperation("NCGreaterThanByOrdering",
@@ -61,6 +63,7 @@ DeclareOperation("NCGreaterThanByOrdering",
 #############################################################################
 ##
 ##  <#GAPDoc Label="NCEquivalentByOrdering">
+##  <ManSection>
 ##  <Oper Name="NCEquivalentByOrdering"
 ##        Arg="&lt;NoncommutativeMonomialOrdering>, &lt;a>, &lt;b>"/>
 ##  
@@ -113,7 +116,7 @@ DeclareOperation("NCGreaterThanByOrdering",
 ##  <P/>
 ##
 ##  </Description>
-##
+##  </ManSection>
 ##  <#/GAPDoc>
 ##
 DeclareOperation("NCEquivalentByOrdering",
@@ -126,6 +129,7 @@ DeclareOperation("NCEquivalentByOrdering",
 #############################################################################
 ##
 ##  <#GAPDoc Label="NCSortNP">
+##  <ManSection>
 ##  <Oper Name="NCSortNP"
 ##        Arg="&lt;NoncommutativeMonomialOrdering>, &lt;list>, &lt;function>"/>
 ##  
@@ -139,7 +143,7 @@ DeclareOperation("NCEquivalentByOrdering",
 ##  from <Cite Key="gN02"/>.
 ##  <P/>
 ##  </Description>
-##
+##  </ManSection>
 ##  <#/GAPDoc>
 ##
 DeclareOperation("NCSortNP",

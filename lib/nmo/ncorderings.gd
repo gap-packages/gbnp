@@ -11,6 +11,7 @@
 #############################################################################
 ##
 ##  <#GAPDoc Label="NCMonomialLeftLengthLexicographicOrdering">
+##  <ManSection>
 ##  <Func Name="NCMonomialLeftLengthLexicographicOrdering"
 ##        Arg="&lt;algebra>, &lt;list>"/>
 ##
@@ -27,7 +28,7 @@
 ##  Note: the synonym <C>NCMonomialLeftLengthLexOrdering</C> may also be used.
 ##  <P/>
 ##  </Description>
-##
+##  </ManSection>
 ##  <#/GAPDoc>
 ##
 DeclareGlobalFunction("NCMonomialLeftLengthLexicographicOrdering");
@@ -38,6 +39,7 @@ DeclareSynonym("NCMonomialLeftLengthLexOrdering",
 #############################################################################
 ##
 ##  <#GAPDoc Label="NCMonomialLengthOrdering">
+##  <ManSection>
 ##  <Func Name="NCMonomialLengthOrdering"
 ##        Arg="&lt;algebra>"/>
 ##
@@ -48,7 +50,7 @@ DeclareSynonym("NCMonomialLeftLengthLexOrdering",
 ##  are compared using this ordering.
 ##  <P/>
 ##  </Description>
-##
+##  </ManSection>
 ##  <#/GAPDoc>
 ##
 DeclareGlobalFunction("NCMonomialLengthOrdering");
@@ -57,6 +59,7 @@ DeclareGlobalFunction("NCMonomialLengthOrdering");
 #############################################################################
 ##
 ##  <#GAPDoc Label="NCMonomialLeftLexicographicOrdering">
+##  <ManSection>
 ##  <Func Name="NCMonomialLeftLexicographicOrdering"
 ##        Arg="&lt;algebra>, &lt;list>"/>
 ##
@@ -67,7 +70,7 @@ DeclareGlobalFunction("NCMonomialLengthOrdering");
 ##  left-lexicographic ordering object.
 ##  <P/>
 ##  </Description>
-##
+##  </ManSection>
 ##  <#/GAPDoc>
 ##
 DeclareGlobalFunction("NCMonomialLeftLexicographicOrdering");
@@ -76,6 +79,7 @@ DeclareGlobalFunction("NCMonomialLeftLexicographicOrdering");
 #############################################################################
 ##
 ##  <#GAPDoc Label="NCMonomialCommutativeLexicographicOrdering">
+##  <ManSection>
 ##  <Func Name="NCMonomialCommutativeLexicographicOrdering"
 ##        Arg="&lt;algebra>, &lt;list>"/>
 ##
@@ -88,7 +92,7 @@ DeclareGlobalFunction("NCMonomialLeftLexicographicOrdering");
 ##  using their respective commutative analogues.
 ##  <P/>
 ##  </Description>
-##
+##  </ManSection>
 ##  <#/GAPDoc>
 ##
 DeclareGlobalFunction("NCMonomialCommutativeLexicographicOrdering");
@@ -97,6 +101,7 @@ DeclareGlobalFunction("NCMonomialCommutativeLexicographicOrdering");
 #############################################################################
 ##
 ##  <#GAPDoc Label="NCMonomialWeightOrdering">
+##  <ManSection>
 ##  <Func Name="NCMonomialWeightOrdering"
 ##        Arg="&lt;algebra>, &lt;list>, &lt;list2>"/>
 ##
@@ -108,7 +113,7 @@ DeclareGlobalFunction("NCMonomialCommutativeLexicographicOrdering");
 ##  weight ordering object.
 ##  <P/>
 ##  </Description>
-##
+##  </ManSection>
 ##  <#/GAPDoc>
 ##
 DeclareGlobalFunction("NCMonomialWeightOrdering");
