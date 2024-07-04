@@ -26,7 +26,6 @@ BindGlobal("GBNP",rec());
 ReadPackage("GBNP", "lib/nparith.gi");
 ReadPackage("GBNP", "lib/npformat.gi");
 ReadPackage("GBNP", "lib/printing.gi");
-ReadPackage("GBNP", "lib/printing2.gi");
 ReadPackage("GBNP", "lib/grobner.gi");
 ReadPackage("GBNP", "lib/tree.gi");
 ReadPackage("GBNP", "lib/graphs.gi");

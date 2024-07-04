@@ -24,7 +24,6 @@ ReadPackage("GBNP", "lib/graphs.gd");
 ReadPackage("GBNP", "lib/grobner.gd");
 ReadPackage("GBNP", "lib/nparith.gd");
 ReadPackage("GBNP", "lib/npformat.gd");
-ReadPackage("GBNP", "lib/printing2.gd");
 ReadPackage("GBNP", "lib/printing.gd");
 ReadPackage("GBNP", "lib/trace.gd");
 ReadPackage("GBNP", "lib/trunc.gd");
