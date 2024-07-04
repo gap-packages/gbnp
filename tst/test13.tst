@@ -5,11 +5,11 @@ gap> # Copyright 2001-2010 by Arjeh M. Cohen, Dié A.H. Gijsbers, Jan Willem
 gap> # Knopper, Chris Krook. Address: Discrete Algebra and Geometry (DAM) group
 gap> # at the Department of Mathematics and Computer Science of Eindhoven
 gap> # University of Technology.
-gap> # 
+gap> #
 gap> # For acknowledgements see the manual. The manual can be found in several
 gap> # formats in the doc subdirectory of the GBNP distribution. The
 gap> # acknowledgements formatted as text can be found in the file chap0.txt.
-gap> # 
+gap> #
 gap> # GBNP is free software; you can redistribute it and/or modify it under
 gap> # the terms of the Lesser GNU General Public License as published by the
 gap> # Free Software Foundation (FSF); either version 2.1 of the License, or
@@ -81,7 +81,7 @@ gap> KI := [k1,k2,k3,k4,k5,k6,k7,k8,k9,k10,
 >       ];;
 gap> # </L>
 gap> 
-gap> # The Gröbner basis can now be calculated with 
+gap> # The Gröbner basis can now be calculated with
 gap> # <Ref Func="SGrobner" Style="Text"/>:
 gap> 
 gap> # <L>
@@ -95,7 +95,7 @@ gap> GB := SGrobner(KI);;
 gap> # </L>
 gap> 
 gap> # We will check whether the quotient algebra is finite dimensional or infinite
-gap> # dimensional. 
+gap> # dimensional.
 gap> # The function <Ref Func="FinCheckQA" Style="Text"/> exists for this purpose.
 gap> # Its first argument is the list
 gap> # of leading monomials of a
@@ -109,7 +109,7 @@ true
 gap> # </L>
 gap> 
 gap> # If a quotient algebra is finite dimensional, the dimension can be calculated
-gap> # with <Ref Func="DimQA" Style="Text"/>, the arguments are the Gröbner basis 
+gap> # with <Ref Func="DimQA" Style="Text"/>, the arguments are the Gröbner basis
 gap> # <C>GB</C> and the number of symbols <C>6</C>. Since <Ref
 gap> # InfoClass="InfoGBNPTime" Style="Text"/> is set to 2, we get
 gap> # timing information from <Ref Func="DimQA" Style="Text"/>:

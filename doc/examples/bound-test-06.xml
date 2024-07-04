@@ -20,7 +20,7 @@ gap> ########################## END COPYRIGHT MESSAGE ##########################
 gap> LoadPackage("gbnp", false);
 true
 
-gap> check:=function (l, i) 
+gap> check:=function (l, i)
 > 	# exact answer matches
 > 	if IsInt(l) and l=i then
 > 		return true;
@@ -37,9 +37,9 @@ function( l, i ) ... end
 DetermineGrowthQA
 gap> DetermineGrowthQA([],2,true)="exponential growth";
 true
-gap> DetermineGrowthQA([[1]],2,true)=1; 
+gap> DetermineGrowthQA([[1]],2,true)=1;
 true
-gap> DetermineGrowthQA([[1,2]],2,true)=2; 
+gap> DetermineGrowthQA([[1,2]],2,true)=2;
 true
 gap> DetermineGrowthQA([[2,1]],2,true)=2;
 true
@@ -50,9 +50,9 @@ true
 
 gap> DetermineGrowthQA([],2,false)="exponential growth";
 true
-gap> DetermineGrowthQA([[1]],2,false)=1; 
+gap> DetermineGrowthQA([[1]],2,false)=1;
 true
-gap> check(DetermineGrowthQA([[1,2]],2,false),2); 
+gap> check(DetermineGrowthQA([[1,2]],2,false),2);
 true
 gap> DetermineGrowthQA([[2,1]],2,false)=2;
 true

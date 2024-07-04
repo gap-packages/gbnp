@@ -5,11 +5,11 @@ gap> # Copyright 2001-2010 by Arjeh M. Cohen, Dié A.H. Gijsbers, Jan Willem
 gap> # Knopper, Chris Krook. Address: Discrete Algebra and Geometry (DAM) group
 gap> # at the Department of Mathematics and Computer Science of Eindhoven
 gap> # University of Technology.
-gap> # 
+gap> #
 gap> # For acknowledgements see the manual. The manual can be found in several
 gap> # formats in the doc subdirectory of the GBNP distribution. The
 gap> # acknowledgements formatted as text can be found in the file chap0.txt.
-gap> # 
+gap> #
 gap> # GBNP is free software; you can redistribute it and/or modify it under
 gap> # the terms of the Lesser GNU General Public License as published by the
 gap> # Free Software Foundation (FSF); either version 2.1 of the License, or
@@ -18,17 +18,17 @@ gap> # the doc subdirectory of the GBNP distribution or see the FSF's own site:
 gap> # https://www.gnu.org/licenses/lgpl.html
 gap> ########################## END COPYRIGHT MESSAGE ##########################
 gap> 
-gap> ### filename = "example06.g" 
+gap> ### filename = "example06.g"
 gap> ### authors Cohen & Gijsbers
 gap> 
-gap> ### THIS IS A GAP PACKAGE FOR COMPUTING NON-COMMUTATIVE GROBNER BASES 
-gap>  
-gap> ### Last change: August 22 2001. 
+gap> ### THIS IS A GAP PACKAGE FOR COMPUTING NON-COMMUTATIVE GROBNER BASES
+gap> 
+gap> ### Last change: August 22 2001.
 gap> ### amc
 gap> 
 gap> # <#GAPDoc Label="Example06">
 gap> # <Section Label="Example06"><Heading>From the Tapas book</Heading>
-gap> # This example is a standard commutative Gröbner basis computation from the book 
+gap> # This example is a standard commutative Gröbner basis computation from the book
 gap> # Some Tapas of Computer Algebra
 gap> # <Cite Key="CohenCuypersSterk1999"/>, page 339.
 gap> # There are six variables, named <M>a</M>, ... , <M>f</M> by default.
@@ -37,9 +37,9 @@ gap> # occurring on the middle of page 339 of the Tapas book
 gap> # in a project by De Boer and Pellikaan on the ternary cyclic code of length 11.
 gap> # Below these are named <C>p1</C>, ..., <C>p12</C>.
 gap> # The result should be the union of <M>\{a,b\}</M> and
-gap> # the set of 6 homogeneous binomials 
+gap> # the set of 6 homogeneous binomials
 gap> # (that is, polynomials with two terms) of degree 2 forcing
-gap> # commuting between <M>c</M>, <M>d</M>, <M>e</M>, and <M>f</M>. 
+gap> # commuting between <M>c</M>, <M>d</M>, <M>e</M>, and <M>f</M>.
 gap> # <P/>
 gap> 
 gap> # <!--
@@ -116,40 +116,40 @@ gap> # The relations can be shown with <Ref Func="PrintNPList" Style="Text"/>:
 gap> 
 gap> # <L>
 gap> PrintNPList(KI);
- ea 
- a^3 + fa 
- a^9 + ca^3 
- a^81 + ca^9 + da^3 
- ca^81 + da^9 + ea^3 
- a^27 + da^81 + ea^9 + fa^3 
- b + ca^27 + ea^81 + fa^9 
- cb + da^27 + fa^81 
- a + db + ea^27 
- ca + eb + fa^27 
- da + fb 
- b^3 - b 
- ab - ba 
- ac - ca 
- ad - da 
- ae - ea 
- af - fa 
- bc - cb 
- bd - db 
- be - eb 
- bf - fb 
- cd - dc 
- ce - ec 
- cf - fc 
- de - ed 
- df - fd 
- ef - fe 
+ ea
+ a^3 + fa
+ a^9 + ca^3
+ a^81 + ca^9 + da^3
+ ca^81 + da^9 + ea^3
+ a^27 + da^81 + ea^9 + fa^3
+ b + ca^27 + ea^81 + fa^9
+ cb + da^27 + fa^81
+ a + db + ea^27
+ ca + eb + fa^27
+ da + fb
+ b^3 - b
+ ab - ba
+ ac - ca
+ ad - da
+ ae - ea
+ af - fa
+ bc - cb
+ bd - db
+ be - eb
+ bf - fb
+ cd - dc
+ ce - ec
+ cf - fc
+ de - ed
+ df - fd
+ ef - fe
 gap> Length(KI);
 27
 gap> # </L>
 gap> 
 gap> # It is sometimes easier to enter the relations as elements of a free algebra
 gap> # and then use the function <Ref Func="GP2NP" Style="Text"/> or the function
-gap> # <Ref Func="GP2NPList" Style="Text"/> to convert them. 
+gap> # <Ref Func="GP2NPList" Style="Text"/> to convert them.
 gap> # This will be demonstrated below. More about converting can be read
 gap> # in Section <Ref Sect="TransitionFunctions"/>.
 gap> 
@@ -197,14 +197,14 @@ gap> GB := SGrobner(KI);;
 #I  G: Cleaning finished, 0 polynomials reduced
 #I  End of phase IV
 gap> PrintNPList(GB);
- a 
- b 
- dc - cd 
- ec - ce 
- ed - de 
- fc - cf 
- fd - df 
- fe - ef 
+ a
+ b
+ dc - cd
+ ec - ce
+ ed - de
+ fc - cf
+ fd - df
+ fe - ef
 gap> # </L>
 gap> 
 gap> 

@@ -20,7 +20,7 @@ gap> ########################## END COPYRIGHT MESSAGE ##########################
 gap> LoadPackage("gbnp", false);
 true
 
-calculation examples 
+calculation examples
 
 NumAlgGensNP
 gap> NumAlgGensNP([[],[]])=0;
@@ -148,7 +148,7 @@ not sure what the desired action should be (fail perhaps ?)
 might be better to document this
 gap> LMonsNP([])=[];
 true
-gap> #LMonsNP([NPzero])=[]; 
+gap> #LMonsNP([NPzero])=[];
 gap> LMonsNP([NPone])=[M0];
 true
 gap> #LMonsNP([NPone,NPzero])=[M0];

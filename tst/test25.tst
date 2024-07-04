@@ -5,11 +5,11 @@ gap> # Copyright 2001-2010 by Arjeh M. Cohen, Dié A.H. Gijsbers, Jan Willem
 gap> # Knopper, Chris Krook. Address: Discrete Algebra and Geometry (DAM) group
 gap> # at the Department of Mathematics and Computer Science of Eindhoven
 gap> # University of Technology.
-gap> # 
+gap> #
 gap> # For acknowledgements see the manual. The manual can be found in several
 gap> # formats in the doc subdirectory of the GBNP distribution. The
 gap> # acknowledgements formatted as text can be found in the file chap0.txt.
-gap> # 
+gap> #
 gap> # GBNP is free software; you can redistribute it and/or modify it under
 gap> # the terms of the Lesser GNU General Public License as published by the
 gap> # Free Software Foundation (FSF); either version 2.1 of the License, or
@@ -18,7 +18,7 @@ gap> # the doc subdirectory of the GBNP distribution or see the FSF's own site:
 gap> # https://www.gnu.org/licenses/lgpl.html
 gap> ########################## END COPYRIGHT MESSAGE ##########################
 gap> 
-gap> ### filename = "example25.g" 
+gap> ### filename = "example25.g"
 gap> ### author amc
 gap> ### amc last edited 1 June 2007
 gap> 
@@ -36,7 +36,7 @@ gap> # The paper <Cite Key="MR2090062"/> by Baur and Draisma
 gap> # uses the computation of a quotient
 gap> # algebra of dimension 37, which we
 gap> # repeat here.
-gap> # The set of equations, after specialisation of the scalars to 1, 
+gap> # The set of equations, after specialisation of the scalars to 1,
 gap> # is as follows.
 gap> 
 gap> # <L>
@@ -54,18 +54,18 @@ gap> KI := [ [[[2,2]],[1]],
 >         [[[2,3,1,2,3,1,2],[2,1,3,2,1,3,2],[2]],[1,1,-1]],
 >       ];;
 gap> PrintNPList(KI);
- b^2 
- a^2 
- c^2 
- aba - a 
- bab - b 
- cbc - c 
- bcb - b 
- aca - a 
- cac - c 
- abcabca + acbacba - a 
- cabcabc + cbacbac - c 
- bcabcab + bacbacb - b 
+ b^2
+ a^2
+ c^2
+ aba - a
+ bab - b
+ cbc - c
+ bcb - b
+ aca - a
+ cac - c
+ abcabca + acbacba - a
+ cabcabc + cbacbac - c
+ bcabcab + bacbacb - b
 gap> # </L>
 gap> 
 gap> # We carry out a traced Gröbner basis computation by use of
@@ -88,17 +88,17 @@ gap> # In order to express the
 gap> # last GB element, viz.
 gap> # <L>
 gap> PrintNP(GB[Length(GB)]);
- cabcabca + cbacba - ca 
+ cabcabca + cbacba - ca
 gap> # </L>
 gap> # as a combination of elements of <C>KI</C>,
 gap> # we use <Ref Func="PrintTracePol" Style="Text"/>:
 gap> # <L>
-gap> PrintTracePol(GBT[Length(GBT)]);  
-- G(9)bacba + cG(10) 
+gap> PrintTracePol(GBT[Length(GBT)]);
+- G(9)bacba + cG(10)
 gap> # </L>
 gap> 
 gap> 
-gap> # We compute matrices for left multiplication by generators 
+gap> # We compute matrices for left multiplication by generators
 gap> # using <Ref Func="MatricesQA" Style="Text"/>
 gap> # and determine the minimal polynomial of the sum of the three matrices.
 gap> 

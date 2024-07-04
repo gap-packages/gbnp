@@ -28,7 +28,7 @@ gap> NPone:=[[[]],[One(F)]];;
 gap> NPzero:=[[],[]];;
 gap> Grobner([])=[];
 true
-gap> Grobner([NPzero])=[]; 
+gap> Grobner([NPzero])=[];
 true
 gap> Grobner([NPzero,NPone])=[NPone];
 true

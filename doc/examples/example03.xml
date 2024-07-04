@@ -17,12 +17,12 @@ the doc subdirectory of the GBNP distribution or see the FSF's own site:
 https://www.gnu.org/licenses/lgpl.html
 gap> ########################## END COPYRIGHT MESSAGE ##########################
 
-gap> ### filename = "example03.g" 
+gap> ### filename = "example03.g"
 gap> ### authors Cohen & Gijsbers
 
-gap> ### THIS IS A GAP PACKAGE FOR COMPUTING NON-COMMUTATIVE GROBNER BASES 
-gap>  
-gap> ### Last change: August 22 2001. 
+gap> ### THIS IS A GAP PACKAGE FOR COMPUTING NON-COMMUTATIVE GROBNER BASES
+gap> 
+gap> ### Last change: August 22 2001.
 gap> ### amc
 
 <#GAPDoc Label="Example03">
@@ -43,7 +43,7 @@ gap> SetInfoLevel(InfoGBNP,1);
 gap> SetInfoLevel(InfoGBNPTime,2);
 ]]></Listing>
 
-Then input the relations in NP format (see <Ref Sect="NP"/>). 
+Then input the relations in NP format (see <Ref Sect="NP"/>).
 They come from the presentation of the Weyl group as a Coxeter group.
 This means that there are six variables, one for each generator.
 We let the corresponding variables be printed as <M>r_1</M>, ..., <M>r_6</M> by means of
@@ -91,30 +91,30 @@ The relations can be shown with <Ref Func="PrintNPList" Style="Text"/>:
 
 <Listing><![CDATA[
 gap> PrintNPList(KI);
- r.1r.3r.1 - r.3r.1r.3 
- r.4r.3r.4 - r.3r.4r.3 
- r.4r.2r.4 - r.2r.4r.2 
- r.4r.5r.4 - r.5r.4r.5 
- r.6r.5r.6 - r.5r.6r.5 
- r.1r.2 - r.2r.1 
- r.1r.4 - r.4r.1 
- r.1r.5 - r.5r.1 
- r.1r.6 - r.6r.1 
- r.2r.3 - r.3r.2 
- r.2r.5 - r.5r.2 
- r.2r.6 - r.6r.2 
- r.3r.5 - r.5r.3 
- r.3r.6 - r.6r.3 
- r.4r.6 - r.6r.4 
- r.1^2 - 1 
- r.2^2 - 1 
- r.3^2 - 1 
- r.4^2 - 1 
- r.5^2 - 1 
- r.6^2 - 1 
+ r.1r.3r.1 - r.3r.1r.3
+ r.4r.3r.4 - r.3r.4r.3
+ r.4r.2r.4 - r.2r.4r.2
+ r.4r.5r.4 - r.5r.4r.5
+ r.6r.5r.6 - r.5r.6r.5
+ r.1r.2 - r.2r.1
+ r.1r.4 - r.4r.1
+ r.1r.5 - r.5r.1
+ r.1r.6 - r.6r.1
+ r.2r.3 - r.3r.2
+ r.2r.5 - r.5r.2
+ r.2r.6 - r.6r.2
+ r.3r.5 - r.5r.3
+ r.3r.6 - r.6r.3
+ r.4r.6 - r.6r.4
+ r.1^2 - 1
+ r.2^2 - 1
+ r.3^2 - 1
+ r.4^2 - 1
+ r.5^2 - 1
+ r.6^2 - 1
 ]]></Listing>
 
-The Gröbner basis can now be calculated with 
+The Gröbner basis can now be calculated with
 <Ref Func="SGrobner" Style="Text"/>:
 
 <Listing><![CDATA[
@@ -128,71 +128,71 @@ gap> GB := SGrobner(KI);;
 #I  End of phase IV
 #I  The computation took 132 msecs.
 gap> PrintNPList(GB);
- r.1^2 - 1 
- r.2r.1 - r.1r.2 
- r.2^2 - 1 
- r.3r.2 - r.2r.3 
- r.3^2 - 1 
- r.4r.1 - r.1r.4 
- r.4^2 - 1 
- r.5r.1 - r.1r.5 
- r.5r.2 - r.2r.5 
- r.5r.3 - r.3r.5 
- r.5^2 - 1 
- r.6r.1 - r.1r.6 
- r.6r.2 - r.2r.6 
- r.6r.3 - r.3r.6 
- r.6r.4 - r.4r.6 
- r.6^2 - 1 
- r.3r.1r.2 - r.2r.3r.1 
- r.3r.1r.3 - r.1r.3r.1 
- r.4r.2r.4 - r.2r.4r.2 
- r.4r.3r.4 - r.3r.4r.3 
- r.5r.4r.5 - r.4r.5r.4 
- r.6r.5r.6 - r.5r.6r.5 
- r.4r.3r.1r.4 - r.3r.4r.3r.1 
- r.5r.4r.2r.5 - r.4r.5r.4r.2 
- r.5r.4r.3r.5 - r.4r.5r.4r.3 
- r.6r.5r.4r.6 - r.5r.6r.5r.4 
- r.4r.2r.3r.4r.2 - r.3r.4r.2r.3r.4 
- r.4r.2r.3r.4r.3 - r.2r.4r.2r.3r.4 
- r.5r.4r.2r.3r.5 - r.4r.5r.4r.2r.3 
- r.5r.4r.3r.1r.5 - r.4r.5r.4r.3r.1 
- r.6r.5r.4r.2r.6 - r.5r.6r.5r.4r.2 
- r.6r.5r.4r.3r.6 - r.5r.6r.5r.4r.3 
- r.4r.2r.3r.1r.4r.2 - r.3r.4r.2r.3r.1r.4 
- r.5r.4r.2r.3r.1r.5 - r.4r.5r.4r.2r.3r.1 
- r.6r.5r.4r.2r.3r.6 - r.5r.6r.5r.4r.2r.3 
- r.6r.5r.4r.3r.1r.6 - r.5r.6r.5r.4r.3r.1 
- r.4r.2r.3r.1r.4r.3r.1 - r.2r.4r.2r.3r.1r.4r.3 
- r.5r.4r.2r.3r.4r.5r.4 - r.4r.5r.4r.2r.3r.4r.5 
- r.6r.5r.4r.2r.3r.1r.6 - r.5r.6r.5r.4r.2r.3r.1 
- r.6r.5r.4r.2r.3r.4r.6 - r.5r.6r.5r.4r.2r.3r.4 
- r.5r.4r.2r.3r.1r.4r.5r.4 - r.4r.5r.4r.2r.3r.1r.4r.5 
- r.6r.5r.4r.2r.3r.1r.4r.6 - r.5r.6r.5r.4r.2r.3r.1r.4 
- r.6r.5r.4r.2r.3r.1r.4r.3r.6 - r.5r.6r.5r.4r.2r.3r.1r.4r.3 
- r.6r.5r.4r.2r.3r.4r.5r.6r.5 - r.5r.6r.5r.4r.2r.3r.4r.5r.6 
- r.5r.4r.2r.3r.1r.4r.3r.5r.4r.3 - r.4r.5r.4r.2r.3r.1r.4r.3r.5r.4 
- r.6r.5r.4r.2r.3r.1r.4r.5r.6r.5 - r.5r.6r.5r.4r.2r.3r.1r.4r.5r.6 
- r.5r.4r.2r.3r.1r.4r.3r.5r.4r.2r.3 - r.4r.5r.4r.2r.3r.1r.4r.3r.5r.4r.2 
- r.6r.5r.4r.2r.3r.1r.4r.3r.5r.6r.5 - r.5r.6r.5r.4r.2r.3r.1r.4r.3r.5r.6 
+ r.1^2 - 1
+ r.2r.1 - r.1r.2
+ r.2^2 - 1
+ r.3r.2 - r.2r.3
+ r.3^2 - 1
+ r.4r.1 - r.1r.4
+ r.4^2 - 1
+ r.5r.1 - r.1r.5
+ r.5r.2 - r.2r.5
+ r.5r.3 - r.3r.5
+ r.5^2 - 1
+ r.6r.1 - r.1r.6
+ r.6r.2 - r.2r.6
+ r.6r.3 - r.3r.6
+ r.6r.4 - r.4r.6
+ r.6^2 - 1
+ r.3r.1r.2 - r.2r.3r.1
+ r.3r.1r.3 - r.1r.3r.1
+ r.4r.2r.4 - r.2r.4r.2
+ r.4r.3r.4 - r.3r.4r.3
+ r.5r.4r.5 - r.4r.5r.4
+ r.6r.5r.6 - r.5r.6r.5
+ r.4r.3r.1r.4 - r.3r.4r.3r.1
+ r.5r.4r.2r.5 - r.4r.5r.4r.2
+ r.5r.4r.3r.5 - r.4r.5r.4r.3
+ r.6r.5r.4r.6 - r.5r.6r.5r.4
+ r.4r.2r.3r.4r.2 - r.3r.4r.2r.3r.4
+ r.4r.2r.3r.4r.3 - r.2r.4r.2r.3r.4
+ r.5r.4r.2r.3r.5 - r.4r.5r.4r.2r.3
+ r.5r.4r.3r.1r.5 - r.4r.5r.4r.3r.1
+ r.6r.5r.4r.2r.6 - r.5r.6r.5r.4r.2
+ r.6r.5r.4r.3r.6 - r.5r.6r.5r.4r.3
+ r.4r.2r.3r.1r.4r.2 - r.3r.4r.2r.3r.1r.4
+ r.5r.4r.2r.3r.1r.5 - r.4r.5r.4r.2r.3r.1
+ r.6r.5r.4r.2r.3r.6 - r.5r.6r.5r.4r.2r.3
+ r.6r.5r.4r.3r.1r.6 - r.5r.6r.5r.4r.3r.1
+ r.4r.2r.3r.1r.4r.3r.1 - r.2r.4r.2r.3r.1r.4r.3
+ r.5r.4r.2r.3r.4r.5r.4 - r.4r.5r.4r.2r.3r.4r.5
+ r.6r.5r.4r.2r.3r.1r.6 - r.5r.6r.5r.4r.2r.3r.1
+ r.6r.5r.4r.2r.3r.4r.6 - r.5r.6r.5r.4r.2r.3r.4
+ r.5r.4r.2r.3r.1r.4r.5r.4 - r.4r.5r.4r.2r.3r.1r.4r.5
+ r.6r.5r.4r.2r.3r.1r.4r.6 - r.5r.6r.5r.4r.2r.3r.1r.4
+ r.6r.5r.4r.2r.3r.1r.4r.3r.6 - r.5r.6r.5r.4r.2r.3r.1r.4r.3
+ r.6r.5r.4r.2r.3r.4r.5r.6r.5 - r.5r.6r.5r.4r.2r.3r.4r.5r.6
+ r.5r.4r.2r.3r.1r.4r.3r.5r.4r.3 - r.4r.5r.4r.2r.3r.1r.4r.3r.5r.4
+ r.6r.5r.4r.2r.3r.1r.4r.5r.6r.5 - r.5r.6r.5r.4r.2r.3r.1r.4r.5r.6
+ r.5r.4r.2r.3r.1r.4r.3r.5r.4r.2r.3 - r.4r.5r.4r.2r.3r.1r.4r.3r.5r.4r.2
+ r.6r.5r.4r.2r.3r.1r.4r.3r.5r.6r.5 - r.5r.6r.5r.4r.2r.3r.1r.4r.3r.5r.6
  r.6r.5r.4r.2r.3r.1r.4r.3r.5r.4r.6r.5r.4 - r.5r.6r.5r.4r.2r.3r.1r.4r.3r.5r.4r.\
-6r.5 
+6r.5
  r.6r.5r.4r.2r.3r.1r.4r.3r.5r.4r.2r.6r.5r.4r.2 - r.5r.6r.5r.4r.2r.3r.1r.4r.3r.\
-5r.4r.2r.6r.5r.4 
+5r.4r.2r.6r.5r.4
 ]]></Listing>
 
 The base of the quotient algebra can be calculated with <Ref Func="BaseQA"
 Style="Text"/>, which has as arguments a Gröbner basis <C>GB</C>, a number
 of symbols <C>6</C> and a maximum terms to be found (here 0 is entered, for
-a full base) . Since it is very long we will not print it here. 
+a full base) . Since it is very long we will not print it here.
 
 <Listing><![CDATA[
 gap> B:=BaseQA(GB,6,0);;
 ]]></Listing>
 
-The dimension of the quotient algebra can be calculated with 
-<Ref Func="DimQA" Style="Text"/>, the arguments are the Gröbner basis 
+The dimension of the quotient algebra can be calculated with
+<Ref Func="DimQA" Style="Text"/>, the arguments are the Gröbner basis
 <C>GB</C> and the number of symbols <C>6</C>. Since <Ref
 InfoClass="InfoGBNPTime" Style="Text"/> is set to 2, we get
 timing information from <Ref Func="DimQA" Style="Text"/>:

@@ -4,11 +4,11 @@
 # Knopper, Chris Krook. Address: Discrete Algebra and Geometry (DAM) group
 # at the Department of Mathematics and Computer Science of Eindhoven
 # University of Technology.
-# 
+#
 # For acknowledgements see the manual. The manual can be found in several
 # formats in the doc subdirectory of the GBNP distribution. The
 # acknowledgements formatted as text can be found in the file chap0.txt.
-# 
+#
 # GBNP is free software; you can redistribute it and/or modify it under
 # the terms of the Lesser GNU General Public License as published by the
 # Free Software Foundation (FSF); either version 2.1 of the License, or
@@ -19,7 +19,7 @@
 
 LoadPackage("gbnp", false);
 
-check:=function (l, i) 
+check:=function (l, i)
 	# exact answer matches
 	if IsInt(l) and l=i then
 		return true;
@@ -34,15 +34,15 @@ end;
 
 # DetermineGrowthQA
 DetermineGrowthQA([],2,true)="exponential growth";
-DetermineGrowthQA([[1]],2,true)=1; 
-DetermineGrowthQA([[1,2]],2,true)=2; 
+DetermineGrowthQA([[1]],2,true)=1;
+DetermineGrowthQA([[1,2]],2,true)=2;
 DetermineGrowthQA([[2,1]],2,true)=2;
 DetermineGrowthQA([[1,2,1],[2,2,1]],2,true)=2; # correct
 DetermineGrowthQA([[1],[2]],2,true)=0; # correct
 
 DetermineGrowthQA([],2,false)="exponential growth";
-DetermineGrowthQA([[1]],2,false)=1; 
-check(DetermineGrowthQA([[1,2]],2,false),2); 
+DetermineGrowthQA([[1]],2,false)=1;
+check(DetermineGrowthQA([[1,2]],2,false),2);
 DetermineGrowthQA([[2,1]],2,false)=2;
 DetermineGrowthQA([[1,2,1],[2,2,1]],2,false)=2; # correct
 DetermineGrowthQA([[1],[2]],2,false)=0; # correct

@@ -83,14 +83,14 @@ InstallGlobalFunction("InstallNoncommutativeMonomialOrdering",
 	  # Case 2: Algebra and Lex List given:
 	  elif ( Length(arg) = 2 ) and ( IsList(arg[2]) ) then
 	    lextable := Unique(arg[2]);
-	  
+
 	  # Case 3: Algebra and ordering given:
 	  elif ( Length(arg) = 2 ) and
 	       ( IsNoncommutativeMonomialOrdering(arg[2]) ) then
             nextordering := arg[2];
 	    lextable := gens;
 	    auxtable :=  ListWithIdenticalEntries(Length(gens),1);
-	  
+
 	  # Case 4: Algebra, Lex List, and Auxilliary Vector
 	  #         (e.g. weight vector) given:
 	  elif ( Length(arg) = 3 ) and
@@ -150,7 +150,7 @@ InstallGlobalFunction("InstallNoncommutativeMonomialOrdering",
 			  lextable, idxtable, auxtable, idxperm,
 			  nextordering );
             fi;
-      
+
 	  else
 	    Error("usage: ", ordname, "(<algebra>)\n",
 	          "\t or ", ordname,
@@ -240,7 +240,7 @@ InstallMethod(OrderGenerators,
       od;
 
     fi;
-    
+
     return table;
   end
 );
@@ -270,7 +270,7 @@ InstallMethod(IndexGenerators,
 );
 
 
-# 
+#
 # This function is really a wrapper for the ordering
 # function given by the noncommutative monomial ordering
 # passed in.  It returns the appropriate function
@@ -325,7 +325,7 @@ InstallMethod(OrderingLtFunctionListRep,
             return(false);
           else
             # We must have equivalence at this point:
-            # Check if we have a next ordering: 
+            # Check if we have a next ordering:
             if (HasNextOrdering(ord)) then
               fun2 := OrderingLtFunctionListRep(NextOrdering(ord));
               retval := fun2(a,b);
@@ -335,7 +335,7 @@ InstallMethod(OrderingLtFunctionListRep,
         fi;
       fi;
 
-      return(retval); 
+      return(retval);
     end;
   end
 );
@@ -388,7 +388,7 @@ InstallMethod(OrderingGtFunctionListRep,
 	    return(true);
 	  else
             # We must have equivalence at this point:
-            # Check if we have a next ordering: 
+            # Check if we have a next ordering:
             if (HasNextOrdering(ord)) then
               fun2 := OrderingGtFunctionListRep(NextOrdering(ord));
               retval := fun2(a,b);
@@ -398,7 +398,7 @@ InstallMethod(OrderingGtFunctionListRep,
         fi;
       fi;
 
-      return(retval); 
+      return(retval);
     end;
   end
 );

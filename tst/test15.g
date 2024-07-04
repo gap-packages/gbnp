@@ -4,11 +4,11 @@
 # Knopper, Chris Krook. Address: Discrete Algebra and Geometry (DAM) group
 # at the Department of Mathematics and Computer Science of Eindhoven
 # University of Technology.
-# 
+#
 # For acknowledgements see the manual. The manual can be found in several
 # formats in the doc subdirectory of the GBNP distribution. The
 # acknowledgements formatted as text can be found in the file chap0.txt.
-# 
+#
 # GBNP is free software; you can redistribute it and/or modify it under
 # the terms of the Lesser GNU General Public License as published by the
 # Free Software Foundation (FSF); either version 2.1 of the License, or
@@ -17,9 +17,9 @@
 # https://www.gnu.org/licenses/lgpl.html
 ########################## END COPYRIGHT MESSAGE ##########################
 
-### filename = "example15.g" 
+### filename = "example15.g"
 ### author Krook
- 
+
 ### THIS IS A GAP PACKAGE GBNP
 ### FOR COMPUTING WITH NON-COMMUTATIVE POLYNOMIALS
 ### ADD-ON: STUDY GROWTH OF FACTOR ALGEBRA
@@ -27,13 +27,13 @@
 
 # <#GAPDoc Label="Example15">
 # <Section Label="Example15"><Heading>A quotient algebra with exponential growth</Heading>
-# This example demonstrates an instance in which the quotient 
-# algebra is infinite dimensional and has exponential 
+# This example demonstrates an instance in which the quotient
+# algebra is infinite dimensional and has exponential
 # growth. We start out with <C>KI</C><M>:=[y^4-y^2,x^2y-xy]</M> and obtain a
 # Gröbner basis with leading terms <M>[xxy,yyy]</M>. The quotient algebra will
-# thus have exponential growth since the 
+# thus have exponential growth since the
 # cycles <M>(xyyx)^n</M> and <M>(xy)^m</M>
-# intersect in the common subwords <M>xy</M> (and in <M>yx</M>). This is 
+# intersect in the common subwords <M>xy</M> (and in <M>yx</M>). This is
 # explained in <Cite Key="Krook2003"/>. The function <Ref
 # Func="DetermineGrowthQA" Style="Text"/> is used for the computation.
 # <P/>
@@ -73,11 +73,11 @@ GB := SGrobner(KI);;
 PrintNPList(GB);
 # </L>
 
-# Next we check the dimensionality of the quotient algebra 
+# Next we check the dimensionality of the quotient algebra
 # with the function <Ref
 # Func="FinCheckQA" Style="Text"/> or the function <Ref Func="DetermineGrowthQA"
 # Style="Text"/>. These functions expect as first argument a list <A>F</A>
-# of leading terms of a Gröbner basis, 
+# of leading terms of a Gröbner basis,
 # which can be calculated with the function <Ref
 # Func="LMonsNP" Style="Text"/> and as second argument the number of symbols
 # (here equal to 2). The function <Ref Func="DetermineGrowthQA" Style="Text"/>
@@ -98,9 +98,9 @@ fd:=DetermineGrowthQA(L,2,false);
 # <L>
 w := [[[1],[2]],[1,1]];;
 hlp := [[[]],[1]];;
-for i in [3..5] do 
+for i in [3..5] do
   hlp := MulQA(hlp, w, GB);
-  Print("\n (x+y)^",i," = \n"); 
+  Print("\n (x+y)^",i," = \n");
   PrintNP(hlp);
 od;
 # </L>

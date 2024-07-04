@@ -4,11 +4,11 @@
 # Knopper, Chris Krook. Address: Discrete Algebra and Geometry (DAM) group
 # at the Department of Mathematics and Computer Science of Eindhoven
 # University of Technology.
-# 
+#
 # For acknowledgements see the manual. The manual can be found in several
 # formats in the doc subdirectory of the GBNP distribution. The
 # acknowledgements formatted as text can be found in the file chap0.txt.
-# 
+#
 # GBNP is free software; you can redistribute it and/or modify it under
 # the terms of the Lesser GNU General Public License as published by the
 # Free Software Foundation (FSF); either version 2.1 of the License, or
@@ -17,12 +17,12 @@
 # https://www.gnu.org/licenses/lgpl.html
 ########################## END COPYRIGHT MESSAGE ##########################
 
-### filename = "exampleNoah.g" 
+### filename = "exampleNoah.g"
 ### authors Cohen & Wales
 
-### THIS IS A GAP PACKAGE FOR COMPUTING NON-COMMUTATIVE GROBNER BASES 
- 
-### Last change: Aug 12 2008, amc. 
+### THIS IS A GAP PACKAGE FOR COMPUTING NON-COMMUTATIVE GROBNER BASES
+
+### Last change: Aug 12 2008, amc.
 ### dahg
 ## [A.M. Cohen, D.A.H. Gijsbers  D.B. Wales, BMW Algebras of simply laced type, J. Algebra, 286 (2005) 107--153].
 
@@ -44,7 +44,7 @@ SetInfoLevel(InfoGBNP,1);
 SetInfoLevel(InfoGBNPTime,0);
 # </L>
 
-# The variables are <M>g_1</M>, <M>g_2</M>, <M>g_3</M>, 
+# The variables are <M>g_1</M>, <M>g_2</M>, <M>g_3</M>,
 # <M>e_1</M>, <M>e_2</M>, <M>e_3</M>, in this order.
 # In order to have the results printed out with these symbols, we
 # invoke

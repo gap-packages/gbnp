@@ -17,17 +17,17 @@ the doc subdirectory of the GBNP distribution or see the FSF's own site:
 https://www.gnu.org/licenses/lgpl.html
 gap> ########################## END COPYRIGHT MESSAGE ##########################
 
-gap> ### filename = "example06.g" 
+gap> ### filename = "example06.g"
 gap> ### authors Cohen & Gijsbers
 
-gap> ### THIS IS A GAP PACKAGE FOR COMPUTING NON-COMMUTATIVE GROBNER BASES 
-gap>  
-gap> ### Last change: August 22 2001. 
+gap> ### THIS IS A GAP PACKAGE FOR COMPUTING NON-COMMUTATIVE GROBNER BASES
+gap> 
+gap> ### Last change: August 22 2001.
 gap> ### amc
 
 <#GAPDoc Label="Example06">
 <Section Label="Example06"><Heading>From the Tapas book</Heading>
-This example is a standard commutative Gröbner basis computation from the book 
+This example is a standard commutative Gröbner basis computation from the book
 Some Tapas of Computer Algebra
 <Cite Key="CohenCuypersSterk1999"/>, page 339.
 There are six variables, named <M>a</M>, ... , <M>f</M> by default.
@@ -36,9 +36,9 @@ occurring on the middle of page 339 of the Tapas book
 in a project by De Boer and Pellikaan on the ternary cyclic code of length 11.
 Below these are named <C>p1</C>, ..., <C>p12</C>.
 The result should be the union of <M>\{a,b\}</M> and
-the set of 6 homogeneous binomials 
+the set of 6 homogeneous binomials
 (that is, polynomials with two terms) of degree 2 forcing
-commuting between <M>c</M>, <M>d</M>, <M>e</M>, and <M>f</M>. 
+commuting between <M>c</M>, <M>d</M>, <M>e</M>, and <M>f</M>.
 <P/>
 
 <!--
@@ -113,40 +113,40 @@ The relations can be shown with <Ref Func="PrintNPList" Style="Text"/>:
 
 <Listing><![CDATA[
 gap> PrintNPList(KI);
- ea 
- a^3 + fa 
- a^9 + ca^3 
- a^81 + ca^9 + da^3 
- ca^81 + da^9 + ea^3 
- a^27 + da^81 + ea^9 + fa^3 
- b + ca^27 + ea^81 + fa^9 
- cb + da^27 + fa^81 
- a + db + ea^27 
- ca + eb + fa^27 
- da + fb 
- b^3 - b 
- ab - ba 
- ac - ca 
- ad - da 
- ae - ea 
- af - fa 
- bc - cb 
- bd - db 
- be - eb 
- bf - fb 
- cd - dc 
- ce - ec 
- cf - fc 
- de - ed 
- df - fd 
- ef - fe 
+ ea
+ a^3 + fa
+ a^9 + ca^3
+ a^81 + ca^9 + da^3
+ ca^81 + da^9 + ea^3
+ a^27 + da^81 + ea^9 + fa^3
+ b + ca^27 + ea^81 + fa^9
+ cb + da^27 + fa^81
+ a + db + ea^27
+ ca + eb + fa^27
+ da + fb
+ b^3 - b
+ ab - ba
+ ac - ca
+ ad - da
+ ae - ea
+ af - fa
+ bc - cb
+ bd - db
+ be - eb
+ bf - fb
+ cd - dc
+ ce - ec
+ cf - fc
+ de - ed
+ df - fd
+ ef - fe
 gap> Length(KI);
 27
 ]]></Listing>
 
 It is sometimes easier to enter the relations as elements of a free algebra
 and then use the function <Ref Func="GP2NP" Style="Text"/> or the function
-<Ref Func="GP2NPList" Style="Text"/> to convert them. 
+<Ref Func="GP2NPList" Style="Text"/> to convert them.
 This will be demonstrated below. More about converting can be read
 in Section <Ref Sect="TransitionFunctions"/>.
 
@@ -195,14 +195,14 @@ gap> GB := SGrobner(KI);;
 #I  End of phase IV
 #I  The computation took 748 msecs.
 gap> PrintNPList(GB);
- a 
- b 
- dc - cd 
- ec - ce 
- ed - de 
- fc - cf 
- fd - df 
- fe - ef 
+ a
+ b
+ dc - cd
+ ec - ce
+ ed - de
+ fc - cf
+ fd - df
+ fe - ef
 ]]></Listing>
 
 

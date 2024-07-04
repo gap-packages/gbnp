@@ -4,11 +4,11 @@
 # Knopper, Chris Krook. Address: Discrete Algebra and Geometry (DAM) group
 # at the Department of Mathematics and Computer Science of Eindhoven
 # University of Technology.
-# 
+#
 # For acknowledgements see the manual. The manual can be found in several
 # formats in the doc subdirectory of the GBNP distribution. The
 # acknowledgements formatted as text can be found in the file chap0.txt.
-# 
+#
 # GBNP is free software; you can redistribute it and/or modify it under
 # the terms of the Lesser GNU General Public License as published by the
 # Free Software Foundation (FSF); either version 2.1 of the License, or
@@ -17,14 +17,14 @@
 # https://www.gnu.org/licenses/lgpl.html
 ########################## END COPYRIGHT MESSAGE ##########################
 
-# Add, Remove, ELM_LIST, Minimum, 
+# Add, Remove, ELM_LIST, Minimum,
 # todo List, Set
 
 InstallGlobalFunction(
 THeapOT,function(todo, OT)
 local	H,
 	temp,temp2,sorted,i;
-	
+
 	temp:=LMonsNP(todo);
 	sorted:=true;
 	i:=1;
@@ -42,7 +42,7 @@ local	H,
 	return H;
 end);
 
-InstallMethod(Add, 
+InstallMethod(Add,
 	"for 3-ary heaps with Tries",
 	[ IsTHeapOT, IsObject ],
 	function( heap, obj )
@@ -55,7 +55,7 @@ InstallMethod(Add,
 	end
 );
 
-InstallMethod(ELM_LIST, 
+InstallMethod(ELM_LIST,
 	"for 3-ary heaps with Tries",
 	[ IsTHeapOT, IsInt ],
 	function( heap, pos )
@@ -65,7 +65,7 @@ InstallMethod(ELM_LIST,
 	end
 );
 
-InstallMethod(Length, 
+InstallMethod(Length,
 	"for 3-ary heaps with Tries",
 	[ IsTHeapOT ],
 	function( heap )
@@ -73,7 +73,7 @@ InstallMethod(Length,
 	end
 );
 
-InstallMethod(Remove, 
+InstallMethod(Remove,
 	"for 3-ary heaps with Tries",
 	[ IsTHeapOT, IsInt ],
 	function( heap, pos)
@@ -96,7 +96,7 @@ InstallMethod(Remove,
 	end
 );
 
-InstallMethod(Replace, 
+InstallMethod(Replace,
 	"for 3-ary heaps with Tries",
 	[ IsTHeapOT, IsInt, IsObject ],
 	function( heap, pos, obj)
@@ -108,8 +108,8 @@ InstallMethod(Replace,
 		heap!.list[pos]:=obj;
 
 		parent:=GBNP.THeapOTGetParentIndex(pos);
-		if (pos>1) and 
-			LtNP(heap!.list[pos][1][1],heap!.list[parent][1][1]) 
+		if (pos>1) and
+			LtNP(heap!.list[pos][1][1],heap!.list[parent][1][1])
 		then
 			GBNP.THeapOTBalanceUp(heap, pos);
 		else
@@ -221,7 +221,7 @@ local	ok,
 	fi;
 	for i in [1..Length(heap!.OT.arr2tree)] do
 		if heap!.OT.tree2arr[heap!.OT.arr2tree[i]]<>i then
-			if ok then 
+			if ok then
 				Print("arr2tree vs tree2arr link wrong at ",i, "\n");
 				ok:=false;
 			fi;
@@ -230,13 +230,13 @@ local	ok,
 	for i in [1..Length(heap!.list)] do
 		j:=GBNP.OccurInLstT(heap!.list[i][1][1], heap!.OT)[1];
 		if j=0 then
-			if ok then 
+			if ok then
 				Print("OT tree does not contain todo[", i,"]\n");
 				ok:=false;
 			fi;
 		else
 			if (i<>j) and (heap!.list[i][1][1]<>heap!.list[j][1][1]) then
-				if ok then 
+				if ok then
 					Print("OT tree gives wrong answer for [", i,"]\n");
 					ok:=false;
 				fi;

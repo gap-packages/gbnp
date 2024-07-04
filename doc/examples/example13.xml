@@ -80,7 +80,7 @@ gap> KI := [k1,k2,k3,k4,k5,k6,k7,k8,k9,k10,
 >       ];;
 ]]></Listing>
 
-The Gröbner basis can now be calculated with 
+The Gröbner basis can now be calculated with
 <Ref Func="SGrobner" Style="Text"/>:
 
 <Listing><![CDATA[
@@ -96,7 +96,7 @@ gap> GB := SGrobner(KI);;
 ]]></Listing>
 
 We will check whether the quotient algebra is finite dimensional or infinite
-dimensional. 
+dimensional.
 The function <Ref Func="FinCheckQA" Style="Text"/> exists for this purpose.
 Its first argument is the list
 of leading monomials of a
@@ -112,7 +112,7 @@ gap> time;
 ]]></Listing>
 
 If a quotient algebra is finite dimensional, the dimension can be calculated
-with <Ref Func="DimQA" Style="Text"/>, the arguments are the Gröbner basis 
+with <Ref Func="DimQA" Style="Text"/>, the arguments are the Gröbner basis
 <C>GB</C> and the number of symbols <C>6</C>. Since <Ref
 InfoClass="InfoGBNPTime" Style="Text"/> is set to 2, we get
 timing information from <Ref Func="DimQA" Style="Text"/>:

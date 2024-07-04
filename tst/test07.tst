@@ -5,11 +5,11 @@ gap> # Copyright 2001-2010 by Arjeh M. Cohen, Dié A.H. Gijsbers, Jan Willem
 gap> # Knopper, Chris Krook. Address: Discrete Algebra and Geometry (DAM) group
 gap> # at the Department of Mathematics and Computer Science of Eindhoven
 gap> # University of Technology.
-gap> # 
+gap> #
 gap> # For acknowledgements see the manual. The manual can be found in several
 gap> # formats in the doc subdirectory of the GBNP distribution. The
 gap> # acknowledgements formatted as text can be found in the file chap0.txt.
-gap> # 
+gap> #
 gap> # GBNP is free software; you can redistribute it and/or modify it under
 gap> # the terms of the Lesser GNU General Public License as published by the
 gap> # Free Software Foundation (FSF); either version 2.1 of the License, or
@@ -18,12 +18,12 @@ gap> # the doc subdirectory of the GBNP distribution or see the FSF's own site:
 gap> # https://www.gnu.org/licenses/lgpl.html
 gap> ########################## END COPYRIGHT MESSAGE ##########################
 gap> 
-gap> ### filename = "exampleNoah.g" 
+gap> ### filename = "exampleNoah.g"
 gap> ### authors Cohen & Wales
 gap> 
-gap> ### THIS IS A GAP PACKAGE FOR COMPUTING NON-COMMUTATIVE GROBNER BASES 
-gap>  
-gap> ### Last change: Aug 12 2008, amc. 
+gap> ### THIS IS A GAP PACKAGE FOR COMPUTING NON-COMMUTATIVE GROBNER BASES
+gap> 
+gap> ### Last change: Aug 12 2008, amc.
 gap> ### dahg
 gap> ## [A.M. Cohen, D.A.H. Gijsbers  D.B. Wales, BMW Algebras of simply laced type, J. Algebra, 286 (2005) 107--153].
 gap> 
@@ -46,7 +46,7 @@ gap> SetInfoLevel(InfoGBNP,1);
 gap> SetInfoLevel(InfoGBNPTime,0);
 gap> # </L>
 gap> 
-gap> # The variables are <M>g_1</M>, <M>g_2</M>, <M>g_3</M>, 
+gap> # The variables are <M>g_1</M>, <M>g_2</M>, <M>g_3</M>,
 gap> # <M>e_1</M>, <M>e_2</M>, <M>e_3</M>, in this order.
 gap> # In order to have the results printed out with these symbols, we
 gap> # invoke
@@ -101,23 +101,23 @@ gap> # Now print the relations with <Ref Func="PrintNPList" Style="Text"/>:
 gap> 
 gap> # <L>
 gap> PrintNPList(KI);
- e1 - 11/7g1^2 - 11g1 + 11/7 
- e2 - 11/7g2^2 - 11g2 + 11/7 
- e3 - 11/7g3^2 - 11g3 + 11/7 
- g1g2g1 - g2g1g2 
- g2g3g2 - g3g2g3 
- g1g3 - g3g1 
- g1e1 - 1/11e1 
- g2e2 - 1/11e2 
- g3e3 - 1/11e3 
- e1g2e1 - 11e1 
- e2g1e2 - 11e2 
- e2g3e2 - 11e2 
- e3g2e3 - 11e3 
- e1e2e1 - e1 
- e2e1e2 - e2 
- e2e3e2 - e2 
- e3e2e3 - e3 
+ e1 - 11/7g1^2 - 11g1 + 11/7
+ e2 - 11/7g2^2 - 11g2 + 11/7
+ e3 - 11/7g3^2 - 11g3 + 11/7
+ g1g2g1 - g2g1g2
+ g2g3g2 - g3g2g3
+ g1g3 - g3g1
+ g1e1 - 1/11e1
+ g2e2 - 1/11e2
+ g3e3 - 1/11e3
+ e1g2e1 - 11e1
+ e2g1e2 - 11e2
+ e2g3e2 - 11e2
+ e3g2e3 - 11e3
+ e1e2e1 - e1
+ e2e1e2 - e2
+ e2e3e2 - e2
+ e3e2e3 - e3
 gap> Length(KI);
 17
 gap> # </L>
@@ -133,103 +133,103 @@ gap> GB := SGrobner(KI);;
 #I  End of phase III
 #I  End of phase IV
 gap> PrintNPList(GB);
- g1^2 - 7/11e1 + 7g1 - 1 
- g1e1 - 1/11e1 
- g2^2 - 7/11e2 + 7g2 - 1 
- g2e2 - 1/11e2 
- g3g1 - g1g3 
- g3^2 - 7/11e3 + 7g3 - 1 
- g3e3 - 1/11e3 
- e1g1 - 1/11e1 
- e1g3 - g3e1 
- e1^2 + 43/77e1 
- e2g2 - 1/11e2 
- e2^2 + 43/77e2 
- e3g1 - g1e3 
- e3g3 - 1/11e3 
- e3e1 - e1e3 
- e3^2 + 43/77e3 
- g1g2e1 - e2e1 
- g1g3e1 - 1/11g3e1 
- g1e2e1 + 7e2e1 - g2e1 - 7e1 
- g2g1g2 - g1g2g1 
- g2g1e2 - e1e2 
- g2g3e2 - e3e2 
- g2e1g2 - g1e2g1 - 7e2g1 + 7e1g2 + 7g2e1 - 7g1e2 - 49e2 + 49e1 
- g2e1e2 + 7e1e2 - g1e2 - 7e2 
- g2e3e2 + 7e3e2 - g3e2 - 7e2 
- g3g2g3 - g2g3g2 
- g3g2e3 - e2e3 
- g3e1e3 - 1/11e1e3 
- g3e2g3 - g2e3g2 - 7e3g2 + 7e2g3 + 7g3e2 - 7g2e3 - 49e3 + 49e2 
- g3e2e3 + 7e2e3 - g2e3 - 7e3 
- e1g2g1 - e1e2 
- e1g2e1 - 11e1 
- e1e2g1 + 7e1e2 - e1g2 - 7e1 
- e1e2e1 - e1 
- e2g1g2 - e2e1 
- e2g1e2 - 11e2 
- e2g3g2 - e2e3 
- e2g3e2 - 11e2 
- e2e1g2 + 7e2e1 - e2g1 - 7e2 
- e2e1e2 - e2 
- e2e3g2 + 7e2e3 - e2g3 - 7e2 
- e2e3e2 - e2 
- e3g2g3 - e3e2 
- e3g2e3 - 11e3 
- e3e2g3 + 7e3e2 - e3g2 - 7e3 
- e3e2e3 - e3 
- g1g2g3e1 - e2g3e1 
- g1g3g2e1 - g3e2e1 
- g1g3e2e1 + 7g3e2e1 - g3g2e1 - 7g3e1 
- g1e2g3e1 + 7e2g3e1 - g2g3e1 - 7g3e1 
- g1e3g2e1 - e3e2e1 
- g1e3e2e1 + 7e3e2e1 - e3g2e1 - 7e1e3 
- g3g2g1g3 - g2g3g2g1 
- g3g2g1e3 - e2g1e3 
- g3g2e1e3 - e2e1e3 
- g3e1g2e3 - e1e2e3 
- g3e1e2e3 + 7e1e2e3 - e1g2e3 - 7e1e3 
+ g1^2 - 7/11e1 + 7g1 - 1
+ g1e1 - 1/11e1
+ g2^2 - 7/11e2 + 7g2 - 1
+ g2e2 - 1/11e2
+ g3g1 - g1g3
+ g3^2 - 7/11e3 + 7g3 - 1
+ g3e3 - 1/11e3
+ e1g1 - 1/11e1
+ e1g3 - g3e1
+ e1^2 + 43/77e1
+ e2g2 - 1/11e2
+ e2^2 + 43/77e2
+ e3g1 - g1e3
+ e3g3 - 1/11e3
+ e3e1 - e1e3
+ e3^2 + 43/77e3
+ g1g2e1 - e2e1
+ g1g3e1 - 1/11g3e1
+ g1e2e1 + 7e2e1 - g2e1 - 7e1
+ g2g1g2 - g1g2g1
+ g2g1e2 - e1e2
+ g2g3e2 - e3e2
+ g2e1g2 - g1e2g1 - 7e2g1 + 7e1g2 + 7g2e1 - 7g1e2 - 49e2 + 49e1
+ g2e1e2 + 7e1e2 - g1e2 - 7e2
+ g2e3e2 + 7e3e2 - g3e2 - 7e2
+ g3g2g3 - g2g3g2
+ g3g2e3 - e2e3
+ g3e1e3 - 1/11e1e3
+ g3e2g3 - g2e3g2 - 7e3g2 + 7e2g3 + 7g3e2 - 7g2e3 - 49e3 + 49e2
+ g3e2e3 + 7e2e3 - g2e3 - 7e3
+ e1g2g1 - e1e2
+ e1g2e1 - 11e1
+ e1e2g1 + 7e1e2 - e1g2 - 7e1
+ e1e2e1 - e1
+ e2g1g2 - e2e1
+ e2g1e2 - 11e2
+ e2g3g2 - e2e3
+ e2g3e2 - 11e2
+ e2e1g2 + 7e2e1 - e2g1 - 7e2
+ e2e1e2 - e2
+ e2e3g2 + 7e2e3 - e2g3 - 7e2
+ e2e3e2 - e2
+ e3g2g3 - e3e2
+ e3g2e3 - 11e3
+ e3e2g3 + 7e3e2 - e3g2 - 7e3
+ e3e2e3 - e3
+ g1g2g3e1 - e2g3e1
+ g1g3g2e1 - g3e2e1
+ g1g3e2e1 + 7g3e2e1 - g3g2e1 - 7g3e1
+ g1e2g3e1 + 7e2g3e1 - g2g3e1 - 7g3e1
+ g1e3g2e1 - e3e2e1
+ g1e3e2e1 + 7e3e2e1 - e3g2e1 - 7e1e3
+ g3g2g1g3 - g2g3g2g1
+ g3g2g1e3 - e2g1e3
+ g3g2e1e3 - e2e1e3
+ g3e1g2e3 - e1e2e3
+ g3e1e2e3 + 7e1e2e3 - e1g2e3 - 7e1e3
  g3e2g1g3 - g2e3g2g1 - 7e3g2g1 + 7e2g1g3 + 7g3e2g1 - 7g2g1e3 + 49e2g1 - 49g1e3\
- 
- g3e2g1e3 + 7e2g1e3 - g2g1e3 - 7g1e3 
- g3e2e1e3 + 7e2e1e3 - g2e1e3 - 7e1e3 
- e1g2g3g2 - g3e1g2g3 
- e1g2g3e1 - 11g3e1 
+
+ g3e2g1e3 + 7e2g1e3 - g2g1e3 - 7g1e3
+ g3e2e1e3 + 7e2e1e3 - g2e1e3 - 7e1e3
+ e1g2g3g2 - g3e1g2g3
+ e1g2g3e1 - 11g3e1
  e1g2e3g2 - g3e1e2g3 + 7e1e3g2 - 7e1e2g3 + 7e1g2e3 - 7g3e1e2 + 49e1e3 - 49e1e2\
- 
- e1e2g3e1 - g3e1 
- e1e3g2g1 - e1e3e2 
- e1e3g2e1 - 11e1e3 
- e1e3e2g1 + 7e1e3e2 - e1e3g2 - 7e1e3 
- e1e3e2e1 - e1e3 
- e2g3e1e2 - e2g1e3e2 
- e2e1e3e2 + 7e2g1e3e2 - e2g1g3e2 - 77e2 
- e3g2g1g3 - e3e2g1 
- e3g2g1e3 - 11g1e3 
- e3g2e1e3 - 11e1e3 
- e3e2g1g3 + 7e3e2g1 - e3g2g1 - 7g1e3 
- e3e2g1e3 - g1e3 
- e3e2e1e3 - e1e3 
- g1g2g1g3e2 - g2g1e3e2 
- g1g2g1e3e2 + 7g2g1e3e2 - g2g1g3e2 - 7e1e2 
+
+ e1e2g3e1 - g3e1
+ e1e3g2g1 - e1e3e2
+ e1e3g2e1 - 11e1e3
+ e1e3e2g1 + 7e1e3e2 - e1e3g2 - 7e1e3
+ e1e3e2e1 - e1e3
+ e2g3e1e2 - e2g1e3e2
+ e2e1e3e2 + 7e2g1e3e2 - e2g1g3e2 - 77e2
+ e3g2g1g3 - e3e2g1
+ e3g2g1e3 - 11g1e3
+ e3g2e1e3 - 11e1e3
+ e3e2g1g3 + 7e3e2g1 - e3g2g1 - 7g1e3
+ e3e2g1e3 - g1e3
+ e3e2e1e3 - e1e3
+ g1g2g1g3e2 - g2g1e3e2
+ g1g2g1e3e2 + 7g2g1e3e2 - g2g1g3e2 - 7e1e2
  g1g2g3g2e1 - g2e3g2e1 - 7e3g2e1 + 7e2g3e1 + 7g3e2e1 - 7g2e1e3 + 49e2e1 - 49e1\
-e3 
+e3
  g1g2e3g2e1 + 7g2e3g2e1 - g2g3g2e1 + 7e3e2e1 + 49e3g2e1 + 7e2e1e3 - 7g3g2e1 + \
-49g2e1e3 - 7g2g3e1 + 343e1e3 - 49g3e1 - 49g2e1 - 350e1 
+49g2e1e3 - 7g2g3e1 + 343e1e3 - 49g3e1 - 49g2e1 - 350e1
  g1e2g1g3e2 + 7e2g1g3e2 - g2e1e3e2 - 7g2g3e1e2 - 7e1e3e2 - 49g3e1e2 + 77g1e2 +\
- 539e2 
- g1e2g1e3e2 + 7e2g1e3e2 - g2g3e1e2 - 7g3e1e2 
+ 539e2
+ g1e2g1e3e2 + 7e2g1e3e2 - g2g3e1e2 - 7g3e1e2
  g2g3e1g2g3 - g1e2g1g3g2 - 7e2g1g3g2 + 7g3e1g2g3 + 7g2g3e1g2 + 49g3e1g2 - 7g1e\
-2e3 - 49e2e3 
+2e3 - 49e2e3
  g2g3e1e2g3 - g1e2g1e3g2 - 7e2g1e3g2 + 7g3e1e2g3 + 7g2g3e1e2 - 7g1e2g1e3 - 49e\
-2g1e3 + 49g3e1e2 
- e2g1g3g2g1 - e2g1e3g2 
+2g1e3 + 49g3e1e2
+ e2g1g3g2g1 - e2g1e3g2
  e2g1g3e2g1 - e2e1e3g2 - 7e2g3e1g2 + 7e2g1g3e2 - 7e2e1e3 - 49e2g3e1 + 77e2g1 +\
- 539e2 
- e2g1e3g2g1 + 7e2g1e3g2 - e2g1g3g2 - 7e2e1 
- e2g1e3e2g1 - e2g3e1g2 + 7e2g1e3e2 - 7e2g3e1 
- e2g3e1g2g3 + 7e2g3e1g2 - e2g1g3g2 - 7e2e3 
+ 539e2
+ e2g1e3g2g1 + 7e2g1e3g2 - e2g1g3g2 - 7e2e1
+ e2g1e3e2g1 - e2g3e1g2 + 7e2g1e3e2 - 7e2g3e1
+ e2g3e1g2g3 + 7e2g3e1g2 - e2g1g3g2 - 7e2e3
 gap> # </L>
 gap> 
 gap> # Now calculate the dimension of the quotient algebra with <Ref Func="DimQA"

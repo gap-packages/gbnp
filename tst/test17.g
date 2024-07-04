@@ -4,11 +4,11 @@
 # Knopper, Chris Krook. Address: Discrete Algebra and Geometry (DAM) group
 # at the Department of Mathematics and Computer Science of Eindhoven
 # University of Technology.
-# 
+#
 # For acknowledgements see the manual. The manual can be found in several
 # formats in the doc subdirectory of the GBNP distribution. The
 # acknowledgements formatted as text can be found in the file chap0.txt.
-# 
+#
 # GBNP is free software; you can redistribute it and/or modify it under
 # the terms of the Lesser GNU General Public License as published by the
 # Free Software Foundation (FSF); either version 2.1 of the License, or
@@ -27,7 +27,7 @@
 # <Section Label="Example17"><Heading>An algebra over a finite field</Heading>
 # A small example over a field other than the rationals, using the conversion
 # functions from <Ref Sect="TransitionFunctions"/>.
-# The input relations define the symmetric group of degree 3, 
+# The input relations define the symmetric group of degree 3,
 # denoted <M>S_3</M>.
 # <P/>
 # First load the package and set the standard infolevel <Ref
@@ -70,8 +70,8 @@ PrintNPList(GB);
 # </L>
 
 # Now calculate the dimension of the quotient algebra with <Ref Func="DimQA"
-# Style="Text"/> (2 symbols) and a base with <Ref Func="BaseQA" Style="Text"/> 
-# (2 symbols, 0 for whole base) and print the base. 
+# Style="Text"/> (2 symbols) and a base with <Ref Func="BaseQA" Style="Text"/>
+# (2 symbols, 0 for whole base) and print the base.
 # This will give a list of elements of the group.
 
 # <L>

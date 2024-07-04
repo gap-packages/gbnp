@@ -4,11 +4,11 @@
 # Knopper, Chris Krook. Address: Discrete Algebra and Geometry (DAM) group
 # at the Department of Mathematics and Computer Science of Eindhoven
 # University of Technology.
-# 
+#
 # For acknowledgements see the manual. The manual can be found in several
 # formats in the doc subdirectory of the GBNP distribution. The
 # acknowledgements formatted as text can be found in the file chap0.txt.
-# 
+#
 # GBNP is free software; you can redistribute it and/or modify it under
 # the terms of the Lesser GNU General Public License as published by the
 # Free Software Foundation (FSF); either version 2.1 of the License, or
@@ -17,15 +17,15 @@
 # https://www.gnu.org/licenses/lgpl.html
 ########################## END COPYRIGHT MESSAGE ##########################
 
-### filename = "example22.g" 
+### filename = "example22.g"
 ### author Knopper
 
-### THIS IS A GAP PACKAGE FOR COMPUTING NON-COMMUTATIVE GROBNER BASES 
+### THIS IS A GAP PACKAGE FOR COMPUTING NON-COMMUTATIVE GROBNER BASES
 
 # <#GAPDoc Label="Example22">
 # <Section Label="Example22"><Heading>A module of the Hecke algebra of type
 # A<M>_3</M> over GF(3)</Heading>
-# This example is an extension of Example 5 from 
+# This example is an extension of Example 5 from
 # Linton, <Cite Key="MR94k:20022"/>. It concerns
 # the Hecke Algebra of type A<M>_3</M>. By reducing mod 3 but without
 # evaluating at <M>q=1</M> it is possible to obtain the following
@@ -50,7 +50,7 @@ SetInfoLevel(InfoGBNPTime,0);
 # it is possible to enter it with and without a module. Both are used in
 # Example <Ref Sect="Example18"/>. Here the relations will be entered
 # without using a module. First a free associative algebra with one is created
-# over the field (GF(3)) 
+# over the field (GF(3))
 # (see also <Ref BookName="Reference" Label="FreeAssociativeAlgebraWithOne"/>).
 # For convenience we use the
 # variables <C>a</C> and <C>b</C> for the generators of the algebra and
@@ -87,10 +87,10 @@ prefixrels:=[x+e,y+e];
 GBR:=SGrobnerModule(GP2NPList(prefixrels),GP2NPList(twosidrels));;
 # </L>
 
-# The record GBR has three members: 
+# The record GBR has three members:
 # the two-sided relations <C>GBR.ts</C>, the
-# prefix relations <C>GBR.p</C>, and the number <C>GBR.pg</C> of generators 
-# of the free 
+# prefix relations <C>GBR.p</C>, and the number <C>GBR.pg</C> of generators
+# of the free
 # module. It is possible to print the first two using the
 # function <Ref Func="PrintNPList" Style="Text"/>:
 
@@ -117,8 +117,8 @@ PrintNPList(B);
 
 # <L>
 MM := MatricesQA(3,B,GBR);;
-for i in [1..Length(MM)] do 
-Display(MM[i]); Print("\n"); 
+for i in [1..Length(MM)] do
+Display(MM[i]); Print("\n");
 od;
 # </L>
 

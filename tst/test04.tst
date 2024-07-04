@@ -5,11 +5,11 @@ gap> # Copyright 2001-2010 by Arjeh M. Cohen, Dié A.H. Gijsbers, Jan Willem
 gap> # Knopper, Chris Krook. Address: Discrete Algebra and Geometry (DAM) group
 gap> # at the Department of Mathematics and Computer Science of Eindhoven
 gap> # University of Technology.
-gap> # 
+gap> #
 gap> # For acknowledgements see the manual. The manual can be found in several
 gap> # formats in the doc subdirectory of the GBNP distribution. The
 gap> # acknowledgements formatted as text can be found in the file chap0.txt.
-gap> # 
+gap> #
 gap> # GBNP is free software; you can redistribute it and/or modify it under
 gap> # the terms of the Lesser GNU General Public License as published by the
 gap> # Free Software Foundation (FSF); either version 2.1 of the License, or
@@ -18,16 +18,16 @@ gap> # the doc subdirectory of the GBNP distribution or see the FSF's own site:
 gap> # https://www.gnu.org/licenses/lgpl.html
 gap> ########################## END COPYRIGHT MESSAGE ##########################
 gap> 
-gap> ### filename = "Icosahedron.g" 
+gap> ### filename = "Icosahedron.g"
 gap> ### author Arjeh M. Cohen
 gap> 
 gap> # <#GAPDoc Label="Example04">
 gap> # <Section Label="Example04">
 gap> # <Heading>The icosahedral group</Heading>
-gap> # In this example 
+gap> # In this example
 gap> # the two-sided relations give the group algebra of
 gap> # the group with presentation
-gap> # <M>\langle a,b,c \mid a^2=b^2=c^2=(ab)^3=(bc)^5=(ac)^2=1\rangle</M>, 
+gap> # <M>\langle a,b,c \mid a^2=b^2=c^2=(ab)^3=(bc)^5=(ac)^2=1\rangle</M>,
 gap> # the icosahedral group of order 120.
 gap> # This is the Coxeter group of type H<M>_3</M>.
 gap> # The module under construction is a 3-dimensional reflection representation,
@@ -61,7 +61,7 @@ gap> # Create the free algebra with three generators over this field:
 gap> 
 gap> # <L>
 gap> A:=FreeAssociativeAlgebraWithOne(K, "a", "b", "c");
-<algebra-with-one over <algebraic extension over the Rationals of degree 
+<algebra-with-one over <algebraic extension over the Rationals of degree
 2>, with 3 generators>
 gap> e:=One(A);; a:=A.a;; b:=A.b;; c:=A.c;;
 gap> # </L>
@@ -73,9 +73,9 @@ gap>
 gap> # <L>
 gap> #(b*c)^2-tau*b*c+e
 gap> Irels:=[a^2-e,b^2-e,c^2-e,a*b*a-b*a*b,((b*c)^2-tau*b*c+e)*(b*c-e),a*c-c*a];
-[ (!-1)*<identity ...>+(!1)*a^2, (!-1)*<identity ...>+(!1)*b^2, 
-  (!-1)*<identity ...>+(!1)*c^2, (!1)*a*b*a+(!-1)*b*a*b, 
-  (!-1)*<identity ...>+(a+1)*b*c+(-a-1)*(b*c)^2+(!1)*(b*c)^3, 
+[ (!-1)*<identity ...>+(!1)*a^2, (!-1)*<identity ...>+(!1)*b^2,
+  (!-1)*<identity ...>+(!1)*c^2, (!1)*a*b*a+(!-1)*b*a*b,
+  (!-1)*<identity ...>+(a+1)*b*c+(-a-1)*(b*c)^2+(!1)*(b*c)^3,
   (!1)*a*c+(!-1)*c*a ]
 gap> # </L>
 gap> 
@@ -91,7 +91,7 @@ gap> # First the relations are converted into NP format (see <Ref Sect="NP"/>) w
 gap> # the function <Ref Func="GP2NPList" Style="Text"/>.
 gap> # Next the function
 gap> # <Ref Func="SGrobnerModule" Style="Text"/> is called to calculate a Gröbner basis
-gap> # record (see <Ref Sect="GBR"/>). 
+gap> # record (see <Ref Sect="GBR"/>).
 gap> 
 gap> # <L>
 gap> GBR:=SGrobnerModule(GP2NPList(Mrels),GP2NPList(Irels));;
@@ -108,15 +108,15 @@ gap> GBR:=SGrobnerModule(GP2NPList(Mrels),GP2NPList(Irels));;
 #I  End of phase III
 #I  End of phase IV
 gap> PrintNPList(GBR.ts);;
- a^2 + !-1 
- b^2 + !-1 
- ca + !-1ac 
- c^2 + !-1 
- bab + !-1aba 
- cbc + !-1bcb + -a-1c + a+1b 
- bcba + !-1acba + !-1abcb + abac + cb + !-1bc + -a-2ba + a+2ab 
- cbac + !-1acba + !-1abcb + abac + cb + !-1bc + !-1ba + -a-1ac + a+2ab 
- bacba + abacb + !-1cba + !-1bcb + !-1abc + -a-2aba + c + a+2a 
+ a^2 + !-1
+ b^2 + !-1
+ ca + !-1ac
+ c^2 + !-1
+ bab + !-1aba
+ cbc + !-1bcb + -a-1c + a+1b
+ bcba + !-1acba + !-1abcb + abac + cb + !-1bc + -a-2ba + a+2ab
+ cbac + !-1acba + !-1abcb + abac + cb + !-1bc + !-1ba + -a-1ac + a+2ab
+ bacba + abacb + !-1cba + !-1bcb + !-1abc + -a-2aba + c + a+2a
 gap> PrintNPList(GBR.p);;
 [ b + !-1 ]
 [ c + !-1 ]

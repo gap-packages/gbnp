@@ -7,7 +7,7 @@ SetPackageInfo( rec(
 
 PackageName := "GBNP",
 Subtitle := "computing Gröbner bases of noncommutative polynomials",
-Version := "1.0.5",
+Version := "1.0.5dev",
 Date := "09/03/2022", # dd/mm/yyyy format
 License := "LGPL-2.1-or-later", # SPDX identifier
 

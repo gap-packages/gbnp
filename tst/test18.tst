@@ -5,11 +5,11 @@ gap> # Copyright 2001-2010 by Arjeh M. Cohen, Dié A.H. Gijsbers, Jan Willem
 gap> # Knopper, Chris Krook. Address: Discrete Algebra and Geometry (DAM) group
 gap> # at the Department of Mathematics and Computer Science of Eindhoven
 gap> # University of Technology.
-gap> # 
+gap> #
 gap> # For acknowledgements see the manual. The manual can be found in several
 gap> # formats in the doc subdirectory of the GBNP distribution. The
 gap> # acknowledgements formatted as text can be found in the file chap0.txt.
-gap> # 
+gap> #
 gap> # GBNP is free software; you can redistribute it and/or modify it under
 gap> # the terms of the Lesser GNU General Public License as published by the
 gap> # Free Software Foundation (FSF); either version 2.1 of the License, or
@@ -18,10 +18,10 @@ gap> # the doc subdirectory of the GBNP distribution or see the FSF's own site:
 gap> # https://www.gnu.org/licenses/lgpl.html
 gap> ########################## END COPYRIGHT MESSAGE ##########################
 gap> 
-gap> ### filename = "example18.g" 
+gap> ### filename = "example18.g"
 gap> ### author Knopper
 gap> 
-gap> ### THIS IS A GAP PACKAGE FOR COMPUTING NON-COMMUTATIVE GROBNER BASES 
+gap> ### THIS IS A GAP PACKAGE FOR COMPUTING NON-COMMUTATIVE GROBNER BASES
 gap> 
 gap> 
 gap> # <#GAPDoc Label="Example18">
@@ -92,12 +92,12 @@ gap> # function <Ref Func="PrintNPList" Style="Text"/>:
 gap> 
 gap> # <L>
 gap> PrintNPList(GBR.ts);
- b^2 - 1 
- aba - b 
- ba^2 - a^2b 
- bab - a^3 
- a^4 - 1 
- a^3b - ba 
+ b^2 - 1
+ aba - b
+ ba^2 - a^2b
+ bab - a^3
+ a^4 - 1
+ a^3b - ba
 gap> PrintNPList(GBR.p);
 [ b - 1 ]
 [ a^3 - ab ]
@@ -107,7 +107,7 @@ gap>
 gap> # It is now possible to calculate the standard basis of the quotient module
 gap> # with the function <Ref Func="BaseQM" Style="Text"/>. This function has as
 gap> # arguments the Gröbner basis record <C>GBR</C>, the number of generators of
-gap> # the algebra (2), the number of generators of the module (1), 
+gap> # the algebra (2), the number of generators of the module (1),
 gap> # and a variable <C>maxno</C> for returning partial bases
 gap> # (0 means full basis).
 gap> 
@@ -130,7 +130,7 @@ gap> prefixrelsdom:=[gd[1]*(b-e)];;
 gap> # </L>
 gap> 
 gap> # It is possible to use the two-sided Gröbner basis which was already
-gap> # calculated. 
+gap> # calculated.
 gap> 
 gap> # <L>
 gap> GBR:=SGrobnerModule(GP2NPList(prefixrelsdom),GBR.ts);;
@@ -161,7 +161,7 @@ gap>
 gap> 
 gap> # To compute the image of right multiplication of the basis element
 gap> # <C>B[Length(B)]</C> of the module with the quotient algebra element
-gap> # corresponding to 
+gap> # corresponding to
 gap> # <M>ab</M> we use the function <Ref Func="MulQM" Style="Text"/> with
 gap> # arguments <C>B[Length(B)]</C>, <C>GB2NP(a*b)</C>, and <C>GBR</C>
 gap> # We subsequently use  <Ref Func="PrintNP" Style="Text"/> to display the result

@@ -5,11 +5,11 @@ gap> # Copyright 2001-2010 by Arjeh M. Cohen, Dié A.H. Gijsbers, Jan Willem
 gap> # Knopper, Chris Krook. Address: Discrete Algebra and Geometry (DAM) group
 gap> # at the Department of Mathematics and Computer Science of Eindhoven
 gap> # University of Technology.
-gap> # 
+gap> #
 gap> # For acknowledgements see the manual. The manual can be found in several
 gap> # formats in the doc subdirectory of the GBNP distribution. The
 gap> # acknowledgements formatted as text can be found in the file chap0.txt.
-gap> # 
+gap> #
 gap> # GBNP is free software; you can redistribute it and/or modify it under
 gap> # the terms of the Lesser GNU General Public License as published by the
 gap> # Free Software Foundation (FSF); either version 2.1 of the License, or
@@ -44,7 +44,7 @@ gap> SetInfoLevel(InfoGBNP,0);
 gap> SetInfoLevel(InfoGBNPTime,0);
 gap> # </L>
 gap> 
-gap> # Then define the algebra and enter the relations as polynomials in GAP. 
+gap> # Then define the algebra and enter the relations as polynomials in GAP.
 gap> 
 gap> # <L>
 gap> A:=FreeAssociativeAlgebraWithOne(Rationals, "e", "f", "h");
@@ -63,9 +63,9 @@ gap> # add the next command in case other tests have changed the alphabet:
 gap> GBNP.ConfigPrint("a","b","c");
 gap> uerelsNP:=GP2NPList(uerels);;
 gap> PrintNPList(uerelsNP);
- ba - ab + c 
- ca - ac - 2a 
- cb - bc + 2b 
+ ba - ab + c
+ ca - ac - 2a
+ cb - bc + 2b
 gap> # </L>
 gap> 
 gap> # Now configure printing in such a way that this algebra is used with the
@@ -82,9 +82,9 @@ gap>
 gap> # <L>
 gap> GB:=SGrobner(uerelsNP);;
 gap> PrintNPList(GB);
- fe - ef + h 
- he - eh - 2e 
- hf - fh + 2f 
+ fe - ef + h
+ he - eh - 2e
+ hf - fh + 2f
 gap> # </L>
 gap> 
 gap> # Determine whether the quotient algebra is finite dimensional by means of <Ref
@@ -105,7 +105,7 @@ gap> # Adding the relation <M>e^2=0</M> results in a finite quotient algebra.
 gap> 
 gap> # <L>
 gap> extendedrels:=[f*e-e*f+h,h*e-e*h-2*e,h*f-f*h+2*f,e^2];
-[ (1)*h+(-1)*e*f+(1)*f*e, (-2)*e+(-1)*e*h+(1)*h*e, (2)*f+(-1)*f*h+(1)*h*f, 
+[ (1)*h+(-1)*e*f+(1)*f*e, (-2)*e+(-1)*e*h+(1)*h*e, (2)*f+(-1)*f*h+(1)*h*f,
   (1)*e^2 ]
 gap> extendedrelsNP:=GP2NPList(extendedrels);;
 gap> # </L>
@@ -122,14 +122,14 @@ gap> # Style="Text"/>.
 gap> 
 gap> # <L>
 gap> PrintNPListTrace(GB);
- e^2 
- eh + e 
- fe - ef + h 
- f^2 
- fh - f 
- he - e 
- hf + f 
- h^2 - 2ef + h 
+ e^2
+ eh + e
+ fe - ef + h
+ f^2
+ fh - f
+ he - e
+ hf + f
+ h^2 - 2ef + h
 gap> # </L>
 gap> 
 gap> # Note the fourth relation: <M>f^2=0</M>. To view a trace one can use the
@@ -142,7 +142,7 @@ gap> PrintTracePol(GB[4]);
 8f^2eG(1)f - 1/24f^3G(1)e - 1/24f^3eG(1) - 1/24G(2)f^3 + 1/8fG(2)f^2 - 1/
 8f^2G(2)f + 1/24f^3G(2) + 1/4G(3)f + 1/4fG(3) + 1/12fG(3)h + 1/12fhG(3) - 1/
 12G(3)hf - 1/12hG(3)f - 1/12eG(3)f^2 + 1/6feG(3)f - 1/12f^2eG(3) + 1/24G(
-4)f^4 - 1/6fG(4)f^3 + 1/4f^2G(4)f^2 - 1/6f^3G(4)f + 1/24f^4G(4) 
+4)f^4 - 1/6fG(4)f^3 + 1/4f^2G(4)f^2 - 1/6f^3G(4)f + 1/24f^4G(4)
 gap> # </L>
 gap> 
 gap> # This proves that <M>f^2=0</M> is a consequence of <M>e^2=0</M> in the
@@ -159,9 +159,9 @@ gap> r := [[[2,2,2,2,1,1,1,1]],[1]];;
 gap> s := StrongNormalFormTraceDiff(r, GB);;
 gap> 
 gap> PrintNP(s.pol);
- f^4e^4 
+ f^4e^4
 gap> PrintTracePol(s);
- f^4G(4)e^2 
+ f^4G(4)e^2
 gap> PrintNP(AddNP(r,s.pol,1,-1));
  0
 gap> # </L>
@@ -173,17 +173,17 @@ gap> r := [[[3,3,3]],[1]];;
 gap> s := StrongNormalFormTraceDiff(r, GB);;
 gap> 
 gap> PrintNP(s.pol);
- h^3 - h 
+ h^3 - h
 gap> PrintTracePol(s);
 - G(1) - 1/2G(1)ef - 1/6eG(1)f + 1/3efG(1) + 1/2fG(1)e + 1/2feG(1) + G(
 1)h^2 + 1/2G(1)efh + 1/2eG(1)fh + 1/3efG(1)h - 1/3eG(1)hf - 1/2fG(1)eh - 1/
 2feG(1)h - 1/6eG(1)ef^2 - 1/6e^2G(1)f^2 + 1/3efG(1)ef + 1/3efeG(1)f - 1/
 6ef^2G(1)e - 1/6ef^2eG(1) + 1/2G(2)f - 1/2fG(2) - 1/2G(2)fh + 1/2fG(2)h + 1/
-6eG(2)f^2 - 1/3efG(2)f + 1/6ef^2G(2) - 2/3eG(3)h + 1/3ehG(3) + 1/3e^2G(3)f - 
+6eG(2)f^2 - 1/3efG(2)f + 1/6ef^2G(2) - 2/3eG(3)h + 1/3ehG(3) + 1/3e^2G(3)f -
 1/3efeG(3) - 1/2G(4)f^2 + fG(4)f - 1/2f^2G(4) + 1/2G(4)f^2h - fG(4)fh + 1/
-2f^2G(4)h - 1/6eG(4)f^3 + 1/2efG(4)f^2 - 1/2ef^2G(4)f + 1/6ef^3G(4) 
+2f^2G(4)h - 1/6eG(4)f^3 + 1/2efG(4)f^2 - 1/2ef^2G(4)f + 1/6ef^3G(4)
 gap> PrintNP(AddNP(r,s.pol,1,-1));
- h 
+ h
 gap> # </L>
 gap> 
 gap> # </Section>

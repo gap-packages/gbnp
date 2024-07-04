@@ -17,10 +17,10 @@ the doc subdirectory of the GBNP distribution or see the FSF's own site:
 https://www.gnu.org/licenses/lgpl.html
 gap> ########################## END COPYRIGHT MESSAGE ##########################
 
-gap> ### filename = "example23.g" 
+gap> ### filename = "example23.g"
 gap> ### author Knopper
 
-gap> ### THIS IS A GAP PACKAGE FOR COMPUTING NON-COMMUTATIVE GROBNER BASES 
+gap> ### THIS IS A GAP PACKAGE FOR COMPUTING NON-COMMUTATIVE GROBNER BASES
 
 <#GAPDoc Label="Example23">
 <Section Label="Example23"><Heading>Generalized Temperley-Lieb algebras</Heading>
@@ -42,7 +42,7 @@ gap> SetInfoLevel(InfoGBNP,0);
 gap> SetInfoLevel(InfoGBNPTime,1);
 ]]></Listing>
 
-The relations are generated automatically from the Coxeter diagram. 
+The relations are generated automatically from the Coxeter diagram.
 This example
 can be easily adapted by specifying the number of points and the set of edges
 describing another Coxeter diagram. First enter the number of points,
@@ -89,7 +89,7 @@ with the function <Ref Func="GBNP.ConfigPrint" Style="Text"/>:
 gap> GBNP.ConfigPrint(A);
 ]]></Listing>
 
-Now the relations are generated automatically. For this we need to make sure 
+Now the relations are generated automatically. For this we need to make sure
 the edges are sorted and converted to a set.
 
 <Listing><![CDATA[
@@ -110,10 +110,10 @@ gap> for i in [1..numpoints] do
 >       # if i=j then add e.i*e.i=e.i
 >       Add(rels, e[i]*e[i]-e[i]);
 >     elif ([i,j] in edges) or ([j,i] in edges) then
->       # if {i,j} is an edge then add e.i*e.j*e.i=e.i 
+>       # if {i,j} is an edge then add e.i*e.j*e.i=e.i
 >       Add(rels, e[i]*e[j]*e[i]- e[i]);
 >     else
->       # if {i,j} is not an edge then add e.i*e.j=e.j*e.i 
+>       # if {i,j} is not an edge then add e.i*e.j=e.j*e.i
 >       # (note: this causes double rules, but that's ok)
 >       Add(rels, e[i]*e[j]- e[j]*e[i]);
 >     fi;
@@ -134,7 +134,7 @@ gap> GB:=SGrobner(relsNP);;
 It is now possible to calculate the dimension of the quotient algebra
 with the function <Ref Func="DimQA" Style="Text"/>. This function has as
 arguments the Gröbner basis <C>GB</C> and the number of generators of the
-algebra (here this is <C>numpoints</C>). To get the full basis the function 
+algebra (here this is <C>numpoints</C>). To get the full basis the function
 <Ref Func="BaseQA" Style="Text"/> can be used.
 
 <Listing><![CDATA[

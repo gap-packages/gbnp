@@ -152,19 +152,19 @@ InstallNoncommutativeMonomialOrdering( NCMonomialCommutativeLexicographicOrderin
 
     # Create commutative rep for a:
     i := 1;
-    alen := Length(a); 
+    alen := Length(a);
     while (Sum(arep)<>alen) do
       arep[i] := Length(Positions(a,i));
       i := i + 1;
-    od; 
+    od;
 
     # Create commutative rep for b:
     i := 1;
-    blen := Length(b); 
+    blen := Length(b);
     while (Sum(brep)<>blen) do
       brep[i] := Length(Positions(b,i));
       i := i + 1;
-    od; 
+    od;
 
 #Print(arep," ?<? ",brep,"\n");
     return(Reversed(arep) < Reversed(brep));
@@ -187,7 +187,7 @@ InstallNoncommutativeMonomialOrdering( NCMonomialCommutativeLexicographicOrderin
       arep[i] := Length(Positions(a,i));
       brep[i] := Length(Positions(b,i));
       i := i + 1;
-    od; 
+    od;
 
     # Re-order indices (based on idx and then highest to
     #  lowest):
@@ -197,7 +197,7 @@ InstallNoncommutativeMonomialOrdering( NCMonomialCommutativeLexicographicOrderin
       arep2[i+1] := arep[idx[idxlen-i]];
       brep2[i+1] := brep[idx[idxlen-i]];
       i := i + 1;
-    od; 
+    od;
 
 #Print(arep2," ?<? ",brep2,"\n");
     return(arep2 < brep2);

@@ -5,11 +5,11 @@ gap> # Copyright 2001-2010 by Arjeh M. Cohen, Dié A.H. Gijsbers, Jan Willem
 gap> # Knopper, Chris Krook. Address: Discrete Algebra and Geometry (DAM) group
 gap> # at the Department of Mathematics and Computer Science of Eindhoven
 gap> # University of Technology.
-gap> # 
+gap> #
 gap> # For acknowledgements see the manual. The manual can be found in several
 gap> # formats in the doc subdirectory of the GBNP distribution. The
 gap> # acknowledgements formatted as text can be found in the file chap0.txt.
-gap> # 
+gap> #
 gap> # GBNP is free software; you can redistribute it and/or modify it under
 gap> # the terms of the Lesser GNU General Public License as published by the
 gap> # Free Software Foundation (FSF); either version 2.1 of the License, or
@@ -18,7 +18,7 @@ gap> # the doc subdirectory of the GBNP distribution or see the FSF's own site:
 gap> # https://www.gnu.org/licenses/lgpl.html
 gap> ########################## END COPYRIGHT MESSAGE ##########################
 gap> 
-gap> ### filename = "example20.g" 
+gap> ### filename = "example20.g"
 gap> ### author Knopper
 gap> ### amc last edited 25 May 2007 problem with GBNP(y[1]+y[2])
 gap> 
@@ -62,10 +62,10 @@ gap> D:=A^2;;
 gap> y:=GeneratorsOfLeftModule(D);;
 gap> #
 gap> # (Sept. 2023) The following GBNP.SetOption command has been added
-gap> # because the PrintNPList(modrelsNP); command below was throwing 
-gap> # an error, printing [ b - 1 ] instead of [ b - 1, 0]. 
-gap> # This was due to GAP not knowing that the dimension is 2. 
-gap> # The fix is labelled 'temporary' because SetOption commands 
+gap> # because the PrintNPList(modrelsNP); command below was throwing
+gap> # an error, printing [ b - 1 ] instead of [ b - 1, 0].
+gap> # This was due to GAP not knowing that the dimension is 2.
+gap> # The fix is labelled 'temporary' because SetOption commands
 gap> # ought not to be used in a test situation.
 gap> #
 gap> GBNP.SetOption("pg", Length(y));
@@ -79,8 +79,8 @@ gap> # in a more legible format.
 gap> 
 gap> # <L>
 gap> modrelsNP:=GP2NPList(modrels);
-[ [ [ [ -1, 2 ], [ -1 ] ], [ 1, -1 ] ], [ [ [ -2, 2 ], [ -2 ] ], [ 1, -1 ] ], 
-  [ [ [ -1, 1, 2 ], [ -1, 1, 1 ], [ -2, 1, 2 ], [ -2, 1, 1 ], [ -1, 1 ], 
+[ [ [ [ -1, 2 ], [ -1 ] ], [ 1, -1 ] ], [ [ [ -2, 2 ], [ -2 ] ], [ 1, -1 ] ],
+  [ [ [ -1, 1, 2 ], [ -1, 1, 1 ], [ -2, 1, 2 ], [ -2, 1, 1 ], [ -1, 1 ],
           [ -2, 1 ], [ -1 ], [ -2 ] ], [ 1, 1, -1, -1, 1, -1, 1, -1 ] ] ]
 gap> PrintNPList(modrelsNP);
 [ b - 1 , 0]
@@ -90,7 +90,7 @@ gap> # </L>
 gap> 
 gap> # Next the function
 gap> # <Ref Func="SGrobnerModule" Style="Text"/> is called to calculate a Gröbner basis
-gap> # record (see <Ref Sect="GBR"/>). 
+gap> # record (see <Ref Sect="GBR"/>).
 gap> 
 gap> # <L>
 gap> GBR:=SGrobnerModule(modrelsNP,GP2NPList(twosidrels));;
@@ -114,12 +114,12 @@ gap> # the function <Ref Func="PrintNPList" Style="Text"/>:
 gap> 
 gap> # <L>
 gap> PrintNPList(GBR.ts);
- b^2 - 1 
- aba - b 
- ba^2 - a^2b 
- bab - a^3 
- a^4 - 1 
- a^3b - ba 
+ b^2 - 1
+ aba - b
+ ba^2 - a^2b
+ bab - a^3
+ a^4 - 1
+ a^3b - ba
 gap> PrintNPList(GBR.p);
 [ 0, b - 1 ]
 [ b - 1 , 0]
@@ -153,13 +153,13 @@ gap>
 gap> # It is also possible to convert each member of the list <C>B</C> of
 gap> # polynomials in NP form to GAP polynomials to do further calculations within
 gap> # the algebra or module. This can be done with the function <Ref
-gap> # Func="NP2GPList" Style="Text"/>. 
+gap> # Func="NP2GPList" Style="Text"/>.
 gap> 
 gap> # <L>
 gap> NP2GPList(B,D);
 [ [ <zero> of ..., (1)*<identity ...> ], [ (1)*<identity ...>, <zero> of ... ]
-    , [ <zero> of ..., (1)*a ], [ (1)*a, <zero> of ... ], 
-  [ <zero> of ..., (1)*a^2 ], [ <zero> of ..., (1)*a*b ], 
+    , [ <zero> of ..., (1)*a ], [ (1)*a, <zero> of ... ],
+  [ <zero> of ..., (1)*a^2 ], [ <zero> of ..., (1)*a*b ],
   [ (1)*a^2, <zero> of ... ] ]
 gap> # </L>
 gap> 
@@ -187,7 +187,7 @@ gap> Display(MatrixQA(1,B,GBR));
   [   0,   0,   0,   0,   0,   1,   0 ],
   [   1,   0,   0,   0,   0,   0,   0 ],
   [   1,  -1,   1,  -1,   1,   1,  -1 ] ]
-gap> Display(MatrixQA(2,B,GBR)); 
+gap> Display(MatrixQA(2,B,GBR));
 [ [   1,   0,   0,   0,   0,   0,   0 ],
   [   0,   1,   0,   0,   0,   0,   0 ],
   [   0,   0,   0,   0,   0,   1,   0 ],
@@ -200,7 +200,7 @@ gap>
 gap> # In order to compute the image of the vector  <M>2y[1]+3y[2]</M> of the two standard generators of the module
 gap> # under the action of the element <M>aab</M>, we use
 gap> # <Ref Func="StrongNormalFormNPM" Style="Text"/>. Its first argument will be the vector
-gap> # and its second the Gröbner basis. 
+gap> # and its second the Gröbner basis.
 gap> # The transformation <Ref Func="GP2NP" Style="Text"/> to the NP format
 gap> # needs to be applied to the vector
 gap> # before it can be used as an argument.

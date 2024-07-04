@@ -17,16 +17,16 @@ the doc subdirectory of the GBNP distribution or see the FSF's own site:
 https://www.gnu.org/licenses/lgpl.html
 gap> ########################## END COPYRIGHT MESSAGE ##########################
 
-gap> ### filename = "Icosahedron.g" 
+gap> ### filename = "Icosahedron.g"
 gap> ### author Arjeh M. Cohen
 
 <#GAPDoc Label="Example04">
 <Section Label="Example04">
 <Heading>The icosahedral group</Heading>
-In this example 
+In this example
 the two-sided relations give the group algebra of
 the group with presentation
-<M>\langle a,b,c \mid a^2=b^2=c^2=(ab)^3=(bc)^5=(ac)^2=1\rangle</M>, 
+<M>\langle a,b,c \mid a^2=b^2=c^2=(ab)^3=(bc)^5=(ac)^2=1\rangle</M>,
 the icosahedral group of order 120.
 This is the Coxeter group of type H<M>_3</M>.
 The module under construction is a 3-dimensional reflection representation,
@@ -60,7 +60,7 @@ Create the free algebra with three generators over this field:
 
 <Listing><![CDATA[
 gap> A:=FreeAssociativeAlgebraWithOne(K, "a", "b", "c");
-<algebra-with-one over <algebraic extension over the Rationals of degree 
+<algebra-with-one over <algebraic extension over the Rationals of degree
 2>, with 3 generators>
 gap> e:=One(A);; a:=A.a;; b:=A.b;; c:=A.c;;
 ]]></Listing>
@@ -72,9 +72,9 @@ involving <C>tau</C>:
 <Listing><![CDATA[
 gap> #(b*c)^2-tau*b*c+e
 gap> Irels:=[a^2-e,b^2-e,c^2-e,a*b*a-b*a*b,((b*c)^2-tau*b*c+e)*(b*c-e),a*c-c*a];
-[ (!-1)*<identity ...>+(!1)*a^2, (!-1)*<identity ...>+(!1)*b^2, 
-  (!-1)*<identity ...>+(!1)*c^2, (!1)*a*b*a+(!-1)*b*a*b, 
-  (!-1)*<identity ...>+(a+1)*b*c+(-a-1)*(b*c)^2+(!1)*(b*c)^3, 
+[ (!-1)*<identity ...>+(!1)*a^2, (!-1)*<identity ...>+(!1)*b^2,
+  (!-1)*<identity ...>+(!1)*c^2, (!1)*a*b*a+(!-1)*b*a*b,
+  (!-1)*<identity ...>+(a+1)*b*c+(-a-1)*(b*c)^2+(!1)*(b*c)^3,
   (!1)*a*c+(!-1)*c*a ]
 ]]></Listing>
 
@@ -90,7 +90,7 @@ First the relations are converted into NP format (see <Ref Sect="NP"/>) with
 the function <Ref Func="GP2NPList" Style="Text"/>.
 Next the function
 <Ref Func="SGrobnerModule" Style="Text"/> is called to calculate a Gröbner basis
-record (see <Ref Sect="GBR"/>). 
+record (see <Ref Sect="GBR"/>).
 
 <Listing><![CDATA[
 gap> GBR:=SGrobnerModule(GP2NPList(Mrels),GP2NPList(Irels));;
@@ -109,15 +109,15 @@ gap> GBR:=SGrobnerModule(GP2NPList(Mrels),GP2NPList(Irels));;
 #I  End of phase IV
 #I  The computation took 36 msecs.
 gap> PrintNPList(GBR.ts);;
- a^2 + !-1 
- b^2 + !-1 
- ca + !-1ac 
- c^2 + !-1 
- bab + !-1aba 
- cbc + !-1bcb + -a-1c + a+1b 
- bcba + !-1acba + !-1abcb + abac + cb + !-1bc + -a-2ba + a+2ab 
- cbac + !-1acba + !-1abcb + abac + cb + !-1bc + !-1ba + -a-1ac + a+2ab 
- bacba + abacb + !-1cba + !-1bcb + !-1abc + -a-2aba + c + a+2a 
+ a^2 + !-1
+ b^2 + !-1
+ ca + !-1ac
+ c^2 + !-1
+ bab + !-1aba
+ cbc + !-1bcb + -a-1c + a+1b
+ bcba + !-1acba + !-1abcb + abac + cb + !-1bc + -a-2ba + a+2ab
+ cbac + !-1acba + !-1abcb + abac + cb + !-1bc + !-1ba + -a-1ac + a+2ab
+ bacba + abacb + !-1cba + !-1bcb + !-1abc + -a-2aba + c + a+2a
 gap> PrintNPList(GBR.p);;
 [ b + !-1 ]
 [ c + !-1 ]

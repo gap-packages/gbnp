@@ -4,11 +4,11 @@
 # Knopper, Chris Krook. Address: Discrete Algebra and Geometry (DAM) group
 # at the Department of Mathematics and Computer Science of Eindhoven
 # University of Technology.
-# 
+#
 # For acknowledgements see the manual. The manual can be found in several
 # formats in the doc subdirectory of the GBNP distribution. The
 # acknowledgements formatted as text can be found in the file chap0.txt.
-# 
+#
 # GBNP is free software; you can redistribute it and/or modify it under
 # the terms of the Lesser GNU General Public License as published by the
 # Free Software Foundation (FSF); either version 2.1 of the License, or
@@ -17,10 +17,10 @@
 # https://www.gnu.org/licenses/lgpl.html
 ########################## END COPYRIGHT MESSAGE ##########################
 
-### filename = "example23.g" 
+### filename = "example23.g"
 ### author Knopper
 
-### THIS IS A GAP PACKAGE FOR COMPUTING NON-COMMUTATIVE GROBNER BASES 
+### THIS IS A GAP PACKAGE FOR COMPUTING NON-COMMUTATIVE GROBNER BASES
 
 # <#GAPDoc Label="Example23">
 # <Section Label="Example23"><Heading>Generalized Temperley-Lieb algebras</Heading>
@@ -41,7 +41,7 @@ SetInfoLevel(InfoGBNP,0);
 SetInfoLevel(InfoGBNPTime,0);
 # </L>
 
-# The relations are generated automatically from the Coxeter diagram. 
+# The relations are generated automatically from the Coxeter diagram.
 # This example
 # can be easily adapted by specifying the number of points and the set of edges
 # describing another Coxeter diagram. First enter the number of points,
@@ -85,7 +85,7 @@ e := GeneratorsOfAlgebraWithOne(A);
 GBNP.ConfigPrint(A);
 # </L>
 
-# Now the relations are generated automatically. For this we need to make sure 
+# Now the relations are generated automatically. For this we need to make sure
 # the edges are sorted and converted to a set.
 
 # <L>
@@ -105,10 +105,10 @@ for i in [1..numpoints] do
       # if i=j then add e.i*e.i=e.i
       Add(rels, e[i]*e[i]-e[i]);
     elif ([i,j] in edges) or ([j,i] in edges) then
-      # if {i,j} is an edge then add e.i*e.j*e.i=e.i 
+      # if {i,j} is an edge then add e.i*e.j*e.i=e.i
       Add(rels, e[i]*e[j]*e[i]- e[i]);
     else
-      # if {i,j} is not an edge then add e.i*e.j=e.j*e.i 
+      # if {i,j} is not an edge then add e.i*e.j=e.j*e.i
       # (note: this causes double rules, but that's ok)
       Add(rels, e[i]*e[j]- e[j]*e[i]);
     fi;
@@ -128,7 +128,7 @@ GB:=SGrobner(relsNP);;
 # It is now possible to calculate the dimension of the quotient algebra
 # with the function <Ref Func="DimQA" Style="Text"/>. This function has as
 # arguments the Gröbner basis <C>GB</C> and the number of generators of the
-# algebra (here this is <C>numpoints</C>). To get the full basis the function 
+# algebra (here this is <C>numpoints</C>). To get the full basis the function
 # <Ref Func="BaseQA" Style="Text"/> can be used.
 
 # <L>

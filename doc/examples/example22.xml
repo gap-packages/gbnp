@@ -17,15 +17,15 @@ the doc subdirectory of the GBNP distribution or see the FSF's own site:
 https://www.gnu.org/licenses/lgpl.html
 gap> ########################## END COPYRIGHT MESSAGE ##########################
 
-gap> ### filename = "example22.g" 
+gap> ### filename = "example22.g"
 gap> ### author Knopper
 
-gap> ### THIS IS A GAP PACKAGE FOR COMPUTING NON-COMMUTATIVE GROBNER BASES 
+gap> ### THIS IS A GAP PACKAGE FOR COMPUTING NON-COMMUTATIVE GROBNER BASES
 
 <#GAPDoc Label="Example22">
 <Section Label="Example22"><Heading>A module of the Hecke algebra of type
 A<M>_3</M> over GF(3)</Heading>
-This example is an extension of Example 5 from 
+This example is an extension of Example 5 from
 Linton, <Cite Key="MR94k:20022"/>. It concerns
 the Hecke Algebra of type A<M>_3</M>. By reducing mod 3 but without
 evaluating at <M>q=1</M> it is possible to obtain the following
@@ -51,7 +51,7 @@ Now enter the relations as GAP polynomials. The module is one dimensional so
 it is possible to enter it with and without a module. Both are used in
 Example <Ref Sect="Example18"/>. Here the relations will be entered
 without using a module. First a free associative algebra with one is created
-over the field (GF(3)) 
+over the field (GF(3))
 (see also <Ref BookName="Reference" Label="FreeAssociativeAlgebraWithOne"/>).
 For convenience we use the
 variables <C>a</C> and <C>b</C> for the generators of the algebra and
@@ -78,10 +78,10 @@ Now the relations are entered:
 <Listing><![CDATA[
 gap> twosidrels:=[x^2+(e-q)*x-q,y^2+(e-q)*y-q,z^2+(e-q)*z-q,
 >   y*x*y-x*y*x,z*y*z-y*z*y,z*x-x*z];
-[ (-q)*<identity ...>+(-q+Z(3)^0)*x+(Z(3)^0)*x^2, 
-  (-q)*<identity ...>+(-q+Z(3)^0)*y+(Z(3)^0)*y^2, 
-  (-q)*<identity ...>+(-q+Z(3)^0)*z+(Z(3)^0)*z^2, 
-  (-Z(3)^0)*x*y*x+(Z(3)^0)*y*x*y, (-Z(3)^0)*y*z*y+(Z(3)^0)*z*y*z, 
+[ (-q)*<identity ...>+(-q+Z(3)^0)*x+(Z(3)^0)*x^2,
+  (-q)*<identity ...>+(-q+Z(3)^0)*y+(Z(3)^0)*y^2,
+  (-q)*<identity ...>+(-q+Z(3)^0)*z+(Z(3)^0)*z^2,
+  (-Z(3)^0)*x*y*x+(Z(3)^0)*y*x*y, (-Z(3)^0)*y*z*y+(Z(3)^0)*z*y*z,
   (-Z(3)^0)*x*z+(Z(3)^0)*z*x ]
 gap> prefixrels:=[x+e,y+e];
 [ (Z(3)^0)*<identity ...>+(Z(3)^0)*x, (Z(3)^0)*<identity ...>+(Z(3)^0)*y ]
@@ -109,22 +109,22 @@ gap> GBR:=SGrobnerModule(GP2NPList(prefixrels),GP2NPList(twosidrels));;
 #I  The computation took 8 msecs.
 ]]></Listing>
 
-The record GBR has three members: 
+The record GBR has three members:
 the two-sided relations <C>GBR.ts</C>, the
-prefix relations <C>GBR.p</C>, and the number <C>GBR.pg</C> of generators 
-of the free 
+prefix relations <C>GBR.p</C>, and the number <C>GBR.pg</C> of generators
+of the free
 module. It is possible to print the first two using the
 function <Ref Func="PrintNPList" Style="Text"/>:
 
 <Listing><![CDATA[
 gap> PrintNPList(GBR.ts);
- x^2 + -q+Z(3)^0x + -q 
- y^2 + -q+Z(3)^0y + -q 
- zx + -Z(3)^0xz 
- z^2 + -q+Z(3)^0z + -q 
- yxy + -Z(3)^0xyx 
- zyz + -Z(3)^0yzy 
- zyxz + -Z(3)^0yzyx 
+ x^2 + -q+Z(3)^0x + -q
+ y^2 + -q+Z(3)^0y + -q
+ zx + -Z(3)^0xz
+ z^2 + -q+Z(3)^0z + -q
+ yxy + -Z(3)^0xyx
+ zyz + -Z(3)^0yzy
+ zyxz + -Z(3)^0yzyx
 gap> PrintNPList(GBR.p);
 [ x + Z(3)^0 ]
 [ y + Z(3)^0 ]
@@ -152,8 +152,8 @@ on the module, by means of the command
 
 <Listing><![CDATA[
 gap> MM := MatricesQA(3,B,GBR);;
-gap> for i in [1..Length(MM)] do 
-> Display(MM[i]); Print("\n"); 
+gap> for i in [1..Length(MM)] do
+> Display(MM[i]); Print("\n");
 > od;
 [ [   -Z(3)^0,    0*Z(3),    0*Z(3),    0*Z(3) ],
   [    0*Z(3),   -Z(3)^0,    0*Z(3),    0*Z(3) ],

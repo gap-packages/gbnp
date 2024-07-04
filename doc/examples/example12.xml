@@ -43,7 +43,7 @@ gap> SetInfoLevel(InfoGBNP,0);
 gap> SetInfoLevel(InfoGBNPTime,0);
 ]]></Listing>
 
-Then define the algebra and enter the relations as polynomials in GAP. 
+Then define the algebra and enter the relations as polynomials in GAP.
 
 <Listing><![CDATA[
 gap> A:=FreeAssociativeAlgebraWithOne(Rationals, "e", "f", "h");
@@ -60,9 +60,9 @@ displayed with <Ref Func="PrintNPList" Style="Text"/>.
 <Listing><![CDATA[
 gap> uerelsNP:=GP2NPList(uerels);;
 gap> PrintNPList(uerelsNP);
- ba - ab + c 
- ca - ac - 2a 
- cb - bc + 2b 
+ ba - ab + c
+ ca - ac - 2a
+ cb - bc + 2b
 ]]></Listing>
 
 Now configure printing in such a way that this algebra is used with the
@@ -79,9 +79,9 @@ Style="Text"/>.
 <Listing><![CDATA[
 gap> GB:=SGrobner(uerelsNP);;
 gap> PrintNPList(GB);
- fe - ef + h 
- he - eh - 2e 
- hf - fh + 2f 
+ fe - ef + h
+ he - eh - 2e
+ hf - fh + 2f
 ]]></Listing>
 
 Determine whether the quotient algebra is finite dimensional by means of <Ref
@@ -102,7 +102,7 @@ Adding the relation <M>e^2=0</M> results in a finite quotient algebra.
 
 <Listing><![CDATA[
 gap> extendedrels:=[f*e-e*f+h,h*e-e*h-2*e,h*f-f*h+2*f,e^2];
-[ (1)*h+(-1)*e*f+(1)*f*e, (-2)*e+(-1)*e*h+(1)*h*e, (2)*f+(-1)*f*h+(1)*h*f, 
+[ (1)*h+(-1)*e*f+(1)*f*e, (-2)*e+(-1)*e*h+(1)*h*e, (2)*f+(-1)*f*h+(1)*h*f,
   (1)*e^2 ]
 gap> extendedrelsNP:=GP2NPList(extendedrels);;
 ]]></Listing>
@@ -119,14 +119,14 @@ Style="Text"/>.
 
 <Listing><![CDATA[
 gap> PrintNPListTrace(GB);
- e^2 
- eh + e 
- fe - ef + h 
- f^2 
- fh - f 
- he - e 
- hf + f 
- h^2 - 2ef + h 
+ e^2
+ eh + e
+ fe - ef + h
+ f^2
+ fh - f
+ he - e
+ hf + f
+ h^2 - 2ef + h
 ]]></Listing>
 
 Note the fourth relation: <M>f^2=0</M>. To view a trace one can use the
@@ -139,7 +139,7 @@ gap> PrintTracePol(GB[4]);
 8f^2eG(1)f - 1/24f^3G(1)e - 1/24f^3eG(1) - 1/24G(2)f^3 + 1/8fG(2)f^2 - 1/
 8f^2G(2)f + 1/24f^3G(2) + 1/4G(3)f + 1/4fG(3) + 1/12fG(3)h + 1/12fhG(3) - 1/
 12G(3)hf - 1/12hG(3)f - 1/12eG(3)f^2 + 1/6feG(3)f - 1/12f^2eG(3) + 1/24G(
-4)f^4 - 1/6fG(4)f^3 + 1/4f^2G(4)f^2 - 1/6f^3G(4)f + 1/24f^4G(4) 
+4)f^4 - 1/6fG(4)f^3 + 1/4f^2G(4)f^2 - 1/6f^3G(4)f + 1/24f^4G(4)
 ]]></Listing>
 
 This proves that <M>f^2=0</M> is a consequence of <M>e^2=0</M> in the
@@ -156,9 +156,9 @@ gap> r := [[[2,2,2,2,1,1,1,1]],[1]];;
 gap> s := StrongNormalFormTraceDiff(r, GB);;
 
 gap> PrintNP(s.pol);
- f^4e^4 
+ f^4e^4
 gap> PrintTracePol(s);
- f^4G(4)e^2 
+ f^4G(4)e^2
 gap> PrintNP(AddNP(r,s.pol,1,-1));
  0
 ]]></Listing>
@@ -170,17 +170,17 @@ gap> r := [[[3,3,3]],[1]];;
 gap> s := StrongNormalFormTraceDiff(r, GB);;
 
 gap> PrintNP(s.pol);
- h^3 - h 
+ h^3 - h
 gap> PrintTracePol(s);
 - G(1) - 1/2G(1)ef - 1/6eG(1)f + 1/3efG(1) + 1/2fG(1)e + 1/2feG(1) + G(
 1)h^2 + 1/2G(1)efh + 1/2eG(1)fh + 1/3efG(1)h - 1/3eG(1)hf - 1/2fG(1)eh - 1/
 2feG(1)h - 1/6eG(1)ef^2 - 1/6e^2G(1)f^2 + 1/3efG(1)ef + 1/3efeG(1)f - 1/
 6ef^2G(1)e - 1/6ef^2eG(1) + 1/2G(2)f - 1/2fG(2) - 1/2G(2)fh + 1/2fG(2)h + 1/
-6eG(2)f^2 - 1/3efG(2)f + 1/6ef^2G(2) - 2/3eG(3)h + 1/3ehG(3) + 1/3e^2G(3)f - 
+6eG(2)f^2 - 1/3efG(2)f + 1/6ef^2G(2) - 2/3eG(3)h + 1/3ehG(3) + 1/3e^2G(3)f -
 1/3efeG(3) - 1/2G(4)f^2 + fG(4)f - 1/2f^2G(4) + 1/2G(4)f^2h - fG(4)fh + 1/
-2f^2G(4)h - 1/6eG(4)f^3 + 1/2efG(4)f^2 - 1/2ef^2G(4)f + 1/6ef^3G(4) 
+2f^2G(4)h - 1/6eG(4)f^3 + 1/2efG(4)f^2 - 1/2ef^2G(4)f + 1/6ef^3G(4)
 gap> PrintNP(AddNP(r,s.pol,1,-1));
- h 
+ h
 ]]></Listing>
 
 </Section>

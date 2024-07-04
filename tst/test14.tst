@@ -5,11 +5,11 @@ gap> # Copyright 2001-2010 by Arjeh M. Cohen, Dié A.H. Gijsbers, Jan Willem
 gap> # Knopper, Chris Krook. Address: Discrete Algebra and Geometry (DAM) group
 gap> # at the Department of Mathematics and Computer Science of Eindhoven
 gap> # University of Technology.
-gap> # 
+gap> #
 gap> # For acknowledgements see the manual. The manual can be found in several
 gap> # formats in the doc subdirectory of the GBNP distribution. The
 gap> # acknowledgements formatted as text can be found in the file chap0.txt.
-gap> # 
+gap> #
 gap> # GBNP is free software; you can redistribute it and/or modify it under
 gap> # the terms of the Lesser GNU General Public License as published by the
 gap> # Free Software Foundation (FSF); either version 2.1 of the License, or
@@ -18,10 +18,10 @@ gap> # the doc subdirectory of the GBNP distribution or see the FSF's own site:
 gap> # https://www.gnu.org/licenses/lgpl.html
 gap> ########################## END COPYRIGHT MESSAGE ##########################
 gap> 
-gap> ### filename = "example14.g" 
+gap> ### filename = "example14.g"
 gap> ### authors Cohen & Gijsbers & Krook
 gap> ### This example was added by Chris Krook.
-gap>  
+gap> 
 gap> ### THIS IS A GAP PACKAGE GBNP
 gap> ### FOR COMPUTING WITH NON-COMMUTATIVE POLYNOMIALS
 gap> ### ADD-ON: STUDY GROWTH OF FACTOR ALGEBRA
@@ -37,12 +37,12 @@ gap> # terms of the Gröbner basis is used to speed up the check.
 gap> # The functions <Ref Func="PreprocessAnalysisQA" Style="Text"/>
 gap> # and <Ref Func="FinCheckQA" Style="Text"/> are used for the computations. Even
 gap> # without preprocessing this already goes fast. Still, preprocessing can speed
-gap> # up more involved cases. For instance, after adapting this example to run 
+gap> # up more involved cases. For instance, after adapting this example to run
 gap> # for E7,  we found that
 gap> # preprocessing speeds up the computation from 400 secs to about 40 secs. (Be
 gap> # aware that Gröbner basis computation will take a while for E7.)
 gap> # <P/>
-gap> # More information about the preprocessing can be found in the preprint <Q>The 
+gap> # More information about the preprocessing can be found in the preprint <Q>The
 gap> # dimensionality of quotient algebras</Q> <Cite Key="Krook2003"/> which is part
 gap> # of the documentation.
 gap> # <P/>
@@ -97,7 +97,7 @@ gap> KI := [k1,k2,k3,k4,k5,k6,k7,k8,k9,k10,
 >       ];;
 gap> # </L>
 gap> 
-gap> # The Gröbner basis can now be calculated with 
+gap> # The Gröbner basis can now be calculated with
 gap> # <Ref Func="SGrobner" Style="Text"/>:
 gap> 
 gap> # <L>
@@ -112,8 +112,8 @@ gap> # The function <Ref Func="FinCheckQA" Style="Text"/>, which is used to chec
 gap> # finite dimensionality has as first argument the list of
 gap> # leading monomials of a
 gap> # Gröbner basis and as second argument the number of symbols. The monomials
-gap> # can be calculated with <Ref Func="LMonsNP" Style="Text"/>. They then will be 
-gap> # preprocessed using 4 recursions. If you want full preprocessing, use 0 
+gap> # can be calculated with <Ref Func="LMonsNP" Style="Text"/>. They then will be
+gap> # preprocessed using 4 recursions. If you want full preprocessing, use 0
 gap> # instead of 4 as a parameter for the number of recursions.
 gap> 
 gap> # <L>
@@ -124,7 +124,7 @@ true
 gap> # </L>
 gap> 
 gap> # If a quotient algebra is finite dimensional, the dimension can be calculated
-gap> # with <Ref Func="DimQA" Style="Text"/>, the arguments are the Gröbner basis 
+gap> # with <Ref Func="DimQA" Style="Text"/>, the arguments are the Gröbner basis
 gap> # <C>GB</C> and the number of symbols <C>6</C>. Since <Ref
 gap> # InfoClass="InfoGBNPTime" Style="Text"/> is set to 2, we get timing
 gap> # information from <Ref Func="DimQA" Style="Text"/>:

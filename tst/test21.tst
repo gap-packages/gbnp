@@ -5,11 +5,11 @@ gap> # Copyright 2001-2010 by Arjeh M. Cohen, Dié A.H. Gijsbers, Jan Willem
 gap> # Knopper, Chris Krook. Address: Discrete Algebra and Geometry (DAM) group
 gap> # at the Department of Mathematics and Computer Science of Eindhoven
 gap> # University of Technology.
-gap> # 
+gap> #
 gap> # For acknowledgements see the manual. The manual can be found in several
 gap> # formats in the doc subdirectory of the GBNP distribution. The
 gap> # acknowledgements formatted as text can be found in the file chap0.txt.
-gap> # 
+gap> #
 gap> # GBNP is free software; you can redistribute it and/or modify it under
 gap> # the terms of the Lesser GNU General Public License as published by the
 gap> # Free Software Foundation (FSF); either version 2.1 of the License, or
@@ -18,10 +18,10 @@ gap> # the doc subdirectory of the GBNP distribution or see the FSF's own site:
 gap> # https://www.gnu.org/licenses/lgpl.html
 gap> ########################## END COPYRIGHT MESSAGE ##########################
 gap> 
-gap> ### filename = "example21.g" 
+gap> ### filename = "example21.g"
 gap> ### author Knoppe21
 gap> 
-gap> ### THIS IS A GAP PACKAGE FOR COMPUTING NON-COMMUTATIVE GROBNER BASES 
+gap> ### THIS IS A GAP PACKAGE FOR COMPUTING NON-COMMUTATIVE GROBNER BASES
 gap> 
 gap> # <#GAPDoc Label="Example21">
 gap> # <Section Label="Example21"><Heading>The symmetric inverse monoid for a set of size four</Heading>
@@ -74,13 +74,13 @@ gap>
 gap> # <L>
 gap> twosidrels:=[s1^2-o,s2^2-o,s3^2-o,(s1*s2)^3-o,(s2*s3)^3-o,(s1*s3)^2-o,
 > 	e^2-e,s1*e-e*s1,s2*e-e*s2,e*s3*e-(e*s3)^2,e*s3*e-(s3*e)^2];
-[ (-1)*<identity ...>+(1)*s1^2, (-1)*<identity ...>+(1)*s2^2, 
-  (-1)*<identity ...>+(1)*s3^2, (-1)*<identity ...>+(1)*(s1*s2)^3, 
-  (-1)*<identity ...>+(1)*(s2*s3)^3, (-1)*<identity ...>+(1)*(s1*s3)^2, 
-  (-1)*e+(1)*e^2, (1)*s1*e+(-1)*e*s1, (1)*s2*e+(-1)*e*s2, 
+[ (-1)*<identity ...>+(1)*s1^2, (-1)*<identity ...>+(1)*s2^2,
+  (-1)*<identity ...>+(1)*s3^2, (-1)*<identity ...>+(1)*(s1*s2)^3,
+  (-1)*<identity ...>+(1)*(s2*s3)^3, (-1)*<identity ...>+(1)*(s1*s3)^2,
+  (-1)*e+(1)*e^2, (1)*s1*e+(-1)*e*s1, (1)*s2*e+(-1)*e*s2,
   (1)*e*s3*e+(-1)*(e*s3)^2, (1)*e*s3*e+(-1)*(s3*e)^2 ]
 gap> prefixrels:=[e,s1-o,s2-o,s3*e-s3];
-[ (1)*e, (-1)*<identity ...>+(1)*s1, (-1)*<identity ...>+(1)*s2, 
+[ (1)*e, (-1)*<identity ...>+(1)*s1, (-1)*<identity ...>+(1)*s2,
   (-1)*s3+(1)*s3*e ]
 gap> # </L>
 gap> 
@@ -110,44 +110,44 @@ gap> # function <Ref Func="PrintNPList" Style="Text"/>:
 gap> 
 gap> # <L>
 gap> PrintNPList(GBR.ts);
- s1^2 - 1 
- s2^2 - 1 
- s3s1 - s1s3 
- s3^2 - 1 
- es1 - s1e 
- es2 - s2e 
- e^2 - e 
- s2s1s2 - s1s2s1 
- s3s2s3 - s2s3s2 
- s3s2s1s3 - s2s3s2s1 
- s3es3e - es3e 
- es3es3 - es3e 
- s3es3s2e - es3s2e 
- s2s3s2es3e - s3s2es3e 
- s3es3s2s1e - es3s2s1e 
- es3s2es3s2 - es3s2es3 
- s2s3s2s1es3e - s3s2s1es3e 
- s2s3s2es3s2e - s3s2es3s2e 
- s2es3s2es3e - es3s2es3e 
- s1s2s1s3s2es3e - s2s1s3s2es3e 
- s2s3s2s1es3s2e - s3s2s1es3s2e 
- s2s3s2es3s2s1e - s3s2es3s2s1e 
- s2es3s2s1es3e - es3s2s1es3e 
- es3s2s1es3s2s1 - es3s2s1es3s2 
- s1s2s1s3s2s1es3e - s2s1s3s2s1es3e 
- s1s2s1s3s2es3s2e - s2s1s3s2es3s2e 
- s1s2s1es3s2es3e - s2s1es3s2es3e 
- s2s3s2s1es3s2s1e - s3s2s1es3s2s1e 
- s2es3s2s1es3s2e - es3s2s1es3s2e 
- s1s2s1s3s2s1es3s2e - s2s1s3s2s1es3s2e 
- s1s2s1s3s2es3s2s1e - s2s1s3s2es3s2s1e 
- s1s2s1es3s2s1es3e - s2s1es3s2s1es3e 
- s1s3s2s1es3s2es3e - s3s2s1es3s2es3e 
- s1s2s1s3s2s1es3s2s1e - s2s1s3s2s1es3s2s1e 
- s1s2s1es3s2s1es3s2e - s2s1es3s2s1es3s2e 
- s1s3s2s1es3s2s1es3e - s3s2s1es3s2s1es3e 
- s1es3s2s1es3s2es3e - es3s2s1es3s2es3e 
- s1s3s2s1es3s2s1es3s2e - s3s2s1es3s2s1es3s2e 
+ s1^2 - 1
+ s2^2 - 1
+ s3s1 - s1s3
+ s3^2 - 1
+ es1 - s1e
+ es2 - s2e
+ e^2 - e
+ s2s1s2 - s1s2s1
+ s3s2s3 - s2s3s2
+ s3s2s1s3 - s2s3s2s1
+ s3es3e - es3e
+ es3es3 - es3e
+ s3es3s2e - es3s2e
+ s2s3s2es3e - s3s2es3e
+ s3es3s2s1e - es3s2s1e
+ es3s2es3s2 - es3s2es3
+ s2s3s2s1es3e - s3s2s1es3e
+ s2s3s2es3s2e - s3s2es3s2e
+ s2es3s2es3e - es3s2es3e
+ s1s2s1s3s2es3e - s2s1s3s2es3e
+ s2s3s2s1es3s2e - s3s2s1es3s2e
+ s2s3s2es3s2s1e - s3s2es3s2s1e
+ s2es3s2s1es3e - es3s2s1es3e
+ es3s2s1es3s2s1 - es3s2s1es3s2
+ s1s2s1s3s2s1es3e - s2s1s3s2s1es3e
+ s1s2s1s3s2es3s2e - s2s1s3s2es3s2e
+ s1s2s1es3s2es3e - s2s1es3s2es3e
+ s2s3s2s1es3s2s1e - s3s2s1es3s2s1e
+ s2es3s2s1es3s2e - es3s2s1es3s2e
+ s1s2s1s3s2s1es3s2e - s2s1s3s2s1es3s2e
+ s1s2s1s3s2es3s2s1e - s2s1s3s2es3s2s1e
+ s1s2s1es3s2s1es3e - s2s1es3s2s1es3e
+ s1s3s2s1es3s2es3e - s3s2s1es3s2es3e
+ s1s2s1s3s2s1es3s2s1e - s2s1s3s2s1es3s2s1e
+ s1s2s1es3s2s1es3s2e - s2s1es3s2s1es3s2e
+ s1s3s2s1es3s2s1es3e - s3s2s1es3s2s1es3e
+ s1es3s2s1es3s2es3e - es3s2s1es3s2es3e
+ s1s3s2s1es3s2s1es3s2e - s3s2s1es3s2s1es3s2e
 gap> PrintNPList(GBR.p);
 [ s1 - 1 ]
 [ s2 - 1 ]
@@ -182,11 +182,11 @@ gap> # <Ref Func="MatrixQA" Style="Text"/> within a loop.
 gap> 
 gap> # <L>
 gap> MatricesQA(4,B,GBR);
-[ [ [ 1, 0, 0, 0 ], [ 0, 1, 0, 0 ], [ 0, 0, 0, 1 ], [ 0, 0, 1, 0 ] ], 
-  [ [ 1, 0, 0, 0 ], [ 0, 0, 1, 0 ], [ 0, 1, 0, 0 ], [ 0, 0, 0, 1 ] ], 
-  [ [ 0, 1, 0, 0 ], [ 1, 0, 0, 0 ], [ 0, 0, 1, 0 ], [ 0, 0, 0, 1 ] ], 
+[ [ [ 1, 0, 0, 0 ], [ 0, 1, 0, 0 ], [ 0, 0, 0, 1 ], [ 0, 0, 1, 0 ] ],
+  [ [ 1, 0, 0, 0 ], [ 0, 0, 1, 0 ], [ 0, 1, 0, 0 ], [ 0, 0, 0, 1 ] ],
+  [ [ 0, 1, 0, 0 ], [ 1, 0, 0, 0 ], [ 0, 0, 1, 0 ], [ 0, 0, 0, 1 ] ],
   [ [ 0, 0, 0, 0 ], [ 0, 1, 0, 0 ], [ 0, 0, 1, 0 ], [ 0, 0, 0, 1 ] ] ]
-gap> for i in [1..4] do 
+gap> for i in [1..4] do
 >   Display(MatrixQA(i,B,GBR)); Print("\n");
 > od;
 [ [  1,  0,  0,  0 ],

@@ -67,7 +67,7 @@ gap> MulQM(NPMone2,NPone,GBRone_1)=NPMone2;
 true
 
 SGrobnerModule
-check function 
+check function
 gap> check:=function(r, p, ts)
 > 	return (r.p = p) and (r.ts = ts);
 > end;;

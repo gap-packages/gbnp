@@ -4,7 +4,7 @@ as ``Example 2.7'' there; please see the manual for more information.
 
 This example is the same as Example 1 above, except that the length
 and lexicographic orderings are created independently and then
-chained to form the usual length left-lexicographic ordering. 
+chained to form the usual length left-lexicographic ordering.
 
 gap> LoadPackage("gbnp", false);
 true
@@ -35,7 +35,7 @@ LtNP patched.
 GtNP patched.
 gap> gbreps2 := Grobner(reps);;
 gap> gb2 := NP2GPList(gbreps2,A);
-[ (1)*b*c+(-1)*d*a, (1)*c*d*a*b+(-1)*c*b, (1)*(d*a)^2*b+(-1)*d*a*b, 
+[ (1)*b*c+(-1)*d*a, (1)*c*d*a*b+(-1)*c*b, (1)*(d*a)^2*b+(-1)*d*a*b,
   (1)*c*(d*a)^2+(-1)*c*d*a, (1)*(d*a)^3+(-1)*(d*a)^2 ]
 
 gap> HasNextOrdering(lenlex2);

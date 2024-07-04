@@ -16,7 +16,7 @@
 ##  <ManSection>
 ##  <Oper Name="NCLessThanByOrdering"
 ##        Arg="&lt;NoncommutativeMonomialOrdering>, &lt;a>, &lt;b>"/>
-##  
+##
 ##  <Description>
 ##  Given a <C>&lt;NoncommutativeMonomialOrdering></C> on an algebra <M>A</M>
 ##  and <M>a,b \in A</M>,
@@ -41,7 +41,7 @@ DeclareOperation("NCLessThanByOrdering",
 ##  <ManSection>
 ##  <Oper Name="NCGreaterThanByOrdering"
 ##        Arg="&lt;NoncommutativeMonomialOrdering>, &lt;a>, &lt;b>"/>
-##  
+##
 ##  <Description>
 ##  Given a <C>&lt;NoncommutativeMonomialOrdering></C> on an algebra <M>A</M>
 ##  and <M>a,b \in A</M>,
@@ -66,7 +66,7 @@ DeclareOperation("NCGreaterThanByOrdering",
 ##  <ManSection>
 ##  <Oper Name="NCEquivalentByOrdering"
 ##        Arg="&lt;NoncommutativeMonomialOrdering>, &lt;a>, &lt;b>"/>
-##  
+##
 ##  <Description>
 ##  Given a <C>&lt;NoncommutativeMonomialOrdering></C> on an algebra <M>A</M>
 ##  and <M>a,b \in A</M>,
@@ -74,26 +74,26 @@ DeclareOperation("NCGreaterThanByOrdering",
 ##  <M>a = b</M>, where <M>=</M> represents the comparison operator
 ##  determined by <C>&lt;NoncommutativeMonomialOrdering></C>.
 ##  <P/>
-## 
+##
 ##  Some examples of these methods in use:
 ##  <Example>
 ##  gap> A := FreeAssociativeAlgebraWithOne(Rationals,"x","y","z");
 ##  &lt;algebra-with-one over Rationals, with 3 generators>
 ##  gap> x := A.x;; y := A.y;; z := A.z;; id := One(A);;
 ##  gap> w1 := x*x*y;; w2 := x*y*x;; w3 := z*x;;
-##  
+##
 ##  gap> ml := NCMonomialLeftLengthLexOrdering(A);
 ##  NCMonomialLeftLengthLexicographicOrdering([ (1)*x, (1)*y, (1)*z ])
-##  
+##
 ##  gap> ml2 := NCMonomialLengthOrdering(A);
 ##  NCMonomialLengthOrdering([ (1)*x, (1)*y, (1)*z ])
-##  
+##
 ##  gap> ml7 := NCMonomialWeightOrdering(A,[1,2,3],[1,1,2]);
 ##  NCMonomialWeightOrdering([ (1)*x, (1)*y, (1)*z ])
-##  
+##
 ##  gap> ml8 := NCMonomialWeightOrdering(A,[2,3,1],[1,1,2]);
 ##  NCMonomialWeightOrdering([ (1)*y, (1)*z, (1)*x ])
-##  
+##
 ##  gap> #  Left length-lex ordering, x&lt;y&lt;z:
 ##  gap> NCEquivalentByOrdering(ml,w1,w2);
 ##  false
@@ -132,7 +132,7 @@ DeclareOperation("NCEquivalentByOrdering",
 ##  <ManSection>
 ##  <Oper Name="NCSortNP"
 ##        Arg="&lt;NoncommutativeMonomialOrdering>, &lt;list>, &lt;function>"/>
-##  
+##
 ##  <Description>
 ##  Given a <C>&lt;list></C> of NP `list' representations for monomials from
 ##  a noncommutative algebra, and an NP comparison (ordering) function

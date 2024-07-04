@@ -17,19 +17,19 @@ the doc subdirectory of the GBNP distribution or see the FSF's own site:
 https://www.gnu.org/licenses/lgpl.html
 gap> ########################## END COPYRIGHT MESSAGE ##########################
 
-gap> ### filename = "example09.g" 
+gap> ### filename = "example09.g"
 gap> ### authors Cohen & Gijsbers
 gap> ### vs 0.8.1
 
-gap> ### THIS IS A GAP PACKAGE FOR COMPUTING NON-COMMUTATIVE GROBNER BASES 
-gap>  
-gap> ### Last change: amc May 24 2007. 
+gap> ### THIS IS A GAP PACKAGE FOR COMPUTING NON-COMMUTATIVE GROBNER BASES
+gap> 
+gap> ### Last change: amc May 24 2007.
 gap> ### dahg
 
 <#GAPDoc Label="Example09">
 <Section Label="Example09"><Heading>Tracing an example by Mora</Heading>
 This example of a non-commutative Gröbner basis computation
-is from page 18 of 
+is from page 18 of
 <Q>An introduction to commutative and non-commutative Gröbner Bases</Q>, by
 Teo Mora <Cite Key="TCS::Mora1994:131"/>.
 The traced version of the algorithm will be used.
@@ -55,7 +55,7 @@ gap> GBNP.ConfigPrint("x","y");
 ]]></Listing>
 
 Next we input the relations in NP format (see Section <Ref Sect="NP"/>). They
-will be assigned to <C>KI</C>. 
+will be assigned to <C>KI</C>.
 
 <Listing><![CDATA[
 gap> xyx := [[[1,2,1],[2]],[1,-1]];;
@@ -67,11 +67,11 @@ The relations can be shown with <Ref Func="PrintNPList" Style="Text"/>:
 
 <Listing><![CDATA[
 gap> PrintNPList(KI);
- xyx - y 
- yxy - y 
+ xyx - y
+ yxy - y
 ]]></Listing>
 
-The Gröbner basis with trace can now be calculated with 
+The Gröbner basis with trace can now be calculated with
 <Ref Func="SGrobnerTrace" Style="Text"/>:
 
 <Listing><![CDATA[
@@ -88,27 +88,27 @@ gap> GB := SGrobnerTrace(KI);
 #I  End of phase III
 #I  End of phase IV
 #I  The computation took 4 msecs.
-[ rec( pol := [ [ [ 2, 1 ], [ 1, 2 ] ], [ 1, -1 ] ], 
-      trace := [ [ [  ], 1, [ 2 ], -1 ], [ [ 2 ], 1, [  ], 1 ], 
-          [ [ 1 ], 2, [  ], 1 ], [ [  ], 2, [ 1 ], -1 ] ] ), 
-  rec( pol := [ [ [ 2, 2 ], [ 1, 2 ] ], [ 1, -1 ] ], 
-      trace := [ [ [ 2 ], 1, [  ], -1 ], [ [  ], 1, [ 2 ], -1 ], 
+[ rec( pol := [ [ [ 2, 1 ], [ 1, 2 ] ], [ 1, -1 ] ],
+      trace := [ [ [  ], 1, [ 2 ], -1 ], [ [ 2 ], 1, [  ], 1 ],
+          [ [ 1 ], 2, [  ], 1 ], [ [  ], 2, [ 1 ], -1 ] ] ),
+  rec( pol := [ [ [ 2, 2 ], [ 1, 2 ] ], [ 1, -1 ] ],
+      trace := [ [ [ 2 ], 1, [  ], -1 ], [ [  ], 1, [ 2 ], -1 ],
           [ [ 2 ], 1, [  ], 1 ], [ [  ], 2, [ 1 ], 1 ], [ [ 1 ], 2, [  ], 1 ],
-          [ [  ], 2, [ 1 ], -1 ] ] ), 
-  rec( pol := [ [ [ 1, 1, 2 ], [ 2 ] ], [ 1, -1 ] ], 
-      trace := [ [ [  ], 1, [  ], 1 ], [ [ 1 ], 1, [ 2 ], 1 ], 
-          [ [ 1, 2 ], 1, [  ], -1 ], [ [ 1, 1 ], 2, [  ], -1 ], 
+          [ [  ], 2, [ 1 ], -1 ] ] ),
+  rec( pol := [ [ [ 1, 1, 2 ], [ 2 ] ], [ 1, -1 ] ],
+      trace := [ [ [  ], 1, [  ], 1 ], [ [ 1 ], 1, [ 2 ], 1 ],
+          [ [ 1, 2 ], 1, [  ], -1 ], [ [ 1, 1 ], 2, [  ], -1 ],
           [ [ 1 ], 2, [ 1 ], 1 ] ] ) ]
 ]]></Listing>
 
-The Gröbner basis can be printed with 
+The Gröbner basis can be printed with
 <Ref Func="PrintNPListTrace" Style="Text"/>:
 
 <Listing><![CDATA[
 gap> PrintNPListTrace(GB);
- yx - xy 
- y^2 - xy 
- x^2y - y 
+ yx - xy
+ y^2 - xy
+ x^2y - y
 ]]></Listing>
 
 The trace of the Gröbner basis can be printed with
@@ -116,11 +116,11 @@ The trace of the Gröbner basis can be printed with
 
 <Listing><![CDATA[
 gap> PrintTraceList(GB);
-- G(1)y + yG(1) - G(2)x + xG(2) 
+- G(1)y + yG(1) - G(2)x + xG(2)
 
-- G(1)y + xG(2) 
+- G(1)y + xG(2)
 
- G(1) + xG(1)y - xyG(1) + xG(2)x - x^2G(2) 
+ G(1) + xG(1)y - xyG(1) + xG(2)x - x^2G(2)
 ]]></Listing>
 
 </Section>

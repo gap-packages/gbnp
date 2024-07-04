@@ -4,11 +4,11 @@
 # Knopper, Chris Krook. Address: Discrete Algebra and Geometry (DAM) group
 # at the Department of Mathematics and Computer Science of Eindhoven
 # University of Technology.
-# 
+#
 # For acknowledgements see the manual. The manual can be found in several
 # formats in the doc subdirectory of the GBNP distribution. The
 # acknowledgements formatted as text can be found in the file chap0.txt.
-# 
+#
 # GBNP is free software; you can redistribute it and/or modify it under
 # the terms of the Lesser GNU General Public License as published by the
 # Free Software Foundation (FSF); either version 2.1 of the License, or
@@ -17,12 +17,12 @@
 # https://www.gnu.org/licenses/lgpl.html
 ########################## END COPYRIGHT MESSAGE ##########################
 
-### filename = "example03.g" 
+### filename = "example03.g"
 ### authors Cohen & Gijsbers
 
-### THIS IS A GAP PACKAGE FOR COMPUTING NON-COMMUTATIVE GROBNER BASES 
- 
-### Last change: August 22 2001. 
+### THIS IS A GAP PACKAGE FOR COMPUTING NON-COMMUTATIVE GROBNER BASES
+
+### Last change: August 22 2001.
 ### amc
 
 # <#GAPDoc Label="Example03">
@@ -42,7 +42,7 @@ SetInfoLevel(InfoGBNP,1);
 SetInfoLevel(InfoGBNPTime,2);
 # </L>
 
-# Then input the relations in NP format (see <Ref Sect="NP"/>). 
+# Then input the relations in NP format (see <Ref Sect="NP"/>).
 # They come from the presentation of the Weyl group as a Coxeter group.
 # This means that there are six variables, one for each generator.
 # We let the corresponding variables be printed as <M>r_1</M>, ..., <M>r_6</M> by means of
@@ -92,7 +92,7 @@ KI := [k1,k2,k3,k4,k5,k6,k7,k8,k9,k10,
 PrintNPList(KI);
 # </L>
 
-# The Gröbner basis can now be calculated with 
+# The Gröbner basis can now be calculated with
 # <Ref Func="SGrobner" Style="Text"/>:
 
 # <L>
@@ -103,14 +103,14 @@ PrintNPList(GB);
 # The base of the quotient algebra can be calculated with <Ref Func="BaseQA"
 # Style="Text"/>, which has as arguments a Gröbner basis <C>GB</C>, a number
 # of symbols <C>6</C> and a maximum terms to be found (here 0 is entered, for
-# a full base) . Since it is very long we will not print it here. 
+# a full base) . Since it is very long we will not print it here.
 
 # <L>
 B:=BaseQA(GB,6,0);;
 # </L>
 
-# The dimension of the quotient algebra can be calculated with 
-# <Ref Func="DimQA" Style="Text"/>, the arguments are the Gröbner basis 
+# The dimension of the quotient algebra can be calculated with
+# <Ref Func="DimQA" Style="Text"/>, the arguments are the Gröbner basis
 # <C>GB</C> and the number of symbols <C>6</C>. Since <Ref
 # InfoClass="InfoGBNPTime" Style="Text"/> is set to 2, we get
 # timing information from <Ref Func="DimQA" Style="Text"/>:

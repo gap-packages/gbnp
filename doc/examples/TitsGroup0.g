@@ -1,4 +1,4 @@
-FG := 
+FG :=
 FreeGroup("U1","U2","U3","U4","U5","U6","U7","U8","V1","V2","V3","V4","V5","V6","V7","V8","r1","r8");
 
 U1 := FG.1;
@@ -25,7 +25,7 @@ GeneratorsOfGroup(FG);
 rels := [
 U1^4, U2^2 ,U3^4 ,U4^2, U5^4 ,U6^2 ,U7^4 ,U8^2 ,
 V1^4, V2^2 ,V3^4 ,V4^2, V5^4 ,V6^2 ,V7^4 ,V8^2 ,
-	U1^(-1)*U2^(-1)*U1*U2, 
+	U1^(-1)*U2^(-1)*U1*U2,
         U1^(-1)*U5^(-1)*U1*U5,
         U2^(-1)*U4^(-1)*U2*U4,
         U2^(-1)*U6^(-1)*U2*U6,
@@ -37,7 +37,7 @@ V1^4, V2^2 ,V3^4 ,V4^2, V5^4 ,V6^2 ,V7^4 ,V8^2 ,
 	(U2*U3^2*U4*U5^3*U6*U7)^(-1)*U1^(-1)*U8*U1*U8^(-1),
 	r1^(-1)*U1*V1^2*U1^(-1),
 	r8^(-1)*U8*V8*U8^(-1),
-	r1^2,r8^2, 
+	r1^2,r8^2,
 	(r1*r8)^8,
 	(r1*U1*r1)^(-1)*V1,
 	(r1*U2*r1)^(-1)*U8,
@@ -137,14 +137,14 @@ Qorbs := Orbits(Q);
 
 nfnd := true; i := 0;
 while nfnd and i< Length(Qorbs) do
-  i := i+1; 
+  i := i+1;
   if Size(Qorbs[i]) = 1024 then nfnd := false; fi;
 od;
 S := Qorbs[i];
 
 fixpts := function(sbgpT) local ans, hlp, j;
   ans := [];
-  for j in [1..p] do 
+  for j in [1..p] do
     if Orbit(sbgpT,j) = Set([j]) then Add(ans,j); fi;
   od;
   return(Set(ans));

@@ -5,11 +5,11 @@ gap> # Copyright 2001-2010 by Arjeh M. Cohen, Dié A.H. Gijsbers, Jan Willem
 gap> # Knopper, Chris Krook. Address: Discrete Algebra and Geometry (DAM) group
 gap> # at the Department of Mathematics and Computer Science of Eindhoven
 gap> # University of Technology.
-gap> # 
+gap> #
 gap> # For acknowledgements see the manual. The manual can be found in several
 gap> # formats in the doc subdirectory of the GBNP distribution. The
 gap> # acknowledgements formatted as text can be found in the file chap0.txt.
-gap> # 
+gap> #
 gap> # GBNP is free software; you can redistribute it and/or modify it under
 gap> # the terms of the Lesser GNU General Public License as published by the
 gap> # Free Software Foundation (FSF); either version 2.1 of the License, or
@@ -18,9 +18,9 @@ gap> # the doc subdirectory of the GBNP distribution or see the FSF's own site:
 gap> # https://www.gnu.org/licenses/lgpl.html
 gap> ########################## END COPYRIGHT MESSAGE ##########################
 gap> 
-gap> ### filename = "example16.g" 
+gap> ### filename = "example16.g"
 gap> ### authors Cohen & Gijsbers & Krook
-gap>  
+gap> 
 gap> ### THIS IS A GAP PACKAGE GBNP
 gap> ### FOR COMPUTING WITH NON-COMMUTATIVE POLYNOMIALS
 gap> ### ADD-ON: STUDY GROWTH OF FACTOR ALGEBRA
@@ -33,10 +33,10 @@ gap> # a commutative example from Some Tapas of Computer Algebra <Cite
 gap> # Key="CohenCuypersSterk1999"/>, page 339.
 gap> # <P/>
 gap> # The result of the Gröbner basis computation
-gap> # should be the union of <M>\{a,b\}</M> and 
-gap> # the set of 6 homogeneous binomials 
+gap> # should be the union of <M>\{a,b\}</M> and
+gap> # the set of 6 homogeneous binomials
 gap> # (that is, polynomials with two terms) of degree 2 forcing
-gap> # commuting between <M>c</M>, <M>d</M>, <M>e</M>, and <M>f</M>, as before. 
+gap> # commuting between <M>c</M>, <M>d</M>, <M>e</M>, and <M>f</M>, as before.
 gap> # After computation of the Gröbner basis, the quotient algebra is studied and
 gap> # found to be infinite dimensional of polynomial growth of degree 4. The
 gap> # function <Ref Func="DetermineGrowthQA" Style="Text"/> is used for this
@@ -111,33 +111,33 @@ gap> # add the next command in case other tests have changed the alphabet:
 gap> GBNP.ConfigPrint("a","b","c","d","e","f");
 gap> # <L>
 gap> PrintNPList(KI);
- ea 
- a^3 + fa 
- a^9 + ca^3 
- a^81 + ca^9 + da^3 
- ca^81 + da^9 + ea^3 
- a^27 + da^81 + ea^9 + fa^3 
- b + ca^27 + ea^81 + fa^9 
- cb + da^27 + fa^81 
- a + db + ea^27 
- ca + eb + fa^27 
- da + fb 
- b^3 - b 
- ab - ba 
- ac - ca 
- ad - da 
- ae - ea 
- af - fa 
- bc - cb 
- bd - db 
- be - eb 
- bf - fb 
- cd - dc 
- ce - ec 
- cf - fc 
- de - ed 
- df - fd 
- ef - fe 
+ ea
+ a^3 + fa
+ a^9 + ca^3
+ a^81 + ca^9 + da^3
+ ca^81 + da^9 + ea^3
+ a^27 + da^81 + ea^9 + fa^3
+ b + ca^27 + ea^81 + fa^9
+ cb + da^27 + fa^81
+ a + db + ea^27
+ ca + eb + fa^27
+ da + fb
+ b^3 - b
+ ab - ba
+ ac - ca
+ ad - da
+ ae - ea
+ af - fa
+ bc - cb
+ bd - db
+ be - eb
+ bf - fb
+ cd - dc
+ ce - ec
+ cf - fc
+ de - ed
+ df - fd
+ ef - fe
 gap> # </L>
 gap> 
 gap> # It is usually easier to use the function <Ref Func="GP2NP" Style="Text"/> or
@@ -160,20 +160,20 @@ gap> GB := SGrobner(KI);
 #I  End of phase III
 #I  G: Cleaning finished, 0 polynomials reduced
 #I  End of phase IV
-[ [ [ [ 1 ] ], [ 1 ] ], [ [ [ 2 ] ], [ 1 ] ], 
+[ [ [ [ 1 ] ], [ 1 ] ], [ [ [ 2 ] ], [ 1 ] ],
   [ [ [ 4, 3 ], [ 3, 4 ] ], [ 1, -1 ] ], [ [ [ 5, 3 ], [ 3, 5 ] ], [ 1, -1 ] ]
-    , [ [ [ 5, 4 ], [ 4, 5 ] ], [ 1, -1 ] ], 
+    , [ [ [ 5, 4 ], [ 4, 5 ] ], [ 1, -1 ] ],
   [ [ [ 6, 3 ], [ 3, 6 ] ], [ 1, -1 ] ], [ [ [ 6, 4 ], [ 4, 6 ] ], [ 1, -1 ] ]
     , [ [ [ 6, 5 ], [ 5, 6 ] ], [ 1, -1 ] ] ]
 gap> PrintNPList(GB);
- a 
- b 
- dc - cd 
- ec - ce 
- ed - de 
- fc - cf 
- fd - df 
- fe - ef 
+ a
+ b
+ dc - cd
+ ec - ce
+ ed - de
+ fc - cf
+ fd - df
+ fe - ef
 gap> # </L>
 gap> 
 gap> # The growth of the quotient algebra can be studied with <Ref
@@ -189,7 +189,7 @@ gap> DetermineGrowthQA(L,6,false);
 gap> # </L>
 gap> 
 gap> # Now compute the first 10 terms of the Hilbert Series with <Ref
-gap> # Func="HilbertSeriesQA" Style="Text"/> 
+gap> # Func="HilbertSeriesQA" Style="Text"/>
 gap> # (note that trailing zeroes are removed):
 gap> 
 gap> # <L>

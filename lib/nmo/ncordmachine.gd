@@ -19,7 +19,7 @@
 ##  <Description>
 ##  A noncommutative monomial ordering is an object representing a monomial ordering
 ##  on a noncommutative (associative) algebra.  All <Package>NMO</Package>
-##  orderings are of this category. 
+##  orderings are of this category.
 ##  <P/>
 ##  </Description>
 ##  </ManSection>
@@ -34,7 +34,7 @@ DeclareCategory("IsNoncommutativeMonomialOrdering",IsObject);
 ##  <ManSection>
 ##  <Attr Name="LtFunctionListRep"
 ##        Arg="&lt;NoncommutativeMonomialOrdering>"/>
-##  
+##
 ##  <Description>
 ##  Returns the low-level comparison function used by the given
 ##  ordering.
@@ -55,7 +55,7 @@ DeclareAttribute("LtFunctionListRep", IsNoncommutativeMonomialOrdering);
 ##  <ManSection>
 ##  <Attr Name="NextOrdering"
 ##        Arg="&lt;NoncommutativeMonomialOrdering>"/>
-##  
+##
 ##  <Description>
 ##  Returns the next noncommutative monomial ordering chained to the given ordering, if one
 ##  exists.  It is usually called after a <C>true</C> determination
@@ -74,7 +74,7 @@ DeclareAttribute("NextOrdering",IsNoncommutativeMonomialOrdering);
 ##  <ManSection>
 ##  <Attr Name="ParentAlgebra"
 ##        Arg="&lt;NoncommutativeMonomialOrdering>"/>
-##  
+##
 ##  <Description>
 ##  Returns the parent algebra used in the creation of the given
 ##  ordering.
@@ -92,7 +92,7 @@ DeclareAttribute("ParentAlgebra", IsNoncommutativeMonomialOrdering );
 ##  <ManSection>
 ##  <Attr Name="LexicographicTable"
 ##        Arg="&lt;NoncommutativeMonomialOrdering>"/>
-##  
+##
 ##  <Description>
 ##   Returns the ordering of the generators of the <C>ParentAlgebra</C>,
 ##   as specified in the creation of the given ordering.
@@ -110,7 +110,7 @@ DeclareAttribute("LexicographicTable", IsNoncommutativeMonomialOrdering);
 ##  <ManSection>
 ##  <Attr Name="LexicographicIndexTable"
 ##        Arg="&lt;NoncommutativeMonomialOrdering>"/>
-##  
+##
 ##  <Description>
 ##   Returns the ordering of the generators of the <C>ParentAlgebra</C>,
 ##   as specified in the creation of the given ordering.
@@ -131,7 +131,7 @@ DeclareAttribute("LexicographicTable", IsNoncommutativeMonomialOrdering);
 ##  gap> LexicographicIndexTable(ml);
 ##  [ 3, 1, 4, 2 ]
 ##  </Example>
-##  
+##
 ##  The index table shows that the generator <M>a</M> is the third in the generator
 ##  ordering, <M>b</M> is the least generator in the ordering, <M>c</M> is the greatest
 ##  and <M>d</M> the second least in order.
@@ -149,7 +149,7 @@ DeclareAttribute("LexicographicIndexTable", IsNoncommutativeMonomialOrdering);
 ##  <ManSection>
 ##  <Attr Name="LexicographicPermutation"
 ##        Arg="&lt;NoncommutativeMonomialOrdering>"/>
-##  
+##
 ##  <Description>
 ##  Experimental permutation based on the information in <C>LexicographicTable</C>,
 ##  could possibly be used to make indexed versions of
@@ -169,7 +169,7 @@ DeclareAttribute("LexicographicPermutation", IsNoncommutativeMonomialOrdering);
 ##  <ManSection>
 ##  <Attr Name="AuxilliaryTable"
 ##        Arg="&lt;NoncommutativeMonomialOrdering>"/>
-##  
+##
 ##  <Description>
 ##  An extra table carried by the given ordering which can be used
 ##  for such things as weight vectors, etc.
@@ -213,8 +213,8 @@ BindGlobal("NoncommutativeMonomialOrderingsFamily",
 ##    For example, we create a length ordering by setting up the two comparison
 ##    functions, choosing a name for the ordering type
 ##    and then calling <C>InstallNoncommutativeMonomialOrdering</C>.
-##  
-##    <Example> 
+##
+##    <Example>
 ##    gap> f1 := function(a,b,aux)
 ##    >   return Length(a) &lt; Length(b);
 ##    > end;
@@ -223,11 +223,11 @@ BindGlobal("NoncommutativeMonomialOrderingsFamily",
 ##    >   return Length(a) &lt; Length(b);
 ##    > end;
 ##    function( a, b, aux, idx ) ... end
-##    
+##
 ##    DeclareGlobalFunction("lenOrdering");
 ##    InstallNoncommutativeMonomialOrdering("lenOrdering",f1,f2);
 ##    </Example>
-##    
+##
 ##    Now we create an ordering based on this new function, and make
 ##    some simple comparisons. (Note: we are passing in an empty
 ##    <C>aux</C> table since it is not being used.  Also, the comparison
@@ -238,14 +238,14 @@ BindGlobal("NoncommutativeMonomialOrderingsFamily",
 ##    &lt;algebra-with-one over Rationals, with 3 generators>
 ##    gap> ml := lenOrdering(A);
 ##    lenOrdering([ (1)*a, (1)*b, (1)*c ])
-##    gap>
+##    gap> 
 ##    gap> LtFunctionListRep(ml)([1,2],[1,1,1],[]);
 ##    true
 ##    gap> LtFunctionListRep(ml)([1,1],[],[]);
 ##    false
 ##    </Example>
 ##    <P/>
-##    
+##
 ##  </Description>
 ##  </ManSection>
 ##  <#/GAPDoc>
@@ -259,13 +259,13 @@ DeclareGlobalFunction("InstallNoncommutativeMonomialOrdering");
 ##  <ManSection>
 ##  <Oper Name="OrderingLtFunctionListRep"
 ##        Arg="&lt;NoncommutativeMonomialOrdering>"/>
-##  
+##
 ##  <Description>
 ##  </Description>
 ##
 ##  <Oper Name="OrderingGtFunctionListRep"
 ##        Arg="&lt;NoncommutativeMonomialOrdering>"/>
-##  
+##
 ##  <Description>
 ##  Given a noncommutative monomial ordering, <C>OrderingLtFunctionListRep</C>
 ##  and <C>OrderingLtFunctionListRep</C>

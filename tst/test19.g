@@ -4,11 +4,11 @@
 # Knopper, Chris Krook. Address: Discrete Algebra and Geometry (DAM) group
 # at the Department of Mathematics and Computer Science of Eindhoven
 # University of Technology.
-# 
+#
 # For acknowledgements see the manual. The manual can be found in several
 # formats in the doc subdirectory of the GBNP distribution. The
 # acknowledgements formatted as text can be found in the file chap0.txt.
-# 
+#
 # GBNP is free software; you can redistribute it and/or modify it under
 # the terms of the Lesser GNU General Public License as published by the
 # Free Software Foundation (FSF); either version 2.1 of the License, or
@@ -17,11 +17,11 @@
 # https://www.gnu.org/licenses/lgpl.html
 ########################## END COPYRIGHT MESSAGE ##########################
 
-### filename = "example19.g" 
+### filename = "example19.g"
 ### author Knopper
 ### amc edited 22 March 2007
 
-### THIS IS A GAP PACKAGE FOR COMPUTING NON-COMMUTATIVE GROBNER BASES 
+### THIS IS A GAP PACKAGE FOR COMPUTING NON-COMMUTATIVE GROBNER BASES
 ### Last change: September 25 2003
 ### jwk
 
@@ -30,7 +30,7 @@
 # In this example (Example 2 from Linton <Cite Key="MR94k:20022"/>) the two-sided relations give the group algebra
 # of the group with presentation
 # <M>\langle a,b\mid a^4=b^2=(ab)^2=1\rangle</M>, the dihedral group of order 8.
-# This module relation fixes the all-one vector of Example <Ref Sect="Example18"/>: 
+# This module relation fixes the all-one vector of Example <Ref Sect="Example18"/>:
 # <M>1 + a(1+a+b)</M>.
 # <P/>
 # First load the package and set the standard infolevel <Ref
@@ -45,7 +45,7 @@ SetInfoLevel(InfoGBNPTime,0);
 # </L>
 
 # We will enter the relations as GAP polynomials. It is possible to enter these
-# with and without a module. 
+# with and without a module.
 # How to do this is shown in <Ref Sect="Example18"/>.
 # The relations here are entered without a module, since the module is
 # only one-dimensional.

@@ -5,11 +5,11 @@ gap> # Copyright 2001-2010 by Arjeh M. Cohen, Dié A.H. Gijsbers, Jan Willem
 gap> # Knopper, Chris Krook. Address: Discrete Algebra and Geometry (DAM) group
 gap> # at the Department of Mathematics and Computer Science of Eindhoven
 gap> # University of Technology.
-gap> # 
+gap> #
 gap> # For acknowledgements see the manual. The manual can be found in several
 gap> # formats in the doc subdirectory of the GBNP distribution. The
 gap> # acknowledgements formatted as text can be found in the file chap0.txt.
-gap> # 
+gap> #
 gap> # GBNP is free software; you can redistribute it and/or modify it under
 gap> # the terms of the Lesser GNU General Public License as published by the
 gap> # Free Software Foundation (FSF); either version 2.1 of the License, or
@@ -18,11 +18,11 @@ gap> # the doc subdirectory of the GBNP distribution or see the FSF's own site:
 gap> # https://www.gnu.org/licenses/lgpl.html
 gap> ########################## END COPYRIGHT MESSAGE ##########################
 gap> 
-gap> ### filename = "example19.g" 
+gap> ### filename = "example19.g"
 gap> ### author Knopper
 gap> ### amc edited 22 March 2007
 gap> 
-gap> ### THIS IS A GAP PACKAGE FOR COMPUTING NON-COMMUTATIVE GROBNER BASES 
+gap> ### THIS IS A GAP PACKAGE FOR COMPUTING NON-COMMUTATIVE GROBNER BASES
 gap> ### Last change: September 25 2003
 gap> ### jwk
 gap> 
@@ -31,7 +31,7 @@ gap> # <Section Label="Example19"><Heading>The dihedral group of order 8 on anot
 gap> # In this example (Example 2 from Linton <Cite Key="MR94k:20022"/>) the two-sided relations give the group algebra
 gap> # of the group with presentation
 gap> # <M>\langle a,b\mid a^4=b^2=(ab)^2=1\rangle</M>, the dihedral group of order 8.
-gap> # This module relation fixes the all-one vector of Example <Ref Sect="Example18"/>: 
+gap> # This module relation fixes the all-one vector of Example <Ref Sect="Example18"/>:
 gap> # <M>1 + a(1+a+b)</M>.
 gap> # <P/>
 gap> # First load the package and set the standard infolevel <Ref
@@ -47,7 +47,7 @@ gap> SetInfoLevel(InfoGBNPTime,0);
 gap> # </L>
 gap> 
 gap> # We will enter the relations as GAP polynomials. It is possible to enter these
-gap> # with and without a module. 
+gap> # with and without a module.
 gap> # How to do this is shown in <Ref Sect="Example18"/>.
 gap> # The relations here are entered without a module, since the module is
 gap> # only one-dimensional.
@@ -85,12 +85,12 @@ gap> # function <Ref Func="PrintNPList" Style="Text"/>:
 gap> 
 gap> # <L>
 gap> PrintNPList(GBR.ts);
- b^2 - 1 
- aba - b 
- ba^2 - a^2b 
- bab - a^3 
- a^4 - 1 
- a^3b - ba 
+ b^2 - 1
+ aba - b
+ ba^2 - a^2b
+ bab - a^3
+ a^4 - 1
+ a^3b - ba
 gap> PrintNPList(GBR.p);
 [ b - 1 ]
 [ ab + a^2 + a + 1 ]

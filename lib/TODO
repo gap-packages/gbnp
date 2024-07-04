@@ -47,15 +47,15 @@ summary of todo items:
      anything about being homogeneous, so it might be confusing, *discuss with
      Arjeh*)
   -> code review:
-     . check NondivMonsByLevel zero case (*done*) 
+     . check NondivMonsByLevel zero case (*done*)
      ! for CheckHomogeneousNPs : is zero homogeneous ? (answer seems to be no,
        *ask Arjeh*) (*urgent*)
      + false should become fail (-> next version)
      + it would make sense for GBNP.CheckHom to use WieghtedDegreeMon (> next version)
      + ObsTrunc might be made quicker by using the normal function to get
        Obstructions using lists
-- check new theory (2) 
-8 may 
+- check new theory (2)
+8 may
 - new versions (what does this mean)
 - add other todo items that need to be done here
 15 may
@@ -64,14 +64,14 @@ summary of todo items:
 - spare week, for things that take longer and things that come up after
   inventarisation and can not be done earlier
 
-URGENT: 
+URGENT:
 
 SHORT TERM:
 - MakeGrobnerPair function (create a [weak] partial pair)
   DONE:
   - first version
   - automatically stop (S)Grobner calculations after a certain number of
-    iterations 
+    iterations
   TODO:
   - (1) check difference between IsGrobnerPair and IsGrobner
     -> 1) elements of a Grobner basis don't have to be monic (can contain <0>)
@@ -128,7 +128,7 @@ DONE
 NOT urgent:
 - occurtree: idea: make interface easier with objects
 - check whether all functions use funcs.strong
-- combine ReducePolTails/ReducePolTailsPTS 
+- combine ReducePolTails/ReducePolTailsPTS
 - ReducePol2 can be faster: remove Occur (at XXX)
 
 Urgent but not directly possible:
@@ -150,7 +150,7 @@ Urgent but not directly possible:
   record)
 - put the prefix generators in the end of the list for trees -> saves space
 
-NOTES: 
+NOTES:
 ReducePol2:
 	- trace.gi:GBNP.ReducePolTrace2
 

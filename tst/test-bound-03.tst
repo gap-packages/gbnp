@@ -5,11 +5,11 @@ gap> # Copyright 2001-2010 by Arjeh M. Cohen, Dié A.H. Gijsbers, Jan Willem
 gap> # Knopper, Chris Krook. Address: Discrete Algebra and Geometry (DAM) group
 gap> # at the Department of Mathematics and Computer Science of Eindhoven
 gap> # University of Technology.
-gap> # 
+gap> #
 gap> # For acknowledgements see the manual. The manual can be found in several
 gap> # formats in the doc subdirectory of the GBNP distribution. The
 gap> # acknowledgements formatted as text can be found in the file chap0.txt.
-gap> # 
+gap> #
 gap> # GBNP is free software; you can redistribute it and/or modify it under
 gap> # the terms of the Lesser GNU General Public License as published by the
 gap> # Free Software Foundation (FSF); either version 2.1 of the License, or
@@ -21,7 +21,7 @@ gap>
 gap> LoadPackage("gbnp", false);
 true
 gap> 
-gap> # calculation examples 
+gap> # calculation examples
 gap> 
 gap> # NumAlgGensNP
 gap> NumAlgGensNP([[],[]])=0;
@@ -147,10 +147,10 @@ gap>
 gap> # fails if zero occurs in the list -> what is the leading monomial of zero ??
 gap> # not sure what the desired action should be (fail perhaps ?)
 gap> # might be better to document this
-gap> # (04/09/23) the function now returns 'fail' 
+gap> # (04/09/23) the function now returns 'fail'
 gap> LMonsNP([])=[];
 true
-gap> #LMonsNP([NPzero])=[]; 
+gap> #LMonsNP([NPzero])=[];
 gap> LMonsNP([NPone])=[M0];
 true
 gap> LMonsNP([NPone,NPzero]);

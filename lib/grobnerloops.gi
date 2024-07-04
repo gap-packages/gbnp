@@ -4,11 +4,11 @@
 # Knopper, Chris Krook. Address: Discrete Algebra and Geometry (DAM) group
 # at the Department of Mathematics and Computer Science of Eindhoven
 # University of Technology.
-# 
+#
 # For acknowledgements see the manual. The manual can be found in several
 # formats in the doc subdirectory of the GBNP distribution. The
 # acknowledgements formatted as text can be found in the file chap0.txt.
-# 
+#
 # GBNP is free software; you can redistribute it and/or modify it under
 # the terms of the Lesser GNU General Public License as published by the
 # Free Software Foundation (FSF); either version 2.1 of the License, or
@@ -22,13 +22,13 @@
 #GBNP.SGrobnerLoop:=function(G,todo)
 #GBNP.GrobnerLoop:=function(G,todo)
 #GBNP.SGrobnerTruncLoop:=function(G,todo,wtv,k)
-#GBNP.GrobnerLoopAll:=function(G,todo,options) 
-#GBNP.SGrobnerTraceLoop:=function(G,todo) 
-#GBNP.ObsTall:=function(j,G,todo,OT,funcs) 
+#GBNP.GrobnerLoopAll:=function(G,todo,options)
+#GBNP.SGrobnerTraceLoop:=function(G,todo)
+#GBNP.ObsTall:=function(j,G,todo,OT,funcs)
 #GBNP.StrongNormalFormTall:=function(f,G,GLOT,funcs)
-#GBNP.StrongNormalForm2Tall:=function(f,G,G2,OT,funcs) 
-#GBNP.StrongNormalForm3Dall:=function(f,G,G2,OT,funcs,skip) 
-#GBNP.StrongNormalForm2TSPTS:=function(G,j,GLOT,prefix) 
+#GBNP.StrongNormalForm2Tall:=function(f,G,G2,OT,funcs)
+#GBNP.StrongNormalForm3Dall:=function(f,G,G2,OT,funcs,skip)
+#GBNP.StrongNormalForm2TSPTS:=function(G,j,GLOT,prefix)
 #GBNP.ReducePolTails:=function(G,todo,GLOT)
 #GBNP.ReducePolTailsPTS:=function(G,todo,OT,funcs)
 #GBNP.ReduceCancellation:=function(pol)
@@ -38,18 +38,18 @@
 ### GBNP.SGrobnerLoops
 ### - The loop in the SGrobner basis computation
 ###
-###  
-### Assumptions: 
+###
+### Assumptions:
 ### - G is a list of clean polynomials all of whose minimal S polynomials
 ###   have a rewritten form wrt G  lying in todo.
 ###   the arguments are preserved! So it is really a routine
 ###   acting on the lists G and todo
-### 
+###
 ### Arguments:
 ### G		- list of non-commutative polynomials
 ### todo	- list of non-commutative polynomials
 ###
-### observe:    - this loop may never end: the noncommutative GB is 
+### observe:    - this loop may never end: the noncommutative GB is
 ###               not guaranteed to terminate: in general the word problem
 ###               is unsolvable.
 ### #GBNP.SGrobnerLoops  uses:#
@@ -57,7 +57,7 @@
 ###
 
 GBNP.SGrobnerLoops := function(G,todo,funcs) local i,lG,count,ltspoly,spoly,sltspoly,spo,l,h,Gset,genlist,b,OT,todoheap,iterations;
- 
+
 
     if not IsBound(funcs.pg) then
     	funcs.pg:=GBNP.GetOptions().pg;
@@ -69,11 +69,11 @@ GBNP.SGrobnerLoops := function(G,todo,funcs) local i,lG,count,ltspoly,spoly,slts
     fi;
 
     # if G is empty or one, no iterations are needed
-    if (G=[]) or (Length(G)=1 and G[1][1]=[[]] and IsOne(G[1][2][1])) then 
+    if (G=[]) or (Length(G)=1 and G[1][1]=[[]] and IsOne(G[1][2][1])) then
       return rec(G:=G, todo:=[], completed:=true, iterations:=0);
     fi;
 
-    
+
     genlist:=[1..Maximum(Flat(List(G,x->x[1])))]; # largest generator used in G
     Gset:=List(LMonsNP(G),x->BlistList(genlist,Set(x)));
     OT:=rec();
@@ -85,31 +85,31 @@ GBNP.SGrobnerLoops := function(G,todo,funcs) local i,lG,count,ltspoly,spoly,slts
     OT.GR:=GBNP.CreateOccurTreePTSLR(LMonsNP(G),funcs.pg,false);
 
     OT.todoL:=GBNP.CreateOccurTreePTSLR(LMonsNP(todo),funcs.pg,true);
-    lG:=Length(G); 
+    lG:=Length(G);
     todoheap:=THeapOT(todo, OT.todoL);
     #Print("debug: start\n");
     #GBNP.THeapOTCheck(todoheap);
     #Print("debug: start 2\n");
     count:=[Length(todoheap)];
     iterations:=0;
-    while not IsTHeapOTEmpty(todoheap) do  
+    while not IsTHeapOTEmpty(todoheap) do
       iterations:=iterations+1;
 
 # Fase IIIa, Take the first element 'spoly' of todo and add it to 'G'
 # - Take the first element of the todo list and remove it from todo
 # - Add this to the basis
 
-      spoly:=HeapMin(todoheap); 
+      spoly:=HeapMin(todoheap);
       ltspoly := spoly[1][1];
       sltspoly:=BlistList(genlist,Set(ltspoly)); # jwk -set
       Info(InfoGBNP,3,"added Spolynomial is:\n", spoly);
-      Add(G,spoly); 
+      Add(G,spoly);
       Add(Gset,sltspoly); 	# jwk - Gset/todoset
-      Remove(todoheap,1); 	# only remove after it is added to G 
+      Remove(todoheap,1); 	# only remove after it is added to G
       		# XXX this removing might be expensive for large todo lists,
 		# it might be worthwhile to implement todo as a 3-tree
-      	
-      lG:=lG+1; 
+
+      lG:=lG+1;
 
       # update the tree
       GBNP.AddMonToTreePTSLR(ltspoly,-1,OT.GL,true);
@@ -123,12 +123,12 @@ GBNP.SGrobnerLoops := function(G,todo,funcs) local i,lG,count,ltspoly,spoly,slts
 # Fase IIIc, reduce the list G with the new polynomial 'spoly'
 
       if not IsBound(funcs.SkipIIIc) then
-      
+
         i:=1;
         l:=lG;
-        while i < l do 
+        while i < l do
           h := G[i];
-	      b:=IsSubsetBlist(Gset[i],sltspoly) and 
+	      b:=IsSubsetBlist(Gset[i],sltspoly) and
 	      	  GBNP.Occur(ltspoly,h[1][1]) > 0;
   	  if b=true then # -jwk check for set
               RemoveElmList(G,i);
@@ -136,22 +136,22 @@ GBNP.SGrobnerLoops := function(G,todo,funcs) local i,lG,count,ltspoly,spoly,slts
 	      GBNP.RemoveMonFromTreePTSLR(h[1][1],i,OT.GL,true);
 	      GBNP.RemoveMonFromTreePTSLR(h[1][1],i,OT.GR,false);
 
-	      spo:=GBNP.StrongNormalForm2Tall(h,G,todoheap!.list,OT,funcs); 
+	      spo:=GBNP.StrongNormalForm2Tall(h,G,todoheap!.list,OT,funcs);
 	      # XXX uses todo XXX
-              if spo = [[],[]] then 
-                  lG:=lG-1;          
+              if spo = [[],[]] then
+                  lG:=lG-1;
               else
 	          Add(G,MkMonicNP(spo));
 	          Add(Gset,BlistList(genlist,Set(spo[1][1])));
 	          GBNP.AddMonToTreePTSLR(spo[1][1],-1,OT.GL,true);
 	          GBNP.AddMonToTreePTSLR(spo[1][1],-1,OT.GR,false);
 
-                  funcs.CentralT(lG,G,todoheap,OT,funcs); # - jwk use tree variant 
+                  funcs.CentralT(lG,G,todoheap,OT,funcs); # - jwk use tree variant
                   GBNP.ObsTall(lG,G,todoheap,OT,funcs); # - jwk use tree variant, no sorting needed here
               fi;
-              l:=l-1;            
-          else  
-              i:=i+1; 
+              l:=l-1;
+          else
+              i:=i+1;
           fi;
         od;
       fi;
@@ -164,7 +164,7 @@ GBNP.SGrobnerLoops := function(G,todo,funcs) local i,lG,count,ltspoly,spoly,slts
       i:=1;
       while i <= l do
           h := todoheap[i];
-	  # b is true if h can be reduced 
+	  # b is true if h can be reduced
 	  # first check G
 	  b:= GBNP.OccurInLstT(h[1][1],OT.GL)[1] +
 	  # then check todo
@@ -172,11 +172,11 @@ GBNP.SGrobnerLoops := function(G,todo,funcs) local i,lG,count,ltspoly,spoly,slts
 	          GBNP.LookUpOccurTreeAllLstPTSLR(h[1][1],OT.todoL,true), i
 	      )[1] > 0;
   	  if b=true then # -jwk check for set
-              #Remove(todoheap,i); 
+              #Remove(todoheap,i);
 	      #GBNP.RemoveMonFromTreePTSLR(h[1][1],i,OT.todoL,true);
-	      spo:=GBNP.StrongNormalForm3Dall(h,G,todoheap,OT,funcs,i); 
-              if spo<>[[],[]] then 
-	          Replace(todoheap,i,MkMonicNP(spo)); 
+	      spo:=GBNP.StrongNormalForm3Dall(h,G,todoheap,OT,funcs,i);
+              if spo<>[[],[]] then
+	          Replace(todoheap,i,MkMonicNP(spo));
 		  # allowed because: replacing an element in the todo heap with
 		  # a smaller element does not effect elements with a higher
 		  # index (but may change parent-nodes of the element that was
@@ -185,16 +185,16 @@ GBNP.SGrobnerLoops := function(G,todo,funcs) local i,lG,count,ltspoly,spoly,slts
 	          #GBNP.AddMonToTreePTSLR(spo[1][1],i,OT.todoL,true);
                   i:=i+1;
 	      else
-        	  l:=l-1; 
+        	  l:=l-1;
 		  Remove(todoheap,i);
        	      fi;
-          else 
+          else
               i:=i+1;
-          fi; 
-      od; 
-      Info(InfoGBNP,2,"length of todo is ",l); 
-      Info(InfoGBNP,4,"elements are\n",todoheap!.list); 
-      Add(count,l); 
+          fi;
+      od;
+      Info(InfoGBNP,2,"length of todo is ",l);
+      Info(InfoGBNP,4,"elements are\n",todoheap!.list);
+      Add(count,l);
 
       if (GBNP.cleancount > 0) and (Length(count) mod GBNP.cleancount = 0) then
       	GBNP.cleanpolys:=true;
@@ -222,7 +222,7 @@ GBNP.SGrobnerLoops := function(G,todo,funcs) local i,lG,count,ltspoly,spoly,slts
 	  );
 	fi;
       fi;
-    od; 
+    od;
     Info(InfoGBNP,2,"List of todo lengths is ",count);
     return rec(G:=G, todo:=[], completed:=true, iterations:=iterations);
 end;
@@ -242,7 +242,7 @@ end;
 ###
 ### Returns:
 ### - a strong Gröbnerbasis of I
-### 
+###
 ### #GBNP.SGrobnerLoop uses: GBNP.SGrobnerLoops#
 ### #GBNP.SGrobnerLoop is used in:#
 ###
@@ -371,12 +371,12 @@ GBNP.SGrobnerLoopPTSRec:=rec(
 	PTS		:=	true
 );
 
-################## 
+##################
 ### GBNP.SGrobnerTraceLoop
-### - Computing a grobner basis 
-### (loop of the algorithm).  
-###  
-### 
+### - Computing a grobner basis
+### (loop of the algorithm).
+###
+###
 ### Arguments:
 ### G		- set of non-commutative polynomials
 ### todo	- list of non trivial S-polynomials.
@@ -390,25 +390,25 @@ GBNP.SGrobnerLoopPTSRec:=rec(
 
 GBNP.SGrobnerTraceLoop:=function(G,todo) local i,j,count,ltspoly,spoly,spo,temp,lt;
 
-    j:=Length(G); 
-    count:=[Length(todo)]; 
-    while todo <> [] do  
-  
+    j:=Length(G);
+    count:=[Length(todo)];
+    while todo <> [] do
+
 # Fase IIIa, Take the first element 'spoly' of todo and add it to 'G'
 # - Take the first element of the todo list and remove it from todo
 # - Add this to the basis
 
       temp:=StructuralCopy(todo[1]);
-      todo:=todo{[2..Length(todo)]}; 
-      ltspoly := temp.pol[1][1]; 
-  
+      todo:=todo{[2..Length(todo)]};
+      ltspoly := temp.pol[1][1];
+
       Add(G,temp);
-      j:=j+1; 
+      j:=j+1;
 
 
 # Fase IIIb, update todo
 
-      GBNP.ObsTrace(j,G,todo); 
+      GBNP.ObsTrace(j,G,todo);
 
 
 # Fase IIIc, reduce the set G with the new polynomial 'term.pol'
@@ -416,67 +416,67 @@ GBNP.SGrobnerTraceLoop:=function(G,todo) local i,j,count,ltspoly,spoly,spo,temp,
 
       i:=1;
       lt:=j;
-      while i < lt do 
-        if PositionSublist(G[i].pol[1][1],ltspoly) <> fail  
-        then 
+      while i < lt do
+        if PositionSublist(G[i].pol[1][1],ltspoly) <> fail
+        then
            spo:= StructuralCopy(G[i]);
 	       RemoveElmList(G,i);
                spo:=GBNP.StrongNormalFormTrace2(spo,G,todo);
-               if spo.pol=[[],[]] 
-                   then 
-                     j:=j-1;    
-                   else 	
-		     spo:=GBNP.MkMonicNPTrace(spo);  
-		     Add(G,StructuralCopy(spo)); 
-  		     GBNP.CentralTrace(j,G,todo);              
+               if spo.pol=[[],[]]
+                   then
+                     j:=j-1;
+                   else
+		     spo:=GBNP.MkMonicNPTrace(spo);
+		     Add(G,StructuralCopy(spo));
+  		     GBNP.CentralTrace(j,G,todo);
 		     GBNP.ObsTrace(j,G,todo);
-             fi;              
+             fi;
 	     lt:=lt-1;
-                     else         
-         i:=i+1; 
-        fi; 
+                     else
+         i:=i+1;
+        fi;
       od;
       Info(InfoGBNP,2,"j =",j);
 
- 
+
 # Fase IIId, reducing todo with respect to 'ter,.pol'
 
       lt:=Length(todo);
       i:=1;
       while i <= lt do
-        if PositionSublist(todo[i].pol[1][1],ltspoly) <> fail 
+        if PositionSublist(todo[i].pol[1][1],ltspoly) <> fail
            then
 		spo:=StructuralCopy(todo[i]);
 	        RemoveElmList(todo,i);
-                spo :=GBNP.StrongNormalFormTrace2(spo,G,todo);  
-               if spo.pol=[[],[]]        
-                   then 
-                        lt:=lt-1; 
+                spo :=GBNP.StrongNormalFormTrace2(spo,G,todo);
+               if spo.pol=[[],[]]
+                   then
+                        lt:=lt-1;
                    else
 			spo:=GBNP.MkMonicNPTrace(spo);
                         InsertElmList(todo,i,StructuralCopy(spo));
                         i:=i+1;
-                fi;  
-           else 
+                fi;
+           else
                 i:=i+1;
-        fi; 
-      od; 
-      Info(InfoGBNP,2,"Current number of elements in todo is ",lt); 
-      Add(count,lt); 
-    od; 
-    Info(InfoGBNP,1,"List of todo lengths is ",count); 
+        fi;
+      od;
+      Info(InfoGBNP,2,"Current number of elements in todo is ",lt);
+      Add(count,lt);
+    od;
+    Info(InfoGBNP,1,"List of todo lengths is ",count);
 end;;
 
 
-################## 
+##################
 ### GBNP.ObsTall
-### - Finding all self, left and right obstructions of u, leading term of G[j], 
-### w.r.t. the list of leading terms of G. 
+### - Finding all self, left and right obstructions of u, leading term of G[j],
+### w.r.t. the list of leading terms of G.
 ### - uses lterm-sets
-### 
-### Assumptions: 
-### - Central obstructions are already done, so only self, left and right. 
-### 
+###
+### Assumptions:
+### - Central obstructions are already done, so only self, left and right.
+###
 ### Arguments:
 ### j	 	- index of a non-commutative polynomial in G
 ### G		- list of non-commutative polynomials
@@ -489,9 +489,9 @@ end;;
 ### #GBNP.ObsTall is used in: GBNP.AllObs GBNP.SGrobnerLoops#
 ###
 
-GBNP.ObsTall:=function(j,G,todo,OT,funcs) 
+GBNP.ObsTall:=function(j,G,todo,OT,funcs)
 local R,sob,ob,temp,temp2,obs,spo,added;
-   R:=LMonsNP(G); 
+   R:=LMonsNP(G);
    if IsBound(OT.pGL) then
 	# generating all obstructions: use only a partial tree to generate
 	# obstructions
@@ -518,8 +518,8 @@ local R,sob,ob,temp,temp2,obs,spo,added;
    obs:=Concatenation(temp.obs,temp2.obs);
 
    added:=0;
-   Info(InfoGBNP,5,"ObsTall(",j,"): obs: ",obs); 
-   for ob in obs do 
+   Info(InfoGBNP,5,"ObsTall(",j,"): obs: ",obs);
+   for ob in obs do
      if IsBound(funcs.trunc) then
          temp := GBNP.WeightedDegreeMon(ob[1],funcs.wtv);
          temp := temp + GBNP.WeightedDegreeMon(R[ob[2]],funcs.wtv);
@@ -527,31 +527,31 @@ local R,sob,ob,temp,temp2,obs,spo,added;
      fi;
      # temp:=GBNP.WeightedDegreeMon(Concatenation(ob[1],R[ob[2]],ob[3]),wtv);
      if (not IsBound(funcs.trunc)) or (temp=funcs.k) then
-       spo:=GBNP.Spoly(ob,G); 
-       if spo <> [[],[]] then          
+       spo:=GBNP.Spoly(ob,G);
+       if spo <> [[],[]] then
        		if IsTHeapOT(todo) then
 		   spo:=GBNP.StrongNormalForm2Tall(spo,G,todo!.list,OT,funcs);
 		else
 		   spo:=GBNP.StrongNormalForm2Tall(spo,G,todo,OT,funcs);
 		fi;
-           if spo <> [[],[]] then 
+           if spo <> [[],[]] then
 	       Add(todo,MkMonicNP(spo));
 	       if not IsTHeapOT(todo) then
-	           GBNP.AddMonToTreePTSLR(spo[1][1],-1,OT.todoL,true); # also add it to the tree for 
+	           GBNP.AddMonToTreePTSLR(spo[1][1],-1,OT.todoL,true); # also add it to the tree for
 	       fi;
 	       added:=added+1;
-	   fi; 
-       fi; 
+	   fi;
+       fi;
      fi;
-   od; 
+   od;
    if not IsTHeapOT(todo) then
    	temp:=LMonsNP(todo);
    	temp2:=StructuralCopy(temp);
    	SortParallel(temp,todo,LtNP);
    	GBNP.SortParallelOT(temp2,OT.todoL,LtNP);
    fi;
-   Info(InfoGBNP,3,"ObsTall(",j,"): ",added,"/",Length(obs)," new obstructions added"); 
-end;; 
+   Info(InfoGBNP,3,"ObsTall(",j,"): ",added,"/",Length(obs)," new obstructions added");
+end;;
 
 #################################
 ### GBNP.StrongNormalFormTall ###
@@ -575,7 +575,7 @@ end;;
 GBNP.StrongNormalFormTall:=function(f,G,GLOT,funcs)
 
 	if f=[[],[]] then return f;
-	else 
+	else
 		return GBNP.StrongNormalForm2Tall(f,G,[],rec(GL:=GLOT,
 			todoL:=GBNP.CreateOccurTreePTSLR([],funcs.pg,true)),
 			funcs);
@@ -583,21 +583,21 @@ GBNP.StrongNormalFormTall:=function(f,G,GLOT,funcs)
 end;
 
 
-################### 
+###################
 ### GBNP.StrongNormalForm2Tall
-### - Computes the strong normal form of a non-commutative polynomial 
+### - Computes the strong normal form of a non-commutative polynomial
 ### - occur trees
-###   
-### Assumptions: 
-### -  monomials of each polynomial are ordered. (highest degree first) 
-### -  polynomials in G union G2 are monic and clean. 
-### -  polynomial f is clean. 
+###
+### Assumptions:
+### -  monomials of each polynomial are ordered. (highest degree first)
+### -  polynomials in G union G2 are monic and clean.
+### -  polynomial f is clean.
 ### -  polynomial f is not empty (that is, f <> [[],[]]).
-### 
+###
 ### Arguments:
 ### f	 	- a non-commutative polynomial
-### G		- list of non-commutative polynomials 
-### G2		- list of non-commutative polynomials 
+### G		- list of non-commutative polynomials
+### G2		- list of non-commutative polynomials
 ### Gset	- list of the leading term-sets
 ### G2set	- list of the leading term-sets
 ###
@@ -607,67 +607,67 @@ end;
 ### #GBNP.StrongNormalForm2Tall uses: AddNP BimulNP GBNP.OccurInLstT GBNP.ReduceCancellation#
 ### #GBNP.StrongNormalForm2Tall is used in: GBNP.CentralT GBNP.ObsTall GBNP.SGrobnerLoops GBNP.StrongNormalFormTall IsGrobnerPair MakeGrobnerPair#
 ###
- 
-GBNP.StrongNormalForm2Tall:=function(f,G,G2,OT,funcs) 
+
+GBNP.StrongNormalForm2Tall:=function(f,G,G2,OT,funcs)
     local g,h,i1,i2,j,l,dr,ga,tt,lth,iid;
-    tt:=Runtime(); 
-    h:=StructuralCopy(f); 
-    iid := 1; 
+    tt:=Runtime();
+    h:=StructuralCopy(f);
+    iid := 1;
     repeat # iid <= Length(h[i]) since h=f is nonempty
-      lth:=h[1][iid]; 
+      lth:=h[1][iid];
       i1:=GBNP.OccurInLstT(lth,OT.GL);
       i2:=GBNP.OccurInLstT(lth,OT.todoL);
-      while i1[1]+i2[1]>0 do 
+      while i1[1]+i2[1]>0 do
             if i1[1]>0 then
-		g:=G[i1[1]]; 
-		ga:=lth{[1..i1[2]-1]}; 
-		dr:=lth{[i1[2]+Length(g[1][1])..Length(lth)]}; 
-		h:=AddNP(h,BimulNP(ga,g,dr),One(g[2][1]),-h[2][iid]/g[2][1]); 
-                if h=[[],[]] then return(h);  fi; 
-                if iid <= Length(h[1]) then 
-                   lth := h[1][iid];  
-      		   i1:=GBNP.OccurInLstT(lth,OT.GL);
-      		   i2:=GBNP.OccurInLstT(lth,OT.todoL); 
-                else 
-                   return(GBNP.ReduceCancellation(h)); 
-                fi; 
-            elif i2[1]>0 then
-		g:=G2[i2[1]]; 
-		ga:=lth{[1..i2[2]-1]}; 
-		dr:=lth{[i2[2]+Length(g[1][1])..Length(lth)]}; 
-		h:=AddNP(h,BimulNP(ga,g,dr),One(g[2][1]),-h[2][iid]/g[2][1]); 
-                if h=[[],[]] then return(h);  fi; 
-                if iid <= Length(h[1]) then 
-                   lth := h[1][iid];  
+		g:=G[i1[1]];
+		ga:=lth{[1..i1[2]-1]};
+		dr:=lth{[i1[2]+Length(g[1][1])..Length(lth)]};
+		h:=AddNP(h,BimulNP(ga,g,dr),One(g[2][1]),-h[2][iid]/g[2][1]);
+                if h=[[],[]] then return(h);  fi;
+                if iid <= Length(h[1]) then
+                   lth := h[1][iid];
       		   i1:=GBNP.OccurInLstT(lth,OT.GL);
       		   i2:=GBNP.OccurInLstT(lth,OT.todoL);
-                else 
-                   return(GBNP.ReduceCancellation(h)); 
-                fi; 
+                else
+                   return(GBNP.ReduceCancellation(h));
+                fi;
+            elif i2[1]>0 then
+		g:=G2[i2[1]];
+		ga:=lth{[1..i2[2]-1]};
+		dr:=lth{[i2[2]+Length(g[1][1])..Length(lth)]};
+		h:=AddNP(h,BimulNP(ga,g,dr),One(g[2][1]),-h[2][iid]/g[2][1]);
+                if h=[[],[]] then return(h);  fi;
+                if iid <= Length(h[1]) then
+                   lth := h[1][iid];
+      		   i1:=GBNP.OccurInLstT(lth,OT.GL);
+      		   i2:=GBNP.OccurInLstT(lth,OT.todoL);
+                else
+                   return(GBNP.ReduceCancellation(h));
+                fi;
             fi;
-       od; 
-       iid := iid+1; 
+       od;
+       iid := iid+1;
     until not (IsBound(funcs.strong) and iid <= Length(h[1]));
     # while (IsBound(funcs.strong) and iid <= Length(h[1]));
 
-    return(GBNP.ReduceCancellation(h)); 
-end;; 
+    return(GBNP.ReduceCancellation(h));
+end;;
 
-################### 
+###################
 ### GBNP.StrongNormalForm3DAll
-### - Computes the strong normal form of a non-commutative polynomial 
+### - Computes the strong normal form of a non-commutative polynomial
 ### - occur trees
-###   
-### Assumptions: 
-### -  monomials of each polynomial are ordered. (highest degree first) 
-### -  polynomials in G union G2 are monic and clean. 
-### -  polynomial f is clean. 
+###
+### Assumptions:
+### -  monomials of each polynomial are ordered. (highest degree first)
+### -  polynomials in G union G2 are monic and clean.
+### -  polynomial f is clean.
 ### -  polynomial f is not empty (that is, f <> [[],[]]).
-### 
+###
 ### Arguments:
 ### f	 	- a non-commutative polynomial
-### G		- list of non-commutative polynomials 
-### G2		- list of non-commutative polynomials 
+### G		- list of non-commutative polynomials
+### G2		- list of non-commutative polynomials
 ### OT		- record with occur trees
 ### j		- item of G2 not to skip
 ###
@@ -677,71 +677,71 @@ end;;
 ### #GBNP.StrongNormalForm2Tall uses: AddNP BimulNP GBNP.OccurInLstT GBNP.ReduceCancellation#
 ### #GBNP.StrongNormalForm2Tall is used in: GBNP.CentralT GBNP.ObsTall GBNP.SGrobnerLoops GBNP.StrongNormalFormTall IsGrobnerPair MakeGrobnerPair#
 ###
- 
-GBNP.StrongNormalForm3Dall:=function(f,G,G2,OT,funcs,skip) 
+
+GBNP.StrongNormalForm3Dall:=function(f,G,G2,OT,funcs,skip)
     local g,h,i1,i2,j,l,dr,ga,tt,lth,iid;
-    tt:=Runtime(); 
-    h:=StructuralCopy(f); 
-    iid := 1; 
+    tt:=Runtime();
+    h:=StructuralCopy(f);
+    iid := 1;
     repeat # iid <= Length(h[i]) since h=f is nonempty
-      lth:=h[1][iid]; 
+      lth:=h[1][iid];
       i1:=GBNP.OccurInLstT(lth,OT.GL);
       i2:=GBNP.LookUpOccurTreeAllLstPTSLR(lth,OT.todoL,true);
       i2:=GBNP.Find3Dnum(i2,skip);
-      while i1[1]+i2[1]>0 do 
+      while i1[1]+i2[1]>0 do
             if i1[1]>0 then
-		g:=G[i1[1]]; 
-		ga:=lth{[1..i1[2]-1]}; 
-		dr:=lth{[i1[2]+Length(g[1][1])..Length(lth)]}; 
-		h:=AddNP(h,BimulNP(ga,g,dr),One(g[2][1]),-h[2][iid]/g[2][1]); 
-                if h=[[],[]] then return(h);  fi; 
-                if iid <= Length(h[1]) then 
-                   lth := h[1][iid];  
+		g:=G[i1[1]];
+		ga:=lth{[1..i1[2]-1]};
+		dr:=lth{[i1[2]+Length(g[1][1])..Length(lth)]};
+		h:=AddNP(h,BimulNP(ga,g,dr),One(g[2][1]),-h[2][iid]/g[2][1]);
+                if h=[[],[]] then return(h);  fi;
+                if iid <= Length(h[1]) then
+                   lth := h[1][iid];
       		   i1:=GBNP.OccurInLstT(lth,OT.GL);
 		   i2:=GBNP.LookUpOccurTreeAllLstPTSLR(lth,OT.todoL,true);
       		   i2:=GBNP.Find3Dnum(i2,skip);
-                else 
-                   return(GBNP.ReduceCancellation(h)); 
-                fi; 
+                else
+                   return(GBNP.ReduceCancellation(h));
+                fi;
             elif i2[1]>0 then
-		g:=G2[i2[1]]; 
-		ga:=lth{[1..i2[2]-1]}; 
-		dr:=lth{[i2[2]+Length(g[1][1])..Length(lth)]}; 
-		h:=AddNP(h,BimulNP(ga,g,dr),One(g[2][1]),-h[2][iid]/g[2][1]); 
-                if h=[[],[]] then return(h);  fi; 
-                if iid <= Length(h[1]) then 
-                   lth := h[1][iid];  
+		g:=G2[i2[1]];
+		ga:=lth{[1..i2[2]-1]};
+		dr:=lth{[i2[2]+Length(g[1][1])..Length(lth)]};
+		h:=AddNP(h,BimulNP(ga,g,dr),One(g[2][1]),-h[2][iid]/g[2][1]);
+                if h=[[],[]] then return(h);  fi;
+                if iid <= Length(h[1]) then
+                   lth := h[1][iid];
       		   i1:=GBNP.OccurInLstT(lth,OT.GL);
 		   i2:=GBNP.LookUpOccurTreeAllLstPTSLR(lth,OT.todoL,true);
       		   i2:=GBNP.Find3Dnum(i2,skip);
-                else 
-                   return(GBNP.ReduceCancellation(h)); 
-                fi; 
+                else
+                   return(GBNP.ReduceCancellation(h));
+                fi;
             fi;
-       od; 
-       iid := iid+1; 
+       od;
+       iid := iid+1;
     until not (IsBound(funcs.strong) and iid <= Length(h[1]));
     # while (IsBound(funcs.strong) and iid <= Length(h[1]));
 
-    return(GBNP.ReduceCancellation(h)); 
-end;; 
+    return(GBNP.ReduceCancellation(h));
+end;;
 
-################### 
+###################
 ### GBNP.StrongNormalForm2TSall
-### - Computes the strong normal form of a non-commutative polynomial 
+### - Computes the strong normal form of a non-commutative polynomial
 ### - occur trees
 ### - special case G[j] reduced by the rest
-###   
-### Assumptions: 
-### -  monomials of each polynomial are ordered. (highest degree first) 
-### -  polynomials in G union G2 are monic and clean. 
-### -  polynomial f is clean. 
+###
+### Assumptions:
+### -  monomials of each polynomial are ordered. (highest degree first)
+### -  polynomials in G union G2 are monic and clean.
+### -  polynomial f is clean.
 ### -  polynomial f is not empty (that is, f <> [[],[]]).
-### 
+###
 ### Arguments:
 ### f	 	- a non-commutative polynomial
-### G		- list of non-commutative polynomials 
-### G2		- list of non-commutative polynomials 
+### G		- list of non-commutative polynomials
+### G2		- list of non-commutative polynomials
 ### Gset	- list of the leading term-sets
 ### G2set	- list of the leading term-sets
 ###
@@ -751,43 +751,43 @@ end;;
 ### #GBNP.StrongNormalForm2TSPTS uses: AddNP BimulNP GBNP.LookUpOccurTreeAllLstPTSLR#
 ### #GBNP.StrongNormalForm2TSPTS is used in: GBNP.ReducePolTailsPTS#
 ###
- 
-GBNP.StrongNormalForm2TSPTS:=function(G,j,GLOT,prefix) 
+
+GBNP.StrongNormalForm2TSPTS:=function(G,j,GLOT,prefix)
     local g,h,il,i1,l,dr,ga,lth,iid;
 
-    h:=StructuralCopy(G[j]); 
-    iid := 1; 
-    while iid <= Length(h[1]) do 
-      lth:=h[1][iid];  
-      if prefix then 
-      	  il:=GBNP.LookUpOccurTreeAllLstPTSLRPos(lth,GLOT,true,1); 
+    h:=StructuralCopy(G[j]);
+    iid := 1;
+    while iid <= Length(h[1]) do
+      lth:=h[1][iid];
+      if prefix then
+      	  il:=GBNP.LookUpOccurTreeAllLstPTSLRPos(lth,GLOT,true,1);
       else
-      	  il:=GBNP.LookUpOccurTreeAllLstPTSLR(lth,GLOT,true); 
+      	  il:=GBNP.LookUpOccurTreeAllLstPTSLR(lth,GLOT,true);
       fi;
       il:=Filtered(il,x->x[1]<>j);
-      while il<>[] do 
+      while il<>[] do
 	   i1:=il[1];
-	   g:=G[i1[1]]; 
-	   ga:=lth{[1..i1[2]-1]}; 
-	   dr:=lth{[i1[2]+Length(g[1][1])..Length(lth)]}; 
-	   h:=AddNP(h,BimulNP(ga,g,dr),One(g[2][1]),-h[2][iid]/g[2][1]); 
-           if h=[[],[]] then return(h);  fi; 
-           if iid <= Length(h[1]) then 
-                lth := h[1][iid];  
-                if prefix then 
-      	            il:=GBNP.LookUpOccurTreeAllLstPTSLRPos(lth,GLOT,true,1); 
+	   g:=G[i1[1]];
+	   ga:=lth{[1..i1[2]-1]};
+	   dr:=lth{[i1[2]+Length(g[1][1])..Length(lth)]};
+	   h:=AddNP(h,BimulNP(ga,g,dr),One(g[2][1]),-h[2][iid]/g[2][1]);
+           if h=[[],[]] then return(h);  fi;
+           if iid <= Length(h[1]) then
+                lth := h[1][iid];
+                if prefix then
+      	            il:=GBNP.LookUpOccurTreeAllLstPTSLRPos(lth,GLOT,true,1);
                 else
-      	            il:=GBNP.LookUpOccurTreeAllLstPTSLR(lth,GLOT,true); 
+      	            il:=GBNP.LookUpOccurTreeAllLstPTSLR(lth,GLOT,true);
                 fi;
       		il:=Filtered(il,x->x[1]<>j);
-           else 
-        	return(h); 
-           fi; 
-       od; 
-       iid := iid+1; 
-    od; 
-    return(h); 
-end;; 
+           else
+        	return(h);
+           fi;
+       od;
+       iid := iid+1;
+    od;
+    return(h);
+end;;
 
 ###########################
 ### GBNP.ReducePolTails ###
@@ -802,28 +802,28 @@ end;;
 ### - funcs
 ###
 ### Returns:
-### 
+###
 ### #GBNP.ReducePolTails uses: GBNP.StrongNormalForm2TS#
 ### #GBNP.ReducePolTails is used in: SGrobner#
 ###
 
 GBNP.ReducePolTails:=function(G,todo,GLOT)
 local 	i,
-	newg, 	
-	count,	
+	newg,
+	count,
 	tt,
 	OT2;
 
-	tt:=Runtime(); 
-	count:=0; 
+	tt:=Runtime();
+	count:=0;
 
 	for i in [1..Length(G)] do
 
 #	directly assigning to G[i] is faster, but doesn't allow statistics
 		newg:=GBNP.StrongNormalForm2TS(G,i,GLOT);
 		#
-		if (newg<>G[i]) then count:=count+1; fi; 
-		G[i]:=newg; 
+		if (newg<>G[i]) then count:=count+1; fi;
+		G[i]:=newg;
 	od;
 
 	Info(InfoGBNP,2,"G: Cleaning finished, ", count, " polynomials reduced");
@@ -844,20 +844,20 @@ end;
 ### - funcs
 ###
 ### Returns:
-### 
+###
 ### #GBNP.ReducePolTailsPTS uses: GBNP.StrongNormalForm2TSPTS#
 ### #GBNP.ReducePolTailsPTS is used in: GBNP.SGrobnerLoops#
 ###
 
 GBNP.ReducePolTailsPTS:=function(G,todo,OT,funcs)
 local 	i,
-	newg, 	
-	count,	
+	newg,
+	count,
 	tt,
 	OT2;
 
-	tt:=Runtime(); 
-	count:=0; 
+	tt:=Runtime();
+	count:=0;
 
 	for i in [1..Length(G)] do
 
@@ -865,8 +865,8 @@ local 	i,
 		newg:=GBNP.StrongNormalForm2TSPTS(G,i,OT.GL,
 				IsBound(funcs.PTS));
 		#
-		if (newg<>G[i]) then count:=count+1; fi; 
-		G[i]:=newg; 
+		if (newg<>G[i]) then count:=count+1; fi;
+		G[i]:=newg;
 	od;
 
 	Info(InfoGBNP,2,"G: Cleaning finished, ", count, " polynomials reduced");
@@ -897,7 +897,7 @@ local 	nummon,	# the number of monomials in pol
 	n,	# alphabetsize how to get this ?
 	pre,
 	post,
-	new;	
+	new;
 
 	if not IsBound(GBNP.GetOptions().CancellativeMonoid) then
 		return pol;
@@ -906,7 +906,7 @@ local 	nummon,	# the number of monomials in pol
 	n := GBNP.GetOptions().Alphabetsize;
 
 	nummon := Length(pol[1]);
-	if nummon < 2 then 
+	if nummon < 2 then
 		return pol; # cancellation only if there are at least 2 words
 	fi;
 
@@ -918,13 +918,13 @@ local 	nummon,	# the number of monomials in pol
 		sym:=pol[1][1][Length(pol[1][1])];
 		if sym<0 then 		# prefix generator (do not cancel now)
 			same:=false;	# XXX prefix not cancelled
-		fi; 
+		fi;
 		i:=2;
 		while i<=nummon and same do
 			same:=same and pol[1][i][Length(pol[1][i])]=sym;
 			i:=i+1;
 		od;
-	
+
 		if same then
 			for i in [1..nummon] do
 				RemoveElmList(pol[1][i],Length(pol[1][i]));
@@ -966,7 +966,7 @@ end;
 ### -  skip
 ###
 ### Returns:
-### 
+###
 ### #GBNP.Find3Dnum uses:#
 ### #GBNP.Find3Dnum used in:#
 ###

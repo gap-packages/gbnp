@@ -27,7 +27,7 @@ gap> ### FOR COMPUTING WITH NON-COMMUTATIVE POLYNOMIALS
 <Section Label="Example17"><Heading>An algebra over a finite field</Heading>
 A small example over a field other than the rationals, using the conversion
 functions from <Ref Sect="TransitionFunctions"/>.
-The input relations define the symmetric group of degree 3, 
+The input relations define the symmetric group of degree 3,
 denoted <M>S_3</M>.
 <P/>
 First load the package and set the standard infolevel <Ref
@@ -60,13 +60,13 @@ print them with <Ref Func="PrintNPList" Style="Text"/>:
 
 <Listing><![CDATA[
 gap> KI_GP := [ g[1]^2-g[1]^0, g[2]^2-g[1]^0, (g[1]*g[2])^3-g[1]^0];
-[ (Z(2)^0)*<identity ...>+(Z(2)^0)*a^2, (Z(2)^0)*<identity ...>+(Z(2)^0)*b^2, 
+[ (Z(2)^0)*<identity ...>+(Z(2)^0)*a^2, (Z(2)^0)*<identity ...>+(Z(2)^0)*b^2,
   (Z(2)^0)*<identity ...>+(Z(2)^0)*(a*b)^3 ]
 gap> KI:=GP2NPList(KI_GP);;
 gap> PrintNPList(KI);
- a^2 + Z(2)^0 
- b^2 + Z(2)^0 
- ababab + Z(2)^0 
+ a^2 + Z(2)^0
+ b^2 + Z(2)^0
+ ababab + Z(2)^0
 ]]></Listing>
 
 Now calculate the Gröbner basis with <Ref Func="SGrobner" Style="Text"/> and
@@ -90,14 +90,14 @@ gap> GB:=SGrobner(KI);;
 #I  End of phase IV
 #I  The computation took 0 msecs.
 gap> PrintNPList(GB);
- a^2 + Z(2)^0 
- b^2 + Z(2)^0 
- bab + aba 
+ a^2 + Z(2)^0
+ b^2 + Z(2)^0
+ bab + aba
 ]]></Listing>
 
 Now calculate the dimension of the quotient algebra with <Ref Func="DimQA"
-Style="Text"/> (2 symbols) and a base with <Ref Func="BaseQA" Style="Text"/> 
-(2 symbols, 0 for whole base) and print the base. 
+Style="Text"/> (2 symbols) and a base with <Ref Func="BaseQA" Style="Text"/>
+(2 symbols, 0 for whole base) and print the base.
 This will give a list of elements of the group.
 
 <Listing><![CDATA[
@@ -105,12 +105,12 @@ gap> DimQA(GB,2);
 6
 gap> B:=BaseQA(GB,2,0);;
 gap> PrintNPList(B);
- Z(2)^0 
- a 
- b 
- ab 
- ba 
- aba 
+ Z(2)^0
+ a
+ b
+ ab
+ ba
+ aba
 ]]></Listing>
 
 We can print the Gröbner basis and the basis of the quotient algebra,
@@ -120,10 +120,10 @@ argument. The result is useful for further computations in <M>A</M>.
 
 <Listing><![CDATA[
 gap> NP2GPList(GB,A);
-[ (Z(2)^0)*a^2+(Z(2)^0)*<identity ...>, (Z(2)^0)*b^2+(Z(2)^0)*<identity ...>, 
+[ (Z(2)^0)*a^2+(Z(2)^0)*<identity ...>, (Z(2)^0)*b^2+(Z(2)^0)*<identity ...>,
   (Z(2)^0)*b*a*b+(Z(2)^0)*a*b*a ]
 gap> NP2GPList(B,A);
-[ (Z(2)^0)*<identity ...>, (Z(2)^0)*a, (Z(2)^0)*b, (Z(2)^0)*a*b, 
+[ (Z(2)^0)*<identity ...>, (Z(2)^0)*a, (Z(2)^0)*b, (Z(2)^0)*a*b,
   (Z(2)^0)*b*a, (Z(2)^0)*a*b*a ]
 ]]></Listing>
 
