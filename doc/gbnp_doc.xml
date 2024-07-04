@@ -536,7 +536,9 @@ algebra with the same growth).
 		<#Include Label="GtNP">
 		<#Include Label="LtNP">
 		<#Include Label="LMonsNP"> <!-- here ?? -->
+		<#Include Label="LTermsNP"> 
 		<#Include Label="MkMonicNP">
+		<#Include Label="FactorOutGcdNP">
 		<#Include Label="MulNP">
 	</Section>
 	<Section Label="grobner"><Heading>Gröbner functions, standard variant</Heading>

@@ -471,6 +471,26 @@ PrintNPList(List(LMonsNP(Lnp), q -> [[q],[1]]));
 
 # <#/GAPDoc>
 
+# <#GAPDoc Label="example-LTermNP">
+# <E>Example:</E>
+# We put two polynomials in NP format into the list <C>Lnp</C>.
+# <L>
+p1 := [[[1,1,2],[1]],[6,-7]];;
+p2 := [[[1,2,2],[2]],[8,-9]];;
+Lnp := [p1,p2];;
+# </L>
+
+# The leading term of a polynomial is returned by <C>LTermNP</C>, 
+# and the list of leading terms is computed by <C>LTermsNP</C>:
+
+# <L>
+LTermNP(p1);
+LTnp := LTermsNP( Lnp );
+PrintNPList( LTnp ); 
+# </L>
+
+# <#/GAPDoc>
+
 # <#GAPDoc Label="example-MkMonicNP">
 # <E>Example:</E>
 # Consider the following polynomial in NP format.
@@ -479,13 +499,30 @@ p := [[[1,1,2],[]],[2,-1]];;
 PrintNP(p);
 # </L>
 
-# The coefficient of the leading term is <M>2</M>. The function <C>MkMonicNP</C> finds
-# this coefficient and divides all terms by it:
-
+# The coefficient of the leading term is <M>2</M>. 
+# The function <C>MkMonicNP</C> finds this coefficient 
+# and divides every term by it:
 # <L>
 PrintNP(MkMonicNP(p));
 # </L>
+# <#/GAPDoc>
 
+# <#GAPDoc Label="example-FactorOutGcdNP">
+# <E>Example:</E>
+# Consider the following polynomial in NP format.
+# <L>
+p := [[[1,1,2],[1,2],[1]],[30,70,105]];;
+PrintNP(p);
+# </L>
+
+# The <C>Gcd</C> of the coefficients <M>[30,70,105]</M> is <M>5</M>.
+# The function <C>FactorOutGcdNP</C> divides the polynomial by <M>5</M>:
+
+# <L>
+PrintNP(FactorOutGcdNP(p));
+m := MkMonicNP(p);
+#</L>
+fm := FactorOutGcdNP(m);
 # <#/GAPDoc>
 
 

@@ -19,15 +19,21 @@
 
 ### filename = "nparith.gi"
 ### vs 0.9
+### (04/09/23) added LMonNP, LTermNP and LTermsNP 
+### (21/09/23) added FactorOutGcdNP 
  
 ### THIS IS PART OF A GAP PACKAGE FOR COMPUTING WITH NON-COMMUTATIVE POLYNOMIALS
  
 #AddNP:=function(u,v,c,d) local ans,hlp; -> now in nparith3.gi
 #LtNP:=function(u,v)  
 #GtNP:=function(u,v)  
-#LMonsNP:=function(pol) local i;
+#LMonNP:=function(pol)
+#LMonsNP:=function(lst)
+#LTermNP:=function(pol)
+#LTermsNP:=function(lst)
 #CleanNP:=function(pol) local i,h,l,v,mons,polh,coeffs,ansmons,anscoeffs;   
 #MkMonicNP:=function(pol)
+#FactorOutGcdNP:=function(pol)
 #BimulNP:=function(ga,u,dr) local i,ans; 
 #MulNP:=function(u,v) local ans,i,j;
 #GBNP.LTermsTrace:=function(pol) local i;
@@ -72,14 +78,9 @@
 ### #AddNP is used in: EvalTrace GBNP.GP2NPM GBNP.IsGrobnerBasisTest GBNP.NormalForm2 GBNP.NormalForm2T GBNP.Spoly GBNP.SpolyTrace GBNP.StrongNormalForm2 GBNP.StrongNormalForm2TS GBNP.StrongNormalForm2TSPTS GBNP.StrongNormalForm2Tall GBNP.StrongNormalForm3Dall GBNP.StrongNormalFormTrace2 GBNP.TraceNP StrongNormalFormTraceDiff#
 ###
 
-InstallGlobalFunction(
-AddNP,function(u,v,c,d)
-local lans,ans,
-	posu,posv,posans,
-	ulen,vlen,co;
-
+InstallGlobalFunction( AddNP, function(u,v,c,d)
+    local lans,ans,posu,posv,posans,ulen,vlen,co;
 	ans:=[[],[]];
- 
  	# don't add the polynomial if the coefficient is zero
         if IsZero(c) then
 		u:=[[],[]];
@@ -204,40 +205,43 @@ end);;
 ### #GtNP is used in:#
 ###
 
-InstallGlobalFunction(
-GtNP,function(u,v)  
+InstallGlobalFunction( GtNP, function(u,v)  
     if Length(u)>Length(v) then  
 	   return(true); 
     elif Length(u)=Length(v) then  
 	       return(u>v); 
-    else return(false); 
+    else 
+        return(false); 
     fi; 
 end);; 
  
 ################## 
-### LMonsNP
+### LMonNP and LMonsNP
 ###
 ### <#GAPDoc Label="LMonsNP">
 ### <ManSection>
+### <Func Name="LMonNP" Comm="returns the leading monomial of a noncommutative polynomial" Arg="Lnp" />
 ### <Func Name="LMonsNP" Comm="returns the leading monomials of a list of noncommutative polynomials" Arg="Lnp" />
 ###
 ### <Returns>
-### A list of leading monomials
+### The leading monomial or a list of leading monomials.
 ### </Returns>
 ###
 ### <Description>
-### This function returns the leading monomials of a list <A>Lnp</A>
-### of polynomials in NP format. The polynomials of <A>Lnp</A> are required to
-### be clean; see Section <Ref Sect="CleanNP"/>.
+### These functions return the leading monomial of a polynomial 
+### (resp. the leading monomials of a list of polynomials) in NP format. 
+### The polynomials of <A>Lnp</A> are required to be clean; 
+### see Section <Ref Sect="CleanNP"/>.
 ### <P/>
 ### <#Include Label="example-LMonsNP">
 ### </Description>
 ### </ManSection>
 ### <#/GAPDoc>
 ###
-### - Returns the leading monomials of a list of Noncommutative Polynomials.
-### The polynomials are not zero and ordered such that 
-### the leading monomial comes first.
+### - Returns the leading monomial(s) of a (list of) 
+### Noncommutative Polynomials.
+### The polynomials are ordered such that the leading monomial comes first.
+### If the zero polynomial is given as argument then 'fail' is returned.
 ###
 ### Arguments:
 ### pol 	- list of Noncommutative Polynomials
@@ -249,10 +253,74 @@ end);;
 ### #LMonsNP is used in: BaseQA BaseQM DimQA DimQM GBNP.AllObs GBNP.AllObsTrunc GBNP.CentralT GBNP.CheckHom GBNP.IsGrobnerBasisTest GBNP.NormalForm2 GBNP.ObsTall GBNP.ObsTrunc GBNP.ReducePol2 GBNP.SGrobnerLoops GBNP.SGrobnerTrunc GBNP.StrongNormalForm2 IsGrobnerPair MakeGrobnerPair THeapOT#
 ###
 
-InstallGlobalFunction(
-LMonsNP,function(pol) local i;
-    return(List(pol,i->i[1][1])); 
+InstallGlobalFunction( LMonNP, function(pol)
+    if IsZero(pol) then 
+        return fail; 
+    else
+        return pol[1][1]; 
+    fi;
 end); 
+ 
+InstallGlobalFunction(LMonsNP, lst -> List(lst,LMonNP));
+ 
+################## 
+### LTermNP and LTermsNP
+###
+### <#GAPDoc Label="LTermsNP">
+### <ManSection>
+### <Func Name="LTermNP" Comm="returns the leading term of a noncommutative polynomial" Arg="Lnp" />
+### <Func Name="LTermsNP" Comm="returns the leading terms of a list of noncommutative polynomials" Arg="Lnp" />
+###
+### <Returns>
+### The leading term or a list of leading terms.
+### </Returns>
+###
+### <Description>
+### These functions return the leading term of a polynomial 
+### (resp. the leading terms of a list of polynomials) in NP format. 
+### The polynomials of <A>Lnp</A> are required to be clean; 
+### see Section <Ref Sect="CleanNP"/>.
+### <P/>
+### </Description>
+### </ManSection>
+### <Example>
+### gap> p1 := [[[1,1,2],[1]],[6,-7]];;
+### gap> p2 := [[[1,2,2],[2]],[8,-9]];;
+### gap> Lnp := [p1,p2];;
+### gap> LTermNP( p1 );             
+### [ [ [ 1, 1, 2 ] ], [ 6 ] ]
+### gap> LTnp := LTermsNP( Lnp );
+### [ [ [ [ 1, 1, 2 ] ], [ 6 ] ], [ [ [ 1, 2, 2 ] ], [ 8 ] ] ]
+### gap> PrintNPList( LTnp );
+### 6a^2b 
+### 8ab^2 
+### </Example>
+### <#/GAPDoc>
+###
+### - Returns the leading term(s) of a (list of) 
+### Noncommutative Polynomials.
+### The polynomials are ordered such that the leading monomial comes first.
+### If the zero polynomial is given as argument then 'fail' is returned.
+###
+### Arguments:
+### pol     - list of Noncommutative Polynomials
+###
+### Returns:
+### - a list of leading monomials
+###
+### #LTermNP uses:#
+### #LTermNP is used in:#
+###
+
+InstallGlobalFunction( LTermNP, function(pol)
+    if IsZero(pol) then 
+        return fail; 
+    else
+        return [ [ pol[1][1] ], [ pol[2][1] ] ]; 
+    fi;
+end); 
+ 
+InstallGlobalFunction(LTermsNP, lst -> List(lst,LTermNP)); 
  
 ################## 
 ### CleanNP
@@ -284,8 +352,8 @@ end);
 ### #CleanNP is used in: CheckHomogeneousNPs EvalTrace GBNP.GP2NPM GBNP.IsGrobnerBasisTest GBNP.MakeGrobnerPairMakeMonic GBNP.NPArray2NPM GBNP.ReducePol GBNP.ReducePolTrace GP2NP IsGrobnerPair MulNP StrongNormalFormNP#
 ###
 
-InstallGlobalFunction(
-CleanNP,function(pol) local i,h,l,v,mons,polh,coeffs,ansmons,anscoeffs;   
+InstallGlobalFunction( CleanNP, function(pol) 
+    local i,h,l,v,mons,polh,coeffs,ansmons,anscoeffs;   
     polh:=StructuralCopy(pol); 
     SortParallel(polh[1],polh[2],GtNP); 
     mons:=polh[1]; 
@@ -344,11 +412,63 @@ end);;
 ### #MkMonicNP is used in: GBNP.CentralT GBNP.IsGrobnerBasisTest GBNP.MakeGrobnerPairMakeMonic GBNP.ObsTall GBNP.ObsTrunc GBNP.ReducePol GBNP.ReducePol2 GBNP.SGrobnerLoops IsGrobnerPair StrongNormalFormNP#
 ###
 
-InstallGlobalFunction(
-MkMonicNP,function(pol)
-    if pol=[[],[]] then return(pol); fi; 
-    if IsOne(pol[2][1]) then return(pol); fi;  
+InstallGlobalFunction( MkMonicNP, function(pol)
+    if pol=[[],[]] then 
+        return(pol); 
+    fi; 
+    if IsOne(pol[2][1]) then 
+        return(pol); 
+    fi;  
     return([pol[1],pol[2]/pol[2][1]]); 
+end);; 
+ 
+################## 
+### FactorOutGcdNP
+### <#GAPDoc Label="FactorOutGcdNP">
+### <ManSection>
+### <Func Name="FactorOutGcdNP" 
+### Comm="divides an NP polynomial with integer coefficients by 
+### the Gcd of its coefficients." Arg="np" />
+### <Returns>
+### <A>np</A> with Gcd(coefficients) factored out
+### </Returns>
+### <Description>
+### This function returns the scalar multiple of a polynomial
+### <A>np</A> in NP format with integer coefficients 
+### such that its coefficients have Gcd equal to 1. 
+### If the coefficients are not all integers then <C>fail</C> is returned.
+### <P/>
+### <#Include Label="example-FactorOutGcdNP">
+### </Description>
+### </ManSection>
+### <#/GAPDoc>
+### - Makes a non-commutative polynomial with integer coeffiecients 
+###   into one whose coefficients have Gcd equal to 1. 
+### 
+### Assumptions:  
+### - The polynomial is cleaned.
+### - The leading term comes first. 
+###
+### Arguments:
+### pol         - non-commutative polynomial
+###
+### Returns:
+### pol        - the non-commutative polynomial divided by Gcd(coefficients)
+###
+### #FactorOutGcdNP uses:#
+### #FactorOutGcdNP is used in: #
+###
+
+InstallGlobalFunction( FactorOutGcdNP, function(pol) 
+    local g;
+    if pol=[[],[]] then 
+        return(pol); 
+    fi; 
+    if not ForAll( pol[2], c -> IsInt(c) ) then 
+        return fail; 
+    fi;
+    g := Gcd( pol[2] );
+    return([pol[1],pol[2]/g]); 
 end);; 
  
 ################# 
@@ -384,8 +504,8 @@ end);;
 ### #BimulNP is used in: EvalTrace GBNP.NormalForm2 GBNP.NormalForm2T GBNP.Spoly GBNP.SpolyTrace GBNP.StrongNormalForm2 GBNP.StrongNormalForm2TS GBNP.StrongNormalForm2TSPTS GBNP.StrongNormalForm2Tall GBNP.StrongNormalForm3Dall GBNP.StrongNormalFormTrace2 GBNP.TraceNP#
 ###
 
-InstallGlobalFunction(
-BimulNP,function(ga,u,dr) local i,ans; 
+InstallGlobalFunction( BimulNP, function(ga,u,dr) 
+    local i,ans; 
     ans:=[];  
     for i in u[1] do 
        Add(ans,Concatenation(ga,i,dr)); 
@@ -422,8 +542,8 @@ end);;
 ### #MulNP is used in: MulQA MulQM SGrobnerModule#
 ###
 
-InstallGlobalFunction(
-MulNP,function(u,v) local ans,i,j;
+InstallGlobalFunction( MulNP, function(u,v) 
+    local ans,i,j;
     ans:=[[],[]];
     for i in [1..Length(u[1])] do
         for j in [1..Length(v[2])] do
@@ -450,7 +570,7 @@ end);;
 ### #GBNP.LTermsTrace is used in: GBNP.AllObsTrace GBNP.CentralTrace GBNP.ObsTrace GBNP.ReducePolTrace2 GBNP.StrongNormalFormTrace2#
 ###
  
-GBNP.LTermsTrace:=function(G) local i;
+GBNP.LTermsTrace:=function(G)
     return(List(G,i->i.pol[1][1])); 
 end; 
 
