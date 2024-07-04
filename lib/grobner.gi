@@ -543,7 +543,7 @@ GBNP.StrongNormalForm2:=function(f,G,G2)
                 dr:=lth{[i2[2]+Length(g[1][1])..Length(lth)]}; 
                 h:=AddNP(h,BimulNP(ga,g,dr),One(g[2][1]),-h[2][iid]/g[2][1]); 
                 if h=[[],[]] then 
-                    return(h);
+                    return h;
                 fi; 
                 if iid <= Length(h[1]) then 
                     lth := h[1][iid];  
@@ -755,7 +755,7 @@ GBNP.ReducePol:=function(B)
         fi; 
     od; 
     GBNP.ReducePol2(G);
-    return(G);
+    return G;
 end;;
 
 ###################
@@ -1334,7 +1334,7 @@ GBNP.StrongNormalForm2TS:=function(G,j,GLOT)
             dr:=lth{[i1[2]+Length(g[1][1])..Length(lth)]}; 
             h:=AddNP(h,BimulNP(ga,g,dr),One(g[2][1]),-h[2][iid]/g[2][1]); 
             if h=[[],[]] then
-                return(h);
+                return h;
             fi; 
             if iid <= Length(h[1]) then 
                 lth := h[1][iid];  
