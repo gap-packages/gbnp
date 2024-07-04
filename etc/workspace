@@ -24,7 +24,7 @@ export LANG
 #checks for $GAP
 if [ -z "$GAP" ]
 then
-	GAP=gap
+    GAP=gap
 fi
 
 mkdir -p build/pkg/gbnp

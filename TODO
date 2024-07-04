@@ -81,8 +81,8 @@ LONG TERM:
 - reduce PTS routines
 - merge SGrobner variants (some progress made)
 - SGrobnerLoop: ObsT(all) sorts todo, move this to the end of the loop in
-  	SGrobnerloop, combine this with a fase IIId that reduces todo without
-	costly removing/inserting but by using a new StrongNormalForm variant
+  SGrobnerloop, combine this with a fase IIId that reduces todo without
+  costly removing/inserting but by using a new StrongNormalForm variant
 - merge ReducePol (some progress made)
 - tree merge + trace inclusion in "all"
 - 3-HEAP

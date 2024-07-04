@@ -75,7 +75,7 @@ SHORT TERM:
   TODO:
   - (1) check difference between IsGrobnerPair and IsGrobner
     -> 1) elements of a Grobner basis don't have to be monic (can contain <0>)
-    	  or leading coefficients different from <1>
+          or leading coefficients different from <1>
     -> 2) how about being able to reduce with itself /multiple entries ?
           -> seems to be allowed in both cases.
     - decide what to do : combine ?
@@ -152,23 +152,23 @@ Urgent but not directly possible:
 
 NOTES:
 ReducePol2:
-	- trace.gi:GBNP.ReducePolTrace2
+    - trace.gi:GBNP.ReducePolTrace2
 
 ReducePol: (probably no changing)
-	- trace.gi:GBNP.ReducePolTrace
+    - trace.gi:GBNP.ReducePolTrace
 
 ReducePol functions:
 
 grobner.gi:GBNP.ReducePol
-	calls ReducePol2
+    calls ReducePol2
 
-grobner_t.gi:GBNP.ReducePol2		G, GLOT
-	trees, poss prefix-unaware: StrongNormalForm2TS
+grobner_t.gi:GBNP.ReducePol2        G, GLOT
+    trees, poss prefix-unaware: StrongNormalForm2TS
 trace.gi:GBNP.ReducePolTrace2
 trace.gi:GBNP.ReducePolTrace
 
 grobnerloops2.gi:GBNP.ReducePolTailsPTS
-	not a reduce function -> Cleans -> Name is confusing
+    not a reduce function -> Cleans -> Name is confusing
 
 
 
@@ -176,4 +176,4 @@ functions that need to know pg:
 -> now in occurtree, only CreateOccurTreeLR remains
 
 for CreateOccurTreeLR: nog doen tree.g graphs.g fincheck.g
-	AllObs, LeftObsT, RightObsT, ReducePol2, StrongNormalFormT (grobner_t.gi)
+    AllObs, LeftObsT, RightObsT, ReducePol2, StrongNormalFormT (grobner_t.gi)

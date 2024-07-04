@@ -21,38 +21,38 @@
 #checks for $GAP
 if [ -z "$GAP" ]
 then
-	GAP=gap
+    GAP=gap
 fi
 
 EXAMPLES=`cd ./doc/examples &&
-	for i in bound-test*.g example*.g functions.g
-	do
-		 printf "%s" " $i"
-	done | sed -e 's/.g//g'`
+    for i in bound-test*.g example*.g functions.g
+    do
+         printf "%s" " $i"
+    done | sed -e 's/.g//g'`
 
 #echo "EXAMPLES=$EXAMPLES"
 printf "EXAMPLESG="
 for e in $EXAMPLES
 do
-	printf "%s" " ${e}.g"
+    printf "%s" " ${e}.g"
 done
 echo
 printf "EXAMPLESXML="
 for e in $EXAMPLES
 do
-	printf "%s" " ${e}.xml"
+    printf "%s" " ${e}.xml"
 done
 echo
 printf "TESTS="
 for e in $EXAMPLES
 do
-	printf "%s" " ${e}.tst"
+    printf "%s" " ${e}.tst"
 done |sed -e 's/example/test/g' -e 's/functions/test-functions/g' -e 's/bound-test/test-bound/g'
 echo
 printf "TESTSG="
 for e in $EXAMPLES
 do
-	printf "%s" " ${e}.g"
+    printf "%s" " ${e}.g"
 done |sed -e 's/example/test/g' -e 's/functions/test-functions/g' -e 's/bound-test/test-bound/g'
 echo
 echo "GAP=${GAP} -L $(/bin/pwd)/build/gbnp.wks -l \\;$(/bin/pwd)/build"
