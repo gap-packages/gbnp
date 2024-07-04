@@ -5,11 +5,11 @@ gap> # Copyright 2001-2010 by Arjeh M. Cohen, Dié A.H. Gijsbers, Jan Willem
 gap> # Knopper, Chris Krook. Address: Discrete Algebra and Geometry (DAM) group
 gap> # at the Department of Mathematics and Computer Science of Eindhoven
 gap> # University of Technology.
-gap> # 
+gap> #
 gap> # For acknowledgements see the manual. The manual can be found in several
 gap> # formats in the doc subdirectory of the GBNP distribution. The
 gap> # acknowledgements formatted as text can be found in the file chap0.txt.
-gap> # 
+gap> #
 gap> # GBNP is free software; you can redistribute it and/or modify it under
 gap> # the terms of the Lesser GNU General Public License as published by the
 gap> # Free Software Foundation (FSF); either version 2.1 of the License, or
@@ -18,12 +18,12 @@ gap> # the doc subdirectory of the GBNP distribution or see the FSF's own site:
 gap> # https://www.gnu.org/licenses/lgpl.html
 gap> ########################## END COPYRIGHT MESSAGE ##########################
 gap> 
-gap> ### filename = "example02.g" 
+gap> ### filename = "example02.g"
 gap> ### authors Cohen & Gijsbers
 gap> 
-gap> ### THIS IS A GAP PACKAGE FOR COMPUTING NON-COMMUTATIVE GROBNER BASES 
-gap>  
-gap> ### Last change: August 29 2001. 
+gap> ### THIS IS A GAP PACKAGE FOR COMPUTING NON-COMMUTATIVE GROBNER BASES
+gap> 
+gap> ### Last change: August 29 2001.
 gap> ### amc
 gap> 
 gap> # <#GAPDoc Label="Example02">
@@ -56,7 +56,7 @@ gap> n := 8;;
 gap> # </L>
 gap> 
 gap> # Now enter the relations in NP form (see <Ref Sect="NP"/>). The function
-gap> # <Code>MkTrLst</Code> will be introduced, which will return all monomials of 
+gap> # <Code>MkTrLst</Code> will be introduced, which will return all monomials of
 gap> # degree <C>n</C>. The list of ideal generators of interest is called <C>I</C>.
 gap> 
 gap> # <L>
@@ -90,26 +90,26 @@ gap> GBNP.ConfigPrint("a","b","c");
 gap> # To give an impression, we print the first 20 entries of this list:
 gap> # <L>
 gap> PrintNPList(I{[1..20]});
- a^3b - 651/25a^2ba + 651/25aba^2 - ba^3 
- b^3a - 651/25b^2ab + 651/25bab^2 - ab^3 
- a^8 
- a^7b 
- a^6ba 
- a^6b^2 
- a^5ba^2 
- a^5bab 
- a^5b^2a 
- a^5b^3 
- a^4ba^3 
- a^4ba^2b 
- a^4baba 
- a^4bab^2 
- a^4b^2a^2 
- a^4b^2ab 
- a^4b^3a 
- a^4b^4 
- a^3ba^4 
- a^3ba^3b 
+ a^3b - 651/25a^2ba + 651/25aba^2 - ba^3
+ b^3a - 651/25b^2ab + 651/25bab^2 - ab^3
+ a^8
+ a^7b
+ a^6ba
+ a^6b^2
+ a^5ba^2
+ a^5bab
+ a^5b^2a
+ a^5b^3
+ a^4ba^3
+ a^4ba^2b
+ a^4baba
+ a^4bab^2
+ a^4b^2a^2
+ a^4b^2ab
+ a^4b^3a
+ a^4b^4
+ a^3ba^4
+ a^3ba^3b
 gap> # </L>
 gap> 
 gap> # We calculate the Gröbner basis with <Ref Func="SGrobner" Style="Text"/>:
@@ -130,30 +130,30 @@ gap> # Gröbner basis can be printed with <C>PrintNPList(GB)</C>):
 gap> 
 gap> # <L>
 gap> PrintNPList(GB{[1..20]});
- ba^3 - 651/25aba^2 + 651/25a^2ba - a^3b 
- b^3a - 651/25b^2ab + 651/25bab^2 - ab^3 
+ ba^3 - 651/25aba^2 + 651/25a^2ba - a^3b
+ b^3a - 651/25b^2ab + 651/25bab^2 - ab^3
  b^2a^2ba - bab^2a^2 - baba^2b + ba^2bab + ab^2aba - abab^2a - aba^2b^2 + a^2b\
-^2ab 
+^2ab
  b^2ab^2a^2 - 651/25b^2ababa + b^2aba^2b + 626/25bab^2aba - bab^2a^2b + babab^\
 2a - ba^2b^2ab + ba^2bab^2 - 651/25ab^2ab^2a + ab^2abab + 423176/625abab^2ab -\
  423801/625ababab^2 + 626/25aba^2b^3 - 406901/625a^2b^2ab^2 + 423176/625a^2bab\
-^3 - 651/25a^3b^4 
- a^8 
- a^7b 
- a^6ba 
- a^6b^2 
- a^5ba^2 
- a^5bab 
- a^5b^2a 
- a^5b^3 
- a^4ba^2b 
- a^4baba 
- a^4bab^2 
- a^4b^2a^2 
- a^4b^2ab 
- a^4b^4 
- a^3ba^2ba 
- a^3ba^2b^2 
+^3 - 651/25a^3b^4
+ a^8
+ a^7b
+ a^6ba
+ a^6b^2
+ a^5ba^2
+ a^5bab
+ a^5b^2a
+ a^5b^3
+ a^4ba^2b
+ a^4baba
+ a^4bab^2
+ a^4b^2a^2
+ a^4b^2ab
+ a^4b^4
+ a^3ba^2ba
+ a^3ba^2b^2
 gap> # </L>
 gap> 
 gap> # The truncated quotient algebra is obtained by

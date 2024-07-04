@@ -5,11 +5,11 @@ gap> # Copyright 2001-2010 by Arjeh M. Cohen, Dié A.H. Gijsbers, Jan Willem
 gap> # Knopper, Chris Krook. Address: Discrete Algebra and Geometry (DAM) group
 gap> # at the Department of Mathematics and Computer Science of Eindhoven
 gap> # University of Technology.
-gap> # 
+gap> #
 gap> # For acknowledgements see the manual. The manual can be found in several
 gap> # formats in the doc subdirectory of the GBNP distribution. The
 gap> # acknowledgements formatted as text can be found in the file chap0.txt.
-gap> # 
+gap> #
 gap> # GBNP is free software; you can redistribute it and/or modify it under
 gap> # the terms of the Lesser GNU General Public License as published by the
 gap> # Free Software Foundation (FSF); either version 2.1 of the License, or
@@ -18,12 +18,12 @@ gap> # the doc subdirectory of the GBNP distribution or see the FSF's own site:
 gap> # https://www.gnu.org/licenses/lgpl.html
 gap> ########################## END COPYRIGHT MESSAGE ##########################
 gap> 
-gap> ### filename = "example03.g" 
+gap> ### filename = "example03.g"
 gap> ### authors Cohen & Gijsbers
 gap> 
-gap> ### THIS IS A GAP PACKAGE FOR COMPUTING NON-COMMUTATIVE GROBNER BASES 
-gap>  
-gap> ### Last change: August 22 2001. 
+gap> ### THIS IS A GAP PACKAGE FOR COMPUTING NON-COMMUTATIVE GROBNER BASES
+gap> 
+gap> ### Last change: August 22 2001.
 gap> ### amc
 gap> 
 gap> # <#GAPDoc Label="Example03">
@@ -44,7 +44,7 @@ gap> SetInfoLevel(InfoGBNP,1);
 gap> SetInfoLevel(InfoGBNPTime,0);
 gap> # </L>
 gap> 
-gap> # Then input the relations in NP format (see <Ref Sect="NP"/>). 
+gap> # Then input the relations in NP format (see <Ref Sect="NP"/>).
 gap> # They come from the presentation of the Weyl group as a Coxeter group.
 gap> # This means that there are six variables, one for each generator.
 gap> # We let the corresponding variables be printed as <M>r_1</M>, ..., <M>r_6</M> by means of
@@ -92,30 +92,30 @@ gap> # The relations can be shown with <Ref Func="PrintNPList" Style="Text"/>:
 gap> 
 gap> # <L>
 gap> PrintNPList(KI);
- r.1r.3r.1 - r.3r.1r.3 
- r.4r.3r.4 - r.3r.4r.3 
- r.4r.2r.4 - r.2r.4r.2 
- r.4r.5r.4 - r.5r.4r.5 
- r.6r.5r.6 - r.5r.6r.5 
- r.1r.2 - r.2r.1 
- r.1r.4 - r.4r.1 
- r.1r.5 - r.5r.1 
- r.1r.6 - r.6r.1 
- r.2r.3 - r.3r.2 
- r.2r.5 - r.5r.2 
- r.2r.6 - r.6r.2 
- r.3r.5 - r.5r.3 
- r.3r.6 - r.6r.3 
- r.4r.6 - r.6r.4 
- r.1^2 - 1 
- r.2^2 - 1 
- r.3^2 - 1 
- r.4^2 - 1 
- r.5^2 - 1 
- r.6^2 - 1 
+ r.1r.3r.1 - r.3r.1r.3
+ r.4r.3r.4 - r.3r.4r.3
+ r.4r.2r.4 - r.2r.4r.2
+ r.4r.5r.4 - r.5r.4r.5
+ r.6r.5r.6 - r.5r.6r.5
+ r.1r.2 - r.2r.1
+ r.1r.4 - r.4r.1
+ r.1r.5 - r.5r.1
+ r.1r.6 - r.6r.1
+ r.2r.3 - r.3r.2
+ r.2r.5 - r.5r.2
+ r.2r.6 - r.6r.2
+ r.3r.5 - r.5r.3
+ r.3r.6 - r.6r.3
+ r.4r.6 - r.6r.4
+ r.1^2 - 1
+ r.2^2 - 1
+ r.3^2 - 1
+ r.4^2 - 1
+ r.5^2 - 1
+ r.6^2 - 1
 gap> # </L>
 gap> 
-gap> # The Gröbner basis can now be calculated with 
+gap> # The Gröbner basis can now be calculated with
 gap> # <Ref Func="SGrobner" Style="Text"/>:
 gap> 
 gap> # <L>
@@ -127,71 +127,71 @@ gap> GB := SGrobner(KI);;
 #I  End of phase III
 #I  End of phase IV
 gap> PrintNPList(GB);
- r.1^2 - 1 
- r.2r.1 - r.1r.2 
- r.2^2 - 1 
- r.3r.2 - r.2r.3 
- r.3^2 - 1 
- r.4r.1 - r.1r.4 
- r.4^2 - 1 
- r.5r.1 - r.1r.5 
- r.5r.2 - r.2r.5 
- r.5r.3 - r.3r.5 
- r.5^2 - 1 
- r.6r.1 - r.1r.6 
- r.6r.2 - r.2r.6 
- r.6r.3 - r.3r.6 
- r.6r.4 - r.4r.6 
- r.6^2 - 1 
- r.3r.1r.2 - r.2r.3r.1 
- r.3r.1r.3 - r.1r.3r.1 
- r.4r.2r.4 - r.2r.4r.2 
- r.4r.3r.4 - r.3r.4r.3 
- r.5r.4r.5 - r.4r.5r.4 
- r.6r.5r.6 - r.5r.6r.5 
- r.4r.3r.1r.4 - r.3r.4r.3r.1 
- r.5r.4r.2r.5 - r.4r.5r.4r.2 
- r.5r.4r.3r.5 - r.4r.5r.4r.3 
- r.6r.5r.4r.6 - r.5r.6r.5r.4 
- r.4r.2r.3r.4r.2 - r.3r.4r.2r.3r.4 
- r.4r.2r.3r.4r.3 - r.2r.4r.2r.3r.4 
- r.5r.4r.2r.3r.5 - r.4r.5r.4r.2r.3 
- r.5r.4r.3r.1r.5 - r.4r.5r.4r.3r.1 
- r.6r.5r.4r.2r.6 - r.5r.6r.5r.4r.2 
- r.6r.5r.4r.3r.6 - r.5r.6r.5r.4r.3 
- r.4r.2r.3r.1r.4r.2 - r.3r.4r.2r.3r.1r.4 
- r.5r.4r.2r.3r.1r.5 - r.4r.5r.4r.2r.3r.1 
- r.6r.5r.4r.2r.3r.6 - r.5r.6r.5r.4r.2r.3 
- r.6r.5r.4r.3r.1r.6 - r.5r.6r.5r.4r.3r.1 
- r.4r.2r.3r.1r.4r.3r.1 - r.2r.4r.2r.3r.1r.4r.3 
- r.5r.4r.2r.3r.4r.5r.4 - r.4r.5r.4r.2r.3r.4r.5 
- r.6r.5r.4r.2r.3r.1r.6 - r.5r.6r.5r.4r.2r.3r.1 
- r.6r.5r.4r.2r.3r.4r.6 - r.5r.6r.5r.4r.2r.3r.4 
- r.5r.4r.2r.3r.1r.4r.5r.4 - r.4r.5r.4r.2r.3r.1r.4r.5 
- r.6r.5r.4r.2r.3r.1r.4r.6 - r.5r.6r.5r.4r.2r.3r.1r.4 
- r.6r.5r.4r.2r.3r.1r.4r.3r.6 - r.5r.6r.5r.4r.2r.3r.1r.4r.3 
- r.6r.5r.4r.2r.3r.4r.5r.6r.5 - r.5r.6r.5r.4r.2r.3r.4r.5r.6 
- r.5r.4r.2r.3r.1r.4r.3r.5r.4r.3 - r.4r.5r.4r.2r.3r.1r.4r.3r.5r.4 
- r.6r.5r.4r.2r.3r.1r.4r.5r.6r.5 - r.5r.6r.5r.4r.2r.3r.1r.4r.5r.6 
- r.5r.4r.2r.3r.1r.4r.3r.5r.4r.2r.3 - r.4r.5r.4r.2r.3r.1r.4r.3r.5r.4r.2 
- r.6r.5r.4r.2r.3r.1r.4r.3r.5r.6r.5 - r.5r.6r.5r.4r.2r.3r.1r.4r.3r.5r.6 
+ r.1^2 - 1
+ r.2r.1 - r.1r.2
+ r.2^2 - 1
+ r.3r.2 - r.2r.3
+ r.3^2 - 1
+ r.4r.1 - r.1r.4
+ r.4^2 - 1
+ r.5r.1 - r.1r.5
+ r.5r.2 - r.2r.5
+ r.5r.3 - r.3r.5
+ r.5^2 - 1
+ r.6r.1 - r.1r.6
+ r.6r.2 - r.2r.6
+ r.6r.3 - r.3r.6
+ r.6r.4 - r.4r.6
+ r.6^2 - 1
+ r.3r.1r.2 - r.2r.3r.1
+ r.3r.1r.3 - r.1r.3r.1
+ r.4r.2r.4 - r.2r.4r.2
+ r.4r.3r.4 - r.3r.4r.3
+ r.5r.4r.5 - r.4r.5r.4
+ r.6r.5r.6 - r.5r.6r.5
+ r.4r.3r.1r.4 - r.3r.4r.3r.1
+ r.5r.4r.2r.5 - r.4r.5r.4r.2
+ r.5r.4r.3r.5 - r.4r.5r.4r.3
+ r.6r.5r.4r.6 - r.5r.6r.5r.4
+ r.4r.2r.3r.4r.2 - r.3r.4r.2r.3r.4
+ r.4r.2r.3r.4r.3 - r.2r.4r.2r.3r.4
+ r.5r.4r.2r.3r.5 - r.4r.5r.4r.2r.3
+ r.5r.4r.3r.1r.5 - r.4r.5r.4r.3r.1
+ r.6r.5r.4r.2r.6 - r.5r.6r.5r.4r.2
+ r.6r.5r.4r.3r.6 - r.5r.6r.5r.4r.3
+ r.4r.2r.3r.1r.4r.2 - r.3r.4r.2r.3r.1r.4
+ r.5r.4r.2r.3r.1r.5 - r.4r.5r.4r.2r.3r.1
+ r.6r.5r.4r.2r.3r.6 - r.5r.6r.5r.4r.2r.3
+ r.6r.5r.4r.3r.1r.6 - r.5r.6r.5r.4r.3r.1
+ r.4r.2r.3r.1r.4r.3r.1 - r.2r.4r.2r.3r.1r.4r.3
+ r.5r.4r.2r.3r.4r.5r.4 - r.4r.5r.4r.2r.3r.4r.5
+ r.6r.5r.4r.2r.3r.1r.6 - r.5r.6r.5r.4r.2r.3r.1
+ r.6r.5r.4r.2r.3r.4r.6 - r.5r.6r.5r.4r.2r.3r.4
+ r.5r.4r.2r.3r.1r.4r.5r.4 - r.4r.5r.4r.2r.3r.1r.4r.5
+ r.6r.5r.4r.2r.3r.1r.4r.6 - r.5r.6r.5r.4r.2r.3r.1r.4
+ r.6r.5r.4r.2r.3r.1r.4r.3r.6 - r.5r.6r.5r.4r.2r.3r.1r.4r.3
+ r.6r.5r.4r.2r.3r.4r.5r.6r.5 - r.5r.6r.5r.4r.2r.3r.4r.5r.6
+ r.5r.4r.2r.3r.1r.4r.3r.5r.4r.3 - r.4r.5r.4r.2r.3r.1r.4r.3r.5r.4
+ r.6r.5r.4r.2r.3r.1r.4r.5r.6r.5 - r.5r.6r.5r.4r.2r.3r.1r.4r.5r.6
+ r.5r.4r.2r.3r.1r.4r.3r.5r.4r.2r.3 - r.4r.5r.4r.2r.3r.1r.4r.3r.5r.4r.2
+ r.6r.5r.4r.2r.3r.1r.4r.3r.5r.6r.5 - r.5r.6r.5r.4r.2r.3r.1r.4r.3r.5r.6
  r.6r.5r.4r.2r.3r.1r.4r.3r.5r.4r.6r.5r.4 - r.5r.6r.5r.4r.2r.3r.1r.4r.3r.5r.4r.\
-6r.5 
+6r.5
  r.6r.5r.4r.2r.3r.1r.4r.3r.5r.4r.2r.6r.5r.4r.2 - r.5r.6r.5r.4r.2r.3r.1r.4r.3r.\
-5r.4r.2r.6r.5r.4 
+5r.4r.2r.6r.5r.4
 gap> # </L>
 gap> 
 gap> # The base of the quotient algebra can be calculated with <Ref Func="BaseQA"
 gap> # Style="Text"/>, which has as arguments a Gröbner basis <C>GB</C>, a number
 gap> # of symbols <C>6</C> and a maximum terms to be found (here 0 is entered, for
-gap> # a full base) . Since it is very long we will not print it here. 
+gap> # a full base) . Since it is very long we will not print it here.
 gap> 
 gap> # <L>
 gap> B:=BaseQA(GB,6,0);;
 gap> # </L>
 gap> 
-gap> # The dimension of the quotient algebra can be calculated with 
-gap> # <Ref Func="DimQA" Style="Text"/>, the arguments are the Gröbner basis 
+gap> # The dimension of the quotient algebra can be calculated with
+gap> # <Ref Func="DimQA" Style="Text"/>, the arguments are the Gröbner basis
 gap> # <C>GB</C> and the number of symbols <C>6</C>. Since <Ref
 gap> # InfoClass="InfoGBNPTime" Style="Text"/> is set to 2, we get
 gap> # timing information from <Ref Func="DimQA" Style="Text"/>:

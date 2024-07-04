@@ -5,11 +5,11 @@ gap> # Copyright 2001-2010 by Arjeh M. Cohen, Dié A.H. Gijsbers, Jan Willem
 gap> # Knopper, Chris Krook. Address: Discrete Algebra and Geometry (DAM) group
 gap> # at the Department of Mathematics and Computer Science of Eindhoven
 gap> # University of Technology.
-gap> # 
+gap> #
 gap> # For acknowledgements see the manual. The manual can be found in several
 gap> # formats in the doc subdirectory of the GBNP distribution. The
 gap> # acknowledgements formatted as text can be found in the file chap0.txt.
-gap> # 
+gap> #
 gap> # GBNP is free software; you can redistribute it and/or modify it under
 gap> # the terms of the Lesser GNU General Public License as published by the
 gap> # Free Software Foundation (FSF); either version 2.1 of the License, or
@@ -54,12 +54,12 @@ gap> F:=GF(7);; ef:=One(F);;
 gap> A:=FreeAssociativeAlgebraWithOne(F, "a", "b", "c", "d", "e", "f", "g");
 <algebra-with-one over GF(7), with 7 generators>
 gap> gens:=GeneratorsOfAlgebra(A);
-[ (Z(7)^0)*<identity ...>, (Z(7)^0)*a, (Z(7)^0)*b, (Z(7)^0)*c, (Z(7)^0)*d, 
+[ (Z(7)^0)*<identity ...>, (Z(7)^0)*a, (Z(7)^0)*b, (Z(7)^0)*c, (Z(7)^0)*d,
   (Z(7)^0)*e, (Z(7)^0)*f, (Z(7)^0)*g ]
 gap> a:=gens[2];; b:=gens[3];; c:=gens[4];; d:=gens[5];; e:=gens[6];; f:=gens[7];;
 gap> g:=gens[8];; ea:=gens[1];;
 gap> 
-gap> rels := [ a^3 + f*a, 
+gap> rels := [ a^3 + f*a,
 > 	a^9 + c*a^3 + g*a,
 > 	a^81 + c*a^9 + d*a^3,
 > 	c*a^81 + d*a^9 + e*a^3,
@@ -104,25 +104,25 @@ gap> GB := SGrobner(KI);;
 gap> # add the next command in case other tests have changed the alphabet:
 gap> GBNP.ConfigPrint("a","b","c","d","e","f","g");
 gap> PrintNPList(GB);
- a 
- b 
- dc + Z(7)^3cd 
- ec + Z(7)^3ce 
- ed + Z(7)^3de 
- fc + Z(7)^3cf 
- fd + Z(7)^3df 
- fe + Z(7)^3ef 
- gc + Z(7)^3cg 
- gd + Z(7)^3dg 
- ge + Z(7)^3eg 
- gf + Z(7)^3fg 
+ a
+ b
+ dc + Z(7)^3cd
+ ec + Z(7)^3ce
+ ed + Z(7)^3de
+ fc + Z(7)^3cf
+ fd + Z(7)^3df
+ fe + Z(7)^3ef
+ gc + Z(7)^3cg
+ gd + Z(7)^3dg
+ ge + Z(7)^3eg
+ gf + Z(7)^3fg
 gap> # </L>
 gap> 
 gap> 
 gap> # To determine whether the quotient algebra is finite dimensional
 gap> # we invoke <Ref Func="FinCheckQA" Style="Text"/>, using as arguments
 gap> # the leading monomials of <C>GB</C> and 7, the number of variables involved.
-gap> # The leading monomials of <C>GB</C> are obtained by 
+gap> # The leading monomials of <C>GB</C> are obtained by
 gap> # <Ref Func="LMonsNP" Style="Text"/>.
 gap> 
 gap> # <L>

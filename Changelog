@@ -17,7 +17,7 @@ Changes for 1.0.1 (2010-05-12)
  - ???
 
 Changes for 0.9.5:
- - added examples 24 and 25 
+ - added examples 24 and 25
  - changed some examples and the order of the examples
  - several changes to the manual
  - StrongNormalFormTraceNP has been replaced by StrongNormalFormTraceDiff

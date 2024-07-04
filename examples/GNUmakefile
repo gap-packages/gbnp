@@ -15,6 +15,6 @@ functions.g: ../doc/examples/functions.g
 
 .depend: depend
 
-depend: 
+depend:
 	{ cd .. &&${MAKE} depend ; }
 

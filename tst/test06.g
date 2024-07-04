@@ -4,11 +4,11 @@
 # Knopper, Chris Krook. Address: Discrete Algebra and Geometry (DAM) group
 # at the Department of Mathematics and Computer Science of Eindhoven
 # University of Technology.
-# 
+#
 # For acknowledgements see the manual. The manual can be found in several
 # formats in the doc subdirectory of the GBNP distribution. The
 # acknowledgements formatted as text can be found in the file chap0.txt.
-# 
+#
 # GBNP is free software; you can redistribute it and/or modify it under
 # the terms of the Lesser GNU General Public License as published by the
 # Free Software Foundation (FSF); either version 2.1 of the License, or
@@ -17,17 +17,17 @@
 # https://www.gnu.org/licenses/lgpl.html
 ########################## END COPYRIGHT MESSAGE ##########################
 
-### filename = "example06.g" 
+### filename = "example06.g"
 ### authors Cohen & Gijsbers
 
-### THIS IS A GAP PACKAGE FOR COMPUTING NON-COMMUTATIVE GROBNER BASES 
- 
-### Last change: August 22 2001. 
+### THIS IS A GAP PACKAGE FOR COMPUTING NON-COMMUTATIVE GROBNER BASES
+
+### Last change: August 22 2001.
 ### amc
 
 # <#GAPDoc Label="Example06">
 # <Section Label="Example06"><Heading>From the Tapas book</Heading>
-# This example is a standard commutative Gröbner basis computation from the book 
+# This example is a standard commutative Gröbner basis computation from the book
 # Some Tapas of Computer Algebra
 # <Cite Key="CohenCuypersSterk1999"/>, page 339.
 # There are six variables, named <M>a</M>, ... , <M>f</M> by default.
@@ -36,9 +36,9 @@
 # in a project by De Boer and Pellikaan on the ternary cyclic code of length 11.
 # Below these are named <C>p1</C>, ..., <C>p12</C>.
 # The result should be the union of <M>\{a,b\}</M> and
-# the set of 6 homogeneous binomials 
+# the set of 6 homogeneous binomials
 # (that is, polynomials with two terms) of degree 2 forcing
-# commuting between <M>c</M>, <M>d</M>, <M>e</M>, and <M>f</M>. 
+# commuting between <M>c</M>, <M>d</M>, <M>e</M>, and <M>f</M>.
 # <P/>
 
 # <!--
@@ -117,7 +117,7 @@ Length(KI);
 
 # It is sometimes easier to enter the relations as elements of a free algebra
 # and then use the function <Ref Func="GP2NP" Style="Text"/> or the function
-# <Ref Func="GP2NPList" Style="Text"/> to convert them. 
+# <Ref Func="GP2NPList" Style="Text"/> to convert them.
 # This will be demonstrated below. More about converting can be read
 # in Section <Ref Sect="TransitionFunctions"/>.
 

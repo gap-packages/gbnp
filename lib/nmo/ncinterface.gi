@@ -21,8 +21,8 @@ InstallMethod(
 
     # Get given order's (lessthan) ordering function:
     ordfunc := OrderingLtFunctionListRep(ord);
-    
-    # Get GBNP's NP representation of each element: 
+
+    # Get GBNP's NP representation of each element:
     arep := GP2NP(a);
     brep := GP2NP(b);
 
@@ -66,7 +66,7 @@ InstallMethod(
       IsElementOfFreeAssociativeRing  ],
   0,
   function(ord,a,b)
-    return(NCLessThanByOrdering(ord,b,a)); 
+    return(NCLessThanByOrdering(ord,b,a));
   end
 );
 
@@ -80,7 +80,7 @@ InstallMethod(
       IsElementOfFreeAssociativeRing  ],
   0,
   function(ord,a,b)
-    return((not NCLessThanByOrdering(ord,a,b)) and (not NCLessThanByOrdering(ord,b,a))); 
+    return((not NCLessThanByOrdering(ord,a,b)) and (not NCLessThanByOrdering(ord,b,a)));
   end
 );
 

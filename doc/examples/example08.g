@@ -4,11 +4,11 @@
 # Knopper, Chris Krook. Address: Discrete Algebra and Geometry (DAM) group
 # at the Department of Mathematics and Computer Science of Eindhoven
 # University of Technology.
-# 
+#
 # For acknowledgements see the manual. The manual can be found in several
 # formats in the doc subdirectory of the GBNP distribution. The
 # acknowledgements formatted as text can be found in the file chap0.txt.
-# 
+#
 # GBNP is free software; you can redistribute it and/or modify it under
 # the terms of the Lesser GNU General Public License as published by the
 # Free Software Foundation (FSF); either version 2.1 of the License, or
@@ -17,18 +17,18 @@
 # https://www.gnu.org/licenses/lgpl.html
 ########################## END COPYRIGHT MESSAGE ##########################
 
-### filename = "example08new.g" 
+### filename = "example08new.g"
 ### authors Cohen & Gijsbers
 
-### THIS IS A GAP PACKAGE FOR COMPUTING NON-COMMUTATIVE GROBNER BASES 
- 
+### THIS IS A GAP PACKAGE FOR COMPUTING NON-COMMUTATIVE GROBNER BASES
+
 ### Last change: May 24, 2007 amc towards nonspecialized coefficients
 
 
 # <#GAPDoc Label="Example08">
 # <Section Label="Example08"><Heading>The Birman-Murakami-Wenzl algebra of type A<M>_2</M></Heading>
 # The trace variant (see sections <Ref Sect="trace"/> and <Ref Sect="tracefun"/>) will be used for
-# a presentation of the Birman-Murakami-Wenzl algebra of type A<M>_2</M> 
+# a presentation of the Birman-Murakami-Wenzl algebra of type A<M>_2</M>
 # by generators and relations
 # in order to find a proof that the algebra has dimension 15.
 # <P/>
@@ -110,7 +110,7 @@ GB := SGrobnerTrace(KI);;
 # while printing only the relations (and no trace) can be invoked by <Ref
 # Func="PrintNPListTrace" Style="Text"/>. Since the total trace is very long we
 # do not call <C>PrintTraceList(GB)</C> here but only show two polynomial
-# expressions from the Gröbner basis 
+# expressions from the Gröbner basis
 # with <Ref Func="PrintTracePol" Style="Text"/>:
 
 # <L>
@@ -122,7 +122,7 @@ PrintTracePol(GB[10]);
 # In order to test whether the expression for <C>GB[10]</C> is as claimed
 # we use <Ref Func="EvalTrace" Style="Text"/>,
 
-# For each traced polynomial <C>x</C> in <C>GB</C>, 
+# For each traced polynomial <C>x</C> in <C>GB</C>,
 # we equate the evaluated expression
 # <C>x.trace</C>,
 # in which each occurrence of <C>G(i)</C> is replaced by <C>KI[i]</C>

@@ -4,11 +4,11 @@
 # Knopper, Chris Krook. Address: Discrete Algebra and Geometry (DAM) group
 # at the Department of Mathematics and Computer Science of Eindhoven
 # University of Technology.
-# 
+#
 # For acknowledgements see the manual. The manual can be found in several
 # formats in the doc subdirectory of the GBNP distribution. The
 # acknowledgements formatted as text can be found in the file chap0.txt.
-# 
+#
 # GBNP is free software; you can redistribute it and/or modify it under
 # the terms of the Lesser GNU General Public License as published by the
 # Free Software Foundation (FSF); either version 2.1 of the License, or
@@ -33,7 +33,7 @@
 
 ### Functions:
 ###
-### - tree manipulation: 
+### - tree manipulation:
 ### GBNP.CreateOccurTreeLR
 ### GBNP.CreateOccurTreePTSLR
 ### GBNP.CreateOccurTreePTSLRimpl
@@ -56,7 +56,7 @@
 ### GBNP.CreateOccurTreePTSLRimpl ###
 #####################################
 ### Creates an occurtree, possibly with module generators
-### 
+###
 ### impl -> the actual implementation; no changes on pg (like in the PTSLR
 ### variant)
 ###
@@ -67,7 +67,7 @@
 ### - left	boolean, true means non-reversed
 ###
 ### Returns:
-### - the occurtree formed 
+### - the occurtree formed
 ###
 ### #GBNP.CreateOccurTreePTSLRimpl uses: GBNP.AddMonToTreePTSLR#
 ### #GBNP.CreateOccurTreePTSLRimpl is used in: GBNP.CreateOccurTreeLR GBNP.CreateOccurTreePTSLR#
@@ -92,7 +92,7 @@ end;
 ### - left	boolean, true means non-reversed
 ###
 ### Returns:
-### - the occurtree formed 
+### - the occurtree formed
 ###
 ### #GBNP.CreateOccurTreeLR uses: GBNP.CreateOccurTreePTSLRimpl#
 ### #GBNP.CreateOccurTreeLR is used in: DetermineGrowthQA FinCheckQA GBNP.RedAddToTree GraphOfChains GraphOfNormalWords HilbertSeriesQA#
@@ -114,21 +114,21 @@ end;
 ### - left	boolean, true means non-reversed
 ###
 ### Returns:
-### - the occurtree formed 
+### - the occurtree formed
 ###
 ### #GBNP.CreateOccurTreePTSLR uses: GBNP.CreateOccurTreePTSLRimpl GBNP.GetOptions#
 ### #GBNP.CreateOccurTreePTSLR is used in: GBNP.AllObs GBNP.IsGrobnerBasisTest GBNP.LeftObsT GBNP.NondivMonsPTS GBNP.NondivMonsPTSenum GBNP.ReducePol2 GBNP.RightObsT GBNP.SGrobnerLoops GBNP.StrongNormalFormTall IsGrobnerPair MakeGrobnerPair#
 ###
 
 GBNP.CreateOccurTreePTSLR:=function(L,pg,left)
-        if (pg <> GBNP.GetOptions().pg) then 
+        if (pg <> GBNP.GetOptions().pg) then
 		Info(InfoGBNP,2,"Warning: CreateOccurTreePTSLR: pg argument (",pg,") is not the same as pg option (",GBNP.GetOptions().pg,")\n");
 	fi;
-	
+
 	# also take into account options for safety (warn if these are
 	# different)
-	pg:=Maximum(GBNP.GetOptions().pg,pg); 
-	
+	pg:=Maximum(GBNP.GetOptions().pg,pg);
+
 	return GBNP.CreateOccurTreePTSLRimpl(L, pg, left);
 end;
 
@@ -159,12 +159,12 @@ local	pos,	# index of mon
 	ans,	# all indices found sofar
 	len, 	# length of the monomial
 	pos2;	# pos corrected for left/right
-	
+
 		# arrays go from 1..
-		# first pg entries are prefix gens, the next one is skipped 
+		# first pg entries are prefix gens, the next one is skipped
 		# and the rest is for two-sided generators
 
-	pi:=OT.pg+1; 
+	pi:=OT.pg+1;
 	ans:=[];
 
 	r:=OT.tree;len:=Length(mon);
@@ -178,7 +178,7 @@ local	pos,	# index of mon
 			pos2:=len-pos+1;
 		fi;
 
-		if IsBound(r[pi]) then 
+		if IsBound(r[pi]) then
 			# found the answer early
 			Add(ans,OT.tree2arr[r[pi]]);
 		fi;
@@ -230,12 +230,12 @@ local	pos,	# index of mon
 	pi,	# add to index
 	len, 	# length of the monomial
 	pos2;	# pos corrected for left/right
-	
+
 		# arrays go from 1..
-		# first pg entries are prefix gens, the next one is skipped 
+		# first pg entries are prefix gens, the next one is skipped
 		# and the rest is for two-sided generators
 
-	pi:=OT.pg+1; 
+	pi:=OT.pg+1;
 
 	r:=OT.tree;len:=Length(mon);
 	pos:=startpos; # 1 is a usual start
@@ -248,7 +248,7 @@ local	pos,	# index of mon
 			pos2:=len-pos+1;
 		fi;
 
-		if IsBound(r[pi]) then 
+		if IsBound(r[pi]) then
 			# found the answer early
 			return OT.tree2arr[r[pi]];
 		fi;
@@ -280,10 +280,10 @@ end;
 ### Arguments:
 ### - mon	monomial to check
 ### - LOT	a left-occur tree
-### 
+###
 ### Returns:
 ### - [nr,i]
-### 	Where nr = the array number of the monomial found 
+### 	Where nr = the array number of the monomial found
 ### 	and i = the position from the left (i is as small as possible)
 ### 	if nothing is found then [0,0] is returned.
 ###
@@ -305,10 +305,10 @@ end;
 ### - mon	monomial to check
 ### - LOT	a left-occur tree
 ### - left	true -> non-reversed
-### 
+###
 ### Returns:
 ### - [nr,i]
-### 	Where nr = the array number of the monomial found 
+### 	Where nr = the array number of the monomial found
 ### 	and i = the position from the left (right if left=false) (i is as small
 ###     as possible) if nothing is found then [0,0] is returned.
 ###
@@ -321,11 +321,11 @@ local 	i,
 	ans;
 	for i in [1..Length(mon)] do
 		ans:=GBNP.LookUpOccurTreePTSLRPos(mon,LOT,left,i);
-		if ans<>0 then 
+		if ans<>0 then
 			return [ans,i];
 		fi;
 	od;
-	
+
 	return [0,0];
 end;
 
@@ -341,7 +341,7 @@ end;
 ###
 ### Returns:
 ### - [nr,i]
-### 	Where nr = the array number of the monomial found 
+### 	Where nr = the array number of the monomial found
 ### 	and i = 1 if a monomial is found (compatible with GBNP.OccurInLstT)
 ### 	if nothing is found then [0,0] is returned.
 ###
@@ -352,7 +352,7 @@ end;
 GBNP.OccurLeftInLstT:=function(mon,LOT)
 local ans;
 	ans:=GBNP.LookUpOccurTreePTSLRPos(mon,LOT,true,1);
-	if ans<>0 then 
+	if ans<>0 then
 		return [ans,1];
 	fi;
 	return [0,0];
@@ -370,7 +370,7 @@ end;
 ### - left	true if not reversed
 ###
 ### Returns:
-### - A list of matches in the form [nr, i], where nr is the monomial found and 
+### - A list of matches in the form [nr, i], where nr is the monomial found and
 ###   i the left-most position where it is found
 ###
 ### #GBNP.LookUpOccurTreeAllLstPTSLR uses: GBNP.LookUpOccurTreeAllPTSLRPos#
@@ -382,11 +382,11 @@ local 	i,j,	# counter
 	allans,	# sparse list of answer
 	ansind,	# indices of ans
 	ans;	# what will be returned
-	
+
 	allans:=[];ansind:=[];
 	for i in [1..Maximum(1,Length(mon))] do
 		for j in GBNP.LookUpOccurTreeAllPTSLRPos(mon,OT,left,i) do
-			if not IsBound(allans[j]) then 
+			if not IsBound(allans[j]) then
 				allans[j]:=i;
 				AddSet(ansind,j);
 			fi;
@@ -432,12 +432,12 @@ local	pos,	# index of mon
 	len, 	# length of the monomial
 	pos2,	# pos corrected for left/right
 	f;
-	
+
 		# arrays go from 1..
-		# first pg entries are prefix gens, the next one is skipped 
+		# first pg entries are prefix gens, the next one is skipped
 		# and the rest is for two-sided generators
 
-	pi:=OT.pg+1; 
+	pi:=OT.pg+1;
 
 	r:=OT.tree;len:=Length(mon);
 	pos:=startpos; # 1 is a usual start
@@ -450,8 +450,8 @@ local	pos,	# index of mon
 			pos2:=len-pos+1;
 		fi;
 
-		if IsBound(r[pi]) then 
-			# found the answer early 
+		if IsBound(r[pi]) then
+			# found the answer early
 		fi;
 
 		if IsBound(r[mon[pos2]+pi]) then
@@ -463,7 +463,7 @@ local	pos,	# index of mon
 	od;
 
 	# now return things still left in r:
-	
+
 	return List(Flat(r),x->OT.tree2arr[x]);
 end;
 
@@ -471,7 +471,7 @@ end;
 ### GBNP.LookUpOccurTreeForObsPTSLR ###
 #######################################
 ###
-### function to search for obstructions with occur trees 
+### function to search for obstructions with occur trees
 ###
 ### searches for obstructions of the form:
 ### mon:	xxxxxYYYYY
@@ -556,13 +556,13 @@ local	pos,	# index of mon
 		OT.nextnum:=OT.nextnum+1; # end of the tree
 	fi;
 
-	if (i=-1) then 
+	if (i=-1) then
 		arrnum:=Length(OT.arr2tree)+1;
 		OT.tree2arr[treenum]:=arrnum;
 		Add(OT.arr2tree,treenum);
 	else
 		arrnum:=i;
-		InsertElmList(OT.arr2tree,i,treenum); 
+		InsertElmList(OT.arr2tree,i,treenum);
 		for j in [i..Length(OT.arr2tree)] do
 			OT.tree2arr[OT.arr2tree[j]]:=j;
 		od;
@@ -577,7 +577,7 @@ local	pos,	# index of mon
 			pos2:=len-pos+1;
 		fi;
 
-		#if IsBound(r[pi]) then 
+		#if IsBound(r[pi]) then
 		#	# nevermind adding, use the shorter one instead
 		#	return;
 		# add anyway, easier for proving
@@ -589,7 +589,7 @@ local	pos,	# index of mon
 		fi;
 		pos:=pos+1;
 	od;
-	if not IsBound(r[pi]) then 
+	if not IsBound(r[pi]) then
 		r[pi]:=treenum;
 	fi;
 end;
@@ -635,9 +635,9 @@ local	pos,	# index of mon
 
 	oldr:=0;
 
-	if len=0 then 
-		oldind:=pi; 
-	else 
+	if len=0 then
+		oldind:=pi;
+	else
 		if left then
 			pos2:=pos;
 		else
@@ -655,11 +655,11 @@ local	pos,	# index of mon
 			pos2:=len-pos+1;
 		fi;
 
-		#if IsBound(r) then 
+		#if IsBound(r) then
 		#	# not added, so nothing to remove
 		#	return OT;
 		if IsBound(r[mon[pos2]+pi]) then # follow the existing prefix
-			if Number(r)<>1 then  
+			if Number(r)<>1 then
 				# if number=1 than this could be the tail for
 				# this one
 				oldr:=r;oldind:=mon[pos2]+pi;
@@ -680,7 +680,7 @@ local	pos,	# index of mon
 				Unbind(OT.tree[oldind]);
 			else
 				# r should now be i
-				Unbind(oldr[oldind]); 
+				Unbind(oldr[oldind]);
 				# remove the tail that is exclusively for
 				# this function
 			fi;
@@ -700,7 +700,7 @@ end;
 ###
 ### Use this function when sorting the array corresponding with the indices.
 ### In case of a parallelsort, the unsorted parallel can be copied beforehand
-### and used as argument for this function, which updates the two arrays 
+### and used as argument for this function, which updates the two arrays
 ### of the occur tree
 ###
 ### Arguments:
@@ -740,8 +740,8 @@ end;
 ### #GBNP.NondivMons uses: GBNP.NondivMonsPTS#
 ### #GBNP.NondivMons is used in: BaseQA#
 ###
- 
-GBNP.NondivMons := function(lts,t,maxno) 
+
+GBNP.NondivMons := function(lts,t,maxno)
 	return GBNP.NondivMonsPTS([],lts,t,0,maxno);
 end;
 
@@ -762,27 +762,27 @@ end;
 ### #GBNP.NondivMonsPTS uses: GBNP.CreateOccurTreePTSLR GBNP.LookUpOccurTreePTSLRPos GBNP.OccurInLst#
 ### #GBNP.NondivMonsPTS is used in: BaseQM GBNP.NondivMons#
 ###
- 
-GBNP.NondivMonsPTS := function(plts,lts,t,mt,maxno) local h,i,ct,hi,tt,ans,idf,lvl,cont,ROT,pLOT; 
 
-#jwk schreef uitzetten op 11 aug 2009    
-#mt:=GBNP.GetOptions().pg; 		# XXX even not longer needed 
+GBNP.NondivMonsPTS := function(plts,lts,t,mt,maxno) local h,i,ct,hi,tt,ans,idf,lvl,cont,ROT,pLOT;
+
+#jwk schreef uitzetten op 11 aug 2009
+#mt:=GBNP.GetOptions().pg; 		# XXX even not longer needed
     if plts<>[] then			# XXX mt should not be changed here
     	lts:=Concatenation(plts,lts);	# XXX
     	plts:=[];			# XXX
     fi;					# XXX
-    cont := true; 
+    cont := true;
 
-    if maxno = 0 then idf := true; else idf := false; fi; 
-    if Length(lts) = 0 and maxno = 0 then return "error: empty input and no maximum"; fi; 
-    if GBNP.OccurInLst([],lts)[1] > 0 then return []; fi; 
+    if maxno = 0 then idf := true; else idf := false; fi;
+    if Length(lts) = 0 and maxno = 0 then return "error: empty input and no maximum"; fi;
+    if GBNP.OccurInLst([],lts)[1] > 0 then return []; fi;
     if Length(lts)>0 then
         ROT := GBNP.CreateOccurTreePTSLR(lts,mt,false);
     fi;
     #pLOT := GBNP.CreateOccurTreePTSLR(plts,mt,true); # XXX remove plts and this
-    ans := []; 
-    lvl := 1; 
-    if mt >0 then 
+    ans := [];
+    lvl := 1;
+    if mt >0 then
     	ans[1] := [];
 	for i in [-mt,-mt+1..-1] do
                 if Length(lts)=0 or GBNP.LookUpOccurTreePTSLRPos([i],ROT,false,1) = 0 then
@@ -792,31 +792,31 @@ GBNP.NondivMonsPTS := function(plts,lts,t,mt,maxno) local h,i,ct,hi,tt,ans,idf,l
     else
     	ans[1] := [[]];
     fi;
-    ct := Length(ans[1]); 
- 
-    while cont and ((ct <= maxno) or idf) do 
-         #Info(InfoGBNP,3,"sofar found ",ct," monomials"); 
-         lvl := lvl+ 1;  
-         tt := []; 
+    ct := Length(ans[1]);
+
+    while cont and ((ct <= maxno) or idf) do
+         #Info(InfoGBNP,3,"sofar found ",ct," monomials");
+         lvl := lvl+ 1;
+         tt := [];
          #Info(InfoGBNP,3,"busy with lvl ",lvl);
-         cont := false; 
-         for h in ans[lvl-1] do 
-            for i in [1..t] do 
-                hi := StructuralCopy(h); 
-                Append(hi,[i]); 
-                if Length(lts)=0 or GBNP.LookUpOccurTreePTSLRPos(hi,ROT,false,1) = 0 
+         cont := false;
+         for h in ans[lvl-1] do
+            for i in [1..t] do
+                hi := StructuralCopy(h);
+                Append(hi,[i]);
+                if Length(lts)=0 or GBNP.LookUpOccurTreePTSLRPos(hi,ROT,false,1) = 0
                 	# XXX and GBNP.LookUpOccurTreePTSLRPos(hi,pLOT,true,1)= 0 #remove plts and this
-		then  
-                   ct := ct+ 1; 
-                   Append(tt,[hi]); 
-                   cont := true; 
-                fi; 
-            od; 
-         od; 
-         ans[lvl] := tt; 
-    od; 
-    return(ans); 
-end; 
+		then
+                   ct := ct+ 1;
+                   Append(tt,[hi]);
+                   cont := true;
+                fi;
+            od;
+         od;
+         ans[lvl] := tt;
+    od;
+    return(ans);
+end;
 
 ##############################
 ### GBNP.NondivMonsPTSenum ###
@@ -838,41 +838,41 @@ end;
 ### #GBNP.NondivMonsPTSenum uses: GBNP.CreateOccurTreePTSLR GBNP.GetOptions GBNP.OccurInLst#
 ### #GBNP.NondivMonsPTSenum is used in: DimQA DimQM GBNP.SGrobnerLoops#
 ###
- 
-GBNP.NondivMonsPTSenum := function(plts,lts,t,mt,max) 
+
+GBNP.NondivMonsPTSenum := function(plts,lts,t,mt,max)
 local lvl,ROT, pol, todo, found_new, countfun, count;
 
-    #mt:=GBNP.GetOptions().pg; 		# XXX even not longer needed 
+    #mt:=GBNP.GetOptions().pg; 		# XXX even not longer needed
     if plts<>[] then			# XXX mt should not be changed here
     	lts:=Concatenation(plts,lts);	# XXX
     	plts:=[];			# XXX
     fi;					# XXX
 
-    if Length(lts) = 0 then return "error: empty input"; fi; 
-    if GBNP.OccurInLst([],lts)[1] > 0 then return 0; fi; 
+    if Length(lts) = 0 then return "error: empty input"; fi;
+    if GBNP.OccurInLst([],lts)[1] > 0 then return 0; fi;
     ROT := GBNP.CreateOccurTreePTSLR(lts,mt,false);
     #pLOT := GBNP.CreateOccurTreePTSLR(plts,mt,true); # XXX remove plts and this
-    if mt >0 then 
-    	todo := List([-mt,-mt+1..-1],x->[x]); 
-        lvl := 2; 
+    if mt >0 then
+    	todo := List([-mt,-mt+1..-1],x->[x]);
+        lvl := 2;
     else
     	todo := [[]];
-        lvl := 1; 
+        lvl := 1;
     fi;
 
     countfun:=function(pol,lvl)
-    	local i, count; 
+    	local i, count;
 
 	if max>0 and lvl>max then return 1; fi;
 
 	count:=0;
-	for i in [1..t]  do 
+	for i in [1..t]  do
 	    pol[lvl]:=i;
             if GBNP.LookUpOccurTreePTSLRPos(pol,ROT,false,1) = 0 then
 	        count:=count+countfun(pol,lvl+1)+1;
 		Unbind(pol[lvl+1]);
 	    fi;
-	    if max>0 and count>max then 
+	    if max>0 and count>max then
 	    	return count;
 	    fi;
 	od;
@@ -892,4 +892,4 @@ local lvl,ROT, pol, todo, found_new, countfun, count;
     od;
 
     return count;
-end; 
+end;

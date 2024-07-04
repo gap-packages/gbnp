@@ -4,11 +4,11 @@
 # Knopper, Chris Krook. Address: Discrete Algebra and Geometry (DAM) group
 # at the Department of Mathematics and Computer Science of Eindhoven
 # University of Technology.
-# 
+#
 # For acknowledgements see the manual. The manual can be found in several
 # formats in the doc subdirectory of the GBNP distribution. The
 # acknowledgements formatted as text can be found in the file chap0.txt.
-# 
+#
 # GBNP is free software; you can redistribute it and/or modify it under
 # the terms of the Lesser GNU General Public License as published by the
 # Free Software Foundation (FSF); either version 2.1 of the License, or
@@ -17,12 +17,12 @@
 # https://www.gnu.org/licenses/lgpl.html
 ########################## END COPYRIGHT MESSAGE ##########################
 
-### filename = "example02.g" 
+### filename = "example02.g"
 ### authors Cohen & Gijsbers
 
-### THIS IS A GAP PACKAGE FOR COMPUTING NON-COMMUTATIVE GROBNER BASES 
- 
-### Last change: August 29 2001. 
+### THIS IS A GAP PACKAGE FOR COMPUTING NON-COMMUTATIVE GROBNER BASES
+
+### Last change: August 29 2001.
 ### amc
 
 # <#GAPDoc Label="Example02">
@@ -54,7 +54,7 @@ n := 8;;
 # </L>
 
 # Now enter the relations in NP form (see <Ref Sect="NP"/>). The function
-# <Code>MkTrLst</Code> will be introduced, which will return all monomials of 
+# <Code>MkTrLst</Code> will be introduced, which will return all monomials of
 # degree <C>n</C>. The list of ideal generators of interest is called <C>I</C>.
 
 # <L>

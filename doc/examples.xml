@@ -30,13 +30,13 @@ Sect="Example13"/>.
 This extends Example <Ref Sect="Example06"/>.
 </Item>
 <Item><Ref Sect="Example17"/> <Ref Sect="Example17"  Style="Text"/></Item>
-<Item><Ref Sect="Example18"/> <Ref Sect="Example18"  Style="Text"/> 
+<Item><Ref Sect="Example18"/> <Ref Sect="Example18"  Style="Text"/>
 <!-- Permutation module of dim 4 of the dihedral gp of order 8-->
 </Item>
 <Item><Ref Sect="Example19"/> <Ref Sect="Example19"  Style="Text"/>
 <!-- Module example, permutation module of
 		dimension 4 of the dihedral group of order 8, with the all ones
-	vector fixed--> 
+	vector fixed-->
 <P/>
 This extends Example <Ref Sect="Example18"/>.
 </Item>

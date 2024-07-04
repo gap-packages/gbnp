@@ -2,7 +2,7 @@
 <!--                                                                     -->
 <!--  nmo.xml              GBNP documentation            Randall E. Cone -->
 <!--                                                                     -->
-<!--  Copyright (C) 2010-2023, The GAP Group,                            --> 
+<!--  Copyright (C) 2010-2023, The GAP Group,                            -->
 <!--                                                                     -->
 <!--  The NMO manual, incorporated as chapter 5 in the GBNP manual       -->
 <!--  <Author>Randall E. Cone <Email>rcone@math.vt.edu</Email></Author>  -->
@@ -25,11 +25,11 @@
 <Section Label="sec-nmo-intro">
 <Heading>Introduction</Heading>
 
-Up until September 2023 the manual for Randall Cone's package 
-<Package>NMO</Package> was provided by 
-<Package>GBNP</Package> as a separate <File>manual.pdf</File>. 
-The <Package>NMO</Package> manual now forms this chapter 
-in the <Package>GBNP</Package> manual. 
+Up until September 2023 the manual for Randall Cone's package
+<Package>NMO</Package> was provided by
+<Package>GBNP</Package> as a separate <File>manual.pdf</File>.
+The <Package>NMO</Package> manual now forms this chapter
+in the <Package>GBNP</Package> manual.
 <P/>
 
 What follows is a description of the largely experimental project
@@ -39,7 +39,7 @@ the patching process being called at the <Package>GBNP</Package> user's discreti
 <P/>
 
 More precisely, after a user creates a monomial ordering via the <Package>NMO</Package>
-library functions, 
+library functions,
 a routine is called which overwrites the two <Package>GBNP</Package> functions
 "LtNP" and "GtNP".  In <Package>GBNP</Package>, these latter two functions are
 explicitly length-lexicographic monomial comparison functions,
@@ -82,18 +82,18 @@ are related to attributes of monomial orderings.
 
 Many examples of basic code use are provided; with some examples
 following the reference material for the functions or
-methods involved. 
-<P/> 
+methods involved.
+<P/>
 
-<B>Acknowledgements</B> 
+<B>Acknowledgements</B>
 <List>
 <Item>
-Our immense gratitude to the authors of <Package>GBNP</Package> 
-for allowing us to make a small contribution. 
+Our immense gratitude to the authors of <Package>GBNP</Package>
+for allowing us to make a small contribution.
 </Item>
 <Item>
-Equal gratitude to Dr. Ed Green for his help as mentor and advisor, 
-in both this project and many others. 
+Equal gratitude to Dr. Ed Green for his help as mentor and advisor,
+in both this project and many others.
 </Item>
 </List>
 </Section>
@@ -254,10 +254,10 @@ gap> gb2 := NP2GPList( gbreps2, A );
 This example is the same as Example 1 above, except that the length
 and left-lexicographic orderings are created independently and then
 chained to form the usual length left-lexicographic ordering.  Hence,
-all results should be the same. 
+all results should be the same.
 <P/>
 
-Remove any previous orderings. 
+Remove any previous orderings.
 Create a noncommutative free algebra on 4 generators over the
 Rationals, label, and set up the example:
 <Example>
@@ -276,7 +276,7 @@ gap> lexord := NCMonomialLeftLexicographicOrdering( A );
 NCMonomialLeftLexicographicOrdering([ (1)*a, (1)*b, (1)*c, (1)*d ])
 </Example>
 
-Create a length ordering on monomials in <M>A</M>, 
+Create a length ordering on monomials in <M>A</M>,
 with ties broken by the lexicographic order <C>lexord</C>:
 <Example>
 gap> lenlex := NCMonomialLengthOrdering( A, lexord );
@@ -334,8 +334,8 @@ Example 3 is taken from the book <Q>Ideals, Varieties, and Algorithms</Q>,
 <P/>
 
 First, set up the problem and find a Gröbner basis with respect to the length
-left-lexicographic ordering implicitly assumed in <Package>GBNP</Package>, 
-after removing any previous orderings: 
+left-lexicographic ordering implicitly assumed in <Package>GBNP</Package>,
+after removing any previous orderings:
 <Example>
 gap> UnpatchGBNP();
 LtNP restored.
@@ -423,8 +423,8 @@ gap> NP2GPList( gb4, A4 );
 
 
 <Section><Heading>Orderings - Internals</Heading>
-This section, and the following two, describe the current orderings 
-built into the <Package>GAP</Package> package <Package>NMO</Package>, 
+This section, and the following two, describe the current orderings
+built into the <Package>GAP</Package> package <Package>NMO</Package>,
 and describes some of the internals of the machinery involved.
 <P/>
 
@@ -517,7 +517,7 @@ NCMonomialLeftLexicographicOrdering([ (1)*b, (1)*c, (1)*a ])
 <Section><Heading>Orderings - Externals</Heading>
 
 All user-level interface routines in the descriptions following
-allow for the comparisonof not only monomials from a given algebra 
+allow for the comparisonof not only monomials from a given algebra
 with respect to a given ordering, but
 also compare general elements from an algebra by comparing their
 leading terms (again, with respect to the given ordering).

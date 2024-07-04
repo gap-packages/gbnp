@@ -17,7 +17,7 @@ the doc subdirectory of the GBNP distribution or see the FSF's own site:
 https://www.gnu.org/licenses/lgpl.html
 gap> ########################## END COPYRIGHT MESSAGE ##########################
 
-gap> ### filename = "example25.g" 
+gap> ### filename = "example25.g"
 gap> ### author amc
 gap> ### amc last edited 1 June 2007
 
@@ -35,7 +35,7 @@ The paper <Cite Key="MR2090062"/> by Baur and Draisma
 uses the computation of a quotient
 algebra of dimension 37, which we
 repeat here.
-The set of equations, after specialisation of the scalars to 1, 
+The set of equations, after specialisation of the scalars to 1,
 is as follows.
 
 <Listing><![CDATA[
@@ -53,18 +53,18 @@ gap> KI := [ [[[2,2]],[1]],
 >         [[[2,3,1,2,3,1,2],[2,1,3,2,1,3,2],[2]],[1,1,-1]],
 >       ];;
 gap> PrintNPList(KI);
- b^2 
- a^2 
- c^2 
- aba - a 
- bab - b 
- cbc - c 
- bcb - b 
- aca - a 
- cac - c 
- abcabca + acbacba - a 
- cabcabc + cbacbac - c 
- bcabcab + bacbacb - b 
+ b^2
+ a^2
+ c^2
+ aba - a
+ bab - b
+ cbc - c
+ bcb - b
+ aca - a
+ cac - c
+ abcabca + acbacba - a
+ cabcabc + cbacbac - c
+ bcabcab + bacbacb - b
 ]]></Listing>
 
 We carry out a traced Gröbner basis computation by use of
@@ -87,17 +87,17 @@ In order to express the
 last GB element, viz.
 <Listing><![CDATA[
 gap> PrintNP(GB[Length(GB)]);
- cabcabca + cbacba - ca 
+ cabcabca + cbacba - ca
 ]]></Listing>
 as a combination of elements of <C>KI</C>,
 we use <Ref Func="PrintTracePol" Style="Text"/>:
 <Listing><![CDATA[
-gap> PrintTracePol(GBT[Length(GBT)]);  
-- G(9)bacba + cG(10) 
+gap> PrintTracePol(GBT[Length(GBT)]);
+- G(9)bacba + cG(10)
 ]]></Listing>
 
 
-We compute matrices for left multiplication by generators 
+We compute matrices for left multiplication by generators
 using <Ref Func="MatricesQA" Style="Text"/>
 and determine the minimal polynomial of the sum of the three matrices.
 

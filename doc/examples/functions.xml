@@ -70,8 +70,8 @@ Convert the list <C>R</C> to a list of vectors in NPM format.
 
 <Listing><![CDATA[
 gap> List(R,GP2NP);
-[ [ [ [ -1, 2 ], [ -1 ] ], [ 1, -1 ] ], 
-  [ [ [ -1, 1, 2 ], [ -1, 1, 1 ], [ -2, 1, 2 ], [ -2, 1, 1 ], [ -1, 1 ], 
+[ [ [ [ -1, 2 ], [ -1 ] ], [ 1, -1 ] ],
+  [ [ [ -1, 1, 2 ], [ -1, 1, 1 ], [ -2, 1, 2 ], [ -2, 1, 1 ], [ -1, 1 ],
           [ -2, 1 ], [ -1 ], [ -2 ] ], [ 1, 1, -1, -1, 1, -1, 1, -1 ] ] ]
 ]]></Listing>
 
@@ -94,7 +94,7 @@ Let <C>Lgp</C> be the list of polynomials <M>[a^2-e,b^2-e,ba-ab-e]</M>.
 
 <Listing><![CDATA[
 gap> Lgp:=[a^2-e,b^2-e,b*a-a*b-e];
-[ (-1)*<identity ...>+(1)*a^2, (-1)*<identity ...>+(1)*b^2, 
+[ (-1)*<identity ...>+(1)*a^2, (-1)*<identity ...>+(1)*b^2,
   (-1)*<identity ...>+(-1)*a*b+(1)*b*a ]
 ]]></Listing>
 
@@ -103,7 +103,7 @@ with GP2NP:
 
 <Listing><![CDATA[
 gap> GP2NPList(Lgp);
-[ [ [ [ 1, 1 ], [  ] ], [ 1, -1 ] ], [ [ [ 2, 2 ], [  ] ], [ 1, -1 ] ], 
+[ [ [ [ 1, 1 ], [  ] ], [ 1, -1 ] ], [ [ [ 2, 2 ], [  ] ], [ 1, -1 ] ],
   [ [ [ 2, 1 ], [ 1, 2 ], [  ] ], [ 1, -1, -1 ] ] ]
 ]]></Listing>
 
@@ -122,7 +122,7 @@ true
 
 <E>Example:</E>
 Let <C>A</C> be the free associative algebra with one over the rationals on
-the generators <C>a</C> and <C>b</C>. 
+the generators <C>a</C> and <C>b</C>.
 
 <Listing><![CDATA[
 gap> A:=FreeAssociativeAlgebraWithOne(GF(3),"a","b");;
@@ -217,7 +217,7 @@ gap> List(Lnp, p -> NP2GP(p,A));
 [ (1)*a^3+(-1)*a, (1)*b^2+(-1)*<identity ...> ]
 ]]></Listing>
 
-Now let <C>M</C> be a module of dimension 2 over <C>A</C> and <C>Lnp</C> 
+Now let <C>M</C> be a module of dimension 2 over <C>A</C> and <C>Lnp</C>
 a list of vectors in NPM format. Then polynomials <C>Lnp</C>
 can be converted to the
 corresponding vectors of <C>M</C> with NP2GPList:
@@ -256,7 +256,7 @@ It can be printed in the guise of a polynomial in <C>a</C> and <C>b</C>
 by the function <C>PrintNP</C>:
 <Listing><![CDATA[
 gap> PrintNP(p);
- a^2b - 2ab^2 + 3 
+ a^2b - 2ab^2 + 3
 ]]></Listing>
 
 <#/GAPDoc>
@@ -275,45 +275,45 @@ gap> p2 := [[[1,2,2],[]],[1,-1]];;
 They can be printed by the function <C>PrintNP</C>.
 <Listing><![CDATA[
 gap> PrintNP(p1);
- a^2b - 1 
+ a^2b - 1
 gap> PrintNP(p2);
- ab^2 - 1 
+ ab^2 - 1
 ]]></Listing>
 
-We can let the variables be printed as <C>x</C> and <C>y</C> 
+We can let the variables be printed as <C>x</C> and <C>y</C>
 instead of <C>a</C> and <C>b</C> by means of
 <Ref Func="GBNP.ConfigPrint" Style="Text"/>.
 <Listing><![CDATA[
 gap> GBNP.ConfigPrint("x","y");
 gap> PrintNP(p1);
- x^2y - 1 
+ x^2y - 1
 gap> PrintNP(p2);
- xy^2 - 1 
+ xy^2 - 1
 ]]></Listing>
 
 
-We can also let the variables be printed as <C>x.1</C> and <C>x.2</C> 
+We can also let the variables be printed as <C>x.1</C> and <C>x.2</C>
 instead of <C>a</C> and <C>b</C> by means of
 <Ref Func="GBNP.ConfigPrint" Style="Text"/>.
 <Listing><![CDATA[
 gap> GBNP.ConfigPrint(2,"x");
 gap> PrintNP(p1);
- x.1^2x.2 - 1 
+ x.1^2x.2 - 1
 gap> PrintNP(p2);
- x.1x.2^2 - 1 
+ x.1x.2^2 - 1
 ]]></Listing>
 
 
 We can even assign strings to the variables to
-be printed like <C>alice</C> and <C>bob</C> 
+be printed like <C>alice</C> and <C>bob</C>
 instead of <C>a</C> and <C>b</C> by means of
 <Ref Func="GBNP.ConfigPrint" Style="Text"/>.
 <Listing><![CDATA[
 gap> GBNP.ConfigPrint("alice","bob");
 gap> PrintNP(p1);
- alice^2bob - 1 
+ alice^2bob - 1
 gap> PrintNP(p2);
- alicebob^2 - 1 
+ alicebob^2 - 1
 ]]></Listing>
 
 
@@ -325,9 +325,9 @@ and print the polynomials as members of <A>A</A>:
 gap> A:=FreeAssociativeAlgebraWithOne(Rationals,"a","b");;
 gap> GBNP.ConfigPrint(A);
 gap> PrintNP(p1);
- a^2b - 1 
+ a^2b - 1
 gap> PrintNP(p2);
- ab^2 - 1 
+ ab^2 - 1
 ]]></Listing>
 
 
@@ -349,8 +349,8 @@ We can print the list with
 <Ref Func="PrintNPList" Style="Text"/>.
 <Listing><![CDATA[
 gap> PrintNPList(Lnp);
- a^2b - 1 
- ab^2 - 1 
+ a^2b - 1
+ ab^2 - 1
 ]]></Listing>
 
 Alternatively, using the function
@@ -363,8 +363,8 @@ and print the polynomials of the list as members of <A>A</A>:
 gap> A:=FreeAssociativeAlgebraWithOne(Rationals,"a","b");;
 gap> GBNP.ConfigPrint(A);
 gap> PrintNPList(Lnp);
- a^2b - 1 
- ab^2 - 1 
+ a^2b - 1
+ ab^2 - 1
 ]]></Listing>
 
 
@@ -385,7 +385,7 @@ gap> p2 := [[[1,2,2],[]],[1,-4]];;
 The second can be subtracted from the first by the function <C>AddNP</C>.
 <Listing><![CDATA[
 gap> PrintNP(AddNP(p1,p2,1,-1));
- - ab^2 + a^2b + 1 
+ - ab^2 + a^2b + 1
 ]]></Listing>
 
 <#/GAPDoc>
@@ -405,9 +405,9 @@ multiplying <C>p2</C> from the left by <C>a</C>
 is possible with the function <C>BimulNP</C>:
 <Listing><![CDATA[
 gap> PrintNP(BimulNP([],p1,[2]));
- a^2b^2 - 3b 
+ a^2b^2 - 3b
 gap> PrintNP(BimulNP([1],p2,[]));
- a^2b^2 - 4a 
+ a^2b^2 - 4a
 ]]></Listing>
 
 <#/GAPDoc>
@@ -421,7 +421,7 @@ Consider the following polynomial in NP format.
 <Listing><![CDATA[
 gap> p := [[[1,1,2],[],[1,1,2],[]],[1,-3,-2,3]];;
 gap> PrintNP(p);
- a^2b - 3 - 2a^2b + 3 
+ a^2b - 3 - 2a^2b + 3
 ]]></Listing>
 
 The monomials <C>[1,1,2]</C> and <C>[]</C>  occur twice each.
@@ -429,7 +429,7 @@ For many functions this representation of a polynomial in NP format
 is not allowed. It needs to be cleaned, as by <Ref Func="CleanNP" Style="Text"/>:
 <Listing><![CDATA[
 gap> PrintNP(CleanNP(p));
- - a^2b 
+ - a^2b
 ]]></Listing>
 
 
@@ -514,8 +514,8 @@ and then submitted to PrintNPList:
 
 <Listing><![CDATA[
 gap> PrintNPList(List(LMonsNP(Lnp), q -> [[q],[1]]));
- a^2b 
- ab^2 
+ a^2b
+ ab^2
 ]]></Listing>
 
 <#/GAPDoc>
@@ -529,7 +529,7 @@ gap> p2 := [[[1,2,2],[2]],[8,-9]];;
 gap> Lnp := [p1,p2];;
 ]]></Listing>
 
-The leading term of a polynomial is returned by <C>LTermNP</C>, 
+The leading term of a polynomial is returned by <C>LTermNP</C>,
 and the list of leading terms is computed by <C>LTermsNP</C>:
 
 <Listing><![CDATA[
@@ -550,16 +550,16 @@ Consider the following polynomial in NP format.
 <Listing><![CDATA[
 gap> p := [[[1,1,2],[]],[2,-1]];;
 gap> PrintNP(p);
- 2a^2b - 1 
+ 2a^2b - 1
 ]]></Listing>
 
-The coefficient of the leading term is <M>2</M>. 
-The function <C>MkMonicNP</C> finds this coefficient 
+The coefficient of the leading term is <M>2</M>.
+The function <C>MkMonicNP</C> finds this coefficient
 and divides every term by it:
 
 <Listing><![CDATA[
 gap> PrintNP(MkMonicNP(p));
- a^2b - 1/2 
+ a^2b - 1/2
 ]]></Listing>
 
 <#/GAPDoc>
@@ -570,7 +570,7 @@ Consider the following polynomial in NP format.
 <Listing><![CDATA[
 gap> p := [[[1,1,2],[1,2],[1]],[30,70,105]];;
 gap> PrintNP(p);
- 30a^2b + 70ab + 105a 
+ 30a^2b + 70ab + 105a
 ]]></Listing>
 
 The <C>Gcd</C> of the coefficients <M>[30,70,105]</M> is <M>5</M>.
@@ -578,10 +578,10 @@ The function <C>FactorOutGcdNP</C> divides the polynomial by <M>5</M>:
 
 <Listing><![CDATA[
 gap> PrintNP(FactorOutGcdNP(p));
- 6a^2b + 14ab + 21a 
+ 6a^2b + 14ab + 21a
 gap> m := MkMonicNP(p);
 [ [ [ 1, 1, 2 ], [ 1, 2 ], [ 1 ] ], [ 1, 7/3, 7/2 ] ]
-gap> fm := FactorOutGcdNP(m); 
+gap> fm := FactorOutGcdNP(m);
 fail
 ]]></Listing>
 
@@ -600,7 +600,7 @@ gap> p2 := [[[1,2,2],[]],[1,-1]];;
 The function <C>MulNP</C> multiplies the two polynomials.
 <Listing><![CDATA[
 gap> PrintNP(MulNP(p1,p2));
- a^2bab^2 - ab^2 - a^2b + 1 
+ a^2bab^2 - ab^2 - a^2b + 1
 ]]></Listing>
 
 
@@ -608,7 +608,7 @@ The fact that this multiplication is not commutative is illustrated by
 the following comparison, using <C>MulNP</C> twice and <C>AddNP</C> once.
 <Listing><![CDATA[
 gap> PrintNP(AddNP(MulNP(p1,p2),MulNP(p2,p1),1,-1));
- - ab^2a^2b + a^2bab^2 
+ - ab^2a^2b + a^2bab^2
 ]]></Listing>
 
 <#/GAPDoc>
@@ -627,11 +627,11 @@ The strong normal form of the polynomial
 <Listing><![CDATA[
 gap> p := [[[1,1,1,2],[2,1],[]],[1,-1,3]];;
 ]]></Listing>
-with respect to the list <C>[p1,p2]</C> 
+with respect to the list <C>[p1,p2]</C>
 is computed by use of the function <C>StrongNormalFormNP</C>:
 <Listing><![CDATA[
 gap> PrintNP(StrongNormalFormNP(p,[p1,p2]));
- - ba + a + 3 
+ - ba + a + 3
 ]]></Listing>
 <#/GAPDoc>
 
@@ -643,8 +643,8 @@ Consider the following two polynomials in NP format.
 gap> p1 := [[[1,1,2],[]],[1,-1]];;
 gap> p2 := [[[1,2,2],[]],[1,-1]];;
 gap> PrintNPList([p1,p2]);
- a^2b - 1 
- ab^2 - 1 
+ a^2b - 1
+ ab^2 - 1
 ]]></Listing>
 
 
@@ -652,8 +652,8 @@ Their Gröbner basis can be computed by the function <C>Grobner</C>.
 <Listing><![CDATA[
 gap> G := Grobner([p1,p2]);;
 gap> PrintNPList(G);
- b - a 
- a^3 - 1 
+ b - a
+ a^3 - 1
 ]]></Listing>
 
 One iteration of the Gröbner computations is invoked by use of the parameter
@@ -661,9 +661,9 @@ One iteration of the Gröbner computations is invoked by use of the parameter
 <Listing><![CDATA[
 gap> R := Grobner([p1,p2],1);;
 gap> PrintNPList(R.G);
- b - a 
+ b - a
 gap> PrintNPList(R.todo);
- a^3 - 1 
+ a^3 - 1
 gap> R.iterations;
 1
 gap> R.completed;
@@ -675,19 +675,19 @@ of the Gröbner basis computation with the  Gröbner pair
 <C>R.G</C>, <C>R.todo</C>:
 <Listing><![CDATA[
 gap> PrintNPList(Grobner(R.G,R.todo));
- b - a 
- a^3 - 1 
+ b - a
+ a^3 - 1
 ]]></Listing>
 
-In order to perform 
+In order to perform
 the Gröbner basis computation with polynomials in
 a free algebra over the field <M>GF(2)</M>, the coefficients
 of the polynomials need to be defined over that field.
 
 <Listing><![CDATA[
 gap> PrintNPList(Grobner([[p1[1],One(GF(2))*p1[2]],[p2[1],One(GF(2))*p1[2]]]));
- b + a 
- a^3 + Z(2)^0 
+ b + a
+ a^3 + Z(2)^0
 ]]></Listing>
 
 
@@ -701,8 +701,8 @@ Consider the following two polynomials in NP format.
 gap> p1 := [[[1,1,2],[]],[1,-1]];;
 gap> p2 := [[[1,2,2],[]],[1,-1]];;
 gap> PrintNPList([p1,p2]);
- a^2b - 1 
- ab^2 - 1 
+ a^2b - 1
+ ab^2 - 1
 ]]></Listing>
 
 
@@ -710,8 +710,8 @@ Their Gröbner basis can be computed by the function <C>Grobner</C>.
 <Listing><![CDATA[
 gap> G := SGrobner([p1,p2]);;
 gap> PrintNPList(G);
- b - a 
- a^3 - 1 
+ b - a
+ a^3 - 1
 ]]></Listing>
 
 One iteration of the Gröbner computations is invoked by use of the parameter
@@ -719,9 +719,9 @@ One iteration of the Gröbner computations is invoked by use of the parameter
 <Listing><![CDATA[
 gap> R := SGrobner([p1,p2],1);;
 gap> PrintNPList(R.G);
- b - a 
+ b - a
 gap> PrintNPList(R.todo);
- a^3 - 1 
+ a^3 - 1
 gap> R.iterations;
 1
 gap> R.completed;
@@ -733,8 +733,8 @@ of the Gröbner basis computation with the  Gröbner pair
 <C>R.G</C>, <C>R.todo</C>:
 <Listing><![CDATA[
 gap> PrintNPList(SGrobner(R.G,R.todo));
- b - a 
- a^3 - 1 
+ b - a
+ a^3 - 1
 ]]></Listing>
 <#/GAPDoc>
 
@@ -747,23 +747,23 @@ gap> p1 := [[[1,1,2],[]],[1,-1]];;
 gap> p2 := [[[1,2,2],[]],[1,-1]];;
 gap> G := Grobner([p1,p2]);;
 gap> PrintNPList(G);
- b - a 
- a^3 - 1 
+ b - a
+ a^3 - 1
 ]]></Listing>
 The function <C>BaseQA</C> computes a basis for the
 quotient algebra of the free algebra over the rationals
-with generators <M>a</M> and <M>b</M> 
+with generators <M>a</M> and <M>b</M>
 by the two-sided ideal generated by <C>G</C>.
 <Listing><![CDATA[
 gap> PrintNPList(G);
- b - a 
- a^3 - 1 
+ b - a
+ a^3 - 1
 gap> BaseQA(G,2,0);
 [ [ [ [  ] ], [ 1 ] ], [ [ [ 1 ] ], [ 1 ] ], [ [ [ 1, 1 ] ], [ 1 ] ] ]
 gap> PrintNPList(BaseQA(G,2,0));
- 1 
- a 
- a^2 
+ 1
+ a
+ a^2
 ]]></Listing>
 
 It is necessary for a correct result that the first argument
@@ -771,19 +771,19 @@ be a Gröbner basis, as will be clear from the following invocation
 of <C>BaseQA</C>.
 <Listing><![CDATA[
 gap> PrintNPList(BaseQA([p1,p2],2,10));
- 1 
- a 
- b 
- a^2 
- ab 
- ba 
- b^2 
- a^3 
- aba 
- ba^2 
- bab 
- b^2a 
- b^3 
+ 1
+ a
+ b
+ a^2
+ ab
+ ba
+ b^2
+ a^3
+ aba
+ ba^2
+ bab
+ b^2a
+ b^3
 ]]></Listing>
 
 <#/GAPDoc>
@@ -797,12 +797,12 @@ gap> p1 := [[[1,1,2],[]],[1,-2]];;
 gap> p2 := [[[1,2,2],[]],[1,-2]];;
 gap> G := Grobner([p1,p2]);;
 gap> PrintNPList(G);
- b - a 
- a^3 - 2 
+ b - a
+ a^3 - 2
 ]]></Listing>
 The function <C>DimQA</C> computes the dimension of the
 quotient algebra of the free algebra over the rationals
-with generators <M>a</M> and <M>b</M> 
+with generators <M>a</M> and <M>b</M>
 by the two-sided ideal generated by <C>G</C>.
 <Listing><![CDATA[
 gap> DimQA(G,2);
@@ -819,8 +819,8 @@ gap> p1 := [[[1,1,2],[]],[1,-1]];;
 gap> p2 := [[[1,2,2],[]],[1,-1]];;
 gap> G := Grobner([p1,p2]);;
 gap> PrintNPList(G);
- b - a 
- a^3 - 1 
+ b - a
+ a^3 - 1
 ]]></Listing>
 
 Print the product in the quotient algebra of the polynomials
@@ -829,7 +829,7 @@ Print the product in the quotient algebra of the polynomials
 gap> s1 := [[[1],[]],[1,-2]];;
 gap> s2 := [[[2],[]],[1,-3]];;
 gap> PrintNP(MulQA(s1,s2,G));
- a^2 - 5a + 6 
+ a^2 - 5a + 6
 ]]></Listing>
 
 The result should be equal to the strong normal form of
@@ -849,8 +849,8 @@ Consider the following list of two polynomials in NP format.
 <Listing><![CDATA[
 gap> Lnp := [[[[1,1,2],[]],[1,-1]], [[[1,2,2],[]],[1,-1]]];;
 gap> PrintNPList(Lnp);
- a^2b - 1 
- ab^2 - 1 
+ a^2b - 1
+ ab^2 - 1
 ]]></Listing>
 The function <C>IsStrongGrobner</C> checks whether the list is a
 strong Gröbner basis.
@@ -871,9 +871,9 @@ A Gröbner basis that is not a strong Gröbner basis:
 gap> B := SGrobner(Lnp);;
 gap> Add(B,AddNP(Lnp[1],B[1],1,-1));;
 gap> PrintNPList(B);
- b - a 
- a^3 - 1 
- a^2b - b + a - 1 
+ b - a
+ a^3 - 1
+ a^2b - b + a - 1
 gap> IsGrobnerBasis(B);
 true
 gap> IsStrongGrobnerBasis(B);
@@ -888,8 +888,8 @@ Consider the following list of two polynomials in NP format.
 <Listing><![CDATA[
 gap> Lnp := [[[[1,1,2],[]],[1,-1]], [[[1,2,2],[]],[1,-1]]];;
 gap> PrintNPList(Lnp);
- a^2b - 1 
- ab^2 - 1 
+ a^2b - 1
+ ab^2 - 1
 ]]></Listing>
 The function <C>IsGrobner</C> checks whether the list is a
  Gröbner basis.
@@ -927,7 +927,7 @@ false
 ]]></Listing>
 
 The function <C>IsGrobnerPair</C> applied with an empty list
-as second argument is a check whether the first argument is a 
+as second argument is a check whether the first argument is a
  Gröbner basis.
 <Listing><![CDATA[
 gap> IsGrobnerPair([p1,p2],[]) = IsGrobnerBasis([p1,p2]);
@@ -951,18 +951,18 @@ The result is a record whose fields <C>G</C> and <C>todo</C>
 <Listing><![CDATA[
 gap> GP := MakeGrobnerPair([p1,p2],[]);;
 gap> PrintNPList(GP.G);
- a^2b - 1 
- ab^2 - 1 
+ a^2b - 1
+ ab^2 - 1
 gap> PrintNPList(GP.todo);
- b - a 
+ b - a
 ]]></Listing>
 
 These fields are ready for use in <C>Grobner</C>
 <Listing><![CDATA[
 gap> GB := Grobner(GP.G,GP.todo);;
 gap> PrintNPList(GB);
- b - a 
- a^3 - 1 
+ b - a
+ a^3 - 1
 ]]></Listing>
 
 
@@ -977,8 +977,8 @@ Consider the following two polynomials in NP format.
 gap> p1 := [[[1,1,2],[]],[1,-1]];;
 gap> p2 := [[[1,2,2],[]],[1,-1]];;
 gap> PrintNPList([p1,p2]);
- a^2b - 1 
- ab^2 - 1 
+ a^2b - 1
+ ab^2 - 1
 ]]></Listing>
 
 Consider also the following two vectors in NPM format.
@@ -995,8 +995,8 @@ The Gröbner basis record for this data is found by
 <Listing><![CDATA[
 gap> GBR := SGrobnerModule([v1,v2],[p1,p2]);;
 gap> PrintNPList(GBR.ts);
- b - a 
- a^3 - 1 
+ b - a
+ a^3 - 1
 gap> PrintNPList(GBR.p);
 [ 0, 1 ]
 [ a - 1 , 0]
@@ -1044,8 +1044,8 @@ gap> PrintNPList(GBR.p);
 [ 0, 1 ]
 [ 1 , 0]
 gap> PrintNPList(GBR.ts);
- b - 3/2a 
- a^3 - 4/3 
+ b - 3/2a
+ a^3 - 4/3
 ]]></Listing>
 
 <#/GAPDoc>
@@ -1058,8 +1058,8 @@ Consider the following two polynomials in NP format.
 gap> p1 := [[[1,1,2],[]],[1,-1]];;
 gap> p2 := [[[1,2,2],[]],[1,-1]];;
 gap> PrintNPList([p1,p2]);
- a^2b - 1 
- ab^2 - 1 
+ a^2b - 1
+ ab^2 - 1
 ]]></Listing>
 
 Consider also the following two vectors in NPM format.
@@ -1076,8 +1076,8 @@ The Gröbner basis record for this data is found by
 <Listing><![CDATA[
 gap> GBR := SGrobnerModule([v1,v2],[p1,p2]);;
 gap> PrintNPList(GBR.ts);
- b - a 
- a^3 - 1 
+ b - a
+ a^3 - 1
 gap> PrintNPList(GBR.p);
 [ 0, 1 ]
 [ a - 1 , 0]
@@ -1092,7 +1092,7 @@ gap> PrintNP(w);
 [ b , - 4a ]
 gap> q := [[[2,2,1],[1]],[2,3]];;
 gap> PrintNP(q);
- 2b^2a + 3a 
+ 2b^2a + 3a
 gap> wq := MulQM(w,q,GBR);;
 gap> PrintNP(wq);
 [ 5 , 0]
@@ -1122,10 +1122,10 @@ The Gröbner basis record for this data is found by
 <Listing><![CDATA[
 gap> GBR := SGrobnerModule([v1,v2],[p1,p2]);;
 gap> PrintNPList(GBR.ts);
- ba - ab 
- b^2 - a^2 
- a^3b - 1 
- a^5 - b 
+ ba - ab
+ b^2 - a^2
+ a^3b - 1
+ a^5 - b
 gap> PrintNPList(GBR.p);
 [ 0, 1 ]
 [ b - a , 0]
@@ -1229,14 +1229,14 @@ algebra as found in
 gap> GB := Grobner([p1,p2]);;
 gap> B := BaseQA(GB,2,0);;
 gap> PrintNPList(B);
- 1 
- a 
- b 
- a^2 
- ab 
- a^3 
- a^2b 
- a^4 
+ 1
+ a
+ b
+ a^2
+ ab
+ a^3
+ a^2b
+ a^4
 gap> Display(MatrixQA(1, B,GB));
 [ [  0,  1,  0,  0,  0,  0,  0,  0 ],
   [  0,  0,  0,  1,  0,  0,  0,  0 ],
@@ -1344,14 +1344,14 @@ just like <Ref Func="MatrixQA" Style="Text"/>. The difference is
 that the result is in another format.
 <Listing><![CDATA[
 gap> GB := Grobner([p1,p2]);
-[ [ [ [ 1, 1, 1, 2 ], [  ] ], [ Z(2)^0, Z(2^8)^254 ] ], 
-  [ [ [ 2, 2 ], [ 1, 1 ] ], [ Z(2)^0, Z(2^8)^2 ] ], 
-  [ [ [ 2, 1 ], [ 1, 2 ] ], [ Z(2)^0, Z(2)^0 ] ], 
+[ [ [ [ 1, 1, 1, 2 ], [  ] ], [ Z(2)^0, Z(2^8)^254 ] ],
+  [ [ [ 2, 2 ], [ 1, 1 ] ], [ Z(2)^0, Z(2^8)^2 ] ],
+  [ [ [ 2, 1 ], [ 1, 2 ] ], [ Z(2)^0, Z(2)^0 ] ],
   [ [ [ 1, 1, 1, 1, 1 ], [ 2 ] ], [ Z(2)^0, Z(2^8)^252 ] ] ]
 gap> B := BaseQA(GB,2,0);
-[ [ [ [  ] ], [ Z(2)^0 ] ], [ [ [ 1 ] ], [ Z(2)^0 ] ], 
-  [ [ [ 2 ] ], [ Z(2)^0 ] ], [ [ [ 1, 1 ] ], [ Z(2)^0 ] ], 
-  [ [ [ 1, 2 ] ], [ Z(2)^0 ] ], [ [ [ 1, 1, 1 ] ], [ Z(2)^0 ] ], 
+[ [ [ [  ] ], [ Z(2)^0 ] ], [ [ [ 1 ] ], [ Z(2)^0 ] ],
+  [ [ [ 2 ] ], [ Z(2)^0 ] ], [ [ [ 1, 1 ] ], [ Z(2)^0 ] ],
+  [ [ [ 1, 2 ] ], [ Z(2)^0 ] ], [ [ [ 1, 1, 1 ] ], [ Z(2)^0 ] ],
   [ [ [ 1, 1, 2 ] ], [ Z(2)^0 ] ], [ [ [ 1, 1, 1, 1 ] ], [ Z(2)^0 ] ] ]
 gap> MatrixQAC(1, B,GB);
 < mutable compressed matrix 8x8 over GF(256) >
@@ -1380,17 +1380,17 @@ on the quotient algebra  are just like for
 <Ref Func="MatricesQA" Style="Text"/> except for the format of the result.
 <Listing><![CDATA[
 gap> GB := Grobner([p1,p2]);
-[ [ [ [ 1, 1, 1, 2 ], [  ] ], [ Z(2)^0, Z(2^8)^254 ] ], 
-  [ [ [ 2, 2 ], [ 1, 1 ] ], [ Z(2)^0, Z(2^8)^2 ] ], 
-  [ [ [ 2, 1 ], [ 1, 2 ] ], [ Z(2)^0, Z(2)^0 ] ], 
+[ [ [ [ 1, 1, 1, 2 ], [  ] ], [ Z(2)^0, Z(2^8)^254 ] ],
+  [ [ [ 2, 2 ], [ 1, 1 ] ], [ Z(2)^0, Z(2^8)^2 ] ],
+  [ [ [ 2, 1 ], [ 1, 2 ] ], [ Z(2)^0, Z(2)^0 ] ],
   [ [ [ 1, 1, 1, 1, 1 ], [ 2 ] ], [ Z(2)^0, Z(2^8)^252 ] ] ]
 gap> B := BaseQA(GB,2,0);
-[ [ [ [  ] ], [ Z(2)^0 ] ], [ [ [ 1 ] ], [ Z(2)^0 ] ], 
-  [ [ [ 2 ] ], [ Z(2)^0 ] ], [ [ [ 1, 1 ] ], [ Z(2)^0 ] ], 
-  [ [ [ 1, 2 ] ], [ Z(2)^0 ] ], [ [ [ 1, 1, 1 ] ], [ Z(2)^0 ] ], 
+[ [ [ [  ] ], [ Z(2)^0 ] ], [ [ [ 1 ] ], [ Z(2)^0 ] ],
+  [ [ [ 2 ] ], [ Z(2)^0 ] ], [ [ [ 1, 1 ] ], [ Z(2)^0 ] ],
+  [ [ [ 1, 2 ] ], [ Z(2)^0 ] ], [ [ [ 1, 1, 1 ] ], [ Z(2)^0 ] ],
   [ [ [ 1, 1, 2 ] ], [ Z(2)^0 ] ], [ [ [ 1, 1, 1, 1 ] ], [ Z(2)^0 ] ] ]
 gap> MatricesQAC(2,B,GB);
-[ < mutable compressed matrix 8x8 over GF(256) >, 
+[ < mutable compressed matrix 8x8 over GF(256) >,
   < mutable compressed matrix 8x8 over GF(256) > ]
 ]]></Listing>
 
@@ -1410,10 +1410,10 @@ gap> p1 := [[[1,1,1,1,2],[]],[1,-1]];;
 gap> p2 := [[[2,2,2,1,1,1],[]],[1,-1]];;
 gap> GB := Grobner([p1,p2]);;
 gap> PrintNPList(GB);
- a^4b - 1 
- ba - ab 
- b^2 - a 
- a^5 - b 
+ a^4b - 1
+ ba - ab
+ b^2 - a
+ a^5 - b
 ]]></Listing>
 
 Application of <C>PreprocessAnalysisQA</C> is carried out on the leading terms of
@@ -1449,7 +1449,7 @@ gap> GBT := SGrobnerTrace(Lnp);;
 
 In order to check that the polynomials in <C>GBT</C> belong to the ideal
 generated by <C>p1</C> and <C>p2</C>, we evaluate the trace.
-For each traced polynomial <C>p</C> in <C>GBT</C>, 
+For each traced polynomial <C>p</C> in <C>GBT</C>,
 the polynomial <C>p.pol</C> is equated to the evaluated expression
 <C>p.trace</C>,
 in which each occurrence of <C>G(i)</C> is replaced by <C>Lnp[i]</C>
@@ -1474,12 +1474,12 @@ basis is computed.
 gap> p1 := [[[1,1,2],[]],[1,-1]];;
 gap> p2 := [[[2,2,1],[]],[1,-1]];;
 gap> GBT := SGrobnerTrace([p1,p2]);
-[ rec( pol := [ [ [ 2 ], [ 1 ] ], [ 1, -1 ] ], 
-      trace := [ [ [  ], 1, [ 2, 1, 1, 2 ], -1 ], [ [ 2 ], 1, [  ], -1 ], 
-          [ [ 1 ], 1, [  ], 1 ], [ [ 1, 1 ], 2, [ 1, 2 ], 1 ] ] ), 
-  rec( pol := [ [ [ 1, 1, 1 ], [  ] ], [ 1, -1 ] ], 
-      trace := [ [ [ 2 ], 1, [ 2, 1 ], 1 ], [ [  ], 1, [ 2, 1, 1 ], 1 ], 
-          [ [  ], 2, [  ], 1 ], [ [ 2, 1, 1 ], 2, [  ], -1 ], 
+[ rec( pol := [ [ [ 2 ], [ 1 ] ], [ 1, -1 ] ],
+      trace := [ [ [  ], 1, [ 2, 1, 1, 2 ], -1 ], [ [ 2 ], 1, [  ], -1 ],
+          [ [ 1 ], 1, [  ], 1 ], [ [ 1, 1 ], 2, [ 1, 2 ], 1 ] ] ),
+  rec( pol := [ [ [ 1, 1, 1 ], [  ] ], [ 1, -1 ] ],
+      trace := [ [ [ 2 ], 1, [ 2, 1 ], 1 ], [ [  ], 1, [ 2, 1, 1 ], 1 ],
+          [ [  ], 2, [  ], 1 ], [ [ 2, 1, 1 ], 2, [  ], -1 ],
           [ [ 1, 1 ], 2, [ 1 ], -1 ] ] ) ]
 ]]></Listing>
 
@@ -1509,10 +1509,10 @@ and  <Ref Func="PrintTraceList" Style="Text"/>.
 gap> f := [[[1,1,1,1,1,1]],[1]];;
 gap> sf := StrongNormalFormTraceDiff(f,GBT);;
 gap> PrintNP(sf.pol);
- a^6 - 1 
+ a^6 - 1
 gap> PrintTraceList([sf]);
  G(1)ba^2 + bG(1)ba + G(1)ba^5 + bG(1)ba^4 + G(2) + G(2)a^3 - a^2G(
-2)a - ba^2G(2) - a^2G(2)a^4 - ba^2G(2)a^3 
+2)a - ba^2G(2) - a^2G(2)a^4 - ba^2G(2)a^3
 ]]></Listing>
 
 <#/GAPDoc>
@@ -1527,8 +1527,8 @@ following two polynomials in NP format.
 gap> p1 := [[[1,2,2,1],[2,1,1,2]],[1,-1]];;
 gap> p2 := [[[2,2,2],[1,1]],[1,-1]];;
 gap> PrintNPList([p1,p2]);
- ab^2a - ba^2b 
- b^3 - a^2 
+ ab^2a - ba^2b
+ b^3 - a^2
 ]]></Listing>
 
 
@@ -1539,9 +1539,9 @@ is computed and subsequently printed as follows.
 
 <Listing><![CDATA[
 gap> PrintNPList(SGrobnerTrunc([p1,p2],12,[3,2]));
- ba^2 - a^2b 
- b^3 - a^2 
- ab^2a - a^2b^2 
+ ba^2 - a^2b
+ b^3 - a^2
+ ab^2a - a^2b^2
 ]]></Listing>
 
 <#/GAPDoc>
@@ -1556,8 +1556,8 @@ following two polynomials in NP format.
 gap> p1 := [[[1,2,2,1],[2,1,1,2]],[1,-1]];;
 gap> p2 := [[[2,2,2],[1,1]],[1,-1]];;
 gap> PrintNPList([p1,p2]);
- ab^2a - ba^2b 
- b^3 - a^2 
+ ab^2a - ba^2b
+ b^3 - a^2
 ]]></Listing>
 
 
@@ -1586,9 +1586,9 @@ gap> wtv := [3,2];;
 gap> GB := SGrobnerTrunc([p1,p2],12,wtv);;
 gap> GBNP.ConfigPrint("a","b");
 gap> PrintNPList(GB);
- ba^2 - a^2b 
- b^3 - a^2 
- ab^2a - a^2b^2 
+ ba^2 - a^2b
+ b^3 - a^2
+ ab^2a - a^2b^2
 ]]></Listing>
 
 
@@ -1596,46 +1596,46 @@ A basis of standard monomials is found and printed as follows.
 
 <Listing><![CDATA[
 gap> BT := BaseQATrunc(GB,12,wtv);;
-gap> for degpart in BT do 
+gap> for degpart in BT do
 >   for mon in degpart do PrintNP([[mon],[1]]); od;
 > od;
- 1 
- b 
- a 
- b^2 
- ba 
- ab 
- a^2 
- b^3 
- b^2a 
- bab 
- ab^2 
- aba 
- a^2b 
- b^4 
- a^3 
- b^3a 
- b^2ab 
- bab^2 
- ab^3 
- baba 
- abab 
- a^2b^2 
- b^5 
- a^2ba 
- b^4a 
- a^3b 
- b^3ab 
- b^2ab^2 
- bab^3 
- ab^4 
- a^4 
- b^2aba 
- ab^3a 
- babab 
- abab^2 
- a^2b^3 
- b^6 
+ 1
+ b
+ a
+ b^2
+ ba
+ ab
+ a^2
+ b^3
+ b^2a
+ bab
+ ab^2
+ aba
+ a^2b
+ b^4
+ a^3
+ b^3a
+ b^2ab
+ bab^2
+ ab^3
+ baba
+ abab
+ a^2b^2
+ b^5
+ a^2ba
+ b^4a
+ a^3b
+ b^3ab
+ b^2ab^2
+ bab^3
+ ab^4
+ a^4
+ b^2aba
+ ab^3a
+ babab
+ abab^2
+ a^2b^3
+ b^6
 ]]></Listing>
 
 <#/GAPDoc>
@@ -1676,9 +1676,9 @@ gap> p2 := [[[2,2,2],[1,1]],[1,-1]];;
 gap> wtv := [3,2];;
 gap> GB := SGrobnerTrunc([p1,p2],12,wtv);;
 gap> PrintNPList(GB);
- ba^2 - a^2b 
- b^3 - a^2 
- ab^2a - a^2b^2 
+ ba^2 - a^2b
+ b^3 - a^2
+ ab^2a - a^2b^2
 ]]></Listing>
 
 
@@ -1689,9 +1689,9 @@ of the quotient algebra with respect to the ideal generated by
 
 <Listing><![CDATA[
 gap> F := FreqsQATrunc(GB,8,wtv);
-[ [ [ [  ], 1 ] ], [ [ [ 0, 1 ], 1 ] ], [ [ [ 1, 0 ], 1 ] ], 
-  [ [ [ 0, 2 ], 1 ] ], [ [ [ 1, 1 ], 2 ] ], 
-  [ [ [ 2, 0 ], 1 ], [ [ 0, 3 ], 1 ] ], [ [ [ 1, 2 ], 3 ] ], 
+[ [ [ [  ], 1 ] ], [ [ [ 0, 1 ], 1 ] ], [ [ [ 1, 0 ], 1 ] ],
+  [ [ [ 0, 2 ], 1 ] ], [ [ [ 1, 1 ], 2 ] ],
+  [ [ [ 2, 0 ], 1 ], [ [ 0, 3 ], 1 ] ], [ [ [ 1, 2 ], 3 ] ],
   [ [ [ 2, 1 ], 2 ], [ [ 0, 4 ], 1 ] ] ]
 ]]></Listing>
 
@@ -1754,9 +1754,9 @@ gap> p1 := [[[1,1,2],[]],[1,-1]];;
 gap> p2 := [[[2,2,1],[]],[1,-1]];;
 gap> GBT := SGrobnerTrace([p1,p2]);;
 gap> PrintTraceList(GBT);
- aG(1) - bG(1) - G(1)ba^2b + a^2G(2)ab 
+ aG(1) - bG(1) - G(1)ba^2b + a^2G(2)ab
 
- G(1)ba^2 + bG(1)ba + G(2) - a^2G(2)a - ba^2G(2) 
+ G(1)ba^2 + bG(1)ba + G(2) - a^2G(2)a - ba^2G(2)
 ]]></Listing>
 <#/GAPDoc>
 
@@ -1769,7 +1769,7 @@ gap> PrintTraceList(GBT);
 
 First we compute the
 traced Gröbner basis
-of the list of two polynomials in NP format. Next we print 
+of the list of two polynomials in NP format. Next we print
 the trace polynomial of the members of the list
 by use of <C>PrintTracePol</C>.
 <Listing><![CDATA[
@@ -1777,9 +1777,9 @@ gap> p1 := [[[1,1,2],[]],[1,-1]];;
 gap> p2 := [[[2,2,1],[]],[1,-1]];;
 gap> GBT := SGrobnerTrace([p1,p2]);;
 gap> for np in GBT do PrintTracePol(np); Print("\n"); od;
- aG(1) - bG(1) - G(1)ba^2b + a^2G(2)ab 
+ aG(1) - bG(1) - G(1)ba^2b + a^2G(2)ab
 
- G(1)ba^2 + bG(1)ba + G(2) - a^2G(2)a - ba^2G(2) 
+ G(1)ba^2 + bG(1)ba + G(2) - a^2G(2)a - ba^2G(2)
 
 ]]></Listing>
 <#/GAPDoc>
@@ -1798,8 +1798,8 @@ gap> p1 := [[[1,1,2],[]],[1,-1]];;
 gap> p2 := [[[2,2,1],[]],[1,-1]];;
 gap> GBT := SGrobnerTrace([p1,p2]);;
 gap> PrintNPListTrace(GBT);
- b - a 
- a^3 - 1 
+ b - a
+ a^3 - 1
 ]]></Listing>
 <#/GAPDoc>
 
@@ -1854,18 +1854,18 @@ The polynomials <C>p1</C> and  <C>p2</C> have coefficients in
 the field <C>F</C> of order 256.
 
 In order to study the growth of the quotient algebra
-we first compute the list of leading monomials of 
-the Gröbner basis elements and next apply 
+we first compute the list of leading monomials of
+the Gröbner basis elements and next apply
 <C>DetermineGrowthQA</C>.
 
 <Listing><![CDATA[
 gap> GB := Grobner([p1,p2]);;
 gap> L := LMonsNP(GB);;
 gap> for lm  in L  do PrintNP( [ [ lm ], [ 1 ] ] ); od;
- a^3b 
- b^2 
- ba 
- a^5 
+ a^3b
+ b^2
+ ba
+ a^5
 gap> DetermineGrowthQA(L,2,true);
 0
 ]]></Listing>
@@ -1884,7 +1884,7 @@ gap> L := [[1,2,1],[2,2,1]];;
 ]]></Listing>
 
 Finiteness of the dimension of the quotient algebra of the free algebra
-by the ideal generated by these two monomials can be 
+by the ideal generated by these two monomials can be
 decided by means of <C>FinCheckQA</C>.
 Its arguments are <C>L</C> and the number of generators of the free algebra
 in which the monomials reside.
@@ -1916,7 +1916,7 @@ gap> L := [[1,2,1],[2,2,1]];;
 ]]></Listing>
 
 Finiteness of the dimension of the quotient algebra of the free algebra
-by the ideal generated by these two monomials can be 
+by the ideal generated by these two monomials can be
 decided by means of <C>FinCheckQA</C>.
 Its arguments are <C>L</C> and the number of generators of the free algebra
 in which the monomials reside.
@@ -1944,7 +1944,7 @@ Consider the following polynomial in NP format.
 <Listing><![CDATA[
 gap> np := [[[2,2,2,1,1,1],[4],[3,2,3]],[1,-3,2]];;
 gap> PrintNP(np);
- b^3a^3 - 3d + 2cbc 
+ b^3a^3 - 3d + 2cbc
 gap> NumAlgGensNP(np);
 4
 ]]></Listing>
@@ -1958,8 +1958,8 @@ Consider the following two polynomials in NP format.
 gap> p1 := [[[1,1,2,3,1],[2],[1]],[1,-2,1]];;
 gap> p2 := [[[2,2,1,4,3],[]],[1,-1]];;
 gap> PrintNPList([p1,p2]);
- a^2bca - 2b + a 
- b^2adc - 1 
+ a^2bca - 2b + a
+ b^2adc - 1
 gap> NumAlgGensNPList([p1,p2]);
 4
 ]]></Listing>

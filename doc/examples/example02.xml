@@ -17,12 +17,12 @@ the doc subdirectory of the GBNP distribution or see the FSF's own site:
 https://www.gnu.org/licenses/lgpl.html
 gap> ########################## END COPYRIGHT MESSAGE ##########################
 
-gap> ### filename = "example02.g" 
+gap> ### filename = "example02.g"
 gap> ### authors Cohen & Gijsbers
 
-gap> ### THIS IS A GAP PACKAGE FOR COMPUTING NON-COMMUTATIVE GROBNER BASES 
-gap>  
-gap> ### Last change: August 29 2001. 
+gap> ### THIS IS A GAP PACKAGE FOR COMPUTING NON-COMMUTATIVE GROBNER BASES
+gap> 
+gap> ### Last change: August 29 2001.
 gap> ### amc
 
 <#GAPDoc Label="Example02">
@@ -55,7 +55,7 @@ gap> n := 8;;
 ]]></Listing>
 
 Now enter the relations in NP form (see <Ref Sect="NP"/>). The function
-<Code>MkTrLst</Code> will be introduced, which will return all monomials of 
+<Code>MkTrLst</Code> will be introduced, which will return all monomials of
 degree <C>n</C>. The list of ideal generators of interest is called <C>I</C>.
 
 <Listing><![CDATA[
@@ -87,26 +87,26 @@ gap> I := Concatenation([s1,s2],MkTrLst(n));;
 To give an impression, we print the first 20 entries of this list:
 <Listing><![CDATA[
 gap> PrintNPList(I{[1..20]});
- a^3b - 651/25a^2ba + 651/25aba^2 - ba^3 
- b^3a - 651/25b^2ab + 651/25bab^2 - ab^3 
- a^8 
- a^7b 
- a^6ba 
- a^6b^2 
- a^5ba^2 
- a^5bab 
- a^5b^2a 
- a^5b^3 
- a^4ba^3 
- a^4ba^2b 
- a^4baba 
- a^4bab^2 
- a^4b^2a^2 
- a^4b^2ab 
- a^4b^3a 
- a^4b^4 
- a^3ba^4 
- a^3ba^3b 
+ a^3b - 651/25a^2ba + 651/25aba^2 - ba^3
+ b^3a - 651/25b^2ab + 651/25bab^2 - ab^3
+ a^8
+ a^7b
+ a^6ba
+ a^6b^2
+ a^5ba^2
+ a^5bab
+ a^5b^2a
+ a^5b^3
+ a^4ba^3
+ a^4ba^2b
+ a^4baba
+ a^4bab^2
+ a^4b^2a^2
+ a^4b^2ab
+ a^4b^3a
+ a^4b^4
+ a^3ba^4
+ a^3ba^3b
 ]]></Listing>
 
 We calculate the Gröbner basis with <Ref Func="SGrobner" Style="Text"/>:
@@ -129,30 +129,30 @@ Gröbner basis can be printed with <C>PrintNPList(GB)</C>):
 
 <Listing><![CDATA[
 gap> PrintNPList(GB{[1..20]});
- ba^3 - 651/25aba^2 + 651/25a^2ba - a^3b 
- b^3a - 651/25b^2ab + 651/25bab^2 - ab^3 
+ ba^3 - 651/25aba^2 + 651/25a^2ba - a^3b
+ b^3a - 651/25b^2ab + 651/25bab^2 - ab^3
  b^2a^2ba - bab^2a^2 - baba^2b + ba^2bab + ab^2aba - abab^2a - aba^2b^2 + a^2b\
-^2ab 
+^2ab
  b^2ab^2a^2 - 651/25b^2ababa + b^2aba^2b + 626/25bab^2aba - bab^2a^2b + babab^\
 2a - ba^2b^2ab + ba^2bab^2 - 651/25ab^2ab^2a + ab^2abab + 423176/625abab^2ab -\
  423801/625ababab^2 + 626/25aba^2b^3 - 406901/625a^2b^2ab^2 + 423176/625a^2bab\
-^3 - 651/25a^3b^4 
- a^8 
- a^7b 
- a^6ba 
- a^6b^2 
- a^5ba^2 
- a^5bab 
- a^5b^2a 
- a^5b^3 
- a^4ba^2b 
- a^4baba 
- a^4bab^2 
- a^4b^2a^2 
- a^4b^2ab 
- a^4b^4 
- a^3ba^2ba 
- a^3ba^2b^2 
+^3 - 651/25a^3b^4
+ a^8
+ a^7b
+ a^6ba
+ a^6b^2
+ a^5ba^2
+ a^5bab
+ a^5b^2a
+ a^5b^3
+ a^4ba^2b
+ a^4baba
+ a^4bab^2
+ a^4b^2a^2
+ a^4b^2ab
+ a^4b^4
+ a^3ba^2ba
+ a^3ba^2b^2
 ]]></Listing>
 
 The truncated quotient algebra is obtained by

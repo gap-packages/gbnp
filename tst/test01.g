@@ -4,11 +4,11 @@
 # Knopper, Chris Krook. Address: Discrete Algebra and Geometry (DAM) group
 # at the Department of Mathematics and Computer Science of Eindhoven
 # University of Technology.
-# 
+#
 # For acknowledgements see the manual. The manual can be found in several
 # formats in the doc subdirectory of the GBNP distribution. The
 # acknowledgements formatted as text can be found in the file chap0.txt.
-# 
+#
 # GBNP is free software; you can redistribute it and/or modify it under
 # the terms of the Lesser GNU General Public License as published by the
 # Free Software Foundation (FSF); either version 2.1 of the License, or
@@ -17,19 +17,19 @@
 # https://www.gnu.org/licenses/lgpl.html
 ########################## END COPYRIGHT MESSAGE ##########################
 
-### filename = "example01.g" 
+### filename = "example01.g"
 ### authors Cohen & Gijsbers
 
-### THIS IS A GAP PACKAGE FOR COMPUTING NON-COMMUTATIVE GROBNER BASES 
- 
-### Last change: August 22 2001. 
+### THIS IS A GAP PACKAGE FOR COMPUTING NON-COMMUTATIVE GROBNER BASES
+
+### Last change: August 22 2001.
 ### amc
 
 # <#GAPDoc Label="Example01">
 # <Section Label="Example01">
 # <Heading>A simple commutative Gröbner basis computation</Heading>
 # In this commutative example the relations are <M>x^2y-1</M>
-# and <M>xy^2-1</M>; 
+# and <M>xy^2-1</M>;
 # we add <M>xy-yx</M> to enforce that
 # <M>x</M> and <M>y</M> commute.
 # The answer should be <M>\{x^3-1, x-y, xy-yx\}</M>,
@@ -48,13 +48,13 @@ SetInfoLevel(InfoGBNP,2);
 SetInfoLevel(InfoGBNPTime,0);
 # </L>
 
-# Then input the relations in NP format (see Section <Ref Sect="NP"/>). 
+# Then input the relations in NP format (see Section <Ref Sect="NP"/>).
 # They will be put in the list <C>Lnp</C>.
 
 # <L>
 Lnp := [ [[[1,2],[2,1]],[1,-1]]   ];
 x2y := [[[1,1,2],[]],[1,-1]];
-    AddSet(Lnp,x2y);   
+    AddSet(Lnp,x2y);
 xy2 := [[[1,2,2],[]],[1,-1]];
     AddSet(Lnp,xy2);
 # </L>
@@ -74,7 +74,7 @@ GBNP.ConfigPrint("x","y");
 
 
 
-# The Gröbner basis can now be calculated with 
+# The Gröbner basis can now be calculated with
 # <Ref Func="SGrobner" Style="Text"/>:
 
 # <L>
@@ -87,8 +87,8 @@ GB := SGrobner(Lnp);
 PrintNPList(GB);
 # </L>
 
-# The dimension of the quotient algebra can be calculated with 
-# <Ref Func="DimQA" Style="Text"/>. The arguments are the Gröbner basis 
+# The dimension of the quotient algebra can be calculated with
+# <Ref Func="DimQA" Style="Text"/>. The arguments are the Gröbner basis
 # <C>GB</C> and the number of variables is <C>2</C>:
 
 # <L>
@@ -106,8 +106,8 @@ B:=BaseQA(GB,2,0);;
 PrintNPList(B);
 # </L>
 
-# The strong normal form of the element <M>xyxyxyx</M> can be found by use of 
-# <Ref Func="StrongNormalFormNP" Style="Text"/>. 
+# The strong normal form of the element <M>xyxyxyx</M> can be found by use of
+# <Ref Func="StrongNormalFormNP" Style="Text"/>.
 # The arguments are this element and the Gröbner basis <C>GB</C>.
 
 # <L>

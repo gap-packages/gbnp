@@ -4,11 +4,11 @@
 # Knopper, Chris Krook. Address: Discrete Algebra and Geometry (DAM) group
 # at the Department of Mathematics and Computer Science of Eindhoven
 # University of Technology.
-# 
+#
 # For acknowledgements see the manual. The manual can be found in several
 # formats in the doc subdirectory of the GBNP distribution. The
 # acknowledgements formatted as text can be found in the file chap0.txt.
-# 
+#
 # GBNP is free software; you can redistribute it and/or modify it under
 # the terms of the Lesser GNU General Public License as published by the
 # Free Software Foundation (FSF); either version 2.1 of the License, or
@@ -17,7 +17,7 @@
 # https://www.gnu.org/licenses/lgpl.html
 ########################## END COPYRIGHT MESSAGE ##########################
 
-### filename = "example25.g" 
+### filename = "example25.g"
 ### author amc
 ### amc last edited 1 June 2007
 
@@ -34,7 +34,7 @@ SetInfoLevel(InfoGBNPTime,0);
 # uses the computation of a quotient
 # algebra of dimension 37, which we
 # repeat here.
-# The set of equations, after specialisation of the scalars to 1, 
+# The set of equations, after specialisation of the scalars to 1,
 # is as follows.
 
 # <L>
@@ -77,11 +77,11 @@ PrintNP(GB[Length(GB)]);
 # as a combination of elements of <C>KI</C>,
 # we use <Ref Func="PrintTracePol" Style="Text"/>:
 # <L>
-PrintTracePol(GBT[Length(GBT)]);  
+PrintTracePol(GBT[Length(GBT)]);
 # </L>
 
 
-# We compute matrices for left multiplication by generators 
+# We compute matrices for left multiplication by generators
 # using <Ref Func="MatricesQA" Style="Text"/>
 # and determine the minimal polynomial of the sum of the three matrices.
 

@@ -1,6 +1,6 @@
 #!/bin/sh
 
-if [ -z "$GAP" ] 
+if [ -z "$GAP" ]
 then
         GAP=gap
 fi
@@ -10,8 +10,8 @@ CPU_INFO=$(cat /proc/cpuinfo|grep 'model name'|head -n 1|cut -d: -f 2)
 OS_INFO="$(uname -s) ($(uname -vr))"
 GAP_INFO=$($GAP -h 2>&1 |grep Version|sed -e 's/.*Version //')
 
-cat <<-EOF 
+cat <<-EOF
 		Timing results are obtained on an $CPU_INFO processor running
-		$OS_INFO 
+		$OS_INFO
 		and using GAP $GAP_INFO.
 EOF

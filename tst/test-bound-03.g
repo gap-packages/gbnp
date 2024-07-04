@@ -4,11 +4,11 @@
 # Knopper, Chris Krook. Address: Discrete Algebra and Geometry (DAM) group
 # at the Department of Mathematics and Computer Science of Eindhoven
 # University of Technology.
-# 
+#
 # For acknowledgements see the manual. The manual can be found in several
 # formats in the doc subdirectory of the GBNP distribution. The
 # acknowledgements formatted as text can be found in the file chap0.txt.
-# 
+#
 # GBNP is free software; you can redistribute it and/or modify it under
 # the terms of the Lesser GNU General Public License as published by the
 # Free Software Foundation (FSF); either version 2.1 of the License, or
@@ -19,7 +19,7 @@
 
 LoadPackage("gbnp", false);
 
-# calculation examples 
+# calculation examples
 
 # NumAlgGensNP
 NumAlgGensNP([[],[]])=0;
@@ -106,7 +106,7 @@ M0:=[];;
 # not sure what the desired action should be (fail perhaps ?)
 # might be better to document this
 LMonsNP([])=[];
-#LMonsNP([NPzero])=[]; 
+#LMonsNP([NPzero])=[];
 LMonsNP([NPone])=[M0];
 #LMonsNP([NPone,NPzero])=[M0];
 LMonsNP([NPone,NPone])=[M0,M0];

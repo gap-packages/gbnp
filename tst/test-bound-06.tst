@@ -5,11 +5,11 @@ gap> # Copyright 2001-2010 by Arjeh M. Cohen, Dié A.H. Gijsbers, Jan Willem
 gap> # Knopper, Chris Krook. Address: Discrete Algebra and Geometry (DAM) group
 gap> # at the Department of Mathematics and Computer Science of Eindhoven
 gap> # University of Technology.
-gap> # 
+gap> #
 gap> # For acknowledgements see the manual. The manual can be found in several
 gap> # formats in the doc subdirectory of the GBNP distribution. The
 gap> # acknowledgements formatted as text can be found in the file chap0.txt.
-gap> # 
+gap> #
 gap> # GBNP is free software; you can redistribute it and/or modify it under
 gap> # the terms of the Lesser GNU General Public License as published by the
 gap> # Free Software Foundation (FSF); either version 2.1 of the License, or
@@ -21,7 +21,7 @@ gap>
 gap> LoadPackage("gbnp", false);
 true
 gap> 
-gap> check:=function (l, i) 
+gap> check:=function (l, i)
 > 	# exact answer matches
 > 	if IsInt(l) and l=i then
 > 		return true;
@@ -38,9 +38,9 @@ gap>
 gap> # DetermineGrowthQA
 gap> DetermineGrowthQA([],2,true)="exponential growth";
 true
-gap> DetermineGrowthQA([[1]],2,true)=1; 
+gap> DetermineGrowthQA([[1]],2,true)=1;
 true
-gap> DetermineGrowthQA([[1,2]],2,true)=2; 
+gap> DetermineGrowthQA([[1,2]],2,true)=2;
 true
 gap> DetermineGrowthQA([[2,1]],2,true)=2;
 true
@@ -51,9 +51,9 @@ true
 gap> 
 gap> DetermineGrowthQA([],2,false)="exponential growth";
 true
-gap> DetermineGrowthQA([[1]],2,false)=1; 
+gap> DetermineGrowthQA([[1]],2,false)=1;
 true
-gap> check(DetermineGrowthQA([[1,2]],2,false),2); 
+gap> check(DetermineGrowthQA([[1,2]],2,false),2);
 true
 gap> DetermineGrowthQA([[2,1]],2,false)=2;
 true

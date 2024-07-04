@@ -17,10 +17,10 @@ the doc subdirectory of the GBNP distribution or see the FSF's own site:
 https://www.gnu.org/licenses/lgpl.html
 gap> ########################## END COPYRIGHT MESSAGE ##########################
 
-gap> ### filename = "example18.g" 
+gap> ### filename = "example18.g"
 gap> ### author Knopper
 
-gap> ### THIS IS A GAP PACKAGE FOR COMPUTING NON-COMMUTATIVE GROBNER BASES 
+gap> ### THIS IS A GAP PACKAGE FOR COMPUTING NON-COMMUTATIVE GROBNER BASES
 
 
 <#GAPDoc Label="Example18">
@@ -93,12 +93,12 @@ function <Ref Func="PrintNPList" Style="Text"/>:
 
 <Listing><![CDATA[
 gap> PrintNPList(GBR.ts);
- b^2 - 1 
- aba - b 
- ba^2 - a^2b 
- bab - a^3 
- a^4 - 1 
- a^3b - ba 
+ b^2 - 1
+ aba - b
+ ba^2 - a^2b
+ bab - a^3
+ a^4 - 1
+ a^3b - ba
 gap> PrintNPList(GBR.p);
 [ b - 1 ]
 [ a^3 - ab ]
@@ -108,7 +108,7 @@ gap> PrintNPList(GBR.p);
 It is now possible to calculate the standard basis of the quotient module
 with the function <Ref Func="BaseQM" Style="Text"/>. This function has as
 arguments the Gröbner basis record <C>GBR</C>, the number of generators of
-the algebra (2), the number of generators of the module (1), 
+the algebra (2), the number of generators of the module (1),
 and a variable <C>maxno</C> for returning partial bases
 (0 means full basis).
 
@@ -131,7 +131,7 @@ gap> prefixrelsdom:=[gd[1]*(b-e)];;
 ]]></Listing>
 
 It is possible to use the two-sided Gröbner basis which was already
-calculated. 
+calculated.
 
 <Listing><![CDATA[
 gap> GBR:=SGrobnerModule(GP2NPList(prefixrelsdom),GBR.ts);;
@@ -164,7 +164,7 @@ gap> PrintNPList(B);
 
 To compute the image of right multiplication of the basis element
 <C>B[Length(B)]</C> of the module with the quotient algebra element
-corresponding to 
+corresponding to
 <M>ab</M> we use the function <Ref Func="MulQM" Style="Text"/> with
 arguments <C>B[Length(B)]</C>, <C>GB2NP(a*b)</C>, and <C>GBR</C>
 We subsequently use  <Ref Func="PrintNP" Style="Text"/> to display the result

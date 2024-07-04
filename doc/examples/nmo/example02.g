@@ -4,7 +4,7 @@
 
 # This example is the same as Example 1 above, except that the length
 # and lexicographic orderings are created independently and then
-# chained to form the usual length left-lexicographic ordering. 
+# chained to form the usual length left-lexicographic ordering.
 
 LoadPackage("gbnp", false);
 

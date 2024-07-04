@@ -4,11 +4,11 @@
 # Knopper, Chris Krook. Address: Discrete Algebra and Geometry (DAM) group
 # at the Department of Mathematics and Computer Science of Eindhoven
 # University of Technology.
-# 
+#
 # For acknowledgements see the manual. The manual can be found in several
 # formats in the doc subdirectory of the GBNP distribution. The
 # acknowledgements formatted as text can be found in the file chap0.txt.
-# 
+#
 # GBNP is free software; you can redistribute it and/or modify it under
 # the terms of the Lesser GNU General Public License as published by the
 # Free Software Foundation (FSF); either version 2.1 of the License, or
@@ -23,11 +23,11 @@
 # gap from the path
 
 all: depend doc examples tests workspace
-	
-clean: distclean
-	rm -rf tst/*tst 
 
-computerinfo: 
+clean: distclean
+	rm -rf tst/*tst
+
+computerinfo:
 	etc/maketiming > doc/timing.xml
 
 distclean:
@@ -47,15 +47,15 @@ depend: workspace
 
 .depend: depend
 
-examples: 
+examples:
 	cd examples && ${MAKE} all && cd ..
 
-tests: depend 
+tests: depend
 	cd tst && ${MAKE} all && cd ..
 
 workspace: build/gbnp.wks.gz
 
-build/gbnp.wks.gz: 
+build/gbnp.wks.gz:
 	etc/workspace
 
 build/COPYRIGHTcmt: COPYRIGHT etc/copyrightcomment

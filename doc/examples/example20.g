@@ -4,11 +4,11 @@
 # Knopper, Chris Krook. Address: Discrete Algebra and Geometry (DAM) group
 # at the Department of Mathematics and Computer Science of Eindhoven
 # University of Technology.
-# 
+#
 # For acknowledgements see the manual. The manual can be found in several
 # formats in the doc subdirectory of the GBNP distribution. The
 # acknowledgements formatted as text can be found in the file chap0.txt.
-# 
+#
 # GBNP is free software; you can redistribute it and/or modify it under
 # the terms of the Lesser GNU General Public License as published by the
 # Free Software Foundation (FSF); either version 2.1 of the License, or
@@ -17,7 +17,7 @@
 # https://www.gnu.org/licenses/lgpl.html
 ########################## END COPYRIGHT MESSAGE ##########################
 
-### filename = "example20.g" 
+### filename = "example20.g"
 ### author Knopper
 ### amc last edited 25 May 2007 problem with GBNP(y[1]+y[2])
 
@@ -72,7 +72,7 @@ PrintNPList(modrelsNP);
 
 # Next the function
 # <Ref Func="SGrobnerModule" Style="Text"/> is called to calculate a Gröbner basis
-# record (see <Ref Sect="GBR"/>). 
+# record (see <Ref Sect="GBR"/>).
 
 # <L>
 GBR:=SGrobnerModule(modrelsNP,GP2NPList(twosidrels));;
@@ -103,7 +103,7 @@ PrintNPList(B);
 # It is also possible to convert each member of the list <C>B</C> of
 # polynomials in NP form to GAP polynomials to do further calculations within
 # the algebra or module. This can be done with the function <Ref
-# Func="NP2GPList" Style="Text"/>. 
+# Func="NP2GPList" Style="Text"/>.
 
 # <L>
 NP2GPList(B,D);
@@ -125,13 +125,13 @@ Display(NP2GP(B[Length(B)],D));
 
 # <L>
 Display(MatrixQA(1,B,GBR));
-Display(MatrixQA(2,B,GBR)); 
+Display(MatrixQA(2,B,GBR));
 # </L>
 
 # In order to compute the image of the vector  <M>2y[1]+3y[2]</M> of the two standard generators of the module
 # under the action of the element <M>aab</M>, we use
 # <Ref Func="StrongNormalFormNPM" Style="Text"/>. Its first argument will be the vector
-# and its second the Gröbner basis. 
+# and its second the Gröbner basis.
 # The transformation <Ref Func="GP2NP" Style="Text"/> to the NP format
 # needs to be applied to the vector
 # before it can be used as an argument.

@@ -4,11 +4,11 @@
 # Knopper, Chris Krook. Address: Discrete Algebra and Geometry (DAM) group
 # at the Department of Mathematics and Computer Science of Eindhoven
 # University of Technology.
-# 
+#
 # For acknowledgements see the manual. The manual can be found in several
 # formats in the doc subdirectory of the GBNP distribution. The
 # acknowledgements formatted as text can be found in the file chap0.txt.
-# 
+#
 # GBNP is free software; you can redistribute it and/or modify it under
 # the terms of the Lesser GNU General Public License as published by the
 # Free Software Foundation (FSF); either version 2.1 of the License, or
@@ -17,16 +17,16 @@
 # https://www.gnu.org/licenses/lgpl.html
 ########################## END COPYRIGHT MESSAGE ##########################
 
-### filename = "Icosahedron.g" 
+### filename = "Icosahedron.g"
 ### author Arjeh M. Cohen
 
 # <#GAPDoc Label="Example04">
 # <Section Label="Example04">
 # <Heading>The icosahedral group</Heading>
-# In this example 
+# In this example
 # the two-sided relations give the group algebra of
 # the group with presentation
-# <M>\langle a,b,c \mid a^2=b^2=c^2=(ab)^3=(bc)^5=(ac)^2=1\rangle</M>, 
+# <M>\langle a,b,c \mid a^2=b^2=c^2=(ab)^3=(bc)^5=(ac)^2=1\rangle</M>,
 # the icosahedral group of order 120.
 # This is the Coxeter group of type H<M>_3</M>.
 # The module under construction is a 3-dimensional reflection representation,
@@ -79,7 +79,7 @@ Mrels:=[b*c-e,b-e,(a*b*c)^5+e];;
 # the function <Ref Func="GP2NPList" Style="Text"/>.
 # Next the function
 # <Ref Func="SGrobnerModule" Style="Text"/> is called to calculate a Gröbner basis
-# record (see <Ref Sect="GBR"/>). 
+# record (see <Ref Sect="GBR"/>).
 
 # <L>
 GBR:=SGrobnerModule(GP2NPList(Mrels),GP2NPList(Irels));;

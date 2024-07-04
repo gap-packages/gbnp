@@ -4,11 +4,11 @@
 # Knopper, Chris Krook. Address: Discrete Algebra and Geometry (DAM) group
 # at the Department of Mathematics and Computer Science of Eindhoven
 # University of Technology.
-# 
+#
 # For acknowledgements see the manual. The manual can be found in several
 # formats in the doc subdirectory of the GBNP distribution. The
 # acknowledgements formatted as text can be found in the file chap0.txt.
-# 
+#
 # GBNP is free software; you can redistribute it and/or modify it under
 # the terms of the Lesser GNU General Public License as published by the
 # Free Software Foundation (FSF); either version 2.1 of the License, or
@@ -17,10 +17,10 @@
 # https://www.gnu.org/licenses/lgpl.html
 ########################## END COPYRIGHT MESSAGE ##########################
 
-### filename = "example18.g" 
+### filename = "example18.g"
 ### author Knopper
 
-### THIS IS A GAP PACKAGE FOR COMPUTING NON-COMMUTATIVE GROBNER BASES 
+### THIS IS A GAP PACKAGE FOR COMPUTING NON-COMMUTATIVE GROBNER BASES
 
 
 # <#GAPDoc Label="Example18">
@@ -83,7 +83,7 @@ PrintNPList(GBR.p);
 # It is now possible to calculate the standard basis of the quotient module
 # with the function <Ref Func="BaseQM" Style="Text"/>. This function has as
 # arguments the Gröbner basis record <C>GBR</C>, the number of generators of
-# the algebra (2), the number of generators of the module (1), 
+# the algebra (2), the number of generators of the module (1),
 # and a variable <C>maxno</C> for returning partial bases
 # (0 means full basis).
 
@@ -102,7 +102,7 @@ prefixrelsdom:=[gd[1]*(b-e)];;
 # </L>
 
 # It is possible to use the two-sided Gröbner basis which was already
-# calculated. 
+# calculated.
 
 # <L>
 GBR:=SGrobnerModule(GP2NPList(prefixrelsdom),GBR.ts);;
@@ -114,7 +114,7 @@ PrintNPList(B);
 
 # To compute the image of right multiplication of the basis element
 # <C>B[Length(B)]</C> of the module with the quotient algebra element
-# corresponding to 
+# corresponding to
 # <M>ab</M> we use the function <Ref Func="MulQM" Style="Text"/> with
 # arguments <C>B[Length(B)]</C>, <C>GB2NP(a*b)</C>, and <C>GBR</C>
 # We subsequently use  <Ref Func="PrintNP" Style="Text"/> to display the result

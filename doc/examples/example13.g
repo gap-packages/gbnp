@@ -4,11 +4,11 @@
 # Knopper, Chris Krook. Address: Discrete Algebra and Geometry (DAM) group
 # at the Department of Mathematics and Computer Science of Eindhoven
 # University of Technology.
-# 
+#
 # For acknowledgements see the manual. The manual can be found in several
 # formats in the doc subdirectory of the GBNP distribution. The
 # acknowledgements formatted as text can be found in the file chap0.txt.
-# 
+#
 # GBNP is free software; you can redistribute it and/or modify it under
 # the terms of the Lesser GNU General Public License as published by the
 # Free Software Foundation (FSF); either version 2.1 of the License, or
@@ -79,7 +79,7 @@ KI := [k1,k2,k3,k4,k5,k6,k7,k8,k9,k10,
       ];;
 # </L>
 
-# The Gröbner basis can now be calculated with 
+# The Gröbner basis can now be calculated with
 # <Ref Func="SGrobner" Style="Text"/>:
 
 # <L>
@@ -87,7 +87,7 @@ GB := SGrobner(KI);;
 # </L>
 
 # We will check whether the quotient algebra is finite dimensional or infinite
-# dimensional. 
+# dimensional.
 # The function <Ref Func="FinCheckQA" Style="Text"/> exists for this purpose.
 # Its first argument is the list
 # of leading monomials of a
@@ -101,7 +101,7 @@ time;
 # </L>
 
 # If a quotient algebra is finite dimensional, the dimension can be calculated
-# with <Ref Func="DimQA" Style="Text"/>, the arguments are the Gröbner basis 
+# with <Ref Func="DimQA" Style="Text"/>, the arguments are the Gröbner basis
 # <C>GB</C> and the number of symbols <C>6</C>. Since <Ref
 # InfoClass="InfoGBNPTime" Style="Text"/> is set to 2, we get
 # timing information from <Ref Func="DimQA" Style="Text"/>:

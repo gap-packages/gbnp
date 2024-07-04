@@ -4,11 +4,11 @@
 # Knopper, Chris Krook. Address: Discrete Algebra and Geometry (DAM) group
 # at the Department of Mathematics and Computer Science of Eindhoven
 # University of Technology.
-# 
+#
 # For acknowledgements see the manual. The manual can be found in several
 # formats in the doc subdirectory of the GBNP distribution. The
 # acknowledgements formatted as text can be found in the file chap0.txt.
-# 
+#
 # GBNP is free software; you can redistribute it and/or modify it under
 # the terms of the Lesser GNU General Public License as published by the
 # Free Software Foundation (FSF); either version 2.1 of the License, or
@@ -54,7 +54,7 @@ gens:=GeneratorsOfAlgebra(A);
 a:=gens[2];; b:=gens[3];; c:=gens[4];; d:=gens[5];; e:=gens[6];; f:=gens[7];;
 g:=gens[8];; ea:=gens[1];;
 
-rels := [ a^3 + f*a, 
+rels := [ a^3 + f*a,
 	a^9 + c*a^3 + g*a,
 	a^81 + c*a^9 + d*a^3,
 	c*a^81 + d*a^9 + e*a^3,
@@ -97,7 +97,7 @@ PrintNPList(GB);
 # To determine whether the quotient algebra is finite dimensional
 # we invoke <Ref Func="FinCheckQA" Style="Text"/>, using as arguments
 # the leading monomials of <C>GB</C> and 7, the number of variables involved.
-# The leading monomials of <C>GB</C> are obtained by 
+# The leading monomials of <C>GB</C> are obtained by
 # <Ref Func="LMonsNP" Style="Text"/>.
 
 # <L>

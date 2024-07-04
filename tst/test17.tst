@@ -5,11 +5,11 @@ gap> # Copyright 2001-2010 by Arjeh M. Cohen, Dié A.H. Gijsbers, Jan Willem
 gap> # Knopper, Chris Krook. Address: Discrete Algebra and Geometry (DAM) group
 gap> # at the Department of Mathematics and Computer Science of Eindhoven
 gap> # University of Technology.
-gap> # 
+gap> #
 gap> # For acknowledgements see the manual. The manual can be found in several
 gap> # formats in the doc subdirectory of the GBNP distribution. The
 gap> # acknowledgements formatted as text can be found in the file chap0.txt.
-gap> # 
+gap> #
 gap> # GBNP is free software; you can redistribute it and/or modify it under
 gap> # the terms of the Lesser GNU General Public License as published by the
 gap> # Free Software Foundation (FSF); either version 2.1 of the License, or
@@ -28,7 +28,7 @@ gap> # <#GAPDoc Label="Example17">
 gap> # <Section Label="Example17"><Heading>An algebra over a finite field</Heading>
 gap> # A small example over a field other than the rationals, using the conversion
 gap> # functions from <Ref Sect="TransitionFunctions"/>.
-gap> # The input relations define the symmetric group of degree 3, 
+gap> # The input relations define the symmetric group of degree 3,
 gap> # denoted <M>S_3</M>.
 gap> # <P/>
 gap> # First load the package and set the standard infolevel <Ref
@@ -61,13 +61,13 @@ gap> # print them with <Ref Func="PrintNPList" Style="Text"/>:
 gap> 
 gap> # <L>
 gap> KI_GP := [ g[1]^2-g[1]^0, g[2]^2-g[1]^0, (g[1]*g[2])^3-g[1]^0];
-[ (Z(2)^0)*<identity ...>+(Z(2)^0)*a^2, (Z(2)^0)*<identity ...>+(Z(2)^0)*b^2, 
+[ (Z(2)^0)*<identity ...>+(Z(2)^0)*a^2, (Z(2)^0)*<identity ...>+(Z(2)^0)*b^2,
   (Z(2)^0)*<identity ...>+(Z(2)^0)*(a*b)^3 ]
 gap> KI:=GP2NPList(KI_GP);;
 gap> PrintNPList(KI);
- a^2 + Z(2)^0 
- b^2 + Z(2)^0 
- ababab + Z(2)^0 
+ a^2 + Z(2)^0
+ b^2 + Z(2)^0
+ ababab + Z(2)^0
 gap> # </L>
 gap> 
 gap> # Now calculate the Gröbner basis with <Ref Func="SGrobner" Style="Text"/> and
@@ -90,14 +90,14 @@ gap> GB:=SGrobner(KI);;
 #I  G: Cleaning finished, 0 polynomials reduced
 #I  End of phase IV
 gap> PrintNPList(GB);
- a^2 + Z(2)^0 
- b^2 + Z(2)^0 
- bab + aba 
+ a^2 + Z(2)^0
+ b^2 + Z(2)^0
+ bab + aba
 gap> # </L>
 gap> 
 gap> # Now calculate the dimension of the quotient algebra with <Ref Func="DimQA"
-gap> # Style="Text"/> (2 symbols) and a base with <Ref Func="BaseQA" Style="Text"/> 
-gap> # (2 symbols, 0 for whole base) and print the base. 
+gap> # Style="Text"/> (2 symbols) and a base with <Ref Func="BaseQA" Style="Text"/>
+gap> # (2 symbols, 0 for whole base) and print the base.
 gap> # This will give a list of elements of the group.
 gap> 
 gap> # <L>
@@ -105,12 +105,12 @@ gap> DimQA(GB,2);
 6
 gap> B:=BaseQA(GB,2,0);;
 gap> PrintNPList(B);
- Z(2)^0 
- a 
- b 
- ab 
- ba 
- aba 
+ Z(2)^0
+ a
+ b
+ ab
+ ba
+ aba
 gap> # </L>
 gap> 
 gap> # We can print the Gröbner basis and the basis of the quotient algebra,
@@ -120,10 +120,10 @@ gap> # argument. The result is useful for further computations in <M>A</M>.
 gap> 
 gap> # <L>
 gap> NP2GPList(GB,A);
-[ (Z(2)^0)*a^2+(Z(2)^0)*<identity ...>, (Z(2)^0)*b^2+(Z(2)^0)*<identity ...>, 
+[ (Z(2)^0)*a^2+(Z(2)^0)*<identity ...>, (Z(2)^0)*b^2+(Z(2)^0)*<identity ...>,
   (Z(2)^0)*b*a*b+(Z(2)^0)*a*b*a ]
 gap> NP2GPList(B,A);
-[ (Z(2)^0)*<identity ...>, (Z(2)^0)*a, (Z(2)^0)*b, (Z(2)^0)*a*b, 
+[ (Z(2)^0)*<identity ...>, (Z(2)^0)*a, (Z(2)^0)*b, (Z(2)^0)*a*b,
   (Z(2)^0)*b*a, (Z(2)^0)*a*b*a ]
 gap> # </L>
 gap> 

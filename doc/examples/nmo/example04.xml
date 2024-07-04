@@ -30,5 +30,5 @@ LtNP patched.
 GtNP patched.
 gap> gb4 := Grobner(reps4);;
 gap> NP2GPList(gb4,A4);
-[ (1)*a, (1)*b, (1)*d*c+(-1)*c*d, (1)*e*c+(-1)*c*e, (1)*e*d+(-1)*d*e, 
+[ (1)*a, (1)*b, (1)*d*c+(-1)*c*d, (1)*e*c+(-1)*c*e, (1)*e*d+(-1)*d*e,
   (1)*f*c+(-1)*c*f, (1)*f*d+(-1)*d*f, (1)*f*e+(-1)*e*f ]

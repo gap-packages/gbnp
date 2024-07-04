@@ -4,11 +4,11 @@
 # Knopper, Chris Krook. Address: Discrete Algebra and Geometry (DAM) group
 # at the Department of Mathematics and Computer Science of Eindhoven
 # University of Technology.
-# 
+#
 # For acknowledgements see the manual. The manual can be found in several
 # formats in the doc subdirectory of the GBNP distribution. The
 # acknowledgements formatted as text can be found in the file chap0.txt.
-# 
+#
 # GBNP is free software; you can redistribute it and/or modify it under
 # the terms of the Lesser GNU General Public License as published by the
 # Free Software Foundation (FSF); either version 2.1 of the License, or
@@ -17,9 +17,9 @@
 # https://www.gnu.org/licenses/lgpl.html
 ########################## END COPYRIGHT MESSAGE ##########################
 
-### filename = "example16.g" 
+### filename = "example16.g"
 ### authors Cohen & Gijsbers & Krook
- 
+
 ### THIS IS A GAP PACKAGE GBNP
 ### FOR COMPUTING WITH NON-COMMUTATIVE POLYNOMIALS
 ### ADD-ON: STUDY GROWTH OF FACTOR ALGEBRA
@@ -32,10 +32,10 @@
 # Key="CohenCuypersSterk1999"/>, page 339.
 # <P/>
 # The result of the Gröbner basis computation
-# should be the union of <M>\{a,b\}</M> and 
-# the set of 6 homogeneous binomials 
+# should be the union of <M>\{a,b\}</M> and
+# the set of 6 homogeneous binomials
 # (that is, polynomials with two terms) of degree 2 forcing
-# commuting between <M>c</M>, <M>d</M>, <M>e</M>, and <M>f</M>, as before. 
+# commuting between <M>c</M>, <M>d</M>, <M>e</M>, and <M>f</M>, as before.
 # After computation of the Gröbner basis, the quotient algebra is studied and
 # found to be infinite dimensional of polynomial growth of degree 4. The
 # function <Ref Func="DetermineGrowthQA" Style="Text"/> is used for this
@@ -136,7 +136,7 @@ DetermineGrowthQA(L,6,false);
 # </L>
 
 # Now compute the first 10 terms of the Hilbert Series with <Ref
-# Func="HilbertSeriesQA" Style="Text"/> 
+# Func="HilbertSeriesQA" Style="Text"/>
 # (note that trailing zeroes are removed):
 
 # <L>

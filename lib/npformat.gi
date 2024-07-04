@@ -4,11 +4,11 @@
 # Knopper, Chris Krook. Address: Discrete Algebra and Geometry (DAM) group
 # at the Department of Mathematics and Computer Science of Eindhoven
 # University of Technology.
-# 
+#
 # For acknowledgements see the manual. The manual can be found in several
 # formats in the doc subdirectory of the GBNP distribution. The
 # acknowledgements formatted as text can be found in the file chap0.txt.
-# 
+#
 # GBNP is free software; you can redistribute it and/or modify it under
 # the terms of the Lesser GNU General Public License as published by the
 # Free Software Foundation (FSF); either version 2.1 of the License, or
@@ -17,11 +17,11 @@
 # https://www.gnu.org/licenses/lgpl.html
 ########################## END COPYRIGHT MESSAGE ##########################
 
-### filename = "npformat.gi" 
+### filename = "npformat.gi"
 ### author Cohen & Gijsbers
 
 # THIS IS PART OF A NON COMMUTATIVE GROBNER BASIS PACKAGE FOR GAP
- 
+
 #functions defined in this file:
 #GBNP.Coefs:=function(gp)
 #GBNP.Mons:=function(gp)
@@ -40,9 +40,9 @@
 #MatrixQAC:=function(i,B,GB)
 #MatricesQAC:=function(t,B,GB)
 
-################## 
+##################
 ### GBNP.Coefs ###
-################## 
+##################
 ### - gives the coefficients of a gap polynomial
 ###
 ### #GBNP.Coefs  uses:#
@@ -59,9 +59,9 @@ GBNP.Coefs := function(gp) local ans, i,l, ea;
   return(ans);
 end;
 
-################# 
+#################
 ### GBNP.Mons ###
-################# 
+#################
 ### - gives the monomials of a gap polynomial
 ###
 ### #GBNP.Mons uses:#
@@ -91,14 +91,14 @@ end;
 #############
 ### GP2NP ###
 #############
-### 
+###
 ### <#GAPDoc Label="GP2NP">
 ### <ManSection>
 ### <Func Name="GP2NP" Comm="Convert polynomials to NP form" Arg="gp"/>
 ###
 ### <Returns>If <A>gp</A> is an element of a free algebra,
 ### then the polynomial in NP format (see
-### Section <Ref Sect="NP"/>) corresponding to 
+### Section <Ref Sect="NP"/>) corresponding to
 ### <A>gp</A>; if <A>gp</A> is an element of a free module, then
 ### the vector in NPM format (see
 ### Section <Ref Sect="NPM"/>)
@@ -120,7 +120,7 @@ end;
 ###
 
 InstallGlobalFunction(
-GP2NP , function(gp) 
+GP2NP , function(gp)
   if IsList(gp) then
     return GBNP.GP2NPM(gp); # NPM polynomial
   else
@@ -129,15 +129,15 @@ GP2NP , function(gp)
 end);
 
 
-################# 
+#################
 ### GP2NPList ###
-################# 
+#################
 ### <#GAPDoc Label="GP2NPList">
 ### <ManSection>
-### <Func Name="GP2NPList" Comm="Convert a list of polynomials to NP format." 
+### <Func Name="GP2NPList" Comm="Convert a list of polynomials to NP format."
 ### Arg="Lgp"/>
 ###
-### <Returns>The list of polynomials 
+### <Returns>The list of polynomials
 ### in NP or NPM format corresponding to elements
 ### of a free algebra or module occurring in the list <A>Lgp</A>.
 ### </Returns>
@@ -182,9 +182,9 @@ GBNP.AddGP2NPList := function(Lnp, gp) local ans;
 end;
 
 
-############# 
+#############
 ### NP2GP ###
-############# 
+#############
 ### <#GAPDoc Label="NP2GP">
 ### <ManSection>
 ### <Func Name="NP2GP" Comm="Convert polynomials from NP format" Arg="np, A"/>
@@ -194,12 +194,12 @@ end;
 ### This function will convert a polynomial in NP format to a GAP
 ### polynomial in the free associative algebra <A>A</A>
 ### and a vector in NPM format to a GAP vector in the free module <A>A</A>.
-### In case of the NP format, the number of variables 
+### In case of the NP format, the number of variables
 ### should not exceed the rank of the free algebra
-### <A>A</A>. 
+### <A>A</A>.
 ### In case of the NPM format, the absolute of the negative numbers
 ### should not exceed the rank of the free module
-### <A>A</A>. 
+### <A>A</A>.
 ### <P/>
 ### <#Include Label="example-NP2GP">
 ### </Description>
@@ -214,7 +214,7 @@ end;
 InstallGlobalFunction(
 NP2GP , function(np, A) local hlp,e,fm, h,i,j,l, eans, staart, g, F;
   # no longer global g,F; - jwk vr aug 22 17:15:13 BST 2003
- 
+
   if Length(np[1])>0 and (IsBound(np[1][1][1]) and np[1][1][1]<0) then
   	return GBNP.NPM2GP(np, A); # np is in NPM format
   fi;
@@ -249,12 +249,12 @@ NP2GP , function(np, A) local hlp,e,fm, h,i,j,l, eans, staart, g, F;
   return ObjByExtRep(FamilyObj(g[1]), eans );
 end);
 
-################# 
+#################
 ### NP2GPList ###
-################# 
+#################
 ### <#GAPDoc Label="NP2GPList">
 ### <ManSection>
-### <Func Name="NP2GPList" Comm="Convert a list of polynomials from NP format" 
+### <Func Name="NP2GPList" Comm="Convert a list of polynomials from NP format"
 ### Arg="Lnp, A"/>
 ###
 ### <Returns>The list of polynomials corresponding to <A>Lnp</A> in GAP format.
@@ -286,11 +286,11 @@ end);
 ########################
 ### GBNP.NPM2NPArray ###
 ########################
-### - converts a polynomial in NPM format to an array of polynomials 
+### - converts a polynomial in NPM format to an array of polynomials
 ### in NP format
 ### Arguments: (variable)
 ### - npm		the polynomial to convert
-### - mt (optional)	the number of module generators (and the size of the 
+### - mt (optional)	the number of module generators (and the size of the
 ###			array that will be returned)
 ###
 ### Returns: the array of polynomials in NP format
@@ -305,7 +305,7 @@ local 	nparr,	# array of np polynomials to return
 	mt,	# the number of module generators (arg[2] or some lower bound)
 	i,	# counter
 	lnpm1;	# length of npm[1] (number of monomials in npm)
-	
+
 	if Length(arg)=0 then
 		Error("At least one argument expected.");
 	elif Length(arg)=1 then
@@ -322,16 +322,16 @@ local 	nparr,	# array of np polynomials to return
 		return nparr;
 	fi;
 	# npm is indeed in NPM format and not zero
-	
+
 	# NOTE: should be necessary only if mt = 0, but prevents errors if
 	# NumModGensNP > mt) another option might be to print a warning or just
 	# "fail"
 	mt:=Maximum(mt,NumModGensNP(npm));
-	
+
 	nparr:=List([1..mt],x->[[],[]]);
 	lnpm1:=Length(npm[1]);
 
-	for i in [1..lnpm1] do 
+	for i in [1..lnpm1] do
 		Add(nparr[-npm[1][i][1]][1],npm[1][i]{[2..Length(npm[1][i])]});
 		Add(nparr[-npm[1][i][1]][2],npm[2][i]);
 	od;
@@ -344,7 +344,7 @@ end;
 ########################
 ### - converts an array of polynomials in np format
 ### to a polynomial in NPM format
-### Arguments: 
+### Arguments:
 ### - nparr	the polynomial array to convert
 ###
 ### Returns: the cleaned NPM polynomial
@@ -370,7 +370,7 @@ end;
 ###################
 ### GBNP.GP2NPM ###
 ###################
-### 
+###
 ### <#GAPDoc Label="GP2NPM">
 ### <ManSection>
 ### <Func Name="GP2NPM" Comm="Convert polynomials to NPM format" Arg="gp"/>
@@ -387,24 +387,24 @@ end;
 ### #GBNP.GP2NPM is used in: GP2NP#
 ###
 
-GBNP.GP2NPM:=function(gp) 
+GBNP.GP2NPM:=function(gp)
 local	i,p,one;
-	
+
 	# this is probably not the best place for the option verifying
 	if GBNP.GetOptions().pg=0 then
 		GBNP.SetOption("pg", Length(gp));
 	fi;
-	
+
 	one:=One(ZeroCoefficient(gp[1]));
 	p:=[[],[]];
 	for i in [1..Length(gp)] do
 		p:=AddNP(p,
-			CleanNP([ # is this cleannp useful ? - jwk 
+			CleanNP([ # is this cleannp useful ? - jwk
 				List(GBNP.Mons(gp[i]),x->Concatenation([-i],x)),
 				GBNP.Coefs(gp[i])
 			]),
 			one, one
-		);	
+		);
 	od;
 	CleanNP(p);
   return p;
@@ -431,7 +431,7 @@ end;
 ### #GBNP.NPM2GP is used in: NP2GP#
 ###
 
-GBNP.NPM2GP:=function(np, D) 
+GBNP.NPM2GP:=function(np, D)
 local 	hlp,	# used in the loop and to calculate the return value
 	e,	#
 	fm, 	#
@@ -460,7 +460,7 @@ local 	hlp,	# used in the loop and to calculate the return value
   staartarr := List([1..s],x->[]);
   for i in [1..Length(np[1])] do
        hlp := [];
-       j := 1;  # fm[1] should be the module generator 
+       j := 1;  # fm[1] should be the module generator
        		# so Length(fm) should be >0 and fm[1]<0 (Assert ?)
        fm := np[1][i];
        l := Length(fm);
@@ -490,7 +490,7 @@ end;
 ### GBNP.SplitNP ###
 ####################
 ### - Split an np polynomial into a vector
-### Arguments: 
+### Arguments:
 ### - np	reduced np(m) polynomial to split
 ### - B		corresponding basis of the quotient algebra (should be
 ### 		non-empty)
@@ -510,15 +510,15 @@ local	v,	# return value so far
 	one:=B[1][2][1];
 	zero:=Zero(one);
 	v:=List([1..Length(B)],x->zero);
-	
+
 	for i in [1..Length(np[1])]
 	do
 		pos:=Position(B,[[np[1][i]],[one]]);
 
-		if pos<>fail then 
+		if pos<>fail then
 			# pos=fail can only happen if B is not a basis or np is
 			# not reduced
-			
+
 			v[pos]:=np[2][i];
 		fi;
 	od;
@@ -562,14 +562,14 @@ local	PTS,	# boolean (true if GB is a record)
 	np,	# the product of b and the i-th generator
 	row,	# np as a vector of elements of B
 	M;	# the matrix constructed row by row
-	
-	g:=[[[i]],[1]]; 
+
+	g:=[[[i]],[1]];
 	PTS:=IsRecord(GB);
 
 	M:=[];
 
 	for b in B do
-		if PTS then 
+		if PTS then
 			np:=MulQM(b,g,GB);
 		else
 			np:=MulQA(b,g,GB);
@@ -596,8 +596,8 @@ end);
 ### Given a basis <A>B</A>  of the quotient algebra,
 ### a Gröbner basis (record) <A>GB</A>,
 ### and a natural number <A>t</A>,
-### this function creates a list of <A>t</A> matrices 
-### representing the linear transformations of the 
+### this function creates a list of <A>t</A> matrices
+### representing the linear transformations of the
 ### generators of the algebra by right multiplication on the quotient algebra.
 ### <P/>
 ### <#Include Label="example-MatricesQA">
@@ -629,12 +629,12 @@ end);
 ### </Returns>
 ### <Description>
 ### Given a basis <A>B</A> of the quotient algebra, a Gröbner basis (record)
-### <A>GB</A>, and a natural number <A>i</A>, 
+### <A>GB</A>, and a natural number <A>i</A>,
 ### this function creates a matrix representation for the <A>i</A>-th
 ### generator of the algebra for right multiplication in the quotient algebra.
 ### <P/>
 ### For this version to do better than <C>MatrixQA</C>,
-### the field must be finite and of order at most 256. 
+### the field must be finite and of order at most 256.
 ### For more information about compression, see <Ref BookName="Reference"
 ### Label="Row Vectors over Finite Fields"/>.
 ### <P/>
@@ -653,7 +653,7 @@ end);
 InstallGlobalFunction(
 MatrixQAC,function(i,B,GB)
 local	M;
-	
+
 	M:=MatrixQA(i,B,GB);
 
 	ConvertToMatrixRep(M);
@@ -678,7 +678,7 @@ end);
 ### generators of the algebra for right multiplication in the quotient algebra.
 ### <P/>
 ### For this version to do better than MatrixQA,
-### the field must be finite and of order at most 256. 
+### the field must be finite and of order at most 256.
 ### For more information about compression, see <Ref BookName="Reference"
 ### Label="Row Vectors over Finite Fields"/>.
 ### <P/>

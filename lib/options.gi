@@ -4,11 +4,11 @@
 # Knopper, Chris Krook. Address: Discrete Algebra and Geometry (DAM) group
 # at the Department of Mathematics and Computer Science of Eindhoven
 # University of Technology.
-# 
+#
 # For acknowledgements see the manual. The manual can be found in several
 # formats in the doc subdirectory of the GBNP distribution. The
 # acknowledgements formatted as text can be found in the file chap0.txt.
-# 
+#
 # GBNP is free software; you can redistribute it and/or modify it under
 # the terms of the Lesser GNU General Public License as published by the
 # Free Software Foundation (FSF); either version 2.1 of the License, or
@@ -30,7 +30,7 @@
 ### GBNP.ConfigPrint:=function(arg)
 ### GBNP.CalculatePG:=function(L)
 
-GBNP.OptionsRec:=rec(pg:=0); 
+GBNP.OptionsRec:=rec(pg:=0);
 
 #######################
 ### GBNP.GetOptions ###
@@ -54,7 +54,7 @@ end;
 ###
 ### Get one option (slow, faster is GBNP.GetOptions().name)
 ###
-### Arguments: 
+### Arguments:
 ### - name		the name of the option asked for (string)
 ###
 ### #GBNP.GetOption uses:#
@@ -74,13 +74,13 @@ end;
 ###
 ### Function to set all options
 ###
-### Arguments: 
+### Arguments:
 ### - options		the new set of options
 ###
 ### #GBNP.SetOptions uses:#
 ### #GBNP.SetOptions is used in:#
 ###
-	
+
 GBNP.SetOptions:=function(options)
 	GBNP.OptionsRec:=options;
 end;
@@ -98,7 +98,7 @@ end;
 ### #GBNP.SetOption uses:#
 ### #GBNP.SetOption is used in: GBNP.ConfigPrint GBNP.GP2NPM GBNP.SGrobnerLoops SGrobnerModule#
 ###
-	
+
 GBNP.SetOption:=function(name,value)
 	GBNP.OptionsRec.(name):=value;
 end;
@@ -139,15 +139,15 @@ end;
 ########################
 ### GBNP.ConfigPrint ###
 ########################
-### XXX integer -> discarded 
+### XXX integer -> discarded
 ### <#GAPDoc Label="GBNP.ConfigPrint">
 ### <ManSection>
 ### <Func Name="GBNP.ConfigPrint" Comm="Set GBNP print options" Arg="arg" />
 ### <Description>
 ### By default the generators of the algebra are printed as <C>a</C>, ...,
-### <C>l</C> and everything after the twelfth generator as <C>x</C>. 
+### <C>l</C> and everything after the twelfth generator as <C>x</C>.
 ### By calling <C>ConfigPrint</C> it is possible to
-### alter this printing convention. 
+### alter this printing convention.
 ### The argument(s) will be an algebra or arguments used for naming algebras in
 ### GAP upon creation. More specifically, we have the following choices.
 ### <List>
@@ -155,7 +155,7 @@ end;
 ### without arguments the printing is reset to the default (see above).</Item>
 ### <Mark>algebra</Mark><Item>When the function is invoked with an algebra as
 ### argument, generators will be printed as they would be in the
-### algebra.</Item> 
+### algebra.</Item>
 ### <Mark>algebra,integer</Mark><Item>When the function is invoked with an
 ### algebra and an integer <A>n</A> as arguments, generators will be printed as
 ### they would be in the algebra and separated over the <A>n</A> dimensions.</Item>
@@ -166,17 +166,17 @@ end;
 ### <Mark>string</Mark><Item>When the function is invoked with a string as its
 ### argument, it is assumed that there is only 1 generator and that this should
 ### be named as indicated by the string.</Item>
-### <Mark>integer</Mark><Item>When the function is invoked with an integer 
+### <Mark>integer</Mark><Item>When the function is invoked with an integer
 ### as its argument, the <A>n</A>-th generator will be printed as
 ### <C>x.&lt;n&gt;</C>.</Item>
 ### <Mark>integer, string</Mark><Item>When the function is invoked with a
-### non-negative integer and a string as its arguments, 
+### non-negative integer and a string as its arguments,
 ### generators will be printed as
 ### <C>&lt;s&gt;.&lt;n&gt;</C>, where <C>&lt;s&gt;</C> is the string given as
 ### argument and <C>&lt;n&gt;</C> the number of the generator. There is no
 ### checking whether the number given as argument is really the dimension. So
 ### it is possible that higher numbers return in the output. This way of input
-### is useful however, because it is a distinction 
+### is useful however, because it is a distinction
 ### from the one-dimensional case
 ### and compatible with the way a free algebra is created.</Item>
 ### <Mark>string, string, ..., string</Mark><Item>When the function is invoked
@@ -189,7 +189,7 @@ end;
 ### </Description>
 ### </ManSection>
 ### <#/GAPDoc>
-### 
+###
 ### #GBNP.ConfigPrint uses: GBNP.SetOption#
 ### #GBNP.ConfigPrint is used in:#
 ###
@@ -242,7 +242,7 @@ local 	larg,	# length of arg
 					FamilyObj(arg[1]))!.names);
 
 			GBNP.SetOption("PrintModuleDimension",arg[2]);
-			
+
 		else # should be all strings
 			names:=ShallowCopy(arg);
 		fi;
@@ -251,12 +251,12 @@ local 	larg,	# length of arg
 	fi;
 
 	ln:=Length(names);
-	GBNP.SetOption("PrintLetterFunction",function(x) 
-				if x<=ln then 
-					return names[x]; 
+	GBNP.SetOption("PrintLetterFunction",function(x)
+				if x<=ln then
+					return names[x];
 				else
-					return "x"; 
-				fi; 
+					return "x";
+				fi;
 			end);
 end;
 
@@ -266,7 +266,7 @@ end;
 ###
 ### checks for the number of prefix generators (that is the number of the
 ### lowest generator, multiplied with -1 to make it positive)
-### 
+###
 ### NOTE: this procedure assumes that L does contain 0 ( [[],[]] )
 ###
 ### Arguments:
@@ -292,7 +292,7 @@ end;
 ###
 ### checks for the number of prefix generators (that is the number of the
 ### lowest generator, multiplied with -1 to make it positive)
-### 
+###
 ### Arguments:
 ### - L		list of leading terms
 ###

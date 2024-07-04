@@ -17,7 +17,7 @@ the doc subdirectory of the GBNP distribution or see the FSF's own site:
 https://www.gnu.org/licenses/lgpl.html
 gap> ########################## END COPYRIGHT MESSAGE ##########################
 
-gap> ### filename = "example20.g" 
+gap> ### filename = "example20.g"
 gap> ### author Knopper
 gap> ### amc last edited 25 May 2007 problem with GBNP(y[1]+y[2])
 
@@ -69,8 +69,8 @@ in a more legible format.
 
 <Listing><![CDATA[
 gap> modrelsNP:=GP2NPList(modrels);
-[ [ [ [ -1, 2 ], [ -1 ] ], [ 1, -1 ] ], [ [ [ -2, 2 ], [ -2 ] ], [ 1, -1 ] ], 
-  [ [ [ -1, 1, 2 ], [ -1, 1, 1 ], [ -2, 1, 2 ], [ -2, 1, 1 ], [ -1, 1 ], 
+[ [ [ [ -1, 2 ], [ -1 ] ], [ 1, -1 ] ], [ [ [ -2, 2 ], [ -2 ] ], [ 1, -1 ] ],
+  [ [ [ -1, 1, 2 ], [ -1, 1, 1 ], [ -2, 1, 2 ], [ -2, 1, 1 ], [ -1, 1 ],
           [ -2, 1 ], [ -1 ], [ -2 ] ], [ 1, 1, -1, -1, 1, -1, 1, -1 ] ] ]
 gap> PrintNPList(modrelsNP);
 [ b - 1 , 0]
@@ -80,7 +80,7 @@ gap> PrintNPList(modrelsNP);
 
 Next the function
 <Ref Func="SGrobnerModule" Style="Text"/> is called to calculate a Gröbner basis
-record (see <Ref Sect="GBR"/>). 
+record (see <Ref Sect="GBR"/>).
 
 <Listing><![CDATA[
 gap> GBR:=SGrobnerModule(modrelsNP,GP2NPList(twosidrels));;
@@ -106,12 +106,12 @@ the function <Ref Func="PrintNPList" Style="Text"/>:
 
 <Listing><![CDATA[
 gap> PrintNPList(GBR.ts);
- b^2 - 1 
- aba - b 
- ba^2 - a^2b 
- bab - a^3 
- a^4 - 1 
- a^3b - ba 
+ b^2 - 1
+ aba - b
+ ba^2 - a^2b
+ bab - a^3
+ a^4 - 1
+ a^3b - ba
 gap> PrintNPList(GBR.p);
 [ 0, b - 1 ]
 [ b - 1 , 0]
@@ -145,13 +145,13 @@ gap> PrintNPList(B);
 It is also possible to convert each member of the list <C>B</C> of
 polynomials in NP form to GAP polynomials to do further calculations within
 the algebra or module. This can be done with the function <Ref
-Func="NP2GPList" Style="Text"/>. 
+Func="NP2GPList" Style="Text"/>.
 
 <Listing><![CDATA[
 gap> NP2GPList(B,D);
 [ [ <zero> of ..., (1)*<identity ...> ], [ (1)*<identity ...>, <zero> of ... ]
-    , [ <zero> of ..., (1)*a ], [ (1)*a, <zero> of ... ], 
-  [ <zero> of ..., (1)*a^2 ], [ <zero> of ..., (1)*a*b ], 
+    , [ <zero> of ..., (1)*a ], [ (1)*a, <zero> of ... ],
+  [ <zero> of ..., (1)*a^2 ], [ <zero> of ..., (1)*a*b ],
   [ (1)*a^2, <zero> of ... ] ]
 ]]></Listing>
 
@@ -179,7 +179,7 @@ gap> Display(MatrixQA(1,B,GBR));
   [   0,   0,   0,   0,   0,   1,   0 ],
   [   1,   0,   0,   0,   0,   0,   0 ],
   [   1,  -1,   1,  -1,   1,   1,  -1 ] ]
-gap> Display(MatrixQA(2,B,GBR)); 
+gap> Display(MatrixQA(2,B,GBR));
 [ [   1,   0,   0,   0,   0,   0,   0 ],
   [   0,   1,   0,   0,   0,   0,   0 ],
   [   0,   0,   0,   0,   0,   1,   0 ],
@@ -192,7 +192,7 @@ gap> Display(MatrixQA(2,B,GBR));
 In order to compute the image of the vector  <M>2y[1]+3y[2]</M> of the two standard generators of the module
 under the action of the element <M>aab</M>, we use
 <Ref Func="StrongNormalFormNPM" Style="Text"/>. Its first argument will be the vector
-and its second the Gröbner basis. 
+and its second the Gröbner basis.
 The transformation <Ref Func="GP2NP" Style="Text"/> to the NP format
 needs to be applied to the vector
 before it can be used as an argument.

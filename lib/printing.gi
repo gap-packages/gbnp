@@ -4,11 +4,11 @@
 # Knopper, Chris Krook. Address: Discrete Algebra and Geometry (DAM) group
 # at the Department of Mathematics and Computer Science of Eindhoven
 # University of Technology.
-# 
+#
 # For acknowledgements see the manual. The manual can be found in several
 # formats in the doc subdirectory of the GBNP distribution. The
 # acknowledgements formatted as text can be found in the file chap0.txt.
-# 
+#
 # GBNP is free software; you can redistribute it and/or modify it under
 # the terms of the Lesser GNU General Public License as published by the
 # Free Software Foundation (FSF); either version 2.1 of the License, or
@@ -18,7 +18,7 @@
 ########################## END COPYRIGHT MESSAGE ##########################
 
 ### file "printing.gi"
-### 
+###
 
 # THIS IS PART OF A NON COMMUTATIVE GROBNER BASIS PACKAGE FOR GAP
 
@@ -45,8 +45,8 @@
 ### This function prints a polynomial <A>np</A> in NP format, using the letters
 ### <C>a</C>, <C>b</C>, <C>c</C>, <M>\ldots</M> for <M>x_1</M>, <M>x_2</M>,
 ### <M>x_3</M>, <M>\ldots</M>, except that everything beyond <M>l</M> (the 12-th
-### letter) is printed as <M>x</M>. 
-### <P/> 
+### letter) is printed as <M>x</M>.
+### <P/>
 ### This function prints a polynomial <A>np</A> in NP format
 ### as configured by the function <Ref Func="GBNP.ConfigPrint" Style="Text"/>.
 ### <P/>
@@ -61,11 +61,11 @@
 
 InstallGlobalFunction(
 PrintNP,function(ff) local ans,hlp,j,addon,l,sgn, opt, pg;
-    ans:=""; 
+    ans:="";
     l:=Length(ff[2]);
     addon:=false;
-    if l=0 then 
-	   ans:="0"; 
+    if l=0 then
+	   ans:="0";
     else
     	if not Length(ff[1][1])=0 # (length=0->no module generators)
 		and ff[1][1][1]<0 # module generators
@@ -80,22 +80,22 @@ PrintNP,function(ff) local ans,hlp,j,addon,l,sgn, opt, pg;
     fi;
     for j in [1..l] do
         hlp:=ff[2][j];
-        if not IsZero(hlp) then 
-            if not(IsRat(hlp)) then		
-		sgn:="+ "; 
-	    else if (SignInt(hlp)=1) then 
-		     sgn:="+ "; 
-	        else 
-                     sgn:="- "; 
+        if not IsZero(hlp) then
+            if not(IsRat(hlp)) then
+		sgn:="+ ";
+	    else if (SignInt(hlp)=1) then
+		     sgn:="+ ";
+	        else
+                     sgn:="- ";
 	      	     hlp:=AbsInt(hlp);
 	    	fi;
 	    fi;
-            if addon or sgn = "- " then 
-		 Append(ans,sgn); 
-	    fi; 
-            addon:=true; 
+            if addon or sgn = "- " then
+		 Append(ans,sgn);
+	    fi;
+            addon:=true;
             if not IsOne(hlp) or ff[1][j]=[] then
-                Append(ans,String(hlp)); 
+                Append(ans,String(hlp));
             fi;
             Append(ans,GBNP.TransWord(ff[1][j]));
             Append(ans," ");
@@ -107,7 +107,7 @@ end);;
 ###################
 ### PrintNPList ###
 ###################
-### Printing nicely 
+### Printing nicely
 ### <#GAPDoc Label="PrintNPList">
 ### <ManSection>
 ### <Func Name="PrintNPList" Comm="Print a list of polynomial in NP format" Arg="Lnp"/>
@@ -116,7 +116,7 @@ end);;
 ### This function prints a list <A>Lnp</A>
 ### of polynomials in NP format, using the
 ### function <C>PrintNP</C>.
-### <P/> 
+### <P/>
 ### <#Include Label="example-PrintNPList">
 ### </Description>
 ### </ManSection>
@@ -128,8 +128,8 @@ end);;
 
 InstallGlobalFunction(
 PrintNPList,function(G) local f;
-    for f in G do 
-	   PrintNP(f); 
+    for f in G do
+	   PrintNP(f);
     od;
 end);;
 
@@ -143,28 +143,28 @@ end);;
 ###
 
 GBNP.PrintNPnonewline:=function(np) local ans,hlp,j,addon,l,sgn;
-    ans:=""; 
+    ans:="";
     l:=Length(np[2]);
     addon:=false;
-    if l=0 then 
-	   ans:="0"; 
+    if l=0 then
+	   ans:="0";
     fi;
     for j in [1..l] do
         hlp:=np[2][j];
-        if not IsZero(hlp) then 
-            if (not IsRat(hlp)) or SignInt(hlp)=1 then 
-			 sgn:="+ "; 
-		  else sgn:="- "; 
+        if not IsZero(hlp) then
+            if (not IsRat(hlp)) or SignInt(hlp)=1 then
+			 sgn:="+ ";
+		  else sgn:="- ";
 		  fi;
-            if addon or sgn = "- " then 
-			 Append(ans,sgn); 
-	       fi; 
-            addon:=true; 
+            if addon or sgn = "- " then
+			 Append(ans,sgn);
+	       fi;
+            addon:=true;
             if IsRat(hlp) then
 	      hlp:=AbsInt(hlp);
 	    fi;
             if not IsOne(hlp) or np[1][j]=[] then
-                Append(ans,String(hlp)); 
+                Append(ans,String(hlp));
             fi;
             Append(ans,GBNP.TransWord(np[1][j]));
             Append(ans," ");
@@ -184,7 +184,7 @@ end;;
 ### <Description>
 ### This function prints a polynomial <A>np</A> in NPM format, where <A>mt</A>
 ### should be equal to the number of module generators).
-### <P/> 
+### <P/>
 ### The way generators of the algebra are printed can be changed
 ### with the function <Ref Func="GBNP.ConfigPrint" Style="Text"/>.
 ### </Description>
@@ -195,11 +195,11 @@ end;;
 ### #GBNP.PrintNPM is used in: PrintNP#
 ###
 
-GBNP.PrintNPM:=function(ff,mt) 
+GBNP.PrintNPM:=function(ff,mt)
 local 	nparr,	# ff as an np array
 	i, 	# counter
 	l;	# length of nparr
-	
+
 	nparr:=GBNP.NPM2NPArray(ff,mt);
 	l:=Length(nparr);
 
@@ -226,7 +226,7 @@ GBNP.TransLetter:=function(y)
     	return GBNP.GetOptions().PrintLetterFunction(y);
     fi;
 
-    if y>0 and y<13 then 
+    if y>0 and y<13 then
         return [(CHAR_INT(y-1+INT_CHAR('a')))];
     elif y>0 then
         return "x";
@@ -281,13 +281,13 @@ GBNP.PrintTraceTerm:=function(term) local k,options,wordfun,times,e;
 
    if IsBound(options.PrintTraceAsGP) and IsBound(options.Algebra) then
    	e:=One(LeftActingDomain(options.Algebra));
-   	wordfun:=function(w) 
-		if w<>[] then 
-			Print(NP2GP([[w],[e]],options.Algebra)); 
+   	wordfun:=function(w)
+		if w<>[] then
+			Print(NP2GP([[w],[e]],options.Algebra));
 		fi;
 	end;
 	times:=function(x)
-		if x<>[] then 
+		if x<>[] then
 			return "*";
 		else
 			return "";
@@ -299,14 +299,14 @@ GBNP.PrintTraceTerm:=function(term) local k,options,wordfun,times,e;
    fi;
 
    k:= term[4];
-   if not IsZero(k) then 
-      if (IsRat(k)) and (SignInt(k)<>1) then 
-         Print("-"); 
+   if not IsZero(k) then
+      if (IsRat(k)) and (SignInt(k)<>1) then
+         Print("-");
        	 k:=-k;
       fi;
    fi;
    Print(" ");
-   if not IsOne(k) then Print(k); fi; 
+   if not IsOne(k) then Print(k); fi;
 
     if IsInt(term[2]) then
         wordfun(term[1]);
@@ -335,16 +335,16 @@ end;
 ### #GBNP.PrintTracePolCancel is used in: wordfun#
 ###
 
-GBNP.PrintTracePolCancel:=function(pol) 
+GBNP.PrintTracePolCancel:=function(pol)
 local i,k;
 	if pol.pol <> [[],[]] then
 		k:=Length(pol.trace);
 		GBNP.PrintTraceTerm(pol.trace[1]);
 		if k > 1 then
 			for i in [2..k] do
-				if (not IsRat(pol.trace[i][4])) or (SignInt(pol.trace[i][4]) > 0) then Print("+"); fi; 
+				if (not IsRat(pol.trace[i][4])) or (SignInt(pol.trace[i][4]) > 0) then Print("+"); fi;
 				GBNP.PrintTraceTerm(pol.trace[i]);
-			od;       
+			od;
 		fi;
 	fi;
 	return "";
@@ -359,7 +359,7 @@ end;
 ### <Func Name="PrintTracePol" Comm="Prints the trace of a traced non-commutative polynomial" Arg="p" />
 ### <Description>
 ### This function prints the trace of an NP polynomial <A>p</A>.
-### <P/> 
+### <P/>
 ### <#Include Label="example-PrintTracePol">
 ### </Description>
 ### </ManSection>
@@ -382,9 +382,9 @@ PrintTracePol,function(p) local i,k,trace;
 	   GBNP.PrintTraceTerm(trace[1]);
 	   if k > 1 then
 	      for i in [2..k] do
-		 if (not IsRat(trace[i][4])) or (SignInt(trace[i][4]) > 0) then Print("+"); fi; 
+		 if (not IsRat(trace[i][4])) or (SignInt(trace[i][4]) > 0) then Print("+"); fi;
        		 GBNP.PrintTraceTerm(trace[i]);
-	      od;	
+	      od;
 	   fi;
         fi;
 	Print("\n");
@@ -434,9 +434,9 @@ end);
 ### <Func Name="PrintNPListTrace" Comm="Prints the a list of traced non-commutative polynomials, NOT using the trace." Arg="G" />
 ### <Description>
 ### When invoked with a set of traced non-commutative polynomials <A>G</A>,
-### this function prints the list of the traced polynomials, without the 
+### this function prints the list of the traced polynomials, without the
 ### trace.
-### <P/> 
+### <P/>
 ### <#Include Label="example-PrintNPListTrace">
 ### </Description>
 ### </ManSection>

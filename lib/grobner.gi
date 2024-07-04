@@ -4,11 +4,11 @@
 # Knopper, Chris Krook. Address: Discrete Algebra and Geometry (DAM) group
 # at the Department of Mathematics and Computer Science of Eindhoven
 # University of Technology.
-# 
+#
 # For acknowledgements see the manual. The manual can be found in several
 # formats in the doc subdirectory of the GBNP distribution. The
 # acknowledgements formatted as text can be found in the file chap0.txt.
-# 
+#
 # GBNP is free software; you can redistribute it and/or modify it under
 # the terms of the Lesser GNU General Public License as published by the
 # Free Software Foundation (FSF); either version 2.1 of the License, or
@@ -17,37 +17,37 @@
 # https://www.gnu.org/licenses/lgpl.html
 ########################## END COPYRIGHT MESSAGE ##########################
 
-### filename = "grobner.gi" 
+### filename = "grobner.gi"
 ### authors Cohen & Gijsbers
 ### vs 0.9
 
-### THIS IS PART OF A GAP PACKAGE FOR COMPUTING NON-COMMUTATIVE GROBNER BASES 
- 
+### THIS IS PART OF A GAP PACKAGE FOR COMPUTING NON-COMMUTATIVE GROBNER BASES
+
 #functions defined in this file:
 #GBNP.RightOccur:=function(u,v)
 #GBNP.LeftOccur:=function(u,v)
 #GBNP.Occur:=function(u,v)
-#GBNP.RightOccurInLst:=function(u,Rlst) 
-#GBNP.OccurInLst:=function(u,Rlst) 
-#GBNP.SelfObs:=function(j,R) 
+#GBNP.RightOccurInLst:=function(u,Rlst)
+#GBNP.OccurInLst:=function(u,Rlst)
+#GBNP.SelfObs:=function(j,R)
 #GBNP.LeftObs:=function(j,R,sob)
 #GBNP.RightObs:=function(j,R,sob)
 #GBNP.Spoly:=function(l,G)
 #GBNP.NormalForm2:=function(f,G,G2)
-#GBNP.NormalForm:=function(f,G) 
+#GBNP.NormalForm:=function(f,G)
 #GBNP.StrongNormalForm2:=function(f,G,G2)
 #StrongNormalFormNP:=function(f,G)
 #GBNP.ReducePol2:=function(arg) function(G, GLOT (optional) )
 #  warning ReducePol2 not optimized for trees yet
-#GBNP.ReducePol:=function(B) 
+#GBNP.ReducePol:=function(B)
 #GBNP.AllObs:=function(G)
-#Grobner:=function(KI) 
+#Grobner:=function(KI)
 #SGrobner:=function(KI)
-#BaseQA := function(G,t,maxno) 
-#DimQA := function(G,n) 
-#MulQA := function(p1,p2,G) 
-#GBNP.StrongNormalForm2TS:=function(G,j,GLOT) 
-#GBNP.NormalForm2T:=function(f,G,G2,GLOT,G2LOT) 
+#BaseQA := function(G,t,maxno)
+#DimQA := function(G,n)
+#MulQA := function(p1,p2,G)
+#GBNP.StrongNormalForm2TS:=function(G,j,GLOT)
+#GBNP.NormalForm2T:=function(f,G,G2,GLOT,G2LOT)
 #GBNP.CentralT:=function(j,G,todo,OT,funcs)
 #GBNP.LeftObsT:=function(j,R,GLOT)
 #GBNP.RightObsT:=function(j,R,GLOT)
@@ -55,7 +55,7 @@
 #IsStrongGrobnerBasis:=function(G)
 #GBNP.IsGrobnerBasisTest:=function(G, strong)
 #IsGrobnerPair:=function(G,D)
-#GBNP.MakeGrobnerPairMakeMonic:=function(G) 
+#GBNP.MakeGrobnerPairMakeMonic:=function(G)
 #MakeGrobnerPair:=function(G,D)
 #StrongNormalFormNPM:=function(v,GR)
 #SGrobnerModule:=function(KI_p,KI_ts)
@@ -63,12 +63,12 @@
 #BaseQM:=function(GBR,t,maxno)
 #DimQM:=function(GBR,n,mn)
 
-################## 
+##################
 ### GBNP.RightOccur
 ### - Checks whether v=t.u
 ### returns 0 if there is no such t
 ### returns the start of u in v if there is such a t
-### 
+###
 ### Arguments:
 ### u,v     - two monomials
 ###
@@ -79,22 +79,22 @@
 ### #GBNP.RightOccur uses: LtNP#
 ### #GBNP.RightOccur is used in: GBNP.RightOccurInLst#
 ###
- 
-GBNP.RightOccur:=function(u,v) local lu,lv; 
-    if u = v then 
+
+GBNP.RightOccur:=function(u,v) local lu,lv;
+    if u = v then
         return 1;
     fi;
-    if LtNP(u,v) then 
-        lu:=Length(u); 
+    if LtNP(u,v) then
+        lu:=Length(u);
         lv:=Length(v);
-        if v{[lv-lu+1..lv]}=u then 
-            return(lv-lu+1); 
-        fi; 
-    fi; 
-    return(0); 
-end;; 
- 
-################## 
+        if v{[lv-lu+1..lv]}=u then
+            return(lv-lu+1);
+        fi;
+    fi;
+    return(0);
+end;;
+
+##################
 ### GBNP.LeftOccur
 ###
 ### - Checks whether v=u.t
@@ -111,26 +111,26 @@ end;;
 ### #GBNP.LeftOccur uses: LtNP#
 ### #GBNP.LeftOccur is used in: GBNP.LeftObs GBNP.RightObs#
 ###
- 
+
 GBNP.LeftOccur:=function(u,v)
-    local lu; 
-    if u = v then 
+    local lu;
+    if u = v then
         return 1;
     fi;
-    if LtNP(u,v) then 
-        lu:=Length(u); 
-        if v{[1..lu]}=u then 
-            return(1); 
-        fi; 
-    fi; 
-    return(0); 
-end;; 
- 
-################## 
+    if LtNP(u,v) then
+        lu:=Length(u);
+        if v{[1..lu]}=u then
+            return(1);
+        fi;
+    fi;
+    return(0);
+end;;
+
+##################
 ### GBNP.Occur
-### - Searches one occurrence of a word u in a word v,  
+### - Searches one occurrence of a word u in a word v,
 ### that is, finding the first position in v where a word u starts,
-### returns 0 if there is none 
+### returns 0 if there is none
 ### returns 1 if u = [], the empty word
 ###
 ### Arguments:
@@ -143,31 +143,31 @@ end;;
 ### #GBNP.Occur uses: LtNP#
 ### #GBNP.Occur is used in: FinCheckQA GBNP.CentralT GBNP.CentralTrace GBNP.OccurInLst GBNP.ReducePol2 GBNP.ReducePolTrace2 GBNP.SGrobnerLoops#
 ###
- 
+
 GBNP.Occur:=function(u,v)
-    local i,lu,p; 
+    local i,lu,p;
     if u = v then
         return 1;
     fi;
-    if LtNP(u,v) then 
-        lu:=Length(u); 
-        for i in [1..Length(v)-lu+1] do 
-            if v{[i..lu+i-1]}=u then 
-                return(i); 
-            fi; 
+    if LtNP(u,v) then
+        lu:=Length(u);
+        for i in [1..Length(v)-lu+1] do
+            if v{[i..lu+i-1]}=u then
+                return(i);
+            fi;
         od;
 #    p:=PositionSublist(v,u);
-#    if p<>fail then 
+#    if p<>fail then
 #        return p;
 #    fi;
-    fi; 
-    return(0); 
+    fi;
+    return(0);
 end;
- 
-################## 
+
+##################
 ### GBNP.RightOccurInLst
-### - Finding the first index i such that the monomial R[i] 
-### in the list R is a solution to t.R[i]=u. 
+### - Finding the first index i such that the monomial R[i]
+### in the list R is a solution to t.R[i]=u.
 ###
 ### Arguments:
 ### u         - monomial
@@ -181,23 +181,23 @@ end;
 ### #GBNP.RightOccurInLst uses: GBNP.RightOccur#
 ### #GBNP.RightOccurInLst is used in:#
 ###
- 
-GBNP.RightOccurInLst:=function(u,Rlst)
-    local i,j,lr; 
-    i := 0; 
-    lr := Length(Rlst); 
-    while i < lr do 
-        i := i+1; 
-        j:= GBNP.RightOccur(Rlst[i],u); 
-        if j>0 then return([i,j]); fi; 
-    od; 
-    return([0,0]); 
-end;; 
 
-################## 
+GBNP.RightOccurInLst:=function(u,Rlst)
+    local i,j,lr;
+    i := 0;
+    lr := Length(Rlst);
+    while i < lr do
+        i := i+1;
+        j:= GBNP.RightOccur(Rlst[i],u);
+        if j>0 then return([i,j]); fi;
+    od;
+    return([0,0]);
+end;;
+
+##################
 ### GBNP.OccurInLst
-### - Finding the first index i such that the monomial R[i] 
-### in the list R divides the given monomial u. 
+### - Finding the first index i such that the monomial R[i]
+### in the list R divides the given monomial u.
 ###
 ### Arguments:
 ### u         - monomial
@@ -211,26 +211,26 @@ end;;
 ### #GBNP.OccurInLst uses: GBNP.Occur#
 ### #GBNP.OccurInLst is used in: GBNP.MakeArgumentLevel GBNP.NondivMonsByLevel GBNP.NondivMonsPTS GBNP.NondivMonsPTSenum GBNP.NormalForm2 GBNP.StrongNormalForm2 GBNP.StrongNormalFormTrace2#
 ###
- 
-GBNP.OccurInLst:=function(u,Rlst) local i,j,lr; 
-    i := 0; 
-    lr := Length(Rlst); 
-    while i < lr do 
-        i := i+1; 
-        j:= GBNP.Occur(Rlst[i],u); 
-        #j:= PositionSublist(u,Rlst[i]); 
+
+GBNP.OccurInLst:=function(u,Rlst) local i,j,lr;
+    i := 0;
+    lr := Length(Rlst);
+    while i < lr do
+        i := i+1;
+        j:= GBNP.Occur(Rlst[i],u);
+        #j:= PositionSublist(u,Rlst[i]);
         if j>0 then
             return [i,j];
-        fi; 
-        #if j<>fail then return([i,j]); fi; 
-    od; 
-    return([0,0]); 
+        fi;
+        #if j<>fail then return([i,j]); fi;
+    od;
+    return([0,0]);
 end;;
- 
-################# 
+
+#################
 ### GBNP.SelfObs
-### - Searches for a non-empty self-obstruction of the monomial R[j]  
-### in a set of leading terms R={T(g_1),...,T(g_t)}. For u = R[j], 
+### - Searches for a non-empty self-obstruction of the monomial R[j]
+### in a set of leading terms R={T(g_1),...,T(g_t)}. For u = R[j],
 ### search one decomposition au = ub; then s = [[],j,b,a,j,[]].
 ### Only the one with the smallest a and b is needed, see ****.
 ###
@@ -248,23 +248,23 @@ end;;
 ###
 
 GBNP.SelfObs:=function(j,R)
-    local i,u,lu; 
-    u:=R[j];             
-    lu:=Length(u); 
-    for i in [1..lu-1] do 
-        if u{[1..lu-i]}=u{[i+1..lu]} then 
-            return([[[],j,u{[lu-i+1..lu]},u{[1..i]},j,[]]]); 
-        fi; 
-    od; 
-    return([]); 
-end;; 
+    local i,u,lu;
+    u:=R[j];
+    lu:=Length(u);
+    for i in [1..lu-1] do
+        if u{[1..lu-i]}=u{[i+1..lu]} then
+            return([[[],j,u{[lu-i+1..lu]},u{[1..i]},j,[]]]);
+        fi;
+    od;
+    return([]);
+end;;
 
-################# 
+#################
 ### GBNP.LeftObs
-### - Searches "left" obstructions of a monomial u w.r.t. monomials in R.  
-### Because "left" and "right" obstructions are symmetric, 
-### we only search for i<j. 
-### All redundant obstructions are removed. For efficiency reasons, the 
+### - Searches "left" obstructions of a monomial u w.r.t. monomials in R.
+### Because "left" and "right" obstructions are symmetric,
+### we only search for i<j.
+### All redundant obstructions are removed. For efficiency reasons, the
 ### self obstruction of R[j] (if present) is taken into account.
 ###
 ### Arguments:
@@ -278,51 +278,51 @@ end;;
 ### #GBNP.LeftObs uses: GBNP.LeftOccur#
 ### #GBNP.LeftObs is used in: GBNP.ObsTrace GBNP.ObsTrunc#
 ###
- 
+
 GBNP.LeftObs:=function(j,R,sob)
-    local i,h,k,u,v,dr,ga,lu,lv,mi,ans,eli,flag; 
-    ans:=sob; 
-    u:=R[j]; 
-    lu:=Length(u); 
-    for i in [1..j-1] do 
-        v:=R[i]; 
-        lv:=Length(v); 
-        mi:=Minimum([lu,lv]); 
-        for k in [1..mi-1] do 
-            if u{[lu-k+1..lu]}=v{[1..k]} then 
-                ga:=u{[1..lu-k]}; 
-                dr:=v{[k+1..lv]}; 
-                flag:=true; 
-                eli:=[]; 
-                for h in ans do 
-                    if GBNP.LeftOccur(h[3],dr)=1 then 
+    local i,h,k,u,v,dr,ga,lu,lv,mi,ans,eli,flag;
+    ans:=sob;
+    u:=R[j];
+    lu:=Length(u);
+    for i in [1..j-1] do
+        v:=R[i];
+        lv:=Length(v);
+        mi:=Minimum([lu,lv]);
+        for k in [1..mi-1] do
+            if u{[lu-k+1..lu]}=v{[1..k]} then
+                ga:=u{[1..lu-k]};
+                dr:=v{[k+1..lv]};
+                flag:=true;
+                eli:=[];
+                for h in ans do
+                    if GBNP.LeftOccur(h[3],dr)=1 then
                         flag:=false;
                         break; # saves time - jwk
-                    elif GBNP.LeftOccur(dr,h[3])=1 then 
-                        Add(eli,h); 
-                    fi;  
-                od; 
-                ans:=Difference(ans,eli);   
+                    elif GBNP.LeftOccur(dr,h[3])=1 then
+                        Add(eli,h);
+                    fi;
+                od;
+                ans:=Difference(ans,eli);
                 if flag then
                     Add(ans,[[],j,dr,ga,i,[]]);
-                fi; 
+                fi;
             fi;
-        od; 
-    od; 
-    return(ans); 
-end;; 
+        od;
+    od;
+    return(ans);
+end;;
 
-################# 
+#################
 ### GBNP.RightObs
-### - Searches "right" obstructions  of monomial u w.r.t. monomials in R.  
-### Because "left" and "right" obstructions are symmetric, 
-### we only search for i<j. 
-### All redundant obstructions are removed. For efficiency, the 
+### - Searches "right" obstructions  of monomial u w.r.t. monomials in R.
+### Because "left" and "right" obstructions are symmetric,
+### we only search for i<j.
+### All redundant obstructions are removed. For efficiency, the
 ### self obstruction of R[j] (written as a right obstruction) is taken
 ### into account (if it exists).
 ###
 ### Arguments:
-### j         - index of the monomial for which we search the right 
+### j         - index of the monomial for which we search the right
 ###               obstructions
 ### R        - list of monomials (leading terms)
 ### sob        - 'smallest' self-obstruction of R[j]
@@ -333,51 +333,51 @@ end;;
 ### #GBNP.RightObs uses: GBNP.LeftOccur#
 ### #GBNP.RightObs is used in: GBNP.ObsTrace GBNP.ObsTrunc#
 ###
- 
-GBNP.RightObs:=function(j,R,sob) 
-    local i,h,k,u,v,dr,ga,lu,lv,mi,eli,flag, sobr, ans; 
-    if sob<>[] then  
+
+GBNP.RightObs:=function(j,R,sob)
+    local i,h,k,u,v,dr,ga,lu,lv,mi,eli,flag, sobr, ans;
+    if sob<>[] then
         sobr := [sob[1][4],sob[1][5],sob[1][6],
                  sob[1][1],sob[1][2],sob[1][3]];
-        ans:=[sobr]; 
+        ans:=[sobr];
     else
-        ans:=[]; 
+        ans:=[];
         sobr:=[];
-    fi; 
-    u:=R[j]; 
-    lu:=Length(u); 
-    for i in [1..j-1] do 
-        v:=R[i]; 
-        lv:=Length(v); 
-        mi:=Minimum([lu,lv]); 
-        for k in [1..mi-1] do 
-            if v{[lv-k+1..lv]}=u{[1..k]} then 
-                ga:=v{[1..lv-k]}; 
-                dr:=u{[k+1..lu]}; 
-                flag:=true; 
-                eli:=[]; 
-                for h in ans do 
-                    if GBNP.LeftOccur(Reversed(h[1]),Reversed(ga))=1 then 
-                        flag:=false; 
+    fi;
+    u:=R[j];
+    lu:=Length(u);
+    for i in [1..j-1] do
+        v:=R[i];
+        lv:=Length(v);
+        mi:=Minimum([lu,lv]);
+        for k in [1..mi-1] do
+            if v{[lv-k+1..lv]}=u{[1..k]} then
+                ga:=v{[1..lv-k]};
+                dr:=u{[k+1..lu]};
+                flag:=true;
+                eli:=[];
+                for h in ans do
+                    if GBNP.LeftOccur(Reversed(h[1]),Reversed(ga))=1 then
+                        flag:=false;
                         break; # saves time - jwk
-                    elif GBNP.LeftOccur(Reversed(ga),Reversed(h[1]))=1 then 
-                        Append(eli,h); 
-                    fi; 
-                od; 
-                ans:=Difference(ans,eli); 
-                if flag then 
+                    elif GBNP.LeftOccur(Reversed(ga),Reversed(h[1]))=1 then
+                        Append(eli,h);
+                    fi;
+                od;
+                ans:=Difference(ans,eli);
+                if flag then
                     Add(ans,[ga,j,[],[],i,dr]);
-                fi; 
-            fi; 
-        od; 
-    od; 
-    return(Difference(ans,sobr)); 
-end;; 
+                fi;
+            fi;
+        od;
+    od;
+    return(Difference(ans,sobr));
+end;;
 
-################# 
+#################
 ### GBNP.Spoly
-### - Computes the S-polynomials in a basis G w.r.t. an obstruction l. 
-### Output is a cleaned polynomial 
+### - Computes the S-polynomials in a basis G w.r.t. an obstruction l.
+### Output is a cleaned polynomial
 ###
 ### Arguments:
 ### l         - an obstruction
@@ -389,26 +389,26 @@ end;;
 ### #GBNP.Spoly uses: AddNP BimulNP#
 ### #GBNP.Spoly is used in: GBNP.CentralT GBNP.ObsTall GBNP.ObsTrunc#
 ###
-  
-GBNP.Spoly:=function(l,G) 
-    return(AddNP(BimulNP(l[1],G[l[2]],l[3]),BimulNP(l[4],G[l[5]],l[6]),
-        One(G[l[2]][2][1]),-1*One(G[l[2]][2][1]))); 
-end;; 
 
-################### 
+GBNP.Spoly:=function(l,G)
+    return(AddNP(BimulNP(l[1],G[l[2]],l[3]),BimulNP(l[4],G[l[5]],l[6]),
+        One(G[l[2]][2][1]),-1*One(G[l[2]][2][1])));
+end;;
+
+###################
 ### GBNP.NormalForm2
-### - Computes the normal form of a non-commutative polynomial 
+### - Computes the normal form of a non-commutative polynomial
 ###   using two lists of polynomials with respect to which it rewrites
 
-### Assumptions: 
+### Assumptions:
 ### -  polynomials in G union G2 are monic and clean.
-### -  polynomial f is clean. 
-### -  polynomial f is not empty. (= [[],[]])  
-### 
+### -  polynomial f is clean.
+### -  polynomial f is not empty. (= [[],[]])
+###
 ### Arguments:
 ### f         - a non-commutative polynomial
-### G        - list of non-commutative polynomials 
-### G2        - list of non-commutative polynomials 
+### G        - list of non-commutative polynomials
+### G2        - list of non-commutative polynomials
 ###
 ### Returns:
 ### pol        - normal form of f w.r.t. G union G2
@@ -416,60 +416,60 @@ end;;
 ### #GBNP.NormalForm2 uses: AddNP BimulNP GBNP.OccurInLst LMonsNP#
 ### #GBNP.NormalForm2 is used in: GBNP.NormalForm#
 ###
- 
-GBNP.NormalForm2:=function(f,G,G2) 
-    local g,h,i,j,l,dr,ga,tt,lth,ltsG,i2,l2,ltsG2; 
-    tt:=Runtime(); 
-    h:=StructuralCopy(f); 
-    lth:=h[1][1];  
-    ltsG:=LMonsNP(G); 
-    l:=Length(ltsG); 
-    ltsG2:=LMonsNP(G2); 
-    l2:=Length(ltsG2); 
-    i:=GBNP.OccurInLst(lth,ltsG); 
-    i2:=GBNP.OccurInLst(lth,ltsG2); 
-    while i[1]>0 or i2[1]>0 do 
+
+GBNP.NormalForm2:=function(f,G,G2)
+    local g,h,i,j,l,dr,ga,tt,lth,ltsG,i2,l2,ltsG2;
+    tt:=Runtime();
+    h:=StructuralCopy(f);
+    lth:=h[1][1];
+    ltsG:=LMonsNP(G);
+    l:=Length(ltsG);
+    ltsG2:=LMonsNP(G2);
+    l2:=Length(ltsG2);
+    i:=GBNP.OccurInLst(lth,ltsG);
+    i2:=GBNP.OccurInLst(lth,ltsG2);
+    while i[1]>0 or i2[1]>0 do
         if i[1]>0 then
-            g:=G[i[1]]; 
-            ga:=lth{[1..i[2]-1]}; 
-            dr:=lth{[i[2]+Length(g[1][1])..Length(lth)]}; 
-            h:=AddNP(h,BimulNP(ga,g,dr),One(h[2][1]),-h[2][1]/g[2][1]); 
-            if h=[[],[]] then   
-#                 Print("computation time of the NormalForm = ",Runtime()-tt,"\n"); 
-                return(h);   
-            fi; 
-            lth:=h[1][1];  
-            i:=GBNP.OccurInLst(lth,ltsG); 
-            i2:=GBNP.OccurInLst(lth,ltsG2); 
+            g:=G[i[1]];
+            ga:=lth{[1..i[2]-1]};
+            dr:=lth{[i[2]+Length(g[1][1])..Length(lth)]};
+            h:=AddNP(h,BimulNP(ga,g,dr),One(h[2][1]),-h[2][1]/g[2][1]);
+            if h=[[],[]] then
+#                 Print("computation time of the NormalForm = ",Runtime()-tt,"\n");
+                return(h);
+            fi;
+            lth:=h[1][1];
+            i:=GBNP.OccurInLst(lth,ltsG);
+            i2:=GBNP.OccurInLst(lth,ltsG2);
         else
-            g:=G2[i2[1]]; 
-            ga:=lth{[1..i2[2]-1]}; 
-            dr:=lth{[i2[2]+Length(g[1][1])..Length(lth)]}; 
-            h:=AddNP(h,BimulNP(ga,g,dr),One(h[2][1]),-h[2][1]/g[2][1]); 
-            if h=[[],[]] then   
-#                 Print("computation time of the NormalForm = ",Runtime()-tt,"\n"); 
-                return(h);   
-            fi; 
-            lth:=h[1][1];  
-            i:=GBNP.OccurInLst(lth,ltsG); 
-            i2:=GBNP.OccurInLst(lth,ltsG2); 
+            g:=G2[i2[1]];
+            ga:=lth{[1..i2[2]-1]};
+            dr:=lth{[i2[2]+Length(g[1][1])..Length(lth)]};
+            h:=AddNP(h,BimulNP(ga,g,dr),One(h[2][1]),-h[2][1]/g[2][1]);
+            if h=[[],[]] then
+#                 Print("computation time of the NormalForm = ",Runtime()-tt,"\n");
+                return(h);
+            fi;
+            lth:=h[1][1];
+            i:=GBNP.OccurInLst(lth,ltsG);
+            i2:=GBNP.OccurInLst(lth,ltsG2);
         fi;
-    od; 
-#   Print("computation time of the NormalForm = ",Runtime()-tt,"\n"); 
-    return(h); 
-end;; 
- 
-################### 
+    od;
+#   Print("computation time of the NormalForm = ",Runtime()-tt,"\n");
+    return(h);
+end;;
+
+###################
 ### GBNP.NormalForm
-### - Computes the normal form of a non-commutative polynomial 
+### - Computes the normal form of a non-commutative polynomial
 ###
-### Assumptions: 
+### Assumptions:
 ### -  polynomials in G are monic and clean.
 ### -  polynomial f is clean.
-### 
+###
 ### Arguments:
 ### f         - a non-commutative polynomial
-### G        - list of non-commutative polynomials 
+### G        - list of non-commutative polynomials
 ###
 ### Returns:
 ### pol        - normal form of f w.r.t. G
@@ -477,8 +477,8 @@ end;;
 ### #GBNP.NormalForm uses: GBNP.NormalForm2#
 ### #GBNP.NormalForm is used in:#
 ###
- 
-GBNP.NormalForm:=function(f,G) 
+
+GBNP.NormalForm:=function(f,G)
     if f = [[],[]] then
         return f;
     else
@@ -486,20 +486,20 @@ GBNP.NormalForm:=function(f,G)
     fi;
 end;;
 
-################### 
+###################
 ### GBNP.StrongNormalForm2
-### - Computes the strong normal form of a non-commutative polynomial 
-###   
-### Assumptions: 
-### -  monomials of each polynomial are ordered. (highest degree first) 
-### -  polynomials in G union G2 are monic and clean. 
-### -  polynomial f is clean. 
+### - Computes the strong normal form of a non-commutative polynomial
+###
+### Assumptions:
+### -  monomials of each polynomial are ordered. (highest degree first)
+### -  polynomials in G union G2 are monic and clean.
+### -  polynomial f is clean.
 ### -  polynomial f is not empty (that is, f <> [[],[]]).
-### 
+###
 ### Arguments:
 ### f         - a non-commutative polynomial
-### G        - list of non-commutative polynomials 
-### G2        - list of non-commutative polynomials 
+### G        - list of non-commutative polynomials
+### G2        - list of non-commutative polynomials
 ###
 ### Returns:
 ### pol        - strong normalform of f w.r.t. G
@@ -507,60 +507,60 @@ end;;
 ### #GBNP.StrongNormalForm2 uses: AddNP BimulNP GBNP.OccurInLst LMonsNP#
 ### #GBNP.StrongNormalForm2 is used in: GBNP.ObsTrunc StrongNormalFormNP StrongNormalFormNPM#
 ###
- 
-GBNP.StrongNormalForm2:=function(f,G,G2) 
-    local g,h,i1,j,l,dr,ga,tt,lth,iid,ltsG,i2,ltsG2,l2; 
-    tt:=Runtime(); 
-    h:=StructuralCopy(f); 
-    ltsG:=LMonsNP(G); 
-    ltsG2:=LMonsNP(G2); 
-    iid := 1; 
-    while iid <= Length(h[1]) do 
-        lth:=h[1][iid];  
-        l:=Length(ltsG); 
-        l2:=Length(ltsG2); 
-        i1:=GBNP.OccurInLst(lth,ltsG); 
-        i2:=GBNP.OccurInLst(lth,ltsG2); 
-        while i1[1]+i2[1]>0 do 
+
+GBNP.StrongNormalForm2:=function(f,G,G2)
+    local g,h,i1,j,l,dr,ga,tt,lth,iid,ltsG,i2,ltsG2,l2;
+    tt:=Runtime();
+    h:=StructuralCopy(f);
+    ltsG:=LMonsNP(G);
+    ltsG2:=LMonsNP(G2);
+    iid := 1;
+    while iid <= Length(h[1]) do
+        lth:=h[1][iid];
+        l:=Length(ltsG);
+        l2:=Length(ltsG2);
+        i1:=GBNP.OccurInLst(lth,ltsG);
+        i2:=GBNP.OccurInLst(lth,ltsG2);
+        while i1[1]+i2[1]>0 do
             if i1[1]>0 then
-                g:=G[i1[1]]; 
-                ga:=lth{[1..i1[2]-1]}; 
-                dr:=lth{[i1[2]+Length(g[1][1])..Length(lth)]}; 
-                h:=AddNP(h,BimulNP(ga,g,dr),One(g[2][1]),-h[2][iid]/g[2][1]); 
-                if h=[[],[]] then 
+                g:=G[i1[1]];
+                ga:=lth{[1..i1[2]-1]};
+                dr:=lth{[i1[2]+Length(g[1][1])..Length(lth)]};
+                h:=AddNP(h,BimulNP(ga,g,dr),One(g[2][1]),-h[2][iid]/g[2][1]);
+                if h=[[],[]] then
                     return h;
-                fi; 
-                if iid <= Length(h[1]) then 
-                    lth := h[1][iid];  
-                    i1:=GBNP.OccurInLst(lth,ltsG); 
-                    i2:=GBNP.OccurInLst(lth,ltsG2); 
-                else 
-                    return(h); 
-                fi; 
+                fi;
+                if iid <= Length(h[1]) then
+                    lth := h[1][iid];
+                    i1:=GBNP.OccurInLst(lth,ltsG);
+                    i2:=GBNP.OccurInLst(lth,ltsG2);
+                else
+                    return(h);
+                fi;
             else
-                g:=G2[i2[1]]; 
-                ga:=lth{[1..i2[2]-1]}; 
-                dr:=lth{[i2[2]+Length(g[1][1])..Length(lth)]}; 
-                h:=AddNP(h,BimulNP(ga,g,dr),One(g[2][1]),-h[2][iid]/g[2][1]); 
-                if h=[[],[]] then 
+                g:=G2[i2[1]];
+                ga:=lth{[1..i2[2]-1]};
+                dr:=lth{[i2[2]+Length(g[1][1])..Length(lth)]};
+                h:=AddNP(h,BimulNP(ga,g,dr),One(g[2][1]),-h[2][iid]/g[2][1]);
+                if h=[[],[]] then
                     return h;
-                fi; 
-                if iid <= Length(h[1]) then 
-                    lth := h[1][iid];  
-                    i1:=GBNP.OccurInLst(lth,ltsG); 
-                    i2:=GBNP.OccurInLst(lth,ltsG2); 
-                else 
-                    return(h); 
-                fi; 
+                fi;
+                if iid <= Length(h[1]) then
+                    lth := h[1][iid];
+                    i1:=GBNP.OccurInLst(lth,ltsG);
+                    i2:=GBNP.OccurInLst(lth,ltsG2);
+                else
+                    return(h);
+                fi;
             fi;
-       od; 
-       iid := iid+1; 
-    od; 
-Info(InfoGBNP,3, "computation time of the StrongNormalFormNP = ",Runtime()-tt); 
-    return(h); 
-end;; 
- 
-################### 
+       od;
+       iid := iid+1;
+    od;
+Info(InfoGBNP,3, "computation time of the StrongNormalFormNP = ",Runtime()-tt);
+    return(h);
+end;;
+
+###################
 ### StrongNormalFormNP
 ### <#GAPDoc Label="StrongNormalFormNP">
 ### <ManSection>
@@ -571,12 +571,12 @@ end;;
 ### </Returns>
 ### <Description>
 ### When invoked with a polynomial in NP format
-### (see Section <Ref Sect="NP"/>) 
+### (see Section <Ref Sect="NP"/>)
 ### and a finite set <A>G</A> of polynomials in NP format, this function will
 ### return a strong normal form (that is, a polynomial
 ### that is equal to <A>f</A>
 ### modulo <A>G</A>, every monomial of which is a multiple of no
-### leading monomial of an element of <A>G</A>). 
+### leading monomial of an element of <A>G</A>).
 ### <P/>
 ### Note that the StrongNormalForm with respect to a Gröbner
 ### basis is uniquely determined,  but that for an arbitrary input <A>G</A>
@@ -588,8 +588,8 @@ end;;
 ### </ManSection>
 ### <#/GAPDoc>
 ### - Computes a strong normal form of a polynomial in NP format
-### 
-### 
+###
+###
 ### Arguments:
 ### f         - a non-commutative polynomial
 ### G        - list of non-commutative polynomials
@@ -601,7 +601,7 @@ end;;
 ### #StrongNormalFormNP is used in: MulQA#
 ###
 
-InstallGlobalFunction( StrongNormalFormNP, function(f,G) 
+InstallGlobalFunction( StrongNormalFormNP, function(f,G)
     local ih, fm, Gl, lts, lcf, hlp;
     fm := CleanNP(f);
     if fm = [[],[]] then return fm; fi;
@@ -620,7 +620,7 @@ InstallGlobalFunction( StrongNormalFormNP, function(f,G)
     return([fm[1], lcf * fm[2]]);
 end);;
 
-################## 
+##################
 ### GBNP.ReducePol2
 ### New function to clean the input
 ### - set variant
@@ -638,12 +638,12 @@ end);;
 ### #GBNP.ReducePol2 is used in: GBNP.AllObsTrunc GBNP.ReducePol GBNP.SGrobnerTruncLevel SGrobner#
 ###
 
-GBNP.ReducePol2:=function(arg) 
+GBNP.ReducePol2:=function(arg)
     local i,j,jl,h,ind,lts,new,lans,newind,temp,G,GLOT;
-    G:=arg[1]; 
+    G:=arg[1];
     if Length(arg)>=2 then
-        GLOT:=arg[2]; 
-        lts:=LMonsNP(G); 
+        GLOT:=arg[2];
+        lts:=LMonsNP(G);
         if IsBound(GBNP.GetOptions().CancellativeMonoid) then
             lts:=StructuralCopy(lts);
             # Structural copy is needed to be able to update the tree
@@ -676,9 +676,9 @@ GBNP.ReducePol2:=function(arg)
     i:=ind[1];
         RemoveSet(ind,i);
         j:=i+1;
-        while j <= lans do 
-            if #IsSubsetBlist(Gset[j],Gset[i]) and 
-                ( GBNP.Occur(G[i][1][1],G[j][1][1]) <> 0 ) then 
+        while j <= lans do
+            if #IsSubsetBlist(Gset[j],Gset[i]) and
+                ( GBNP.Occur(G[i][1][1],G[j][1][1]) <> 0 ) then
                 # XXX can this occur be removed
                 new:=GBNP.StrongNormalForm2TS(G,j,GLOT);
                 if new = [[],[]] then
@@ -697,12 +697,12 @@ GBNP.ReducePol2:=function(arg)
 
                     for h in [1..Length(ind)] do
                         if ind[h] in [newind..j-1] then ind[h]:=ind[h]+1; fi;
-                    od; 
+                    od;
                     if i in [newind..j-1] then i:=i+1; fi;
                     AddSet(ind,newind);
                     j:=j+1;
                 fi;
-            else 
+            else
                 j:=j+1;
             fi;
         od;
@@ -710,7 +710,7 @@ GBNP.ReducePol2:=function(arg)
     return GLOT;
 end;;
 
-################## 
+##################
 ### GBNP.ReducePol
 ### New function to clean the input
 ###
@@ -724,36 +724,36 @@ end;;
 ### #GBNP.ReducePol is used in: GBNP.SGrobnerTrunc GBNP.SGrobnerTruncLevel Grobner SGrobner#
 ###
 
-GBNP.ReducePol:=function(B) 
+GBNP.ReducePol:=function(B)
     local G,i,done,one,count;
-    G:=List(B,x -> MkMonicNP(CleanNP(x))); 
-         G:=Filtered(G, x -> x <> [[],[]]); 
-    ## Extra loop added October 2023 to fix issue #15 
-    ## this tests to find two polynomials with the same leading monomial 
-    ## and, when found, replaces the second with their difference. 
+    G:=List(B,x -> MkMonicNP(CleanNP(x)));
+         G:=Filtered(G, x -> x <> [[],[]]);
+    ## Extra loop added October 2023 to fix issue #15
+    ## this tests to find two polynomials with the same leading monomial
+    ## and, when found, replaces the second with their difference.
     ## Note that this includes the case when a polynomial is repeated.
     count:=0;
-    done := false; 
+    done := false;
     while not done do
         count:=count+1;
         for i in [1..Length(G)] do
             G[i]:=GBNP.ReduceCancellation(G[i]);
         od;
         Sort(G,function(u,v) return LtNP(u[1][1],v[1][1]);end);
-        done := true; 
-        for i in Reversed( [1..Length(G)-1] ) do 
+        done := true;
+        for i in Reversed( [1..Length(G)-1] ) do
              if ( G[i][1][1] = G[i+1][1][1] ) then
                  done := false;
                  one:=One(G[i][2][1]);
                  G[i+1] := MkMonicNP(CleanNP(AddNP(G[i+1],G[i],one,-one)));
              fi;
         od;
-        if not done then 
-            ## need to resort G 
-            G := Filtered( G, L -> L <> [ [ ], [ ] ] );  
+        if not done then
+            ## need to resort G
+            G := Filtered( G, L -> L <> [ [ ], [ ] ] );
             Sort(G,function(u,v) return LtNP(u[1][1],v[1][1]);end);
-        fi; 
-    od; 
+        fi;
+    od;
     GBNP.ReducePol2(G);
     return G;
 end;;
@@ -761,20 +761,20 @@ end;;
 ###################
 ### GBNP.AllObs ###
 ###################
-### - Computing all obstructions w.r.t. set G polynomials 
-### (first part of the algorithm).  
+### - Computing all obstructions w.r.t. set G polynomials
+### (first part of the algorithm).
 ### (name is misleading, a part of a basic set is constructed; known
 ### reducible obstructions are not part of the returned list)
 ### NOTE: returned polynomials are brought in normal form w.r.t. G and sorted
 ### - OT-trees are not returned
-###  
-### Assumptions: 
-### - Central obstructions are already done, so only self, left and right. 
+###
+### Assumptions:
+### - Central obstructions are already done, so only self, left and right.
 ###
 ### Optimalizations:
 ### - A self obstruction should be non-reducible from both the left and the
 ###   right.
-### 
+###
 ### Algorithm:
 ### - calculate left obstructions (including self)
 ### - calculate right obstructions (including self)
@@ -782,7 +782,7 @@ end;;
 ###   obstructions
 ### - (is this needed ?) sorting and reducing within obstructions
 ### - (should this be added) reducing with G
-### 
+###
 ### Arguments:
 ### G        - list of non-commutative polynomials
 ###
@@ -792,11 +792,11 @@ end;;
 ## #GBNP.AllObs uses: GBNP.AddMonToTreePTSLR GBNP.CreateOccurTreePTSLR GBNP.GetOptions GBNP.ObsTall GBNP.StrongNormalFormTall LMonsNP#
 ### #GBNP.AllObs is used in: GBNP.IsGrobnerBasisTest Grobner IsGrobnerPair MakeGrobnerPair SGrobner#
 ###
- 
-GBNP.AllObs:=function(G, funcs) 
+
+GBNP.AllObs:=function(G, funcs)
     local k,ans,temp,GLOT,ansLOT,pGLOT,pGROT,from;
     # a trivial Gröbner basis has no obstructions.
-    if (G=[]) or (G=[ [ [ [  ] ], [ 1 ] ] ]) then 
+    if (G=[]) or (G=[ [ [ [  ] ], [ 1 ] ] ]) then
         return [];
     fi;
     ans := [];
@@ -813,28 +813,28 @@ GBNP.AllObs:=function(G, funcs)
     for k in [ from .. Length(G) ] do
         GBNP.AddMonToTreePTSLR( G[k][1][1], k, pGLOT, true);
         GBNP.AddMonToTreePTSLR( G[k][1][1], k, pGROT, false);
-        GBNP.ObsTall( k, G, ans, rec( GL:=GLOT, pGL:=pGLOT, pGR:=pGROT, 
+        GBNP.ObsTall( k, G, ans, rec( GL:=GLOT, pGL:=pGLOT, pGR:=pGROT,
             todoL:=ansLOT ), funcs); # change this in a new AllObsall
-    od; 
+    od;
 
     # only reduce with G, do not reduce with itself yet
-    # GBNP.ReducePol2( ans ); 
+    # GBNP.ReducePol2( ans );
     for k in [1 .. Length(ans)] do
         ans[k]:=GBNP.StrongNormalFormTall(ans[k],G,GLOT,funcs);
     od;
     temp := LMonsNP( ans );
     SortParallel( temp, ans, LtNP );
-    return( ans ); 
-end;; 
+    return( ans );
+end;;
 
-################## 
+##################
 ### Grobner
 ### <#GAPDoc Label="Grobner">
 ### <ManSection>
-### <Func Name="Grobner" Comm="Buchberger's algorithm with normalform" 
+### <Func Name="Grobner" Comm="Buchberger's algorithm with normalform"
 ### Arg="Lnp [, D] [, max]" />
 ###
-### <Returns>         
+### <Returns>
 ### If the algorithm terminates, a Gröbner Basis or a record
 ### if <A>max</A> is specified (see description).
 ### </Returns>
@@ -844,7 +844,7 @@ end;;
 ### Buchberger's algorithm with normal form to find a Gröbner Basis
 ### (if possible, the general problem is unsolvable).
 ### <P/>
-### When called with the optional argument <A>max</A>, which should be a 
+### When called with the optional argument <A>max</A>, which should be a
 ### positive integer, the calculation will
 ### be interrupted if it has not ended after <A>max</A> iterations. The
 ### return value will be a record containing lists <C>G</C> and
@@ -853,30 +853,30 @@ end;;
 ### Here <C>G</C> and <C>todo</C> form a Gröbner pair
 ### (see <Cite Key="CohenGijsbersEtAl2007"/>). The number of performed
 ### iterations will be placed in <C>iterations</C>. If the algorithm
-### has terminated, then <C>todo</C> will be the empty list and 
+### has terminated, then <C>todo</C> will be the empty list and
 ### <C>completed</C> will be equal to
 ### <C>true</C>. If the algorithm has not terminated, then <C>todo</C> will be
 ### a non-empty list of polynomials in NP format and
 ### <C>completed</C> will be <C>false</C>.
 ### <P/>
 ### By use of the optional argument <A>D</A>, it is possible to resume a
-### previously interrupted calculation. 
+### previously interrupted calculation.
 ### <P/>
 ### <#Include Label="example-Grobner">
 ### </Description>
 ### </ManSection>
 ### <#/GAPDoc>
-### - Buchberger's algorithm with normal form 
+### - Buchberger's algorithm with normal form
 ###
 ### Input: List of polynomials. shape a^2-b  = [[[1,1],[2]],[1,-1]]
 ###
-### Output: Grobner Basis 
+### Output: Grobner Basis
 ###
 ### Invariants of list G=[g_1,...,g_s]
 ### - G is basis of ideal
 ### - all g_i are monic
 ### - for all S-polynomials S(i,j) with g_i and g_j in G holds
-###  S(i,j) has a weak grobner representation (defined by MORA) 
+###  S(i,j) has a weak grobner representation (defined by MORA)
 ###                     or !
 ###  S(i,j) is an element of todo.
 ###
@@ -885,12 +885,12 @@ end;;
 ### - all S-polynomials have a weak grobner representation
 ###
 ### Quick observation, if todo is empty then G is a Grobner basis
-### 
+###
 ### #Grobner uses: GBNP.AllObs GBNP.CalculatePG GBNP.ReducePol GBNP.SGrobnerLoops#
 ### #Grobner is used in:#
 ###
 
-InstallGlobalFunction( Grobner, function(arg) 
+InstallGlobalFunction( Grobner, function(arg)
     local tt,todo,G, funcs,KI,loop, withpair;
 
     # set the default options
@@ -903,7 +903,7 @@ InstallGlobalFunction( Grobner, function(arg)
         KI:=arg[1];
     fi;
 
-    tt:=Runtime(); 
+    tt:=Runtime();
 
     if Length(arg)>=2 and IsInt(arg[Length(arg)]) then
         funcs.maxiterations := arg[Length(arg)];
@@ -916,11 +916,11 @@ InstallGlobalFunction( Grobner, function(arg)
     fi;
 
 # phase I, start-up, building G
-# - Clean the list and make all polynomials monic 
+# - Clean the list and make all polynomials monic
 # - Sort each polynomial so that its leading term is in front
-# - Order the list of polynomials such that 
+# - Order the list of polynomials such that
 #      the one with smallest leading term comes first
-# - Compute internal NormalForm 
+# - Compute internal NormalForm
 
      Info(InfoGBNP,1,"number of entered polynomials is ",Length(KI));
      if (withpair) then
@@ -934,23 +934,23 @@ InstallGlobalFunction( Grobner, function(arg)
      funcs.pg:=GBNP.CalculatePG(G);
 
      Info(InfoGBNP,1,"number of polynomials after reduction is ",Length(G));
-     Info(InfoGBNP,1,"End of phase I"); 
- 
+     Info(InfoGBNP,1,"End of phase I");
 
-# phase II, initialization, making todo 
-# - Compute all possible obstructions 
-# - Compute their S-polynomials 
-# - Make a list of the non-trivial NormalForms 
- 
+
+# phase II, initialization, making todo
+# - Compute all possible obstructions
+# - Compute their S-polynomials
+# - Make a list of the non-trivial NormalForms
+
     if withpair then
         todo:=arg[2];
     else
-        todo:=GBNP.AllObs(G, funcs); 
+        todo:=GBNP.AllObs(G, funcs);
     fi;
-    Info(InfoGBNP,1,"End of phase II"); 
- 
- # phase III, The loop 
-     
+    Info(InfoGBNP,1,"End of phase II");
+
+ # phase III, The loop
+
     loop := GBNP.SGrobnerLoops(G,todo,funcs);
 
     if loop.completed <> true  then
@@ -959,26 +959,26 @@ InstallGlobalFunction( Grobner, function(arg)
     else
         Info(InfoGBNP,1,"End of phase III");
     fi;
- 
+
 # End of the algorithm
- 
-     Info(InfoGBNPTime,1,"The computation took ",Runtime()-tt," msecs."); 
+
+     Info(InfoGBNPTime,1,"The computation took ",Runtime()-tt," msecs.");
 
      if IsBound(funcs.maxiterations) then
          return loop;
      else
-         return loop.G; 
+         return loop.G;
      fi;
-end); 
+end);
 
-################## 
+##################
 ### <#GAPDoc Label="SGrobner"
 ### <ManSection>
-### <Func Name="SGrobner" Comm="Buchberger's algorithm with strong normalform" 
+### <Func Name="SGrobner" Comm="Buchberger's algorithm with strong normalform"
 ### Arg="Lnp [, todo ] [, max]" />
 ###
 ###
-### <Returns>         
+### <Returns>
 ### If the algorithm terminates, a Gröbner Basis or a record
 ### if <A>max</A> is specified (see description).
 ### </Returns>
@@ -989,7 +989,7 @@ end);
 ### (see <Cite Key="CohenGijsbersEtAl2007"/>) to find a Gröbner Basis
 ### (if possible, the general problem is unsolvable).
 ### <P/>
-### When called with the optional argument <A>max</A>, which should be a 
+### When called with the optional argument <A>max</A>, which should be a
 ### positive integer, the calculation will
 ### be interrupted if it has not ended after <A>max</A> iterations. The
 ### return value will be a record containing lists <C>G</C> and
@@ -998,47 +998,47 @@ end);
 ### Here <C>G</C> and <C>todo</C> form a Gröbner pair
 ### (see <Cite Key="CohenGijsbersEtAl2007"/>). The number of performed
 ### iterations will be placed in <C>iterations</C>. If the algorithm
-### has terminated, then <C>todo</C> will be the empty list and 
+### has terminated, then <C>todo</C> will be the empty list and
 ### <C>completed</C> will be equal to
 ### <C>true</C>. If the algorithm has not terminated, then <C>todo</C> will be
 ### a non-empty list of polynomials in NP format and
 ### <C>completed</C> will be <C>false</C>.
 ### <P/>
 ### By use of the optional argument <A>D</A>, it is possible to resume a
-### previously interrupted calculation. 
+### previously interrupted calculation.
 ### <P/>
 ### <#Include Label="example-SGrobner">
 ### </Description>
 ### </ManSection>
 ### <#/GAPDoc>
 ###
-### - Buchberger's algorithm with strong normal form 
+### - Buchberger's algorithm with strong normal form
 ###
-### Arguments: 
+### Arguments:
 ### KI           - list of non-commutative polynomials.
 ### max          - (optional) maximum number of iterations
 ###
-### Returns:         
+### Returns:
 ### G            - a Grobner Basis (if found...the general problem is unsolvable)###
 ### Invariants of list G=[g_1,...,g_s]
 ### - G is basis of ideal
 ### - all g_i are monic
 ### - for all S-polynomials S(i,j) with g_i and g_j in G holds
-###  S(i,j) has a weak grobner representation (defined by MORA) 
+###  S(i,j) has a weak grobner representation (defined by MORA)
 ###                     or !
 ###  S(i,j) is an element of todo.
 ###
 ### Thm 5.1 (MORA) A basis G of an ideal I is a Grobner basis of I if and only if
 ### - all elements of G are monic
 ### - all S-polynomials have a weak Grobner representation
-### 
+###
 ### Observation: if todo is empty then G is a Grobner basis
-### 
+###
 ### #SGrobner uses: GBNP.AllObs GBNP.CalculatePG GBNP.ReducePol GBNP.ReducePol2 GBNP.ReducePolTails GBNP.SGrobnerLoops#
 ### #SGrobner is used in: SGrobnerModule#
 ###
 
-InstallGlobalFunction( SGrobner, function(arg) 
+InstallGlobalFunction( SGrobner, function(arg)
     local tt,todo,G,GLOT,funcs,KI,loop,withpair;
 
     # set the default options
@@ -1049,7 +1049,7 @@ InstallGlobalFunction( SGrobner, function(arg)
     else
         KI:=arg[1];
     fi;
-    tt:=Runtime(); 
+    tt:=Runtime();
 
     if Length(arg)>=2 and IsInt(arg[Length(arg)]) then
         funcs.maxiterations := arg[Length(arg)];
@@ -1062,11 +1062,11 @@ InstallGlobalFunction( SGrobner, function(arg)
     fi;
 
 # phase I, start-up, building G
-# - Clean the list and make all polynomials monic 
+# - Clean the list and make all polynomials monic
 # - Sort each polynomial so that its leading term is in front
-# - Order the list of polynomials such that 
+# - Order the list of polynomials such that
 #      the one with smallest leading term comes first
-# - Compute internal StrongNormalForm 
+# - Compute internal StrongNormalForm
 
      Info(InfoGBNP,1,"number of entered polynomials is ",Length(KI));
 
@@ -1081,45 +1081,45 @@ InstallGlobalFunction( SGrobner, function(arg)
      funcs.pg:=GBNP.CalculatePG(G);
 
      Info(InfoGBNP,1,"number of polynomials after reduction is ",Length(G));
-     Info(InfoGBNP,1,"End of phase I"); 
+     Info(InfoGBNP,1,"End of phase I");
 
-# phase II, initialization, making todo 
-# - Compute all possible obstructions 
-# - Compute their S-polynomials 
-# - Make a list of the non-trivial StrongNormalForms 
+# phase II, initialization, making todo
+# - Compute all possible obstructions
+# - Compute their S-polynomials
+# - Make a list of the non-trivial StrongNormalForms
 
     if withpair then
         todo:=arg[2];
     else
-        todo:=GBNP.AllObs(G, funcs); 
+        todo:=GBNP.AllObs(G, funcs);
     fi;
-    Info(InfoGBNP,1,"End of phase II"); 
- 
- # phase III, The loop 
+    Info(InfoGBNP,1,"End of phase II");
 
-    loop := GBNP.SGrobnerLoops(G,todo,funcs); 
+ # phase III, The loop
+
+    loop := GBNP.SGrobnerLoops(G,todo,funcs);
     if loop.completed <> true then
         Info(InfoGBNP,1,"Calculation interrupted after ",
              funcs.maxiterations," iterations");
     else
         Info(InfoGBNP,1,"End of phase III");
     fi;
-  
-# phase IV, Make the result reduced 
 
-    GLOT:=GBNP.ReducePol2(G); 
+# phase IV, Make the result reduced
+
+    GLOT:=GBNP.ReducePol2(G);
     GBNP.ReducePolTails(G,[],GLOT); # reduce the tails of the polynomials
-    Info(InfoGBNP,1,"End of phase IV"); 
+    Info(InfoGBNP,1,"End of phase IV");
 
 # End of the algorithm
- 
-    Info(InfoGBNPTime,1,"The computation took ",Runtime()-tt," msecs."); 
+
+    Info(InfoGBNPTime,1,"The computation took ",Runtime()-tt," msecs.");
     if IsBound(funcs.maxiterations) then
         return loop;
     else
-        return loop.G; 
+        return loop.G;
     fi;
-end); 
+end);
 
 ######################################################
 ### GBNP.NondivMons
@@ -1142,7 +1142,7 @@ end);
 ###
 ### <#GAPDoc Label="BaseQA">
 ### <ManSection>
-### <Func Name="BaseQA" Comm="Find a basis of the quotient algebra" 
+### <Func Name="BaseQA" Comm="Find a basis of the quotient algebra"
 ### Arg="G, t, maxno" />
 ### <Returns>A list of terms forming a basis of the quotient
 ### algebra of the (non-commutative) polynomial algebra
@@ -1152,7 +1152,7 @@ end);
 ### <Description>
 ### When called with a Gröbner basis <A>G</A>, the number  <A>t</A>
 ### of generators of
-### the algebra, and a maximum number of terms to be found 
+### the algebra, and a maximum number of terms to be found
 ### <A>maxno</A>, BaseQA will return a (partial) base of the quotient algebra.
 ### If this function is invoked with <A>maxno</A> equal to 0, then a full basis
 ### will be given. If the dimension of this quotient algebra is infinite and
@@ -1163,7 +1163,7 @@ end);
 ### </Description>
 ### </ManSection>
 ### <#/GAPDoc>
-### 
+###
 ### returns a basis of terms
 ### Arguments:
 ### G         - a Grobner basis
@@ -1178,7 +1178,7 @@ end);
 ### #BaseQA is used in:#
 ###
 
-InstallGlobalFunction( BaseQA, function(G,t,maxno) 
+InstallGlobalFunction( BaseQA, function(G,t,maxno)
     local ans, hlst, i, h, GF,one;
     # estimate the number of generators
     if t = 0 then
@@ -1205,16 +1205,16 @@ end);;
 ### DimQA
 ### <#GAPDoc Label="DimQA">
 ### <ManSection>
-### <Func Name="DimQA" Comm="Calculates the dimension of the quotient algebra" 
+### <Func Name="DimQA" Comm="Calculates the dimension of the quotient algebra"
 ### Arg="G, t" />
 ### <Returns>The dimension of the quotient algebra
 ### </Returns>
 ### <Description>
 ### When called with a Gröbner basis <A>G</A> and a number
 ### of variables <A>t</A>, the function <C>DimQA</C>
-### will return the dimension of the quotient 
+### will return the dimension of the quotient
 ### algebra of the free algebra generated by <A>t</A> variables
-### by the ideal generated by <A>G</A> if it is finite. 
+### by the ideal generated by <A>G</A> if it is finite.
 ### It will not terminate if the dimension is
 ### infinite.
 ### <P/> If <A>t</A>=0, the function will compute the minimal
@@ -1225,8 +1225,8 @@ end);;
 ### algebra is finite and to determine the type
 ### of growth if it is infinite, see
 ### also the functions <Ref Func="FinCheckQA" Style="Text"/> and <Ref
-### Func="DetermineGrowthQA" Style="Text"/> 
-### in Section <Ref Sect="finiteness"/>. 
+### Func="DetermineGrowthQA" Style="Text"/>
+### in Section <Ref Sect="finiteness"/>.
 ### <P/>
 ### <#Include Label="example-DimQA">
 ### </Description>
@@ -1243,7 +1243,7 @@ end);;
 ### #DimQA is used in:#
 ###
 
-InstallGlobalFunction( DimQA, function(G,n) 
+InstallGlobalFunction( DimQA, function(G,n)
     local s,t0;
 
     if n = 0 then
@@ -1253,22 +1253,22 @@ InstallGlobalFunction( DimQA, function(G,n)
     if Length(G) = 0 then
         Error("dim is infinite as ideal is trivial.\n");
     fi;
-    s := GBNP.NondivMonsPTSenum([],LMonsNP(G),n,0,0); 
+    s := GBNP.NondivMonsPTSenum([],LMonsNP(G),n,0,0);
     Info(InfoGBNPTime,2,"The computation took ",Runtime()-t0," msecs.");
     return s;
 end);;
 
 ####################################################
-### MulQA  multiplication in the quotient algebra 
+### MulQA  multiplication in the quotient algebra
 ### <#GAPDoc Label="MulQA">
 ### <ManSection>
-### <Func Name="MulQA" Comm="Multiply two elements in the quotient algebra" 
+### <Func Name="MulQA" Comm="Multiply two elements in the quotient algebra"
 ### Arg="p1, p2, G" />
-### <Returns>The strong normal form of the product 
+### <Returns>The strong normal form of the product
 ### <A>p1</A><M>*</M><A>p2</A> with respect to <A>G</A>
 ### </Returns>
 ### <Description>
-### When called with two polynomials in NP form, <A>p1</A> and <A>p2</A>, and a 
+### When called with two polynomials in NP form, <A>p1</A> and <A>p2</A>, and a
 ### Gröbner basis <A>G</A>, this function will return the product in the
 ### quotient algebra.
 ### <P/>
@@ -1289,26 +1289,26 @@ end);;
 ### #MulQA is used in: MatrixQA#
 ###
 
-InstallGlobalFunction( MulQA, function(p1,p2,G) 
+InstallGlobalFunction( MulQA, function(p1,p2,G)
     return StrongNormalFormNP(MulNP(p1,p2),G);
 end);;
 
-################### 
+###################
 ### GBNP.StrongNormalForm2TS
-### - Computes the strong normal form of a non-commutative polynomial 
+### - Computes the strong normal form of a non-commutative polynomial
 ### - occur trees
 ### - special case G[j] reduced by the rest
-###   
-### Assumptions: 
-### -  monomials of each polynomial are ordered. (highest degree first) 
-### -  polynomials in G union G2 are monic and clean. 
-### -  polynomial f is clean. 
+###
+### Assumptions:
+### -  monomials of each polynomial are ordered. (highest degree first)
+### -  polynomials in G union G2 are monic and clean.
+### -  polynomial f is clean.
 ### -  polynomial f is not empty (that is, f <> [[],[]]).
-### 
+###
 ### Arguments:
 ### f         - a non-commutative polynomial
-### G        - list of non-commutative polynomials 
-### G2        - list of non-commutative polynomials 
+### G        - list of non-commutative polynomials
+### G2        - list of non-commutative polynomials
 ### Gset    - list of the leading term-sets
 ### G2set    - list of the leading term-sets
 ###
@@ -1318,52 +1318,52 @@ end);;
 ### #GBNP.StrongNormalForm2TS uses: AddNP BimulNP GBNP.LookUpOccurTreeAllLstPTSLR#
 ### #GBNP.StrongNormalForm2TS is used in: GBNP.ReducePol2 GBNP.ReducePolTails#
 ###
- 
-GBNP.StrongNormalForm2TS:=function(G,j,GLOT) 
+
+GBNP.StrongNormalForm2TS:=function(G,j,GLOT)
     local g,h,il,i1,l,dr,ga,tt,lth,iid;
-    h:=StructuralCopy(G[j]); 
-    iid := 1; 
-    while iid <= Length(h[1]) do 
-        lth:=h[1][iid];  
-        il:=GBNP.LookUpOccurTreeAllLstPTSLR(lth,GLOT,true); 
+    h:=StructuralCopy(G[j]);
+    iid := 1;
+    while iid <= Length(h[1]) do
+        lth:=h[1][iid];
+        il:=GBNP.LookUpOccurTreeAllLstPTSLR(lth,GLOT,true);
         il:=Filtered(il,x->x[1]<>j);
-        while il<>[] do 
+        while il<>[] do
             i1:=il[1];
-            g:=G[i1[1]]; 
-            ga:=lth{[1..i1[2]-1]}; 
-            dr:=lth{[i1[2]+Length(g[1][1])..Length(lth)]}; 
-            h:=AddNP(h,BimulNP(ga,g,dr),One(g[2][1]),-h[2][iid]/g[2][1]); 
+            g:=G[i1[1]];
+            ga:=lth{[1..i1[2]-1]};
+            dr:=lth{[i1[2]+Length(g[1][1])..Length(lth)]};
+            h:=AddNP(h,BimulNP(ga,g,dr),One(g[2][1]),-h[2][iid]/g[2][1]);
             if h=[[],[]] then
                 return h;
-            fi; 
-            if iid <= Length(h[1]) then 
-                lth := h[1][iid];  
-                il:=GBNP.LookUpOccurTreeAllLstPTSLR(lth,GLOT,true); 
+            fi;
+            if iid <= Length(h[1]) then
+                lth := h[1][iid];
+                il:=GBNP.LookUpOccurTreeAllLstPTSLR(lth,GLOT,true);
                 il:=Filtered(il,x->x[1]<>j);
-            else 
-                return(h); 
-            fi; 
-        od; 
-        iid := iid+1; 
-    od; 
-    return(h); 
-end;; 
+            else
+                return(h);
+            fi;
+        od;
+        iid := iid+1;
+    od;
+    return(h);
+end;;
 
-################### 
+###################
 ### GBNP.NormalForm2T
-### - Computes the normal form of a non-commutative polynomial 
+### - Computes the normal form of a non-commutative polynomial
 ###   using two lists of polynomials with respect to which it rewrites
 ### - set variant
 ###
-### Assumptions: 
+### Assumptions:
 ### -  polynomials in G union G2 are monic and clean.
-### -  polynomial f is clean. 
-### -  polynomial f is not empty. (= [[],[]])  
-### 
+### -  polynomial f is clean.
+### -  polynomial f is not empty. (= [[],[]])
+###
 ### Arguments:
 ### f         - a non-commutative polynomial
-### G        - list of non-commutative polynomials 
-### G2        - list of non-commutative polynomials 
+### G        - list of non-commutative polynomials
+### G2        - list of non-commutative polynomials
 ###
 ### Returns:
 ### pol        - normal form of f w.r.t. G union G2
@@ -1371,51 +1371,51 @@ end;;
 ### #GBNP.NormalForm2T uses: AddNP BimulNP GBNP.OccurInLstT#
 ### #GBNP.NormalForm2T is used in:#
 ###
- 
-GBNP.NormalForm2T:=function(f,G,G2,GLOT,G2LOT) 
+
+GBNP.NormalForm2T:=function(f,G,G2,GLOT,G2LOT)
     local g,h,i,i2,j,l,dr,ga,tt,lth;
-    tt:=Runtime(); 
-    h:=StructuralCopy(f); 
-    lth:=h[1][1];  
+    tt:=Runtime();
+    h:=StructuralCopy(f);
+    lth:=h[1][1];
     i:=GBNP.OccurInLstT(lth,GLOT);
     i2:=GBNP.OccurInLstT(lth,G2LOT);
-    while i[1]>0 or i2[1]>0  do 
+    while i[1]>0 or i2[1]>0  do
         if i[1]>0 then
-            g:=G[i[1]]; 
-            ga:=lth{[1..i[2]-1]}; 
-            dr:=lth{[i[2]+Length(g[1][1])..Length(lth)]}; 
-            h:=AddNP(h,BimulNP(ga,g,dr),One(h[2][1]),-h[2][1]/g[2][1]); 
-            if h=[[],[]] then   
-                Info(InfoGBNPTime,3,"computation time of the NormalForm = ",Runtime()-tt); 
-                return(h);   
-            fi; 
-            lth:=h[1][1];  
+            g:=G[i[1]];
+            ga:=lth{[1..i[2]-1]};
+            dr:=lth{[i[2]+Length(g[1][1])..Length(lth)]};
+            h:=AddNP(h,BimulNP(ga,g,dr),One(h[2][1]),-h[2][1]/g[2][1]);
+            if h=[[],[]] then
+                Info(InfoGBNPTime,3,"computation time of the NormalForm = ",Runtime()-tt);
+                return(h);
+            fi;
+            lth:=h[1][1];
             i:=GBNP.OccurInLstT(lth,GLOT);
             i2:=GBNP.OccurInLstT(lth,G2LOT);
         else
-            g:=G2[i2[1]]; 
-            ga:=lth{[1..i2[2]-1]}; 
-            dr:=lth{[i2[2]+Length(g[1][1])..Length(lth)]}; 
-            h:=AddNP(h,BimulNP(ga,g,dr),One(h[2][1]),-h[2][1]/g[2][1]); 
+            g:=G2[i2[1]];
+            ga:=lth{[1..i2[2]-1]};
+            dr:=lth{[i2[2]+Length(g[1][1])..Length(lth)]};
+            h:=AddNP(h,BimulNP(ga,g,dr),One(h[2][1]),-h[2][1]/g[2][1]);
             if h=[[],[]] then
                 Info(InfoGBNPTime,3,"computation time of the NormalForm = ",Runtime()-tt);
-                return(h);   
-            fi; 
-            lth:=h[1][1];  
+                return(h);
+            fi;
+            lth:=h[1][1];
             i:=GBNP.OccurInLstT(lth,GLOT);
             i2:=GBNP.OccurInLstT(lth,G2LOT);
         fi;
-    od; 
+    od;
     Info(InfoGBNPTime,3,"computation time of the NormalForm = ",Runtime()-tt);
-    return(h); 
-end;; 
+    return(h);
+end;;
 
-################## 
+##################
 ### GBNP.CentralT
-### - Finding all central obstructions of u, leading term of G[j], 
-###   w.r.t. the list of leading terms of G. 
+### - Finding all central obstructions of u, leading term of G[j],
+###   w.r.t. the list of leading terms of G.
 ### - uses lterm-sets
-### 
+###
 ### Arguments:
 ### j         - index of a non-commutative polynomial in G
 ### G        - list of non-commutative polynomials
@@ -1430,8 +1430,8 @@ end;;
 ### #GBNP.CentralT is used in:#
 ###
 
-GBNP.CentralT:=function(j,G,todo,OT,funcs) 
-    local R,ob,temp,a,i,o,u,v,lu,lv,all; 
+GBNP.CentralT:=function(j,G,todo,OT,funcs)
+    local R,ob,temp,a,i,o,u,v,lu,lv,all;
     R := LMonsNP(G);
     u:=R[j];
     lu:=Length(u);
@@ -1442,28 +1442,28 @@ GBNP.CentralT:=function(j,G,todo,OT,funcs)
         lv:=Length(v);
         o:=GBNP.Occur(u,v);
         if o > 1 and o+lu<=lv then
-            temp:=GBNP.Spoly([v{[1..o-1]},j,v{[o+lu..lv]},[],i,[]],G); 
-            if temp <> [[],[]] then          
+            temp:=GBNP.Spoly([v{[1..o-1]},j,v{[o+lu..lv]},[],i,[]],G);
+            if temp <> [[],[]] then
                 temp:=GBNP.StrongNormalForm2Tall(temp,G,todo,OT,funcs);
-                if temp <> [[],[]] then 
+                if temp <> [[],[]] then
                     Add(todo,MkMonicNP(temp));
-                    if not IsTHeapOT(todo) then 
+                    if not IsTHeapOT(todo) then
                         # heap -> added to tree already
                         GBNP.AddMonToTreePTSLR(temp[1][1],-1,OT.todoL,true);
                         # jwk - add to the tree too
                     fi;
-                fi; 
-            fi; 
+                fi;
+            fi;
         fi;
     od;
-end;; 
+end;;
 
-################# 
+#################
 ### GBNP.LeftObsT
-### - Searches "left" obstructions of a monomial u w.r.t. monomials in R.  
-### Because "left" and "right" obstructions are symmetric, 
-### we only search for i<j. 
-### All redundant obstructions are removed. For efficiency reasons, the 
+### - Searches "left" obstructions of a monomial u w.r.t. monomials in R.
+### Because "left" and "right" obstructions are symmetric,
+### we only search for i<j.
+### All redundant obstructions are removed. For efficiency reasons, the
 ### self obstruction of R[j] (if present) is taken into account.
 ###
 ### Arguments:
@@ -1486,28 +1486,28 @@ end;;
 # -> eerste deelobstruction per element uit R (dus langste)
 # + deelobstructies prefix reductie (sort,tree)
 
-GBNP.LeftObsT:=function(j,R,GLOT) 
+GBNP.LeftObsT:=function(j,R,GLOT)
     local i,k,u,v,l,dr,ga,lo,lu,lv,mi,ans,len,ansLOT,sob;
-    ans:=[]; 
-    u:=R[j]; 
-    lu:=Length(u); 
+    ans:=[];
+    u:=R[j];
+    lu:=Length(u);
     lo:=GBNP.LookUpOccurTreeForObsPTSLR(u,j,GLOT,true);
     for l in lo do
         i:=l[1];
-        v:=R[i]; 
-        lv:=Length(v); 
-        mi:=Minimum([lu,lv]); 
+        v:=R[i];
+        lv:=Length(v);
+        mi:=Minimum([lu,lv]);
         k:=lu+1-l[2];
         # if u{[lu-k+1..lu]}=v{[1..k]} # holds by lookup
-        ga:=u{[1..lu-k]}; 
-        dr:=v{[k+1..lv]}; 
+        ga:=u{[1..lu-k]};
+        dr:=v{[k+1..lv]};
         Add(ans,[[],j,dr,ga,i,[]]);
-    od; 
+    od;
 
     Sort(ans,function(u,v) return LtNP(u[3],v[3]);end);
-    
+
     ansLOT:=GBNP.CreateOccurTreePTSLR([],GLOT.pg,true);
-        
+
     i:=1;
     len:=Length(ans);
     sob:=0;
@@ -1524,15 +1524,15 @@ GBNP.LeftObsT:=function(j,R,GLOT)
         fi;
     od;
 
-    return(rec(obs:=ans,sobnr:=sob)); 
-end;; 
+    return(rec(obs:=ans,sobnr:=sob));
+end;;
 
-################# 
+#################
 ### GBNP.RightObsT
-### - Searches "right" obstructions  of monomial u w.r.t. monomials in R.  
-### Because "left" and "right" obstructions are symmetric, 
-### we only search for i<j. 
-### All redundant obstructions are removed. For efficiency, the 
+### - Searches "right" obstructions  of monomial u w.r.t. monomials in R.
+### Because "left" and "right" obstructions are symmetric,
+### we only search for i<j.
+### All redundant obstructions are removed. For efficiency, the
 ### self obstruction of R[j] (written as a right obstruction) is taken
 ### into account (if it exists).
 ###
@@ -1555,32 +1555,32 @@ end;;
 # -> eerste deelobstruction per element uit R (dus langste)
 # + deelobstructies prefix reductie (sort,tree)
 
-GBNP.RightObsT:=function(j,R,GROT) 
+GBNP.RightObsT:=function(j,R,GROT)
     local i,k,u,v,l,dr,ga,lo,lu,lv,mi,ans,len,ansROT,sob;
-    ans:=[]; 
-    u:=R[j]; 
-    lu:=Length(u); 
+    ans:=[];
+    u:=R[j];
+    lu:=Length(u);
     lo:=GBNP.LookUpOccurTreeForObsPTSLR(u,j,GROT,false);
     for l in lo do
         i:=l[1];
-        v:=R[i]; 
-        lv:=Length(v); 
-        mi:=Minimum([lu,lv]); 
+        v:=R[i];
+        lv:=Length(v);
+        mi:=Minimum([lu,lv]);
         k:=lu+1-l[2];
         # if u{[lu-k+1..lu]}=v{[1..k]} # holds by lookup
-        ga:=v{[1..lv-k]}; 
-        dr:=u{[k+1..lu]}; 
+        ga:=v{[1..lv-k]};
+        dr:=u{[k+1..lu]};
         Add(ans,[ga,j,[],[],i,dr]);
-    od; 
+    od;
 
     Sort(ans,function(u,v) return LtNP(u[1],v[1]);end);
-    
+
     ansROT:=GBNP.CreateOccurTreePTSLR([],GROT.pg,false);
-    
+
     if (ansROT.pg<> GROT.pg) then
         Print(R,"\n");
     fi;
-    
+
     i:=1;
     len:=Length(ans);
     sob:=0;
@@ -1597,8 +1597,8 @@ GBNP.RightObsT:=function(j,R,GROT)
         fi;
     od;
 
-    return(rec(obs:=ans,sobnr:=sob)); 
-end;; 
+    return(rec(obs:=ans,sobnr:=sob));
+end;;
 
 ############################
 ### IsStrongGrobnerBasis ###
@@ -1608,7 +1608,7 @@ end;;
 ### <ManSection>
 ### <Func Name="IsStrongGrobnerBasis" Comm="Test if a list of NP polynomials is a strong Gröbner basis" Arg="G" />
 ### <Returns>
-### <C>true</C> if <A>G</A> is a strong Gröbner basis 
+### <C>true</C> if <A>G</A> is a strong Gröbner basis
 ### and <C>false</C>
 ### otherwise
 ### </Returns>
@@ -1687,7 +1687,7 @@ end);
 ### respect to G. (Theorem 1.4, CohenGijsbersEtAl2007)
 ###
 ### Remark: if g_i,g_j in G, i<>j and LT(g_i)=LT(g_j) then it is sufficient to
-### look at all s-polynomials of g_i and for h_i to look at the spolynomial 
+### look at all s-polynomials of g_i and for h_i to look at the spolynomial
 ### (1,i,1;1,j,1).
 ###
 ### variants:
@@ -1705,7 +1705,7 @@ end);
 ### Arguments:
 ### - G        the list of polynomials in NP form to check
 ### - strong    boolean that indicates whether the test is for a "normal",
-###         ("reduced") or "reduced strong" Gröbner basis 
+###         ("reduced") or "reduced strong" Gröbner basis
 ###
 ### Returns:
 ###
@@ -1715,7 +1715,7 @@ end);
 
 # TODO check special cases 0 [[],[]] (might be allowed if strong=false), 1
 # [[[]],[1]] (should be only one if strong=true, if strong=false the result is
-# true if 1 occurs) 
+# true if 1 occurs)
 GBNP.IsGrobnerBasisTest:=function(G,strong)
     local i,          # counter
           Gclean,     # G cleaned
@@ -1761,7 +1761,7 @@ GBNP.IsGrobnerBasisTest:=function(G,strong)
 
     # store the list of leading terms in lt
     lt:=LMonsNP(Gclean);
-    
+
     # check if G can reduce itself
     if strong then
         GsLOT:=GBNP.CreateOccurTreePTSLR([],pg,true);
@@ -1789,7 +1789,7 @@ GBNP.IsGrobnerBasisTest:=function(G,strong)
         if lt[i]<>lt[i-1] then
             # different leading term -> add to Gsingle
             Add(Gsingle, Gclean[i]);
-        else    # same leading term -> add to Gdouble 
+        else    # same leading term -> add to Gdouble
             Add(Gdouble, Gclean[i]);
             Add(doubleObs, AddNP(Gclean[i-1],Gclean[i],one,-one));
         fi;
@@ -1809,7 +1809,7 @@ GBNP.IsGrobnerBasisTest:=function(G,strong)
     return true;
 end;
 
-# special cases to check : 
+# special cases to check :
 # - D contains multiple polynomials with the same lt
 
 #####################
@@ -1838,14 +1838,14 @@ end;
 ### </ManSection>
 ### <#/GAPDoc>
 ###
-### Arguments: 
-### - G 
-### - D    
+### Arguments:
+### - G
+### - D
 ### (G,D) is the Gröbner pair to be tested.
 ###
 ### Returns:
 ### - true if it can be proved that (G,D) is a Gröbner pair.
-### 
+###
 
 InstallGlobalFunction( IsGrobnerPair, function(G,D)
     local pol,    # NP polynomial, counter
@@ -1885,14 +1885,14 @@ InstallGlobalFunction( IsGrobnerPair, function(G,D)
 
     pg:=GBNP.CalculatePG(G);
     GLOT:=GBNP.CreateOccurTreePTSLR( LMonsNP(G), pg, true);
-    
+
     for i in [1.. Length(D)] do
         pol:=D[i];
 
         # zero polynomials are in already normal form
         if (pol <> [[],[]]) then
         # just check leading terms:
-            if GBNP.OccurInLstPTSLR(pol[1][1], GLOT, true)[1]<>0 
+            if GBNP.OccurInLstPTSLR(pol[1][1], GLOT, true)[1]<>0
             then
                 Info(InfoGBNP, 1, "Condition 3 is not satisfied.");
                 Info(InfoGBNP, 2, "Not all polynomials in D are in normal form with respect to G (index: ",i,")");
@@ -1902,7 +1902,7 @@ InstallGlobalFunction( IsGrobnerPair, function(G,D)
             fi;
         fi;
     od;
-    # NOTE: fixable by replacing each element by its normal form 
+    # NOTE: fixable by replacing each element by its normal form
 
     # 4) the set of D is basic for G
     #    for each non-weak obstruction of G, check that it is reducible by
@@ -1935,7 +1935,7 @@ InstallGlobalFunction( IsGrobnerPair, function(G,D)
 end);
 
 # function to check if monimials are monic and clean and/or make them so
-GBNP.MakeGrobnerPairMakeMonic:=function(G) 
+GBNP.MakeGrobnerPairMakeMonic:=function(G)
     local i,      # counter
           pol,    # polynomial being checked
           pol2,   # monic version of pol
@@ -1973,7 +1973,7 @@ end;
 ### <Returns>
 ### A record containing a new Grobner pair
 ### </Returns>
-### <Description> 
+### <Description>
 ### When called with as arguments a pair <M>G, D</M>, this function cleans
 ### <A>G</A> and <A>D</A> and adds some obstructions to <A>D</A> till it is
 ### easily provable that <A>D</A> is a basic set  for <A>G</A>
@@ -1993,7 +1993,7 @@ end;
 ###
 ### Returns:
 ### - A record containing the new G, todo
-### 
+###
 
 InstallGlobalFunction( MakeGrobnerPair, function(G,D)
     local pol,   # NP polynomial, counter
@@ -2012,7 +2012,7 @@ InstallGlobalFunction( MakeGrobnerPair, function(G,D)
     # NOTE: what happens with zero polynomials ?
     # NOTE: it is ok to consider them monic (but MkMonic might need
     #   adjustment)
-    
+
     newG:=GBNP.MakeGrobnerPairMakeMonic(G);
     newD:=GBNP.MakeGrobnerPairMakeMonic(D);
 
@@ -2028,18 +2028,18 @@ InstallGlobalFunction( MakeGrobnerPair, function(G,D)
     pg:=GBNP.CalculatePG(newG);
     GLOT:=GBNP.CreateOccurTreePTSLR( LMonsNP(newG), pg, true);
     fixed:=0;
-    
+
     for i in [1.. Length(newD)] do
         pol:=newD[i];
 
         # zero polynomials are in already normal form
         if (pol <> [[],[]]) then
         # just check leading terms:
-            if GBNP.OccurInLstPTSLR(pol[1][1], GLOT, true)[1]<>0 
+            if GBNP.OccurInLstPTSLR(pol[1][1], GLOT, true)[1]<>0
             then
                 fixed:=fixed+1;
                 newD[i]:=GBNP.StrongNormalFormTall(
-                    newD[i], newG, GLOT, 
+                    newD[i], newG, GLOT,
                     rec(pg:=pg, strong:=true)
                 );
             fi;
@@ -2050,7 +2050,7 @@ InstallGlobalFunction( MakeGrobnerPair, function(G,D)
         Info(InfoGBNP, 2, "Condition 3 was not satisfied (fixed).");
         Info(InfoGBNP, 3, "Not all polynomials in D were in normal form with respect to G.");
     fi;
-    # NOTE: fixable by replacing each element by its normal form 
+    # NOTE: fixable by replacing each element by its normal form
 
     # 4) the set of D is basic for G
     #    for each non-weak obstruction of G, check that it is reducible by
@@ -2100,14 +2100,14 @@ end);
 ### </Returns>
 ### <Description>
 ### When invoked with a polynomial in NP format (see Section <Ref
-### Sect="NP"/>) and a Gröbner basis record <A>GBR</A> 
+### Sect="NP"/>) and a Gröbner basis record <A>GBR</A>
 ### (see Section <Ref Sect="GBR"/>),
 ### this function will return the strong normal form (the polynomial reduced by
-### the prefix and two-sided relations of the Gröbner basis combination). 
+### the prefix and two-sided relations of the Gröbner basis combination).
 ### <P/>
 ### This function assumes that <A>GBR.p</A> and <A>GBR.ts</A> are
 ### ordered (with the ordering <Ref
-### Func="LtNP" Style="Text"/>), that the polynomials in <A>GBR.ts</A> are 
+### Func="LtNP" Style="Text"/>), that the polynomials in <A>GBR.ts</A> are
 ### monic and clean (see <Ref Func="MkMonicNP" Style="Text"/> and <Ref
 ### Func="CleanNP" Style="Text"/>), and that the
 ### polynomial <A>f</A> is clean. Note that a
@@ -2118,14 +2118,14 @@ end);
 ### </Description>
 ### </ManSection>
 ### <#/GAPDoc>
-### - Computes the strong normal form of a non-commutative polynomial 
-### 
-### Assumptions: 
-### 
+### - Computes the strong normal form of a non-commutative polynomial
+###
+### Assumptions:
+###
 ### -  polynomials in G are ordered. (lowest degree first) ***really***
 ### -  polynomials in G are monic and clean.
-### -  polynomial f is clean. 
-### 
+### -  polynomial f is clean.
+###
 ### Arguments:
 ### f         - a non-commutative polynomial
 ### G        - list of non-commutative polynomials
@@ -2138,8 +2138,8 @@ end);
 ###
 
 InstallGlobalFunction( StrongNormalFormNPM, function(v,GR)
-    if v=[[],[]] then 
-        return v; 
+    if v=[[],[]] then
+        return v;
     else
         # GBNP.StrongNormalForm2 can be used for this
         return GBNP.StrongNormalForm2(v,GR.p,GR.ts);
@@ -2154,7 +2154,7 @@ end);
 ### <Func Name="SGrobnerModule" Comm="Buchberger's algorithm with strong
 ###  normalform for the combination variant" Arg="Lnpm, Lnp" />
 ###
-### <Returns>         
+### <Returns>
 ### A record <C>GBR</C> containing a Gröbner basis (if found...the general
 ### problem is unsolvable) for modules;
 ### <C>GBR.p</C> will contain the prefix rules and
@@ -2167,10 +2167,10 @@ end);
 ### (see Section <Ref Sect="NP"/>),
 ### and a list <A>Lnp</A>
 ### of polynomials in  NP format, this
-### function will use Buchberger's algorithm with strong normal form 
-### applied to the union of <A>Lnpm</A>, 
+### function will use Buchberger's algorithm with strong normal form
+### applied to the union of <A>Lnpm</A>,
 ### <A>Lnp</A>, the set of polynomials <M>x*e-x</M> and <M>x*m[i]</M>
-### for <M>x</M> a standard indeterminate, a module generator <M>m[j]</M> or 
+### for <M>x</M> a standard indeterminate, a module generator <M>m[j]</M> or
 ### the dummy indeterminate <M>e</M>, and the
 ### set of all  <M>e*x -x</M> for <M>x</M> a standard indeterminate,
 ### to find
@@ -2179,7 +2179,7 @@ end);
 ### for the two-sided ideal generated by <A>Lnp</A> and
 ### an intersection with the module <C>GBR.p</C> representing
 ### the module relations needed to find representative vectors in the module
-### uniquely by means of a strong normal form computation modding out 
+### uniquely by means of a strong normal form computation modding out
 ### <C>GBR.p</C> and, for the scalars, <C>GBR.ts</C>.
 ### <P/>
 ### <#Include Label="example-SGrobnerModule">
@@ -2187,45 +2187,45 @@ end);
 ### </ManSection>
 ### <#/GAPDoc>
 ###
-### - Buchberger's algorithm with strong normal form 
+### - Buchberger's algorithm with strong normal form
 ###
-### Arguments: 
+### Arguments:
 ### KI_p          - list of noncommutative polynomials.
 ### KI_ts         - list of noncommutative polynomials.
 ###
-### Returns:         
+### Returns:
 ### GBR           - a Grobner Basis (if found...the general problem is unsolvable)
 ### slightly adjusted: G=GBR.p union GBR.ts (prefix and two-sided rules) - jwk
-### 
+###
 ### Invariants of list G=[g_1,...,g_s]
 ### - G is basis of ideal
 ### - all g_i are monic
 ### - for all S-polynomials S(i,j) with g_i and g_j in G holds
-###  S(i,j) has a weak grobner representation (defined by MORA) 
+###  S(i,j) has a weak grobner representation (defined by MORA)
 ###                     or !
 ###  S(i,j) is an element of todo.
 ###
 ### Thm 5.1 (MORA) A basis G of an ideal I is a Grobner basis of I if and only if
 ### - all elements of G are monic
 ### - all S-polynomials have a weak Grobner representation
-### 
+###
 ### -XXX assumed is that KI_ts is non-empty (is this needed here ?)
 ### Observation: if todo is empty then G is a Grobner basis
-### 
+###
 ### #SGrobnerModule uses: GBNP.CalculatePG GBNP.GetOptions GBNP.SetOption MulNP SGrobner#
 ### #SGrobnerModule is used in:#
 ###
 
-InstallGlobalFunction( SGrobnerModule, function(KI_p,KI_ts) 
-    local tt,todo,G,GB_ts,temp;   
+InstallGlobalFunction( SGrobnerModule, function(KI_p,KI_ts)
+    local tt,todo,G,GB_ts,temp;
     # XXX check for module generators
 
     G:=Filtered(KI_p,x->x<>[[],[]]);
-    
+
     if Length(G)>0 and ((not IsBound(G[1][1][1][1])) or G[1][1][1][1]>0) then
         G:=List(G,x->MulNP([[[-1]],[One(G[1][2][1])]], x));
     fi;
-   
+
     # XXX should be calculated with pg=0
     # setting pg after SGrobner is a workaround when calling this function
     # the first time, real solution should be verifying if the calculated pg
@@ -2244,7 +2244,7 @@ InstallGlobalFunction( SGrobnerModule, function(KI_p,KI_ts)
     GB_ts:=SGrobner(KI_ts);
 
     GBNP.SetOption("pg",temp);
-    
+
     #GBNP.SetOption("lenGB",Length(GB_ts));
     # XXX reason to leave this commented out is that it becomes impossible to
     # run other SGrobner calculations without this option. (possible solution,
@@ -2255,27 +2255,27 @@ InstallGlobalFunction( SGrobnerModule, function(KI_p,KI_ts)
     #split GB into ts GB and prefix GB and return rec(ts,p)
     return rec(ts:=Filtered(G,x->not IsBound(x[1][1][1]) or x[1][1][1]>0),p:=Filtered(G,x->IsBound(x[1][1][1]) and x[1][1][1]<0),pg:=GBNP.GetOptions().pg);
     #XXX get pg some other way (from the input ??)
-end);; 
+end);;
 
 #############
 ### MulQM ###
 #############
-### multiplication in the quotient algebra 
+### multiplication in the quotient algebra
 ### <#GAPDoc Label="MulQM">
 ### <ManSection>
 ### <Func Name="MulQM" Comm="Multiply an element in the module by an
-### element of the quotient algebra" 
+### element of the quotient algebra"
 ### Arg="p1, p2, GBR" />
-### <Returns>The strong normal form of the product 
+### <Returns>The strong normal form of the product
 ### <A>p1</A><M>*</M><A>p2</A> with respect to <A>GBR</A>
 ### </Returns>
 ### <Description>
 ### When called with three arguments, the first of which,
-### <A>p1</A>, is a module element in NPM format, the second of which, 
+### <A>p1</A>, is a module element in NPM format, the second of which,
 ### <A>p2</A>,
-### is a polynomial in NP format representing an element of 
-### the quotient algebra,  
-### and the third of which is  a Gröbner basis record <A>GBR</A>, 
+### is a polynomial in NP format representing an element of
+### the quotient algebra,
+### and the third of which is  a Gröbner basis record <A>GBR</A>,
 ### this function will return the product
 ### <C>p1*p2</C> in the module.
 ### <P/>
@@ -2298,13 +2298,13 @@ end);;
 ###
 
 InstallGlobalFunction( MulQM, function(p1,p2,GBR)
-  
+
     if (Length(p2[1])=0) then
         # the second argument is zero
         return [[],[]];
     elif ((Length(p2[1][1])>0) and (p2[1][1][1]<0)) then
         # the second argument is a module element (which is invalid)
-        Print("ERROR: Right multiplication should be with an element from the algebra.\n"); 
+        Print("ERROR: Right multiplication should be with an element from the algebra.\n");
         return fail;
     else
         return StrongNormalFormNPM(MulNP(p1,p2),GBR);
@@ -2317,7 +2317,7 @@ end);;
 ###
 ### <#GAPDoc Label="BaseQM">
 ### <ManSection>
-### <Func Name="BaseQM" Comm="Find a basis of the module" 
+### <Func Name="BaseQM" Comm="Find a basis of the module"
 ### Arg="GBR, t, mt, maxno" />
 ### <Returns>A basis of the module obtained from the
 ### free module of rank <A>mt</A> over the free algebra on <A>t</A> generators
@@ -2327,10 +2327,10 @@ end);;
 ### When called with a Gröbner basis record <A>GBR</A> (see Section
 ### <Ref Sect="GBR"/>),
 ### the number of variables <A>t</A>, the number of module
-### generators <A>mt</A>, and a maximum number of terms to be found, 
+### generators <A>mt</A>, and a maximum number of terms to be found,
 ### <A>maxno</A>, the function <C>BaseQM</C>
 ### will return a (partial) base of the quotient
-### module of <M>A^{mt}</M> over the free algebra on <M>A</M> on 
+### module of <M>A^{mt}</M> over the free algebra on <M>A</M> on
 ### <C>t</C> generators
 ### by the right sub <M>A</M>-module generated by the elements of <A>GBR</A>.
 ### Note that the record <A>GBR</A> consists of two fields:
@@ -2341,7 +2341,7 @@ end);;
 ### <A>GBR</A> is considered to be the right submodule of
 ### <M>A^{mt}</M> generated by <A>GBR.p</A> and all
 ### elements of the form <M>v\cdot np</M> with <M>np</M>
-### in the two-sided ideal of <M>A</M> generated by <A>GBR.ts</A> 
+### in the two-sided ideal of <M>A</M> generated by <A>GBR.ts</A>
 ### and <M>v</M> in <M>A^{mt}</M>.
 ### If this function is invoked with <A>maxno</A> equal to 0, then a
 ### full basis will be given.
@@ -2354,17 +2354,17 @@ end);;
 ### the minimal value such that all vectors of <A>GBR.p</A> belong to
 ### <M>A^{mt}</M>.
 ### <P/>
-### If the module is cyclic (that is, has a single generator), 
+### If the module is cyclic (that is, has a single generator),
 ### it is possible to use the Gröbner basis of the ideal
 ### in the algebra instead of the Gröbner basis record.
-### This can be done by entering 0 for the number 
+### This can be done by entering 0 for the number
 ### <A>mt</A> of module generators.
 ### <P/>
 ### <#Include Label="example-BaseQM">
 ### </Description>
 ### </ManSection>
 ### <#/GAPDoc>
-### 
+###
 ### returns a basis of terms
 ### Arguments:
 ### GBR         - a Grobner basis
@@ -2379,19 +2379,19 @@ end);;
 ### #BaseQM is used in:#
 ###
 
-InstallGlobalFunction( BaseQM, function(GBR,t,mt,maxno) 
+InstallGlobalFunction( BaseQM, function(GBR,t,mt,maxno)
     local ans, hlst, i, h, one, mn;
-   if t = 0 then 
+   if t = 0 then
        t := Maximum(NumAlgGensNPList(GBR.ts), NumAlgGensNPList(GBR.p));
    fi;
 
-   if mt = 0 then 
-        mn := GBR.pg; 
-   else 
+   if mt = 0 then
+        mn := GBR.pg;
+   else
         mn := mt;
    fi;
 
-   if Length(GBR.p)>0 then 
+   if Length(GBR.p)>0 then
        if Length(GBR.p[1][2])=0 then
            return [];
        fi;
@@ -2405,7 +2405,7 @@ InstallGlobalFunction( BaseQM, function(GBR,t,mt,maxno)
        # trivial infinite basis
        return "infinite";
    fi;
-    
+
 # amc probeert met 4 args te werken:
 # oude versie:
 #  hlst := GBNP.NondivMonsPTS(LMonsNP(GBR.p),LMonsNP(GBR.ts),t,GBR.pg,maxno);
@@ -2425,12 +2425,12 @@ end);;
 ################
 ### <#GAPDoc Label="DimQM">
 ### <ManSection>
-### <Func Name="DimQM" Comm="Calculates the dimension of the quotient algebra" 
+### <Func Name="DimQM" Comm="Calculates the dimension of the quotient algebra"
 ### Arg="GBR, t, mt" />
 ### <Returns>The dimension of the quotient module
 ### </Returns>
 ### <Description>
-### When called with a Gröbner basis record <A>GBR</A> (see 
+### When called with a Gröbner basis record <A>GBR</A> (see
 ### Section <Ref Sect="GBR"/>),
 ### a number
 ### of variables <A>t</A> at least equal to the number of generators
@@ -2439,7 +2439,7 @@ end);;
 ### of a free module containing the prefix relations
 ### in <A>GBR.p</A>, the function <C>DimQM</C>
 ### will return the dimension over the coefficient field of the
-### quotient module of the free right module <M>A^{mt}</M> 
+### quotient module of the free right module <M>A^{mt}</M>
 ### of rank <A>mt</A> over the free algebra
 ### <M>A</M> on <C>t</C> generators
 ### by the right sub <M>A</M>-module generated by the elements of <A>GBR</A>,
@@ -2470,16 +2470,16 @@ end);;
 ### #DimQM is used in:#
 ###
 
-InstallGlobalFunction( DimQM, function(GBR,n,mt) 
+InstallGlobalFunction( DimQM, function(GBR,n,mt)
     local s,t0, mn;
     t0 := Runtime();
-    if n = 0 then 
+    if n = 0 then
         n := Maximum(NumAlgGensNPList(GBR.ts), NumAlgGensNPList(GBR.p));
     fi;
-    if mt = 0 then 
-        mn := GBR.pg; 
+    if mt = 0 then
+        mn := GBR.pg;
         Info(InfoGBNP,2,"number of prefix generators set to ",mn);
-    else 
+    else
         mn := mt;
     fi;
     if Length(GBR.ts) = 0 and Length(GBR.p)=0 then

@@ -5,11 +5,11 @@ gap> # Copyright 2001-2010 by Arjeh M. Cohen, Dié A.H. Gijsbers, Jan Willem
 gap> # Knopper, Chris Krook. Address: Discrete Algebra and Geometry (DAM) group
 gap> # at the Department of Mathematics and Computer Science of Eindhoven
 gap> # University of Technology.
-gap> # 
+gap> #
 gap> # For acknowledgements see the manual. The manual can be found in several
 gap> # formats in the doc subdirectory of the GBNP distribution. The
 gap> # acknowledgements formatted as text can be found in the file chap0.txt.
-gap> # 
+gap> #
 gap> # GBNP is free software; you can redistribute it and/or modify it under
 gap> # the terms of the Lesser GNU General Public License as published by the
 gap> # Free Software Foundation (FSF); either version 2.1 of the License, or
@@ -18,10 +18,10 @@ gap> # the doc subdirectory of the GBNP distribution or see the FSF's own site:
 gap> # https://www.gnu.org/licenses/lgpl.html
 gap> ########################## END COPYRIGHT MESSAGE ##########################
 gap> 
-gap> ### filename = "example23.g" 
+gap> ### filename = "example23.g"
 gap> ### author Knopper
 gap> 
-gap> ### THIS IS A GAP PACKAGE FOR COMPUTING NON-COMMUTATIVE GROBNER BASES 
+gap> ### THIS IS A GAP PACKAGE FOR COMPUTING NON-COMMUTATIVE GROBNER BASES
 gap> 
 gap> # <#GAPDoc Label="Example23">
 gap> # <Section Label="Example23"><Heading>Generalized Temperley-Lieb algebras</Heading>
@@ -43,7 +43,7 @@ gap> SetInfoLevel(InfoGBNP,0);
 gap> SetInfoLevel(InfoGBNPTime,0);
 gap> # </L>
 gap> 
-gap> # The relations are generated automatically from the Coxeter diagram. 
+gap> # The relations are generated automatically from the Coxeter diagram.
 gap> # This example
 gap> # can be easily adapted by specifying the number of points and the set of edges
 gap> # describing another Coxeter diagram. First enter the number of points,
@@ -90,7 +90,7 @@ gap> # <L>
 gap> GBNP.ConfigPrint(A);
 gap> # </L>
 gap> 
-gap> # Now the relations are generated automatically. For this we need to make sure 
+gap> # Now the relations are generated automatically. For this we need to make sure
 gap> # the edges are sorted and converted to a set.
 gap> 
 gap> # <L>
@@ -111,10 +111,10 @@ gap> for i in [1..numpoints] do
 >       # if i=j then add e.i*e.i=e.i
 >       Add(rels, e[i]*e[i]-e[i]);
 >     elif ([i,j] in edges) or ([j,i] in edges) then
->       # if {i,j} is an edge then add e.i*e.j*e.i=e.i 
+>       # if {i,j} is an edge then add e.i*e.j*e.i=e.i
 >       Add(rels, e[i]*e[j]*e[i]- e[i]);
 >     else
->       # if {i,j} is not an edge then add e.i*e.j=e.j*e.i 
+>       # if {i,j} is not an edge then add e.i*e.j=e.j*e.i
 >       # (note: this causes double rules, but that's ok)
 >       Add(rels, e[i]*e[j]- e[j]*e[i]);
 >     fi;
@@ -134,7 +134,7 @@ gap>
 gap> # It is now possible to calculate the dimension of the quotient algebra
 gap> # with the function <Ref Func="DimQA" Style="Text"/>. This function has as
 gap> # arguments the Gröbner basis <C>GB</C> and the number of generators of the
-gap> # algebra (here this is <C>numpoints</C>). To get the full basis the function 
+gap> # algebra (here this is <C>numpoints</C>). To get the full basis the function
 gap> # <Ref Func="BaseQA" Style="Text"/> can be used.
 gap> 
 gap> # <L>

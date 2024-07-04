@@ -19,7 +19,7 @@ SHORT TERM:
 - avoid confusion with gbnp_doc.xml.in and gbnp_doc.xml by creating the
   gnbp_doc.xml in a different directory
 
--explain difference between LoadPackage("GBNP") 
+-explain difference between LoadPackage("GBNP")
  and LoadPackage("GBNP","0",false).
 
 +decide to establish GBR.pg as a field. Decision NOT PUBLIC
@@ -81,7 +81,7 @@ LONG TERM:
 - reduce PTS routines
 - merge SGrobner variants (some progress made)
 - SGrobnerLoop: ObsT(all) sorts todo, move this to the end of the loop in
-  	SGrobnerloop, combine this with a fase IIId that reduces todo without 
+  	SGrobnerloop, combine this with a fase IIId that reduces todo without
 	costly removing/inserting but by using a new StrongNormalForm variant
 - merge ReducePol (some progress made)
 - tree merge + trace inclusion in "all"
@@ -94,4 +94,4 @@ LONG TERM:
   instead of with respect to the original relations
 - It might be interesting to count monomials in the trace in example 24
 - put the date in a single file (the GNUMakefile ?)
-- add a link in the manual to the other available manual formats 
+- add a link in the manual to the other available manual formats

@@ -53,12 +53,12 @@ gap> F:=GF(7);; ef:=One(F);;
 gap> A:=FreeAssociativeAlgebraWithOne(F, "a", "b", "c", "d", "e", "f", "g");
 <algebra-with-one over GF(7), with 7 generators>
 gap> gens:=GeneratorsOfAlgebra(A);
-[ (Z(7)^0)*<identity ...>, (Z(7)^0)*a, (Z(7)^0)*b, (Z(7)^0)*c, (Z(7)^0)*d, 
+[ (Z(7)^0)*<identity ...>, (Z(7)^0)*a, (Z(7)^0)*b, (Z(7)^0)*c, (Z(7)^0)*d,
   (Z(7)^0)*e, (Z(7)^0)*f, (Z(7)^0)*g ]
 gap> a:=gens[2];; b:=gens[3];; c:=gens[4];; d:=gens[5];; e:=gens[6];; f:=gens[7];;
 gap> g:=gens[8];; ea:=gens[1];;
 
-gap> rels := [ a^3 + f*a, 
+gap> rels := [ a^3 + f*a,
 > 	a^9 + c*a^3 + g*a,
 > 	a^81 + c*a^9 + d*a^3,
 > 	c*a^81 + d*a^9 + e*a^3,
@@ -102,25 +102,25 @@ gap> GB := SGrobner(KI);;
 #I  End of phase IV
 #I  The computation took 24820 msecs.
 gap> PrintNPList(GB);
- a 
- b 
- dc + Z(7)^3cd 
- ec + Z(7)^3ce 
- ed + Z(7)^3de 
- fc + Z(7)^3cf 
- fd + Z(7)^3df 
- fe + Z(7)^3ef 
- gc + Z(7)^3cg 
- gd + Z(7)^3dg 
- ge + Z(7)^3eg 
- gf + Z(7)^3fg 
+ a
+ b
+ dc + Z(7)^3cd
+ ec + Z(7)^3ce
+ ed + Z(7)^3de
+ fc + Z(7)^3cf
+ fd + Z(7)^3df
+ fe + Z(7)^3ef
+ gc + Z(7)^3cg
+ gd + Z(7)^3dg
+ ge + Z(7)^3eg
+ gf + Z(7)^3fg
 ]]></Listing>
 
 
 To determine whether the quotient algebra is finite dimensional
 we invoke <Ref Func="FinCheckQA" Style="Text"/>, using as arguments
 the leading monomials of <C>GB</C> and 7, the number of variables involved.
-The leading monomials of <C>GB</C> are obtained by 
+The leading monomials of <C>GB</C> are obtained by
 <Ref Func="LMonsNP" Style="Text"/>.
 
 <Listing><![CDATA[
