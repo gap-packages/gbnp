@@ -59,17 +59,17 @@ gap> a:=gens[2];; b:=gens[3];; c:=gens[4];; d:=gens[5];; e:=gens[6];; f:=gens[7]
 gap> g:=gens[8];; ea:=gens[1];;
 
 gap> rels := [ a^3 + f*a,
-> 	a^9 + c*a^3 + g*a,
-> 	a^81 + c*a^9 + d*a^3,
-> 	c*a^81 + d*a^9 + e*a^3,
-> 	a^27 + d*a^81 + e*a^9 + f*a^3,
-> 	b + c*a^27 + e*a^81 + f*a^9 + g*a^3,
-> 	c*b + d*a^27 + f*a^81 + g*a^9,
-> 	a + d*b + e*a^27 + g*a^81,
-> 	c*a + e*b + f*a^27,
-> 	d*a + f*b + g*a^27,
-> 	e*a + g*b,
-> 	b^3 - b ];;
+>   a^9 + c*a^3 + g*a,
+>   a^81 + c*a^9 + d*a^3,
+>   c*a^81 + d*a^9 + e*a^3,
+>   a^27 + d*a^81 + e*a^9 + f*a^3,
+>   b + c*a^27 + e*a^81 + f*a^9 + g*a^3,
+>   c*b + d*a^27 + f*a^81 + g*a^9,
+>   a + d*b + e*a^27 + g*a^81,
+>   c*a + e*b + f*a^27,
+>   d*a + f*b + g*a^27,
+>   e*a + g*b,
+>   b^3 - b ];;
 ]]></Listing>
 
 Some relations added to enforce commutativity.

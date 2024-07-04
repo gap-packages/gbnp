@@ -69,7 +69,7 @@ true
 SGrobnerModule
 check function
 gap> check:=function(r, p, ts)
-> 	return (r.p = p) and (r.ts = ts);
+>   return (r.p = p) and (r.ts = ts);
 > end;;
 
 first some standard checks
