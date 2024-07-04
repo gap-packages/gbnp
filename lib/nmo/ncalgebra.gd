@@ -27,7 +27,7 @@ DeclareSynonymAttr( "IsFreeAlgebra", IsAlgebra and IsFreeMagmaRing );
 ##  (see~"IsFreeAlgebra") that is also associative (see~"IsAssociative"),
 ##
 DeclareSynonymAttr( "IsFreeAssociativeAlgebra", IsFreeAlgebra
-			and IsAssociative );
+                        and IsAssociative );
 
 #############################################################################
 ##

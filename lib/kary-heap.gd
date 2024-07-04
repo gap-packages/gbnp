@@ -28,11 +28,11 @@ DeclareRepresentation("IsTHeapOTRep", IsDataObjectRep, [ "list",
 "OT" ]);
 THeapOTType:=NewType(THeapOTFam, IsTHeapOT and IsTHeapOTRep);
 
-DeclareOperation("Add", 		[IsTHeapOT, IsObject]);
-DeclareOperation("ELM_LIST", 		[IsTHeapOT, IsInt]);
-DeclareAttribute("Length", 		IsTHeapOT);
-DeclareOperation("Remove", 		[IsTHeapOT, IsInt]);
-DeclareOperation("Replace", 		[IsTHeapOT, IsInt, IsObject]);
-DeclareOperation("HeapMin", 		[IsTHeapOT]);
-DeclareOperation("IsTHeapOTEmpty", 	[IsTHeapOT]);
+DeclareOperation("Add",                 [IsTHeapOT, IsObject]);
+DeclareOperation("ELM_LIST",            [IsTHeapOT, IsInt]);
+DeclareAttribute("Length",              IsTHeapOT);
+DeclareOperation("Remove",              [IsTHeapOT, IsInt]);
+DeclareOperation("Replace",             [IsTHeapOT, IsInt, IsObject]);
+DeclareOperation("HeapMin",             [IsTHeapOT]);
+DeclareOperation("IsTHeapOTEmpty",      [IsTHeapOT]);
 DeclareGlobalFunction("THeapOT");

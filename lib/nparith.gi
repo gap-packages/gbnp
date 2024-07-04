@@ -68,11 +68,11 @@
 ### and c and d are scalars
 ###
 ### Arguments:
-### u,v	 	- two non-commutative polynomial
-### c,d		- two scalars
+### u,v         - two non-commutative polynomial
+### c,d         - two scalars
 ###
 ### Returns:
-### pol		- the non-commutative polynomial c*u+d*v
+### pol         - the non-commutative polynomial c*u+d*v
 ###
 ### #AddNP uses: LtNP#
 ### #AddNP is used in: EvalTrace GBNP.GP2NPM GBNP.IsGrobnerBasisTest GBNP.NormalForm2 GBNP.NormalForm2T GBNP.Spoly GBNP.SpolyTrace GBNP.StrongNormalForm2 GBNP.StrongNormalForm2TS GBNP.StrongNormalForm2TSPTS GBNP.StrongNormalForm2Tall GBNP.StrongNormalForm3Dall GBNP.StrongNormalFormTrace2 GBNP.TraceNP StrongNormalFormTraceDiff#
@@ -80,55 +80,55 @@
 
 InstallGlobalFunction( AddNP, function(u,v,c,d)
     local lans,ans,posu,posv,posans,ulen,vlen,co;
-	ans:=[[],[]];
- 	# don't add the polynomial if the coefficient is zero
+        ans:=[[],[]];
+        # don't add the polynomial if the coefficient is zero
         if IsZero(c) then
-		u:=[[],[]];
-	fi;
-	if IsZero(d) then
-		v:=[[],[]];
-	fi;
+                u:=[[],[]];
+        fi;
+        if IsZero(d) then
+                v:=[[],[]];
+        fi;
 
-	lans:=Length(u[1])+Length(v[1]);
+        lans:=Length(u[1])+Length(v[1]);
 
-	posu:=1;
-	posv:=1;
-	posans:=1;
-	ulen:=Length(u[1]);
-	vlen:=Length(v[1]);
-	while posans<=lans do
-		if posu>ulen then
-			ans[1][posans]:=v[1][posv];
-			ans[2][posans]:=v[2][posv]*d;
-			posv:=posv+1;
-		elif posv>vlen then
-			ans[1][posans]:=u[1][posu];
-			ans[2][posans]:=u[2][posu]*c;
-			posu:=posu+1;
-		elif LtNP(u[1][posu],v[1][posv]) then
-			ans[1][posans]:=v[1][posv];
-			ans[2][posans]:=v[2][posv]*d;
-			posv:=posv+1;
-		elif u[1][posu]=v[1][posv] then
-			co:=u[2][posu]*c+v[2][posv]*d;
-			if not IsZero(co) then
-				ans[1][posans]:=v[1][posv];
-				ans[2][posans]:=co;
-				lans:=lans-1;
-			else
-				lans:=lans-2;
-				posans:=posans-1; #stay the same...
-			fi;
-			posu:=posu+1;
-			posv:=posv+1;
-		else # u[1][posu] greater than v[1][posv]
-			ans[1][posans]:=u[1][posu];
-			ans[2][posans]:=u[2][posu]*c;
-			posu:=posu+1;
-		fi;
-		posans:=posans+1;
-	od;
-	return [ans[1]{[1..lans]},ans[2]{[1..lans]}];
+        posu:=1;
+        posv:=1;
+        posans:=1;
+        ulen:=Length(u[1]);
+        vlen:=Length(v[1]);
+        while posans<=lans do
+                if posu>ulen then
+                        ans[1][posans]:=v[1][posv];
+                        ans[2][posans]:=v[2][posv]*d;
+                        posv:=posv+1;
+                elif posv>vlen then
+                        ans[1][posans]:=u[1][posu];
+                        ans[2][posans]:=u[2][posu]*c;
+                        posu:=posu+1;
+                elif LtNP(u[1][posu],v[1][posv]) then
+                        ans[1][posans]:=v[1][posv];
+                        ans[2][posans]:=v[2][posv]*d;
+                        posv:=posv+1;
+                elif u[1][posu]=v[1][posv] then
+                        co:=u[2][posu]*c+v[2][posv]*d;
+                        if not IsZero(co) then
+                                ans[1][posans]:=v[1][posv];
+                                ans[2][posans]:=co;
+                                lans:=lans-1;
+                        else
+                                lans:=lans-2;
+                                posans:=posans-1; #stay the same...
+                        fi;
+                        posu:=posu+1;
+                        posv:=posv+1;
+                else # u[1][posu] greater than v[1][posv]
+                        ans[1][posans]:=u[1][posu];
+                        ans[2][posans]:=u[2][posu]*c;
+                        posu:=posu+1;
+                fi;
+                posans:=posans+1;
+        od;
+        return [ans[1]{[1..lans]},ans[2]{[1..lans]}];
 end);
 
 ##################
@@ -151,11 +151,11 @@ end);
 ### - 'Less than' function
 ###
 ### Arguments:
-### u,v 	- two monomials
+### u,v         - two monomials
 ###
 ### Returns:
-### true 	- if u < v
-### false 	- if u >= v
+### true        - if u < v
+### false       - if u >= v
 ###
 ### #LtNP uses:#
 ### #LtNP is used in: AddNP GBNP.IsGrobnerBasisTest GBNP.LeftObsT GBNP.LeftOccur GBNP.Occur GBNP.ReducePol2 GBNP.ReducePolTrace2 GBNP.RightObsT GBNP.RightOccur GBNP.THeapOTBalanceDown GBNP.THeapOTBalanceUp GBNP.THeapOTCheck THeapOT#
@@ -164,9 +164,9 @@ end);
 InstallGlobalFunction(
 LtNP,function(u,v)
     if Length(u)<Length(v) then
-	   return(true);
+           return(true);
     elif Length(u)=Length(v) then
-	       return(u<v);
+               return(u<v);
     else return(false);
     fi;
 end);;
@@ -194,22 +194,22 @@ end);;
 ### - 'Greater than' function
 ###
 ### Arguments:
-### u,v 	- two monomials
+### u,v         - two monomials
 ###
 ### Returns:
-### true 	- if u > v
-### false 	- if u <= v
+### true        - if u > v
+### false       - if u <= v
 ###
-### used in:	- CleanNP
+### used in:    - CleanNP
 ### #GtNP uses:#
 ### #GtNP is used in:#
 ###
 
 InstallGlobalFunction( GtNP, function(u,v)
     if Length(u)>Length(v) then
-	   return(true);
+           return(true);
     elif Length(u)=Length(v) then
-	       return(u>v);
+               return(u>v);
     else
         return(false);
     fi;
@@ -244,7 +244,7 @@ end);;
 ### If the zero polynomial is given as argument then 'fail' is returned.
 ###
 ### Arguments:
-### pol 	- list of Noncommutative Polynomials
+### pol         - list of Noncommutative Polynomials
 ###
 ### Returns:
 ### - a list of leading monomials
@@ -343,10 +343,10 @@ InstallGlobalFunction(LTermsNP, lst -> List(lst,LTermNP));
 ###   and orders the monomials, with biggest one first
 ###
 ### Arguments:
-### pol	 	- non-commutative polynomial
+### pol         - non-commutative polynomial
 ###
 ### Returns:
-### pol		- the cleaned version of the non-commutative polynomial
+### pol         - the cleaned version of the non-commutative polynomial
 ###
 ### #CleanNP uses:#
 ### #CleanNP is used in: CheckHomogeneousNPs EvalTrace GBNP.GP2NPM GBNP.IsGrobnerBasisTest GBNP.MakeGrobnerPairMakeMonic GBNP.NPArray2NPM GBNP.ReducePol GBNP.ReducePolTrace GP2NP IsGrobnerPair MulNP StrongNormalFormNP#
@@ -370,9 +370,9 @@ InstallGlobalFunction( CleanNP, function(pol)
             v:=v+coeffs[i+1];
             i:=i+1;
           od;
-	  if not IsZero(v) then
-	    Add(ansmons,mons[h]);
-	    Add(anscoeffs,v);
+          if not IsZero(v) then
+            Add(ansmons,mons[h]);
+            Add(anscoeffs,v);
           fi;
           h:=i;
         od;
@@ -403,10 +403,10 @@ end);;
 ### - The leading term comes first.
 ###
 ### Arguments:
-### pol	 	- non-commutative polynomial
+### pol         - non-commutative polynomial
 ###
 ### Returns:
-### pol		- the monic version of the non-commutative polynomial
+### pol         - the monic version of the non-commutative polynomial
 ###
 ### #MkMonicNP uses:#
 ### #MkMonicNP is used in: GBNP.CentralT GBNP.IsGrobnerBasisTest GBNP.MakeGrobnerPairMakeMonic GBNP.ObsTall GBNP.ObsTrunc GBNP.ReducePol GBNP.ReducePol2 GBNP.SGrobnerLoops IsGrobnerPair StrongNormalFormNP#
@@ -494,11 +494,11 @@ end);;
 ### one on the left and one on the right
 ###
 ### Arguments:
-### u	 	- a non-commutative polynomial
-### ga,dr	- two monomials
+### u           - a non-commutative polynomial
+### ga,dr       - two monomials
 ###
 ### Returns:
-### pol		- the non-commutative polynomial ga*u*dr
+### pol         - the non-commutative polynomial ga*u*dr
 ###
 ### #BimulNP uses:#
 ### #BimulNP is used in: EvalTrace GBNP.NormalForm2 GBNP.NormalForm2T GBNP.Spoly GBNP.SpolyTrace GBNP.StrongNormalForm2 GBNP.StrongNormalForm2TS GBNP.StrongNormalForm2TSPTS GBNP.StrongNormalForm2Tall GBNP.StrongNormalForm3Dall GBNP.StrongNormalFormTrace2 GBNP.TraceNP#
@@ -532,11 +532,11 @@ end);;
 ### - Multiplication of two non-commutative polynomials
 ###
 ### Arguments:
-### u, v 	- two non-commutative polynomial
+### u, v        - two non-commutative polynomial
 ###
 ###
 ### Returns:
-### pol		- the product u*v
+### pol         - the product u*v
 ###
 ### #MulNP uses: CleanNP#
 ### #MulNP is used in: MulQA MulQM SGrobnerModule#
@@ -561,7 +561,7 @@ end);;
 ### the leading monomial comes first.
 ###
 ### Arguments:
-### pol 	- traced list of Noncommutative Polynomials.
+### pol         - traced list of Noncommutative Polynomials.
 ###
 ### Returns:
 ### - a list of leading terms. (monomials)
@@ -584,10 +584,10 @@ end;
 ### - The leading term comes first.
 ###
 ### Arguments:
-### pol	 	- traced non-commutative polynomial
+### pol         - traced non-commutative polynomial
 ###
 ### Returns:
-### pol		- the monic version of the traced non-commutative polynomial
+### pol         - the monic version of the traced non-commutative polynomial
 ###
 ### #GBNP.MkMonicNPTrace uses:#
 ### #GBNP.MkMonicNPTrace is used in: GBNP.CentralTrace GBNP.ObsTrace GBNP.ReducePolTrace GBNP.ReducePolTrace2 GBNP.SGrobnerTraceLoop#
@@ -600,9 +600,9 @@ GBNP.MkMonicNPTrace:=function(mon) local i,ans,lc;
     ans:=StructuralCopy(mon);
     lc:=mon.pol[2][1];
     ans.pol[2]:=ans.pol[2]/lc;
-	for i in [1..Length(ans.trace)] do
-	  ans.trace[i][4]:= ans.trace[i][4]/lc;
-	od;
+        for i in [1..Length(ans.trace)] do
+          ans.trace[i][4]:= ans.trace[i][4]/lc;
+        od;
     return(ans);
 end;;
 
@@ -612,14 +612,14 @@ end;;
 ###   is added to it, so h + scal * li G(i) re
 ###
 ### Arguments:
-### trace	- trace of the non-commutative polynomial
-### le		- left monomial
-### new		- trace of added non-commutative polynomial
-### ri		- right monomial
-### scal	- scalar used in addition
+### trace       - trace of the non-commutative polynomial
+### le          - left monomial
+### new         - trace of added non-commutative polynomial
+### ri          - right monomial
+### scal        - scalar used in addition
 ###
 ### Returns:
-### trace	- new trace of the non-commutative polynomial after addition
+### trace       - new trace of the non-commutative polynomial after addition
 ###
 ### #GBNP.AddTrace uses:#
 ### #GBNP.AddTrace is used in: GBNP.SpolyTrace GBNP.StrongNormalFormTrace2#
@@ -628,13 +628,13 @@ end;;
 GBNP.AddTrace:=function(trace,le,new,ri,scal) local ans,k,j;
 
         ans:=StructuralCopy(new);
-	k:=Length(new);
-	for j in [1..k] do
-	  ans[j][1]:=Concatenation(le,ans[j][1]);
-	  ans[j][3]:=Concatenation(ans[j][3],ri);
-	  ans[j][4]:=scal*ans[j][4];
-	od;
-	return(Concatenation(trace,ans));
+        k:=Length(new);
+        for j in [1..k] do
+          ans[j][1]:=Concatenation(le,ans[j][1]);
+          ans[j][3]:=Concatenation(ans[j][3],ri);
+          ans[j][4]:=scal*ans[j][4];
+        od;
+        return(Concatenation(trace,ans));
   end;;
 
 
@@ -644,32 +644,32 @@ GBNP.AddTrace:=function(trace,le,new,ri,scal) local ans,k,j;
 ### - Computes non-commutative polynomial from trace
 ###
 ### Arguments:
-### trace 	- trace of a non-commutative polynomial w.r.t. G
-### G		- set of non-commutative polynomials
+### trace       - trace of a non-commutative polynomial w.r.t. G
+### G           - set of non-commutative polynomials
 ###
 ### Returns:
-### pol		- the non-commutative polynomial
+### pol         - the non-commutative polynomial
 ###
 ### #GBNP.TraceNP uses: AddNP BimulNP GBNP.TraceNP#
 ### #GBNP.TraceNP is used in: GBNP.TraceNP#
 ###
 
 GBNP.TraceNP:=function(trace,G) local i,l,ans,temp;
-	l:=Length(trace);
-	i:=1;
-	ans:=[[],[]];
-	while i <= l do
-		temp:=trace[i];
-		if IsInt(temp[2]) then
-			ans:=AddNP(ans,BimulNP(temp[1],
-				G[temp[2]],temp[3]),1,temp[4]);
-		else
-			ans:=AddNP(ans,BimulNP(temp[1],GBNP.TraceNP(
-				temp[2].trace,G),temp[3]),1,temp[4]);
-		fi;
-		i:=i+1;
-	od;
-	return(ans);
+        l:=Length(trace);
+        i:=1;
+        ans:=[[],[]];
+        while i <= l do
+                temp:=trace[i];
+                if IsInt(temp[2]) then
+                        ans:=AddNP(ans,BimulNP(temp[1],
+                                G[temp[2]],temp[3]),1,temp[4]);
+                else
+                        ans:=AddNP(ans,BimulNP(temp[1],GBNP.TraceNP(
+                                temp[2].trace,G),temp[3]),1,temp[4]);
+                fi;
+                i:=i+1;
+        od;
+        return(ans);
     end;;
 
 
@@ -680,27 +680,27 @@ GBNP.TraceNP:=function(trace,G) local i,l,ans,temp;
 ###   set of non-commutative polynomials w.r.t. this set.
 ###
 ### Arguments:
-### G		- set of non-commutative polynomials
+### G           - set of non-commutative polynomials
 ###
 ### Returns:
-### G		- set of traced non-commutative polynomials w.r.t. G
+### G           - set of traced non-commutative polynomials w.r.t. G
 ###
 ### #GBNP.Traced uses:#
 ### #GBNP.Traced is used in: GBNP.ReducePolTrace#
 ###
 
 GBNP.Traced:=function(G) local ans,pol,i,n;
-	i:=0;
-	n:=Length(G);
-	ans:=[];
-	pol:=rec( pol:=[], trace:=[] );
-	while i < n do
-	   i:=i+1;
-	   pol.pol:=G[i];
-	   pol.trace:=[[[],i,[],1]];	# jwk - check if this is the right field
-	   Add(ans,StructuralCopy(pol));
-	od;
-	return(ans);
+        i:=0;
+        n:=Length(G);
+        ans:=[];
+        pol:=rec( pol:=[], trace:=[] );
+        while i < n do
+           i:=i+1;
+           pol.pol:=G[i];
+           pol.trace:=[[[],i,[],1]];    # jwk - check if this is the right field
+           Add(ans,StructuralCopy(pol));
+        od;
+        return(ans);
 end;;
 
 #########################
@@ -709,21 +709,21 @@ end;;
 ###
 ### Arguments: np - the polynomial to be checked
 ### Returns: true if np is in NPM form (there is a monomial starting with a
-### 		negative number) and false otherwise (NP form or np = [[],[]] =
-### 		zero)
+###             negative number) and false otherwise (NP form or np = [[],[]] =
+###             zero)
 ### #GBNP.IsNPMNotZero uses:#
 ### #GBNP.IsNPMNotZero is used in: GBNP.NPM2NPArray#
 ###
 
 GBNP.IsNPMNotZero:=function(np)
-	if Length(np[1])=0 or # zero
-		Length(np[1][1])=0 or # NP monomial '1'
-		np[1][1][1] > 0 then # NP monomial
+        if Length(np[1])=0 or # zero
+                Length(np[1][1])=0 or # NP monomial '1'
+                np[1][1][1] > 0 then # NP monomial
 
-		return false;
-	fi; # else np[1][1][1] < 0, or np[1][1] is an NPM monomial
+                return false;
+        fi; # else np[1][1][1] < 0, or np[1][1] is an NPM monomial
 
-	return true;
+        return true;
 end;
 
 #####################
@@ -733,7 +733,7 @@ end;
 ### Calculate the maximum of a list. If the list is empty, return 0.
 ###
 ### Arguments:
-### - lst	a list
+### - lst       a list
 ###
 ### Returns:
 ### - the maximum element in lst, or 0 if the list is empty
@@ -772,7 +772,7 @@ end;
 ### np.
 ###
 ### Arguments:
-### - np	an NP polynomial
+### - np        an NP polynomial
 ###
 ### Returns:
 ### - the maximum value occurring in the monomials of np (or 0 if np is <0> or <1>)
@@ -810,7 +810,7 @@ end);
 ### the polynomials in Lnp.
 ###
 ### Arguments:
-### - Lnp	a list of NP polynomials
+### - Lnp       a list of NP polynomials
 ###
 ### Returns:
 ### - the maximum value occurring in the monomials of Lnp (or 0 if only <0> or <1> occur)
@@ -827,7 +827,7 @@ end);
 ### Calculate the highest algebra generator in an NP monomial
 ###
 ### Arguments:
-### - np_mon	a NP monomial
+### - np_mon    a NP monomial
 ###
 ### Returns:
 ### - the highest algebra generator occurring in np_mon
@@ -843,7 +843,7 @@ end;
 ### Calculate the highest algebra generator in a list of NP monomials
 ###
 ### Arguments:
-### - Lnp_mon	a list of NP monomials
+### - Lnp_mon   a list of NP monomials
 ###
 ### Returns:
 ### - the highest algebra generator occurring in Lnp_mon
@@ -859,7 +859,7 @@ end;
 ### returns the smallest element in a list (or 0 in case of an empty list)
 ###
 ### Arguments:
-### - lst	a list
+### - lst       a list
 ###
 ### Returns:
 ### - the minimum element in the list lst (or 0 if lst was empty)
@@ -899,7 +899,7 @@ end;
 ### containing npm.
 ###
 ### Arguments:
-### - npm	an NP polynomial
+### - npm       an NP polynomial
 ###
 ### Returns:
 ### - the minimum number of module generators needed to contain npm
@@ -940,7 +940,7 @@ end);
 ### the polynomials in Lnpm.
 ###
 ### Arguments:
-### - Lnpm	a list of npm polynomials
+### - Lnpm      a list of npm polynomials
 ###
 ### Returns:
 ### - the minimum number of module generators needed to contain the
@@ -960,7 +960,7 @@ end);
 ### an NP monomial.
 ###
 ### Arguments:
-### - npm_mon	a NP monomial
+### - npm_mon   a NP monomial
 ###
 ### Returns:
 ### - the minimum number of module generators in the algebra containing npm_mon
@@ -977,7 +977,7 @@ end;
 ### the NP monomials in a list.
 ###
 ### Arguments:
-### - Lnpm_mon	a list of NP monomials
+### - Lnpm_mon  a list of NP monomials
 ###
 ### Returns:
 ### - the minimum number of module generators in the algebra containing the

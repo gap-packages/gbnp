@@ -19,7 +19,7 @@
 
 ### filename = "grobner.gd"
 ### author: Jan Willem Knopper
-### 	made to accompany "grobner.gi" from Cohen & Gijsbers
+###     made to accompany "grobner.gi" from Cohen & Gijsbers
 ###
 ### This is a part of the GBNP package, version 0.9
 

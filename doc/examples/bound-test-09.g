@@ -54,7 +54,7 @@ MulQM(NPMone2,NPone,GBRone_1)=NPMone2;
 # SGrobnerModule
 # check function
 check:=function(r, p, ts)
-	return (r.p = p) and (r.ts = ts);
+        return (r.p = p) and (r.ts = ts);
 end;;
 
 # first some standard checks

@@ -59,7 +59,7 @@ KI := [p0,p1];;
 
 for i in [2..12] do
     h := AddNP(AddNP(KI[i],KI[i-1],1,3),
-    	AddNP(BimulNP([1],KI[i],[]),KI[i-1],2,1),3,-5);
+        AddNP(BimulNP([1],KI[i],[]),KI[i-1],2,1),3,-5);
     Add(KI,h);
 od;
 # </L>

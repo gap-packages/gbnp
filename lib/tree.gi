@@ -37,15 +37,15 @@
 # arrays as present in the tree-structure. By doing this some functions
 # are more efficient.)
 # Example: M={xx,yyx,yyy} -> T=[,[,[1],[,,[1]]],[,,[,,[1]]]]
-# 	   Here T[1+1][2+1][2+1]=[1] and [2,2,1]~yyx is in M
+#          Here T[1+1][2+1][2+1]=[1] and [2,2,1]~yyx is in M
 
 
 # functions that are defined in this file:
-# GBNP.IsFullTree		:=function(Tree,alphabetsize)
-# GBNP.RedAddToTree		:=function(u,T,n);
-# GBNP.RedAddListToTree		:=function(ulist,Tree,alphabetsize)
-# GBNP.SuffixOfTree		:=function(u,l,Tree)
-# GBNP.TreeToList		:=function(Tree,[],[])
+# GBNP.IsFullTree               :=function(Tree,alphabetsize)
+# GBNP.RedAddToTree             :=function(u,T,n);
+# GBNP.RedAddListToTree         :=function(ulist,Tree,alphabetsize)
+# GBNP.SuffixOfTree             :=function(u,l,Tree)
+# GBNP.TreeToList               :=function(Tree,[],[])
 
 
 #######################
@@ -55,27 +55,27 @@
 ###   where n is alphabetsize.
 ###
 ### Arguments:
-### Tree		- a tree
-### alphabetsize	- the alphabetsize
+### Tree                - a tree
+### alphabetsize        - the alphabetsize
 ###
 ### Returns:
-### true:		- Tree[1]..Tree[n] are leafs
-### false:		- Otherwise
+### true:               - Tree[1]..Tree[n] are leafs
+### false:              - Otherwise
 ###
 ### #GBNP.IsFullTree uses:#
 ### #GBNP.IsFullTree is used in: GBNP.RedAddToTree#
 ###
 
 GBNP.IsFullTree:=function(Tree,alphabetsize) local i;
-	i:=1;
-	while i<=alphabetsize do
-	  if not IsBound(Tree[i+1]) or (IsList(Tree[i+1]) and Length(Tree[i+1])>1) then
-	    return(false);
-	  else
-	    i:=i+1;
-	  fi;
-	od;
-	return(true);
+        i:=1;
+        while i<=alphabetsize do
+          if not IsBound(Tree[i+1]) or (IsList(Tree[i+1]) and Length(Tree[i+1])>1) then
+            return(false);
+          else
+            i:=i+1;
+          fi;
+        od;
+        return(true);
 end;
 
 #########################
@@ -85,39 +85,39 @@ end;
 ###   subtrees to nodes.
 ###
 ### Arguments:
-### u 			- monomial
-### T			- a tree of reversed relations.
-### alphabetsize	- the alphabetsize
+### u                   - monomial
+### T                   - a tree of reversed relations.
+### alphabetsize        - the alphabetsize
 ###
 ### Returns:
-###			- nothing. called for its side effect.
-###			  Alters Tree as to add u to it.
+###                     - nothing. called for its side effect.
+###                       Alters Tree as to add u to it.
 ###
 ### Uses:
-###			- GBNP.RedAddToTree	(tree.g)
-###			- GBNP.CreateOccurTreeLR
-###			- GBNP.IsFullTree	(tree.g)
+###                     - GBNP.RedAddToTree     (tree.g)
+###                     - GBNP.CreateOccurTreeLR
+###                     - GBNP.IsFullTree       (tree.g)
 ###
 ### #GBNP.RedAddToTree uses: GBNP.CreateOccurTreeLR GBNP.IsFullTree GBNP.RedAddToTree#
 ### #GBNP.RedAddToTree is used in: GBNP.IncrT GBNP.RedAddListToTree GBNP.RedAddToTree PreprocessAnalysisQA#
 ###
 
 GBNP.RedAddToTree:=function(u,T,n) local i;
-	i:=Length(u);
-	if i>1 and IsBound(T[u[i]+1]) then
-	  if IsList(T[u[i]+1]) and Length(T[u[i]+1])>1 then
-	    GBNP.RedAddToTree(u{[1..Length(u)-1]},T[u[i]+1],n);
-	  else
-	    return;
-	  fi;
-	elif i=1 then
-	  T[u[i]+1]:=[1];
-	else
-	  T[u[i]+1]:=GBNP.CreateOccurTreeLR([u{[1..Length(u)-1]}],false).tree;
-	fi;
-	if i>0 and GBNP.IsFullTree(T[u[i]+1],n) then
-	  T[u[i]+1]:=[1];
-	fi;
+        i:=Length(u);
+        if i>1 and IsBound(T[u[i]+1]) then
+          if IsList(T[u[i]+1]) and Length(T[u[i]+1])>1 then
+            GBNP.RedAddToTree(u{[1..Length(u)-1]},T[u[i]+1],n);
+          else
+            return;
+          fi;
+        elif i=1 then
+          T[u[i]+1]:=[1];
+        else
+          T[u[i]+1]:=GBNP.CreateOccurTreeLR([u{[1..Length(u)-1]}],false).tree;
+        fi;
+        if i>0 and GBNP.IsFullTree(T[u[i]+1],n) then
+          T[u[i]+1]:=[1];
+        fi;
 end;;
 
 ### #GBNP.RedAddListToTree uses: GBNP.RedAddToTree#
@@ -125,9 +125,9 @@ end;;
 ###
 
 GBNP.RedAddListToTree:=function(ulist,Tree,alphabetsize) local u;
-	for u in ulist do
-	  GBNP.RedAddToTree(u,Tree,alphabetsize);
-	od;
+        for u in ulist do
+          GBNP.RedAddToTree(u,Tree,alphabetsize);
+        od;
 end;;
 
 
@@ -138,33 +138,33 @@ end;;
 ###   the tree.
 ###
 ### Arguments:
-### u 			- monomial (not reversed, just the
-###			  original monomial)
-### l			- pointer s.t. u[1..l] is the monomial
-### Tree		- a tree of reversed relations.
+### u                   - monomial (not reversed, just the
+###                       original monomial)
+### l                   - pointer s.t. u[1..l] is the monomial
+### Tree                - a tree of reversed relations.
 ###
 ### Returns:
-### true 		- u is strict suffix of some relation
-### false 		- otherwise
+### true                - u is strict suffix of some relation
+### false               - otherwise
 ###
 ### #GBNP.SuffixOfTree uses:#
 ### #GBNP.SuffixOfTree is used in: GraphOfNormalWords#
 ###
 
 GBNP.SuffixOfTree:=function(u,l,Tree) local T;
-	if Tree=[] then return(false); fi;
-	T:=ShallowCopy(Tree);
-	while l>0 do
-	  if IsBound(T[u[l]+1]) and IsList(T[u[l]+1]) then
-	    T:=T[u[l]+1];
-	    l:=l-1;
-	  else
-	    return(false);
-	  fi;
-	od;
-	if IsList(T) and Length(T)>1 then return(true);
-	else return(false);
-	fi;
+        if Tree=[] then return(false); fi;
+        T:=ShallowCopy(Tree);
+        while l>0 do
+          if IsBound(T[u[l]+1]) and IsList(T[u[l]+1]) then
+            T:=T[u[l]+1];
+            l:=l-1;
+          else
+            return(false);
+          fi;
+        od;
+        if IsList(T) and Length(T)>1 then return(true);
+        else return(false);
+        fi;
 end;;
 
 
@@ -175,8 +175,8 @@ end;;
 ###
 ###
 ### Arguments:
-### Tree		- a tree of reversed relations.
-### Rels, Temp		- should both be [];
+### Tree                - a tree of reversed relations.
+### Rels, Temp          - should both be [];
 ###
 ### Returns:
 ### a list of the relations
@@ -186,14 +186,14 @@ end;;
 ###
 
 GBNP.TreeToList:=function(Tree,Rels,Temp) local i;
-	for i in [2..Length(Tree)] do
-	  if IsBound(Tree[i]) then
-	    if Length(Tree[i])>1 then
-		GBNP.TreeToList(Tree[i],Rels,Concatenation([i-1],Temp));
-	    else
-		Add(Rels, Concatenation([i-1],Temp));
-	    fi;
-	  fi;
-	od;
-	return(Rels);
+        for i in [2..Length(Tree)] do
+          if IsBound(Tree[i]) then
+            if Length(Tree[i])>1 then
+                GBNP.TreeToList(Tree[i],Rels,Concatenation([i-1],Temp));
+            else
+                Add(Rels, Concatenation([i-1],Temp));
+            fi;
+          fi;
+        od;
+        return(Rels);
 end;;

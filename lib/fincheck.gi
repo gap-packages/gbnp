@@ -40,17 +40,17 @@
 #    USE: HilbertSeriesQA(M,n);
 # NB The steps 1 and 2 allow preprocessing which can give faster results.
 #    USE: PreprocessAnalysisQA(M,n,k);
-#	  where k is the number of recursion steps (0 is maximal recursion)
+#         where k is the number of recursion steps (0 is maximal recursion)
 # See the explanation in the preprint "The dimensionality of quotient algebras"
 # and examples 13-17 for more information
 
 # functions that are defined in this file:
-# GBNP.Incr			:=function(u,l,n)
-# GBNP.IncrT			:=function(u,l,n,Tree,lnorm)
-# PreprocessAnalysisQA			:=function(ulist,alphabetsize,nrecs);
-# FinCheckQA			:=function(F,n)
-# DetermineGrowthQA		:=function(F,n)
-# HilbertSeriesQA			:=function(O,n,d)
+# GBNP.Incr                     :=function(u,l,n)
+# GBNP.IncrT                    :=function(u,l,n,Tree,lnorm)
+# PreprocessAnalysisQA                  :=function(ulist,alphabetsize,nrecs);
+# FinCheckQA                    :=function(F,n)
+# DetermineGrowthQA             :=function(F,n)
+# HilbertSeriesQA                       :=function(O,n,d)
 #   HilbertSeriesQA starts from a set of obstructions.
 
 ##################
@@ -60,9 +60,9 @@
 ###   v s.t. v>u and length(v)<=length(u).
 ###
 ### Arguments:
-### u			- monomial
-### l			- length of u
-### n			- alphabet size
+### u                   - monomial
+### l                   - length of u
+### n                   - alphabet size
 ###
 ### Assumption:
 ###  u is non-empty and is not maximal in the sense described above
@@ -75,12 +75,12 @@
 ###
 
 GBNP.Incr:=function(u,l,n);
-	while u[l]=n do
-	Unbind(u[l]);
-	  l:=l-1;
-	od;
-	u[l]:=u[l]+1;
-	return(l);
+        while u[l]=n do
+        Unbind(u[l]);
+          l:=l-1;
+        od;
+        u[l]:=u[l]+1;
+        return(l);
 end;
 
 ##################
@@ -90,36 +90,36 @@ end;
 ### improvement suggested in the paper.
 ###
 ### Arguments:
-### u			- monomial
-### l			- length of u
-### n			- alphabet size
-### Tree		- a tree of reversed obstructions
-### lnorm		- -1+ the length of the largest monomial in our
-###			  obstructional set
+### u                   - monomial
+### l                   - length of u
+### n                   - alphabet size
+### Tree                - a tree of reversed obstructions
+### lnorm               - -1+ the length of the largest monomial in our
+###                       obstructional set
 ### Assumption:
 ###  u is non-empty and is not maximal in the sense described above
 ###
 ### Returns:
 ###  incremented u. As a side-effect it might alter the tree T
 ###
-### uses:		- GBNP.RedAddToTree	(tree.g)
+### uses:               - GBNP.RedAddToTree     (tree.g)
 ###
 ### #GBNP.IncrT uses: GBNP.RedAddToTree#
 ### #GBNP.IncrT is used in: FinCheckQA#
 ###
 
 GBNP.IncrT:=function(u,l,n,Tree,lnorm);
-	while u[l]=n and l-lnorm>1 do
-	  GBNP.RedAddToTree(u{[l-lnorm..l-1]},Tree.tree,n);
-	  Unbind(u[l]);
-	  l:=l-1;
-	od;
-	while u[l]=n do
-	  Unbind(u[l]);
-	  l:=l-1;
-	od;
-	u[l]:=u[l]+1;
-	return(l);
+        while u[l]=n and l-lnorm>1 do
+          GBNP.RedAddToTree(u{[l-lnorm..l-1]},Tree.tree,n);
+          Unbind(u[l]);
+          l:=l-1;
+        od;
+        while u[l]=n do
+          Unbind(u[l]);
+          l:=l-1;
+        od;
+        u[l]:=u[l]+1;
+        return(l);
 end;
 
 ##################
@@ -153,10 +153,10 @@ end;
 ###   set.
 ###
 ### Arguments:
-### ulist		- a list of obstructions
-### alphabetsize	- the alphabet size
-### nrecs		- the number of reductions you want maximally
-###			  k=0 -> no restraint
+### ulist               - a list of obstructions
+### alphabetsize        - the alphabet size
+### nrecs               - the number of reductions you want maximally
+###                       k=0 -> no restraint
 ###
 ### Returns:
 ### - the left-reduced list of obstructions, obtained by applying
@@ -170,42 +170,42 @@ InstallGlobalFunction(
 PreprocessAnalysisQA,function(ulist,alphabetsize,nrecs) local Tree,u,v,L;
       # special case: 1 already in list of monomials, discard the rest
       if [] in ulist then
-      	return [[]];
+        return [[]];
       fi;
 
-	Tree:=[];
-	# Add the obstructions to the tree
-	for u in ulist do
-	  GBNP.RedAddToTree(u,Tree,alphabetsize);
-	od;
+        Tree:=[];
+        # Add the obstructions to the tree
+        for u in ulist do
+          GBNP.RedAddToTree(u,Tree,alphabetsize);
+        od;
 
-	# Perform recursively steps of left-reduction
+        # Perform recursively steps of left-reduction
       repeat
 
-	  # Keep track of number of recursions
-	  nrecs:=nrecs-1;
+          # Keep track of number of recursions
+          nrecs:=nrecs-1;
 
-	  # Look for branches u,v s.t. u[2..|u|]=v[2..|v|] in order
-	  # to (hopefully) create full subtrees.
-	  L:=ShallowCopy(ulist);
-	  for u in ulist do
-	    for v in ulist do
-		if Length(u)<Length(v) then
-		  if u{[2..Length(u)]}=v{[2..Length(u)]} then
-		    GBNP.RedAddToTree(Concatenation(u,v{[Length(u)+1..Length(v)]}),Tree,alphabetsize);
-		  fi;
-		fi;
-	    od;
-	  od;
+          # Look for branches u,v s.t. u[2..|u|]=v[2..|v|] in order
+          # to (hopefully) create full subtrees.
+          L:=ShallowCopy(ulist);
+          for u in ulist do
+            for v in ulist do
+                if Length(u)<Length(v) then
+                  if u{[2..Length(u)]}=v{[2..Length(u)]} then
+                    GBNP.RedAddToTree(Concatenation(u,v{[Length(u)+1..Length(v)]}),Tree,alphabetsize);
+                  fi;
+                fi;
+            od;
+          od;
 
-	  # Compute the new obstructional set.
+          # Compute the new obstructional set.
         ulist:=GBNP.TreeToList(Tree,[],[]);
-#	  Print("recursionstep ",nrecs,": ",Length(ulist)," \n");
+#         Print("recursionstep ",nrecs,": ",Length(ulist)," \n");
 
-	# Terminate when we have performed nrecs recursions or ulist
-	# is left-reduced.
-	until nrecs=0 or Length(ulist)=Length(L) and ulist=L;
-	return(ulist);
+        # Terminate when we have performed nrecs recursions or ulist
+        # is left-reduced.
+        until nrecs=0 or Length(ulist)=Length(L) and ulist=L;
+        return(ulist);
 end);;
 
 
@@ -250,85 +250,85 @@ end);;
 ### of some set of relations is finite dimensional.
 ###
 ### Arguments:
-### F			- Leading monomials of some Grobner basis
-### n			- alphabet size
+### F                   - Leading monomials of some Grobner basis
+### n                   - alphabet size
 ###
 ### Assumption:
 ### -a monomial in F is of the form [1,2,3] denoting xyz where x<y<z.
 ### -F doesn't contain letters that are not in the alphabet.
 ###
 ### Returns:
-### true		- if factor algebra is finite dimensional
-### false		- else.
+### true                - if factor algebra is finite dimensional
+### false               - else.
 ###
 ### #FinCheckQA uses: GBNP.CreateOccurTreeLR GBNP.IncrT GBNP.LookUpOccurTreePTSLRPos GBNP.Occur#
 ### #FinCheckQA is used in:#
 
 InstallGlobalFunction(
 FinCheckQA,function(F,n) local  j, word, marker, period,
-				  maxlength, l, lnorm, increment,
-				  FTree, pos, i;
+                                  maxlength, l, lnorm, increment,
+                                  FTree, pos, i;
   # INITIALISE
 
-	word:=[1];			# Start with smallest nonempty
-	l:=1;				# length of the word
-	marker:=1;			# word and put marker on 1st pos.
-	period:=1;			# Contains the length of the word
-					# w if the marker is on 1. This is
-					# the period.
-	j:=1;				# Relevancy to the first relation.
+        word:=[1];                      # Start with smallest nonempty
+        l:=1;                           # length of the word
+        marker:=1;                      # word and put marker on 1st pos.
+        period:=1;                      # Contains the length of the word
+                                        # w if the marker is on 1. This is
+                                        # the period.
+        j:=1;                           # Relevancy to the first relation.
 
-	if F=[]
-	then
-	  return(false);
-	else
-	  if F[1]=[] then
-	    return (true);
-	  fi;
-	fi;
+        if F=[]
+        then
+          return(false);
+        else
+          if F[1]=[] then
+            return (true);
+          fi;
+        fi;
 
-	# lnorm is the length of the normal words our graph will
-	# consist of.
-	lnorm:=Maximum(List(F,Length))-1;
+        # lnorm is the length of the normal words our graph will
+        # consist of.
+        lnorm:=Maximum(List(F,Length))-1;
 
-	# Create the Tree
-	FTree:=GBNP.CreateOccurTreeLR(F,false);
+        # Create the Tree
+        FTree:=GBNP.CreateOccurTreeLR(F,false);
 
-	while true do
+        while true do
 
   # CHECK WORDS
-	  if not GBNP.LookUpOccurTreePTSLRPos(word,FTree,false,1)=0 then
+          if not GBNP.LookUpOccurTreePTSLRPos(word,FTree,false,1)=0 then
 
-	    # Either finite or increase word.
-	    if word[1]=n then return(true);
-	    else
-		increment:=true;
-	    fi;
-	  else
-	    if l>=lnorm then
-		if not GBNP.Occur(word{[l-lnorm+1..l]},word)=l-lnorm+1 then
-		  return(false);
-		fi;
-	    fi;
-	    increment:=false;
-	  fi;
+            # Either finite or increase word.
+            if word[1]=n then return(true);
+            else
+                increment:=true;
+            fi;
+          else
+            if l>=lnorm then
+                if not GBNP.Occur(word{[l-lnorm+1..l]},word)=l-lnorm+1 then
+                  return(false);
+                fi;
+            fi;
+            increment:=false;
+          fi;
 
  # ADJUST WORDS
-	  if increment then
-	    # Find greater monomial of same or smaller length
-	    # Also update the tree.
-	    l:=GBNP.IncrT(word,l,n,FTree,lnorm);
-	    marker:=1;
-	    period:=ShallowCopy(l);
+          if increment then
+            # Find greater monomial of same or smaller length
+            # Also update the tree.
+            l:=GBNP.IncrT(word,l,n,FTree,lnorm);
+            marker:=1;
+            period:=ShallowCopy(l);
 
-	  else
-	    # Lengthen word
-	    l:=l+1;
-	    word[l]:=word[marker];
-	    marker:=marker+1;
+          else
+            # Lengthen word
+            l:=l+1;
+            word[l]:=word[marker];
+            marker:=marker+1;
 
-	  fi;
-	od;
+          fi;
+        od;
 end);
 
 
@@ -384,9 +384,9 @@ end);
 ### infinite case.
 ###
 ### Arguments:
-### F			- Leading monomials of some Grobner basis
-### n			- alphabet size
-### exact		- a Boolean indicating whether or not the
+### F                   - Leading monomials of some Grobner basis
+### n                   - alphabet size
+### exact               - a Boolean indicating whether or not the
 ###                       exact polynomial growth exponent is required
 ###
 ### Assumption:
@@ -394,8 +394,8 @@ end);
 ### -F does not contain letters that are not in the alphabet.
 ###
 ### Returns:
-### true		- if factor algebra is finite dimensional
-### false		- else.
+### true                - if factor algebra is finite dimensional
+### false               - else.
 ###
 ### #DetermineGrowthQA uses: DetermineGrowthObs GBNP.CreateOccurTreeLR GBNP.Incr GBNP.LookUpOccurTreePTSLRPos GBNP.NumAlgGensNPmonList#
 ### #DetermineGrowthQA is used in:#
@@ -403,180 +403,180 @@ end);
 
 InstallGlobalFunction(
 DetermineGrowthQA,function(F,t,exact) local  i, j, word, marker, period, maxlength, l, lnorm, graph, suffix,
-					   inf, FTree, cycle, pos, increment,
-					   cl, maxcl, donelist, n, totalcl;
+                                           inf, FTree, cycle, pos, increment,
+                                           cl, maxcl, donelist, n, totalcl;
 
 #amc Obs case built in:
  if exact then return DetermineGrowthObs(F,t); fi;
 
 # INITIALISE
 
-	word:=[1];			# Start with smallest nonempty
-	l:=1;				# length of the word
-	marker:=1;			# word and put marker on 1st pos.
-	period:=1;			# Contains the length of the word
-					# w if the marker is on 1. This is
-					# the period.
-	j:=1;				# Relevancy to the first relation.
-	graph:=[];			# Vertexset of the graph of normal
-					# words starts empty.
-	inf:=false;			# we don't assume infinity immediately
-	cycle:=[];			# we don't have cycles yet
-	cl:=0;				# cl is the number of disjunct cycles;
-	maxcl:=0;			# maxcl is the maximum number of
-					# disjunct cycles encountered on a
-					# path so far
-	totalcl:=0;			# totalcl is the total number of
-					# cycles encountered so far
-	donelist:=[];			# keeps words we need not check again.
+        word:=[1];                      # Start with smallest nonempty
+        l:=1;                           # length of the word
+        marker:=1;                      # word and put marker on 1st pos.
+        period:=1;                      # Contains the length of the word
+                                        # w if the marker is on 1. This is
+                                        # the period.
+        j:=1;                           # Relevancy to the first relation.
+        graph:=[];                      # Vertexset of the graph of normal
+                                        # words starts empty.
+        inf:=false;                     # we don't assume infinity immediately
+        cycle:=[];                      # we don't have cycles yet
+        cl:=0;                          # cl is the number of disjunct cycles;
+        maxcl:=0;                       # maxcl is the maximum number of
+                                        # disjunct cycles encountered on a
+                                        # path so far
+        totalcl:=0;                     # totalcl is the total number of
+                                        # cycles encountered so far
+        donelist:=[];                   # keeps words we need not check again.
 
-	if t>0 then 			# set n: number of generators
-	  n:=t;				# use the input value
-	else				# attempt to guess the value from F
-	  n:=GBNP.NumAlgGensNPmonList(F);
-	fi;
+        if t>0 then                     # set n: number of generators
+          n:=t;                         # use the input value
+        else                            # attempt to guess the value from F
+          n:=GBNP.NumAlgGensNPmonList(F);
+        fi;
 
-	if F=[] then
-	  if n=1 then
-#	    Print("infinite: polynomial growth of degree ");
-	    return(1);
-	  else
-	    return ("exponential growth");
-	  fi;
-	else
-	  if F[1]=[] then
-	    return (0);
-	  fi;
-	fi;
+        if F=[] then
+          if n=1 then
+#           Print("infinite: polynomial growth of degree ");
+            return(1);
+          else
+            return ("exponential growth");
+          fi;
+        else
+          if F[1]=[] then
+            return (0);
+          fi;
+        fi;
 
-	# lnorm is the length of the normal words our graph will
-	# consist of. if lnorm=0 then we can instantly decide.
-	lnorm:=Maximum(List(F,Length))-1;
-	if lnorm=0 then
-	  if Length(F)=n then return(0);
-	  elif Length(F)=n-1 then
-#	    Print("infinite: polynomial growth of degree ");
-	    return(1);
-	  else
-	    return ("exponential growth");
-	  fi;
-	fi;
+        # lnorm is the length of the normal words our graph will
+        # consist of. if lnorm=0 then we can instantly decide.
+        lnorm:=Maximum(List(F,Length))-1;
+        if lnorm=0 then
+          if Length(F)=n then return(0);
+          elif Length(F)=n-1 then
+#           Print("infinite: polynomial growth of degree ");
+            return(1);
+          else
+            return ("exponential growth");
+          fi;
+        fi;
 
-	# Create the Tree
-	FTree:=GBNP.CreateOccurTreeLR(F,false);
+        # Create the Tree
+        FTree:=GBNP.CreateOccurTreeLR(F,false);
 
 # CHECK WORDS
-	while true do
-	  if not GBNP.LookUpOccurTreePTSLRPos(word,FTree,false,1)=0 then
+        while true do
+          if not GBNP.LookUpOccurTreePTSLRPos(word,FTree,false,1)=0 then
 
-	    # Either finite/infinite or increment word.
-	    if word[1]=n then
-		if inf then
-#		  Print("infinite: polynomial growth of degree ");
-		  if maxcl<>totalcl then
-		    #Print(totalcl," <= d <= ",Length(donelist),"\n");
-		    return([maxcl,totalcl]);
-		  else
-#		    Print("d = ",maxcl,"\n");
-		    return(maxcl);
-		  fi;
-		else
-#		  return(0);
+            # Either finite/infinite or increment word.
+            if word[1]=n then
+                if inf then
+#                 Print("infinite: polynomial growth of degree ");
+                  if maxcl<>totalcl then
+                    #Print(totalcl," <= d <= ",Length(donelist),"\n");
+                    return([maxcl,totalcl]);
+                  else
+#                   Print("d = ",maxcl,"\n");
+                    return(maxcl);
+                  fi;
+                else
+#                 return(0);
 # changed to 0 by amc to accord with DetermineGrowthObs and poly of degree 0.
-		  return(0);
-		fi;
-	    else
-		increment:=true;
-	    fi;
-	  else
+                  return(0);
+                fi;
+            else
+                increment:=true;
+            fi;
+          else
 
-	    # word is normal, can be lengthened
-	    if l>=lnorm then
-		suffix:=word{[l-lnorm+1..l]};
-		if Position(donelist,suffix)=fail then
-		  pos:=Position(graph,suffix);
-		  if pos=fail then
-		    # Add new normalword to the graph-list
-		    Add(graph,suffix);
-		    increment:=false;
-		  else
-		    # Check for exponential growth;i.e. cycles intersect:
-		    for i in cycle do
-		      if pos>=i[1] and pos<=i[2] then
-	  		  return ("exponential growth");
-		      fi;
-		    od;
+            # word is normal, can be lengthened
+            if l>=lnorm then
+                suffix:=word{[l-lnorm+1..l]};
+                if Position(donelist,suffix)=fail then
+                  pos:=Position(graph,suffix);
+                  if pos=fail then
+                    # Add new normalword to the graph-list
+                    Add(graph,suffix);
+                    increment:=false;
+                  else
+                    # Check for exponential growth;i.e. cycles intersect:
+                    for i in cycle do
+                      if pos>=i[1] and pos<=i[2] then
+                          return ("exponential growth");
+                      fi;
+                    od;
 
-		    # Add a cycle
-		    Add(cycle,[pos,Length(graph)]);
-		    cl:=cl+1;
-		    totalcl:=totalcl+1;
+                    # Add a cycle
+                    Add(cycle,[pos,Length(graph)]);
+                    cl:=cl+1;
+                    totalcl:=totalcl+1;
 
-		    if word[1]=n then
-#		      Print("infinite: polynomial growth of degree ");
-		      if maxcl<>totalcl then
-#			  Print(maxcl," <= d <= ",Length(donelist),"\n");
-			  return([maxcl,totalcl]);
-		      else
-			  if maxcl=0 then maxcl:=1; fi;
-#			  Print("d = ",maxcl,"\n");
-			  return(maxcl);
-		      fi;
-		    fi;
-		    increment:=true;
-		    inf:=true;
-		  fi;
-		else
-		  if word[1]=n then
-#		    Print("infinite: polynomial growth of degree ");
-		    if maxcl<>totalcl then
-#			Print(maxcl," <= d <= ",totalcl,"\n");
-			return([maxcl,totalcl]);
-		    else
-#			Print("d = ",totalcl,"\n");
-			return(maxcl);
-		    fi;
-		  fi;
-		  increment:=true;
-		fi;
-	    else
-		increment:=false;
-	    fi;
-	  fi;
+                    if word[1]=n then
+#                     Print("infinite: polynomial growth of degree ");
+                      if maxcl<>totalcl then
+#                         Print(maxcl," <= d <= ",Length(donelist),"\n");
+                          return([maxcl,totalcl]);
+                      else
+                          if maxcl=0 then maxcl:=1; fi;
+#                         Print("d = ",maxcl,"\n");
+                          return(maxcl);
+                      fi;
+                    fi;
+                    increment:=true;
+                    inf:=true;
+                  fi;
+                else
+                  if word[1]=n then
+#                   Print("infinite: polynomial growth of degree ");
+                    if maxcl<>totalcl then
+#                       Print(maxcl," <= d <= ",totalcl,"\n");
+                        return([maxcl,totalcl]);
+                    else
+#                       Print("d = ",totalcl,"\n");
+                        return(maxcl);
+                    fi;
+                  fi;
+                  increment:=true;
+                fi;
+            else
+                increment:=false;
+            fi;
+          fi;
 
 # ADJUST THE WORD
-	  if increment then
+          if increment then
 
-    	    # Find greater monomial of same or smaller length
-    	    l:=GBNP.Incr(word,l,n);
-    	    marker:=1;
-    	    period:=ShallowCopy(l);
+            # Find greater monomial of same or smaller length
+            l:=GBNP.Incr(word,l,n);
+            marker:=1;
+            period:=ShallowCopy(l);
 
-	    # Adapt the list cycle
-	    i:=1;
-	    if maxcl<=cl then maxcl:=cl; fi;
-	    while i<=cl do
-		if cycle[i][1]>l-lnorm then
-		  AddSet(donelist,graph[cycle[i][1]]);
-		  RemoveElmList(cycle,i);
-		  cl:=cl-1;
-		else i:=i+1;
-		fi;
-	    od;
-	    for i in [1..cl] do
-		cycle[i][2]:=
-		  Minimum(l-lnorm,cycle[i][2]);
-	    od;
-	    # Drop the elements from the graphlist that are no longer
-	    # on the route.
-	    graph:=graph{[1..l-lnorm]};
-	  else
-	    # Lengthen word
-	    l:=l+1;
-	    word[l]:=word[marker];
-	    marker:=marker+1;
-	  fi;
-	od;
+            # Adapt the list cycle
+            i:=1;
+            if maxcl<=cl then maxcl:=cl; fi;
+            while i<=cl do
+                if cycle[i][1]>l-lnorm then
+                  AddSet(donelist,graph[cycle[i][1]]);
+                  RemoveElmList(cycle,i);
+                  cl:=cl-1;
+                else i:=i+1;
+                fi;
+            od;
+            for i in [1..cl] do
+                cycle[i][2]:=
+                  Minimum(l-lnorm,cycle[i][2]);
+            od;
+            # Drop the elements from the graphlist that are no longer
+            # on the route.
+            graph:=graph{[1..l-lnorm]};
+          else
+            # Lengthen word
+            l:=l+1;
+            word[l]:=word[marker];
+            marker:=marker+1;
+          fi;
+        od;
 end);
 
 
@@ -615,9 +615,9 @@ end);
 ###
 ###
 ### Arguments:
-### O			- Set of obstructions
-### n			- The alphabet size
-### d			- degree up to which you want Hilbert series
+### O                   - Set of obstructions
+### n                   - The alphabet size
+### d                   - degree up to which you want Hilbert series
 ###
 ### Returns:
 ### - List of coefficients of the Hilbert series up to
@@ -629,112 +629,112 @@ end);
 
 InstallGlobalFunction(
 HilbertSeriesQA,function(O,n,d) local ESet,VSet,LSet,
-				i,j,k,m,ot,pos,C1,C2,CList,
-				alpha,graphcomp,L,T,Tleft,
-				overlap,oldd;
+                                i,j,k,m,ot,pos,C1,C2,CList,
+                                alpha,graphcomp,L,T,Tleft,
+                                overlap,oldd;
 
-	# special case : O = [[]];
-	if O = [[]] then
-	  # 1 in Gröbner basis
-	  # -> zero-dimensional quotient algebra
-	  # -> all entries are zero, and can be removed
-	  return [];
-	fi;
+        # special case : O = [[]];
+        if O = [[]] then
+          # 1 in Gröbner basis
+          # -> zero-dimensional quotient algebra
+          # -> all entries are zero, and can be removed
+          return [];
+        fi;
 
-	# Initialize edge set and vertex set and length set;
-	ESet:=[];
-	VSet:=List([1..n],x->[x]);
-	LSet:=List([1..n],x->1);
+        # Initialize edge set and vertex set and length set;
+        ESet:=[];
+        VSet:=List([1..n],x->[x]);
+        LSet:=List([1..n],x->1);
 
-	# Create tree of obstructions
-	T:=GBNP.CreateOccurTreeLR(O,false);
+        # Create tree of obstructions
+        T:=GBNP.CreateOccurTreeLR(O,false);
 
-	# Create left-tree of obstructions
-	Tleft:=GBNP.CreateOccurTreeLR(O,true);
+        # Create left-tree of obstructions
+        Tleft:=GBNP.CreateOccurTreeLR(O,true);
 
-	# Initialize the 0-chains
-	C1:=[]; C2:=[];
-	for i in [1..n] do
-	  C1[i]:=[1];
-	od;
-	CList:=[1,-n];
+        # Initialize the 0-chains
+        C1:=[]; C2:=[];
+        for i in [1..n] do
+          C1[i]:=[1];
+        od;
+        CList:=[1,-n];
 
-	# compute the i-1 chains
-	i:=2;	alpha:=1;
+        # compute the i-1 chains
+        i:=2;   alpha:=1;
     while true do
 
-	graphcomp:=true;
-	for j in [1..Length(C1)] do
-	 if IsBound(C1[j]) then
+        graphcomp:=true;
+        for j in [1..Length(C1)] do
+         if IsBound(C1[j]) then
 
-	  if not IsBound(ESet[j]) then
+          if not IsBound(ESet[j]) then
 
-	    # First encounter, thus create the graph further.
-	    graphcomp:=false; # graph was not complete yet
-	    ESet[j]:=[];
+            # First encounter, thus create the graph further.
+            graphcomp:=false; # graph was not complete yet
+            ESet[j]:=[];
 
-	    # Use the left tree to find all the overlaps
-	    overlap:=GBNP.LookUpOccurTreeForObsPTSLR(VSet[j],0,Tleft,true);
-	    for k in overlap do
-		 ot:=O[k[1]]{[Length(VSet[j])+2-k[2]..Length(O[k[1]])]};
-		 if GBNP.OccurInLstPTSLR(Concatenation(VSet[j],ot){[1..LSet[j]+Length(ot)-1]},T,false)=[0,0] then
-		  pos:=Position(VSet,ot);
-		  if pos=fail then
-		    Add(VSet,ot);
-		    Add(LSet,Length(ot));
-		    pos:=Length(VSet);
-		  fi;
-		  Add(ESet[j],pos);
-		 fi;
-	    od;
-	  fi;
+            # Use the left tree to find all the overlaps
+            overlap:=GBNP.LookUpOccurTreeForObsPTSLR(VSet[j],0,Tleft,true);
+            for k in overlap do
+                 ot:=O[k[1]]{[Length(VSet[j])+2-k[2]..Length(O[k[1]])]};
+                 if GBNP.OccurInLstPTSLR(Concatenation(VSet[j],ot){[1..LSet[j]+Length(ot)-1]},T,false)=[0,0] then
+                  pos:=Position(VSet,ot);
+                  if pos=fail then
+                    Add(VSet,ot);
+                    Add(LSet,Length(ot));
+                    pos:=Length(VSet);
+                  fi;
+                  Add(ESet[j],pos);
+                 fi;
+            od;
+          fi;
 
-	  # Graph already exists, compute series further.
-	  for k in ESet[j] do
-	    if not IsBound(C2[k]) then C2[k]:=[]; fi;
-	    for m in C1[j] do
-		if m+LSet[k]<=d then
-		  Add(C2[k],m+LSet[k]);
-		fi;
-	    od;
-	    if C2[k]=[] then Unbind(C2[k]); fi;
-	  od;
-	 fi;
-	od;
+          # Graph already exists, compute series further.
+          for k in ESet[j] do
+            if not IsBound(C2[k]) then C2[k]:=[]; fi;
+            for m in C1[j] do
+                if m+LSet[k]<=d then
+                  Add(C2[k],m+LSet[k]);
+                fi;
+            od;
+            if C2[k]=[] then Unbind(C2[k]); fi;
+          od;
+         fi;
+        od;
 
-	  # Update Hilbertseries
-	  L:=Collected(Flat(C2));
-	  for j in L do
-	    if not IsBound(CList[j[1]+1]) then
-		CList[j[1]+1]:=alpha*j[2];
-	    else
-		CList[j[1]+1]:=CList[j[1]+1]+alpha*j[2];
-	    fi;
-	  od;
+          # Update Hilbertseries
+          L:=Collected(Flat(C2));
+          for j in L do
+            if not IsBound(CList[j[1]+1]) then
+                CList[j[1]+1]:=alpha*j[2];
+            else
+                CList[j[1]+1]:=CList[j[1]+1]+alpha*j[2];
+            fi;
+          od;
 
-	  # If degree is reached, return part of Hilbertseries
-	  # store old max degree in oldd
-	  oldd:=d;
-	  if L=[] or L[1][1]>=d then
-	    while not IsBound(CList[d+1]) or CList[d+1]=0 do
-		d:=d-1;
-	    od;
-	    while Length(CList)>d+1 do
-		Unbind(CList[Length(CList)]);
-	    od;
+          # If degree is reached, return part of Hilbertseries
+          # store old max degree in oldd
+          oldd:=d;
+          if L=[] or L[1][1]>=d then
+            while not IsBound(CList[d+1]) or CList[d+1]=0 do
+                d:=d-1;
+            od;
+            while Length(CList)>d+1 do
+                Unbind(CList[Length(CList)]);
+            od;
 
-#	    # Possible output of the graph itself
-#	    Print("Graph was ");
-#	    if not graphcomp then Print("not"); fi;
-#	    Print(" complete in the previous step. \n");
-#	    Print([VSet,ESet,LSet]);
-	    return(GBNP.FormalSum(CList,oldd));
-	  fi;
+#           # Possible output of the graph itself
+#           Print("Graph was ");
+#           if not graphcomp then Print("not"); fi;
+#           Print(" complete in the previous step. \n");
+#           Print([VSet,ESet,LSet]);
+            return(GBNP.FormalSum(CList,oldd));
+          fi;
 
-	  # Consider chains of higher length
-	  C1:=ShallowCopy(C2);
-	  C2:=[];
-	  i:=i+1;
-	  alpha:=-1*alpha;
+          # Consider chains of higher length
+          C1:=ShallowCopy(C2);
+          C2:=[];
+          i:=i+1;
+          alpha:=-1*alpha;
     od;
 end);

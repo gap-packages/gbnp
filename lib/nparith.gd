@@ -19,7 +19,7 @@
 
 ### filename = "nparith.gd"
 ### author: Jan Willem Knopper
-### 	made to accompany "nparith.gi" from Cohen & Gijsbers
+###     made to accompany "nparith.gi" from Cohen & Gijsbers
 ###
 ### This is a part of the GBNP package, version 0.9
 

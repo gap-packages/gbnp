@@ -59,11 +59,11 @@
 ### - Computes the weighted degree of a monomial
 ###
 ### Arguments:
-### mon 	- monomial
-### lst		- list of weights
+### mon         - monomial
+### lst         - list of weights
 ###
 ### Returns:
-### ans 	- weighted degree of the monomial
+### ans         - weighted degree of the monomial
 ###
 ### #GBNP.WeightedDegreeMon uses:#
 ### #GBNP.WeightedDegreeMon is used in: GBNP.NewLevel GBNP.ObsTall GBNP.ObsTrunc GBNP.WeightedDegreeList#
@@ -83,22 +83,22 @@ end;;
 ### - Computes the weighted degrees of a list of monomials
 ###
 ### Arguments:
-### mon 	- set of monomials
-### lst		- list of weights
+### mon         - set of monomials
+### lst         - list of weights
 ###
 ### Returns:
-### ans 	- weighted degree of the monomial
+### ans         - weighted degree of the monomial
 ###
 ### #GBNP.WeightedDegreeList uses: GBNP.WeightedDegreeMon#
 ### #GBNP.WeightedDegreeList is used in: GBNP.CheckHom#
 ###
 
 GBNP.WeightedDegreeList:=function(GB,lst) local i,mon,pol,h,ans;
-	ans:=[];
-	for pol in GB do
-	  Add(ans,GBNP.WeightedDegreeMon(pol,lst));
-	od;
-	return(ans);
+        ans:=[];
+        for pol in GB do
+          Add(ans,GBNP.WeightedDegreeMon(pol,lst));
+        od;
+        return(ans);
       end;;
 
 
@@ -159,13 +159,13 @@ end;
 ### - Central obstructions are already done, so only self, left and right.
 ###
 ### Arguments:
-### j	 	- index of an NP polynomial in G
-### G		- list of NP polynomials
-### wtv		- weight vector
+### j           - index of an NP polynomial in G
+### G           - list of NP polynomials
+### wtv         - weight vector
 ### k           - the weight level at which we search for obstructions
 ###
 ### Returns:
-### todo	- new list of S-polynomials. S-polynomials with G[j] added
+### todo        - new list of S-polynomials. S-polynomials with G[j] added
 ###
 ### #GBNP.ObsTrunc uses: GBNP.LeftObs GBNP.RightObs GBNP.SelfObs GBNP.Spoly GBNP.StrongNormalForm2 GBNP.WeightedDegreeMon LMonsNP MkMonicNP#
 ### #GBNP.ObsTrunc is used in: GBNP.AllObsTrunc#
@@ -204,12 +204,12 @@ end;;
 ### - Central obstructions are already done, so only self, left and right.
 ###
 ### Arguments:
-### G		- list of NP polynomials
-### wtv		- weight vector
-### k		- weight level at which we search obstructions
+### G           - list of NP polynomials
+### wtv         - weight vector
+### k           - weight level at which we search obstructions
 ###
 ### Returns:
-### todo	- list of non trivial S-polynomials of (weighted) degree k.
+### todo        - list of non trivial S-polynomials of (weighted) degree k.
 ###
 ### #GBNP.AllObsTrunc uses: GBNP.ObsTrunc GBNP.ReducePol2 LMonsNP#
 ### #GBNP.AllObsTrunc is used in: GBNP.SGrobnerTruncLevel#
@@ -218,7 +218,7 @@ end;;
 GBNP.AllObsTrunc:=function(G,wtv,k) local j,ans,temp;
     ans:=[];
     for j in [1..Length(G)] do
-	GBNP.ObsTrunc(j,G,ans,wtv,k);
+        GBNP.ObsTrunc(j,G,ans,wtv,k);
     od;
     GBNP.ReducePol2(ans);
     temp:=LMonsNP(ans);
@@ -246,30 +246,30 @@ end;;
 
 GBNP.SGrobnerTruncLevel:=function(K,wtv,k) local tt,todo,G;
 
-	tt:=Runtime();
+        tt:=Runtime();
 
 # phase I, start-up, building G
 
-#	Print("number of entered polynomials is ",Length(K),"\n");
-	G := GBNP.ReducePol(K);
+#       Print("number of entered polynomials is ",Length(K),"\n");
+        G := GBNP.ReducePol(K);
 
-#	Print("number of polynomials after reduction is ",Length(G),"\n");
-	Info(InfoGBNP,2,"End of phase I");
+#       Print("number of polynomials after reduction is ",Length(G),"\n");
+        Info(InfoGBNP,2,"End of phase I");
 
 # phase II, initialization, making todo
 
-   	todo:=GBNP.AllObsTrunc(G,wtv,k);
+        todo:=GBNP.AllObsTrunc(G,wtv,k);
         Info(InfoGBNP,2,"End of phase II");
 
 # phase III, The loop
 
-	GBNP.SGrobnerTruncLoop(G,todo,wtv,k);
-	Info(InfoGBNP,2,"End of phase III");
+        GBNP.SGrobnerTruncLoop(G,todo,wtv,k);
+        Info(InfoGBNP,2,"End of phase III");
 
 
 # phase IV, make the result reduced
 
-	GBNP.ReducePol2(G);
+        GBNP.ReducePol2(G);
 
 #    Print("Current number of obstructions is ",Length(OBS),"\n");
 #    Print("Current set of spolynomials is ",todo,"\n");
@@ -288,9 +288,9 @@ GBNP.SGrobnerTruncLevel:=function(K,wtv,k) local tt,todo,G;
 ### contained in 'all'
 ###
 ### Arguments:
-### all		- set of polynomials
-### wtv		- weight vector
-### deg		- degree
+### all         - set of polynomials
+### wtv         - weight vector
+### deg         - degree
 ###
 ### Returns:
 ###
@@ -299,14 +299,14 @@ GBNP.SGrobnerTruncLevel:=function(K,wtv,k) local tt,todo,G;
 ###
 
 GBNP.NewLevel:=function(all,wtv,deg) local i,ans,l,lev;
-	ans:=[];
-	for i in all do
-	  lev:=GBNP.WeightedDegreeMon(i[1][1],wtv);
+        ans:=[];
+        for i in all do
+          lev:=GBNP.WeightedDegreeMon(i[1][1],wtv);
           if lev = deg then
-	    Add(ans,i);
-	  fi;
-	od;
-	return(ans);
+            Add(ans,i);
+          fi;
+        od;
+        return(ans);
 end;;
 
 ##################
@@ -317,33 +317,33 @@ end;;
 ###  and if so, the list of weights of the polynomials)
 ###
 ### Arguments:
-### G		- set of polynomials
-### wtv		- weights of the letters of the alphabet
+### G           - set of polynomials
+### wtv         - weights of the letters of the alphabet
 ###
 ### Returns:
-### ans		- list of weights of the pols or false
+### ans         - list of weights of the pols or false
 ###
 ### #GBNP.CheckHom uses: GBNP.WeightedDegreeList LMonsNP#
 ### #GBNP.CheckHom is used in: CheckHomogeneousNPs GBNP.SGrobnerTrunc#
 ###
 
 GBNP.CheckHom:=function(G,wtv) local i,j,k,l,mon,h1,h2,ans;
-	mon:=LMonsNP(G);
-	ans:=GBNP.WeightedDegreeList(mon,wtv);
-	for i in [1..Length(G)] do
-	  h1:=ans[i];
-	  l:=Length(G[i][1]);
-	  for j in [2..l] do
-  	    mon:=G[i][1][j];
-	    h2:=0;
-	    for k in [1..Length(mon)] do
-	      h2:=h2+wtv[mon[k]];
-	    od;
-	    if h2<>h1 then return(false); fi;
+        mon:=LMonsNP(G);
+        ans:=GBNP.WeightedDegreeList(mon,wtv);
+        for i in [1..Length(G)] do
+          h1:=ans[i];
+          l:=Length(G[i][1]);
+          for j in [2..l] do
+            mon:=G[i][1][j];
+            h2:=0;
+            for k in [1..Length(mon)] do
+              h2:=h2+wtv[mon[k]];
+            od;
+            if h2<>h1 then return(false); fi;
           od;
         od;
         Info(InfoGBNP,1,"Input is homogeneous");
-	return(ans);
+        return(ans);
 end;
 
 
@@ -378,11 +378,11 @@ end;
 ### - Checks if all polynomials in <C>K</C> are homogeneous wrt <C>wtv</C>.
 ###
 ### Arguments:
-### K		- set of list of NP polynomials
-### wtv			- weight vector
+### K           - set of list of NP polynomials
+### wtv                 - weight vector
 ###
 ### Returns:
-### ans		- list of weighted degrees of the pols or false
+### ans         - list of weighted degrees of the pols or false
 ###
 ### #CheckHomogeneousNPs uses: CleanNP GBNP.CheckHom#
 ### #CheckHomogeneousNPs is used in:#
@@ -423,7 +423,7 @@ end);
 ### (input argument) out = 1  -> output is the grobner basis <= max. degree
 ### (input argument) out = 2  -> output is list of monomials <= max. degree
 ### (input argument) out = 3  -> output is list of dimensions <= max. degree
-###				list by degree
+###                             list by degree
 ### (input argument) out = 0  -> output is list of all above <= max. degree
 ###
 ###
@@ -434,17 +434,17 @@ end);
 GBNP.SGrobnerTrunc :=
  function(K,deg,wtv,out) local t0,G,GB,lts,deg0,dd,dims,pollev,tot,split,arg,deglst,weights,i,temp,ans;
 
-	t0 := Runtime();
+        t0 := Runtime();
 
 # phase I, start-up, building G
 
-	Info(InfoGBNP,1,"number of entered polynomials is ",Length(K));
-	G := GBNP.ReducePol(K);
+        Info(InfoGBNP,1,"number of entered polynomials is ",Length(K));
+        G := GBNP.ReducePol(K);
 
-	Info(InfoGBNP,1,"number of polynomials after reduction is ",Length(G));
-	Info(InfoGBNP,1,"End of phase I");
+        Info(InfoGBNP,1,"number of polynomials after reduction is ",Length(G));
+        Info(InfoGBNP,1,"End of phase I");
 
-	deglst:=GBNP.CheckHom(G,wtv);
+        deglst:=GBNP.CheckHom(G,wtv);
         if deglst <> false then
           if deglst = [] then deg0 := deg+1;
           else  deg0:=deglst[1];
@@ -454,11 +454,11 @@ GBNP.SGrobnerTrunc :=
                 return([[[[]],[1]]]);
              fi;
              if out=2 then
-	        # 1 in GB, return [] for degree in 0 .. deg
+                # 1 in GB, return [] for degree in 0 .. deg
                 return(List([0..deg],dd->[]));
              fi;
              if out=3 then
-	        # 1 in GB, return 0 for degree in 0 .. deg
+                # 1 in GB, return 0 for degree in 0 .. deg
                 return(List([0..deg],dd->0));
              fi;
              if out=0 then
@@ -467,44 +467,44 @@ GBNP.SGrobnerTrunc :=
           fi;
           dims := [1];
           tot := [1];
-	  Info(InfoGBNP,2,"Current level is 0");
-	  Info(InfoGBNP,2,"Number of polynomials of this degree = 1");
- 	  Info(InfoGBNP,2,"Total number of polynomials found sofar = 1");
-	  ans:=[[[]]];
-	  dd:=1;
-	  GB:=GBNP.NewLevel(G,wtv,deg0);
+          Info(InfoGBNP,2,"Current level is 0");
+          Info(InfoGBNP,2,"Number of polynomials of this degree = 1");
+          Info(InfoGBNP,2,"Total number of polynomials found sofar = 1");
+          ans:=[[[]]];
+          dd:=1;
+          GB:=GBNP.NewLevel(G,wtv,deg0);
           Info(InfoGBNP,2,"GB na NewLevel ", GB);
           lts:=LMonsNP(GB);
-	  if deg0 > deg+1 then deg0 := deg+1; fi;
-	  while dd <= deg do
-	        Info(InfoGBNP,2,"Current level is ",dd);
-		if dd >= deg0 then
-			GB:=GBNP.SGrobnerTruncLevel(GB,wtv,dd);
-	                lts:=LMonsNP(GB);
-	        	Append(GB,GBNP.NewLevel(G,wtv,dd+1));
-           		Info(InfoGBNP,2,"GB after append newlevel ", GB);
-		fi;
-	        pollev:=GBNP.NondivMonsByLevel(ans,lts,wtv,dd);
-		Add(ans,pollev);
-	  	Add(dims,Length(pollev));
-	        Info(InfoGBNP,2,"Number of monomials of this degree = ",dims[dd+1]);
-		Add(tot,tot[dd]+dims[dd+1]);
-   	      	Info(InfoGBNP,2,"Total number of monomials found so far = ",tot[dd+1]);
-		dd:=dd+1;
-           	Info(InfoGBNP,2,"GB at the end of the while loop: ", GB);
-	  od;
-	Info(InfoGBNP,1,"Reached level ",deg);
-	Info(InfoGBNP,1,"end of the algorithm");
+          if deg0 > deg+1 then deg0 := deg+1; fi;
+          while dd <= deg do
+                Info(InfoGBNP,2,"Current level is ",dd);
+                if dd >= deg0 then
+                        GB:=GBNP.SGrobnerTruncLevel(GB,wtv,dd);
+                        lts:=LMonsNP(GB);
+                        Append(GB,GBNP.NewLevel(G,wtv,dd+1));
+                        Info(InfoGBNP,2,"GB after append newlevel ", GB);
+                fi;
+                pollev:=GBNP.NondivMonsByLevel(ans,lts,wtv,dd);
+                Add(ans,pollev);
+                Add(dims,Length(pollev));
+                Info(InfoGBNP,2,"Number of monomials of this degree = ",dims[dd+1]);
+                Add(tot,tot[dd]+dims[dd+1]);
+                Info(InfoGBNP,2,"Total number of monomials found so far = ",tot[dd+1]);
+                dd:=dd+1;
+                Info(InfoGBNP,2,"GB at the end of the while loop: ", GB);
+          od;
+        Info(InfoGBNP,1,"Reached level ",deg);
+        Info(InfoGBNP,1,"end of the algorithm");
 
-	else
-	  Info(InfoGBNP,1,"Input is not homogeneous");
-	  return(false);
-	fi;
-	Info(InfoGBNPTime,1,"The computation took ",Runtime()-t0," msecs.");
-  	if out = 1 then return(GB); fi;
-	if out = 2 then return(ans); fi;
-	if out = 3 then return(dims); fi;
-	if out = 0 then return([GB,ans,dims]); fi;
+        else
+          Info(InfoGBNP,1,"Input is not homogeneous");
+          return(false);
+        fi;
+        Info(InfoGBNPTime,1,"The computation took ",Runtime()-t0," msecs.");
+        if out = 1 then return(GB); fi;
+        if out = 2 then return(ans); fi;
+        if out = 3 then return(dims); fi;
+        if out = 0 then return([GB,ans,dims]); fi;
 end;
 
 
@@ -516,11 +516,11 @@ end;
 ### for a set of monomials occurring in a truncated standard basis
 ###
 ### Arguments:
-### mons		- set of monomials
-### n			- number of variables
+### mons                - set of monomials
+### n                   - number of variables
 ###
 ### Returns:
-### ans		- list of pairs of frequencies of the quotient algebra
+### ans         - list of pairs of frequencies of the quotient algebra
 ###               ***check validity***
 ###
 ### #GBNP.MakeArgumentLevel uses: GBNP.OccurInLst#
@@ -528,24 +528,24 @@ end;
 ###
 
 GBNP.MakeArgumentLevel:=function(mons,n) local i,hlp,mon,ans,arg;
-	if mons=[[]] then return([[[],1]]); fi;
-	if mons=[] then return(mons); fi;
-	ans:=[];
-	for mon in mons do
-	   arg:=List([1..n],x->0);
-	   for i in mon do
-	     arg[i]:=arg[i]+1;
-	   od;
-	   hlp:=GBNP.OccurInLst(arg,List(ans,x->x[1]));
-	   if hlp[1] <> 0 then
-	      ans[hlp[1]][2]:=ans[hlp[1]][2]+1;
-	   else
-	      Add(ans,[arg,1]);
-	   fi;
-	od;
-	arg:=List(ans,x->x[1]);
-	SortParallel(arg,ans,GtNP);
-	return(ans);
+        if mons=[[]] then return([[[],1]]); fi;
+        if mons=[] then return(mons); fi;
+        ans:=[];
+        for mon in mons do
+           arg:=List([1..n],x->0);
+           for i in mon do
+             arg[i]:=arg[i]+1;
+           od;
+           hlp:=GBNP.OccurInLst(arg,List(ans,x->x[1]));
+           if hlp[1] <> 0 then
+              ans[hlp[1]][2]:=ans[hlp[1]][2]+1;
+           else
+              Add(ans,[arg,1]);
+           fi;
+        od;
+        arg:=List(ans,x->x[1]);
+        SortParallel(arg,ans,GtNP);
+        return(ans);
    end;
 
 
@@ -583,12 +583,12 @@ GBNP.MakeArgumentLevel:=function(mons,n) local i,hlp,mon,ans,arg;
 ### <#/GAPDoc>
 ###
 ### Arguments:
-### K		- list of homogeneous polynomials with respect to wtv
-### deg		- the degree beyond which the polynomials are to be truncated
-### wtv		- weight vector
+### K           - list of homogeneous polynomials with respect to wtv
+### deg         - the degree beyond which the polynomials are to be truncated
+### wtv         - weight vector
 ###
 ### Returns:
-### G		- list of homogeneous pols wrt wtv forming a truncated Grobner
+### G           - list of homogeneous pols wrt wtv forming a truncated Grobner
 ###               basis or false
 ### #SGrobnerTrunc uses: GBNP.SGrobnerTrunc#
 ### #SGrobnerTrunc is used in:#
@@ -631,12 +631,12 @@ end);
 ### <#/GAPDoc>
 ###
 ### Arguments:
-### K		- list of homogeneous polynomials with respect to wtv
-### deg		- the degree beyond which the polynomials are to be truncated
-### wtv		- weight vector
+### K           - list of homogeneous polynomials with respect to wtv
+### deg         - the degree beyond which the polynomials are to be truncated
+### wtv         - weight vector
 ###
 ### Returns:
-### ans		- list of monomials or false
+### ans         - list of monomials or false
 ###
 ### #BaseQATrunc uses: GBNP.SGrobnerTrunc#
 ### #BaseQATrunc is used in:#
@@ -680,12 +680,12 @@ end);
 ### <#/GAPDoc>
 ###
 ### Arguments:
-### K		- list of homogeneous polynomials with respect to wtv
-### deg		- the degree beyond which the polynomials are to be truncated
-### wtv		- weight vector
+### K           - list of homogeneous polynomials with respect to wtv
+### deg         - the degree beyond which the polynomials are to be truncated
+### wtv         - weight vector
 ###
 ### Returns:
-### ans		- list of monomials or false
+### ans         - list of monomials or false
 ###
 ### #DimsQATrunc uses: GBNP.SGrobnerTrunc#
 ### #DimsQATrunc is used in:#
@@ -741,12 +741,12 @@ end);
 ### <#/GAPDoc>
 ###
 ### Arguments:
-### K		- list of homogeneous polynomials with respect to wtv
-### deg		- the degree beyond which the polynomials are to be truncated
-### wtv		- weight vector
+### K           - list of homogeneous polynomials with respect to wtv
+### deg         - the degree beyond which the polynomials are to be truncated
+### wtv         - weight vector
 ###
 ### Returns:
-### ans		- list of monomials or false
+### ans         - list of monomials or false
 ###
 ### #FreqsQATrunc uses: GBNP.MakeArgumentLevel GBNP.SGrobnerTrunc#
 ### #FreqsQATrunc is used in:#
@@ -758,27 +758,27 @@ FreqsQATrunc, function(K,deg,wtv) local i,j,ob,ans, dims, lst, hlp, GBf;
         if GBf = false then return(false); fi;
         lst := GBf[2];
         dims := GBf[3];
-#	Print("The number of variables is ",Length(wtv),"\n");
-#	Print("The weights of the variables are ",wtv,"\n\n");
-	j:=Length(dims);
-	i:=0;
+#       Print("The number of variables is ",Length(wtv),"\n");
+#       Print("The weights of the variables are ",wtv,"\n\n");
+        j:=Length(dims);
+        i:=0;
         ans := [];
-	while i < j do
+        while i < j do
            Info(InfoGBNP,2,"The dimension of the homogeneous part of the quotient algebra of this degree ", i," is ",dims[i+1]);
            if Length(lst)>0 then
              hlp:=GBNP.MakeArgumentLevel(lst[i+1],Length(wtv));
            else hlp := [];
            fi;
-	   if hlp = [] then
+           if hlp = [] then
            Info(InfoGBNP,2,"No monomials of this weighted degree occur\n");
-	   else
+           else
              Add(ans,hlp);
- 	     for ob in hlp do
-	       Info(InfoGBNP,2,"The frequency ",ob[1]," occurs ",ob[2]," times\n");
-	     od;
-	   fi;
-#	   Print("\n");
-	   i:=i+1;
-	od;
+             for ob in hlp do
+               Info(InfoGBNP,2,"The frequency ",ob[1]," occurs ",ob[2]," times\n");
+             od;
+           fi;
+#          Print("\n");
+           i:=i+1;
+        od;
         return(ans);
 end);
