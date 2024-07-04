@@ -20,15 +20,15 @@
 
 if [ -z "$1" ] || ! [ -f "$1.g" ]
 then
-	echo "Usage $0 <file>"
-	echo "Where file does not contain the extension (.g or .gi[id])"
-	exit 1;
+    echo "Usage $0 <file>"
+    echo "Where file does not contain the extension (.g or .gi[id])"
+    exit 1;
 fi
 
 #checks for $GAP
 if [ -z "$GAP" ]
 then
-	GAP=gap
+    GAP=gap
 fi
 
 # force UTF-8 output

@@ -22,16 +22,16 @@ gap> LoadPackage("gbnp", false);
 true
 gap> 
 gap> check:=function (l, i)
-> 	# exact answer matches
-> 	if IsInt(l) and l=i then
-> 		return true;
-> 	fi;
-> 	# no exact answer, but correct answer is in interval
-> 	if IsList(l) and l[1]<=i and i<=l[2] then
-> 		return true;
-> 	fi;
-> 	# not a correct answer
-> 	return false;
+>   # exact answer matches
+>   if IsInt(l) and l=i then
+>       return true;
+>   fi;
+>   # no exact answer, but correct answer is in interval
+>   if IsList(l) and l[1]<=i and i<=l[2] then
+>       return true;
+>   fi;
+>   # not a correct answer
+>   return false;
 > end;
 function( l, i ) ... end
 gap> 

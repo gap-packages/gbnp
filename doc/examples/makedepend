@@ -22,6 +22,6 @@
 echo EXAMPLESXML=
 for i in *.g
 do
-	echo EXAMPLESXML+= "$i"|sed -e 's/.g$/.xml/'
+    echo EXAMPLESXML+= "$i"|sed -e 's/.g$/.xml/'
 done
 } >.depend

@@ -20,9 +20,9 @@
 
 if [ -z "$1" ] || ! [ -f "$1.txt" ]
 then
-	echo "Usage $0 <file>"
-	echo "Where file does not contain the extension (.g or .gi[id])"
-	exit 1;
+    echo "Usage $0 <file>"
+    echo "Where file does not contain the extension (.g or .gi[id])"
+    exit 1;
 fi
 
 echo "gap> START_TEST(\"GBNP $1\");" >"$1".tst

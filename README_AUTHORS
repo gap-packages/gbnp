@@ -32,8 +32,8 @@ To rebuild the documentation:
 >gmake clean (NOTE: this deletes files)
 >gmake workspace (for faster running of exercises)
 ** enter the ``export GAP="..."'' line shown to the shell ** (for use with
-	bash, *csh users modify this line, it might also be added to your
-	.profile)
+    bash, *csh users modify this line, it might also be added to your
+    .profile)
 >gmake doc
 
 To rerun individual examples:

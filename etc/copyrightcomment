@@ -22,7 +22,7 @@ cat <<EOF
 EOF
 
 while read line; do
-	echo "# ${line}"
+    echo "# ${line}"
 done;
 
 cat <<EOF

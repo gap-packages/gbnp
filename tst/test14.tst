@@ -46,11 +46,11 @@ gap> # More information about the preprocessing can be found in the preprint <Q>
 gap> # dimensionality of quotient algebras</Q> <Cite Key="Krook2003"/> which is part
 gap> # of the documentation.
 gap> # <P/>
-gap> # Note:	there is no information on the amount of preprocessing which is
+gap> # Note: there is no information on the amount of preprocessing which is
 gap> # optimal, but in general for big examples, even full preprocessing is better
 gap> # than using no preprocessing at all.
 gap> # <P/>
-gap> # Note:	Example <Ref Sect="Example13"/> also determines if the
+gap> # Note: Example <Ref Sect="Example13"/> also determines if the
 gap> # quotient algebra appearing
 gap> # here is finite or infinite dimensional but does not use
 gap> # preprocessing.
