@@ -27,8 +27,8 @@
 ### the tree):
 ###
 ### -----===-----       ===       -----===
-###      ===	   -----===-----       ===-----
-###	type 1         type 2         type 3
+###      ===       -----===-----       ===-----
+###     type 1         type 2         type 3
 ###
 
 ### Functions:
@@ -40,17 +40,17 @@
 ### GBNP.AddMonToTreePTSLR
 ### GBNP.RemoveMonFromTreePTSLR
 ### GBNP.SortParallelOT
-### - lookup helpfuncions		type	LR	extra
-### GBNP.LookUpOccurTreeAllPTSLRPos	1	LR	all
-### GBNP.LookUpOccurTreePTSLRPos	1	LR	-
-### GBNP.LookUpOccurTreeForObsPTSLRPos	3	LR	all
+### - lookup helpfuncions               type    LR      extra
+### GBNP.LookUpOccurTreeAllPTSLRPos     1       LR      all
+### GBNP.LookUpOccurTreePTSLRPos        1       LR      -
+### GBNP.LookUpOccurTreeForObsPTSLRPos  3       LR      all
 ###
-### - lookup functions			type	LR
-### GBNP.OccurInLstT                    1	L	-
-### GBNP.OccurInLstPTSLR		1	LR	-
-### GBNP.OccurLeftInLstT		1	L	from start
-### GBNP.LookUpOccurTreeAllLstPTSLR	1	LR	all
-### GBNP.LookUpOccurTreeForObsPTSLR	3	LR	all
+### - lookup functions                  type    LR
+### GBNP.OccurInLstT                    1       L       -
+### GBNP.OccurInLstPTSLR                1       LR      -
+### GBNP.OccurLeftInLstT                1       L       from start
+### GBNP.LookUpOccurTreeAllLstPTSLR     1       LR      all
+### GBNP.LookUpOccurTreeForObsPTSLR     3       LR      all
 
 #####################################
 ### GBNP.CreateOccurTreePTSLRimpl ###
@@ -62,9 +62,9 @@
 ###
 ### Arguments:
 ###
-### - L		list of monomials
-### - pg	number of monomial generators
-### - left	boolean, true means non-reversed
+### - L         list of monomials
+### - pg        number of monomial generators
+### - left      boolean, true means non-reversed
 ###
 ### Returns:
 ### - the occurtree formed
@@ -75,11 +75,11 @@
 
 GBNP.CreateOccurTreePTSLRimpl:=function(L,pg,left)
 local i,OT;
-	OT:=rec(tree:=[],tree2arr:=[],arr2tree:=[],nextnum:=1,pg:=pg);
-	for i in [1..Length(L)] do
-		GBNP.AddMonToTreePTSLR(L[i],i,OT,left);
-	od;
-	return OT;
+        OT:=rec(tree:=[],tree2arr:=[],arr2tree:=[],nextnum:=1,pg:=pg);
+        for i in [1..Length(L)] do
+                GBNP.AddMonToTreePTSLR(L[i],i,OT,left);
+        od;
+        return OT;
 end;
 
 ##############################
@@ -88,8 +88,8 @@ end;
 ### Creates an occurtree, without module generators
 ###
 ### Arguments:
-### - L		list of monomials
-### - left	boolean, true means non-reversed
+### - L         list of monomials
+### - left      boolean, true means non-reversed
 ###
 ### Returns:
 ### - the occurtree formed
@@ -99,7 +99,7 @@ end;
 ###
 
 GBNP.CreateOccurTreeLR:=function(L,left)
-	return GBNP.CreateOccurTreePTSLRimpl(L,0,left);
+        return GBNP.CreateOccurTreePTSLRimpl(L,0,left);
 end;
 
 #################################
@@ -109,9 +109,9 @@ end;
 ###
 ### Arguments:
 ###
-### - L		list of monomials
-### - pg	number of monomial generators
-### - left	boolean, true means non-reversed
+### - L         list of monomials
+### - pg        number of monomial generators
+### - left      boolean, true means non-reversed
 ###
 ### Returns:
 ### - the occurtree formed
@@ -122,14 +122,14 @@ end;
 
 GBNP.CreateOccurTreePTSLR:=function(L,pg,left)
         if (pg <> GBNP.GetOptions().pg) then
-		Info(InfoGBNP,2,"Warning: CreateOccurTreePTSLR: pg argument (",pg,") is not the same as pg option (",GBNP.GetOptions().pg,")\n");
-	fi;
+                Info(InfoGBNP,2,"Warning: CreateOccurTreePTSLR: pg argument (",pg,") is not the same as pg option (",GBNP.GetOptions().pg,")\n");
+        fi;
 
-	# also take into account options for safety (warn if these are
-	# different)
-	pg:=Maximum(GBNP.GetOptions().pg,pg);
+        # also take into account options for safety (warn if these are
+        # different)
+        pg:=Maximum(GBNP.GetOptions().pg,pg);
 
-	return GBNP.CreateOccurTreePTSLRimpl(L, pg, left);
+        return GBNP.CreateOccurTreePTSLRimpl(L, pg, left);
 end;
 
 #######################################
@@ -140,10 +140,10 @@ end;
 ### position startpos.
 ###
 ### Arguments:
-### - mon		monomial to check
-### - OT		occurtree to use for lookup
-### - left		true: non-reversed
-### - startpos		position of mon to start checking
+### - mon               monomial to check
+### - OT                occurtree to use for lookup
+### - left              true: non-reversed
+### - startpos          position of mon to start checking
 ###
 ### Returns:
 ### - the array indices of all matching monomials
@@ -153,50 +153,50 @@ end;
 ###
 
 GBNP.LookUpOccurTreeAllPTSLRPos:=function(mon,OT,left,startpos)
-local	pos,	# index of mon
-	r,	# part of the tree
-	pi,	# add to index
-	ans,	# all indices found sofar
-	len, 	# length of the monomial
-	pos2;	# pos corrected for left/right
+local   pos,    # index of mon
+        r,      # part of the tree
+        pi,     # add to index
+        ans,    # all indices found sofar
+        len,    # length of the monomial
+        pos2;   # pos corrected for left/right
 
-		# arrays go from 1..
-		# first pg entries are prefix gens, the next one is skipped
-		# and the rest is for two-sided generators
+                # arrays go from 1..
+                # first pg entries are prefix gens, the next one is skipped
+                # and the rest is for two-sided generators
 
-	pi:=OT.pg+1;
-	ans:=[];
+        pi:=OT.pg+1;
+        ans:=[];
 
-	r:=OT.tree;len:=Length(mon);
-	pos:=startpos; # 1 is a usual start
+        r:=OT.tree;len:=Length(mon);
+        pos:=startpos; # 1 is a usual start
 
-	#follow OT as far as possible
-	while (pos<=len) do
-		if left then
-			pos2:=pos;
-		else
-			pos2:=len-pos+1;
-		fi;
+        #follow OT as far as possible
+        while (pos<=len) do
+                if left then
+                        pos2:=pos;
+                else
+                        pos2:=len-pos+1;
+                fi;
 
-		if IsBound(r[pi]) then
-			# found the answer early
-			Add(ans,OT.tree2arr[r[pi]]);
-		fi;
+                if IsBound(r[pi]) then
+                        # found the answer early
+                        Add(ans,OT.tree2arr[r[pi]]);
+                fi;
 
-		if IsBound(r[mon[pos2]+pi]) then
-			r:=r[mon[pos2]+pi];
-		else	# nothing more can be found
-			return ans;
-		fi;
-		pos:=pos+1;
-	od;
+                if IsBound(r[mon[pos2]+pi]) then
+                        r:=r[mon[pos2]+pi];
+                else    # nothing more can be found
+                        return ans;
+                fi;
+                pos:=pos+1;
+        od;
 
-	# nothing left to check
+        # nothing left to check
 
-	if IsBound(r[pi]) then
-		Add(ans,OT.tree2arr[r[pi]]);
-	fi;
-	return ans; # note that ans is sorted (smallest ones found first)
+        if IsBound(r[pi]) then
+                Add(ans,OT.tree2arr[r[pi]]);
+        fi;
+        return ans; # note that ans is sorted (smallest ones found first)
 end;
 
 ####################################
@@ -205,17 +205,17 @@ end;
 ###
 ### Looks for a monomial occurring in mon from position startpos.
 ###
-###   startpos		(image for left=true case)
+###   startpos          (image for left=true case)
 ###      |
-### -----====-----	type 1
+### -----====-----      type 1
 ###      ====
 ###
 ### Arguments:
 ###
-### - mon		monomial to check
-### - OT		occurtree used
-### - left	true: non-reversed
-### - startpos	position of mon to start checking
+### - mon               monomial to check
+### - OT                occurtree used
+### - left      true: non-reversed
+### - startpos  position of mon to start checking
 ###
 ### Returns:
 ### - the array index of a monomial or 0 if no monomials can be found
@@ -225,49 +225,49 @@ end;
 ###
 
 GBNP.LookUpOccurTreePTSLRPos:=function(mon,OT,left,startpos)
-local	pos,	# index of mon
-	r,	# part of the tree
-	pi,	# add to index
-	len, 	# length of the monomial
-	pos2;	# pos corrected for left/right
+local   pos,    # index of mon
+        r,      # part of the tree
+        pi,     # add to index
+        len,    # length of the monomial
+        pos2;   # pos corrected for left/right
 
-		# arrays go from 1..
-		# first pg entries are prefix gens, the next one is skipped
-		# and the rest is for two-sided generators
+                # arrays go from 1..
+                # first pg entries are prefix gens, the next one is skipped
+                # and the rest is for two-sided generators
 
-	pi:=OT.pg+1;
+        pi:=OT.pg+1;
 
-	r:=OT.tree;len:=Length(mon);
-	pos:=startpos; # 1 is a usual start
+        r:=OT.tree;len:=Length(mon);
+        pos:=startpos; # 1 is a usual start
 
-	#follow OT as far as possible
-	while (pos<=len) do
-		if left then
-			pos2:=pos;
-		else
-			pos2:=len-pos+1;
-		fi;
+        #follow OT as far as possible
+        while (pos<=len) do
+                if left then
+                        pos2:=pos;
+                else
+                        pos2:=len-pos+1;
+                fi;
 
-		if IsBound(r[pi]) then
-			# found the answer early
-			return OT.tree2arr[r[pi]];
-		fi;
+                if IsBound(r[pi]) then
+                        # found the answer early
+                        return OT.tree2arr[r[pi]];
+                fi;
 
-		if IsBound(r[mon[pos2]+pi]) then
-			r:=r[mon[pos2]+pi];
-		else	# nothing can be found
-			return 0;
-		fi;
-		pos:=pos+1;
-	od;
+                if IsBound(r[mon[pos2]+pi]) then
+                        r:=r[mon[pos2]+pi];
+                else    # nothing can be found
+                        return 0;
+                fi;
+                pos:=pos+1;
+        od;
 
-	# nothing left to check
+        # nothing left to check
 
-	if IsBound(r[pi]) then
-		return OT.tree2arr[r[pi]];
-	fi;
+        if IsBound(r[pi]) then
+                return OT.tree2arr[r[pi]];
+        fi;
 
-	return 0;
+        return 0;
 end;
 
 
@@ -278,21 +278,21 @@ end;
 ### Searches for monomials from the list in <mon>.
 ###
 ### Arguments:
-### - mon	monomial to check
-### - LOT	a left-occur tree
+### - mon       monomial to check
+### - LOT       a left-occur tree
 ###
 ### Returns:
 ### - [nr,i]
-### 	Where nr = the array number of the monomial found
-### 	and i = the position from the left (i is as small as possible)
-### 	if nothing is found then [0,0] is returned.
+###     Where nr = the array number of the monomial found
+###     and i = the position from the left (i is as small as possible)
+###     if nothing is found then [0,0] is returned.
 ###
 ### #GBNP.OccurInLstT uses: GBNP.OccurInLstPTSLR#
 ### #GBNP.OccurInLstT is used in: GBNP.NormalForm2T GBNP.SGrobnerLoops GBNP.StrongNormalForm2Tall GBNP.StrongNormalForm3Dall GBNP.THeapOTCheck#
 ###
 
 GBNP.OccurInLstT:=function(mon,LOT)
-	return GBNP.OccurInLstPTSLR(mon,LOT,true);
+        return GBNP.OccurInLstPTSLR(mon,LOT,true);
 end;
 
 ############################
@@ -302,14 +302,14 @@ end;
 ### Searches for monomials from the list in <mon>.
 ###
 ### Arguments:
-### - mon	monomial to check
-### - LOT	a left-occur tree
-### - left	true -> non-reversed
+### - mon       monomial to check
+### - LOT       a left-occur tree
+### - left      true -> non-reversed
 ###
 ### Returns:
 ### - [nr,i]
-### 	Where nr = the array number of the monomial found
-### 	and i = the position from the left (right if left=false) (i is as small
+###     Where nr = the array number of the monomial found
+###     and i = the position from the left (right if left=false) (i is as small
 ###     as possible) if nothing is found then [0,0] is returned.
 ###
 ### #GBNP.OccurInLstPTSLR uses: GBNP.LookUpOccurTreePTSLRPos#
@@ -317,16 +317,16 @@ end;
 ###
 
 GBNP.OccurInLstPTSLR:=function(mon,LOT,left)
-local 	i,
-	ans;
-	for i in [1..Length(mon)] do
-		ans:=GBNP.LookUpOccurTreePTSLRPos(mon,LOT,left,i);
-		if ans<>0 then
-			return [ans,i];
-		fi;
-	od;
+local   i,
+        ans;
+        for i in [1..Length(mon)] do
+                ans:=GBNP.LookUpOccurTreePTSLRPos(mon,LOT,left,i);
+                if ans<>0 then
+                        return [ans,i];
+                fi;
+        od;
 
-	return [0,0];
+        return [0,0];
 end;
 
 ############################
@@ -336,14 +336,14 @@ end;
 ### Searches for monomials from the list occurring at the left in <mon>.
 ###
 ### Arguments:
-### - mon	monomial to check
-### - LOT	occurtree used (left occur tree)
+### - mon       monomial to check
+### - LOT       occurtree used (left occur tree)
 ###
 ### Returns:
 ### - [nr,i]
-### 	Where nr = the array number of the monomial found
-### 	and i = 1 if a monomial is found (compatible with GBNP.OccurInLstT)
-### 	if nothing is found then [0,0] is returned.
+###     Where nr = the array number of the monomial found
+###     and i = 1 if a monomial is found (compatible with GBNP.OccurInLstT)
+###     if nothing is found then [0,0] is returned.
 ###
 ### #GBNP.OccurLeftInLstT uses: GBNP.LookUpOccurTreePTSLRPos#
 ### #GBNP.OccurLeftInLstT is used in:#
@@ -351,11 +351,11 @@ end;
 
 GBNP.OccurLeftInLstT:=function(mon,LOT)
 local ans;
-	ans:=GBNP.LookUpOccurTreePTSLRPos(mon,LOT,true,1);
-	if ans<>0 then
-		return [ans,1];
-	fi;
-	return [0,0];
+        ans:=GBNP.LookUpOccurTreePTSLRPos(mon,LOT,true,1);
+        if ans<>0 then
+                return [ans,1];
+        fi;
+        return [0,0];
 end;
 
 #######################################
@@ -365,9 +365,9 @@ end;
 ### Looks up all monomials from a list starting with <mon>
 ###
 ### Arguments:
-### - mon	the monomial to check
-### - OT	the occur tree used
-### - left	true if not reversed
+### - mon       the monomial to check
+### - OT        the occur tree used
+### - left      true if not reversed
 ###
 ### Returns:
 ### - A list of matches in the form [nr, i], where nr is the monomial found and
@@ -378,25 +378,25 @@ end;
 ###
 
 GBNP.LookUpOccurTreeAllLstPTSLR:=function(mon,OT,left)
-local 	i,j,	# counter
-	allans,	# sparse list of answer
-	ansind,	# indices of ans
-	ans;	# what will be returned
+local   i,j,    # counter
+        allans, # sparse list of answer
+        ansind, # indices of ans
+        ans;    # what will be returned
 
-	allans:=[];ansind:=[];
-	for i in [1..Maximum(1,Length(mon))] do
-		for j in GBNP.LookUpOccurTreeAllPTSLRPos(mon,OT,left,i) do
-			if not IsBound(allans[j]) then
-				allans[j]:=i;
-				AddSet(ansind,j);
-			fi;
-		od;
-	od;
-	ans:=[];
-	for i in ansind do
-		Add(ans,[i,allans[i]]);
-	od;
-	return ans;# not sorted
+        allans:=[];ansind:=[];
+        for i in [1..Maximum(1,Length(mon))] do
+                for j in GBNP.LookUpOccurTreeAllPTSLRPos(mon,OT,left,i) do
+                        if not IsBound(allans[j]) then
+                                allans[j]:=i;
+                                AddSet(ansind,j);
+                        fi;
+                od;
+        od;
+        ans:=[];
+        for i in ansind do
+                Add(ans,[i,allans[i]]);
+        od;
+        return ans;# not sorted
 end;
 
 ##########################################
@@ -406,16 +406,16 @@ end;
 ### function to search for obstructions with occur trees (partial task)
 ###
 ### searches for obstructions of the form:
-###		    startpos
+###                 startpos
 ###                 |
-### mon:	----===		type 3 (picture for left=true)
-### 		    ===----
+### mon:        ----===         type 3 (picture for left=true)
+###                 ===----
 ###
 ### Arguments:
-### - mon		Monomial to look for obstructions in
-### - OT		occur tree
-### - left		true -> non-reversed
-### - startpos		startposition of YYYY in mon
+### - mon               Monomial to look for obstructions in
+### - OT                occur tree
+### - left              true -> non-reversed
+### - startpos          startposition of YYYY in mon
 ###
 ### Returns:
 ### - A list of indices of monomials from the tree that match.
@@ -425,46 +425,46 @@ end;
 ###
 
 GBNP.LookUpOccurTreeForObsPTSLRPos:=function(mon,OT,left,startpos)
-local	pos,	# index of mon
-	r,	# part of the tree
-	pi,	# add to index
-	ans,	# all indices found sofar
-	len, 	# length of the monomial
-	pos2,	# pos corrected for left/right
-	f;
+local   pos,    # index of mon
+        r,      # part of the tree
+        pi,     # add to index
+        ans,    # all indices found sofar
+        len,    # length of the monomial
+        pos2,   # pos corrected for left/right
+        f;
 
-		# arrays go from 1..
-		# first pg entries are prefix gens, the next one is skipped
-		# and the rest is for two-sided generators
+                # arrays go from 1..
+                # first pg entries are prefix gens, the next one is skipped
+                # and the rest is for two-sided generators
 
-	pi:=OT.pg+1;
+        pi:=OT.pg+1;
 
-	r:=OT.tree;len:=Length(mon);
-	pos:=startpos; # 1 is a usual start
+        r:=OT.tree;len:=Length(mon);
+        pos:=startpos; # 1 is a usual start
 
-	#follow OT as far as possible
-	while (pos<=len) do
-		if left then
-			pos2:=pos;
-		else
-			pos2:=len-pos+1;
-		fi;
+        #follow OT as far as possible
+        while (pos<=len) do
+                if left then
+                        pos2:=pos;
+                else
+                        pos2:=len-pos+1;
+                fi;
 
-		if IsBound(r[pi]) then
-			# found the answer early
-		fi;
+                if IsBound(r[pi]) then
+                        # found the answer early
+                fi;
 
-		if IsBound(r[mon[pos2]+pi]) then
-			r:=r[mon[pos2]+pi];
-		else	# nothing more can be found
-			return [];
-		fi;
-		pos:=pos+1;
-	od;
+                if IsBound(r[mon[pos2]+pi]) then
+                        r:=r[mon[pos2]+pi];
+                else    # nothing more can be found
+                        return [];
+                fi;
+                pos:=pos+1;
+        od;
 
-	# now return things still left in r:
+        # now return things still left in r:
 
-	return List(Flat(r),x->OT.tree2arr[x]);
+        return List(Flat(r),x->OT.tree2arr[x]);
 end;
 
 #######################################
@@ -474,42 +474,42 @@ end;
 ### function to search for obstructions with occur trees
 ###
 ### searches for obstructions of the form:
-### mon:	xxxxxYYYYY
-### 		     YYYYYzzz
+### mon:        xxxxxYYYYY
+###                  YYYYYzzz
 ### where xxxx is as small as possible
 ###
 ### Arguments:
-### - mon	monomial to check
-### - j		number of the monomial (to filter out itself), can be 0 ->
-###			filter out nothing
-### - GOT	Occur tree of G
-### - left	true -> non-reversed
+### - mon       monomial to check
+### - j         number of the monomial (to filter out itself), can be 0 ->
+###                     filter out nothing
+### - GOT       Occur tree of G
+### - left      true -> non-reversed
 ###
 ### Returns:
 ### - an array of lists [nr,i], where nr is the index in the array and i the
-### 	position of the first 'Y'
+###     position of the first 'Y'
 ###
 ### #GBNP.LookUpOccurTreeForObsPTSLR uses: GBNP.LookUpOccurTreeForObsPTSLRPos#
 ### #GBNP.LookUpOccurTreeForObsPTSLR is used in: GBNP.LeftObsT GBNP.RightObsT GraphOfChains HilbertSeriesQA#
 ###
 
 GBNP.LookUpOccurTreeForObsPTSLR:=function(mon,j,GOT,left)
-local	i,o,
-	allans,
-	ansind,
-	ans;
+local   i,o,
+        allans,
+        ansind,
+        ans;
 
-	ans:=[];
-	for i in [1..Length(mon)] do
-		for o in GBNP.LookUpOccurTreeForObsPTSLRPos(mon,GOT,left,i)
-		do
-			if not (i=1 and o=j) then # why this condition ?
-		        	Add(ans,[o,i]);
-			fi;
-		od;
-	od;
+        ans:=[];
+        for i in [1..Length(mon)] do
+                for o in GBNP.LookUpOccurTreeForObsPTSLRPos(mon,GOT,left,i)
+                do
+                        if not (i=1 and o=j) then # why this condition ?
+                                Add(ans,[o,i]);
+                        fi;
+                od;
+        od;
 
-	return ans;# not sorted
+        return ans;# not sorted
 end;
 
 ##############################
@@ -520,11 +520,11 @@ end;
 ### already.
 ###
 ### Arguments:
-### - mon	the monomial to add
-### - i		the index in the corresponding array (assumed to be unique)
-###		i=-1 means adding to the end of the array
-### - OT	occur tree
-### - left	true -> non-reversed
+### - mon       the monomial to add
+### - i         the index in the corresponding array (assumed to be unique)
+###             i=-1 means adding to the end of the array
+### - OT        occur tree
+### - left      true -> non-reversed
 ###
 ### Returns:
 ###  - nothing returned (but the tree <OT> is updated)
@@ -534,64 +534,64 @@ end;
 ###
 
 GBNP.AddMonToTreePTSLR:=function(mon,i,OT,left)
-local	pos,	# index of mon
-	r,oldr,	# part of the tree
-	pi,	# addition factor
-	pos2,	# pos with left/right correction
-	len, 	# length of the monomial
-	arrnum,	# index in arr2tree
-	treenum,# index in tree
-	j,lat;
+local   pos,    # index of mon
+        r,oldr, # part of the tree
+        pi,     # addition factor
+        pos2,   # pos with left/right correction
+        len,    # length of the monomial
+        arrnum, # index in arr2tree
+        treenum,# index in tree
+        j,lat;
 
-	#Info(InfoGBNP,4,"AddMonToTreePTSLR i:",i," mon:",mon);
-	pi:=OT.pg+1;
+        #Info(InfoGBNP,4,"AddMonToTreePTSLR i:",i," mon:",mon);
+        pi:=OT.pg+1;
 
-	r:=OT.tree;len:=Length(mon);
-	pos:=1;oldr:=OT.tree;
-	treenum:=OT.nextnum;
+        r:=OT.tree;len:=Length(mon);
+        pos:=1;oldr:=OT.tree;
+        treenum:=OT.nextnum;
 
-	if IsBound(OT.tree2arr[OT.nextnum]) then
-		OT.nextnum:=OT.tree2arr[OT.nextnum];
-	else
-		OT.nextnum:=OT.nextnum+1; # end of the tree
-	fi;
+        if IsBound(OT.tree2arr[OT.nextnum]) then
+                OT.nextnum:=OT.tree2arr[OT.nextnum];
+        else
+                OT.nextnum:=OT.nextnum+1; # end of the tree
+        fi;
 
-	if (i=-1) then
-		arrnum:=Length(OT.arr2tree)+1;
-		OT.tree2arr[treenum]:=arrnum;
-		Add(OT.arr2tree,treenum);
-	else
-		arrnum:=i;
-		InsertElmList(OT.arr2tree,i,treenum);
-		for j in [i..Length(OT.arr2tree)] do
-			OT.tree2arr[OT.arr2tree[j]]:=j;
-		od;
-	fi;
-	#Info(InfoGBNP,5,"AddMonToTreePTSLR arrnum:",arrnum);
+        if (i=-1) then
+                arrnum:=Length(OT.arr2tree)+1;
+                OT.tree2arr[treenum]:=arrnum;
+                Add(OT.arr2tree,treenum);
+        else
+                arrnum:=i;
+                InsertElmList(OT.arr2tree,i,treenum);
+                for j in [i..Length(OT.arr2tree)] do
+                        OT.tree2arr[OT.arr2tree[j]]:=j;
+                od;
+        fi;
+        #Info(InfoGBNP,5,"AddMonToTreePTSLR arrnum:",arrnum);
 
-	#follow OT as far as possible
-	while (pos<=len) do
-		if left then
-			pos2:=pos;
-		else
-			pos2:=len-pos+1;
-		fi;
+        #follow OT as far as possible
+        while (pos<=len) do
+                if left then
+                        pos2:=pos;
+                else
+                        pos2:=len-pos+1;
+                fi;
 
-		#if IsBound(r[pi]) then
-		#	# nevermind adding, use the shorter one instead
-		#	return;
-		# add anyway, easier for proving
-		if IsBound(r[mon[pos2]+pi]) then # follow the existing prefix
-			r:=r[mon[pos2]+pi];
-		else # add a new prefix
-			r[mon[pos2]+pi]:=[];
-			r:=r[mon[pos2]+pi];
-		fi;
-		pos:=pos+1;
-	od;
-	if not IsBound(r[pi]) then
-		r[pi]:=treenum;
-	fi;
+                #if IsBound(r[pi]) then
+                #       # nevermind adding, use the shorter one instead
+                #       return;
+                # add anyway, easier for proving
+                if IsBound(r[mon[pos2]+pi]) then # follow the existing prefix
+                        r:=r[mon[pos2]+pi];
+                else # add a new prefix
+                        r[mon[pos2]+pi]:=[];
+                        r:=r[mon[pos2]+pi];
+                fi;
+                pos:=pos+1;
+        od;
+        if not IsBound(r[pi]) then
+                r[pi]:=treenum;
+        fi;
 end;
 
 ###################################
@@ -601,97 +601,97 @@ end;
 ### Removes a monomial <mon> from the occurtree <OT>
 ###
 ### Arguments:
-### - mon	the monomial to remove
-### - i		the index of the monomial
-### - OT	the tree to remove <mon> from
-### - left	true -> non-reversed
+### - mon       the monomial to remove
+### - i         the index of the monomial
+### - OT        the tree to remove <mon> from
+### - left      true -> non-reversed
 ###
 ### Returns:
-### 	nothing, but removes <mon> from <OT>
+###     nothing, but removes <mon> from <OT>
 ###
 ### #GBNP.RemoveMonFromTreePTSLR uses:#
 ### #GBNP.RemoveMonFromTreePTSLR is used in: GBNP.ReducePol2 GBNP.SGrobnerLoops THeapOT#
 ###
 
 GBNP.RemoveMonFromTreePTSLR:=function(mon,i,OT,left)
-local	pos,	# index of mon
-	r,oldr,	# part of the tree
-	oldind,
-	pi,
-	len, 	# length of the monomial
-	pos2,	# pos corrected for left/right
-	j;
+local   pos,    # index of mon
+        r,oldr, # part of the tree
+        oldind,
+        pi,
+        len,    # length of the monomial
+        pos2,   # pos corrected for left/right
+        j;
 
 
-	# if a monomial is not in the tree then nothing is deleted
-	#Assert(1,i=GBNP.LookUpRightOccurTree(mon,OT),
-	#	"Monomial not in tree.");
-	#Info(InfoGBNP,4,"RemoveMonFromTreePTSLR i:",i," mon:",mon);
+        # if a monomial is not in the tree then nothing is deleted
+        #Assert(1,i=GBNP.LookUpRightOccurTree(mon,OT),
+        #       "Monomial not in tree.");
+        #Info(InfoGBNP,4,"RemoveMonFromTreePTSLR i:",i," mon:",mon);
 
-	pi:=OT.pg+1;
+        pi:=OT.pg+1;
 
-	r:=OT.tree;
-	len:=Length(mon);pos:=1;
+        r:=OT.tree;
+        len:=Length(mon);pos:=1;
 
-	oldr:=0;
+        oldr:=0;
 
-	if len=0 then
-		oldind:=pi;
-	else
-		if left then
-			pos2:=pos;
-		else
-			pos2:=len-pos+1;
-		fi;
+        if len=0 then
+                oldind:=pi;
+        else
+                if left then
+                        pos2:=pos;
+                else
+                        pos2:=len-pos+1;
+                fi;
 
-		oldind:=mon[pos2]+pi;
-	fi;
+                oldind:=mon[pos2]+pi;
+        fi;
 
-	#follow OT as far as possible
-	while (pos<=len) do
-		if left then
-			pos2:=pos;
-		else
-			pos2:=len-pos+1;
-		fi;
+        #follow OT as far as possible
+        while (pos<=len) do
+                if left then
+                        pos2:=pos;
+                else
+                        pos2:=len-pos+1;
+                fi;
 
-		#if IsBound(r) then
-		#	# not added, so nothing to remove
-		#	return OT;
-		if IsBound(r[mon[pos2]+pi]) then # follow the existing prefix
-			if Number(r)<>1 then
-				# if number=1 than this could be the tail for
-				# this one
-				oldr:=r;oldind:=mon[pos2]+pi;
-			fi;
-			r:=r[mon[pos2]+pi];
-		else # not added, so nothing to remove
-			Info(InfoGBNP,3,"could not remove!");
-			return ;
-		fi;
-		pos:=pos+1;
-	od;
+                #if IsBound(r) then
+                #       # not added, so nothing to remove
+                #       return OT;
+                if IsBound(r[mon[pos2]+pi]) then # follow the existing prefix
+                        if Number(r)<>1 then
+                                # if number=1 than this could be the tail for
+                                # this one
+                                oldr:=r;oldind:=mon[pos2]+pi;
+                        fi;
+                        r:=r[mon[pos2]+pi];
+                else # not added, so nothing to remove
+                        Info(InfoGBNP,3,"could not remove!");
+                        return ;
+                fi;
+                pos:=pos+1;
+        od;
 
-	if IsBound(r[pi]) and OT.tree2arr[r[pi]]=i then # remove
-		if Number(r)<>1 then
-			Unbind(r[pi]);
-		else
-			if oldr=0 then #clean the whole tree
-				Unbind(OT.tree[oldind]);
-			else
-				# r should now be i
-				Unbind(oldr[oldind]);
-				# remove the tail that is exclusively for
-				# this function
-			fi;
-		fi;
-	fi;
-	OT.tree2arr[OT.arr2tree[i]]:=OT.nextnum;
-	OT.nextnum:=OT.arr2tree[i];
-	RemoveElmList(OT.arr2tree,i);
-	for j in [i..Length(OT.arr2tree)] do
-		OT.tree2arr[OT.arr2tree[j]]:=j;
-	od;
+        if IsBound(r[pi]) and OT.tree2arr[r[pi]]=i then # remove
+                if Number(r)<>1 then
+                        Unbind(r[pi]);
+                else
+                        if oldr=0 then #clean the whole tree
+                                Unbind(OT.tree[oldind]);
+                        else
+                                # r should now be i
+                                Unbind(oldr[oldind]);
+                                # remove the tail that is exclusively for
+                                # this function
+                        fi;
+                fi;
+        fi;
+        OT.tree2arr[OT.arr2tree[i]]:=OT.nextnum;
+        OT.nextnum:=OT.arr2tree[i];
+        RemoveElmList(OT.arr2tree,i);
+        for j in [i..Length(OT.arr2tree)] do
+                OT.tree2arr[OT.arr2tree[j]]:=j;
+        od;
 end;
 
 ###########################
@@ -704,12 +704,12 @@ end;
 ### of the occur tree
 ###
 ### Arguments:
-### - l			the help list
-### - OT		the tree (with arrays arr2tree and tree2arr)
-### - searchfun		the search function (usually LtNP)
+### - l                 the help list
+### - OT                the tree (with arrays arr2tree and tree2arr)
+### - searchfun         the search function (usually LtNP)
 ###
 ### Returns:
-### 	nothing, but changes the tree: sorts arr2tree (and updates tree2arr)
+###     nothing, but changes the tree: sorts arr2tree (and updates tree2arr)
 ###
 ### #GBNP.SortParallelOT uses:#
 ### #GBNP.SortParallelOT is used in: GBNP.ObsTall THeapOT#
@@ -717,11 +717,11 @@ end;
 
 GBNP.SortParallelOT:=function(l,OT,searchfun)
 local i;
-	SortParallel(l,OT.arr2tree,searchfun);
-	for i in [1..Length(OT.arr2tree)]
-	do
-		OT.tree2arr[OT.arr2tree[i]]:=i;
-	od;
+        SortParallel(l,OT.arr2tree,searchfun);
+        for i in [1..Length(OT.arr2tree)]
+        do
+                OT.tree2arr[OT.arr2tree[i]]:=i;
+        od;
 end;
 
 
@@ -730,19 +730,19 @@ end;
 #######################
 ###
 ### Arguments:
-### lts	 	- list of leading terms
-### t		- number of elements in the alphabet
-### maxno	- maximum number of monomials to be found
+### lts         - list of leading terms
+### t           - number of elements in the alphabet
+### maxno       - maximum number of monomials to be found
 ###
 ### Returns:
-### ans		- List of nondiv. monomials
+### ans         - List of nondiv. monomials
 ###
 ### #GBNP.NondivMons uses: GBNP.NondivMonsPTS#
 ### #GBNP.NondivMons is used in: BaseQA#
 ###
 
 GBNP.NondivMons := function(lts,t,maxno)
-	return GBNP.NondivMonsPTS([],lts,t,0,maxno);
+        return GBNP.NondivMonsPTS([],lts,t,0,maxno);
 end;
 
 ##########################
@@ -750,14 +750,14 @@ end;
 ##########################
 ###
 ### Arguments:
-### plts	- list of leading terms for prefix rules
-### lts	 	- list of leading terms
-### t		- number of elements in the alphabet
-### mt		- number of elements in the module-alphabet
-### maxno	- maximum number of monomials to be found
+### plts        - list of leading terms for prefix rules
+### lts         - list of leading terms
+### t           - number of elements in the alphabet
+### mt          - number of elements in the module-alphabet
+### maxno       - maximum number of monomials to be found
 ###
 ### Returns:
-### ans		- List of nondiv. monomials
+### ans         - List of nondiv. monomials
 ###
 ### #GBNP.NondivMonsPTS uses: GBNP.CreateOccurTreePTSLR GBNP.LookUpOccurTreePTSLRPos GBNP.OccurInLst#
 ### #GBNP.NondivMonsPTS is used in: BaseQM GBNP.NondivMons#
@@ -766,11 +766,11 @@ end;
 GBNP.NondivMonsPTS := function(plts,lts,t,mt,maxno) local h,i,ct,hi,tt,ans,idf,lvl,cont,ROT,pLOT;
 
 #jwk schreef uitzetten op 11 aug 2009
-#mt:=GBNP.GetOptions().pg; 		# XXX even not longer needed
-    if plts<>[] then			# XXX mt should not be changed here
-    	lts:=Concatenation(plts,lts);	# XXX
-    	plts:=[];			# XXX
-    fi;					# XXX
+#mt:=GBNP.GetOptions().pg;              # XXX even not longer needed
+    if plts<>[] then                    # XXX mt should not be changed here
+        lts:=Concatenation(plts,lts);   # XXX
+        plts:=[];                       # XXX
+    fi;                                 # XXX
     cont := true;
 
     if maxno = 0 then idf := true; else idf := false; fi;
@@ -783,14 +783,14 @@ GBNP.NondivMonsPTS := function(plts,lts,t,mt,maxno) local h,i,ct,hi,tt,ans,idf,l
     ans := [];
     lvl := 1;
     if mt >0 then
-    	ans[1] := [];
-	for i in [-mt,-mt+1..-1] do
+        ans[1] := [];
+        for i in [-mt,-mt+1..-1] do
                 if Length(lts)=0 or GBNP.LookUpOccurTreePTSLRPos([i],ROT,false,1) = 0 then
-			Add(ans[1],[i]);
-		fi;
-	od;
+                        Add(ans[1],[i]);
+                fi;
+        od;
     else
-    	ans[1] := [[]];
+        ans[1] := [[]];
     fi;
     ct := Length(ans[1]);
 
@@ -805,8 +805,8 @@ GBNP.NondivMonsPTS := function(plts,lts,t,mt,maxno) local h,i,ct,hi,tt,ans,idf,l
                 hi := StructuralCopy(h);
                 Append(hi,[i]);
                 if Length(lts)=0 or GBNP.LookUpOccurTreePTSLRPos(hi,ROT,false,1) = 0
-                	# XXX and GBNP.LookUpOccurTreePTSLRPos(hi,pLOT,true,1)= 0 #remove plts and this
-		then
+                        # XXX and GBNP.LookUpOccurTreePTSLRPos(hi,pLOT,true,1)= 0 #remove plts and this
+                then
                    ct := ct+ 1;
                    Append(tt,[hi]);
                    cont := true;
@@ -826,14 +826,14 @@ end;
 ### should be faster
 ###
 ### Arguments:
-### plts	- list of leading terms for prefix rules
-### lts	 	- list of leading terms
-### t		- number of elements in the alphabet
-### mt		- number of elements in the module-alphabet
-### maxno	- maximum number of monomials to be found
+### plts        - list of leading terms for prefix rules
+### lts         - list of leading terms
+### t           - number of elements in the alphabet
+### mt          - number of elements in the module-alphabet
+### maxno       - maximum number of monomials to be found
 ###
 ### Returns:
-### ans		- List of nondiv. monomials
+### ans         - List of nondiv. monomials
 ###
 ### #GBNP.NondivMonsPTSenum uses: GBNP.CreateOccurTreePTSLR GBNP.GetOptions GBNP.OccurInLst#
 ### #GBNP.NondivMonsPTSenum is used in: DimQA DimQM GBNP.SGrobnerLoops#
@@ -842,53 +842,53 @@ end;
 GBNP.NondivMonsPTSenum := function(plts,lts,t,mt,max)
 local lvl,ROT, pol, todo, found_new, countfun, count;
 
-    #mt:=GBNP.GetOptions().pg; 		# XXX even not longer needed
-    if plts<>[] then			# XXX mt should not be changed here
-    	lts:=Concatenation(plts,lts);	# XXX
-    	plts:=[];			# XXX
-    fi;					# XXX
+    #mt:=GBNP.GetOptions().pg;          # XXX even not longer needed
+    if plts<>[] then                    # XXX mt should not be changed here
+        lts:=Concatenation(plts,lts);   # XXX
+        plts:=[];                       # XXX
+    fi;                                 # XXX
 
     if Length(lts) = 0 then return "error: empty input"; fi;
     if GBNP.OccurInLst([],lts)[1] > 0 then return 0; fi;
     ROT := GBNP.CreateOccurTreePTSLR(lts,mt,false);
     #pLOT := GBNP.CreateOccurTreePTSLR(plts,mt,true); # XXX remove plts and this
     if mt >0 then
-    	todo := List([-mt,-mt+1..-1],x->[x]);
+        todo := List([-mt,-mt+1..-1],x->[x]);
         lvl := 2;
     else
-    	todo := [[]];
+        todo := [[]];
         lvl := 1;
     fi;
 
     countfun:=function(pol,lvl)
-    	local i, count;
+        local i, count;
 
-	if max>0 and lvl>max then return 1; fi;
+        if max>0 and lvl>max then return 1; fi;
 
-	count:=0;
-	for i in [1..t]  do
-	    pol[lvl]:=i;
+        count:=0;
+        for i in [1..t]  do
+            pol[lvl]:=i;
             if GBNP.LookUpOccurTreePTSLRPos(pol,ROT,false,1) = 0 then
-	        count:=count+countfun(pol,lvl+1)+1;
-		Unbind(pol[lvl+1]);
-	    fi;
-	    if max>0 and count>max then
-	    	return count;
-	    fi;
-	od;
+                count:=count+countfun(pol,lvl+1)+1;
+                Unbind(pol[lvl+1]);
+            fi;
+            if max>0 and count>max then
+                return count;
+            fi;
+        od;
 
-	return count;
+        return count;
     end;
 
     count:=0;
     for pol in todo do
         if GBNP.LookUpOccurTreePTSLRPos(pol,ROT,false,1) = 0 then
-    	    count:=count+countfun(pol,lvl)+1;
-	    if max>0 and count>max then
-	    	return max;
-	    fi;
-	    Unbind(pol[lvl+1]);
-	fi;
+            count:=count+countfun(pol,lvl)+1;
+            if max>0 and count>max then
+                return max;
+            fi;
+            Unbind(pol[lvl+1]);
+        fi;
     od;
 
     return count;

@@ -45,7 +45,7 @@ GBNP.OptionsRec:=rec(pg:=0);
 ###
 
 GBNP.GetOptions:=function()
-	return GBNP.OptionsRec;
+        return GBNP.OptionsRec;
 end;
 
 ######################
@@ -55,17 +55,17 @@ end;
 ### Get one option (slow, faster is GBNP.GetOptions().name)
 ###
 ### Arguments:
-### - name		the name of the option asked for (string)
+### - name              the name of the option asked for (string)
 ###
 ### #GBNP.GetOption uses:#
 ### #GBNP.GetOption is used in:#
 ###
 
 GBNP.GetOption:=function(name)
-	if IsBound(GBNP.OptionsRec.(name)) then
-		return GBNP.OptionsRec.(name);
-	fi;
-	return fail;
+        if IsBound(GBNP.OptionsRec.(name)) then
+                return GBNP.OptionsRec.(name);
+        fi;
+        return fail;
 end;
 
 #######################
@@ -75,14 +75,14 @@ end;
 ### Function to set all options
 ###
 ### Arguments:
-### - options		the new set of options
+### - options           the new set of options
 ###
 ### #GBNP.SetOptions uses:#
 ### #GBNP.SetOptions is used in:#
 ###
 
 GBNP.SetOptions:=function(options)
-	GBNP.OptionsRec:=options;
+        GBNP.OptionsRec:=options;
 end;
 
 ######################
@@ -92,15 +92,15 @@ end;
 ### Function to set one option (slow, faster is GBNP.GetOptions().name:=value)
 ###
 ### Arguments:
-### - name 		the name of the option to change (string)
-### - value 		the new value
+### - name              the name of the option to change (string)
+### - value             the new value
 ###
 ### #GBNP.SetOption uses:#
 ### #GBNP.SetOption is used in: GBNP.ConfigPrint GBNP.GP2NPM GBNP.SGrobnerLoops SGrobnerModule#
 ###
 
 GBNP.SetOption:=function(name,value)
-	GBNP.OptionsRec.(name):=value;
+        GBNP.OptionsRec.(name):=value;
 end;
 
 #########################
@@ -116,7 +116,7 @@ end;
 ###
 
 GBNP.ClearOptions:=function(arg)
-	GBNP.OptionsRec:=rec(pg:=0);
+        GBNP.OptionsRec:=rec(pg:=0);
 end;
 
 ########################
@@ -126,14 +126,14 @@ end;
 ### function to clear one option
 ###
 ### Arguments:
-### - name		 name of option to clear (string)
+### - name               name of option to clear (string)
 ###
 ### #GBNP.ClearOption uses:#
 ### #GBNP.ClearOption is used in:#
 ###
 
 GBNP.ClearOption:=function(name)
-	Unbind(GBNP.OptionsRec.(name));
+        Unbind(GBNP.OptionsRec.(name));
 end;
 
 ########################
@@ -195,69 +195,69 @@ end;
 ###
 
 GBNP.ConfigPrint:=function(arg)
-local 	larg,	# length of arg
-	names,	# names of the generators
-	ln,	# length of names
-	A;
+local   larg,   # length of arg
+        names,  # names of the generators
+        ln,     # length of names
+        A;
 
-	larg:=Length(arg);
-	if larg=0 then
-		# no arguments, use default
-		GBNP.ClearOption("PrintLetterFunction");
-		GBNP.ClearOption("PrintModuleDimension");
-		return;
-	elif larg=1 then
-		if IsAlgebra(arg[1]) and IsAssociative(arg[1]) then
-			names:=ShallowCopy(ElementsFamily(
-					FamilyObj(arg[1]))!.names);
-				# is this the right function - jwk
-		elif IsString(arg[1]) then
-			GBNP.SetOption("PrintLetterFunction",x->arg[1]);
-			return ;
-		elif IsInt(arg[1]) then
-			GBNP.SetOption("PrintLetterFunction",
-				x->Concatenation("x.",String(x)));
-			return ;
-		elif IsLeftModule(arg[1]) then
-		        A:=LeftActingDomain(arg[1]);
+        larg:=Length(arg);
+        if larg=0 then
+                # no arguments, use default
+                GBNP.ClearOption("PrintLetterFunction");
+                GBNP.ClearOption("PrintModuleDimension");
+                return;
+        elif larg=1 then
+                if IsAlgebra(arg[1]) and IsAssociative(arg[1]) then
+                        names:=ShallowCopy(ElementsFamily(
+                                        FamilyObj(arg[1]))!.names);
+                                # is this the right function - jwk
+                elif IsString(arg[1]) then
+                        GBNP.SetOption("PrintLetterFunction",x->arg[1]);
+                        return ;
+                elif IsInt(arg[1]) then
+                        GBNP.SetOption("PrintLetterFunction",
+                                x->Concatenation("x.",String(x)));
+                        return ;
+                elif IsLeftModule(arg[1]) then
+                        A:=LeftActingDomain(arg[1]);
 
-			# should be a module of an associative algebra
-			if not (IsAlgebra(A) and IsAssociative(A)) then
-				return fail;
-			fi;
+                        # should be a module of an associative algebra
+                        if not (IsAlgebra(A) and IsAssociative(A)) then
+                                return fail;
+                        fi;
 
-			names:=ShallowCopy(ElementsFamily(
-					FamilyObj(A))!.names);
+                        names:=ShallowCopy(ElementsFamily(
+                                        FamilyObj(A))!.names);
 
-			GBNP.SetOption("PrintModuleDimension",DimensionOfVectors(arg[1]));
-		fi;
-	elif larg=2 then
-		if IsInt(arg[1]) then # dimension doesn't really matter
-			GBNP.SetOption("PrintLetterFunction",
-				x->Concatenation(arg[2],".",String(x)));
-			return ;
-		elif IsAlgebra(arg[1]) and IsAssociative(arg[1]) and
-		 		IsInt(arg[2]) then
-			names:=ShallowCopy(ElementsFamily(
-					FamilyObj(arg[1]))!.names);
+                        GBNP.SetOption("PrintModuleDimension",DimensionOfVectors(arg[1]));
+                fi;
+        elif larg=2 then
+                if IsInt(arg[1]) then # dimension doesn't really matter
+                        GBNP.SetOption("PrintLetterFunction",
+                                x->Concatenation(arg[2],".",String(x)));
+                        return ;
+                elif IsAlgebra(arg[1]) and IsAssociative(arg[1]) and
+                                IsInt(arg[2]) then
+                        names:=ShallowCopy(ElementsFamily(
+                                        FamilyObj(arg[1]))!.names);
 
-			GBNP.SetOption("PrintModuleDimension",arg[2]);
+                        GBNP.SetOption("PrintModuleDimension",arg[2]);
 
-		else # should be all strings
-			names:=ShallowCopy(arg);
-		fi;
-	else
-		names:=ShallowCopy(arg);
-	fi;
+                else # should be all strings
+                        names:=ShallowCopy(arg);
+                fi;
+        else
+                names:=ShallowCopy(arg);
+        fi;
 
-	ln:=Length(names);
-	GBNP.SetOption("PrintLetterFunction",function(x)
-				if x<=ln then
-					return names[x];
-				else
-					return "x";
-				fi;
-			end);
+        ln:=Length(names);
+        GBNP.SetOption("PrintLetterFunction",function(x)
+                                if x<=ln then
+                                        return names[x];
+                                else
+                                        return "x";
+                                fi;
+                        end);
 end;
 
 ########################
@@ -270,7 +270,7 @@ end;
 ### NOTE: this procedure assumes that L does contain 0 ( [[],[]] )
 ###
 ### Arguments:
-### - L		list of polynomials
+### - L         list of polynomials
 ###
 ### #GBNP.CalculatePG uses:#
 ### #GBNP.CalculatePG is used in: GBNP.IsGrobnerBasisTest Grobner IsGrobnerPair MakeGrobnerPair SGrobner SGrobnerModule#
@@ -278,12 +278,12 @@ end;
 
 GBNP.CalculatePG:=function(L)
 local F;
-	F:=Filtered(L, x->IsBound(x[1][1][1]) and x[1][1][1]<0);
-	if Length(F)=0 then
-		return 0;
-	else
-		return -Minimum(List(F,x->x[1][1][1]));
-	fi;
+        F:=Filtered(L, x->IsBound(x[1][1][1]) and x[1][1][1]<0);
+        if Length(F)=0 then
+                return 0;
+        else
+                return -Minimum(List(F,x->x[1][1][1]));
+        fi;
 end;
 
 ###########################
@@ -294,7 +294,7 @@ end;
 ### lowest generator, multiplied with -1 to make it positive)
 ###
 ### Arguments:
-### - L		list of leading terms
+### - L         list of leading terms
 ###
 ### #GBNP.CalculatePG uses:#
 ### #GBNP.CalculatePG is used in: GBNP.IsGrobnerBasisTest Grobner IsGrobnerPair MakeGrobnerPair SGrobner SGrobnerModule#
@@ -302,12 +302,12 @@ end;
 
 GBNP.CalculatePGlts:=function(L)
 local F;
-	F:=Filtered(L, x->IsBound(x[1]) and x[1]<0);
-	if Length(F)=0 then
-		return 0;
-	else
-		return -Minimum(List(F,x->x[1]));
-	fi;
+        F:=Filtered(L, x->IsBound(x[1]) and x[1]<0);
+        if Length(F)=0 then
+                return 0;
+        else
+                return -Minimum(List(F,x->x[1]));
+        fi;
 end;
 
 GBNP.cleancount:=0;

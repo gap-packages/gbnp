@@ -20,7 +20,7 @@
 ### filename = "trunc.gd"
 ### author: Jan Willem Knopper
 ### extended: amc Sep 2008
-### 	made to accompany "trunc.gi" from Cohen & Gijsbers
+###     made to accompany "trunc.gi" from Cohen & Gijsbers
 ###
 ### This is a part of the GBNP package, version 0.9
 

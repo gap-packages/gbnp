@@ -65,34 +65,34 @@ PrintNP,function(ff) local ans,hlp,j,addon,l,sgn, opt, pg;
     l:=Length(ff[2]);
     addon:=false;
     if l=0 then
-	   ans:="0";
+           ans:="0";
     else
-    	if not Length(ff[1][1])=0 # (length=0->no module generators)
-		and ff[1][1][1]<0 # module generators
-		then
-		pg:=GBNP.GetOption("PrintModuleGenerators");
-		if pg = fail then
-			pg:= GBNP.GetOptions().pg;
-		fi;
-		GBNP.PrintNPM(ff, pg);
-		return;
-	fi;
+        if not Length(ff[1][1])=0 # (length=0->no module generators)
+                and ff[1][1][1]<0 # module generators
+                then
+                pg:=GBNP.GetOption("PrintModuleGenerators");
+                if pg = fail then
+                        pg:= GBNP.GetOptions().pg;
+                fi;
+                GBNP.PrintNPM(ff, pg);
+                return;
+        fi;
     fi;
     for j in [1..l] do
         hlp:=ff[2][j];
         if not IsZero(hlp) then
             if not(IsRat(hlp)) then
-		sgn:="+ ";
-	    else if (SignInt(hlp)=1) then
-		     sgn:="+ ";
-	        else
+                sgn:="+ ";
+            else if (SignInt(hlp)=1) then
+                     sgn:="+ ";
+                else
                      sgn:="- ";
-	      	     hlp:=AbsInt(hlp);
-	    	fi;
-	    fi;
+                     hlp:=AbsInt(hlp);
+                fi;
+            fi;
             if addon or sgn = "- " then
-		 Append(ans,sgn);
-	    fi;
+                 Append(ans,sgn);
+            fi;
             addon:=true;
             if not IsOne(hlp) or ff[1][j]=[] then
                 Append(ans,String(hlp));
@@ -129,7 +129,7 @@ end);;
 InstallGlobalFunction(
 PrintNPList,function(G) local f;
     for f in G do
-	   PrintNP(f);
+           PrintNP(f);
     od;
 end);;
 
@@ -147,22 +147,22 @@ GBNP.PrintNPnonewline:=function(np) local ans,hlp,j,addon,l,sgn;
     l:=Length(np[2]);
     addon:=false;
     if l=0 then
-	   ans:="0";
+           ans:="0";
     fi;
     for j in [1..l] do
         hlp:=np[2][j];
         if not IsZero(hlp) then
             if (not IsRat(hlp)) or SignInt(hlp)=1 then
-			 sgn:="+ ";
-		  else sgn:="- ";
-		  fi;
+                         sgn:="+ ";
+                  else sgn:="- ";
+                  fi;
             if addon or sgn = "- " then
-			 Append(ans,sgn);
-	       fi;
+                         Append(ans,sgn);
+               fi;
             addon:=true;
             if IsRat(hlp) then
-	      hlp:=AbsInt(hlp);
-	    fi;
+              hlp:=AbsInt(hlp);
+            fi;
             if not IsOne(hlp) or np[1][j]=[] then
                 Append(ans,String(hlp));
             fi;
@@ -196,20 +196,20 @@ end;;
 ###
 
 GBNP.PrintNPM:=function(ff,mt)
-local 	nparr,	# ff as an np array
-	i, 	# counter
-	l;	# length of nparr
+local   nparr,  # ff as an np array
+        i,      # counter
+        l;      # length of nparr
 
-	nparr:=GBNP.NPM2NPArray(ff,mt);
-	l:=Length(nparr);
+        nparr:=GBNP.NPM2NPArray(ff,mt);
+        l:=Length(nparr);
 
-	Print("[ ");
+        Print("[ ");
 
-	for i in [1..l] do
-		GBNP.PrintNPnonewline(nparr[i]);
-		if i<>l then Print(", "); fi;
-	od;
-	Print("]\n");
+        for i in [1..l] do
+                GBNP.PrintNPnonewline(nparr[i]);
+                if i<>l then Print(", "); fi;
+        od;
+        Print("]\n");
 end;
 
 ########################
@@ -223,7 +223,7 @@ end;
 
 GBNP.TransLetter:=function(y)
     if IsBound(GBNP.GetOptions().PrintLetterFunction) then
-    	return GBNP.GetOptions().PrintLetterFunction(y);
+        return GBNP.GetOptions().PrintLetterFunction(y);
     fi;
 
     if y>0 and y<13 then
@@ -270,7 +270,7 @@ end;;
 ### - Prints one term of a trace of a non-commutative polynomial
 ###
 ### Arguments:
-### term	- One term of a trace of a non-commutative polynomial
+### term        - One term of a trace of a non-commutative polynomial
 ###
 ### #GBNP.PrintTraceTerm uses: GBNP.GetOptions#
 ### #GBNP.PrintTraceTerm is used in: GBNP.PrintTracePolCancel PrintTracePol#
@@ -280,29 +280,29 @@ GBNP.PrintTraceTerm:=function(term) local k,options,wordfun,times,e;
    options:=GBNP.GetOptions();
 
    if IsBound(options.PrintTraceAsGP) and IsBound(options.Algebra) then
-   	e:=One(LeftActingDomain(options.Algebra));
-   	wordfun:=function(w)
-		if w<>[] then
-			Print(NP2GP([[w],[e]],options.Algebra));
-		fi;
-	end;
-	times:=function(x)
-		if x<>[] then
-			return "*";
-		else
-			return "";
-		fi;
-	end;
+        e:=One(LeftActingDomain(options.Algebra));
+        wordfun:=function(w)
+                if w<>[] then
+                        Print(NP2GP([[w],[e]],options.Algebra));
+                fi;
+        end;
+        times:=function(x)
+                if x<>[] then
+                        return "*";
+                else
+                        return "";
+                fi;
+        end;
    else
         wordfun:=function(w) Print(GBNP.TransWord(w)); end;
-	times:=x->"";
+        times:=x->"";
    fi;
 
    k:= term[4];
    if not IsZero(k) then
       if (IsRat(k)) and (SignInt(k)<>1) then
          Print("-");
-       	 k:=-k;
+         k:=-k;
       fi;
    fi;
    Print(" ");
@@ -310,15 +310,15 @@ GBNP.PrintTraceTerm:=function(term) local k,options,wordfun,times,e;
 
     if IsInt(term[2]) then
         wordfun(term[1]);
-	Print(times(term[1]),"G(",term[2],")",times(term[3]));
-	wordfun(term[3]);
-	Print(" ");
+        Print(times(term[1]),"G(",term[2],")",times(term[3]));
+        wordfun(term[3]);
+        Print(" ");
     else
         wordfun(term[1]);Print(times(term[1]),"(");
         GBNP.PrintTracePolCancel(term[2]);
         Print(")",times(term[3]));
-	wordfun(term[3]);
-	Print(" ");
+        wordfun(term[3]);
+        Print(" ");
     fi;
 end;
 
@@ -329,7 +329,7 @@ end;
 ### Prints a tracepolynomial inside the brackets (which could be cancelled)
 ###
 ### Arguments:
-### - pol		the polynomial to print
+### - pol               the polynomial to print
 ###
 ### #GBNP.PrintTracePolCancel uses: GBNP.PrintTraceTerm#
 ### #GBNP.PrintTracePolCancel is used in: wordfun#
@@ -337,17 +337,17 @@ end;
 
 GBNP.PrintTracePolCancel:=function(pol)
 local i,k;
-	if pol.pol <> [[],[]] then
-		k:=Length(pol.trace);
-		GBNP.PrintTraceTerm(pol.trace[1]);
-		if k > 1 then
-			for i in [2..k] do
-				if (not IsRat(pol.trace[i][4])) or (SignInt(pol.trace[i][4]) > 0) then Print("+"); fi;
-				GBNP.PrintTraceTerm(pol.trace[i]);
-			od;
-		fi;
-	fi;
-	return "";
+        if pol.pol <> [[],[]] then
+                k:=Length(pol.trace);
+                GBNP.PrintTraceTerm(pol.trace[1]);
+                if k > 1 then
+                        for i in [2..k] do
+                                if (not IsRat(pol.trace[i][4])) or (SignInt(pol.trace[i][4]) > 0) then Print("+"); fi;
+                                GBNP.PrintTraceTerm(pol.trace[i]);
+                        od;
+                fi;
+        fi;
+        return "";
 end;
 
 
@@ -367,7 +367,7 @@ end;
 ### - Prints the trace of an NP polynomial
 ###
 ### Arguments:
-### p		- traced NP polynomial
+### p           - traced NP polynomial
 ###
 ### #PrintTracePol uses: GBNP.PrintTraceTerm#
 ### #PrintTracePol is used in: PrintTraceList#
@@ -378,16 +378,16 @@ PrintTracePol,function(p) local i,k,trace;
        if p.pol <> [[],[]] then
            # reduce the trace before printing
            trace:=GBNP.CombineTrace(p.trace);
-	   k:=Length(trace);
-	   GBNP.PrintTraceTerm(trace[1]);
-	   if k > 1 then
-	      for i in [2..k] do
-		 if (not IsRat(trace[i][4])) or (SignInt(trace[i][4]) > 0) then Print("+"); fi;
-       		 GBNP.PrintTraceTerm(trace[i]);
-	      od;
-	   fi;
+           k:=Length(trace);
+           GBNP.PrintTraceTerm(trace[1]);
+           if k > 1 then
+              for i in [2..k] do
+                 if (not IsRat(trace[i][4])) or (SignInt(trace[i][4]) > 0) then Print("+"); fi;
+                 GBNP.PrintTraceTerm(trace[i]);
+              od;
+           fi;
         fi;
-	Print("\n");
+        Print("\n");
 end);
 
 
@@ -408,7 +408,7 @@ end);
 ### - Prints the traces of a list of non-commutative polynomials
 ###
 ### Arguments:
-### G		- Set of traced non-commutative polynomials
+### G           - Set of traced non-commutative polynomials
 ###
 ### #PrintTraceList uses: PrintTracePol#
 ### #PrintTraceList is used in:#
@@ -416,13 +416,13 @@ end);
 
 InstallGlobalFunction(
 PrintTraceList,function(G) local i,lg;
-	lg:=Length(G);
-	for i in [1..lg] do
-	   PrintTracePol(G[i]);
-	   if (i<>lg) then
-	      Print("\n");
-	   fi;
-	od;
+        lg:=Length(G);
+        for i in [1..lg] do
+           PrintTracePol(G[i]);
+           if (i<>lg) then
+              Print("\n");
+           fi;
+        od;
 end);
 
 
@@ -445,7 +445,7 @@ end);
 ###   NOT using the trace
 ###
 ### Arguments:
-### G		- Set of traced non-commutative polynomials
+### G           - Set of traced non-commutative polynomials
 ###
 ### #PrintNPListTrace uses: PrintNPList#
 ### #PrintNPListTrace is is used in:#
@@ -453,9 +453,9 @@ end);
 
 InstallGlobalFunction(
 PrintNPListTrace,function(G) local tra;
-	for tra in G do
-	   PrintNPList([tra.pol]);
-#	   Print("\n"); # commented out by jwk so this function's output looks
-			# more like PrintNPList
-	od;
+        for tra in G do
+           PrintNPList([tra.pol]);
+#          Print("\n"); # commented out by jwk so this function's output looks
+                        # more like PrintNPList
+        od;
 end);

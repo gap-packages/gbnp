@@ -83,23 +83,23 @@ p1 := [[[5,1]],[1]];;
 p2 := [[powermon(1,3),[6,1]],[1,1]];;
 p3 := [[powermon(1,9),Concatenation([3],powermon(1,3))],[1,1]];;
 p4 := [[powermon(1,81),Concatenation([3],powermon(1,9)),
-	Concatenation([4],powermon(1,3))],[1,1,1]];;
+        Concatenation([4],powermon(1,3))],[1,1,1]];;
 p5 := [[Concatenation([3],powermon(1,81)),Concatenation([4],powermon(1,9)),
-	Concatenation([5],powermon(1,3))],[1,1,1]];;
+        Concatenation([5],powermon(1,3))],[1,1,1]];;
 p6 := [[powermon(1,27),Concatenation([4],powermon(1,81)),Concatenation([5],
-	powermon(1,9)),Concatenation([6],powermon(1,3))],[1,1,1,1]];;
+        powermon(1,9)),Concatenation([6],powermon(1,3))],[1,1,1,1]];;
 p7 := [[powermon(2,1),Concatenation([3],powermon(1,27)),Concatenation([5],
-	powermon(1,81)),Concatenation([6],powermon(1,9))],[1,1,1,1]];;
+        powermon(1,81)),Concatenation([6],powermon(1,9))],[1,1,1,1]];;
 p8 := [[Concatenation([3],powermon(2,1)),Concatenation([4],powermon(1,27)),
-	Concatenation([6],powermon(1,81))],[1,1,1]];;
+        Concatenation([6],powermon(1,81))],[1,1,1]];;
 p9 := [[Concatenation([],powermon(1,1)),Concatenation([4],powermon(2,1)),
-	Concatenation([5],powermon(1,27))],[1,1,1]];;
+        Concatenation([5],powermon(1,27))],[1,1,1]];;
 p10 := [[Concatenation([3],powermon(1,1)),Concatenation([5],powermon(2,1)),
-	Concatenation([6],powermon(1,27))],[1,1,1]];;
+        Concatenation([6],powermon(1,27))],[1,1,1]];;
 p11 := [[Concatenation([4],powermon(1,1)),Concatenation([6],powermon(2,1))],
-	[1,1]];;
+        [1,1]];;
 p12 := [[Concatenation([],powermon(2,3)),Concatenation([],powermon(2,1))],
-	[1,-1]];;
+        [1,-1]];;
 KI := [p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12];;
 for i in [1..5] do
     for j in [i+1..6] do

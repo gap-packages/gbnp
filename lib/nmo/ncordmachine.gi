@@ -16,15 +16,15 @@ BindGlobal("MakeNoncommutativeMonomialOrdering",
     obj := rec();
     ObjectifyWithAttributes( obj,
               NewType(NoncommutativeMonomialOrderingsFamily,
-	              IsNoncommutativeMonomialOrderingDefaultRep),
+                      IsNoncommutativeMonomialOrderingDefaultRep),
               Name, name,
-	      LtFunctionListRep, ordfun,
-	      ParentAlgebra, palgebra,
-	      LexicographicTable, lextable,
-	      LexicographicIndexTable, idxtable,
-	      AuxilliaryTable, auxtable,
-	      LexicographicPermutation, idxperm
-	    );
+              LtFunctionListRep, ordfun,
+              ParentAlgebra, palgebra,
+              LexicographicTable, lextable,
+              LexicographicIndexTable, idxtable,
+              AuxilliaryTable, auxtable,
+              LexicographicPermutation, idxperm
+            );
     if (IsNoncommutativeMonomialOrdering(nextordering)) then
       SetNextOrdering(obj, nextordering);
     fi;
@@ -42,94 +42,94 @@ InstallGlobalFunction("InstallNoncommutativeMonomialOrdering",
       function(arg)
         local gens,lextable,auxtable,len,parentalgebra,ordname,x,idxtable,idxperm,nextordering;
 
-	# Get name of our monomial ordering function:
+        # Get name of our monomial ordering function:
         ordname := NameFunction(ord);
 
         # Check that we're passed the correct parameter types:
-	if ( Length(arg) <= 0 or
-	     ( Length(arg) >= 1 and
+        if ( Length(arg) <= 0 or
+             ( Length(arg) >= 1 and
                not IsAlgebra(arg[1]))   ) then
-	  Error("usage: ", ordname, "(<algebra>)\n",
-	        "\t or ", ordname,
+          Error("usage: ", ordname, "(<algebra>)\n",
+                "\t or ", ordname,
                 "(<algebra>, <generator list>)\n",
-		"\t or ", ordname,
+                "\t or ", ordname,
                 "(<algebra>, <generator index list>)\n",
-	        "\t or ", ordname,
+                "\t or ", ordname,
                 "(<algebra>, <generator list>,<weight list>)\n");
-	else
-	  # First argument should be parent algebra:
-	  parentalgebra := arg[1];
+        else
+          # First argument should be parent algebra:
+          parentalgebra := arg[1];
 
-	  # Set nextordering to something we can check later,
-	  #  initialize auxilliary table:
-	  nextordering := [];
-	  auxtable := [];
+          # Set nextordering to something we can check later,
+          #  initialize auxilliary table:
+          nextordering := [];
+          auxtable := [];
 
           # If we have a multiplicative identity (one) in this
-	  #  algebra, we need get correct generating set:
+          #  algebra, we need get correct generating set:
           if (HasOne(parentalgebra)) then
-	    gens := GeneratorsOfAlgebraWithOne(parentalgebra);
-	  else
-	    gens := GeneratorsOfAlgebra(parentalgebra);
+            gens := GeneratorsOfAlgebraWithOne(parentalgebra);
+          else
+            gens := GeneratorsOfAlgebra(parentalgebra);
           fi;
 
-	  len := Length(gens);
+          len := Length(gens);
 
 
           # Case 1: Just algebra given:
           if ( Length(arg) = 1 ) then
-	    lextable := gens;
+            lextable := gens;
 
-	  # Case 2: Algebra and Lex List given:
-	  elif ( Length(arg) = 2 ) and ( IsList(arg[2]) ) then
-	    lextable := Unique(arg[2]);
+          # Case 2: Algebra and Lex List given:
+          elif ( Length(arg) = 2 ) and ( IsList(arg[2]) ) then
+            lextable := Unique(arg[2]);
 
-	  # Case 3: Algebra and ordering given:
-	  elif ( Length(arg) = 2 ) and
-	       ( IsNoncommutativeMonomialOrdering(arg[2]) ) then
+          # Case 3: Algebra and ordering given:
+          elif ( Length(arg) = 2 ) and
+               ( IsNoncommutativeMonomialOrdering(arg[2]) ) then
             nextordering := arg[2];
-	    lextable := gens;
-	    auxtable :=  ListWithIdenticalEntries(Length(gens),1);
+            lextable := gens;
+            auxtable :=  ListWithIdenticalEntries(Length(gens),1);
 
-	  # Case 4: Algebra, Lex List, and Auxilliary Vector
-	  #         (e.g. weight vector) given:
-	  elif ( Length(arg) = 3 ) and
-	       ( IsList(arg[2]) and IsList(arg[3]) ) then
+          # Case 4: Algebra, Lex List, and Auxilliary Vector
+          #         (e.g. weight vector) given:
+          elif ( Length(arg) = 3 ) and
+               ( IsList(arg[2]) and IsList(arg[3]) ) then
 
-	    lextable := Unique(arg[2]);
-	    auxtable := arg[3];
+            lextable := Unique(arg[2]);
+            auxtable := arg[3];
 
           # Case 5: Algebra, Lex List, and ordering:
-	  elif ( Length(arg) = 3 ) and
-	       ( IsList(arg[2]) and
-	       IsNoncommutativeMonomialOrdering(arg[3]) ) then
+          elif ( Length(arg) = 3 ) and
+               ( IsList(arg[2]) and
+               IsNoncommutativeMonomialOrdering(arg[3]) ) then
 
-	    lextable := Unique(arg[2]);
+            lextable := Unique(arg[2]);
             nextordering := arg[3];
 
-	  # Case 6: Algebra, Lex List, and Auxilliary Vector
-	  #         (e.g. weight vector), and ordering given:
-	  elif ( Length(arg) = 4 ) and
-	       ( IsList(arg[2]) and IsList(arg[3]) ) and
-	       ( IsNoncommutativeMonomialOrdering(arg[4]) ) then
+          # Case 6: Algebra, Lex List, and Auxilliary Vector
+          #         (e.g. weight vector), and ordering given:
+          elif ( Length(arg) = 4 ) and
+               ( IsList(arg[2]) and IsList(arg[3]) ) and
+               ( IsNoncommutativeMonomialOrdering(arg[4]) ) then
 
-	    lextable := Unique(arg[2]);
-	    auxtable := arg[3];
+            lextable := Unique(arg[2]);
+            auxtable := arg[3];
             nextordering := arg[4];
 
-	    # Check here to make sure correct size of aux vector?
+            # Check here to make sure correct size of aux vector?
 
-	  # Case 7: Algebra and parameters given:
-	  else
-	    lextable := Unique(arg{[2..Length(arg)]});
-	  fi;
+          # Case 7: Algebra and parameters given:
+          else
+            lextable := Unique(arg{[2..Length(arg)]});
+          fi;
 
           # Make sure list is homogeneous, and contains either:
           #   Valid indices for generators of the parent algebra, or
           #   Generators of the parent algebra.
-	  if ( IsHomogeneousList(lextable) and
-	         ( ForAll(lextable,x->x in [1..len])
-	            or ForAll(lextable,x->x in gens)  )
+          if ( IsHomogeneousList(lextable) and
+                 ( ForAll(lextable,x->x in [1..len])
+                    or ForAll(lextable,x->x in gens)  )
                                                          ) then
             lextable := OrderGenerators(parentalgebra, lextable);
             idxtable  := IndexGenerators(lextable);
@@ -141,19 +141,19 @@ InstallGlobalFunction("InstallNoncommutativeMonomialOrdering",
             #  (Non-indexed is faster!):
             if ( not IsSSortedList(idxtable) ) then
               return MakeNoncommutativeMonomialOrdering(
-	                  ordname, idxordfun, parentalgebra,
-			  lextable, idxtable, auxtable, idxperm,
-			  nextordering );
+                          ordname, idxordfun, parentalgebra,
+                          lextable, idxtable, auxtable, idxperm,
+                          nextordering );
             else
               return MakeNoncommutativeMonomialOrdering(
-	                  ordname, ordfun, parentalgebra,
-			  lextable, idxtable, auxtable, idxperm,
-			  nextordering );
+                          ordname, ordfun, parentalgebra,
+                          lextable, idxtable, auxtable, idxperm,
+                          nextordering );
             fi;
 
-	  else
-	    Error("usage: ", ordname, "(<algebra>)\n",
-	          "\t or ", ordname,
+          else
+            Error("usage: ", ordname, "(<algebra>)\n",
+                  "\t or ", ordname,
                   "(<algebra>, <generator list>)\n",
                   "\t or ", ordname,
                   "(<algebra>, <generator index list>)\n",
@@ -161,7 +161,7 @@ InstallGlobalFunction("InstallNoncommutativeMonomialOrdering",
                   "(<algebra>, <generator list>,<weight list>)\n");
           fi;
 
-	fi;
+        fi;
 
         return fail;
       end
@@ -299,7 +299,7 @@ InstallMethod(OrderingLtFunctionListRep,
 
         # If has 3 arguments, then return indexed
         #  function, otherwise non-indexed function:
-	numargs := NumberArgumentsFunction(fun);
+        numargs := NumberArgumentsFunction(fun);
         if ( numargs = 4 ) then
           idx := LexicographicIndexTable(ord);
           retval :=  fun(a,b,aux,idx);
@@ -329,7 +329,7 @@ InstallMethod(OrderingLtFunctionListRep,
             if (HasNextOrdering(ord)) then
               fun2 := OrderingLtFunctionListRep(NextOrdering(ord));
               retval := fun2(a,b);
-	    fi;
+            fi;
           fi;
 
         fi;
@@ -361,7 +361,7 @@ InstallMethod(OrderingGtFunctionListRep,
 
         # If has 3 arguments, then return indexed
         #  function, otherwise non-indexed function:
-	numargs := NumberArgumentsFunction(fun);
+        numargs := NumberArgumentsFunction(fun);
         if ( numargs = 4 ) then
           idx := LexicographicIndexTable(ord);
           retval :=  fun(a,b,aux,idx);
@@ -370,7 +370,7 @@ InstallMethod(OrderingGtFunctionListRep,
         fi;
 
         # If retval == false, return right away since
-	#  we cannot have a > b if a < b, otherwise
+        #  we cannot have a > b if a < b, otherwise
         #  do more checks:
         if (retval) then
           return(false);
@@ -385,14 +385,14 @@ InstallMethod(OrderingGtFunctionListRep,
           fi;
 
           if (flag) then
-	    return(true);
-	  else
+            return(true);
+          else
             # We must have equivalence at this point:
             # Check if we have a next ordering:
             if (HasNextOrdering(ord)) then
               fun2 := OrderingGtFunctionListRep(NextOrdering(ord));
               retval := fun2(a,b);
-	    fi;
+            fi;
           fi;
 
         fi;

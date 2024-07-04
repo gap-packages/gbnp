@@ -19,10 +19,10 @@
 
 InstallGlobalFunction(
 QuotientAlgebra, function(GB, A)
-local	QA;
+local   QA;
 
-	QA:=Objectify(QuotientAlgebraType, rec(GrobnerBasis:=GB, A:=A));
-	return QA;
+        QA:=Objectify(QuotientAlgebraType, rec(GrobnerBasis:=GB, A:=A));
+        return QA;
 end);
 
 

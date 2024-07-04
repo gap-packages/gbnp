@@ -19,7 +19,7 @@
 
 ### filename = "fincheck.gd"
 ### author: Jan Willem Knopper
-### 	made to accompany "fincheck.gi" from Chris Krook
+###     made to accompany "fincheck.gi" from Chris Krook
 ###
 ### This is an add on for the GBNP package, version 0.9
 

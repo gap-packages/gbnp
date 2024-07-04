@@ -70,7 +70,7 @@ GBNP.ConfigPrint(A);
 
 # <L>
 twosidrels:=[s1^2-o,s2^2-o,s3^2-o,(s1*s2)^3-o,(s2*s3)^3-o,(s1*s3)^2-o,
-	e^2-e,s1*e-e*s1,s2*e-e*s2,e*s3*e-(e*s3)^2,e*s3*e-(s3*e)^2];
+        e^2-e,s1*e-e*s1,s2*e-e*s2,e*s3*e-(e*s3)^2,e*s3*e-(s3*e)^2];
 prefixrels:=[e,s1-o,s2-o,s3*e-s3];
 # </L>
 
