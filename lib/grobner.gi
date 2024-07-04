@@ -82,7 +82,7 @@
  
 GBNP.RightOccur:=function(u,v) local lu,lv; 
     if u = v then 
-        return(1); 
+        return 1;
     fi;
     if LtNP(u,v) then 
         lu:=Length(u); 
@@ -115,7 +115,7 @@ end;;
 GBNP.LeftOccur:=function(u,v)
     local lu; 
     if u = v then 
-        return(1);
+        return 1;
     fi;
     if LtNP(u,v) then 
         lu:=Length(u); 
@@ -147,7 +147,7 @@ end;;
 GBNP.Occur:=function(u,v)
     local i,lu,p; 
     if u = v then
-        return(1);
+        return 1;
     fi;
     if LtNP(u,v) then 
         lu:=Length(u); 
@@ -220,7 +220,7 @@ GBNP.OccurInLst:=function(u,Rlst) local i,j,lr;
         j:= GBNP.Occur(Rlst[i],u); 
         #j:= PositionSublist(u,Rlst[i]); 
         if j>0 then
-            return([i,j]);
+            return [i,j];
         fi; 
         #if j<>fail then return([i,j]); fi; 
     od; 
@@ -528,7 +528,7 @@ GBNP.StrongNormalForm2:=function(f,G,G2)
                 dr:=lth{[i1[2]+Length(g[1][1])..Length(lth)]}; 
                 h:=AddNP(h,BimulNP(ga,g,dr),One(g[2][1]),-h[2][iid]/g[2][1]); 
                 if h=[[],[]] then 
-                    return(h);
+                    return h;
                 fi; 
                 if iid <= Length(h[1]) then 
                     lth := h[1][iid];  
