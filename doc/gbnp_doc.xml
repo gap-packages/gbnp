@@ -40,7 +40,7 @@ Section <Ref Sect="NP"/>.  This can be
 done either directly or by use of the transition functions described in Section
 <Ref Sect="TransitionFunctions"/>.
 To run the standard algorithm use the functions from Section <Ref
-	Sect="grobner"/>. With these functions, you can try and find a Gröbner
+    Sect="grobner"/>. With these functions, you can try and find a Gröbner
 basis. The word try is included
 because
 the algorithm for computing Gröbner bases is not guaranteed to terminate.
@@ -57,7 +57,7 @@ functions in Section <Ref Sect="QA"/>.  For a
 more advanced analysis of <M>Q</M>,
 such as a proof of finite or infinite dimensionality, or for determining its
 growth or its partial Hilbert series, use the functions from Section <Ref
-	Sect="finiteness"/> <!-- <File>fincheck.g</File> -->.
+    Sect="finiteness"/> <!-- <File>fincheck.g</File> -->.
 <P/>
 There are three variants of the Gröbner basis algorithm, the truncated
 version, the trace version, and the module version.
@@ -69,14 +69,14 @@ computes  the part of a Gröbner basis up to an indicated weight.
 The trace version
 (described in Section <Ref Sect="trace"/>),
 given by the functions described in Section <Ref
-	Sect="tracefun"/>, <!-- <File>trace.g</File> -->
+    Sect="tracefun"/>, <!-- <File>trace.g</File> -->
 computes an expression of the polynomials of
 the Gröbner basis found in terms of the original generators.
 The module version
 (described in Sections <Ref Sect="NPM"/>, <Ref Sect="PrefixRels"/>,
 and  <Ref Sect="GBR"/>),
 given by the functions described in Section <Ref
-	Sect="NPMs"/>, <!-- <File>trace.g</File> -->
+    Sect="NPMs"/>, <!-- <File>trace.g</File> -->
 computes a Gröbner basis for a submodule of a free <M>Q</M>-module of finite
 rank.
 
@@ -88,38 +88,38 @@ but not deemed necessary for a first time user.
 </Section>
 
 <Section><Heading>Further documentation</Heading>
-	The reports <Cite Key="CohenGijsbersEtAl2007"/>, <Cite
-		Key="Krook2003"/>, and  <Cite	Key="Knopper2004"/>
+    The reports <Cite Key="CohenGijsbersEtAl2007"/>, <Cite
+        Key="Krook2003"/>, and  <Cite   Key="Knopper2004"/>
  can be downloaded from the web at these
-	addresses:
-	<P/>
-	The report <Q>Non-commutative polynomial computations</Q>, by Arjeh
-	M. Cohen (with support of Dié Gijsbers, Jan Willem Knopper, and Chris Krook)
+    addresses:
+    <P/>
+    The report <Q>Non-commutative polynomial computations</Q>, by Arjeh
+    M. Cohen (with support of Dié Gijsbers, Jan Willem Knopper, and Chris Krook)
 can be downloaded from
-	<URL> http://mathdox.org/products/gbnp/gbnp.pdf</URL>.
-	<P/>
-	The report <Q>Dimensionality of quotient algebras</Q>, by Chris
-	Krook can be downloaded from
-	<URL> http://mathdox.org/products/gbnp/dqa.pdf</URL>.
-	<P/>
-	The report <Q>GBNP and vector enumeration</Q>, by Jan Willem Knopper
+    <URL> http://mathdox.org/products/gbnp/gbnp.pdf</URL>.
+    <P/>
+    The report <Q>Dimensionality of quotient algebras</Q>, by Chris
+    Krook can be downloaded from
+    <URL> http://mathdox.org/products/gbnp/dqa.pdf</URL>.
+    <P/>
+    The report <Q>GBNP and vector enumeration</Q>, by Jan Willem Knopper
          can be downloaded from
-	<URL> http://mathdox.org/products/gbnp/knopper.pdf</URL>.
+    <URL> http://mathdox.org/products/gbnp/knopper.pdf</URL>.
 
 </Section>
 </Chapter>
 <Chapter Label="Description"><Heading>Description</Heading>
 
 <Section Label="NP"><Heading>Non-commutative Polynomials (NPs)</Heading>
-	The main datatype of the GBNP package is a list of non-commutative
-	polynomials (NPs).
-	The data type for a <Emph>non-commutative polynomial</Emph>,
+    The main datatype of the GBNP package is a list of non-commutative
+    polynomials (NPs).
+    The data type for a <Emph>non-commutative polynomial</Emph>,
 referred to as its NP format,
  is a list of two lists:
 <List>
-	<Item>The first list is a list <C>m</C> of monomials.</Item>
-	<Item>The second list is a list <C>c</C> of coefficients of these
-		monomials.</Item>
+    <Item>The first list is a list <C>m</C> of monomials.</Item>
+    <Item>The second list is a list <C>c</C> of coefficients of these
+        monomials.</Item>
 </List>
 The two lists have the same length. The polynomial represented
 by the ordered pair <C>[m,c]</C> is
@@ -165,10 +165,10 @@ the same NP, we use the convention that polynomials are
 <Q>clean</Q>. This means that they look as if they are output of the
 function <Ref Func="CleanNP" Style="Text"/>.  In other words:
 <List>
-	<Item>each monomial occurs at most once in the list of monomials,</Item>
-	<Item>no monomials occur whose coefficients are zero,</Item>
-	<Item>the monomials are ordered (total degree first, then
-		lexicographically) from big to small.</Item>
+    <Item>each monomial occurs at most once in the list of monomials,</Item>
+    <Item>no monomials occur whose coefficients are zero,</Item>
+    <Item>the monomials are ordered (total degree first, then
+        lexicographically) from big to small.</Item>
 </List>
 An advantage of the ordering is that the leading monomial of an NP <C>p</C> is
 just <C>p[1][1]</C> and that its leading coefficient is <C>p[2][1]</C>.
@@ -193,7 +193,7 @@ For example in the free
 of rank 3,
 the expression
 <C>[[[-1]],[1]]</C>
-	represents <M>[1,0,0]</M> and
+    represents <M>[1,0,0]</M> and
 <C>[[[-1,1,2],[-1,2,1],[-3,2,2,2]],[6,-7,9]]</C>
 represents
 <M>[6x_1x_2-7x_2x_1,0,9x_2^3]</M>.
@@ -220,16 +220,16 @@ Func="StrongNormalFormNPM" Style="Text"/>, most of the time).
 It takes a list of NPs in a free algebra <M>A</M> and
 prepares two lists for treatment in a loop:
 <List>
-	<Item> First the list itself, called <C>G</C>. Before entering the
-		loop, <C>G</C> is cleaned, ordered, and its elements are made
-		monic, that is, multiplied by a scalar so that the leading
-		coefficient becomes one. The ordering is done by comparison
-		of leading monomials. The ordering on leading monomials is
-		length lexicographic. For other orderings, the functions of
-		the NMO extension can be used; see <Cite Key="NMODoc"/>.
+    <Item> First the list itself, called <C>G</C>. Before entering the
+        loop, <C>G</C> is cleaned, ordered, and its elements are made
+        monic, that is, multiplied by a scalar so that the leading
+        coefficient becomes one. The ordering is done by comparison
+        of leading monomials. The ordering on leading monomials is
+        length lexicographic. For other orderings, the functions of
+        the NMO extension can be used; see <Cite Key="NMODoc"/>.
         </Item>
-	<Item>Second the list of all normal forms with respect to <C>G</C> of S-polynomials
-		of elements of <C>G</C>. This list is called <C>D</C>.
+    <Item>Second the list of all normal forms with respect to <C>G</C> of S-polynomials
+        of elements of <C>G</C>. This list is called <C>D</C>.
 For a Gröbner basis,
 the S-polynomials of polynomials in <C>D</C> (possibly with an
 element of <C>G</C>) need to be computed.
@@ -240,12 +240,12 @@ Then, the function calls the routine <C>GBNP.SGrobnerLoop</C> on the arguments
 <C>G</C>, <C>D</C> which are changed in an attempt to modify <C>G</C> while
 still preserving the following two properties.
 <Enum>
-	<Item><C>G</C> generates the same two-sided ideal <M>I</M> in <M>A</M>
+    <Item><C>G</C> generates the same two-sided ideal <M>I</M> in <M>A</M>
  as before.</Item>
-	<Item><C>D</C> contains all normal forms with respect to <C>G</C> of S-polynomials
-		of elements from <C>G</C> that need to reduce to zero for the
-		basis to be a Gröbner basis.<!-- XXX does this need rephrasing
-		? --></Item> </Enum>
+    <Item><C>D</C> contains all normal forms with respect to <C>G</C> of S-polynomials
+        of elements from <C>G</C> that need to reduce to zero for the
+        basis to be a Gröbner basis.<!-- XXX does this need rephrasing
+        ? --></Item> </Enum>
 The importance of this feature is that, in case of huge computations,
 the user may store <C>G</C> and <C>D</C> at almost any time and resume the
 computation by reloading <C>G</C> and <C>D</C> and calling the loop function
@@ -297,9 +297,9 @@ the
 <C>D</C> list and prepare it for addition to <C>G</C>.  We are then concerned with
 two goals:
 <Enum>
-	<Item>to restore the invariant properties,</Item>
-	<Item>to clean up G (that is, reduce it to a more succinct, shorter
-		set).</Item>
+    <Item>to restore the invariant properties,</Item>
+    <Item>to clean up G (that is, reduce it to a more succinct, shorter
+        set).</Item>
 </Enum>
 This is mainly done by means of additional S-polynomial and Normal Form
 computations.
@@ -406,15 +406,15 @@ Style="Text"/>.
 </Section>
 
 <Section Label="GBR"><Heading>Gröbner basis records</Heading>
-	The function <Ref Func="SGrobnerModule" Style="Text"/> calculates a
-	Gröbner basis consisting of some two-sided relations in the algebra and
-	some prefix or module relations in the vector space. These are returned
-	in a record <C>GBR</C>. The two-sided relations can be found under the
-	name <C>GBR.ts</C> and the prefix relations under the name <C>GBR.p</C>.
-	Some other information is stored in this record as well.
-	<P/>
+    The function <Ref Func="SGrobnerModule" Style="Text"/> calculates a
+    Gröbner basis consisting of some two-sided relations in the algebra and
+    some prefix or module relations in the vector space. These are returned
+    in a record <C>GBR</C>. The two-sided relations can be found under the
+    name <C>GBR.ts</C> and the prefix relations under the name <C>GBR.p</C>.
+    Some other information is stored in this record as well.
+    <P/>
 The prefix conditions are in NPM format (see <Ref
-		Sect="NPM"/>) and the two-sided relations are in NP format.
+        Sect="NPM"/>) and the two-sided relations are in NP format.
 </Section>
 
 <Section Label="QuotientAlgs"><Heading>Quotient algebras</Heading> Once a Gröbner basis of a list
@@ -512,94 +512,94 @@ algebra with the same growth).
 
 
 <Chapter Label="Functions">
-	<Heading>Functions</Heading>
-	<Section Label="TransitionFunctions"><Heading>Converting polynomials
-			into different formats</Heading>
-		<#Include Label="GP2NP">
-		<#Include Label="GP2NPList">
-		<#Include Label="NP2GP">
-		<#Include Label="NP2GPList">
-	</Section>
-	<Section Label="printing"><Heading>Printing polynomials in NP format</Heading>
-		<#Include Label="PrintNP">
-		<#Include Label="GBNP.ConfigPrint">
-		<#Include Label="PrintNPList">
-	</Section>
-	<Section><Heading>Calculating with polynomials in NP format</Heading>
-		<#Include Label="NumAlgGensNP">
-		<#Include Label="NumAlgGensNPList">
-		<#Include Label="NumModGensNP">
-		<#Include Label="NumModGensNPList">
-		<#Include Label="AddNP">
-		<#Include Label="BimulNP">
-		<#Include Label="CleanNP">
-		<#Include Label="GtNP">
-		<#Include Label="LtNP">
-		<#Include Label="LMonsNP"> <!-- here ?? -->
-		<#Include Label="LTermsNP">
-		<#Include Label="MkMonicNP">
-		<#Include Label="FactorOutGcdNP">
-		<#Include Label="MulNP">
-	</Section>
-	<Section Label="grobner"><Heading>Gröbner functions, standard variant</Heading>
-		<#Include Label="Grobner"> <!-- remove ?? -->
-		<#Include Label="SGrobner">
-		<#Include Label="IsGrobnerBasis">
-		<#Include Label="IsStrongGrobnerBasis">
-		<#Include Label="IsGrobnerPair">
-		<#Include Label="MakeGrobnerPair">
-	</Section>
-	<Section Label="QA"><Heading>Finite-dimensional quotient
-		algebras</Heading>
-		<#Include Label="BaseQA">
-		<#Include Label="DimQA">
-		<#Include Label="MatrixQA">
-<!--		<#Include Label="MatrixQAC"> -->
-		<#Include Label="MatricesQA">
-<!--		<#Include Label="MatricesQAC"> -->
-		<#Include Label="MulQA">
-		<#Include Label="StrongNormalFormNP">
-	</Section>
-	<Section Label="finiteness"><Heading>Finiteness and Hilbert series</Heading>
+    <Heading>Functions</Heading>
+    <Section Label="TransitionFunctions"><Heading>Converting polynomials
+            into different formats</Heading>
+        <#Include Label="GP2NP">
+        <#Include Label="GP2NPList">
+        <#Include Label="NP2GP">
+        <#Include Label="NP2GPList">
+    </Section>
+    <Section Label="printing"><Heading>Printing polynomials in NP format</Heading>
+        <#Include Label="PrintNP">
+        <#Include Label="GBNP.ConfigPrint">
+        <#Include Label="PrintNPList">
+    </Section>
+    <Section><Heading>Calculating with polynomials in NP format</Heading>
+        <#Include Label="NumAlgGensNP">
+        <#Include Label="NumAlgGensNPList">
+        <#Include Label="NumModGensNP">
+        <#Include Label="NumModGensNPList">
+        <#Include Label="AddNP">
+        <#Include Label="BimulNP">
+        <#Include Label="CleanNP">
+        <#Include Label="GtNP">
+        <#Include Label="LtNP">
+        <#Include Label="LMonsNP"> <!-- here ?? -->
+        <#Include Label="LTermsNP">
+        <#Include Label="MkMonicNP">
+        <#Include Label="FactorOutGcdNP">
+        <#Include Label="MulNP">
+    </Section>
+    <Section Label="grobner"><Heading>Gröbner functions, standard variant</Heading>
+        <#Include Label="Grobner"> <!-- remove ?? -->
+        <#Include Label="SGrobner">
+        <#Include Label="IsGrobnerBasis">
+        <#Include Label="IsStrongGrobnerBasis">
+        <#Include Label="IsGrobnerPair">
+        <#Include Label="MakeGrobnerPair">
+    </Section>
+    <Section Label="QA"><Heading>Finite-dimensional quotient
+        algebras</Heading>
+        <#Include Label="BaseQA">
+        <#Include Label="DimQA">
+        <#Include Label="MatrixQA">
+<!--        <#Include Label="MatrixQAC"> -->
+        <#Include Label="MatricesQA">
+<!--        <#Include Label="MatricesQAC"> -->
+        <#Include Label="MulQA">
+        <#Include Label="StrongNormalFormNP">
+    </Section>
+    <Section Label="finiteness"><Heading>Finiteness and Hilbert series</Heading>
 
-		<#Include Label="DetermineGrowthQA">
-<!--		<#Include Label="DetermineGrowthObs"> -->
-		<#Include Label="FinCheckQA">
-		<!--<#Include Label="GraphOfNormalWords">
-		<#Include Label="GraphOfChains">
-		<#Include Label="HilbertSeriesG">-->
-		<#Include Label="HilbertSeriesQA">
-		<#Include Label="PreprocessAnalysisQA">
-	</Section>
-	<Section Label="tracefun"><Heading>Functions of the
-			trace variant</Heading>
-		<#Include Label="EvalTrace">
-		<#Include Label="PrintTraceList">
-		<#Include Label="PrintTracePol">
-		<#Include Label="PrintNPListTrace">
-		<#Include Label="SGrobnerTrace">
-		<#Include Label="StrongNormalFormTraceDiff">
-	</Section>
+        <#Include Label="DetermineGrowthQA">
+<!--        <#Include Label="DetermineGrowthObs"> -->
+        <#Include Label="FinCheckQA">
+        <!--<#Include Label="GraphOfNormalWords">
+        <#Include Label="GraphOfChains">
+        <#Include Label="HilbertSeriesG">-->
+        <#Include Label="HilbertSeriesQA">
+        <#Include Label="PreprocessAnalysisQA">
+    </Section>
+    <Section Label="tracefun"><Heading>Functions of the
+            trace variant</Heading>
+        <#Include Label="EvalTrace">
+        <#Include Label="PrintTraceList">
+        <#Include Label="PrintTracePol">
+        <#Include Label="PrintNPListTrace">
+        <#Include Label="SGrobnerTrace">
+        <#Include Label="StrongNormalFormTraceDiff">
+    </Section>
 
-	<Section Label="truncfun"><Heading>Functions of the truncated variant</Heading>
-		<Subsection><Heading>Examples</Heading>
-			More about these functions can be found in <Ref
-				Sect="Example11"/>
-		</Subsection>
-		<#Include Label="SGrobnerTrunc">
-		<#Include Label="CheckHomogeneousNPs">
-		<#Include Label="BaseQATrunc">
-		<#Include Label="DimsQATrunc">
-		<#Include Label="FreqsQATrunc">
-	</Section>
+    <Section Label="truncfun"><Heading>Functions of the truncated variant</Heading>
+        <Subsection><Heading>Examples</Heading>
+            More about these functions can be found in <Ref
+                Sect="Example11"/>
+        </Subsection>
+        <#Include Label="SGrobnerTrunc">
+        <#Include Label="CheckHomogeneousNPs">
+        <#Include Label="BaseQATrunc">
+        <#Include Label="DimsQATrunc">
+        <#Include Label="FreqsQATrunc">
+    </Section>
 
-	<Section Label="NPMs"><Heading>Functions of the module variant</Heading>
-		<#Include Label="SGrobnerModule">
-		<#Include Label="BaseQM">
-		<#Include Label="DimQM">
-		<#Include Label="MulQM">
-		<#Include Label="StrongNormalFormNPM">
-	</Section>
+    <Section Label="NPMs"><Heading>Functions of the module variant</Heading>
+        <#Include Label="SGrobnerModule">
+        <#Include Label="BaseQM">
+        <#Include Label="DimQM">
+        <#Include Label="MulQM">
+        <#Include Label="StrongNormalFormNPM">
+    </Section>
 </Chapter>
 
 
@@ -613,10 +613,10 @@ or to gain more information about the calculation itself.
 <P/>
 <Package>GAP</Package> provides the tools to be able to tune the output of the
 functions. All of the functions of this package use the <C>InfoClass</C> <Ref
-	InfoClass="InfoGBNP" Style="Text"/>
+    InfoClass="InfoGBNP" Style="Text"/>
 and some use
 the <C>InfoClass</C> <Ref
-	InfoClass="InfoGBNPTime" Style="Text"/>. As usual with GAP when
+    InfoClass="InfoGBNPTime" Style="Text"/>. As usual with GAP when
 this is left at 0, the functions will hardly print
  additional information. It can be set
 to 1 or 2 with <C>SetInfoLevel</C> (more about this function can be found at <Ref BookName="Reference" Label="SetInfoLevel"/>). A brief
@@ -625,27 +625,27 @@ explanation about each infolevel will be given in the next sections.
 
 <Section><Heading>InfoGBNP</Heading>
 <ManSection>
-	<InfoClass Name="InfoGBNP" Comm="InfoClass for this package"/>
-	<Description>
-		The <C>InfoClass</C> for this package is used in almost all
-		functions. To change this level to 1 (some information) or 2
-		(more information, also information from calculation loops) use
-		the function <C>SetInfoLevel</C>.
-	</Description>
+    <InfoClass Name="InfoGBNP" Comm="InfoClass for this package"/>
+    <Description>
+        The <C>InfoClass</C> for this package is used in almost all
+        functions. To change this level to 1 (some information) or 2
+        (more information, also information from calculation loops) use
+        the function <C>SetInfoLevel</C>.
+    </Description>
 </ManSection>
 <Subsection><Heading>What will be printed at level 0</Heading>
-	At level 0 no information is printed beyond what functions themselves
+    At level 0 no information is printed beyond what functions themselves
         command to be printed.
-	These include functions like <Ref Func="PrintNP" Style="Text"/>, <Ref
-		Func="PrintNPList" Style="Text"/>,
-	<Ref Func="PrintTraceList" Style="Text"/> and
-	<Ref Func="PrintNPListTrace" Style="Text"/>, but it also includes the
-	function <Ref Func="DetermineGrowthQA" Style="Text"/>, which only prints
-	one or two lines and <Ref Func="DimsQATrunc" Style="Text"/> which
-	produces information about a truncated Gröbner basis.
+    These include functions like <Ref Func="PrintNP" Style="Text"/>, <Ref
+        Func="PrintNPList" Style="Text"/>,
+    <Ref Func="PrintTraceList" Style="Text"/> and
+    <Ref Func="PrintNPListTrace" Style="Text"/>, but it also includes the
+    function <Ref Func="DetermineGrowthQA" Style="Text"/>, which only prints
+    one or two lines and <Ref Func="DimsQATrunc" Style="Text"/> which
+    produces information about a truncated Gröbner basis.
 </Subsection>
 <Subsection><Heading>What will be printed at level 1</Heading>
-	The infolevel can be set to 1 with the following command:
+    The infolevel can be set to 1 with the following command:
 <Listing>
 SetInfoLevel(InfoGBNP,1);
 </Listing>
@@ -654,7 +654,7 @@ information reports on the phase of the algorithm the calculations
 are in or some simple statistics about the input or output.
 </Subsection>
 <Subsection><Heading>What will be printed at level 2</Heading>
-	The infolevel can be set to 2 with the following command.
+    The infolevel can be set to 2 with the following command.
 <Listing>
 SetInfoLevel(InfoGBNP,2);
 </Listing>
@@ -664,7 +664,7 @@ information on loops in the calculations. Timing information will be
 printed as well.
 </Subsection>
 <!--Subsection><Heading>What will be printed at level 3</Heading>
-	The infolevel can be set to 3 with the following command:
+    The infolevel can be set to 3 with the following command:
 <Listing>
 SetInfoLevel(InfoGBNP,3);
 </Listing>
@@ -676,53 +676,53 @@ purposes in the future.
 
 <Section><Heading>InfoGBNPTime</Heading>
 <ManSection>
-	<InfoClass Name="InfoGBNPTime" Comm="InfoClass for timing information"/>
-	<Description>
-		The <C>InfoClass</C> for timing is used in producing
-		information about the runtime of the algorithm in certain
-		possibly lengthy calculations.
-		<P/>
-		To change this level to 1 (Gröbner functions give information)
-		or 2 (more information, also information from other functions,
-		which might not always take a long time and from inside loops)
-		use the function <C>SetInfoLevel</C>.
-	</Description>
+    <InfoClass Name="InfoGBNPTime" Comm="InfoClass for timing information"/>
+    <Description>
+        The <C>InfoClass</C> for timing is used in producing
+        information about the runtime of the algorithm in certain
+        possibly lengthy calculations.
+        <P/>
+        To change this level to 1 (Gröbner functions give information)
+        or 2 (more information, also information from other functions,
+        which might not always take a long time and from inside loops)
+        use the function <C>SetInfoLevel</C>.
+    </Description>
 </ManSection>
 <Subsection><Heading>What will be printed at level 0</Heading>
-	No timing information will be printed at level 0. This can be desirable
-	for small examples or when producing test output, for use with
-	<C>Test</C>.
+    No timing information will be printed at level 0. This can be desirable
+    for small examples or when producing test output, for use with
+    <C>Test</C>.
 </Subsection>
 <Subsection><Heading>What will be printed at level 1</Heading>
-	The infolevel can be set to 1 with the following command:
+    The infolevel can be set to 1 with the following command:
 <Listing>
 SetInfoLevel(InfoGBNPTime,1);
 </Listing>
-	At level one there will be time information printed by the functions
-	from different variants of the Gröbner basis algorithm:
-	<Ref Func="Grobner" Style="Text"/>, <Ref Func="SGrobner" Style="Text"/>,
-	<Ref Func="SGrobnerTrace" Style="Text"/>, and <Ref Func="SGrobnerTrunc"
-		Style="Text"/>.
+    At level one there will be time information printed by the functions
+    from different variants of the Gröbner basis algorithm:
+    <Ref Func="Grobner" Style="Text"/>, <Ref Func="SGrobner" Style="Text"/>,
+    <Ref Func="SGrobnerTrace" Style="Text"/>, and <Ref Func="SGrobnerTrunc"
+        Style="Text"/>.
 </Subsection>
 <Subsection><Heading>What will be printed at level 2</Heading>
-	The infolevel can be set to 2 with the following command:
+    The infolevel can be set to 2 with the following command:
 <Listing>
 SetInfoLevel(InfoGBNPTime,2);
 </Listing>
-	At level two there will also be some information printed from a loop
-	from within <Ref Func="SGrobnerTrunc" Style="Text"/>.
+    At level two there will also be some information printed from a loop
+    from within <Ref Func="SGrobnerTrunc" Style="Text"/>.
 <!-- and certain other
-	functions will start to produce timing output. At the moment the only
-	function that does this is <Ref Func="DimQA" Style="Text"/>.
+    functions will start to produce timing output. At the moment the only
+    function that does this is <Ref Func="DimQA" Style="Text"/>.
 -->
 </Subsection>
 <!--Subsection><Heading>What will be printed at level 3</Heading>
-	The infolevel can be set to 3 with the following command:
+    The infolevel can be set to 3 with the following command:
 <Listing>
 SetInfoLevel(InfoGBNPTime,3);
 </Listing>
-	At the moment no extra timing information will be printed at level 3 or
-	higher.
+    At the moment no extra timing information will be printed at level 3 or
+    higher.
 </Subsection-->
 </Section>
 </Chapter>

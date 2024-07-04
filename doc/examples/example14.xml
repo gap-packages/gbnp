@@ -45,11 +45,11 @@ More information about the preprocessing can be found in the preprint <Q>The
 dimensionality of quotient algebras</Q> <Cite Key="Krook2003"/> which is part
 of the documentation.
 <P/>
-Note:	there is no information on the amount of preprocessing which is
+Note:   there is no information on the amount of preprocessing which is
 optimal, but in general for big examples, even full preprocessing is better
 than using no preprocessing at all.
 <P/>
-Note:	Example <Ref Sect="Example13"/> also determines if the
+Note:   Example <Ref Sect="Example13"/> also determines if the
 quotient algebra appearing
 here is finite or infinite dimensional but does not use
 preprocessing.

@@ -2,7 +2,7 @@
 <Section Label="ExamplesIntroduction"><Heading>Introduction</Heading>
 In this chapter all available commented examples can be found.
 Those without comments are in the directory
-		<F>gbnp/examples</F>.
+        <F>gbnp/examples</F>.
         <#Include SYSTEM "timing.xml">
 <List>
 <Item><Ref Sect="Example01"/> <Ref Sect="Example01"  Style="Text"/></Item>
@@ -35,15 +35,15 @@ This extends Example <Ref Sect="Example06"/>.
 </Item>
 <Item><Ref Sect="Example19"/> <Ref Sect="Example19"  Style="Text"/>
 <!-- Module example, permutation module of
-		dimension 4 of the dihedral group of order 8, with the all ones
-	vector fixed-->
+        dimension 4 of the dihedral group of order 8, with the all ones
+    vector fixed-->
 <P/>
 This extends Example <Ref Sect="Example18"/>.
 </Item>
 <Item><Ref Sect="Example20"/> <Ref Sect="Example20"  Style="Text"/>
 <P/>
 This example also extends  Example <Ref
-			Sect="Example18"/>.
+            Sect="Example18"/>.
 </Item>
 <Item><Ref Sect="Example04"/> <Ref Sect="Example04"  Style="Text"/></Item>
 <Item><Ref Sect="Example21"/> <Ref Sect="Example21"  Style="Text"/></Item>
@@ -59,30 +59,30 @@ This example also extends  Example <Ref
 <Item><Ref Sect="ExampleColagen"/> <Ref Sect="ExampleColagen"  Style="Text"/></Item>
 </List>
 </Section>
-	<#Include Label="Example01">
-	<#Include Label="Example02">
-	<#Include Label="Example11">
-	<#Include Label="Example03">
-	<#Include Label="Example05">
-	<#Include Label="Example06">
-	<#Include Label="Example07">
-	<#Include Label="Example08">
-	<#Include Label="Example10">
-	<#Include Label="Example09">
-	<#Include Label="Example13">
-	<#Include Label="Example14">
-	<#Include Label="Example15">
-	<#Include Label="Example16">
-	<#Include Label="Example17">
-	<#Include Label="Example18">
-	<#Include Label="Example19">
-	<#Include Label="Example20">
-	<#Include Label="Example04">
-	<#Include Label="Example21">
-	<#Include Label="Example22">
-	<#Include Label="Example23">
-	<#Include Label="Example12">
-	<#Include Label="Example24">
-	<#Include Label="Example25">
-	<#Include Label="ExampleColagen">
+    <#Include Label="Example01">
+    <#Include Label="Example02">
+    <#Include Label="Example11">
+    <#Include Label="Example03">
+    <#Include Label="Example05">
+    <#Include Label="Example06">
+    <#Include Label="Example07">
+    <#Include Label="Example08">
+    <#Include Label="Example10">
+    <#Include Label="Example09">
+    <#Include Label="Example13">
+    <#Include Label="Example14">
+    <#Include Label="Example15">
+    <#Include Label="Example16">
+    <#Include Label="Example17">
+    <#Include Label="Example18">
+    <#Include Label="Example19">
+    <#Include Label="Example20">
+    <#Include Label="Example04">
+    <#Include Label="Example21">
+    <#Include Label="Example22">
+    <#Include Label="Example23">
+    <#Include Label="Example12">
+    <#Include Label="Example24">
+    <#Include Label="Example25">
+    <#Include Label="ExampleColagen">
 </Appendix>
