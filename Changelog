@@ -1,5 +1,11 @@
 This file describes changes in the GBNP package.
 
+Changes for 1.1.0 (2024-08-29)
+ - Fix a bug the could cause an unexpected error in the Grobner command
+ - Add LMonNP, LTermNP, LTermsNP; FactorOutGcdNP
+ - Integrate NMO manual as chapter 5 into the GBNP manual
+ - Various janitorial changes
+
 Changes for 1.0.5 (2022-03-09)
  - Various janitorial changes
 
