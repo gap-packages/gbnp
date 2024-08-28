@@ -57,8 +57,8 @@
   
   [4X[32X[104X
     [4Xgap> List(R,GP2NP);[104X
-    [4X[ [ [ [ -1, 2 ], [ -1 ] ], [ 1, -1 ] ], [104X
-    [4X  [ [ [ -1, 1, 2 ], [ -1, 1, 1 ], [ -2, 1, 2 ], [ -2, 1, 1 ], [ -1, 1 ], [104X
+    [4X[ [ [ [ -1, 2 ], [ -1 ] ], [ 1, -1 ] ],[104X
+    [4X  [ [ [ -1, 1, 2 ], [ -1, 1, 1 ], [ -2, 1, 2 ], [ -2, 1, 1 ], [ -1, 1 ],[104X
     [4X          [ -2, 1 ], [ -1 ], [ -2 ] ], [ 1, 1, -1, -1, 1, -1, 1, -1 ] ] ][104X
   [4X[32X[104X
   
@@ -84,7 +84,7 @@
   
   [4X[32X[104X
     [4Xgap> Lgp:=[a^2-e,b^2-e,b*a-a*b-e];[104X
-    [4X[ (-1)*<identity ...>+(1)*a^2, (-1)*<identity ...>+(1)*b^2, [104X
+    [4X[ (-1)*<identity ...>+(1)*a^2, (-1)*<identity ...>+(1)*b^2,[104X
     [4X  (-1)*<identity ...>+(-1)*a*b+(1)*b*a ][104X
   [4X[32X[104X
   
@@ -92,7 +92,7 @@
   
   [4X[32X[104X
     [4Xgap> GP2NPList(Lgp);[104X
-    [4X[ [ [ [ 1, 1 ], [  ] ], [ 1, -1 ] ], [ [ [ 2, 2 ], [  ] ], [ 1, -1 ] ], [104X
+    [4X[ [ [ [ 1, 1 ], [  ] ], [ 1, -1 ] ], [ [ [ 2, 2 ], [  ] ], [ 1, -1 ] ],[104X
     [4X  [ [ [ 2, 1 ], [ 1, 2 ], [  ] ], [ 1, -1, -1 ] ] ][104X
   [4X[32X[104X
   
@@ -249,7 +249,7 @@
   
   [4X[32X[104X
     [4Xgap> PrintNP(p);[104X
-    [4X a^2b - 2ab^2 + 3 [104X
+    [4X a^2b - 2ab^2 + 3[104X
   [4X[32X[104X
   
   [1X3.2-2 GBNP.ConfigPrint[101X
@@ -273,12 +273,12 @@
   [8Xalgebra,integer[108X
         [33X[0;6YWhen  the  function  is  invoked  with  an algebra and an integer [3Xn[103X as
         arguments,  generators will be printed as they would be in the algebra
-        and seperated over the [3Xn[103X dimensions.[133X
+        and separated over the [3Xn[103X dimensions.[133X
   
   [8Xleftmodule[108X
         [33X[0;6YWhen  the function is invoked with an leftmodule [22XA^n[122X of an associative
         algebra  as  argument,  generators will be printed as they would be in
-        the algebra, seperated over the [3Xn[103X dimensions.[133X
+        the algebra, separated over the [3Xn[103X dimensions.[133X
   
   [8Xstring[108X
         [33X[0;6YWhen  the  function  is  invoked  with a string as its argument, it is
@@ -315,9 +315,9 @@
   
   [4X[32X[104X
     [4Xgap> PrintNP(p1);[104X
-    [4X a^2b - 1 [104X
+    [4X a^2b - 1[104X
     [4Xgap> PrintNP(p2);[104X
-    [4X ab^2 - 1 [104X
+    [4X ab^2 - 1[104X
   [4X[32X[104X
   
   [33X[0;0YWe  can  let the variables be printed as [10Xx[110X and [10Xy[110X instead of [10Xa[110X and [10Xb[110X by means
@@ -326,9 +326,9 @@
   [4X[32X[104X
     [4Xgap> GBNP.ConfigPrint("x","y");[104X
     [4Xgap> PrintNP(p1);[104X
-    [4X x^2y - 1 [104X
+    [4X x^2y - 1[104X
     [4Xgap> PrintNP(p2);[104X
-    [4X xy^2 - 1 [104X
+    [4X xy^2 - 1[104X
   [4X[32X[104X
   
   [33X[0;0YWe  can  also let the variables be printed as [10Xx.1[110X and [10Xx.2[110X instead of [10Xa[110X and [10Xb[110X
@@ -337,9 +337,9 @@
   [4X[32X[104X
     [4Xgap> GBNP.ConfigPrint(2,"x");[104X
     [4Xgap> PrintNP(p1);[104X
-    [4X x.1^2x.2 - 1 [104X
+    [4X x.1^2x.2 - 1[104X
     [4Xgap> PrintNP(p2);[104X
-    [4X x.1x.2^2 - 1 [104X
+    [4X x.1x.2^2 - 1[104X
   [4X[32X[104X
   
   [33X[0;0YWe can even assign strings to the variables to be printed like [10Xalice[110X and [10Xbob[110X
@@ -348,9 +348,9 @@
   [4X[32X[104X
     [4Xgap> GBNP.ConfigPrint("alice","bob");[104X
     [4Xgap> PrintNP(p1);[104X
-    [4X alice^2bob - 1 [104X
+    [4X alice^2bob - 1[104X
     [4Xgap> PrintNP(p2);[104X
-    [4X alicebob^2 - 1 [104X
+    [4X alicebob^2 - 1[104X
   [4X[32X[104X
   
   [33X[0;0YAlternatively,  we can introduce the free algebra [3XA[103X with two generators, and
@@ -360,9 +360,9 @@
     [4Xgap> A:=FreeAssociativeAlgebraWithOne(Rationals,"a","b");;[104X
     [4Xgap> GBNP.ConfigPrint(A);[104X
     [4Xgap> PrintNP(p1);[104X
-    [4X a^2b - 1 [104X
+    [4X a^2b - 1[104X
     [4Xgap> PrintNP(p2);[104X
-    [4X ab^2 - 1 [104X
+    [4X ab^2 - 1[104X
   [4X[32X[104X
   
   [1X3.2-3 PrintNPList[101X
@@ -384,8 +384,8 @@
   
   [4X[32X[104X
     [4Xgap> PrintNPList(Lnp);[104X
-    [4X a^2b - 1 [104X
-    [4X ab^2 - 1 [104X
+    [4X a^2b - 1[104X
+    [4X ab^2 - 1[104X
   [4X[32X[104X
   
   [33X[0;0YAlternatively, using the function [2XGBNP.ConfigPrint[102X ([14X3.2-2[114X), we can introduce
@@ -396,8 +396,8 @@
     [4Xgap> A:=FreeAssociativeAlgebraWithOne(Rationals,"a","b");;[104X
     [4Xgap> GBNP.ConfigPrint(A);[104X
     [4Xgap> PrintNPList(Lnp);[104X
-    [4X a^2b - 1 [104X
-    [4X ab^2 - 1 [104X
+    [4X a^2b - 1[104X
+    [4X ab^2 - 1[104X
   [4X[32X[104X
   
   
@@ -419,7 +419,7 @@
   [4X[32X[104X
     [4Xgap> np := [[[2,2,2,1,1,1],[4],[3,2,3]],[1,-3,2]];;[104X
     [4Xgap> PrintNP(np);[104X
-    [4X b^3a^3 - 3d + 2cbc [104X
+    [4X b^3a^3 - 3d + 2cbc[104X
     [4Xgap> NumAlgGensNP(np);[104X
     [4X4[104X
   [4X[32X[104X
@@ -441,8 +441,8 @@
     [4Xgap> p1 := [[[1,1,2,3,1],[2],[1]],[1,-2,1]];;[104X
     [4Xgap> p2 := [[[2,2,1,4,3],[]],[1,-1]];;[104X
     [4Xgap> PrintNPList([p1,p2]);[104X
-    [4X a^2bca - 2b + a [104X
-    [4X b^2adc - 1 [104X
+    [4X a^2bca - 2b + a[104X
+    [4X b^2adc - 1[104X
     [4Xgap> NumAlgGensNPList([p1,p2]);[104X
     [4X4[104X
   [4X[32X[104X
@@ -510,7 +510,7 @@
   
   [4X[32X[104X
     [4Xgap> PrintNP(AddNP(p1,p2,1,-1));[104X
-    [4X - ab^2 + a^2b + 1 [104X
+    [4X - ab^2 + a^2b + 1[104X
   [4X[32X[104X
   
   [1X3.3-6 BimulNP[101X
@@ -534,9 +534,9 @@
   
   [4X[32X[104X
     [4Xgap> PrintNP(BimulNP([],p1,[2]));[104X
-    [4X a^2b^2 - 3b [104X
+    [4X a^2b^2 - 3b[104X
     [4Xgap> PrintNP(BimulNP([1],p2,[]));[104X
-    [4X a^2b^2 - 4a [104X
+    [4X a^2b^2 - 4a[104X
   [4X[32X[104X
   
   [1X3.3-7 CleanNP[101X
@@ -553,7 +553,7 @@
   [4X[32X[104X
     [4Xgap> p := [[[1,1,2],[],[1,1,2],[]],[1,-3,-2,3]];;[104X
     [4Xgap> PrintNP(p);[104X
-    [4X a^2b - 3 - 2a^2b + 3 [104X
+    [4X a^2b - 3 - 2a^2b + 3[104X
   [4X[32X[104X
   
   [33X[0;0YThe  monomials  [10X[1,1,2][110X  and  [10X[][110X  occur  twice each. For many functions this
@@ -562,7 +562,7 @@
   
   [4X[32X[104X
     [4Xgap> PrintNP(CleanNP(p));[104X
-    [4X - a^2b [104X
+    [4X - a^2b[104X
   [4X[32X[104X
   
   [33X[0;0YIn  order  to  define  a  polynomial over [22XGF(2)[122X, the coefficients need to be
@@ -626,14 +626,15 @@
     [4Xtrue[104X
   [4X[32X[104X
   
-  [1X3.3-10 LMonsNP[101X
+  [1X3.3-10 LMonNP[101X
   
+  [33X[1;0Y[29X[2XLMonNP[102X( [3XLnp[103X ) [32X function[133X
   [33X[1;0Y[29X[2XLMonsNP[102X( [3XLnp[103X ) [32X function[133X
-  [6XReturns:[106X  [33X[0;10YA list of leading monomials[133X
+  [6XReturns:[106X  [33X[0;10YThe leading monomial or a list of leading monomials.[133X
   
-  [33X[0;0YThis  function returns the leading monomials of a list [3XLnp[103X of polynomials in
-  NP  format.  The  polynomials  of  [3XLnp[103X are required to be clean; see Section
-  [14X3.3-7[114X.[133X
+  [33X[0;0YThese  functions  return  the  leading  monomial  of a polynomial (resp. the
+  leading monomials of a list of polynomials) in NP format. The polynomials of
+  [3XLnp[103X are required to be clean; see Section [14X3.3-7[114X.[133X
   
   [33X[0;0Y[13XExample:[113X We put two polynomials in NP format into the list [10XLnp[110X.[133X
   
@@ -655,11 +656,34 @@
   
   [4X[32X[104X
     [4Xgap> PrintNPList(List(LMonsNP(Lnp), q -> [[q],[1]]));[104X
-    [4X a^2b [104X
-    [4X ab^2 [104X
+    [4X a^2b[104X
+    [4X ab^2[104X
   [4X[32X[104X
   
-  [1X3.3-11 MkMonicNP[101X
+  [1X3.3-11 LTermNP[101X
+  
+  [33X[1;0Y[29X[2XLTermNP[102X( [3XLnp[103X ) [32X function[133X
+  [33X[1;0Y[29X[2XLTermsNP[102X( [3XLnp[103X ) [32X function[133X
+  [6XReturns:[106X  [33X[0;10YThe leading term or a list of leading terms.[133X
+  
+  [33X[0;0YThese  functions  return the leading term of a polynomial (resp. the leading
+  terms  of  a  list  of polynomials) in NP format. The polynomials of [3XLnp[103X are
+  required to be clean; see Section [14X3.3-7[114X.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27Xp1 := [[[1,1,2],[1]],[6,-7]];;[127X[104X
+    [4X[25Xgap>[125X [27Xp2 := [[[1,2,2],[2]],[8,-9]];;[127X[104X
+    [4X[25Xgap>[125X [27XLnp := [p1,p2];;[127X[104X
+    [4X[25Xgap>[125X [27XLTermNP( p1 );[127X[104X
+    [4X[28X[ [ [ 1, 1, 2 ] ], [ 6 ] ][128X[104X
+    [4X[25Xgap>[125X [27XLTnp := LTermsNP( Lnp );[127X[104X
+    [4X[28X[ [ [ [ 1, 1, 2 ] ], [ 6 ] ], [ [ [ 1, 2, 2 ] ], [ 8 ] ] ][128X[104X
+    [4X[25Xgap>[125X [27XPrintNPList( LTnp );[127X[104X
+    [4X[28X6a^2b[128X[104X
+    [4X[28X8ab^2[128X[104X
+  [4X[32X[104X
+  
+  [1X3.3-12 MkMonicNP[101X
   
   [33X[1;0Y[29X[2XMkMonicNP[102X( [3Xnp[103X ) [32X function[133X
   [6XReturns:[106X  [33X[0;10Y[3Xnp[103X made monic[133X
@@ -672,18 +696,47 @@
   [4X[32X[104X
     [4Xgap> p := [[[1,1,2],[]],[2,-1]];;[104X
     [4Xgap> PrintNP(p);[104X
-    [4X 2a^2b - 1 [104X
+    [4X 2a^2b - 1[104X
   [4X[32X[104X
   
   [33X[0;0YThe  coefficient of the leading term is [22X2[122X. The function [10XMkMonicNP[110X finds this
-  coefficient and divides all terms by it:[133X
+  coefficient and divides every term by it:[133X
   
   [4X[32X[104X
     [4Xgap> PrintNP(MkMonicNP(p));[104X
-    [4X a^2b - 1/2 [104X
+    [4X a^2b - 1/2[104X
   [4X[32X[104X
   
-  [1X3.3-12 MulNP[101X
+  [1X3.3-13 FactorOutGcdNP[101X
+  
+  [33X[1;0Y[29X[2XFactorOutGcdNP[102X( [3Xnp[103X ) [32X function[133X
+  [6XReturns:[106X  [33X[0;10Y[3Xnp[103X with Gcd(coefficients) factored out[133X
+  
+  [33X[0;0YThis  function  returns  the scalar multiple of a polynomial [3Xnp[103X in NP format
+  with integer coefficients such that its coefficients have Gcd equal to 1. If
+  the coefficients are not all integers then [10Xfail[110X is returned.[133X
+  
+  [33X[0;0Y[13XExample:[113X Consider the following polynomial in NP format.[133X
+  
+  [4X[32X[104X
+    [4Xgap> p := [[[1,1,2],[1,2],[1]],[30,70,105]];;[104X
+    [4Xgap> PrintNP(p);[104X
+    [4X 30a^2b + 70ab + 105a[104X
+  [4X[32X[104X
+  
+  [33X[0;0YThe  [10XGcd[110X  of  the coefficients [22X[30,70,105][122X is [22X5[122X. The function [10XFactorOutGcdNP[110X
+  divides the polynomial by [22X5[122X:[133X
+  
+  [4X[32X[104X
+    [4Xgap> PrintNP(FactorOutGcdNP(p));[104X
+    [4X 6a^2b + 14ab + 21a[104X
+    [4Xgap> m := MkMonicNP(p);[104X
+    [4X[ [ [ 1, 1, 2 ], [ 1, 2 ], [ 1 ] ], [ 1, 7/3, 7/2 ] ][104X
+    [4Xgap> fm := FactorOutGcdNP(m);[104X
+    [4Xfail[104X
+  [4X[32X[104X
+  
+  [1X3.3-14 MulNP[101X
   
   [33X[1;0Y[29X[2XMulNP[102X( [3Xnp1[103X, [3Xnp2[103X ) [32X function[133X
   [6XReturns:[106X  [33X[0;10Y[3Xnp1[103X[22X*[122X[3Xnp2[103X[133X
@@ -702,7 +755,7 @@
   
   [4X[32X[104X
     [4Xgap> PrintNP(MulNP(p1,p2));[104X
-    [4X a^2bab^2 - ab^2 - a^2b + 1 [104X
+    [4X a^2bab^2 - ab^2 - a^2b + 1[104X
   [4X[32X[104X
   
   [33X[0;0YThe  fact  that this multiplication is not commutative is illustrated by the
@@ -710,7 +763,7 @@
   
   [4X[32X[104X
     [4Xgap> PrintNP(AddNP(MulNP(p1,p2),MulNP(p2,p1),1,-1));[104X
-    [4X - ab^2a^2b + a^2bab^2 [104X
+    [4X - ab^2a^2b + a^2bab^2[104X
   [4X[32X[104X
   
   
@@ -745,8 +798,8 @@
     [4Xgap> p1 := [[[1,1,2],[]],[1,-1]];;[104X
     [4Xgap> p2 := [[[1,2,2],[]],[1,-1]];;[104X
     [4Xgap> PrintNPList([p1,p2]);[104X
-    [4X a^2b - 1 [104X
-    [4X ab^2 - 1 [104X
+    [4X a^2b - 1[104X
+    [4X ab^2 - 1[104X
   [4X[32X[104X
   
   [33X[0;0YTheir Gröbner basis can be computed by the function [10XGrobner[110X.[133X
@@ -754,8 +807,8 @@
   [4X[32X[104X
     [4Xgap> G := Grobner([p1,p2]);;[104X
     [4Xgap> PrintNPList(G);[104X
-    [4X b - a [104X
-    [4X a^3 - 1 [104X
+    [4X b - a[104X
+    [4X a^3 - 1[104X
   [4X[32X[104X
   
   [33X[0;0YOne iteration of the Gröbner computations is invoked by use of the parameter
@@ -764,9 +817,9 @@
   [4X[32X[104X
     [4Xgap> R := Grobner([p1,p2],1);;[104X
     [4Xgap> PrintNPList(R.G);[104X
-    [4X b - a [104X
+    [4X b - a[104X
     [4Xgap> PrintNPList(R.todo);[104X
-    [4X a^3 - 1 [104X
+    [4X a^3 - 1[104X
     [4Xgap> R.iterations;[104X
     [4X1[104X
     [4Xgap> R.completed;[104X
@@ -778,8 +831,8 @@
   
   [4X[32X[104X
     [4Xgap> PrintNPList(Grobner(R.G,R.todo));[104X
-    [4X b - a [104X
-    [4X a^3 - 1 [104X
+    [4X b - a[104X
+    [4X a^3 - 1[104X
   [4X[32X[104X
   
   [33X[0;0YIn order to perform the Gröbner basis computation with polynomials in a free
@@ -788,8 +841,8 @@
   
   [4X[32X[104X
     [4Xgap> PrintNPList(Grobner([[p1[1],One(GF(2))*p1[2]],[p2[1],One(GF(2))*p1[2]]]));[104X
-    [4X b + a [104X
-    [4X a^3 + Z(2)^0 [104X
+    [4X b + a[104X
+    [4X a^3 + Z(2)^0[104X
   [4X[32X[104X
   
   [1X3.4-2 SGrobner[101X
@@ -821,8 +874,8 @@
     [4Xgap> p1 := [[[1,1,2],[]],[1,-1]];;[104X
     [4Xgap> p2 := [[[1,2,2],[]],[1,-1]];;[104X
     [4Xgap> PrintNPList([p1,p2]);[104X
-    [4X a^2b - 1 [104X
-    [4X ab^2 - 1 [104X
+    [4X a^2b - 1[104X
+    [4X ab^2 - 1[104X
   [4X[32X[104X
   
   [33X[0;0YTheir Gröbner basis can be computed by the function [10XGrobner[110X.[133X
@@ -830,8 +883,8 @@
   [4X[32X[104X
     [4Xgap> G := SGrobner([p1,p2]);;[104X
     [4Xgap> PrintNPList(G);[104X
-    [4X b - a [104X
-    [4X a^3 - 1 [104X
+    [4X b - a[104X
+    [4X a^3 - 1[104X
   [4X[32X[104X
   
   [33X[0;0YOne iteration of the Gröbner computations is invoked by use of the parameter
@@ -840,9 +893,9 @@
   [4X[32X[104X
     [4Xgap> R := SGrobner([p1,p2],1);;[104X
     [4Xgap> PrintNPList(R.G);[104X
-    [4X b - a [104X
+    [4X b - a[104X
     [4Xgap> PrintNPList(R.todo);[104X
-    [4X a^3 - 1 [104X
+    [4X a^3 - 1[104X
     [4Xgap> R.iterations;[104X
     [4X1[104X
     [4Xgap> R.completed;[104X
@@ -854,8 +907,8 @@
   
   [4X[32X[104X
     [4Xgap> PrintNPList(SGrobner(R.G,R.todo));[104X
-    [4X b - a [104X
-    [4X a^3 - 1 [104X
+    [4X b - a[104X
+    [4X a^3 - 1[104X
   [4X[32X[104X
   
   [1X3.4-3 IsGrobnerBasis[101X
@@ -874,8 +927,8 @@
   [4X[32X[104X
     [4Xgap> Lnp := [[[[1,1,2],[]],[1,-1]], [[[1,2,2],[]],[1,-1]]];;[104X
     [4Xgap> PrintNPList(Lnp);[104X
-    [4X a^2b - 1 [104X
-    [4X ab^2 - 1 [104X
+    [4X a^2b - 1[104X
+    [4X ab^2 - 1[104X
   [4X[32X[104X
   
   [33X[0;0YThe function [10XIsGrobner[110X checks whether the list is a Gröbner basis.[133X
@@ -908,8 +961,8 @@
   [4X[32X[104X
     [4Xgap> Lnp := [[[[1,1,2],[]],[1,-1]], [[[1,2,2],[]],[1,-1]]];;[104X
     [4Xgap> PrintNPList(Lnp);[104X
-    [4X a^2b - 1 [104X
-    [4X ab^2 - 1 [104X
+    [4X a^2b - 1[104X
+    [4X ab^2 - 1[104X
   [4X[32X[104X
   
   [33X[0;0YThe  function  [10XIsStrongGrobner[110X  checks  whether the list is a strong Gröbner
@@ -934,9 +987,9 @@
     [4Xgap> B := SGrobner(Lnp);;[104X
     [4Xgap> Add(B,AddNP(Lnp[1],B[1],1,-1));;[104X
     [4Xgap> PrintNPList(B);[104X
-    [4X b - a [104X
-    [4X a^3 - 1 [104X
-    [4X a^2b - b + a - 1 [104X
+    [4X b - a[104X
+    [4X a^3 - 1[104X
+    [4X a^2b - b + a - 1[104X
     [4Xgap> IsGrobnerBasis(B);[104X
     [4Xtrue[104X
     [4Xgap> IsStrongGrobnerBasis(B);[104X
@@ -1007,10 +1060,10 @@
   [4X[32X[104X
     [4Xgap> GP := MakeGrobnerPair([p1,p2],[]);;[104X
     [4Xgap> PrintNPList(GP.G);[104X
-    [4X a^2b - 1 [104X
-    [4X ab^2 - 1 [104X
+    [4X a^2b - 1[104X
+    [4X ab^2 - 1[104X
     [4Xgap> PrintNPList(GP.todo);[104X
-    [4X b - a [104X
+    [4X b - a[104X
   [4X[32X[104X
   
   [33X[0;0YThese fields are ready for use in [10XGrobner[110X[133X
@@ -1018,8 +1071,8 @@
   [4X[32X[104X
     [4Xgap> GB := Grobner(GP.G,GP.todo);;[104X
     [4Xgap> PrintNPList(GB);[104X
-    [4X b - a [104X
-    [4X a^3 - 1 [104X
+    [4X b - a[104X
+    [4X a^3 - 1[104X
   [4X[32X[104X
   
   
@@ -1046,8 +1099,8 @@
     [4Xgap> p2 := [[[1,2,2],[]],[1,-1]];;[104X
     [4Xgap> G := Grobner([p1,p2]);;[104X
     [4Xgap> PrintNPList(G);[104X
-    [4X b - a [104X
-    [4X a^3 - 1 [104X
+    [4X b - a[104X
+    [4X a^3 - 1[104X
   [4X[32X[104X
   
   [33X[0;0YThe  function  [10XBaseQA[110X  computes a basis for the quotient algebra of the free
@@ -1056,14 +1109,14 @@
   
   [4X[32X[104X
     [4Xgap> PrintNPList(G);[104X
-    [4X b - a [104X
-    [4X a^3 - 1 [104X
+    [4X b - a[104X
+    [4X a^3 - 1[104X
     [4Xgap> BaseQA(G,2,0);[104X
     [4X[ [ [ [  ] ], [ 1 ] ], [ [ [ 1 ] ], [ 1 ] ], [ [ [ 1, 1 ] ], [ 1 ] ] ][104X
     [4Xgap> PrintNPList(BaseQA(G,2,0));[104X
-    [4X 1 [104X
-    [4X a [104X
-    [4X a^2 [104X
+    [4X 1[104X
+    [4X a[104X
+    [4X a^2[104X
   [4X[32X[104X
   
   [33X[0;0YIt  is  necessary  for a correct result that the first argument be a Gröbner
@@ -1071,19 +1124,19 @@
   
   [4X[32X[104X
     [4Xgap> PrintNPList(BaseQA([p1,p2],2,10));[104X
-    [4X 1 [104X
-    [4X a [104X
-    [4X b [104X
-    [4X a^2 [104X
-    [4X ab [104X
-    [4X ba [104X
-    [4X b^2 [104X
-    [4X a^3 [104X
-    [4X aba [104X
-    [4X ba^2 [104X
-    [4X bab [104X
-    [4X b^2a [104X
-    [4X b^3 [104X
+    [4X 1[104X
+    [4X a[104X
+    [4X b[104X
+    [4X a^2[104X
+    [4X ab[104X
+    [4X ba[104X
+    [4X b^2[104X
+    [4X a^3[104X
+    [4X aba[104X
+    [4X ba^2[104X
+    [4X bab[104X
+    [4X b^2a[104X
+    [4X b^3[104X
   [4X[32X[104X
   
   [1X3.5-2 DimQA[101X
@@ -1110,8 +1163,8 @@
     [4Xgap> p2 := [[[1,2,2],[]],[1,-2]];;[104X
     [4Xgap> G := Grobner([p1,p2]);;[104X
     [4Xgap> PrintNPList(G);[104X
-    [4X b - a [104X
-    [4X a^3 - 2 [104X
+    [4X b - a[104X
+    [4X a^3 - 2[104X
   [4X[32X[104X
   
   [33X[0;0YThe  function  [10XDimQA[110X  computes  the dimension of the quotient algebra of the
@@ -1149,14 +1202,14 @@
     [4Xgap> GB := Grobner([p1,p2]);;[104X
     [4Xgap> B := BaseQA(GB,2,0);;[104X
     [4Xgap> PrintNPList(B);[104X
-    [4X 1 [104X
-    [4X a [104X
-    [4X b [104X
-    [4X a^2 [104X
-    [4X ab [104X
-    [4X a^3 [104X
-    [4X a^2b [104X
-    [4X a^4 [104X
+    [4X 1[104X
+    [4X a[104X
+    [4X b[104X
+    [4X a^2[104X
+    [4X ab[104X
+    [4X a^3[104X
+    [4X a^2b[104X
+    [4X a^4[104X
     [4Xgap> Display(MatrixQA(1, B,GB));[104X
     [4X[ [  0,  1,  0,  0,  0,  0,  0,  0 ],[104X
     [4X  [  0,  0,  0,  1,  0,  0,  0,  0 ],[104X
@@ -1262,8 +1315,8 @@
     [4Xgap> p2 := [[[1,2,2],[]],[1,-1]];;[104X
     [4Xgap> G := Grobner([p1,p2]);;[104X
     [4Xgap> PrintNPList(G);[104X
-    [4X b - a [104X
-    [4X a^3 - 1 [104X
+    [4X b - a[104X
+    [4X a^3 - 1[104X
   [4X[32X[104X
   
   [33X[0;0YPrint  the product in the quotient algebra of the polynomials [22Xa-2[122X and [22Xb-3[122X by
@@ -1273,7 +1326,7 @@
     [4Xgap> s1 := [[[1],[]],[1,-2]];;[104X
     [4Xgap> s2 := [[[2],[]],[1,-3]];;[104X
     [4Xgap> PrintNP(MulQA(s1,s2,G));[104X
-    [4X a^2 - 5a + 6 [104X
+    [4X a^2 - 5a + 6[104X
   [4X[32X[104X
   
   [33X[0;0YThe  result  should be equal to the strong normal form of the product of [22Xa-2[122X
@@ -1316,7 +1369,7 @@
   
   [4X[32X[104X
     [4Xgap> PrintNP(StrongNormalFormNP(p,[p1,p2]));[104X
-    [4X - ba + a + 3 [104X
+    [4X - ba + a + 3[104X
   [4X[32X[104X
   
   
@@ -1391,10 +1444,10 @@
     [4Xgap> GB := Grobner([p1,p2]);;[104X
     [4Xgap> L := LMonsNP(GB);;[104X
     [4Xgap> for lm  in L  do PrintNP( [ [ lm ], [ 1 ] ] ); od;[104X
-    [4X a^3b [104X
-    [4X b^2 [104X
-    [4X ba [104X
-    [4X a^5 [104X
+    [4X a^3b[104X
+    [4X b^2[104X
+    [4X ba[104X
+    [4X a^5[104X
     [4Xgap> DetermineGrowthQA(L,2,true);[104X
     [4X0[104X
   [4X[32X[104X
@@ -1498,10 +1551,10 @@
     [4Xgap> p2 := [[[2,2,2,1,1,1],[]],[1,-1]];;[104X
     [4Xgap> GB := Grobner([p1,p2]);;[104X
     [4Xgap> PrintNPList(GB);[104X
-    [4X a^4b - 1 [104X
-    [4X ba - ab [104X
-    [4X b^2 - a [104X
-    [4X a^5 - b [104X
+    [4X a^4b - 1[104X
+    [4X ba - ab[104X
+    [4X b^2 - a[104X
+    [4X a^5 - b[104X
   [4X[32X[104X
   
   [33X[0;0YApplication  of  [10XPreprocessAnalysisQA[110X is carried out on the leading terms of
@@ -1564,9 +1617,9 @@
     [4Xgap> p2 := [[[2,2,1],[]],[1,-1]];;[104X
     [4Xgap> GBT := SGrobnerTrace([p1,p2]);;[104X
     [4Xgap> PrintTraceList(GBT);[104X
-    [4X aG(1) - bG(1) - G(1)ba^2b + a^2G(2)ab [104X
+    [4X aG(1) - bG(1) - G(1)ba^2b + a^2G(2)ab[104X
     [4X[104X
-    [4X G(1)ba^2 + bG(1)ba + G(2) - a^2G(2)a - ba^2G(2) [104X
+    [4X G(1)ba^2 + bG(1)ba + G(2) - a^2G(2)a - ba^2G(2)[104X
   [4X[32X[104X
   
   [1X3.7-3 PrintTracePol[101X
@@ -1584,9 +1637,9 @@
     [4Xgap> p2 := [[[2,2,1],[]],[1,-1]];;[104X
     [4Xgap> GBT := SGrobnerTrace([p1,p2]);;[104X
     [4Xgap> for np in GBT do PrintTracePol(np); Print("\n"); od;[104X
-    [4X aG(1) - bG(1) - G(1)ba^2b + a^2G(2)ab [104X
+    [4X aG(1) - bG(1) - G(1)ba^2b + a^2G(2)ab[104X
     [4X[104X
-    [4X G(1)ba^2 + bG(1)ba + G(2) - a^2G(2)a - ba^2G(2) [104X
+    [4X G(1)ba^2 + bG(1)ba + G(2) - a^2G(2)a - ba^2G(2)[104X
     [4X[104X
   [4X[32X[104X
   
@@ -1606,8 +1659,8 @@
     [4Xgap> p2 := [[[2,2,1],[]],[1,-1]];;[104X
     [4Xgap> GBT := SGrobnerTrace([p1,p2]);;[104X
     [4Xgap> PrintNPListTrace(GBT);[104X
-    [4X b - a [104X
-    [4X a^3 - 1 [104X
+    [4X b - a[104X
+    [4X a^3 - 1[104X
   [4X[32X[104X
   
   [1X3.7-5 SGrobnerTrace[101X
@@ -1630,12 +1683,12 @@
     [4Xgap> p1 := [[[1,1,2],[]],[1,-1]];;[104X
     [4Xgap> p2 := [[[2,2,1],[]],[1,-1]];;[104X
     [4Xgap> GBT := SGrobnerTrace([p1,p2]);[104X
-    [4X[ rec( pol := [ [ [ 2 ], [ 1 ] ], [ 1, -1 ] ], [104X
-    [4X      trace := [ [ [  ], 1, [ 2, 1, 1, 2 ], -1 ], [ [ 2 ], 1, [  ], -1 ], [104X
-    [4X          [ [ 1 ], 1, [  ], 1 ], [ [ 1, 1 ], 2, [ 1, 2 ], 1 ] ] ), [104X
-    [4X  rec( pol := [ [ [ 1, 1, 1 ], [  ] ], [ 1, -1 ] ], [104X
-    [4X      trace := [ [ [ 2 ], 1, [ 2, 1 ], 1 ], [ [  ], 1, [ 2, 1, 1 ], 1 ], [104X
-    [4X          [ [  ], 2, [  ], 1 ], [ [ 2, 1, 1 ], 2, [  ], -1 ], [104X
+    [4X[ rec( pol := [ [ [ 2 ], [ 1 ] ], [ 1, -1 ] ],[104X
+    [4X      trace := [ [ [  ], 1, [ 2, 1, 1, 2 ], -1 ], [ [ 2 ], 1, [  ], -1 ],[104X
+    [4X          [ [ 1 ], 1, [  ], 1 ], [ [ 1, 1 ], 2, [ 1, 2 ], 1 ] ] ),[104X
+    [4X  rec( pol := [ [ [ 1, 1, 1 ], [  ] ], [ 1, -1 ] ],[104X
+    [4X      trace := [ [ [ 2 ], 1, [ 2, 1 ], 1 ], [ [  ], 1, [ 2, 1, 1 ], 1 ],[104X
+    [4X          [ [  ], 2, [  ], 1 ], [ [ 2, 1, 1 ], 2, [  ], -1 ],[104X
     [4X          [ [ 1, 1 ], 2, [ 1 ], -1 ] ] ) ][104X
   [4X[32X[104X
   
@@ -1673,10 +1726,10 @@
     [4Xgap> f := [[[1,1,1,1,1,1]],[1]];;[104X
     [4Xgap> sf := StrongNormalFormTraceDiff(f,GBT);;[104X
     [4Xgap> PrintNP(sf.pol);[104X
-    [4X a^6 - 1 [104X
+    [4X a^6 - 1[104X
     [4Xgap> PrintTraceList([sf]);[104X
     [4X G(1)ba^2 + bG(1)ba + G(1)ba^5 + bG(1)ba^4 + G(2) + G(2)a^3 - a^2G([104X
-    [4X2)a - ba^2G(2) - a^2G(2)a^4 - ba^2G(2)a^3 [104X
+    [4X2)a - ba^2G(2) - a^2G(2)a^4 - ba^2G(2)a^3[104X
   [4X[32X[104X
   
   
@@ -1709,8 +1762,8 @@
     [4Xgap> p1 := [[[1,2,2,1],[2,1,1,2]],[1,-1]];;[104X
     [4Xgap> p2 := [[[2,2,2],[1,1]],[1,-1]];;[104X
     [4Xgap> PrintNPList([p1,p2]);[104X
-    [4X ab^2a - ba^2b [104X
-    [4X b^3 - a^2 [104X
+    [4X ab^2a - ba^2b[104X
+    [4X b^3 - a^2[104X
   [4X[32X[104X
   
   [33X[0;0YThese  are homogeneous with respect to weights [22X[3,2][122X. The degrees are [22X10[122X and
@@ -1719,9 +1772,9 @@
   
   [4X[32X[104X
     [4Xgap> PrintNPList(SGrobnerTrunc([p1,p2],12,[3,2]));[104X
-    [4X ba^2 - a^2b [104X
-    [4X b^3 - a^2 [104X
-    [4X ab^2a - a^2b^2 [104X
+    [4X ba^2 - a^2b[104X
+    [4X b^3 - a^2[104X
+    [4X ab^2a - a^2b^2[104X
   [4X[32X[104X
   
   [1X3.8-3 CheckHomogeneousNPs[101X
@@ -1745,8 +1798,8 @@
     [4Xgap> p1 := [[[1,2,2,1],[2,1,1,2]],[1,-1]];;[104X
     [4Xgap> p2 := [[[2,2,2],[1,1]],[1,-1]];;[104X
     [4Xgap> PrintNPList([p1,p2]);[104X
-    [4X ab^2a - ba^2b [104X
-    [4X b^3 - a^2 [104X
+    [4X ab^2a - ba^2b[104X
+    [4X b^3 - a^2[104X
   [4X[32X[104X
   
   [33X[0;0YThese  are homogeneous with respect to weights [22X[3,2][122X. The degrees are [22X10[122X and
@@ -1782,55 +1835,55 @@
     [4Xgap> GB := SGrobnerTrunc([p1,p2],12,wtv);;[104X
     [4Xgap> GBNP.ConfigPrint("a","b");[104X
     [4Xgap> PrintNPList(GB);[104X
-    [4X ba^2 - a^2b [104X
-    [4X b^3 - a^2 [104X
-    [4X ab^2a - a^2b^2 [104X
+    [4X ba^2 - a^2b[104X
+    [4X b^3 - a^2[104X
+    [4X ab^2a - a^2b^2[104X
   [4X[32X[104X
   
   [33X[0;0YA basis of standard monomials is found and printed as follows.[133X
   
   [4X[32X[104X
     [4Xgap> BT := BaseQATrunc(GB,12,wtv);;[104X
-    [4Xgap> for degpart in BT do [104X
+    [4Xgap> for degpart in BT do[104X
     [4X>   for mon in degpart do PrintNP([[mon],[1]]); od;[104X
     [4X> od;[104X
-    [4X 1 [104X
-    [4X b [104X
-    [4X a [104X
-    [4X b^2 [104X
-    [4X ba [104X
-    [4X ab [104X
-    [4X a^2 [104X
-    [4X b^3 [104X
-    [4X b^2a [104X
-    [4X bab [104X
-    [4X ab^2 [104X
-    [4X aba [104X
-    [4X a^2b [104X
-    [4X b^4 [104X
-    [4X a^3 [104X
-    [4X b^3a [104X
-    [4X b^2ab [104X
-    [4X bab^2 [104X
-    [4X ab^3 [104X
-    [4X baba [104X
-    [4X abab [104X
-    [4X a^2b^2 [104X
-    [4X b^5 [104X
-    [4X a^2ba [104X
-    [4X b^4a [104X
-    [4X a^3b [104X
-    [4X b^3ab [104X
-    [4X b^2ab^2 [104X
-    [4X bab^3 [104X
-    [4X ab^4 [104X
-    [4X a^4 [104X
-    [4X b^2aba [104X
-    [4X ab^3a [104X
-    [4X babab [104X
-    [4X abab^2 [104X
-    [4X a^2b^3 [104X
-    [4X b^6 [104X
+    [4X 1[104X
+    [4X b[104X
+    [4X a[104X
+    [4X b^2[104X
+    [4X ba[104X
+    [4X ab[104X
+    [4X a^2[104X
+    [4X b^3[104X
+    [4X b^2a[104X
+    [4X bab[104X
+    [4X ab^2[104X
+    [4X aba[104X
+    [4X a^2b[104X
+    [4X b^4[104X
+    [4X a^3[104X
+    [4X b^3a[104X
+    [4X b^2ab[104X
+    [4X bab^2[104X
+    [4X ab^3[104X
+    [4X baba[104X
+    [4X abab[104X
+    [4X a^2b^2[104X
+    [4X b^5[104X
+    [4X a^2ba[104X
+    [4X b^4a[104X
+    [4X a^3b[104X
+    [4X b^3ab[104X
+    [4X b^2ab^2[104X
+    [4X bab^3[104X
+    [4X ab^4[104X
+    [4X a^4[104X
+    [4X b^2aba[104X
+    [4X ab^3a[104X
+    [4X babab[104X
+    [4X abab^2[104X
+    [4X a^2b^3[104X
+    [4X b^6[104X
   [4X[32X[104X
   
   [1X3.8-5 DimsQATrunc[101X
@@ -1896,9 +1949,9 @@
     [4Xgap> wtv := [3,2];;[104X
     [4Xgap> GB := SGrobnerTrunc([p1,p2],12,wtv);;[104X
     [4Xgap> PrintNPList(GB);[104X
-    [4X ba^2 - a^2b [104X
-    [4X b^3 - a^2 [104X
-    [4X ab^2a - a^2b^2 [104X
+    [4X ba^2 - a^2b[104X
+    [4X b^3 - a^2[104X
+    [4X ab^2a - a^2b^2[104X
   [4X[32X[104X
   
   [33X[0;0YThe multiplicities of the frequencies of of monomials in a standard basis of
@@ -1907,9 +1960,9 @@
   
   [4X[32X[104X
     [4Xgap> F := FreqsQATrunc(GB,8,wtv);[104X
-    [4X[ [ [ [  ], 1 ] ], [ [ [ 0, 1 ], 1 ] ], [ [ [ 1, 0 ], 1 ] ], [104X
-    [4X  [ [ [ 0, 2 ], 1 ] ], [ [ [ 1, 1 ], 2 ] ], [104X
-    [4X  [ [ [ 2, 0 ], 1 ], [ [ 0, 3 ], 1 ] ], [ [ [ 1, 2 ], 3 ] ], [104X
+    [4X[ [ [ [  ], 1 ] ], [ [ [ 0, 1 ], 1 ] ], [ [ [ 1, 0 ], 1 ] ],[104X
+    [4X  [ [ [ 0, 2 ], 1 ] ], [ [ [ 1, 1 ], 2 ] ],[104X
+    [4X  [ [ [ 2, 0 ], 1 ], [ [ 0, 3 ], 1 ] ], [ [ [ 1, 2 ], 3 ] ],[104X
     [4X  [ [ [ 2, 1 ], 2 ], [ [ 0, 4 ], 1 ] ] ][104X
   [4X[32X[104X
   
@@ -2006,8 +2059,8 @@
     [4X[ 0, 1 ][104X
     [4X[ 1 , 0][104X
     [4Xgap> PrintNPList(GBR.ts);[104X
-    [4X b - 3/2a [104X
-    [4X a^3 - 4/3 [104X
+    [4X b - 3/2a[104X
+    [4X a^3 - 4/3[104X
   [4X[32X[104X
   
   [1X3.9-2 BaseQM[101X
@@ -2060,10 +2113,10 @@
   [4X[32X[104X
     [4Xgap> GBR := SGrobnerModule([v1,v2],[p1,p2]);;[104X
     [4Xgap> PrintNPList(GBR.ts);[104X
-    [4X ba - ab [104X
-    [4X b^2 - a^2 [104X
-    [4X a^3b - 1 [104X
-    [4X a^5 - b [104X
+    [4X ba - ab[104X
+    [4X b^2 - a^2[104X
+    [4X a^3b - 1[104X
+    [4X a^5 - b[104X
     [4Xgap> PrintNPList(GBR.p);[104X
     [4X[ 0, 1 ][104X
     [4X[ b - a , 0][104X
@@ -2176,8 +2229,8 @@
     [4Xgap> p1 := [[[1,1,2],[]],[1,-1]];;[104X
     [4Xgap> p2 := [[[1,2,2],[]],[1,-1]];;[104X
     [4Xgap> PrintNPList([p1,p2]);[104X
-    [4X a^2b - 1 [104X
-    [4X ab^2 - 1 [104X
+    [4X a^2b - 1[104X
+    [4X ab^2 - 1[104X
   [4X[32X[104X
   
   [33X[0;0YConsider also the following two vectors in NPM format.[133X
@@ -2195,8 +2248,8 @@
   [4X[32X[104X
     [4Xgap> GBR := SGrobnerModule([v1,v2],[p1,p2]);;[104X
     [4Xgap> PrintNPList(GBR.ts);[104X
-    [4X b - a [104X
-    [4X a^3 - 1 [104X
+    [4X b - a[104X
+    [4X a^3 - 1[104X
     [4Xgap> PrintNPList(GBR.p);[104X
     [4X[ 0, 1 ][104X
     [4X[ a - 1 , 0][104X
@@ -2211,7 +2264,7 @@
     [4X[ b , - 4a ][104X
     [4Xgap> q := [[[2,2,1],[1]],[2,3]];;[104X
     [4Xgap> PrintNP(q);[104X
-    [4X 2b^2a + 3a [104X
+    [4X 2b^2a + 3a[104X
     [4Xgap> wq := MulQM(w,q,GBR);;[104X
     [4Xgap> PrintNP(wq);[104X
     [4X[ 5 , 0][104X
@@ -2230,7 +2283,7 @@
   
   [33X[0;0YThis  function  assumes that [3XGBR.p[103X and [3XGBR.ts[103X are ordered (with the ordering
   [2XLtNP[102X  ([14X3.3-9[114X)),  that  the  polynomials  in  [3XGBR.ts[103X are monic and clean (see
-  [2XMkMonicNP[102X ([14X3.3-11[114X) and [2XCleanNP[102X ([14X3.3-7[114X)), and that the polynomial [3Xf[103X is clean.
+  [2XMkMonicNP[102X ([14X3.3-12[114X) and [2XCleanNP[102X ([14X3.3-7[114X)), and that the polynomial [3Xf[103X is clean.
   Note   that   a  Gröbner  basis  record  as  returned  by  a  function  like
   [2XSGrobnerModule[102X ([14X3.9-1[114X) is in the required form.[133X
   
@@ -2240,8 +2293,8 @@
     [4Xgap> p1 := [[[1,1,2],[]],[1,-1]];;[104X
     [4Xgap> p2 := [[[1,2,2],[]],[1,-1]];;[104X
     [4Xgap> PrintNPList([p1,p2]);[104X
-    [4X a^2b - 1 [104X
-    [4X ab^2 - 1 [104X
+    [4X a^2b - 1[104X
+    [4X ab^2 - 1[104X
   [4X[32X[104X
   
   [33X[0;0YConsider also the following two vectors in NPM format.[133X
@@ -2259,8 +2312,8 @@
   [4X[32X[104X
     [4Xgap> GBR := SGrobnerModule([v1,v2],[p1,p2]);;[104X
     [4Xgap> PrintNPList(GBR.ts);[104X
-    [4X b - a [104X
-    [4X a^3 - 1 [104X
+    [4X b - a[104X
+    [4X a^3 - 1[104X
     [4Xgap> PrintNPList(GBR.p);[104X
     [4X[ 0, 1 ][104X
     [4X[ a - 1 , 0][104X

@@ -6,10 +6,10 @@
             [1X computing Gröbner bases of noncommutative polynomials [101X
   
   
-                                     1.0.5
+                                     1.1.0
   
   
-                                  9 March 2022
+                                 29 August 2024
   
   
                                    A.M. Cohen
@@ -120,9 +120,11 @@
       3.3-7 CleanNP
       3.3-8 GtNP
       3.3-9 LtNP
-      3.3-10 LMonsNP
-      3.3-11 MkMonicNP
-      3.3-12 MulNP
+      3.3-10 LMonNP
+      3.3-11 LTermNP
+      3.3-12 MkMonicNP
+      3.3-13 FactorOutGcdNP
+      3.3-14 MulNP
     3.4 [33X[0;0YGröbner functions, standard variant[133X
       3.4-1 Grobner
       3.4-2 SGrobner
@@ -174,6 +176,39 @@
       4.3-2 [33X[0;0YWhat will be printed at level 0[133X
       4.3-3 [33X[0;0YWhat will be printed at level 1[133X
       4.3-4 [33X[0;0YWhat will be printed at level 2[133X
+  5 [33X[0;0YNMO Manual[133X
+    5.1 [33X[0;0YIntroduction[133X
+    5.2 [33X[0;0YNMO Files within GBNP[133X
+    5.3 [33X[0;0YQuickstart[133X
+      5.3-1 [33X[0;0YNMO Example 1[133X
+      5.3-2 [33X[0;0YNMO Example 2[133X
+      5.3-3 [33X[0;0YNMO Example 3[133X
+      5.3-4 [33X[0;0YNMO Example 4[133X
+    5.4 [33X[0;0YOrderings - Internals[133X
+      5.4-1 InstallNoncommutativeMonomialOrdering
+      5.4-2 IsNoncommutativeMonomialOrdering
+      5.4-3 LtFunctionListRep
+      5.4-4 NextOrdering
+      5.4-5 ParentAlgebra
+      5.4-6 LexicographicTable
+      5.4-7 LexicographicIndexTable
+      5.4-8 LexicographicPermutation
+      5.4-9 AuxilliaryTable
+      5.4-10 OrderingLtFunctionListRep
+    5.5 [33X[0;0YProvided Orderings[133X
+      5.5-1 NCMonomialLeftLengthLexicographicOrdering
+      5.5-2 NCMonomialLengthOrdering
+      5.5-3 NCMonomialLeftLexicographicOrdering
+      5.5-4 NCMonomialCommutativeLexicographicOrdering
+      5.5-5 NCMonomialWeightOrdering
+    5.6 [33X[0;0YOrderings - Externals[133X
+      5.6-1 NCLessThanByOrdering
+      5.6-2 NCGreaterThanByOrdering
+      5.6-3 NCEquivalentByOrdering
+      5.6-4 NCSortNP
+      5.6-5 [33X[0;0YFlexibility vs. Efficiency[133X
+    5.7 [33X[0;0YUtility Routines[133X
+      5.7-1 [33X[0;0YGBNP Patching Routines[133X
   A [33X[0;0YExamples[133X
     A.1 [33X[0;0YIntroduction[133X
     A.2 [33X[0;0YA simple commutative Gröbner basis computation[133X

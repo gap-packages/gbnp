@@ -7,8 +7,8 @@ SetPackageInfo( rec(
 
 PackageName := "GBNP",
 Subtitle := "computing Gröbner bases of noncommutative polynomials",
-Version := "1.0.5",
-Date := "09/03/2022", # dd/mm/yyyy format
+Version := "1.1.0",
+Date := "29/08/2024", # dd/mm/yyyy format
 License := "LGPL-2.1-or-later", # SPDX identifier
 
 Persons := [
@@ -18,14 +18,6 @@ Persons := [
     IsAuthor      := true,
     IsMaintainer  := false,
     Email         := "A.M.Cohen@tue.nl",
-    #WWWHome       := "http://www.win.tue.nl/~amc",
-    #PostalAddress := Concatenation( [
-    #                   "RIACA\n",
-    #                   "Dept. Math. and Comp. Sc.\n",
-    #                   "Eindhoven University of Technology\n",
-    #                   "PO Box 513\n",
-    #                   "5600 MB Eindhoven\n",
-    #                   "The Netherlands" ] ),
     Place         := "Eindhoven",
     Institution   := "Eindhoven University of Technology"
   ),
@@ -35,13 +27,6 @@ Persons := [
     IsAuthor      := true,
     IsMaintainer  := false,
     Email         := "J.W.Knopper@tue.nl",
-    #PostalAddress := Concatenation( [
-    #                   "RIACA\n",
-    #                   "Dept. Math. and Comp. Sc.\n",
-    #                   "Eindhoven University of Technology\n",
-    #                   "PO Box 513\n",
-    #                   "5600 MB Eindhoven\n",
-    #                   "The Netherlands" ] ),
     Place         := "Eindhoven",
     Institution   := "Eindhoven University of Technology"
   ),
@@ -73,7 +58,7 @@ ArchiveFormats := ".tar.gz",
 
 AbstractHTML :=
   "The <span class=\"pkgname\">GBNP</span> package provides algorithms for \
-   computing Grobner bases of noncommutative polynomials with coefficients \
+   computing Gröbner bases of noncommutative polynomials with coefficients \
    from a field implemented in <span class=\"pkgname\">GAP</span> and with \
    respect to the \"total degree first then lexicographical\" ordering. \
    Further provided are some variations, such as a weighted and truncated \
@@ -85,7 +70,7 @@ AbstractHTML :=
 PackageDoc := rec(
   BookName  := "GBNP",
   ArchiveURLSubset := ["doc"],
-  HTMLStart := "doc/chap0.html",
+  HTMLStart := "doc/chap0_mj.html",
   PDFFile   := "doc/manual.pdf",
   SixFile   := "doc/manual.six",
   LongTitle := "Non-commutative Gröbner bases",
