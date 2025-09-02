@@ -1,4 +1,4 @@
-[![Build Status](https://github.com/gap-packages/gbnp/actions/workflows/CI.yml/badge.svg)](https://github.com/gap-packages/gbnp/actions/workflows/CI.yml)
+[![CI](https://github.com/gap-packages/gbnp/actions/workflows/CI.yml/badge.svg)](https://github.com/gap-packages/gbnp/actions/workflows/CI.yml)
 [![Code Coverage](https://codecov.io/github/gap-packages/gbnp/coverage.svg?branch=master&token=)](https://codecov.io/gh/gap-packages/gbnp)
 
 # The GAP 4 package 'GBNP'
