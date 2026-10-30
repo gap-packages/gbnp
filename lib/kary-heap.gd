@@ -24,7 +24,7 @@
 
 DeclareCategory("IsTHeapOT", IsObject);
 THeapOTFam:=NewFamily("THeapOT");
-DeclareRepresentation("IsTHeapOTRep", IsDataObjectRep, [ "list",
+DeclareRepresentation("IsTHeapOTRep", IsComponentObjectRep, [ "list",
 "OT" ]);
 THeapOTType:=NewType(THeapOTFam, IsTHeapOT and IsTHeapOTRep);
 

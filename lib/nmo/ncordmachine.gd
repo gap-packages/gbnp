@@ -189,7 +189,7 @@ DeclareAttribute("AuxilliaryTable", IsNoncommutativeMonomialOrdering);
 ##  our noncommutative monomial ordering objects.
 ##
 DeclareRepresentation("IsNoncommutativeMonomialOrderingDefaultRep",
-  IsAttributeStoringRep and IsPositionalObjectRep
+  IsAttributeStoringRep
   and IsNoncommutativeMonomialOrdering,[]);
 
 BindGlobal("NoncommutativeMonomialOrderingsFamily",
