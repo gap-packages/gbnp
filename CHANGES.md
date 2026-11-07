@@ -2,12 +2,21 @@ This file describes changes in the GBNP package.
 
 ## Unreleased
 
-- Fix `InstallNoncommutativeMonomialOrdering` when given the name of the
-  ordering as a string, as documented
-- Fix `PrintNP` of module elements dropping zero components when an
-  earlier computation used fewer module generators
-- Test all examples in the manual, and fix those with outdated output
-- Remove the GNUmakefiles
+- Fix compatibility with the development version of GAP, where `Grobner`,
+  `SGrobner` and everything built on them failed with the error
+  "`<type>` implies `IsDataObjectRep` but `<obj>` requires
+  `IsComponentObjectRep`"
+- Fix `InstallNoncommutativeMonomialOrdering` failing when given the name
+  of the new ordering as a string, as the manual describes
+- Correct the manual examples whose output no longer matched what GBNP
+  prints, and examples that showed GAP code without its input prompt; the
+  examples are now checked automatically. They no longer show timing
+  information, which differs from one computer to the next
+- Fix the description of `OrderingLtFunctionListRep` and
+  `OrderingGtFunctionListRep` in the manual
+- Fix module elements being printed without their zero components, e.g.
+  `[ b - 1 ]` instead of `[ b - 1 , 0]`, after an earlier computation used
+  fewer module generators
 
 ## 1.1.0 (2024-08-29)
 
