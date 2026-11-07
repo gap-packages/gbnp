@@ -390,10 +390,9 @@ end;
 GBNP.GP2NPM:=function(gp)
 local   i,p,one;
 
-        # this is probably not the best place for the option verifying
-        if GBNP.GetOptions().pg=0 then
-                GBNP.SetOption("pg", Length(gp));
-        fi;
+        # record the module dimension for printing; a value left by an
+        # earlier computation would be stale
+        GBNP.SetOption("pg", Length(gp));
 
         one:=One(ZeroCoefficient(gp[1]));
         p:=[[],[]];
