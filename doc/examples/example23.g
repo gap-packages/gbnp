@@ -32,13 +32,13 @@
 # <P/>
 # First load the package and set the standard infolevel <Ref
 # InfoClass="InfoGBNP" Style="Text"/> to 0 and the time infolevel <Ref
-# Func="InfoGBNPTime" Style="Text"/> to 1 (for more information about timing;
+# Func="InfoGBNPTime" Style="Text"/> to 0 (for more information about timing;
 # see Chapter <Ref Chap="Info"/>).
 
 # <L>
 LoadPackage("gbnp", false);
 SetInfoLevel(InfoGBNP,0);
-SetInfoLevel(InfoGBNPTime,1);
+SetInfoLevel(InfoGBNPTime,0);
 # </L>
 
 # The relations are generated automatically from the Coxeter diagram.

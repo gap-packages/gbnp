@@ -1167,8 +1167,6 @@ MatricesQAC(2,B,GB);
 # Consider the following two polynomials in NP format of which a Gröbner
 # basis is computed.
 # <L>
-# F := GF(256);
-# z := GeneratorsOfField(F)[1];
 p1 := [[[1,1,1,1,2],[]],[1,-1]];;
 p2 := [[[2,2,2,1,1,1],[]],[1,-1]];;
 GB := Grobner([p1,p2]);;

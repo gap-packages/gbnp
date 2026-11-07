@@ -4,11 +4,11 @@ Copyright 2001-2010 by Arjeh M. Cohen, Dié A.H. Gijsbers, Jan Willem
 Knopper, Chris Krook. Address: Discrete Algebra and Geometry (DAM) group
 at the Department of Mathematics and Computer Science of Eindhoven
 University of Technology.
-
+gap> #
 For acknowledgements see the manual. The manual can be found in several
 formats in the doc subdirectory of the GBNP distribution. The
 acknowledgements formatted as text can be found in the file chap0.txt.
-
+gap> #
 GBNP is free software; you can redistribute it and/or modify it under
 the terms of the Lesser GNU General Public License as published by the
 Free Software Foundation (FSF); either version 2.1 of the License, or
@@ -21,7 +21,7 @@ gap> ### filename = "example08new.g"
 gap> ### authors Cohen & Gijsbers
 
 gap> ### THIS IS A GAP PACKAGE FOR COMPUTING NON-COMMUTATIVE GROBNER BASES
-gap> 
+
 gap> ### Last change: May 24, 2007 amc towards nonspecialized coefficients
 
 
@@ -34,29 +34,29 @@ in order to find a proof that the algebra has dimension 15.
 <P/>
 First load the package and set the standard infolevel <Ref
 InfoClass="InfoGBNP" Style="Text"/> to 1 and the time infolevel <Ref
-Func="InfoGBNPTime" Style="Text"/> to 1 (for more information about the info
+Func="InfoGBNPTime" Style="Text"/> to 0 (for more information about the info
 level, see Chapter <Ref Chap="Info"/>).
 
-<Listing><![CDATA[
+<Example><![CDATA[
 gap> LoadPackage("gbnp", false);
 true
 gap> SetInfoLevel(InfoGBNP,1);
-gap> SetInfoLevel(InfoGBNPTime,1);
-]]></Listing>
+gap> SetInfoLevel(InfoGBNPTime,0);
+]]></Example>
 
 The variables are <M>g_1</M>, <M>g_2</M>,
 <M>e_1</M>, <M>e_2</M>, in this order.
 In order to have the results printed out with these symbols, we
 invoke
 <Ref Func="GBNP.ConfigPrint" Style="Text"/>
-<Listing><![CDATA[
+<Example><![CDATA[
 gap> GBNP.ConfigPrint("g1","g2","e1","e2");
-]]></Listing>
+]]></Example>
 
 
 Unlike Example <Ref Sect="Example07"/>,
 we work with a field of rational functions.
-<Listing><![CDATA[
+<Example><![CDATA[
 gap> ll := Indeterminate(Rationals,"l");
 l
 gap> mm := Indeterminate(Rationals,"m");
@@ -70,12 +70,12 @@ m
 gap> F1 := One(F);;
 gap> Print("identity element of F: ",F1,"\n");
 identity element of F: 1
-]]></Listing>
+]]></Example>
 
 
 Now enter the relations. This will be done in NP form.
 
-<Listing><![CDATA[
+<Example><![CDATA[
 gap> #relations Theorem 1.1
 gap> k1 := [[[3],[1,1],[1],[]],[F1,-l/m,-l,l/m]];;
 gap> k2 := [[[4],[2,2],[2],[]],[F1,-l/m,-l,l/m]];;
@@ -97,11 +97,11 @@ gap> k8 := [[[3,4,3],[3]],[F1,-F1]];;
 gap> k9 := [[[4,3,4],[4]],[F1,-F1]];;
 
 gap> KI := [k1,k2,k3,k4,k5,k6,k7,k8,k9];;
-]]></Listing>
+]]></Example>
 
 The input can be displayed with <Ref Func="PrintNPList" Style="Text"/>:
 
-<Listing><![CDATA[
+<Example><![CDATA[
 gap> PrintNPList(KI);
  e1 + -l/mg1^2 + -lg1 + l/m
  e2 + -l/mg2^2 + -lg2 + l/m
@@ -112,12 +112,12 @@ gap> PrintNPList(KI);
  e2g1e2 + -le2
  e1e2e1 + -1e1
  e2e1e2 + -1e2
-]]></Listing>
+]]></Example>
 
 Now calculate the Gröbner basis with trace information, using the function
 <Ref Func="SGrobnerTrace" Style="Text"/>:
 
-<Listing><![CDATA[
+<Example><![CDATA[
 gap> GB := SGrobnerTrace(KI);;
 #I  number of entered polynomials is 9
 #I  number of polynomials after reduction is 9
@@ -126,8 +126,7 @@ gap> GB := SGrobnerTrace(KI);;
 #I  List of todo lengths is [ 8, 7, 6, 5, 4, 6, 4, 4, 4, 3, 3, 2, 1, 0 ]
 #I  End of phase III
 #I  End of phase IV
-#I  The computation took 484 msecs.
-]]></Listing>
+]]></Example>
 
 The full trace can be printed with <Ref Func="PrintTraceList" Style="Text"/>,
 while printing only the relations (and no trace) can be invoked by <Ref
@@ -136,7 +135,7 @@ do not call <C>PrintTraceList(GB)</C> here but only show two polynomial
 expressions from the Gröbner basis
 with <Ref Func="PrintTracePol" Style="Text"/>:
 
-<Listing><![CDATA[
+<Example><![CDATA[
 gap> PrintNPListTrace(GB);
  g1^2 + m/-le1 + mg1 + -1
  g1e1 + -l^-1e1
@@ -183,7 +182,7 @@ gap> PrintTracePol(GB[10]);
 5)e1 + l^2*m/(-l*m-1)g2g1g2G(5)e1 + -lg2^2g1G(5)e1 + l^2/(-l*m-1)g2^2g1g2G(
 5)e1 + l*m/(-l*m-1)G(6)g2g1e1 + l/(-l*m-1)g2G(6)g2g1e1 + m/-lG(
 7)e1 + -m^2/(-l*m-1)e1G(7)e1 + -m/(-l*m-1)g2e1G(7)e1 + mG(8) + g2G(8)
-]]></Listing>
+]]></Example>
 
 In order to test whether the expression for <C>GB[10]</C> is as claimed
 we use <Ref Func="EvalTrace" Style="Text"/>,
@@ -195,16 +194,16 @@ in which each occurrence of <C>G(i)</C> is replaced by <C>KI[i]</C>
 by  use of <Ref Func="EvalTrace" Style="Text"/>,
 with <C>x.pol</C>.
 
-<Listing><![CDATA[
+<Example><![CDATA[
 gap> ForAll(GB,x->EvalTrace(x,KI)=x.pol);
 false
-]]></Listing>
+]]></Example>
 
 
 As a result the dimension of the quotient algebra can be calculated with <Ref
 Func="DimQA" Style="Text"/> and the quotient algebra itself with <Ref
 Func="BaseQA" Style="Text"/>.
-<Listing><![CDATA[
+<Example><![CDATA[
 gap> GB_pols:=List(GB,x->x.pol);;
 gap> PrintNPList(GB_pols);
  g1^2 + m/-le1 + mg1 + -1
@@ -239,7 +238,7 @@ gap> PrintNPList(B);
  g1g2
  g2g1
  g1g2g1
-]]></Listing>
+]]></Example>
 
 </Section>
 <#/GAPDoc>

@@ -22,12 +22,10 @@ chooser.html
 /doc/title.xml
 /doc/GBNP.xml
 
-.depend
 /example/*.g
 
 /build/
 /misc/
-/examples/
 
 /tmp/
 /gh-pages/

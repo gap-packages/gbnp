@@ -4,11 +4,11 @@ Copyright 2001-2010 by Arjeh M. Cohen, Dié A.H. Gijsbers, Jan Willem
 Knopper, Chris Krook. Address: Discrete Algebra and Geometry (DAM) group
 at the Department of Mathematics and Computer Science of Eindhoven
 University of Technology.
-
+gap> #
 For acknowledgements see the manual. The manual can be found in several
 formats in the doc subdirectory of the GBNP distribution. The
 acknowledgements formatted as text can be found in the file chap0.txt.
-
+gap> #
 GBNP is free software; you can redistribute it and/or modify it under
 the terms of the Lesser GNU General Public License as published by the
 Free Software Foundation (FSF); either version 2.1 of the License, or
@@ -21,7 +21,7 @@ gap> ### filename = "example03.g"
 gap> ### authors Cohen & Gijsbers
 
 gap> ### THIS IS A GAP PACKAGE FOR COMPUTING NON-COMMUTATIVE GROBNER BASES
-gap> 
+
 gap> ### Last change: August 22 2001.
 gap> ### amc
 
@@ -33,24 +33,24 @@ This number is well known to be 51840.
 <P/>
 First load the package and set the standard infolevel <Ref
 InfoClass="InfoGBNP" Style="Text"/> to 1 and the time infolevel <Ref
-Func="InfoGBNPTime" Style="Text"/> to 2 (for more information about the info
+Func="InfoGBNPTime" Style="Text"/> to 0 (for more information about the info
 level, see Chapter <Ref Chap="Info"/>).
 
-<Listing><![CDATA[
+<Example><![CDATA[
 gap> LoadPackage("gbnp", false);
 true
 gap> SetInfoLevel(InfoGBNP,1);
-gap> SetInfoLevel(InfoGBNPTime,2);
-]]></Listing>
+gap> SetInfoLevel(InfoGBNPTime,0);
+]]></Example>
 
 Then input the relations in NP format (see <Ref Sect="NP"/>).
 They come from the presentation of the Weyl group as a Coxeter group.
 This means that there are six variables, one for each generator.
 We let the corresponding variables be printed as <M>r_1</M>, ..., <M>r_6</M> by means of
 <Ref Func="GBNP.ConfigPrint" Style="Text"/>
-<Listing><![CDATA[
+<Example><![CDATA[
 gap> GBNP.ConfigPrint(6,"r");
-]]></Listing>
+]]></Example>
 
 
 The relations are binomial and represent the group relations,
@@ -60,7 +60,7 @@ is specified by the Coxeter diagram (see any book on Coxeter groups for details)
 The relations will be
 assigned to <C>KI</C>.
 
-<Listing><![CDATA[
+<Example><![CDATA[
 gap> k1 := [[[1,3,1],[3,1,3]],[1,-1]];;
 gap> k2 := [[[4,3,4],[3,4,3]],[1,-1]];;
 gap> k3 := [[[4,2,4],[2,4,2]],[1,-1]];;
@@ -85,11 +85,11 @@ gap> k21 := [[[6,6],[]],[1,-1]];;
 gap> KI := [k1,k2,k3,k4,k5,k6,k7,k8,k9,k10,
 >        k11,k12,k13,k14,k15,k16,k17,k18,k19,k20,k21
 >       ];;
-]]></Listing>
+]]></Example>
 
 The relations can be shown with <Ref Func="PrintNPList" Style="Text"/>:
 
-<Listing><![CDATA[
+<Example><![CDATA[
 gap> PrintNPList(KI);
  r.1r.3r.1 - r.3r.1r.3
  r.4r.3r.4 - r.3r.4r.3
@@ -112,21 +112,19 @@ gap> PrintNPList(KI);
  r.4^2 - 1
  r.5^2 - 1
  r.6^2 - 1
-]]></Listing>
+]]></Example>
 
 The Gröbner basis can now be calculated with
 <Ref Func="SGrobner" Style="Text"/>:
 
-<Listing><![CDATA[
+<Example><![CDATA[
 gap> GB := SGrobner(KI);;
 #I  number of entered polynomials is 21
 #I  number of polynomials after reduction is 21
 #I  End of phase I
 #I  End of phase II
 #I  End of phase III
-#I  Time needed to clean G :0
 #I  End of phase IV
-#I  The computation took 132 msecs.
 gap> PrintNPList(GB);
  r.1^2 - 1
  r.2r.1 - r.1r.2
@@ -180,37 +178,34 @@ gap> PrintNPList(GB);
 6r.5
  r.6r.5r.4r.2r.3r.1r.4r.3r.5r.4r.2r.6r.5r.4r.2 - r.5r.6r.5r.4r.2r.3r.1r.4r.3r.\
 5r.4r.2r.6r.5r.4
-]]></Listing>
+]]></Example>
 
 The base of the quotient algebra can be calculated with <Ref Func="BaseQA"
 Style="Text"/>, which has as arguments a Gröbner basis <C>GB</C>, a number
 of symbols <C>6</C> and a maximum terms to be found (here 0 is entered, for
 a full base) . Since it is very long we will not print it here.
 
-<Listing><![CDATA[
+<Example><![CDATA[
 gap> B:=BaseQA(GB,6,0);;
-]]></Listing>
+]]></Example>
 
 The dimension of the quotient algebra can be calculated with
 <Ref Func="DimQA" Style="Text"/>, the arguments are the Gröbner basis
-<C>GB</C> and the number of symbols <C>6</C>. Since <Ref
-InfoClass="InfoGBNPTime" Style="Text"/> is set to 2, we get
-timing information from <Ref Func="DimQA" Style="Text"/>:
+<C>GB</C> and the number of symbols <C>6</C>:
 
-<Listing><![CDATA[
+<Example><![CDATA[
 gap> DimQA(GB,6);
-#I  The computation took 172 msecs.
 51840
-]]></Listing>
+]]></Example>
 
 Note that the calculation of the dimension takes almost as long as
 calculating the base. Since we have already calculated a base <C>B</C> it is
 much more efficient to calculate the dimension with <C>Length</C>:
 
-<Listing><![CDATA[
+<Example><![CDATA[
 gap> Length(B);
 51840
-]]></Listing>
+]]></Example>
 
 </Section>
 <#/GAPDoc>

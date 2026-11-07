@@ -4,11 +4,11 @@ Copyright 2001-2010 by Arjeh M. Cohen, Dié A.H. Gijsbers, Jan Willem
 Knopper, Chris Krook. Address: Discrete Algebra and Geometry (DAM) group
 at the Department of Mathematics and Computer Science of Eindhoven
 University of Technology.
-
+gap> #
 For acknowledgements see the manual. The manual can be found in several
 formats in the doc subdirectory of the GBNP distribution. The
 acknowledgements formatted as text can be found in the file chap0.txt.
-
+gap> #
 GBNP is free software; you can redistribute it and/or modify it under
 the terms of the Lesser GNU General Public License as published by the
 Free Software Foundation (FSF); either version 2.1 of the License, or
@@ -19,7 +19,7 @@ gap> ########################## END COPYRIGHT MESSAGE ##########################
 
 gap> ### filename = "example15.g"
 gap> ### author Krook
-gap> 
+
 gap> ### THIS IS A GAP PACKAGE GBNP
 gap> ### FOR COMPUTING WITH NON-COMMUTATIVE POLYNOMIALS
 gap> ### ADD-ON: STUDY GROWTH OF FACTOR ALGEBRA
@@ -39,39 +39,39 @@ Func="DetermineGrowthQA" Style="Text"/> is used for the computation.
 <P/>
 First load the package and set the standard infolevel <Ref
 InfoClass="InfoGBNP" Style="Text"/> to 2 and the time infolevel <Ref
-Func="InfoGBNPTime" Style="Text"/> to 1 (for more information about the info
+Func="InfoGBNPTime" Style="Text"/> to 0 (for more information about the info
 level, see Chapter <Ref Chap="Info"/>).
 
-<Listing><![CDATA[
+<Example><![CDATA[
 gap> LoadPackage("gbnp", false);
 true
 gap> SetInfoLevel(InfoGBNP,2);
-gap> SetInfoLevel(InfoGBNPTime,1);
-]]></Listing>
+gap> SetInfoLevel(InfoGBNPTime,0);
+]]></Example>
 
 Let the variables be printed as <M>x</M> and <M>y</M> instead of <M>a</M> and <M>b</M> by means of
 <Ref Func="GBNP.ConfigPrint" Style="Text"/>
-<Listing><![CDATA[
+<Example><![CDATA[
 gap> GBNP.ConfigPrint("x","y");
-]]></Listing>
+]]></Example>
 
 
 Then input the relations in NP format (see Section <Ref Sect="NP"/>). They
 will be assigned to <C>KI</C>.
 
-<Listing><![CDATA[
+<Example><![CDATA[
 gap> k1 := [[[2,2,2,2],[2,2]],[1,-1]];;
 gap> k2 := [[[1,1,2],[1,2]],[1,-1]];;
 gap> KI := [k1,k2];;
 gap> PrintNPList(KI);
  y^4 - y^2
  x^2y - xy
-]]></Listing>
+]]></Example>
 
 We calculate the Gröbner basis with the function <Ref Func="SGrobner"
 Style="Text"/> and print it with <Ref Func="PrintNPList" Style="Text"/>.
 
-<Listing><![CDATA[
+<Example><![CDATA[
 gap> GB := SGrobner(KI);;
 #I  number of entered polynomials is 2
 #I  number of polynomials after reduction is 2
@@ -81,11 +81,10 @@ gap> GB := SGrobner(KI);;
 #I  End of phase III
 #I  G: Cleaning finished, 0 polynomials reduced
 #I  End of phase IV
-#I  The computation took 0 msecs.
 gap> PrintNPList(GB);
  x^2y - xy
  y^4 - y^2
-]]></Listing>
+]]></Example>
 
 Next we check the dimensionality of the quotient algebra
 with the function <Ref
@@ -98,21 +97,21 @@ Func="LMonsNP" Style="Text"/> and as second argument the number of symbols
 will not only report whether a Gröbner basis is finite, but will also provide
 information about its growth.
 
-<Listing><![CDATA[
+<Example><![CDATA[
 gap> L:=LMonsNP(GB);
 [ [ 1, 1, 2 ], [ 2, 2, 2, 2 ] ]
 gap> fd:=FinCheckQA(L,2);
 false
 gap> fd:=DetermineGrowthQA(L,2,false);
 "exponential growth"
-]]></Listing>
+]]></Example>
 
 Although the quotient algebra is infinite dimensional,
 multiplication of two elements can be carried out by
 <Ref Func="MulQA" Style="Text"/>.
 We print three positive powers of <M>x+y</M>.
 
-<Listing><![CDATA[
+<Example><![CDATA[
 gap> w := [[[1],[2]],[1,1]];;
 gap> hlp := [[[]],[1]];;
 gap> for i in [3..5] do
@@ -129,7 +128,7 @@ gap> for i in [3..5] do
 
  (x+y)^5 =
  y^3 + y^2x + yxy + yx^2 + xy^2 + xyx + x^3 + xy
-]]></Listing>
+]]></Example>
 
 
 </Section>

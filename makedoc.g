@@ -1,9 +1,10 @@
 ##  this creates the documentation, needs: GAPDoc and AutoDoc packages, pdflatex
+##  and extracts the manual examples into tst/gbnpNN.tst
 ##
 ##  Call this with GAP from within the package directory.
 
-if fail = LoadPackage("AutoDoc", ">= 2019.04.10") then
-    Error("AutoDoc 2019.04.10 or newer is required");
+if fail = LoadPackage("AutoDoc", ">= 2022.07.10") then
+    Error("AutoDoc 2022.07.10 or newer is required");
 fi;
 
 
@@ -20,4 +21,6 @@ AutoDoc(rec(
         includes := [ "gbnp_doc.xml", "nmo.xml" ],
         appendix := [ "examples.xml" ],
     ),
+    # one file per section: each appendix example is its own session
+    extract_examples := rec( units := "Section" ),
 ));

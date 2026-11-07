@@ -43,7 +43,11 @@ InstallGlobalFunction("InstallNoncommutativeMonomialOrdering",
         local gens,lextable,auxtable,len,parentalgebra,ordname,x,idxtable,idxperm,nextordering;
 
         # Get name of our monomial ordering function:
-        ordname := NameFunction(ord);
+        if IsString(ord) then
+          ordname := ord;
+        else
+          ordname := NameFunction(ord);
+        fi;
 
         # Check that we're passed the correct parameter types:
         if ( Length(arg) <= 0 or

@@ -4,11 +4,11 @@ Copyright 2001-2010 by Arjeh M. Cohen, Dié A.H. Gijsbers, Jan Willem
 Knopper, Chris Krook. Address: Discrete Algebra and Geometry (DAM) group
 at the Department of Mathematics and Computer Science of Eindhoven
 University of Technology.
-
+gap> #
 For acknowledgements see the manual. The manual can be found in several
 formats in the doc subdirectory of the GBNP distribution. The
 acknowledgements formatted as text can be found in the file chap0.txt.
-
+gap> #
 GBNP is free software; you can redistribute it and/or modify it under
 the terms of the Lesser GNU General Public License as published by the
 Free Software Foundation (FSF); either version 2.1 of the License, or
@@ -35,20 +35,20 @@ packages when it comes to efficiency.
 <P/>
 First load the package and set the standard infolevel <Ref
 InfoClass="InfoGBNP" Style="Text"/> to 1 and the time infolevel <Ref
-Func="InfoGBNPTime" Style="Text"/> to 1 (for more information about the info
+Func="InfoGBNPTime" Style="Text"/> to 0 (for more information about the info
 level, see Chapter <Ref Chap="Info"/>).
 
-<Listing><![CDATA[
+<Example><![CDATA[
 gap> LoadPackage("gbnp", false);
 true
 gap> SetInfoLevel(InfoGBNP,1);
-gap> SetInfoLevel(InfoGBNPTime,1);
-]]></Listing>
+gap> SetInfoLevel(InfoGBNPTime,0);
+]]></Example>
 
 The relations will be entered as GAP polynomials and converted to NP form
 (see <Ref Sect="NP"/>) with <Ref Func="GP2NPList" Style="Text"/>.
 
-<Listing><![CDATA[
+<Example><![CDATA[
 gap> F:=GF(7);; ef:=One(F);;
 gap> A:=FreeAssociativeAlgebraWithOne(F, "a", "b", "c", "d", "e", "f", "g");
 <algebra-with-one over GF(7), with 7 generators>
@@ -59,40 +59,40 @@ gap> a:=gens[2];; b:=gens[3];; c:=gens[4];; d:=gens[5];; e:=gens[6];; f:=gens[7]
 gap> g:=gens[8];; ea:=gens[1];;
 
 gap> rels := [ a^3 + f*a,
->   a^9 + c*a^3 + g*a,
->   a^81 + c*a^9 + d*a^3,
->   c*a^81 + d*a^9 + e*a^3,
->   a^27 + d*a^81 + e*a^9 + f*a^3,
->   b + c*a^27 + e*a^81 + f*a^9 + g*a^3,
->   c*b + d*a^27 + f*a^81 + g*a^9,
->   a + d*b + e*a^27 + g*a^81,
->   c*a + e*b + f*a^27,
->   d*a + f*b + g*a^27,
->   e*a + g*b,
->   b^3 - b ];;
-]]></Listing>
+>         a^9 + c*a^3 + g*a,
+>         a^81 + c*a^9 + d*a^3,
+>         c*a^81 + d*a^9 + e*a^3,
+>         a^27 + d*a^81 + e*a^9 + f*a^3,
+>         b + c*a^27 + e*a^81 + f*a^9 + g*a^3,
+>         c*b + d*a^27 + f*a^81 + g*a^9,
+>         a + d*b + e*a^27 + g*a^81,
+>         c*a + e*b + f*a^27,
+>         d*a + f*b + g*a^27,
+>         e*a + g*b,
+>         b^3 - b ];;
+]]></Example>
 
 Some relations added to enforce commutativity.
 
-<Listing><![CDATA[
+<Example><![CDATA[
 gap> for i in [1..6] do
 >     for j in [i+1..7] do
 >         Add(rels,gens[i+1]*gens[j+1]-gens[j+1]*gens[i+1]);
 >     od;
 > od;
-]]></Listing>
+]]></Example>
 
 Now the relations are converted to NP form (see <Ref Sect="NP"/>) with the
 function <Ref Func="GP2NPList" Style="Text"/>.
 
-<Listing><![CDATA[
+<Example><![CDATA[
 gap> KI:=GP2NPList(rels);;
-]]></Listing>
+]]></Example>
 
 The Gröbner basis can be calculated with <Ref Func="SGrobner" Style="Text"/>
 and printed with <Ref Func="PrintNPList" Style="Text"/>.
 
-<Listing><![CDATA[
+<Example><![CDATA[
 gap> GB := SGrobner(KI);;
 #I  number of entered polynomials is 33
 #I  number of polynomials after reduction is 33
@@ -100,7 +100,6 @@ gap> GB := SGrobner(KI);;
 #I  End of phase II
 #I  End of phase III
 #I  End of phase IV
-#I  The computation took 24820 msecs.
 gap> PrintNPList(GB);
  a
  b
@@ -114,7 +113,7 @@ gap> PrintNPList(GB);
  gd + Z(7)^3dg
  ge + Z(7)^3eg
  gf + Z(7)^3fg
-]]></Listing>
+]]></Example>
 
 
 To determine whether the quotient algebra is finite dimensional
@@ -123,11 +122,11 @@ the leading monomials of <C>GB</C> and 7, the number of variables involved.
 The leading monomials of <C>GB</C> are obtained by
 <Ref Func="LMonsNP" Style="Text"/>.
 
-<Listing><![CDATA[
+<Example><![CDATA[
 gap> F := LMonsNP(GB);;
 gap> FinCheckQA(F,7);
 false
-]]></Listing>
+]]></Example>
 
 
 Thus, the quotient algebra turns out to be infinite dimensional.
@@ -138,17 +137,17 @@ by application of
 <Ref Func="DetermineGrowthQA" Style="Text"/>, with the first two arguments
 as for <C>FinCheckQA</C> above and third argument <C>false</C>, indicating
 that an interval for the degree of the polynomial degree will suffice.
-<Listing><![CDATA[
+<Example><![CDATA[
 gap> DetermineGrowthQA(F,7,false);
 5
-]]></Listing>
+]]></Example>
 It turns out that this quick version already gives an exact answer.
 More time consuming would be the algorithm run with third argument
 equal to <C>true</C>.
-<Listing><![CDATA[
+<Example><![CDATA[
 gap> DetermineGrowthQA(F,7,true);
 5
-]]></Listing>
+]]></Example>
 
 </Section>
 <#/GAPDoc>

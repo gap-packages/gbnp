@@ -33,13 +33,13 @@
 # <P/>
 # First load the package and set the standard infolevel <Ref
 # InfoClass="InfoGBNP" Style="Text"/> to 1 and the time infolevel <Ref
-# Func="InfoGBNPTime" Style="Text"/> to 2 (for more information about the info
+# Func="InfoGBNPTime" Style="Text"/> to 0 (for more information about the info
 # level, see Chapter <Ref Chap="Info"/>).
 
 # <L>
 LoadPackage("gbnp", false);
 SetInfoLevel(InfoGBNP,1);
-SetInfoLevel(InfoGBNPTime,2);
+SetInfoLevel(InfoGBNPTime,0);
 # </L>
 
 # Then input the relations in NP format (see <Ref Sect="NP"/>).
@@ -111,9 +111,7 @@ B:=BaseQA(GB,6,0);;
 
 # The dimension of the quotient algebra can be calculated with
 # <Ref Func="DimQA" Style="Text"/>, the arguments are the Gröbner basis
-# <C>GB</C> and the number of symbols <C>6</C>. Since <Ref
-# InfoClass="InfoGBNPTime" Style="Text"/> is set to 2, we get
-# timing information from <Ref Func="DimQA" Style="Text"/>:
+# <C>GB</C> and the number of symbols <C>6</C>:
 
 # <L>
 DimQA(GB,6);

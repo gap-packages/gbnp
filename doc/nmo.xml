@@ -172,16 +172,16 @@ gap> LoadPackage("gbnp", false);
 true
 gap> # remove any previous orderings
 gap> UnpatchGBNP();
-LtNP restored
-GtNP restored
+LtNP restored.
+GtNP restored.
 </Example>
 
 Create a noncommutative free algebra on 4 generators over the
 Rationals in <Package>GAP</Package>:
-<Listing>
+<Example><![CDATA[
 gap> A := FreeAssociativeAlgebraWithOne(Rationals,"a","b","c","d");
-<!--<algebra-with-one over Rationals, with 4 generators> -->
-</Listing>
+<algebra-with-one over Rationals, with 4 generators>
+]]></Example>
 
 Label the generators of the algebra:
 <Example>
@@ -262,8 +262,8 @@ Create a noncommutative free algebra on 4 generators over the
 Rationals, label, and set up the example:
 <Example>
 gap> UnpatchGBNP();
-LtNP restored
-GtNP restored
+LtNP restored.
+GtNP restored.
 gap> A := FreeAssociativeAlgebraWithOne(Rationals,"a","b","c","d");;
 gap> a := A.a;; b := A.b;; c := A.c;; d := A.d;;
 gap> polys := [ c*d*a*b-c*b, b*c-d*a ];;

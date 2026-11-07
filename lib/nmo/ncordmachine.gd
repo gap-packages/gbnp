@@ -214,36 +214,35 @@ BindGlobal("NoncommutativeMonomialOrderingsFamily",
 ##    functions, choosing a name for the ordering type
 ##    and then calling <C>InstallNoncommutativeMonomialOrdering</C>.
 ##
-##    <Example>
-##    gap> f1 := function(a,b,aux)
-##    >   return Length(a) &lt; Length(b);
-##    > end;
-##    function( a, b, aux ) ... end
-##    gap> f2 := function(a,b,aux,idx)
-##    >   return Length(a) &lt; Length(b);
-##    > end;
-##    function( a, b, aux, idx ) ... end
-##
-##    DeclareGlobalFunction("lenOrdering");
-##    InstallNoncommutativeMonomialOrdering("lenOrdering",f1,f2);
-##    </Example>
+##  <Example>
+##  gap> f1 := function(a,b,aux)
+##  >   return Length(a) &lt; Length(b);
+##  > end;
+##  function( a, b, aux ) ... end
+##  gap> f2 := function(a,b,aux,idx)
+##  >   return Length(a) &lt; Length(b);
+##  > end;
+##  function( a, b, aux, idx ) ... end
+##  gap> DeclareGlobalFunction("lenOrdering");
+##  gap> InstallNoncommutativeMonomialOrdering("lenOrdering",f1,f2);
+##  </Example>
 ##
 ##    Now we create an ordering based on this new function, and make
 ##    some simple comparisons. (Note: we are passing in an empty
 ##    <C>aux</C> table since it is not being used.  Also, the comparison
 ##    function is the non-indexed version since we determined
 ##    no lex order on the generators):
-##    <Example>
-##    gap> A := FreeAssociativeAlgebraWithOne(Rationals,"a","b","c");
-##    &lt;algebra-with-one over Rationals, with 3 generators>
-##    gap> ml := lenOrdering(A);
-##    lenOrdering([ (1)*a, (1)*b, (1)*c ])
-##    gap> 
-##    gap> LtFunctionListRep(ml)([1,2],[1,1,1],[]);
-##    true
-##    gap> LtFunctionListRep(ml)([1,1],[],[]);
-##    false
-##    </Example>
+##  <Example>
+##  gap> A := FreeAssociativeAlgebraWithOne(Rationals,"a","b","c");
+##  &lt;algebra-with-one over Rationals, with 3 generators>
+##  gap> ml := lenOrdering(A);
+##  lenOrdering([ (1)*a, (1)*b, (1)*c ])
+##  gap> 
+##  gap> LtFunctionListRep(ml)([1,2],[1,1,1],[]);
+##  true
+##  gap> LtFunctionListRep(ml)([1,1],[],[]);
+##  false
+##  </Example>
 ##    <P/>
 ##
 ##  </Description>

@@ -4,11 +4,11 @@ Copyright 2001-2010 by Arjeh M. Cohen, Dié A.H. Gijsbers, Jan Willem
 Knopper, Chris Krook. Address: Discrete Algebra and Geometry (DAM) group
 at the Department of Mathematics and Computer Science of Eindhoven
 University of Technology.
-
+gap> #
 For acknowledgements see the manual. The manual can be found in several
 formats in the doc subdirectory of the GBNP distribution. The
 acknowledgements formatted as text can be found in the file chap0.txt.
-
+gap> #
 GBNP is free software; you can redistribute it and/or modify it under
 the terms of the Lesser GNU General Public License as published by the
 Free Software Foundation (FSF); either version 2.1 of the License, or
@@ -21,7 +21,7 @@ gap> ### filename = "exampleColagen.g"
 gap> ### authors Cohen & Gijsbers
 
 gap> ### THIS IS A GAP PACKAGE FOR COMPUTING NON-COMMUTATIVE GROBNER BASES
-gap> 
+
 <#GAPDoc Label="ExampleColagen">
 <Section Label="ExampleColagen"><Heading>The cola gene puzzle</Heading>
 <P/>
@@ -60,19 +60,19 @@ Func="InfoGBNPTime" Style="Text"/> to 0 to minimize the printing of
 data regarding the computation (for more information about the info
 level, see Chapter <Ref Chap="Info"/>).
 
-<Listing><![CDATA[
+<Example><![CDATA[
 gap> LoadPackage("gbnp", false);
 true
 gap> SetInfoLevel(InfoGBNP,0);
 gap> SetInfoLevel(InfoGBNPTime,0);
-]]></Listing>
+]]></Example>
 
 
 We introduce the free algebra <C>ALG</C>
 on the generators corresponding to the four letters in the DNA code
 and express the milk gene and cola gene as monomials in this algebra.
 
-<Listing><![CDATA[
+<Example><![CDATA[
 gap> ALG:=FreeAssociativeAlgebraWithOne(Rationals, "A", "C", "G", "T");;
 gap> g:=GeneratorsOfAlgebra(ALG);;
 gap> A:=g[2];;
@@ -82,7 +82,7 @@ gap> T:=g[5];;
 
 gap> milk := T*A*G*C*T*A*G*C*T*A*G*C*T;;
 gap> cola := C*T*G*A*C*T*G*A*C*T;;
-]]></Listing>
+]]></Example>
 
 
 We next enter the set  <M>K</M> of binomials <M>x-y</M>
@@ -90,7 +90,7 @@ corresponding to the five operations <M>x = y</M> listed above.
 We enter the binomials as members of <C>ALG</C> and
 let <C>KNP</C> be the corresponding set of NP polynomials.
 
-<Listing><![CDATA[
+<Example><![CDATA[
 gap> rule1 := T*C*A*T - T;;
 gap> rule2 :=  G*A*G -  A*G;;
 gap> rule3 :=  C*T*C - T*C;;
@@ -98,12 +98,12 @@ gap> rule4 := A*G*T*A - A;;
 gap> rule5 := T*A*T -  C*T;;
 gap> K := [rule1,rule2,rule3,rule4,rule5];;
 gap> KNP := List(K,x-> GP2NP(x));;
-]]></Listing>
+]]></Example>
 
 We stipulate how the variables will be printed and print <C>KNP</C>.
 See  <Ref Func="PrintNPList" Style="Text"/>.
 
-<Listing><![CDATA[
+<Example><![CDATA[
 gap> GBNP.ConfigPrint("A","C","G","T");
 gap> PrintNPList(KNP);
  TCAT - T
@@ -111,15 +111,15 @@ gap> PrintNPList(KNP);
  CTC - TC
  AGTA - A
  TAT - CT
-]]></Listing>
+]]></Example>
 
 
 Now calculate the usual Gröbner basis with <Ref Func="SGrobner"
 Style="Text"/>.
 
-<Listing><![CDATA[
+<Example><![CDATA[
 gap> GB := SGrobner(KNP);;
-]]></Listing>
+]]></Example>
 
 
 Compare milk and cola after taking their strong normal forms
@@ -129,29 +129,29 @@ using
 We observe that they have the same normal form and so there is
 a way to transform the milk gene into the cola gene.
 
-<Listing><![CDATA[
+<Example><![CDATA[
 gap> milkNP := GP2NP(milk);;
 gap> colaNP := GP2NP(cola);;
 gap> milkRed := NP2GP(StrongNormalFormNP(milkNP,GB),ALG);
 (1)*T
 gap> colaRed := NP2GP(StrongNormalFormNP(colaNP,GB),ALG);
 (1)*T
-]]></Listing>
+]]></Example>
 
 But this information does not yet show us how to perform the transformation.
 To this end we calculate the Gröbner basis with trace information,
 using the function
 <Ref Func="SGrobnerTrace" Style="Text"/>.
 
-<Listing><![CDATA[
+<Example><![CDATA[
 gap> GTrace := SGrobnerTrace(KNP);;
-]]></Listing>
+]]></Example>
 
 The full trace can be printed with <Ref Func="PrintTraceList" Style="Text"/>,
 but we only print the relations (and no trace) by invoking <Ref
 Func="PrintNPListTrace" Style="Text"/>.
 
-<Listing><![CDATA[
+<Example><![CDATA[
 gap> PrintNPListTrace(GTrace);
  CT - T
  GA - A
@@ -159,7 +159,7 @@ gap> PrintNPListTrace(GTrace);
  ATA - A
  TAT - T
  TCA - TA
-]]></Listing>
+]]></Example>
 
 
 In order to display a proof that <M>milk-cola</M>
@@ -174,7 +174,7 @@ The other field of the record <C>p</C> is
 <C>p.trace</C>, the traced polynomial, which is best displayed
 by use of <Ref Func="PrintTracePol" Style="Text"/>.
 
-<Listing><![CDATA[
+<Example><![CDATA[
 gap> p := StrongNormalFormTraceDiff(CleanNP(GP2NP(milk-cola)),GTrace);;
 gap> NP2GP(p.pol,ALG);
 (1)*(T*A*G*C)^3*T+(-1)*(C*T*G*A)^2*C*T
@@ -189,7 +189,7 @@ gap> PrintTracePol(p);
 3)ATAGCTAGCT - TATG(4)T + TG(4)TAT + TATGG(4)T - TG(4)TGAT + TATATG(4)T + TGG(
 4)TGAT - TG(4)TATAT + TATG(4)TAGT + TG(4)TAGTAGT + TAGG(5)ATAT - TATATAGG(
 5) - TATAGG(5)AGT - TAGG(5)AGTAGT
-]]></Listing>
+]]></Example>
 
 In order to give a precise answer to the first question
 we need to work a little on <C>p.trace</C>. To do so, we
@@ -200,7 +200,7 @@ of <C>p.pol</C> as a linear combination of members of <C>KNP</C>.
 It is used to obtain the list <C>EvalList</C> of polynomials
 for all <C>i</C>.
 
-<Listing><![CDATA[
+<Example><![CDATA[
 gap> EvalTracePol := function(i,p,KNP)
 >   local x,pi;
 >   pi := p.trace[i];
@@ -210,13 +210,13 @@ gap> EvalTracePol := function(i,p,KNP)
 
 gap> lev :=  Length(p.trace);;
 gap> EvalList := List([1..lev], y -> CleanNP(EvalTracePol(y,p,KNP)));;
-]]></Listing>
+]]></Example>
 
 In order to find the rewrite from the milk gene to the cola gene
 as required for an answer to the first question,
 we match leading terms recursively.
 
-<Listing><![CDATA[
+<Example><![CDATA[
 gap> UnusedIndices := Set([1..lev]);;
 gap> RunningTerm :=  milkNP[1][1];;
 gap> stepno := 0;;
@@ -429,14 +429,14 @@ gap> while Length(UnusedIndices) > 0 do
  -->  CTGACTGACT
 gap> NP2GP(colaNP,ALG);
 (1)*(C*T*G*A)^2*C*T
-]]></Listing>
+]]></Example>
 
 
 And now the second question regarding the retro virus.
 
-<Listing><![CDATA[
+<Example><![CDATA[
 gap> retro := C*T*G*C*T*A*C*T*G*A*C*T;;
-]]></Listing>
+]]></Example>
 
 
 We compute the Strong Normal Form
@@ -444,10 +444,10 @@ We compute the Strong Normal Form
 of <C>retro</C> with respect to <C>GB</C>.
 As it is <C>TGT</C>, distinct to <C>T</C>, the strong normal form of milk,
 there is no transformation from milk to retro.
-<Listing><![CDATA[
+<Example><![CDATA[
 gap> NP2GP(StrongNormalFormNP(CleanNP(GP2NP(retro)),GB), ALG);
 (1)*T*G*T
-]]></Listing>
+]]></Example>
 
 
 Of course, here too we can verify the reduction,
@@ -459,7 +459,7 @@ The symbol <C>G</C> in expression like <C>G(2)</C>
 are not to be confused with the single symbols <C>G</C>
 representing the DNA element.
 
-<Listing><![CDATA[
+<Example><![CDATA[
 gap> retroTrace := StrongNormalFormTraceDiff(CleanNP(GP2NP(retro)),GTrace);;
 gap> PrintTracePol(retroTrace);
  TGG(1) - TGC^2G(1) - TGTAG(1) + TGTACG(1) + TGTAGG(1)AT + TGTATGAG(
@@ -469,7 +469,7 @@ gap> PrintTracePol(retroTrace);
 3)AT + TGTAG(3)ATGACT + TGG(3)ATACTGACT + G(3)ATGCTACTGACT + TGTG(
 4)T + TGTATG(4)T - TGTG(4)TAT - TGTATGG(4)T + TGCG(5) + TGG(5)AT - TGTAG(
 5) + TGTAGG(5)AT
-]]></Listing>
+]]></Example>
 
 </Section>
 <#/GAPDoc>
