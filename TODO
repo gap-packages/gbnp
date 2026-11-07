@@ -1,97 +1,56 @@
-unclassified:
+Open ideas for GBNP, collected from the authors' notes. "PTS" refers to
+the prefix (module) variants of functions.
 
-- introduce cancellation everywhere (some progress made, what is wanted in the
-  prefix case ?)
-last update: 3 June 2007
--> cheak after release
+Interface
+---------
+- Allow stopping a Gröbner basis computation after a time limit
+  (stopping after a number of iterations is possible, see SGrobner).
+- Clarify the difference between IsGrobnerPair and IsGrobnerBasis;
+  possibly combine them.
+- CheckHomogeneousNPs should return fail instead of false.
+- Make GBNP.cleancount and GBNP.cleanpolys options.
+- Keep options in a record per computation, initialized with defaults.
+- Gröbner basis records or objects, holding e.g. the occurrence trees;
+  this would make GBNP.StrongNormalForm2 superfluous.
+- DimQA that counts the standard monomials (depth first) instead of
+  computing them.
+- Add examples for GraphOfNormalWords, DetermineGrowthObs,
+  GraphOfChains, HilbertSeriesG, LMonNP, LTermsNP and PrintNPM.
+- Index entries other than function names in the manual.
 
-SHORT TERM:
-- restructure functions and file names. Remove empty placeholders.
-- allow to break a grobnerloop, so that G and todo are produced with which only
-  the last iteration/phase has to be redone
-- allow to automatically break a computation after (time or number of runs or
-  .. ?)
-- try to speed up reducepol2 (so computations can be continued with long
-  partial grobner bases): remove double loop and occur
-- functions to check whether some G is a Grobner basis, or G and todo are a
-  partial Grobner basis.
-  -> only partially done
-- avoid confusion with gbnp_doc.xml.in and gbnp_doc.xml by creating the
-  gnbp_doc.xml in a different directory
+Algorithms and speed
+--------------------
+- Cancellation everywhere; currently prefix generators cannot be
+  cancelled (see "XXX prefix not cancelled" in grobnerloops.gi).
+- Speed up GBNP.ReducePol2: remove the double loop and the Occur call
+  (see "XXX can this occur be removed" in grobner.gi).
+- GBNP.SGrobnerLoop: GBNP.ObsTall sorts todo; move this to the end of
+  the loop, combined with a phase that reduces todo without removing and
+  inserting, using a new StrongNormalForm variant.
+- GBNP.ObsTrunc could get obstructions from the normal list function.
+- GBNP.CheckHom could use GBNP.WeightedDegreeMon.
+- Check input with more than one polynomial with the same leading term.
+- Shorten traces.
+- Put the prefix generators at the end of the list for trees (saves
+  space).
+- Make test cases for performance testing.
 
--explain difference between LoadPackage("GBNP")
- and LoadPackage("GBNP","0",false).
+Traces
+------
+- Add the original relations to the Gröbner basis trace record.
+- Compute StrongNormalFormTraceDiff with respect to the Gröbner basis
+  instead of the original relations.
+- Count monomials in the trace in example 24.
 
-+decide to establish GBR.pg as a field. Decision NOT PUBLIC
-
--document argument Num??Gens better
-
--choose for BaseQAPTS etc,. to have  four arguments; CHECK uitwerking en
- documentatie
-
--similar for DimQAPTS
-
--define Strong Grobner Basis
-
-- In introduction to examples, specify version of FreeBSD and GAP version.
-
-- Functions DetermineGrowth and DimsQATrunc print more than their output.
-  Cheap option: Discuss this in explanatory sections (3.6.2 and 3.8.5).
-  Posher option: turn output into a record containing the info printed.
-
--remove the word "Obstructions" from public part of Krook's code.
-
--"Timing info will be printed as well" bij level 2 van InfoGBNP. Hoe verhoudt
-   zich dat tot InfoGBNPTime?
-
-- Combine DetermineGrowth and DetermineGrowthObs
-
-- Adjust output of DetermineGrowth and DetermineGrowthObs etc
- so that in similar cases similar output is given ("finite" vs "0" offends
- this rule from  DetermineGrowth and DetermineGrowthObs, respectively)
-
-- ngens.g verwerken tot basis functies die min aantal variabelen
-  en minimale moduulrang opgeven. Beantwoord:
-  Read off the number of variables a list of polynomials needs to be
-  defined. This would enable a default option (without the number t of
-  generators of the free algebra) in most cases. Exception: when you have
-  a case of polynomials in say t variables generating an ideal in the free
-  algebra with more than t generators.
-  NumAlgGensNP, etc.
-
-+ rename
-+        occurtree PTS ? -> no rename in this version
-+        DONE: SGrobnerPTS -> SGrobnerModule
-+        DONE: QAPTS -> QM
-+        DONE: PTSNP -> NPM
-+        DONE: LTermsNP -> LMonsNP
-+        DONE: HilbertSeries -> HilbertSeriesQA
-+        DONE: DetermineGrowth -> DetermineGrowthQA
-
-+ check hilbertseries vs determinegrowth for [1,2,1], [2,2,1]
-  -> polynomial of degree 2, that is correct (total vs ingremental)
-
-- StrongNormalFormNPTrunc: voorbeeld: gebruik
-  gewone StrongNormalFormNP ***Let op bovengrens graad***
-
-LONG TERM:
-
-- USES/USED IN are not up to date
-- check input with more than one polys with same lt
-- reduce PTS routines
-- merge SGrobner variants (some progress made)
-- SGrobnerLoop: ObsT(all) sorts todo, move this to the end of the loop in
-  SGrobnerloop, combine this with a fase IIId that reduces todo without
-  costly removing/inserting but by using a new StrongNormalForm variant
-- merge ReducePol (some progress made)
-- tree merge + trace inclusion in "all"
-- 3-HEAP
-- reduction of the length of traces
-- GBNP.StrongNormalForm2TS all version?
-- naming: StrongNormal versus SGrobner
-- Add original relations to the Gr�bner basis trace record ?
-- Calculate the StrongNormalFormTraceDiff with respect to the Gr�bner basis
-  instead of with respect to the original relations
-- It might be interesting to count monomials in the trace in example 24
-- put the date in a single file (the GNUMakefile ?)
-- add a link in the manual to the other available manual formats
+Code structure
+--------------
+- Merge the SGrobner variants, the ReducePol variants,
+  GBNP.ReducePolTails and GBNP.ReducePolTailsPTS; reduce the number of
+  PTS functions by using the two-sided ones.
+- GBNP.ReducePolTailsPTS does not reduce but clean; rename it.
+- Merge the trees; include traces in the "all" variants.
+- Rewrite code using tree.gi to use occurtree.gi.
+- Make the k-ary heap (kary-heap.gi) optional or remove it.
+- Remove the code duplication between PrintNP and
+  GBNP.PrintNPnonewline.
+- Check whether all functions use funcs.strong.

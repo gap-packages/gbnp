@@ -1,15 +1,28 @@
-The options record contains the following names:
+GBNP.OptionsRec, accessed via GBNP.GetOption, GBNP.SetOption etc. in
+options.gi, contains the following names:
 
+pg : number of prefix (module) generators, 0 for two-sided ideals; set
+    by GP2NPM, SGrobnerModule and the Gröbner basis loop
+PrintLetterFunction : set by GBNP.ConfigPrint
+PrintModuleDimension : set by GBNP.ConfigPrint
+PrintModuleGenerators : number of module generators for PrintNP; if
+    unset, pg is used
 Alphabetsize : the number of generators
 CancellativeMonoid : if bound then g_i(w1+w2+...+w_i)=0 -> w1+w2+...+w_i=0
     (same for (w1+w2+...+w_i)g_i ) (if i>1)
-    requires alphabetsize
+    requires Alphabetsize
     NOTE: g_i+n will be used for the cancellation of g_i
     (make sure to set up algebras and GBNP.ConfigPrint accordingly)
-pg ? : number of prefix generators (not used yet)
-PrintLetterFunction : set automatically by GBNP.ConfigPrint
-cleancount ? : cleaning the GB with itself each cleancount times
-cleanpolys ? : clean the GB with itself after the first next loop.
+CheckQA : if bound, the Gröbner basis loop reports the size of the
+    quotient algebra up to this bound in each iteration; requires
+    Alphabetsize
+lenGB : number of elements of the Gröbner basis already treated
 PrintTraceAsGP : if Algebra is also set, print the trace as GP
 Algebra : the FreeAssociativeAlgebraWithOne corresponding to the relations
 
+Not in the record but fields of GBNP:
+
+cleancount : clean the Gröbner basis with itself every cleancount
+    iterations (0: never)
+cleanpolys : if bound, clean the Gröbner basis with itself after the
+    next iteration

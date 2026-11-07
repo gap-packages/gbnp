@@ -14,9 +14,7 @@ The following files can be edited to change the documentation:
   http://www.math.rwth-aachen.de/~Frank.Luebeck/GAPDoc/index.html
 
 - TODO (list of some things that could be done)
-- doc/TODO (some things that could be changed in the documentation)
 - lib/OPTIONS (information about some options)
-- lib/TODO (some things that could be changed in the code)
 - README_AUTHORS (this file)
 - COPYRIGHT (copyright text)
 
