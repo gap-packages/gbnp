@@ -10,17 +10,17 @@
 #
 gap> START_TEST("gbnp07.tst");
 
-# doc/../doc/examples/functions.xml:1438-1443
+# doc/../doc/examples/functions.xml:1439-1444
 gap> p1 := [[[1,1,2],[]],[1,-1]];;
 gap> p2 := [[[2,2,1],[]],[1,-1]];;
 gap> Lnp := [p1,p2];;
 gap> GBT := SGrobnerTrace(Lnp);;
 
-# doc/../doc/examples/functions.xml:1453-1456
+# doc/../doc/examples/functions.xml:1454-1457
 gap> ForAll(GBT,q -> EvalTrace(q,Lnp) = q.pol);
 true
 
-# doc/../doc/examples/functions.xml:1747-1755
+# doc/../doc/examples/functions.xml:1748-1756
 gap> p1 := [[[1,1,2],[]],[1,-1]];;
 gap> p2 := [[[2,2,1],[]],[1,-1]];;
 gap> GBT := SGrobnerTrace([p1,p2]);;
@@ -29,7 +29,7 @@ gap> PrintTraceList(GBT);
 
  G(1)ba^2 + bG(1)ba + G(2) - a^2G(2)a - ba^2G(2)
 
-# doc/../doc/examples/functions.xml:1770-1779
+# doc/../doc/examples/functions.xml:1771-1780
 gap> p1 := [[[1,1,2],[]],[1,-1]];;
 gap> p2 := [[[2,2,1],[]],[1,-1]];;
 gap> GBT := SGrobnerTrace([p1,p2]);;
@@ -39,7 +39,7 @@ gap> for np in GBT do PrintTracePol(np); Print("\n"); od;
  G(1)ba^2 + bG(1)ba + G(2) - a^2G(2)a - ba^2G(2)
 
 
-# doc/../doc/examples/functions.xml:1791-1798
+# doc/../doc/examples/functions.xml:1792-1799
 gap> p1 := [[[1,1,2],[]],[1,-1]];;
 gap> p2 := [[[2,2,1],[]],[1,-1]];;
 gap> GBT := SGrobnerTrace([p1,p2]);;
@@ -47,7 +47,7 @@ gap> PrintNPListTrace(GBT);
  b - a
  a^3 - 1
 
-# doc/../doc/examples/functions.xml:1468-1479
+# doc/../doc/examples/functions.xml:1469-1480
 gap> p1 := [[[1,1,2],[]],[1,-1]];;
 gap> p2 := [[[2,2,1],[]],[1,-1]];;
 gap> GBT := SGrobnerTrace([p1,p2]);
@@ -59,12 +59,12 @@ gap> GBT := SGrobnerTrace([p1,p2]);
           [ [  ], 2, [  ], 1 ], [ [ 2, 1, 1 ], 2, [  ], -1 ],
           [ [ 1, 1 ], 2, [ 1 ], -1 ] ] ) ]
 
-# doc/../doc/examples/functions.xml:1492-1496
+# doc/../doc/examples/functions.xml:1493-1497
 gap> p1 := [[[1,1,2],[]],[1,-1]];;
 gap> p2 := [[[2,2,1],[]],[1,-1]];;
 gap> GBT := SGrobnerTrace([p1,p2]);;
 
-# doc/../doc/examples/functions.xml:1503-1511
+# doc/../doc/examples/functions.xml:1504-1512
 gap> f := [[[1,1,1,1,1,1]],[1]];;
 gap> sf := StrongNormalFormTraceDiff(f,GBT);;
 gap> PrintNP(sf.pol);

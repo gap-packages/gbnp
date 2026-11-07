@@ -143,7 +143,7 @@ end);
 ### </Returns>
 ### <Description>
 ### This function has the same effect as
-### <C>List(Lgp,GBNP)</C>.
+### <C>List(Lgp,GP2NP)</C>.
 ### <P/>
 ### <#Include Label="example-GP2NPList">
 ### </Description>
@@ -197,7 +197,7 @@ end;
 ### In case of the NP format, the number of variables
 ### should not exceed the rank of the free algebra
 ### <A>A</A>.
-### In case of the NPM format, the absolute of the negative numbers
+### In case of the NPM format, the absolute value of the negative numbers
 ### should not exceed the rank of the free module
 ### <A>A</A>.
 ### <P/>
@@ -545,7 +545,7 @@ end;
 ### </ManSection>
 ### <#/GAPDoc>
 
-### - Given a base B and a Gröbner basis (record) GB, this function
+### - Given a basis B and a Gröbner basis (record) GB, this function
 ###   will return a matrix representation for the i-th generator of the
 ###   algebra.
 ### #MatrixQA uses: GBNP.SplitNP MulQA MulQM#
@@ -603,7 +603,7 @@ end);
 ### </Description>
 ### </ManSection>
 ### <#/GAPDoc>
-### - Given a base B and a Gröbner basis (record) GB, this function
+### - Given a basis B and a Gröbner basis (record) GB, this function
 ###   will return matrix representations for all t generators of the
 ###   algebra.
 ### #MatricesQA uses: MatrixQA#
@@ -642,7 +642,7 @@ end);
 ### </ManSection>
 ### <#/GAPDoc>
 
-### - Given a base B and a Gröbner basis (record) GB, this function
+### - Given a basis B and a Gröbner basis (record) GB, this function
 ###   will return a matrix representation for the i-th generator of the
 ###   algebra.
 ### #MatrixQAC uses: MatrixQA#
@@ -671,7 +671,7 @@ end);
 ### algebra for right multiplication in the quotient algebra
 ### </Returns>
 ### <Description>
-### Given a basis <A>B</A> of the quotient algebra , a Gröbner basis (record)
+### Given a basis <A>B</A> of the quotient algebra, a Gröbner basis (record)
 ### <A>GB</A>, and a natural number <A>t</A>,
 ### this function creates compressed matrix representations for all <A>t</A>
 ### generators of the algebra for right multiplication in the quotient algebra.
@@ -685,7 +685,7 @@ end);
 ### </Description>
 ### </ManSection>
 ### <#/GAPDoc>
-### - Given a base B and a Gröbner basis (record) GB, this function
+### - Given a basis B and a Gröbner basis (record) GB, this function
 ###   will return matrix representations for all t generators of the
 ###   algebra.
 ### #MatricesQAC uses: MatrixQAC#

@@ -44,7 +44,7 @@
 ### <Description>
 ### This function prints a polynomial <A>np</A> in NP format, using the letters
 ### <C>a</C>, <C>b</C>, <C>c</C>, <M>\ldots</M> for <M>x_1</M>, <M>x_2</M>,
-### <M>x_3</M>, <M>\ldots</M>, except that everything beyond <M>l</M> (the 12-th
+### <M>x_3</M>, <M>\ldots</M>, except that everything beyond <M>l</M> (the 12th
 ### letter) is printed as <M>x</M>.
 ### <P/>
 ### This function prints a polynomial <A>np</A> in NP format
@@ -110,7 +110,7 @@ end);;
 ### Printing nicely
 ### <#GAPDoc Label="PrintNPList">
 ### <ManSection>
-### <Func Name="PrintNPList" Comm="Print a list of polynomial in NP format" Arg="Lnp"/>
+### <Func Name="PrintNPList" Comm="Print a list of polynomials in NP format" Arg="Lnp"/>
 ###
 ### <Description>
 ### This function prints a list <A>Lnp</A>
@@ -134,7 +134,7 @@ PrintNPList,function(G) local f;
 end);;
 
 ##############################
-### GBNP.PrintNPnownewline ###
+### GBNP.PrintNPnonewline ###
 ##############################
 ### Printing the polynomial np
 ###
@@ -183,7 +183,7 @@ end;;
 ###
 ### <Description>
 ### This function prints a polynomial <A>np</A> in NPM format, where <A>mt</A>
-### should be equal to the number of module generators).
+### should be equal to the number of module generators.
 ### <P/>
 ### The way generators of the algebra are printed can be changed
 ### with the function <Ref Func="GBNP.ConfigPrint" Style="Text"/>.
@@ -431,7 +431,7 @@ end);
 ########################
 ### <#GAPDoc Label="PrintNPListTrace">
 ### <ManSection>
-### <Func Name="PrintNPListTrace" Comm="Prints the a list of traced non-commutative polynomials, NOT using the trace." Arg="G" />
+### <Func Name="PrintNPListTrace" Comm="Prints a list of traced non-commutative polynomials, NOT using the trace." Arg="G" />
 ### <Description>
 ### When invoked with a set of traced non-commutative polynomials <A>G</A>,
 ### this function prints the list of the traced polynomials, without the
@@ -441,7 +441,7 @@ end);
 ### </Description>
 ### </ManSection>
 ### <#/GAPDoc>
-### - Prints the a list of traced non-commutative polynomials
+### - Prints a list of traced non-commutative polynomials
 ###   NOT using the trace
 ###
 ### Arguments:

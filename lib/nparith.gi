@@ -68,7 +68,7 @@
 ### and c and d are scalars
 ###
 ### Arguments:
-### u,v         - two non-commutative polynomial
+### u,v         - two non-commutative polynomials
 ### c,d         - two scalars
 ###
 ### Returns:
@@ -306,7 +306,7 @@ InstallGlobalFunction(LMonsNP, lst -> List(lst,LMonNP));
 ### pol     - list of Noncommutative Polynomials
 ###
 ### Returns:
-### - a list of leading monomials
+### - a list of leading terms
 ###
 ### #LTermNP uses:#
 ### #LTermNP is used in:#
@@ -442,7 +442,7 @@ end);;
 ### </Description>
 ### </ManSection>
 ### <#/GAPDoc>
-### - Makes a non-commutative polynomial with integer coeffiecients
+### - Makes a non-commutative polynomial with integer coefficients
 ###   into one whose coefficients have Gcd equal to 1.
 ###
 ### Assumptions:
@@ -532,7 +532,7 @@ end);;
 ### - Multiplication of two non-commutative polynomials
 ###
 ### Arguments:
-### u, v        - two non-commutative polynomial
+### u, v        - two non-commutative polynomials
 ###
 ###
 ### Returns:
@@ -608,7 +608,7 @@ end;;
 
 #################
 ### GBNP.AddTrace
-### - Updates the trace of a non-commutative polynomial h when somethings
+### - Updates the trace of a non-commutative polynomial h when something
 ###   is added to it, so h + scal * li G(i) re
 ###
 ### Arguments:
@@ -759,7 +759,7 @@ end;
 ### <Description>
 ###   When called with an NP polynomial <A>np</A>, this function returns
 ###   the minimum number of generators needed for the corresponding algebra to
-###   contain the <A>np</A>. If <A>np</A> is a polynomial
+###   contain <A>np</A>. If <A>np</A> is a polynomial
 ###   without generators, that is, equivalent to <M>0</M> or <M>1</M>, then <C>0</C> is
 ###   returned.
 ### <P/>
@@ -798,7 +798,7 @@ end);
 ###   When called with a list of NP polynomials <A>Lnp</A>, this function returns
 ###   the minimum number of generators needed for the corresponding algebra to
 ###   contain the NP polynomials in <A>Lnp</A>. If <A>Lnp</A> only contains polynomials
-###   without generators, that is equivalent to <M>0</M> and <M>1</M>, then <C>0</C> is
+###   without generators, that is, equivalent to <M>0</M> or <M>1</M>, then <C>0</C> is
 ###   returned.
 ### <P/>
 ### <#Include Label="example-NumAlgGensNPList">
@@ -827,7 +827,7 @@ end);
 ### Calculate the highest algebra generator in an NP monomial
 ###
 ### Arguments:
-### - np_mon    a NP monomial
+### - np_mon    an NP monomial
 ###
 ### Returns:
 ### - the highest algebra generator occurring in np_mon
@@ -922,7 +922,7 @@ end);
 ### <ManSection>
 ### <Func Name="NumModGensNPList" Comm="" Arg="Lnpm" />
 ### <Returns>
-###  The minimum number <C>mt</C> so that each member of <A>npm</A> belongs
+###  The minimum number <C>mt</C> so that each member of <A>Lnpm</A> belongs
 ###  to the free module on <C>mt</C> generators.
 ### </Returns>
 ### <Description>
@@ -960,7 +960,7 @@ end);
 ### an NP monomial.
 ###
 ### Arguments:
-### - npm_mon   a NP monomial
+### - npm_mon   an NP monomial
 ###
 ### Returns:
 ### - the minimum number of module generators in the algebra containing npm_mon

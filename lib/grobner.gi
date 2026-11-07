@@ -61,7 +61,7 @@
 #SGrobnerModule:=function(KI_p,KI_ts)
 #MulQM:=function(p1,p2,GBR)
 #BaseQM:=function(GBR,t,maxno)
-#DimQM:=function(GBR,n,mn)
+#DimQM:=function(GBR,n,mt)
 
 ##################
 ### GBNP.RightOccur
@@ -771,7 +771,7 @@ end;;
 ### Assumptions:
 ### - Central obstructions are already done, so only self, left and right.
 ###
-### Optimalizations:
+### Optimizations:
 ### - A self obstruction should be non-reducible from both the left and the
 ###   right.
 ###
@@ -896,7 +896,7 @@ InstallGlobalFunction( Grobner, function(arg)
     # set the default options
     funcs:=ShallowCopy(GBNP.GrobnerLoopRec);
 
-    # the number of arguments should be 1 or 2 (KI [, max])
+    # the number of arguments should be 1, 2 or 3 (KI [, D] [, max])
     if Length(arg)<1 then
         return fail;
     else
@@ -972,7 +972,7 @@ InstallGlobalFunction( Grobner, function(arg)
 end);
 
 ##################
-### <#GAPDoc Label="SGrobner"
+### <#GAPDoc Label="SGrobner">
 ### <ManSection>
 ### <Func Name="SGrobner" Comm="Buchberger's algorithm with strong normalform"
 ### Arg="Lnp [, todo ] [, max]" />
@@ -1135,7 +1135,7 @@ end);
 ### uses:    - GBNP.RightOccurInLst
 ### used in:    - DimQA, BaseQA
 
-# new version in occurtree3.gi
+# new version in occurtree.gi
 
 ######################################################
 ### BaseQA
@@ -1153,7 +1153,7 @@ end);
 ### When called with a Gröbner basis <A>G</A>, the number  <A>t</A>
 ### of generators of
 ### the algebra, and a maximum number of terms to be found
-### <A>maxno</A>, BaseQA will return a (partial) base of the quotient algebra.
+### <A>maxno</A>, BaseQA will return a (partial) basis of the quotient algebra.
 ### If this function is invoked with <A>maxno</A> equal to 0, then a full basis
 ### will be given. If the dimension of this quotient algebra is infinite and
 ### <A>maxno</A> is set to 0, then
@@ -1537,12 +1537,12 @@ end;;
 ### into account (if it exists).
 ###
 ### Arguments:
-### j         - index of the monomial for which we search left-obs.
+### j         - index of the monomial for which we search right-obs.
 ### R        - set of leading terms (monomials)
 ### GROT    - set of leading terms (monomials)
 ###
 ### Returns:
-### ans        - List of found left-obstructions
+### ans        - List of found right-obstructions
 ###
 ### #GBNP.RightObsT uses: GBNP.AddMonToTreePTSLR GBNP.CreateOccurTreePTSLR GBNP.LookUpOccurTreeForObsPTSLR GBNP.LookUpOccurTreePTSLRPos LtNP#
 ### #GBNP.RightObsT is used in: GBNP.ObsTall#
@@ -1687,7 +1687,7 @@ end);
 ### respect to G. (Theorem 1.4, CohenGijsbersEtAl2007)
 ###
 ### Remark: if g_i,g_j in G, i<>j and LT(g_i)=LT(g_j) then it is sufficient to
-### look at all s-polynomials of g_i and for h_i to look at the spolynomial
+### look at all S-polynomials of g_i and for h_i to look at the S-polynomial
 ### (1,i,1;1,j,1).
 ###
 ### variants:
@@ -1720,7 +1720,7 @@ GBNP.IsGrobnerBasisTest:=function(G,strong)
     local i,          # counter
           Gclean,     # G cleaned
           Gdouble,    # polynomials of G with leading term the same as a
-                      # leading term in Gdouble
+                      # leading term in Gsingle
           Gsingle,    # polynomials of G with all different leading terms
           GsLOT,      # occur tree for Gsingle
           doubleObs,  # obstructions from double terms
@@ -1730,7 +1730,7 @@ GBNP.IsGrobnerBasisTest:=function(G,strong)
           pg,         # number of prefix generators
           pol,
           f,
-          singleObs;  # obstructions from double terms
+          singleObs;  # obstructions from single terms
 
     # make sure all polynomials in G are cleaned and non-zero
     Gclean:=[];
@@ -1889,7 +1889,7 @@ InstallGlobalFunction( IsGrobnerPair, function(G,D)
     for i in [1.. Length(D)] do
         pol:=D[i];
 
-        # zero polynomials are in already normal form
+        # zero polynomials are already in normal form
         if (pol <> [[],[]]) then
         # just check leading terms:
             if GBNP.OccurInLstPTSLR(pol[1][1], GLOT, true)[1]<>0
@@ -1934,7 +1934,7 @@ InstallGlobalFunction( IsGrobnerPair, function(G,D)
     return true;
 end);
 
-# function to check if monimials are monic and clean and/or make them so
+# function to check if polynomials are monic and clean and/or make them so
 GBNP.MakeGrobnerPairMakeMonic:=function(G)
     local i,      # counter
           pol,    # polynomial being checked
@@ -1971,7 +1971,7 @@ end;
 ### <ManSection>
 ### <Func Name="MakeGrobnerPair" Comm="Construct a Gröbner pair from a pair of lists of polynomials in NP format." Arg="G, D" />
 ### <Returns>
-### A record containing a new Grobner pair
+### A record containing a new Gröbner pair
 ### </Returns>
 ### <Description>
 ### When called with as arguments a pair <M>G, D</M>, this function cleans
@@ -2005,7 +2005,7 @@ InstallGlobalFunction( MakeGrobnerPair, function(G,D)
           pg,    # number of prefix generators
           obs,   # the set of obstructions
           i,     # counter
-          fixed; # number of polynomials which has been fixed
+          fixed; # number of polynomials which have been fixed
 
     # definition 10 from CohenGijsbersEtAl2007
     # 1) all polynomials are monic
@@ -2032,7 +2032,7 @@ InstallGlobalFunction( MakeGrobnerPair, function(G,D)
     for i in [1.. Length(newD)] do
         pol:=newD[i];
 
-        # zero polynomials are in already normal form
+        # zero polynomials are already in normal form
         if (pol <> [[],[]]) then
         # just check leading terms:
             if GBNP.OccurInLstPTSLR(pol[1][1], GLOT, true)[1]<>0
@@ -2329,8 +2329,8 @@ end);;
 ### the number of variables <A>t</A>, the number of module
 ### generators <A>mt</A>, and a maximum number of terms to be found,
 ### <A>maxno</A>, the function <C>BaseQM</C>
-### will return a (partial) base of the quotient
-### module of <M>A^{mt}</M> over the free algebra on <M>A</M> on
+### will return a (partial) basis of the quotient
+### module of <M>A^{mt}</M> over the free algebra <M>A</M> on
 ### <C>t</C> generators
 ### by the right sub <M>A</M>-module generated by the elements of <A>GBR</A>.
 ### Note that the record <A>GBR</A> consists of two fields:
@@ -2425,7 +2425,7 @@ end);;
 ################
 ### <#GAPDoc Label="DimQM">
 ### <ManSection>
-### <Func Name="DimQM" Comm="Calculates the dimension of the quotient algebra"
+### <Func Name="DimQM" Comm="Calculates the dimension of the quotient module"
 ### Arg="GBR, t, mt" />
 ### <Returns>The dimension of the quotient module
 ### </Returns>
@@ -2448,8 +2448,8 @@ end);;
 ### <P/>
 ### If <A>t</A><M>=0</M>, then <C>t</C> will be set to
 ### the minimal value such that all polynomials of <A>GBR.ts</A>
-### and all polynomials occurring in <A>GBR.p</A> belong to
-### <M>A^{mt}</M>.
+### and all polynomials occurring in <A>GBR.p</A> have at most
+### <C>t</C> variables.
 ### <P/>
 ### If <A>mt</A><M>=0</M>, then <C>mt</C> will be set to
 ### the minimal value such that all vectors of <A>GBR.p</A> belong to
@@ -2461,7 +2461,7 @@ end);;
 ### Arguments:
 ### GBR         - a Grobner basis record
 ### n           - the number of variables
-### mn          - the number of elements in the module alphabet
+### mt          - the number of elements in the module alphabet
 ###
 ### Returns:
 ### s        - the dimension of the quotient algebra

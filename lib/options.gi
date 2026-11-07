@@ -146,7 +146,7 @@ end;
 ### <Description>
 ### By default the generators of the algebra are printed as <C>a</C>, ...,
 ### <C>l</C> and everything after the twelfth generator as <C>x</C>.
-### By calling <C>ConfigPrint</C> it is possible to
+### By calling <C>GBNP.ConfigPrint</C> it is possible to
 ### alter this printing convention.
 ### The argument(s) will be an algebra or arguments used for naming algebras in
 ### GAP upon creation. More specifically, we have the following choices.
@@ -159,8 +159,8 @@ end;
 ### <Mark>algebra,integer</Mark><Item>When the function is invoked with an
 ### algebra and an integer <A>n</A> as arguments, generators will be printed as
 ### they would be in the algebra and separated over the <A>n</A> dimensions.</Item>
-### <Mark>leftmodule</Mark><Item>When the function is invoked with an
-### leftmodule <M>A^n</M> of an associative algebra as argument, generators
+### <Mark>leftmodule</Mark><Item>When the function is invoked with a
+### left module <M>A^n</M> of an associative algebra as argument, generators
 ### will be printed as they would be in the algebra, separated over the
 ### <A>n</A> dimensions.</Item>
 ### <Mark>string</Mark><Item>When the function is invoked with a string as its

@@ -112,7 +112,7 @@ PrintNPList(KI);
 # It is usually easier to use the function <Ref Func="GP2NP" Style="Text"/> or
 # the function <Ref Func="GP2NPList" Style="Text"/> to enter relations.
 # Entering the first twelve relations and then converting them with <Ref
-# Func="GP2NPList" Style="Text"/> is demonstrated in example 6 (<Ref
+# Func="GP2NPList" Style="Text"/> is demonstrated in Example 6 (<Ref
 # Sect="Example06"/>). More about converting can be read in Section <Ref
 # Sect="TransitionFunctions"/>.
 # <P/>
@@ -135,7 +135,7 @@ L:=LMonsNP(GB);;
 DetermineGrowthQA(L,6,false);
 # </L>
 
-# Now compute the first 10 terms of the Hilbert Series with <Ref
+# Now compute the first 10 terms of the Hilbert series with <Ref
 # Func="HilbertSeriesQA" Style="Text"/>
 # (note that trailing zeroes are removed):
 

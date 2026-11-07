@@ -88,7 +88,7 @@ PrintNPList(GBR.p);
 # It is now possible to calculate the standard basis of the quotient module
 # with the function <Ref Func="BaseQM" Style="Text"/>. This function has as
 # arguments the Gröbner basis record <C>GBR</C>, the number of generators of
-# the algebra (here it is 2), the number of generators of the mdoule
+# the algebra (here it is 2), the number of generators of the module
 # (here it is 1), and a variable <C>maxno</C> for returning partial
 # bases (0 means full basis).
 

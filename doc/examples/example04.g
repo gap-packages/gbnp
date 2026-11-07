@@ -29,7 +29,7 @@
 # <M>\langle a,b,c \mid a^2=b^2=c^2=(ab)^3=(bc)^5=(ac)^2=1\rangle</M>,
 # the icosahedral group of order 120.
 # This is the Coxeter group of type H<M>_3</M>.
-# The module under construction is a 3-dimensional reflection representation,
+# The module under construction is a 3-dimensional reflection representation.
 # <P/>
 # First load the package and set the standard infolevel <Ref
 # InfoClass="InfoGBNP" Style="Text"/> to 1 and the time infolevel <Ref

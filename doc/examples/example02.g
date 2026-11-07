@@ -28,7 +28,7 @@
 # <#GAPDoc Label="Example02">
 # <Section Label="Example02"><Heading>A truncated Gröbner basis for Leonard pairs</Heading>
 # To provide Terwilliger with experimental dimension information in low degrees for his theory of Leonard pairs
-# a truncated  Gröbner basis computation was carried out as follows.
+# a truncated Gröbner basis computation was carried out as follows.
 # <P/>
 # First load the package and set the standard infolevel <Ref
 # InfoClass="InfoGBNP" Style="Text"/> to 1 and the time infolevel <Ref
@@ -44,7 +44,7 @@ SetInfoLevel(InfoGBNPTime,0);
 # We truncate the example by putting all monomials of degree <M>n</M> in the
 # ideal by means of the function <C>MkTrLst</C> to be introduced below;
 # a better way to compute the
-# result is by means of the truncated GB algorithms (See <Ref
+# result is by means of the truncated GB algorithms (see <Ref
 # Sect="Example12"/>).
 # <P/>
 # We want to truncate at degree 7 so we have fixed <M>n = 8</M>.

@@ -10,31 +10,31 @@
 #
 gap> START_TEST("gbnp08.tst");
 
-# doc/../doc/examples/functions.xml:1521-1527
+# doc/../doc/examples/functions.xml:1522-1528
 gap> p1 := [[[1,2,2,1],[2,1,1,2]],[1,-1]];;
 gap> p2 := [[[2,2,2],[1,1]],[1,-1]];;
 gap> PrintNPList([p1,p2]);
  ab^2a - ba^2b
  b^3 - a^2
 
-# doc/../doc/examples/functions.xml:1535-1540
+# doc/../doc/examples/functions.xml:1536-1541
 gap> PrintNPList(SGrobnerTrunc([p1,p2],12,[3,2]));
  ba^2 - a^2b
  b^3 - a^2
  ab^2a - a^2b^2
 
-# doc/../doc/examples/functions.xml:1550-1556
+# doc/../doc/examples/functions.xml:1551-1557
 gap> p1 := [[[1,2,2,1],[2,1,1,2]],[1,-1]];;
 gap> p2 := [[[2,2,2],[1,1]],[1,-1]];;
 gap> PrintNPList([p1,p2]);
  ab^2a - ba^2b
  b^3 - a^2
 
-# doc/../doc/examples/functions.xml:1563-1566
+# doc/../doc/examples/functions.xml:1564-1567
 gap> CheckHomogeneousNPs([p1,p2],[3,2]);
 [ 10, 6 ]
 
-# doc/../doc/examples/functions.xml:1577-1587
+# doc/../doc/examples/functions.xml:1578-1588
 gap> p1 := [[[1,2,2,1],[2,1,1,2]],[1,-1]];;
 gap> p2 := [[[2,2,2],[1,1]],[1,-1]];;
 gap> wtv := [3,2];;
@@ -45,7 +45,7 @@ gap> PrintNPList(GB);
  b^3 - a^2
  ab^2a - a^2b^2
 
-# doc/../doc/examples/functions.xml:1592-1634
+# doc/../doc/examples/functions.xml:1593-1635
 gap> BT := BaseQATrunc(GB,12,wtv);;
 gap> for degpart in BT do
 >   for mon in degpart do PrintNP([[mon],[1]]); od;
@@ -88,17 +88,17 @@ gap> for degpart in BT do
  a^2b^3
  b^6
 
-# doc/../doc/examples/functions.xml:1644-1649
+# doc/../doc/examples/functions.xml:1645-1650
 gap> p1 := [[[1,2,2,1],[2,1,1,2]],[1,-1]];;
 gap> p2 := [[[2,2,2],[1,1]],[1,-1]];;
 gap> wtv := [3,2];;
 gap> GB := SGrobnerTrunc([p1,p2],12,wtv);;
 
-# doc/../doc/examples/functions.xml:1655-1658
+# doc/../doc/examples/functions.xml:1656-1659
 gap> DimsQATrunc(GB,12,wtv);
 [ 1, 0, 1, 1, 1, 2, 2, 3, 3, 5, 4, 7, 7 ]
 
-# doc/../doc/examples/functions.xml:1668-1677
+# doc/../doc/examples/functions.xml:1669-1678
 gap> p1 := [[[1,2,2,1],[2,1,1,2]],[1,-1]];;
 gap> p2 := [[[2,2,2],[1,1]],[1,-1]];;
 gap> wtv := [3,2];;
@@ -108,14 +108,14 @@ gap> PrintNPList(GB);
  b^3 - a^2
  ab^2a - a^2b^2
 
-# doc/../doc/examples/functions.xml:1685-1691
+# doc/../doc/examples/functions.xml:1686-1692
 gap> F := FreqsQATrunc(GB,8,wtv);
 [ [ [ [  ], 1 ] ], [ [ [ 0, 1 ], 1 ] ], [ [ [ 1, 0 ], 1 ] ],
   [ [ [ 0, 2 ], 1 ] ], [ [ [ 1, 1 ], 2 ] ],
   [ [ [ 2, 0 ], 1 ], [ [ 0, 3 ], 1 ] ], [ [ [ 1, 2 ], 3 ] ],
   [ [ [ 2, 1 ], 2 ], [ [ 0, 4 ], 1 ] ] ]
 
-# doc/../doc/examples/functions.xml:1695-1732
+# doc/../doc/examples/functions.xml:1696-1733
 gap> for f in F do
 >   if f[1][1] <> [] then
 >     Print("At level ", wtv * (f[1][1]), " the multiplicities are\n");

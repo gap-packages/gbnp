@@ -95,7 +95,7 @@ GBNP.SGrobnerLoops := function(G,todo,funcs) local i,lG,count,ltspoly,spoly,slts
     while not IsTHeapOTEmpty(todoheap) do
       iterations:=iterations+1;
 
-# Fase IIIa, Take the first element 'spoly' of todo and add it to 'G'
+# Phase IIIa, Take the first element 'spoly' of todo and add it to 'G'
 # - Take the first element of the todo list and remove it from todo
 # - Add this to the basis
 
@@ -116,11 +116,11 @@ GBNP.SGrobnerLoops := function(G,todo,funcs) local i,lG,count,ltspoly,spoly,slts
       GBNP.AddMonToTreePTSLR(ltspoly,-1,OT.GR,false);
       #GBNP.RemoveMonFromTreePTSLR(ltspoly,1,OT.todoL,true);
 
-# Fase IIIb, update todo
+# Phase IIIb, update todo
 
       GBNP.ObsTall(lG,G,todoheap,OT,funcs); # jwk - tree variant of GBNP.Obs, no sorting needed here
 
-# Fase IIIc, reduce the list G with the new polynomial 'spoly'
+# Phase IIIc, reduce the list G with the new polynomial 'spoly'
 
       if not IsBound(funcs.SkipIIIc) then
 
@@ -158,7 +158,7 @@ GBNP.SGrobnerLoops := function(G,todo,funcs) local i,lG,count,ltspoly,spoly,slts
 
       Info(InfoGBNP,2,"length of G =",lG);
 
-# Fase IIId, reducing todo with respect to 'spoly'
+# Phase IIId, reducing todo with respect to 'spoly'
 
       l:=Length(todoheap);
       i:=1;
@@ -178,7 +178,7 @@ GBNP.SGrobnerLoops := function(G,todo,funcs) local i,lG,count,ltspoly,spoly,slts
               if spo<>[[],[]] then
                   Replace(todoheap,i,MkMonicNP(spo));
                   # allowed because: replacing an element in the todo heap with
-                  # a smaller element does not effect elements with a higher
+                  # a smaller element does not affect elements with a higher
                   # index (but may change parent-nodes of the element that was
                   # changed, which have a smaller index)
 
@@ -241,7 +241,7 @@ end;
 ### - todo  a basic set of G belonging to I and in strong normal form wrt G
 ###
 ### Returns:
-### - a strong Gröbnerbasis of I
+### - a strong Gröbner basis of I
 ###
 ### #GBNP.SGrobnerLoop uses: GBNP.SGrobnerLoops#
 ### #GBNP.SGrobnerLoop is used in:#
@@ -255,7 +255,7 @@ end;
 ### GBNP.GrobnerLoop ###
 ########################
 ###
-### Loop function for Strong Gröbner basis
+### Loop function for Gröbner basis
 ### When the input (G,todo) is a partial Gröbner pair, the output will be a
 ### Gröbner basis.
 ###
@@ -324,7 +324,7 @@ end;
 ### - options record used to choose the right variant
 ###
 ### Returns:
-### - a strong Gröbnerbasis of I corresponding to the options chosen
+### - a strong Gröbner basis of I corresponding to the options chosen
 ###
 ### #GBNP.GrobnerLoopAll uses: GBNP.SGrobnerLoops#
 ### #GBNP.GrobnerLoopAll is used in:#
@@ -394,7 +394,7 @@ GBNP.SGrobnerTraceLoop:=function(G,todo) local i,j,count,ltspoly,spoly,spo,temp,
     count:=[Length(todo)];
     while todo <> [] do
 
-# Fase IIIa, Take the first element 'spoly' of todo and add it to 'G'
+# Phase IIIa, Take the first element 'spoly' of todo and add it to 'G'
 # - Take the first element of the todo list and remove it from todo
 # - Add this to the basis
 
@@ -406,12 +406,12 @@ GBNP.SGrobnerTraceLoop:=function(G,todo) local i,j,count,ltspoly,spoly,spo,temp,
       j:=j+1;
 
 
-# Fase IIIb, update todo
+# Phase IIIb, update todo
 
       GBNP.ObsTrace(j,G,todo);
 
 
-# Fase IIIc, reduce the set G with the new polynomial 'term.pol'
+# Phase IIIc, reduce the set G with the new polynomial 'term.pol'
 
 
       i:=1;
@@ -439,7 +439,7 @@ GBNP.SGrobnerTraceLoop:=function(G,todo) local i,j,count,ltspoly,spoly,spo,temp,
       Info(InfoGBNP,2,"j =",j);
 
 
-# Fase IIId, reducing todo with respect to 'ter,.pol'
+# Phase IIId, reducing todo with respect to 'term.pol'
 
       lt:=Length(todo);
       i:=1;
@@ -562,7 +562,7 @@ end;;
 ### Arguments:
 ### - f         non commutative polynomial
 ### - G         a list of non-commutative polynomials
-### - GLOT      an left occur tree of G
+### - GLOT      a left occur tree of G
 ### - funcs     an info record
 ###
 ### Returns:
@@ -654,7 +654,7 @@ GBNP.StrongNormalForm2Tall:=function(f,G,G2,OT,funcs)
 end;;
 
 ###################
-### GBNP.StrongNormalForm3DAll
+### GBNP.StrongNormalForm3Dall
 ### - Computes the strong normal form of a non-commutative polynomial
 ### - occur trees
 ###
@@ -727,7 +727,7 @@ GBNP.StrongNormalForm3Dall:=function(f,G,G2,OT,funcs,skip)
 end;;
 
 ###################
-### GBNP.StrongNormalForm2TSall
+### GBNP.StrongNormalForm2TSPTS
 ### - Computes the strong normal form of a non-commutative polynomial
 ### - occur trees
 ### - special case G[j] reduced by the rest

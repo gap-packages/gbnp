@@ -89,7 +89,7 @@ PrintNPList(GB);
 
 # The dimension of the quotient algebra can be calculated with
 # <Ref Func="DimQA" Style="Text"/>. The arguments are the Gröbner basis
-# <C>GB</C> and the number of variables is <C>2</C>:
+# <C>GB</C> and the number of variables <C>2</C>:
 
 # <L>
 DimQA(GB,2);

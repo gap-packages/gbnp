@@ -27,7 +27,7 @@
 # A<M>_3</M> over GF(3)</Heading>
 # This example is an extension of Example 5 from
 # Linton, <Cite Key="MR94k:20022"/>. It concerns
-# the Hecke Algebra of type A<M>_3</M>. By reducing mod 3 but without
+# the Hecke algebra of type A<M>_3</M>. By reducing mod 3 but without
 # evaluating at <M>q=1</M> it is possible to obtain the following
 # representation of the Hecke algebra of type A<M>_3</M> over GF(3): <M>\langle
 # x, y, z\mid x^2+(1-q)*x-q,y^2+(1-q)*y-q,z^2+(1-q)*z-q,y*x*y-x*y*x, z*y*z-y*z*y,
@@ -53,7 +53,7 @@ SetInfoLevel(InfoGBNPTime,0);
 # over the field (GF(3))
 # (see also <Ref BookName="Reference" Label="FreeAssociativeAlgebraWithOne"/>).
 # For convenience we use the
-# variables <C>a</C> and <C>b</C> for the generators of the algebra and
+# variables <C>x</C>, <C>y</C>, and <C>z</C> for the generators of the algebra and
 # <C>e</C> for the one of the algebra.
 
 # <L>
@@ -65,7 +65,7 @@ x:=g[2];;y:=g[3];;z:=g[4];;e:=g[1];;q:=q*e;;
 
 
 # In order to print the variables like they are printed in the algebra <C>A</C>
-# with the function <Ref Func="GBNP.ConfigPrint" Style="Text"/>:
+# we use the function <Ref Func="GBNP.ConfigPrint" Style="Text"/>:
 
 # <L>
 GBNP.ConfigPrint(A);

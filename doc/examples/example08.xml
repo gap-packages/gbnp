@@ -185,13 +185,13 @@ gap> PrintTracePol(GB[10]);
 ]]></Example>
 
 In order to test whether the expression for <C>GB[10]</C> is as claimed
-we use <Ref Func="EvalTrace" Style="Text"/>,
+we use <Ref Func="EvalTrace" Style="Text"/>.
 
 For each traced polynomial <C>x</C> in <C>GB</C>,
 we equate the evaluated expression
 <C>x.trace</C>,
 in which each occurrence of <C>G(i)</C> is replaced by <C>KI[i]</C>
-by  use of <Ref Func="EvalTrace" Style="Text"/>,
+by use of <Ref Func="EvalTrace" Style="Text"/>,
 with <C>x.pol</C>.
 
 <Example><![CDATA[

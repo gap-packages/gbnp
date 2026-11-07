@@ -9,7 +9,7 @@
 #############################################################################
 
 
-# Create the family object for ordering:
+# Create the ordering object:
 BindGlobal("MakeNoncommutativeMonomialOrdering",
   function(name, ordfun, palgebra, lextable, idxtable, auxtable, idxperm, nextordering)
     local obj;
@@ -65,12 +65,12 @@ InstallGlobalFunction("InstallNoncommutativeMonomialOrdering",
           parentalgebra := arg[1];
 
           # Set nextordering to something we can check later,
-          #  initialize auxilliary table:
+          #  initialize auxiliary table:
           nextordering := [];
           auxtable := [];
 
           # If we have a multiplicative identity (one) in this
-          #  algebra, we need get correct generating set:
+          #  algebra, we need to get the correct generating set:
           if (HasOne(parentalgebra)) then
             gens := GeneratorsOfAlgebraWithOne(parentalgebra);
           else
@@ -95,7 +95,7 @@ InstallGlobalFunction("InstallNoncommutativeMonomialOrdering",
             lextable := gens;
             auxtable :=  ListWithIdenticalEntries(Length(gens),1);
 
-          # Case 4: Algebra, Lex List, and Auxilliary Vector
+          # Case 4: Algebra, Lex List, and Auxiliary Vector
           #         (e.g. weight vector) given:
           elif ( Length(arg) = 3 ) and
                ( IsList(arg[2]) and IsList(arg[3]) ) then
@@ -111,7 +111,7 @@ InstallGlobalFunction("InstallNoncommutativeMonomialOrdering",
             lextable := Unique(arg[2]);
             nextordering := arg[3];
 
-          # Case 6: Algebra, Lex List, and Auxilliary Vector
+          # Case 6: Algebra, Lex List, and Auxiliary Vector
           #         (e.g. weight vector), and ordering given:
           elif ( Length(arg) = 4 ) and
                ( IsList(arg[2]) and IsList(arg[3]) ) and
@@ -186,7 +186,7 @@ InstallMethod(OrderGenerators,
     local gens, len, el, idx, i, oldtable;
 
     # If we have a one, we need to always make that
-    # first so we take it out list of possible
+    # first so we take it out of the list of possible
     # generators:
     if (HasOne(A)) then
       gens := GeneratorsOfAlgebraWithOne(A);
@@ -297,11 +297,11 @@ InstallMethod(OrderingLtFunctionListRep,
       if ( not a=b ) then
 
         # Get our list rep comparison function from
-        # our ordering, and our auxilliary table:
+        # our ordering, and our auxiliary table:
         fun := LtFunctionListRep(ord);
         aux := AuxilliaryTable(ord);
 
-        # If has 3 arguments, then return indexed
+        # If it has 4 arguments, then return indexed
         #  function, otherwise non-indexed function:
         numargs := NumberArgumentsFunction(fun);
         if ( numargs = 4 ) then
@@ -363,7 +363,7 @@ InstallMethod(OrderingGtFunctionListRep,
         fun := LtFunctionListRep(ord);
         aux := AuxilliaryTable(ord);
 
-        # If has 3 arguments, then return indexed
+        # If it has 4 arguments, then return indexed
         #  function, otherwise non-indexed function:
         numargs := NumberArgumentsFunction(fun);
         if ( numargs = 4 ) then
@@ -373,14 +373,14 @@ InstallMethod(OrderingGtFunctionListRep,
           retval :=  fun(a,b,aux);
         fi;
 
-        # If retval == false, return right away since
+        # If retval == true, return false right away since
         #  we cannot have a > b if a < b, otherwise
         #  do more checks:
         if (retval) then
           return(false);
         else
 
-          # Check if a < b:
+          # Check if a > b:
           if ( numargs = 4 ) then
             idx := LexicographicIndexTable(ord);
             flag :=  fun(b,a,aux,idx);

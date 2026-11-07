@@ -284,7 +284,7 @@ end;;
 ### />
 ### <Returns>
 ### The traced polynomial for the
-### difference of <A>f</A> with the strong normal form of <A>np</A> with
+### difference of <A>np</A> with the strong normal form of <A>np</A> with
 ### respect to <A>GBT</A>
 ### </Returns>
 ### <Description>
@@ -598,7 +598,7 @@ end;;
 ### G           - non-commutative grobner basis
 ###
 
-# new version in grobnerloops2.gi
+# new version in grobnerloops.gi
 
 ##################
 ### SGrobnerTrace
@@ -776,16 +776,16 @@ local   pol,    # the polynomial of old
         fi;
 end;
 
-# sort trace tupels (which are of the form ml, i, mr, c)
+# sort trace tuples (which are of the form ml, i, mr, c)
 # order: i, ml*mr, ml, mr, c
-# returns true if tupel1<tupel2 and false otherwise
+# returns true if tuple1<tuple2 and false otherwise
 GBNP.TraceSortFun:=function(tupel1,tupel2)
 local   i1,i2,
         ml1,ml2,
         mr1,mr2,
         c1,c2;
 
-        # tupel is ml i mr c
+        # tuple is ml i mr c
         ml1:=tupel1[1];
         i1:=tupel1[2];
         mr1:=tupel1[3];

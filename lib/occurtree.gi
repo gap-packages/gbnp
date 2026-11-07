@@ -40,7 +40,7 @@
 ### GBNP.AddMonToTreePTSLR
 ### GBNP.RemoveMonFromTreePTSLR
 ### GBNP.SortParallelOT
-### - lookup helpfuncions               type    LR      extra
+### - lookup help functions               type    LR      extra
 ### GBNP.LookUpOccurTreeAllPTSLRPos     1       LR      all
 ### GBNP.LookUpOccurTreePTSLRPos        1       LR      -
 ### GBNP.LookUpOccurTreeForObsPTSLRPos  3       LR      all
@@ -156,7 +156,7 @@ GBNP.LookUpOccurTreeAllPTSLRPos:=function(mon,OT,left,startpos)
 local   pos,    # index of mon
         r,      # part of the tree
         pi,     # add to index
-        ans,    # all indices found sofar
+        ans,    # all indices found so far
         len,    # length of the monomial
         pos2;   # pos corrected for left/right
 
@@ -428,7 +428,7 @@ GBNP.LookUpOccurTreeForObsPTSLRPos:=function(mon,OT,left,startpos)
 local   pos,    # index of mon
         r,      # part of the tree
         pi,     # add to index
-        ans,    # all indices found sofar
+        ans,    # all indices found so far
         len,    # length of the monomial
         pos2,   # pos corrected for left/right
         f;
@@ -660,7 +660,7 @@ local   pos,    # index of mon
                 #       return OT;
                 if IsBound(r[mon[pos2]+pi]) then # follow the existing prefix
                         if Number(r)<>1 then
-                                # if number=1 than this could be the tail for
+                                # if number=1 then this could be the tail for
                                 # this one
                                 oldr:=r;oldind:=mon[pos2]+pi;
                         fi;
@@ -766,7 +766,7 @@ end;
 GBNP.NondivMonsPTS := function(plts,lts,t,mt,maxno) local h,i,ct,hi,tt,ans,idf,lvl,cont,ROT,pLOT;
 
 #jwk schreef uitzetten op 11 aug 2009
-#mt:=GBNP.GetOptions().pg;              # XXX even not longer needed
+#mt:=GBNP.GetOptions().pg;              # XXX no longer needed
     if plts<>[] then                    # XXX mt should not be changed here
         lts:=Concatenation(plts,lts);   # XXX
         plts:=[];                       # XXX
@@ -842,7 +842,7 @@ end;
 GBNP.NondivMonsPTSenum := function(plts,lts,t,mt,max)
 local lvl,ROT, pol, todo, found_new, countfun, count;
 
-    #mt:=GBNP.GetOptions().pg;          # XXX even not longer needed
+    #mt:=GBNP.GetOptions().pg;          # XXX no longer needed
     if plts<>[] then                    # XXX mt should not be changed here
         lts:=Concatenation(plts,lts);   # XXX
         plts:=[];                       # XXX

@@ -41,7 +41,7 @@ z:=Zero(A);;
 gp:=b*a-a*b-e;
 # </L>
 
-# The polynomial in NP format, corresponding to <C>gp</C> can now be obtained
+# The polynomial in NP format corresponding to <C>gp</C> can now be obtained
 # with GP2NP:
 
 # <L>
@@ -90,8 +90,8 @@ e:=One(A);;
 Lgp:=[a^2-e,b^2-e,b*a-a*b-e];
 # </L>
 
-# The polynomial in NP format corresponding to <C>gp</C> can be obtained
-# with GP2NP:
+# The list of polynomials in NP format corresponding to <C>Lgp</C> can be obtained
+# with GP2NPList:
 
 # <L>
 GP2NPList(Lgp);
@@ -201,7 +201,7 @@ List(Lnp, p -> NP2GP(p,A));
 # </L>
 
 # Now let <C>M</C> be a module of dimension 2 over <C>A</C> and <C>Lnp</C>
-# a list of vectors in NPM format. Then polynomials <C>Lnp</C>
+# a list of vectors in NPM format. Then <C>Lnp</C>
 # can be converted to the
 # corresponding vectors of <C>M</C> with NP2GPList:
 
@@ -386,7 +386,7 @@ p := [[[1,1,2],[],[1,1,2],[]],[1,-3,-2,3]];;
 PrintNP(p);
 # </L>
 
-# The monomials <C>[1,1,2]</C> and <C>[]</C>  occur twice each.
+# The monomials <C>[1,1,2]</C> and <C>[]</C> occur twice each.
 # For many functions this representation of a polynomial in NP format
 # is not allowed. It needs to be cleaned, as by <Ref Func="CleanNP" Style="Text"/>:
 # <L>
@@ -396,7 +396,7 @@ PrintNP(CleanNP(p));
 
 # In order to define a polynomial over <M>GF(2)</M>,
 # the coefficients need to be defined over this field.
-# Such a list of coefficients can be obtained in  GAP
+# Such a list of coefficients can be obtained in GAP
 # from a list of integers by multiplying with the identity element
 # of the field.
 # The resulting polynomial need not be clean, and so should be made clean again
@@ -598,7 +598,7 @@ R.completed;
 # </L>
 
 # The above list <C>R.todo</C> can be used to resume the computation
-# of the Gröbner basis computation with the  Gröbner pair
+# of the Gröbner basis with the Gröbner pair
 # <C>R.G</C>, <C>R.todo</C>:
 # <L>
 PrintNPList(Grobner(R.G,R.todo));
@@ -627,7 +627,7 @@ PrintNPList([p1,p2]);
 # </L>
 
 
-# Their Gröbner basis can be computed by the function <C>Grobner</C>.
+# Their Gröbner basis can be computed by the function <C>SGrobner</C>.
 # <L>
 G := SGrobner([p1,p2]);;
 PrintNPList(G);
@@ -644,7 +644,7 @@ R.completed;
 # </L>
 
 # The above list <C>R.todo</C> can be used to resume the computation
-# of the Gröbner basis computation with the  Gröbner pair
+# of the Gröbner basis with the Gröbner pair
 # <C>R.G</C>, <C>R.todo</C>:
 # <L>
 PrintNPList(SGrobner(R.G,R.todo));
@@ -816,14 +816,14 @@ p2 := [[[1,2,2],[]],[1,-1]];;
 # The function <C>MakeGrobnerPair</C> turns the list with these
 # two polynomials into a Gröbner pair, once the empty list is added as a
 # second argument.
-# The result is a record whose fields <C>G</C> and <C>todo</C>
+# The result is a record with fields <C>G</C> and <C>todo</C>:
 # <L>
 GP := MakeGrobnerPair([p1,p2],[]);;
 PrintNPList(GP.G);
 PrintNPList(GP.todo);
 # </L>
 
-# These fields are ready for use in <C>Grobner</C>
+# These fields are ready for use in <C>Grobner</C>:
 # <L>
 GB := Grobner(GP.G,GP.todo);;
 PrintNPList(GB);
@@ -972,14 +972,15 @@ B := BaseQM(GBR,2,2,0);;
 PrintNPList(B);
 # </L>
 
-# The function <C>BaseQM</C> with arguments so as to let the
-# number of dimensions of the module and the number of variables be chosen minimal.
+# The function <C>BaseQM</C> can also be called with arguments that let it
+# choose the number of dimensions of the module and the number of variables
+# minimal.
 # <L>
 B := BaseQM(GBR,0,0,0);;
 PrintNPList(B);
 # </L>
 
-# The function <C>BaseQM</C> can also be used to ompute the first three elements of a basis.
+# The function <C>BaseQM</C> can also be used to compute the first three elements of a basis.
 # <L>
 B := BaseQM(GBR,2,2,3);;
 PrintNPList(B);
@@ -1120,7 +1121,7 @@ p1 := [[[1,1,1,2],[]],[z,1]];;
 p2 := [[[2,2,2,1],[]],[1,z]];;
 # </L>
 
-# The polynomials <C>p1</C> and  <C>p2</C> have coefficients in
+# The polynomials <C>p1</C> and <C>p2</C> have coefficients in
 # the field <C>F</C> of order 256.
 # The matrix of right multiplication by the first indeterminate <M>a</M>
 # on the quotient algebra is obtained by applying <C>MatrixQAC</C>
@@ -1146,10 +1147,10 @@ p1 := [[[1,1,1,2],[]],[z,1]];;
 p2 := [[[2,2,2,1],[]],[1,z]];;
 # </L>
 
-# The polynomials <C>p1</C> and  <C>p2</C> have coefficients in
+# The polynomials <C>p1</C> and <C>p2</C> have coefficients in
 # the field <C>F</C> of order 256.
 # The matrices of right multiplication by the indeterminates
-# on the quotient algebra  are just like for
+# on the quotient algebra are just like for
 # <Ref Func="MatricesQA" Style="Text"/> except for the format of the result.
 # <L>
 GB := Grobner([p1,p2]);
@@ -1174,7 +1175,7 @@ PrintNPList(GB);
 # </L>
 
 # Application of <C>PreprocessAnalysisQA</C> is carried out on the leading terms of
-# <C>GB</C>, with 2, 4, 8, recursions, respectively.
+# <C>GB</C>, with 2, 4, and 8 recursions, respectively.
 # <L>
 L := LMonsNP(GB);
 L1 := PreprocessAnalysisQA(L,2,2);
@@ -1207,7 +1208,7 @@ GBT := SGrobnerTrace(Lnp);;
 # the polynomial <C>p.pol</C> is equated to the evaluated expression
 # <C>p.trace</C>,
 # in which each occurrence of <C>G(i)</C> is replaced by <C>Lnp[i]</C>
-# by  use of <Ref Func="EvalTrace" Style="Text"/>.
+# by use of <Ref Func="EvalTrace" Style="Text"/>.
 
 # <L>
 ForAll(GBT,q -> EvalTrace(q,Lnp) = q.pol);
@@ -1249,8 +1250,8 @@ GBT := SGrobnerTrace([p1,p2]);;
 
 # Of the polynomial <M>a^6</M> we compute its
 # difference with the normal form.
-# The result is printed by used of <Ref Func="PrintNP" Style="Text"/>
-# and  <Ref Func="PrintTraceList" Style="Text"/>.
+# The result is printed by use of <Ref Func="PrintNP" Style="Text"/>
+# and <Ref Func="PrintTraceList" Style="Text"/>.
 # <L>
 f := [[[1,1,1,1,1,1]],[1]];;
 sf := StrongNormalFormTraceDiff(f,GBT);;
@@ -1350,7 +1351,7 @@ GB := SGrobnerTrunc([p1,p2],12,wtv);;
 
 
 # Information on the dimensions of the homogeneous parts
-# of the quotient algebra is found as follows,
+# of the quotient algebra is found as follows.
 
 # <L>
 DimsQATrunc(GB,12,wtv);
@@ -1373,10 +1374,10 @@ PrintNPList(GB);
 # </L>
 
 
-# The multiplicities of the frequencies of
+# The multiplicities of the frequencies
 # of monomials in a standard basis
 # of the quotient algebra with respect to the ideal generated by
-# <C>GB</C> is found as follows, for weights up to and including 8.
+# <C>GB</C> are found as follows, for weights up to and including 8.
 
 # <L>
 F := FreqsQATrunc(GB,8,wtv);
@@ -1498,7 +1499,7 @@ p1 := [[[1,1,1,2],[]],[z,1]];;
 p2 := [[[2,2,2,1],[]],[1,z]];;
 # </L>
 
-# The polynomials <C>p1</C> and  <C>p2</C> have coefficients in
+# The polynomials <C>p1</C> and <C>p2</C> have coefficients in
 # the field <C>F</C> of order 256.
 
 # In order to study the growth of the quotient algebra
@@ -1556,11 +1557,11 @@ FinCheckQA([[1],[2,2]],2);
 L := [[1,2,1],[2,2,1]];;
 # </L>
 
-# Finiteness of the dimension of the quotient algebra of the free algebra
-# by the ideal generated by these two monomials can be
-# decided by means of <C>FinCheckQA</C>.
-# Its arguments are <C>L</C> and the number of generators of the free algebra
-# in which the monomials reside.
+# The coefficients of the Hilbert series of the quotient algebra of the free
+# algebra by the ideal generated by these two monomials can be
+# computed by means of <C>HilbertSeriesQA</C>.
+# Its arguments are <C>L</C>, the number of generators of the free algebra
+# in which the monomials reside, and the degree up to which to compute.
 
 # <L>
 HilbertSeriesQA(L,2,10);

@@ -116,8 +116,8 @@ PrintNPList(B);
 # <C>B[Length(B)]</C> of the module with the quotient algebra element
 # corresponding to
 # <M>ab</M> we use the function <Ref Func="MulQM" Style="Text"/> with
-# arguments <C>B[Length(B)]</C>, <C>GB2NP(a*b)</C>, and <C>GBR</C>
-# We subsequently use  <Ref Func="PrintNP" Style="Text"/> to display the result
+# arguments <C>B[Length(B)]</C>, <C>GP2NP(a*b)</C>, and <C>GBR</C>.
+# We subsequently use <Ref Func="PrintNP" Style="Text"/> to display the result
 # as a 1-dimensional vector with an entry from <M>A</M>.
 
 # <L>

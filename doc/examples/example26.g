@@ -84,7 +84,7 @@ cola := C*T*G*A*C*T*G*A*C*T;;
 # </L>
 
 
-# We next enter the set  <M>K</M> of binomials <M>x-y</M>
+# We next enter the set <M>K</M> of binomials <M>x-y</M>
 # corresponding to the five operations <M>x = y</M> listed above.
 # We enter the binomials as members of <C>ALG</C> and
 # let <C>KNP</C> be the corresponding set of NP polynomials.
@@ -100,7 +100,7 @@ KNP := List(K,x-> GP2NP(x));;
 # </L>
 
 # We stipulate how the variables will be printed and print <C>KNP</C>.
-# See  <Ref Func="PrintNPList" Style="Text"/>.
+# See <Ref Func="PrintNPList" Style="Text"/>.
 
 # <L>
 GBNP.ConfigPrint("A","C","G","T");
@@ -150,7 +150,7 @@ PrintNPListTrace(GTrace);
 
 # In order to display a proof that <M>milk-cola</M>
 # belongs to the ideal
-# we use <Ref Func="StrongNormalFormTraceDiff" Style="Text"/>,
+# we use <Ref Func="StrongNormalFormTraceDiff" Style="Text"/>.
 # The result is a record, <C>p</C> say, containing
 # <C>milk-cola</C> in the field <C>p.pol</C>
 # (the normal form will be subtracted from the argument <C>milk-cola</C>
@@ -232,10 +232,10 @@ retro := C*T*G*C*T*A*C*T*G*A*C*T;;
 # </L>
 
 
-# We compute the Strong Normal Form
+# We compute the strong normal form
 # <Ref Func="StrongNormalFormNP" Style="Text"/>
 # of <C>retro</C> with respect to <C>GB</C>.
-# As it is <C>TGT</C>, distinct to <C>T</C>, the strong normal form of milk,
+# As it is <C>TGT</C>, distinct from <C>T</C>, the strong normal form of milk,
 # there is no transformation from milk to retro.
 # <L>
 NP2GP(StrongNormalFormNP(CleanNP(GP2NP(retro)),GB), ALG);
@@ -247,8 +247,8 @@ NP2GP(StrongNormalFormNP(CleanNP(GP2NP(retro)),GB), ALG);
 # with input the NP polynomial corresponding to <C>retro</C>
 # and with respect to <C>K</C>;
 # it is called <C>retroTrace</C>.
-# The symbol <C>G</C> in expression like <C>G(2)</C>
-# are not to be confused with the single symbols <C>G</C>
+# The symbol <C>G</C> in expressions like <C>G(2)</C>
+# is not to be confused with the single symbol <C>G</C>
 # representing the DNA element.
 
 # <L>

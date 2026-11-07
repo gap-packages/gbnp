@@ -120,7 +120,7 @@ PrintTracePol(GB[4]);
 # <P/>
 
 # The function <Ref Func="StrongNormalFormTraceDiff" Style="Text"/> can be used
-# to trace the difference between an element and its strong normal form in the
+# to trace the difference between an element and its strong normal form in
 # terms of <C>extendedrels</C>. Apparently, in the first example the strong
 # normal form of <C>r</C> is <C>r - s.pol=0</C>.
 

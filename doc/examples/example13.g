@@ -100,7 +100,7 @@ FinCheckQA(L,6);
 # </L>
 
 # If a quotient algebra is finite dimensional, the dimension can be calculated
-# with <Ref Func="DimQA" Style="Text"/>, the arguments are the Gröbner basis
+# with <Ref Func="DimQA" Style="Text"/>; the arguments are the Gröbner basis
 # <C>GB</C> and the number of symbols <C>6</C>:
 
 # <L>
