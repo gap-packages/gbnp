@@ -1,4 +1,4 @@
 s,^gap> $,,
-s,<L>,<Listing><\!\[CDATA\[,
-s,</L>,\]\]></Listing>,
+s,<L>,<Example><\!\[CDATA\[,
+s,</L>,\]\]></Example>,
 s,^gap> # ,,

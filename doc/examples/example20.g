@@ -34,13 +34,13 @@
 # <P/>
 # Load the package and set the standard infolevel <Ref
 # InfoClass="InfoGBNP" Style="Text"/> to 1 and the time infolevel <Ref
-# Func="InfoGBNPTime" Style="Text"/> to 1 (for more information about the info
+# Func="InfoGBNPTime" Style="Text"/> to 0 (for more information about the info
 # level, see Chapter <Ref Chap="Info"/>).
 
 # <L>
 LoadPackage("gbnp", false);
 SetInfoLevel(InfoGBNP,1);
-SetInfoLevel(InfoGBNPTime,1);
+SetInfoLevel(InfoGBNPTime,0);
 # </L>
 
 # Create the free associative algebra to enter the relations in:

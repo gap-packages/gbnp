@@ -4,11 +4,11 @@ Copyright 2001-2010 by Arjeh M. Cohen, Dié A.H. Gijsbers, Jan Willem
 Knopper, Chris Krook. Address: Discrete Algebra and Geometry (DAM) group
 at the Department of Mathematics and Computer Science of Eindhoven
 University of Technology.
-
+gap> #
 For acknowledgements see the manual. The manual can be found in several
 formats in the doc subdirectory of the GBNP distribution. The
 acknowledgements formatted as text can be found in the file chap0.txt.
-
+gap> #
 GBNP is free software; you can redistribute it and/or modify it under
 the terms of the Lesser GNU General Public License as published by the
 Free Software Foundation (FSF); either version 2.1 of the License, or
@@ -21,16 +21,16 @@ gap> LoadPackage("gbnp", false);
 true
 
 gap> check:=function (l, i)
->   # exact answer matches
->   if IsInt(l) and l=i then
->       return true;
->   fi;
->   # no exact answer, but correct answer is in interval
->   if IsList(l) and l[1]<=i and i<=l[2] then
->       return true;
->   fi;
->   # not a correct answer
->   return false;
+>         # exact answer matches
+>         if IsInt(l) and l=i then
+>                 return true;
+>         fi;
+>         # no exact answer, but correct answer is in interval
+>         if IsList(l) and l[1]<=i and i<=l[2] then
+>                 return true;
+>         fi;
+>         # not a correct answer
+>         return false;
 > end;
 function( l, i ) ... end
 

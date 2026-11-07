@@ -4,11 +4,11 @@ Copyright 2001-2010 by Arjeh M. Cohen, Dié A.H. Gijsbers, Jan Willem
 Knopper, Chris Krook. Address: Discrete Algebra and Geometry (DAM) group
 at the Department of Mathematics and Computer Science of Eindhoven
 University of Technology.
-
+gap> #
 For acknowledgements see the manual. The manual can be found in several
 formats in the doc subdirectory of the GBNP distribution. The
 acknowledgements formatted as text can be found in the file chap0.txt.
-
+gap> #
 GBNP is free software; you can redistribute it and/or modify it under
 the terms of the Lesser GNU General Public License as published by the
 Free Software Foundation (FSF); either version 2.1 of the License, or
@@ -21,7 +21,7 @@ gap> ### filename = "example11.g"
 gap> ### authors Cohen & Gijsbers
 
 gap> ### THIS IS A GAP PACKAGE FOR COMPUTING NON-COMMUTATIVE GROBNER BASES
-gap> 
+
 <#GAPDoc Label="Example11">
 <Section Label="Example11"><Heading>The truncated variant on two weighted homogeneous polynomials</Heading>
 Here we exhibit a truncated non-commutative homogeneous weighted Gröbner
@@ -39,62 +39,62 @@ and the dimension of the quotient algebra is 134.
 <P/>
 First load the package and set the standard infolevel <Ref
 InfoClass="InfoGBNP" Style="Text"/> to 1 and the time infolevel <Ref
-Func="InfoGBNPTime" Style="Text"/> to 1 (for more information about the info
+Func="InfoGBNPTime" Style="Text"/> to 0 (for more information about the info
 level, see Chapter <Ref Chap="Info"/>).
 
 
-<Listing><![CDATA[
+<Example><![CDATA[
 gap> LoadPackage("gbnp", false);
 true
 gap> SetInfoLevel(InfoGBNP,1);
-gap> SetInfoLevel(InfoGBNPTime,1);
-]]></Listing>
+gap> SetInfoLevel(InfoGBNPTime,0);
+]]></Example>
 
 The variables will be printed as <M>x</M> and <M>y</M>.
-<Listing><![CDATA[
+<Example><![CDATA[
 gap> GBNP.ConfigPrint("x","y");
-]]></Listing>
+]]></Example>
 
 The level to truncate at is assigned to <M>n</M>.
 
-<Listing><![CDATA[
+<Example><![CDATA[
 gap> n := 16;;
-]]></Listing>
+]]></Example>
 
 Now enter the relations in NP form (see Section <Ref Sect="NP"/>) and the
 weights.
 
-<Listing><![CDATA[
+<Example><![CDATA[
 gap> s1 :=[[[1,1,1,2,2],[1,1,1,1,1,1],[2,2,2,2]],[1,-1,1]];;
 gap> s2 :=[[[2,2,1,1,1],[1,2,1,2,1],[1,1,2,1,2]],[1,1,1]];;
 gap> K := [s1,s2];;
 gap> weights:=[2,3];;
-]]></Listing>
+]]></Example>
 
 The input can be printed with <Ref Func="PrintNPList" Style="Text"/>
 
-<Listing><![CDATA[
+<Example><![CDATA[
 gap> PrintNPList(K);
  x^3y^2 - x^6 + y^4
  y^2x^3 + xyxyx + x^2yxy
-]]></Listing>
+]]></Example>
 
 Verify whether the list <C>K</C> consists only of polynomials that are
 homogeneous with respect to <C>weights</C>
 by means of  <Ref Func="CheckHomogeneousNPs" Style="Text"/>.
 
-<Listing><![CDATA[
+<Example><![CDATA[
 gap> CheckHomogeneousNPs(K,weights);
 #I  Input is homogeneous
 [ 12, 12 ]
-]]></Listing>
+]]></Example>
 
 
 Now calculate the truncated Gröbner basis with <Ref Func="SGrobnerTrunc"
 Style="Text"/>. The output will only contain homogeneous polynomials
 of degree at most <C>n</C>.
 
-<Listing><![CDATA[
+<Example><![CDATA[
 gap> G := SGrobnerTrunc(K,n,weights);;
 #I  number of entered polynomials is 2
 #I  number of polynomials after reduction is 2
@@ -102,18 +102,17 @@ gap> G := SGrobnerTrunc(K,n,weights);;
 #I  Input is homogeneous
 #I  Reached level 16
 #I  end of the algorithm
-#I  The computation took 4 msecs.
-]]></Listing>
+]]></Example>
 
 The Gröbner basis of the truncated quotient algebra can be printed with <Ref
 Func="PrintNPList" Style="Text"/>:
 
-<Listing><![CDATA[
+<Example><![CDATA[
 gap> PrintNPList(G);
  y^2x^3 + xyxyx + x^2yxy
  x^6 - x^3y^2 - y^4
  x^3y^2x - x^4y^2 + y^4x - xy^4
-]]></Listing>
+]]></Example>
 
 The standard basis of the quotient of the free noncommutative algebra
 on <M>n</M> variables, where
@@ -124,7 +123,7 @@ is obtained by means of the function
 <Ref Func="BaseQATrunc" Style="Text"/>
 applied to <C>K</C>, <C>n</C>, and <C>weights</C>.
 
-<Listing><![CDATA[
+<Example><![CDATA[
 gap> B := BaseQATrunc(K,n,weights);;
 #I  number of entered polynomials is 2
 #I  number of polynomials after reduction is 2
@@ -132,7 +131,6 @@ gap> B := BaseQATrunc(K,n,weights);;
 #I  Input is homogeneous
 #I  Reached level 16
 #I  end of the algorithm
-#I  The computation took 0 msecs.
 gap> i := Length(B);
 17
 gap> Print("at level ",i-1," the standard monomials are:\n");
@@ -169,13 +167,13 @@ gap> PrintNPList(List(B[i], qq -> [[qq],[1]]));
  yx^2y^3
  xyxy^3
  x^2y^4
-]]></Listing>
+]]></Example>
 
 
 The same result can be obtained by using the truncated Gröbner basis
 found for <C>G</C> instead of <C>K</C>.
 
-<Listing><![CDATA[
+<Example><![CDATA[
 gap> B2 := BaseQATrunc(G,n,weights);;
 #I  number of entered polynomials is 3
 #I  number of polynomials after reduction is 3
@@ -183,16 +181,15 @@ gap> B2 := BaseQATrunc(G,n,weights);;
 #I  Input is homogeneous
 #I  Reached level 16
 #I  end of the algorithm
-#I  The computation took 0 msecs.
 gap> B = B2;
 true
-]]></Listing>
+]]></Example>
 
 Also, the same result can be obtained by using the
 leading terms of the truncated Gröbner basis
 found for <C>G</C> instead of <C>K</C>.
 
-<Listing><![CDATA[
+<Example><![CDATA[
 gap> B3 := BaseQATrunc(List( LMonsNP(G), qq -> [[qq],[1]]),n,weights);;
 #I  number of entered polynomials is 3
 #I  number of polynomials after reduction is 3
@@ -200,10 +197,9 @@ gap> B3 := BaseQATrunc(List( LMonsNP(G), qq -> [[qq],[1]]),n,weights);;
 #I  Input is homogeneous
 #I  Reached level 16
 #I  end of the algorithm
-#I  The computation took 0 msecs.
 gap> B = B3;
 true
-]]></Listing>
+]]></Example>
 
 
 
@@ -212,7 +208,7 @@ up to degree <M>n</M> is obtained by means of
 <Ref Func="DimsQATrunc" Style="Text"/>
 with arguments <C>G</C>, <C>n</C>, and <C>weights</C>.
 
-<Listing><![CDATA[
+<Example><![CDATA[
 gap> DimsQATrunc(G,n,weights);
 #I  number of entered polynomials is 3
 #I  number of polynomials after reduction is 3
@@ -220,9 +216,8 @@ gap> DimsQATrunc(G,n,weights);
 #I  Input is homogeneous
 #I  Reached level 16
 #I  end of the algorithm
-#I  The computation took 4 msecs.
 [ 1, 0, 1, 1, 1, 2, 2, 3, 4, 5, 7, 9, 10, 16, 17, 24, 31 ]
-]]></Listing>
+]]></Example>
 
 
 
@@ -232,7 +227,7 @@ This is obtained by means of
 <Ref Func="FreqsQATrunc" Style="Text"/>
 with arguments <C>G</C>, <C>n</C>, and <C>weights</C>.
 
-<Listing><![CDATA[
+<Example><![CDATA[
 gap> FreqsQATrunc(G,n,weights);
 #I  number of entered polynomials is 3
 #I  number of polynomials after reduction is 3
@@ -240,7 +235,6 @@ gap> FreqsQATrunc(G,n,weights);
 #I  Input is homogeneous
 #I  Reached level 16
 #I  end of the algorithm
-#I  The computation took 0 msecs.
 [ [ [ [  ], 1 ] ], [ [ [ 1, 0 ], 1 ] ], [ [ [ 0, 1 ], 1 ] ],
   [ [ [ 2, 0 ], 1 ] ], [ [ [ 1, 1 ], 2 ] ],
   [ [ [ 3, 0 ], 1 ], [ [ 0, 2 ], 1 ] ], [ [ [ 2, 1 ], 3 ] ],
@@ -250,7 +244,7 @@ gap> FreqsQATrunc(G,n,weights);
   [ [ [ 4, 2 ], 12 ], [ [ 1, 4 ], 5 ] ],
   [ [ [ 6, 1 ], 5 ], [ [ 3, 3 ], 18 ], [ [ 0, 5 ], 1 ] ],
   [ [ [ 5, 2 ], 16 ], [ [ 2, 4 ], 15 ] ] ]
-]]></Listing>
+]]></Example>
 
 
 </Section>

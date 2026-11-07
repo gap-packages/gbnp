@@ -3,4 +3,3 @@
 # https://github.com/gap-system/ReleaseTools
 rm -rf .codecov.yml
 rm -rf etc README_AUTHORS
-rm -rf GNUmakefile */GNUmakefile */*/GNUmakefile

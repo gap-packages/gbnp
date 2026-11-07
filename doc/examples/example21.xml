@@ -4,11 +4,11 @@ Copyright 2001-2010 by Arjeh M. Cohen, Dié A.H. Gijsbers, Jan Willem
 Knopper, Chris Krook. Address: Discrete Algebra and Geometry (DAM) group
 at the Department of Mathematics and Computer Science of Eindhoven
 University of Technology.
-
+gap> #
 For acknowledgements see the manual. The manual can be found in several
 formats in the doc subdirectory of the GBNP distribution. The
 acknowledgements formatted as text can be found in the file chap0.txt.
-
+gap> #
 GBNP is free software; you can redistribute it and/or modify it under
 the terms of the Lesser GNU General Public License as published by the
 Free Software Foundation (FSF); either version 2.1 of the License, or
@@ -35,15 +35,15 @@ prefix relations <M>\{e,s_1-1, s_2-1, s_3e-s_3\}</M>.
 <P/>
 First load the package and set the standard infolevel <Ref
 InfoClass="InfoGBNP" Style="Text"/> to 1 and the time infolevel <Ref
-Func="InfoGBNPTime" Style="Text"/> to 1 (for more information about the info
+Func="InfoGBNPTime" Style="Text"/> to 0 (for more information about the info
 level, see Chapter <Ref Chap="Info"/>).
 
-<Listing><![CDATA[
+<Example><![CDATA[
 gap> LoadPackage("gbnp", false);
 true
 gap> SetInfoLevel(InfoGBNP,1);
-gap> SetInfoLevel(InfoGBNPTime,1);
-]]></Listing>
+gap> SetInfoLevel(InfoGBNPTime,0);
+]]></Example>
 
 Now enter the relations as GAP polynomials. The module is one dimensional so
 it is possible to enter it with and without a module. In Example 18 (<Ref
@@ -54,25 +54,25 @@ Label="FreeAssociativeAlgebraWithOne"/>). For convenience we use the
 variables <C>s1</C>, <C>s2</C>, <C>s3</C>, and <C>e</C> for the generators of
 the algebra, and <C>o</C> for the identity element of the algebra.
 
-<Listing><![CDATA[
+<Example><![CDATA[
 gap> A:=FreeAssociativeAlgebraWithOne(Rationals, "s1", "s2", "s3", "e");
 <algebra-with-one over Rationals, with 4 generators>
 gap> g:=GeneratorsOfAlgebra(A);;
 gap> s1:=g[2];;s2:=g[3];;s3:=g[4];;e:=g[5];;o:=g[1];;
-]]></Listing>
+]]></Example>
 
 It is possible to print symbols like they are printed in the algebra <C>A</C>
 with the function <Ref Func="GBNP.ConfigPrint" Style="Text"/>:
 
-<Listing><![CDATA[
+<Example><![CDATA[
 gap> GBNP.ConfigPrint(A);
-]]></Listing>
+]]></Example>
 
 Now the relations are entered:
 
-<Listing><![CDATA[
+<Example><![CDATA[
 gap> twosidrels:=[s1^2-o,s2^2-o,s3^2-o,(s1*s2)^3-o,(s2*s3)^3-o,(s1*s3)^2-o,
->   e^2-e,s1*e-e*s1,s2*e-e*s2,e*s3*e-(e*s3)^2,e*s3*e-(s3*e)^2];
+>         e^2-e,s1*e-e*s1,s2*e-e*s2,e*s3*e-(e*s3)^2,e*s3*e-(s3*e)^2];
 [ (-1)*<identity ...>+(1)*s1^2, (-1)*<identity ...>+(1)*s2^2,
   (-1)*<identity ...>+(1)*s3^2, (-1)*<identity ...>+(1)*(s1*s2)^3,
   (-1)*<identity ...>+(1)*(s2*s3)^3, (-1)*<identity ...>+(1)*(s1*s3)^2,
@@ -81,13 +81,13 @@ gap> twosidrels:=[s1^2-o,s2^2-o,s3^2-o,(s1*s2)^3-o,(s2*s3)^3-o,(s1*s3)^2-o,
 gap> prefixrels:=[e,s1-o,s2-o,s3*e-s3];
 [ (1)*e, (-1)*<identity ...>+(1)*s1, (-1)*<identity ...>+(1)*s2,
   (-1)*s3+(1)*s3*e ]
-]]></Listing>
+]]></Example>
 
 First the relations are converted into NP format (see <Ref Sect="NP"/>) and
 next the function <Ref Func="SGrobnerModule" Style="Text"/> is called to
 calculate a Gröbner basis record.
 
-<Listing><![CDATA[
+<Example><![CDATA[
 gap> GBR:=SGrobnerModule(GP2NPList(prefixrels),GP2NPList(twosidrels));;
 #I  number of entered polynomials is 11
 #I  number of polynomials after reduction is 11
@@ -95,21 +95,19 @@ gap> GBR:=SGrobnerModule(GP2NPList(prefixrels),GP2NPList(twosidrels));;
 #I  End of phase II
 #I  End of phase III
 #I  End of phase IV
-#I  The computation took 24 msecs.
 #I  number of entered polynomials is 42
 #I  number of polynomials after reduction is 42
 #I  End of phase I
 #I  End of phase II
 #I  End of phase III
 #I  End of phase IV
-#I  The computation took 20 msecs.
-]]></Listing>
+]]></Example>
 
 The record GBR has two members: the two-sided relations <C>GBR.ts</C> and the
 prefix relations <C>GBR.p</C>. We print these using the
 function <Ref Func="PrintNPList" Style="Text"/>:
 
-<Listing><![CDATA[
+<Example><![CDATA[
 gap> PrintNPList(GBR.ts);
  s1^2 - 1
  s2^2 - 1
@@ -156,7 +154,7 @@ gap> PrintNPList(GBR.p);
 [ s3e - s3 ]
 [ s3s2e - s3s2 ]
 [ s3s2s1e - s3s2s1 ]
-]]></Listing>
+]]></Example>
 
 It is now possible to calculate the standard basis of the quotient module
 with the function <Ref Func="BaseQM" Style="Text"/>. This function has as
@@ -166,14 +164,14 @@ the module (here this is 1),  and
 a variable <C>maxno</C> for returning partial bases (0 means full
 basis).
 
-<Listing><![CDATA[
+<Example><![CDATA[
 gap> B:=BaseQM(GBR,4,1,0);;
 gap> PrintNPList(B);
 [ 1 ]
 [ s3 ]
 [ s3s2 ]
 [ s3s2s1 ]
-]]></Listing>
+]]></Example>
 
 
 Next we write down the matrices for the right action of the generators
@@ -181,7 +179,7 @@ on the module. First by means of the list command
 <Ref Func="MatricesQA" Style="Text"/>, next one by one by means of
 <Ref Func="MatrixQA" Style="Text"/> within a loop.
 
-<Listing><![CDATA[
+<Example><![CDATA[
 gap> MatricesQA(4,B,GBR);
 [ [ [ 1, 0, 0, 0 ], [ 0, 1, 0, 0 ], [ 0, 0, 0, 1 ], [ 0, 0, 1, 0 ] ],
   [ [ 1, 0, 0, 0 ], [ 0, 0, 1, 0 ], [ 0, 1, 0, 0 ], [ 0, 0, 0, 1 ] ],
@@ -210,7 +208,7 @@ gap> for i in [1..4] do
   [  0,  0,  1,  0 ],
   [  0,  0,  0,  1 ] ]
 
-]]></Listing>
+]]></Example>
 
 </Section>
 <#/GAPDoc>

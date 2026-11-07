@@ -32,13 +32,13 @@
 # <P/>
 # First load the package and set the standard infolevel <Ref
 # InfoClass="InfoGBNP" Style="Text"/> to 1 and the time infolevel <Ref
-# Func="InfoGBNPTime" Style="Text"/> to 2 (for more information about the info
+# Func="InfoGBNPTime" Style="Text"/> to 0 (for more information about the info
 # level, see Chapter <Ref Chap="Info"/>).
 
 # <L>
 LoadPackage("gbnp", false);
 SetInfoLevel(InfoGBNP,1);
-SetInfoLevel(InfoGBNPTime,2);
+SetInfoLevel(InfoGBNPTime,0);
 # </L>
 
 # We truncate the example by putting all monomials of degree <M>n</M> in the

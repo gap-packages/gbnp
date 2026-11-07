@@ -1,5 +1,12 @@
 This file describes changes in the GBNP package.
 
+## Unreleased
+
+- Fix `InstallNoncommutativeMonomialOrdering` when given the name of the
+  ordering as a string, as documented
+- Test all examples in the manual, and fix those with outdated output
+- Remove the GNUmakefiles
+
 ## 1.1.0 (2024-08-29)
 
 - Fix a bug the could cause an unexpected error in the Grobner command

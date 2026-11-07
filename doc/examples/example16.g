@@ -44,13 +44,13 @@
 # <P/>
 # First load the package and set the standard infolevel <Ref
 # InfoClass="InfoGBNP" Style="Text"/> to 2 and the time infolevel <Ref
-# Func="InfoGBNPTime" Style="Text"/> to 1 (for more information about the info
+# Func="InfoGBNPTime" Style="Text"/> to 0 (for more information about the info
 # level, see Chapter <Ref Chap="Info"/>).
 
 # <L>
 LoadPackage("gbnp", false);
 SetInfoLevel(InfoGBNP,2);
-SetInfoLevel(InfoGBNPTime,1);
+SetInfoLevel(InfoGBNPTime,0);
 # </L>
 
 # Now define some functions which will help in the construction of relations.
@@ -133,7 +133,6 @@ PrintNPList(GB);
 # <L>
 L:=LMonsNP(GB);;
 DetermineGrowthQA(L,6,false);
-time;
 # </L>
 
 # Now compute the first 10 terms of the Hilbert Series with <Ref

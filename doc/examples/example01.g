@@ -39,13 +39,13 @@
 # <P/>
 # First load the package and set the standard infolevel <Ref
 # InfoClass="InfoGBNP" Style="Text"/> to 2 and the time infolevel <Ref
-# Func="InfoGBNPTime" Style="Text"/> to 1 (for more information about the info
+# Func="InfoGBNPTime" Style="Text"/> to 0 (for more information about the info
 # level, see Chapter <Ref Chap="Info"/>).
 
 # <L>
 LoadPackage("gbnp", false);
 SetInfoLevel(InfoGBNP,2);
-SetInfoLevel(InfoGBNPTime,1);
+SetInfoLevel(InfoGBNPTime,0);
 # </L>
 
 # Then input the relations in NP format (see Section <Ref Sect="NP"/>).
