@@ -4,6 +4,8 @@ This file describes changes in the GBNP package.
 
 - Fix `InstallNoncommutativeMonomialOrdering` when given the name of the
   ordering as a string, as documented
+- Fix `PrintNP` of module elements dropping zero components when an
+  earlier computation used fewer module generators
 - Test all examples in the manual, and fix those with outdated output
 - Remove the GNUmakefiles
 
