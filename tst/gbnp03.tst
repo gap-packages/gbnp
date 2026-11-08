@@ -10,14 +10,14 @@
 #
 gap> START_TEST("gbnp03.tst");
 
-# doc/../doc/examples/functions.xml:1940-1946
+# doc/../doc/examples/functions.xml:1943-1949
 gap> np := [[[2,2,2,1,1,1],[4],[3,2,3]],[1,-3,2]];;
 gap> PrintNP(np);
  b^3a^3 - 3d + 2cbc
 gap> NumAlgGensNP(np);
 4
 
-# doc/../doc/examples/functions.xml:1953-1961
+# doc/../doc/examples/functions.xml:1956-1964
 gap> p1 := [[[1,1,2,3,1],[2],[1]],[1,-2,1]];;
 gap> p2 := [[[2,2,1,4,3],[]],[1,-1]];;
 gap> PrintNPList([p1,p2]);
@@ -26,14 +26,14 @@ gap> PrintNPList([p1,p2]);
 gap> NumAlgGensNPList([p1,p2]);
 4
 
-# doc/../doc/examples/functions.xml:1969-1975
+# doc/../doc/examples/functions.xml:1972-1978
 gap> np := [[[-1,1,2,3,1],[-2],[-1]],[1,-2,1]];;
 gap> PrintNP(np);
 [ abca + 1 , - 2 ]
 gap> NumModGensNP(np);
 2
 
-# doc/../doc/examples/functions.xml:1983-1991
+# doc/../doc/examples/functions.xml:1986-1994
 gap> v1 := [[[-1,1,2,3,1],[-2],[-1]],[1,-2,1]];;
 gap> v2 := [[[-2,2,1,4,3],[-3]],[1,-1]];;
 gap> PrintNPList([v1,v2]);
@@ -99,57 +99,61 @@ gap> p1 := [[[1,1,2],[]],[1,-1]];;
 gap> p2 := [[[1,2,2],[]],[1,-1]];;
 gap> Lnp := [p1,p2];;
 
-# doc/../doc/examples/functions.xml:506-509
+# doc/../doc/examples/functions.xml:507-512
+gap> LMonNP(p1);
+[ 1, 1, 2 ]
 gap> LMonsNP(Lnp);
 [ [ 1, 1, 2 ], [ 1, 2, 2 ] ]
 
-# doc/../doc/examples/functions.xml:515-519
+# doc/../doc/examples/functions.xml:518-522
 gap> PrintNPList(List(LMonsNP(Lnp), q -> [[q],[1]]));
  a^2b
  ab^2
 
-# doc/../lib/nparith.gi:273-284
+# doc/../doc/examples/functions.xml:529-533
 gap> p1 := [[[1,1,2],[1]],[6,-7]];;
 gap> p2 := [[[1,2,2],[2]],[8,-9]];;
 gap> Lnp := [p1,p2];;
-gap> LTermNP( p1 );
+
+# doc/../doc/examples/functions.xml:538-546
+gap> LTermNP(p1);
 [ [ [ 1, 1, 2 ] ], [ 6 ] ]
 gap> LTnp := LTermsNP( Lnp );
 [ [ [ [ 1, 1, 2 ] ], [ 6 ] ], [ [ [ 1, 2, 2 ] ], [ 8 ] ] ]
 gap> PrintNPList( LTnp );
-6a^2b
-8ab^2
+ 6a^2b
+ 8ab^2
 
-# doc/../doc/examples/functions.xml:550-554
+# doc/../doc/examples/functions.xml:553-557
 gap> p := [[[1,1,2],[]],[2,-1]];;
 gap> PrintNP(p);
  2a^2b - 1
 
-# doc/../doc/examples/functions.xml:559-562
+# doc/../doc/examples/functions.xml:562-565
 gap> PrintNP(MkMonicNP(p));
  a^2b - 1/2
 
-# doc/../doc/examples/functions.xml:568-572
+# doc/../doc/examples/functions.xml:571-575
 gap> p := [[[1,1,2],[1,2],[1]],[30,70,105]];;
 gap> PrintNP(p);
  30a^2b + 70ab + 105a
 
-# doc/../doc/examples/functions.xml:577-582
+# doc/../doc/examples/functions.xml:580-585
 gap> PrintNP(FactorOutGcdNP(p));
  6a^2b + 14ab + 21a
 gap> m := MkMonicNP(p);
 [ [ [ 1, 1, 2 ], [ 1, 2 ], [ 1 ] ], [ 1, 7/3, 7/2 ] ]
 gap> #
 
-# doc/../doc/examples/functions.xml:592-595
+# doc/../doc/examples/functions.xml:595-598
 gap> p1 := [[[1,1,2],[]],[1,-1]];;
 gap> p2 := [[[1,2,2],[]],[1,-1]];;
 
-# doc/../doc/examples/functions.xml:598-601
+# doc/../doc/examples/functions.xml:601-604
 gap> PrintNP(MulNP(p1,p2));
  a^2bab^2 - ab^2 - a^2b + 1
 
-# doc/../doc/examples/functions.xml:606-609
+# doc/../doc/examples/functions.xml:609-612
 gap> PrintNP(AddNP(MulNP(p1,p2),MulNP(p2,p1),1,-1));
  - ab^2a^2b + a^2bab^2
 

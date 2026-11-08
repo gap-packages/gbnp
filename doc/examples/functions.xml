@@ -501,9 +501,12 @@ gap> p2 := [[[1,2,2],[]],[1,-1]];;
 gap> Lnp := [p1,p2];;
 ]]></Example>
 
-The list of leading monomials is computed by <C>LMonsNP</C>:
+The leading monomial of a polynomial is returned by <C>LMonNP</C>,
+and the list of leading monomials is computed by <C>LMonsNP</C>:
 
 <Example><![CDATA[
+gap> LMonNP(p1);
+[ 1, 1, 2 ]
 gap> LMonsNP(Lnp);
 [ [ 1, 1, 2 ], [ 1, 2, 2 ] ]
 ]]></Example>

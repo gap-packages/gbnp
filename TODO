@@ -14,8 +14,9 @@ Interface
   this would make GBNP.StrongNormalForm2 superfluous.
 - DimQA that counts the standard monomials (depth first) instead of
   computing them.
-- Add examples for GraphOfNormalWords, DetermineGrowthObs,
-  GraphOfChains, HilbertSeriesG, LMonNP, LTermsNP and PrintNPM.
+- Document GraphOfNormalWords, GraphOfChains, HilbertSeriesG and
+  DetermineGrowthObs, with examples; their manual entries are commented
+  out in gbnp_doc.xml.
 - Index entries other than function names in the manual.
 
 Algorithms and speed

@@ -455,9 +455,11 @@ p2 := [[[1,2,2],[]],[1,-1]];;
 Lnp := [p1,p2];;
 # </L>
 
-# The list of leading monomials is computed by <C>LMonsNP</C>:
+# The leading monomial of a polynomial is returned by <C>LMonNP</C>,
+# and the list of leading monomials is computed by <C>LMonsNP</C>:
 
 # <L>
+LMonNP(p1);
 LMonsNP(Lnp);
 # </L>
 

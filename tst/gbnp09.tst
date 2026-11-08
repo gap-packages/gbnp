@@ -10,18 +10,18 @@
 #
 gap> START_TEST("gbnp09.tst");
 
-# doc/../doc/examples/functions.xml:1019-1022
+# doc/../doc/examples/functions.xml:1022-1025
 gap> p1 := [[[1,1,2],[]],[1,-2]];;
 gap> p2 := [[[1,2,2],[]],[1,-3]];;
 
-# doc/../doc/examples/functions.xml:1025-1028
+# doc/../doc/examples/functions.xml:1028-1031
 gap> v1 := [[[-1,1,2],[-1]],[1,-1]];;
 gap> v2 := [[[-2,2,2],[-2]],[1,-2]];;
 
-# doc/../doc/examples/functions.xml:1032-1034
+# doc/../doc/examples/functions.xml:1035-1037
 gap> GBR := SGrobnerModule([v1,v2],[p1,p2]);;
 
-# doc/../doc/examples/functions.xml:1039-1046
+# doc/../doc/examples/functions.xml:1042-1049
 gap> PrintNPList(GBR.p);
 [ 0, 1 ]
 [ 1 , 0]
@@ -29,15 +29,15 @@ gap> PrintNPList(GBR.ts);
  b - 3/2a
  a^3 - 4/3
 
-# doc/../doc/examples/functions.xml:1104-1107
+# doc/../doc/examples/functions.xml:1107-1110
 gap> p1 := [[[1,1,1,2],[]],[1,-1]];;
 gap> p2 := [[[2,2,2,1],[]],[1,-1]];;
 
-# doc/../doc/examples/functions.xml:1112-1115
+# doc/../doc/examples/functions.xml:1115-1118
 gap> v1 := [[[-1,1,2],[-1]],[1,-1]];;
 gap> v2 := [[[-2,2,2],[-2]],[1,-2]];;
 
-# doc/../doc/examples/functions.xml:1119-1131
+# doc/../doc/examples/functions.xml:1122-1134
 gap> GBR := SGrobnerModule([v1,v2],[p1,p2]);;
 gap> PrintNPList(GBR.ts);
  ba - ab
@@ -50,60 +50,60 @@ gap> PrintNPList(GBR.p);
 [ a^2 - 1 , 0]
 [ ab - 1 , 0]
 
-# doc/../doc/examples/functions.xml:1136-1141
+# doc/../doc/examples/functions.xml:1139-1144
 gap> B := BaseQM(GBR,2,2,0);;
 gap> PrintNPList(B);
 [ 1 , 0]
 [ a , 0]
 
-# doc/../doc/examples/functions.xml:1146-1151
+# doc/../doc/examples/functions.xml:1149-1154
 gap> B := BaseQM(GBR,0,0,0);;
 gap> PrintNPList(B);
 [ 1 , 0]
 [ a , 0]
 
-# doc/../doc/examples/functions.xml:1154-1159
+# doc/../doc/examples/functions.xml:1157-1162
 gap> B := BaseQM(GBR,2,2,3);;
 gap> PrintNPList(B);
 [ 1 , 0]
 [ a , 0]
 
-# doc/../doc/examples/functions.xml:1169-1172
+# doc/../doc/examples/functions.xml:1172-1175
 gap> p1 := [[[1,1,1,2],[]],[1,-1]];;
 gap> p2 := [[[2,2,2,1],[]],[1,-1]];;
 
-# doc/../doc/examples/functions.xml:1177-1180
+# doc/../doc/examples/functions.xml:1180-1183
 gap> v1 := [[[-1,1,2],[-2]],[1,-1]];;
 gap> v2 := [[[-2,2,2],[-1]],[1,-2]];;
 
-# doc/../doc/examples/functions.xml:1184-1186
+# doc/../doc/examples/functions.xml:1187-1189
 gap> GBR := SGrobnerModule([v1,v2],[p1,p2]);;
 
-# doc/../doc/examples/functions.xml:1194-1198
+# doc/../doc/examples/functions.xml:1197-1201
 gap> SetInfoLevel(InfoGBNP,2);
 gap> DimQM(GBR,2,2);
 0
 
-# doc/../doc/examples/functions.xml:1202-1206
+# doc/../doc/examples/functions.xml:1205-1209
 gap> DimQM(GBR,2,2) = Length(BaseQM(GBR,2,2,0));
 true
 gap> SetInfoLevel(InfoGBNP,0);
 
-# doc/../doc/examples/functions.xml:1054-1060
+# doc/../doc/examples/functions.xml:1057-1063
 gap> p1 := [[[1,1,2],[]],[1,-1]];;
 gap> p2 := [[[1,2,2],[]],[1,-1]];;
 gap> PrintNPList([p1,p2]);
  a^2b - 1
  ab^2 - 1
 
-# doc/../doc/examples/functions.xml:1063-1069
+# doc/../doc/examples/functions.xml:1066-1072
 gap> v1 := [[[-1,1,2],[-1]],[1,-1]];;
 gap> v2 := [[[-2,2,2],[-2]],[1,-2]];;
 gap> PrintNPList([v1,v2]);
 [ ab - 1 , 0]
 [ 0, b^2 - 2 ]
 
-# doc/../doc/examples/functions.xml:1073-1081
+# doc/../doc/examples/functions.xml:1076-1084
 gap> GBR := SGrobnerModule([v1,v2],[p1,p2]);;
 gap> PrintNPList(GBR.ts);
  b - a
@@ -112,7 +112,7 @@ gap> PrintNPList(GBR.p);
 [ 0, 1 ]
 [ a - 1 , 0]
 
-# doc/../doc/examples/functions.xml:1086-1096
+# doc/../doc/examples/functions.xml:1089-1099
 gap> w := [[[-1,2],[-2,1]],[1,-4]];;
 gap> PrintNP(w);
 [ b , - 4a ]
@@ -123,21 +123,21 @@ gap> wq := MulQM(w,q,GBR);;
 gap> PrintNP(wq);
 [ 5 , 0]
 
-# doc/../doc/examples/functions.xml:973-979
+# doc/../doc/examples/functions.xml:976-982
 gap> p1 := [[[1,1,2],[]],[1,-1]];;
 gap> p2 := [[[1,2,2],[]],[1,-1]];;
 gap> PrintNPList([p1,p2]);
  a^2b - 1
  ab^2 - 1
 
-# doc/../doc/examples/functions.xml:982-988
+# doc/../doc/examples/functions.xml:985-991
 gap> v1 := [[[-1,1,2],[-1]],[1,-1]];;
 gap> v2 := [[[-2,2,2],[-2]],[1,-2]];;
 gap> PrintNPList([v1,v2]);
 [ ab - 1 , 0]
 [ 0, b^2 - 2 ]
 
-# doc/../doc/examples/functions.xml:992-1000
+# doc/../doc/examples/functions.xml:995-1003
 gap> GBR := SGrobnerModule([v1,v2],[p1,p2]);;
 gap> PrintNPList(GBR.ts);
  b - a
@@ -146,7 +146,7 @@ gap> PrintNPList(GBR.p);
 [ 0, 1 ]
 [ a - 1 , 0]
 
-# doc/../doc/examples/functions.xml:1004-1011
+# doc/../doc/examples/functions.xml:1007-1014
 gap> w := [[[-1,2],[-2,1]],[1,-4]];;
 gap> PrintNP(w);
 [ b , - 4a ]

@@ -10,20 +10,20 @@
 #
 gap> START_TEST("gbnp04.tst");
 
-# doc/../doc/examples/functions.xml:639-645
+# doc/../doc/examples/functions.xml:642-648
 gap> p1 := [[[1,1,2],[]],[1,-1]];;
 gap> p2 := [[[1,2,2],[]],[1,-1]];;
 gap> PrintNPList([p1,p2]);
  a^2b - 1
  ab^2 - 1
 
-# doc/../doc/examples/functions.xml:649-654
+# doc/../doc/examples/functions.xml:652-657
 gap> G := Grobner([p1,p2]);;
 gap> PrintNPList(G);
  b - a
  a^3 - 1
 
-# doc/../doc/examples/functions.xml:658-668
+# doc/../doc/examples/functions.xml:661-671
 gap> R := Grobner([p1,p2],1);;
 gap> PrintNPList(R.G);
  b - a
@@ -34,30 +34,30 @@ gap> R.iterations;
 gap> R.completed;
 false
 
-# doc/../doc/examples/functions.xml:673-677
+# doc/../doc/examples/functions.xml:676-680
 gap> PrintNPList(Grobner(R.G,R.todo));
  b - a
  a^3 - 1
 
-# doc/../doc/examples/functions.xml:684-688
+# doc/../doc/examples/functions.xml:687-691
 gap> PrintNPList(Grobner([[p1[1],One(GF(2))*p1[2]],[p2[1],One(GF(2))*p1[2]]]));
  b + a
  a^3 + Z(2)^0
 
-# doc/../doc/examples/functions.xml:697-703
+# doc/../doc/examples/functions.xml:700-706
 gap> p1 := [[[1,1,2],[]],[1,-1]];;
 gap> p2 := [[[1,2,2],[]],[1,-1]];;
 gap> PrintNPList([p1,p2]);
  a^2b - 1
  ab^2 - 1
 
-# doc/../doc/examples/functions.xml:707-712
+# doc/../doc/examples/functions.xml:710-715
 gap> G := SGrobner([p1,p2]);;
 gap> PrintNPList(G);
  b - a
  a^3 - 1
 
-# doc/../doc/examples/functions.xml:716-726
+# doc/../doc/examples/functions.xml:719-729
 gap> R := SGrobner([p1,p2],1);;
 gap> PrintNPList(R.G);
  b - a
@@ -68,40 +68,40 @@ gap> R.iterations;
 gap> R.completed;
 false
 
-# doc/../doc/examples/functions.xml:731-735
+# doc/../doc/examples/functions.xml:734-738
 gap> PrintNPList(SGrobner(R.G,R.todo));
  b - a
  a^3 - 1
 
-# doc/../doc/examples/functions.xml:885-890
+# doc/../doc/examples/functions.xml:888-893
 gap> Lnp := [[[[1,1,2],[]],[1,-1]], [[[1,2,2],[]],[1,-1]]];;
 gap> PrintNPList(Lnp);
  a^2b - 1
  ab^2 - 1
 
-# doc/../doc/examples/functions.xml:893-896
+# doc/../doc/examples/functions.xml:896-899
 gap> IsGrobnerBasis(Lnp);
 false
 
-# doc/../doc/examples/functions.xml:900-903
+# doc/../doc/examples/functions.xml:903-906
 gap> IsGrobnerBasis(Grobner(Lnp));
 true
 
-# doc/../doc/examples/functions.xml:846-851
+# doc/../doc/examples/functions.xml:849-854
 gap> Lnp := [[[[1,1,2],[]],[1,-1]], [[[1,2,2],[]],[1,-1]]];;
 gap> PrintNPList(Lnp);
  a^2b - 1
  ab^2 - 1
 
-# doc/../doc/examples/functions.xml:854-857
+# doc/../doc/examples/functions.xml:857-860
 gap> IsStrongGrobnerBasis(Lnp);
 false
 
-# doc/../doc/examples/functions.xml:861-864
+# doc/../doc/examples/functions.xml:864-867
 gap> IsStrongGrobnerBasis(SGrobner(Lnp));
 true
 
-# doc/../doc/examples/functions.xml:867-878
+# doc/../doc/examples/functions.xml:870-881
 gap> B := SGrobner(Lnp);;
 gap> Add(B,AddNP(Lnp[1],B[1],1,-1));;
 gap> PrintNPList(B);
@@ -113,27 +113,27 @@ true
 gap> IsStrongGrobnerBasis(B);
 false
 
-# doc/../doc/examples/functions.xml:910-915
+# doc/../doc/examples/functions.xml:913-918
 gap> p1 := [[[1,1,2],[]],[1,-1]];;
 gap> p2 := [[[1,2,2],[]],[1,-1]];;
 gap> q1 := [[[2],[1]],[1,-1]];;
 gap> q2 := [[[1,1,1],[]],[1,-1]];;
 
-# doc/../doc/examples/functions.xml:919-924
+# doc/../doc/examples/functions.xml:922-927
 gap> IsGrobnerPair([p1,p2,q1],[q2]);
 true
 gap> IsGrobnerPair([q1,q2],[p1,p2]);
 false
 
-# doc/../doc/examples/functions.xml:929-932
+# doc/../doc/examples/functions.xml:932-935
 gap> IsGrobnerPair([p1,p2],[]) = IsGrobnerBasis([p1,p2]);
 true
 
-# doc/../doc/examples/functions.xml:939-942
+# doc/../doc/examples/functions.xml:942-945
 gap> p1 := [[[1,1,2],[]],[1,-1]];;
 gap> p2 := [[[1,2,2],[]],[1,-1]];;
 
-# doc/../doc/examples/functions.xml:948-955
+# doc/../doc/examples/functions.xml:951-958
 gap> GP := MakeGrobnerPair([p1,p2],[]);;
 gap> PrintNPList(GP.G);
  a^2b - 1
@@ -141,7 +141,7 @@ gap> PrintNPList(GP.G);
 gap> PrintNPList(GP.todo);
  b - a
 
-# doc/../doc/examples/functions.xml:958-963
+# doc/../doc/examples/functions.xml:961-966
 gap> GB := Grobner(GP.G,GP.todo);;
 gap> PrintNPList(GB);
  b - a

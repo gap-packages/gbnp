@@ -10,7 +10,7 @@
 #
 gap> START_TEST("gbnp05.tst");
 
-# doc/../doc/examples/functions.xml:742-749
+# doc/../doc/examples/functions.xml:745-752
 gap> p1 := [[[1,1,2],[]],[1,-1]];;
 gap> p2 := [[[1,2,2],[]],[1,-1]];;
 gap> G := Grobner([p1,p2]);;
@@ -18,7 +18,7 @@ gap> PrintNPList(G);
  b - a
  a^3 - 1
 
-# doc/../doc/examples/functions.xml:754-764
+# doc/../doc/examples/functions.xml:757-767
 gap> PrintNPList(G);
  b - a
  a^3 - 1
@@ -29,7 +29,7 @@ gap> PrintNPList(BaseQA(G,2,0));
  a
  a^2
 
-# doc/../doc/examples/functions.xml:769-784
+# doc/../doc/examples/functions.xml:772-787
 gap> PrintNPList(BaseQA([p1,p2],2,10));
  1
  a
@@ -45,7 +45,7 @@ gap> PrintNPList(BaseQA([p1,p2],2,10));
  b^2a
  b^3
 
-# doc/../doc/examples/functions.xml:792-799
+# doc/../doc/examples/functions.xml:795-802
 gap> p1 := [[[1,1,2],[]],[1,-2]];;
 gap> p2 := [[[1,2,2],[]],[1,-2]];;
 gap> G := Grobner([p1,p2]);;
@@ -53,15 +53,15 @@ gap> PrintNPList(G);
  b - a
  a^3 - 2
 
-# doc/../doc/examples/functions.xml:804-807
+# doc/../doc/examples/functions.xml:807-810
 gap> DimQA(G,2);
 3
 
-# doc/../doc/examples/functions.xml:1215-1218
+# doc/../doc/examples/functions.xml:1218-1221
 gap> p1 := [[[1,1,1,2],[]],[1,-1]];;
 gap> p2 := [[[2,2,2,1],[]],[1,-1]];;
 
-# doc/../doc/examples/functions.xml:1226-1247
+# doc/../doc/examples/functions.xml:1229-1250
 gap> GB := Grobner([p1,p2]);;
 gap> B := BaseQA(GB,2,0);;
 gap> PrintNPList(B);
@@ -83,24 +83,24 @@ gap> Display(MatrixQA(1, B,GB));
   [  1,  0,  0,  0,  0,  0,  0,  0 ],
   [  0,  0,  1,  0,  0,  0,  0,  0 ] ]
 
-# doc/../doc/examples/functions.xml:1251-1254
+# doc/../doc/examples/functions.xml:1254-1257
 gap> v1 := [[[-1,1,2],[-1]],[1,-1]];;
 gap> v2 := [[[-2,2,2],[-2]],[1,-2]];;
 
-# doc/../doc/examples/functions.xml:1259-1262
+# doc/../doc/examples/functions.xml:1262-1265
 gap> GBR := SGrobnerModule([v1,v2],[p1,p2]);;
 gap> B := BaseQM(GBR,2,2,0);;
 
-# doc/../doc/examples/functions.xml:1266-1270
+# doc/../doc/examples/functions.xml:1269-1273
 gap> Display(MatrixQA(1,B,GBR));
 [ [  0,  1 ],
   [  1,  0 ] ]
 
-# doc/../doc/examples/functions.xml:1279-1282
+# doc/../doc/examples/functions.xml:1282-1285
 gap> p1 := [[[1,1,1,2],[]],[1,-1]];;
 gap> p2 := [[[2,2,2,1],[]],[1,-1]];;
 
-# doc/../doc/examples/functions.xml:1289-1312
+# doc/../doc/examples/functions.xml:1292-1315
 gap> GB := Grobner([p1,p2]);;
 gap> B := BaseQA(GB,2,0);;
 gap> mats := MatricesQA(2,B,GB);;
@@ -124,11 +124,11 @@ gap> for mat in mats do Display(mat); Print("\n"); od;
   [  0,  1,  0,  0,  0,  0,  0,  0 ] ]
 
 
-# doc/../doc/examples/functions.xml:1315-1318
+# doc/../doc/examples/functions.xml:1318-1321
 gap> MatricesQA(2,B,GB) = List([1,2], q -> MatrixQA(q,B,GB));
 true
 
-# doc/../doc/examples/functions.xml:814-821
+# doc/../doc/examples/functions.xml:817-824
 gap> p1 := [[[1,1,2],[]],[1,-1]];;
 gap> p2 := [[[1,2,2],[]],[1,-1]];;
 gap> G := Grobner([p1,p2]);;
@@ -136,24 +136,24 @@ gap> PrintNPList(G);
  b - a
  a^3 - 1
 
-# doc/../doc/examples/functions.xml:825-830
+# doc/../doc/examples/functions.xml:828-833
 gap> s1 := [[[1],[]],[1,-2]];;
 gap> s2 := [[[2],[]],[1,-3]];;
 gap> PrintNP(MulQA(s1,s2,G));
  a^2 - 5a + 6
 
-# doc/../doc/examples/functions.xml:835-838
+# doc/../doc/examples/functions.xml:838-841
 gap> MulQA(s1,s2,G) = StrongNormalFormNP(MulNP(s1,s2),G);
 true
 
-# doc/../doc/examples/functions.xml:619-622
+# doc/../doc/examples/functions.xml:622-625
 gap> p1 := [[[1,1,2],[]],[1,-1]];;
 gap> p2 := [[[1,2,2],[]],[1,-1]];;
 
-# doc/../doc/examples/functions.xml:624-626
+# doc/../doc/examples/functions.xml:627-629
 gap> p := [[[1,1,1,2],[2,1],[]],[1,-1,3]];;
 
-# doc/../doc/examples/functions.xml:629-632
+# doc/../doc/examples/functions.xml:632-635
 gap> PrintNP(StrongNormalFormNP(p,[p1,p2]));
  - ba + a + 3
 
