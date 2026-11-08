@@ -53,9 +53,6 @@
 ### function GBNP.ConstantRow
 ### - Produces constant list [c,c,...,c] of length l
 ###
-### #GBNP.ConstantRow uses: GBNP.ConstantRow#
-### #GBNP.ConstantRow is used in: GBNP.ConstantRow GBNP.DetermineGrowthQA GBNP.IncidenceMatrix#
-###
 
 GBNP.ConstantRow:=function(l,c)
         if l<>0 then return(Concatenation(GBNP.ConstantRow(l-1,c),[c]));
@@ -77,9 +74,6 @@ end;
 ### Returns:
 ### IncidenceMatrix to the edgeset where M(i,j) denotes number of
 ### edges from i->j.
-###
-### #GBNP.IncidenceMatrix uses: GBNP.ConstantRow#
-### #GBNP.IncidenceMatrix is used in: DetermineGrowthObs#
 ###
 
 GBNP.IncidenceMatrix:=function(EdgeSet,n) local i,M;
@@ -109,9 +103,6 @@ end;
 ### Returns:
 ### [b_0,...,b_d]       - the coefficientlist of the formal sum up to
 ###                       degree d.
-###
-### #GBNP.FormalSum uses:#
-### #GBNP.FormalSum is used in: HilbertSeriesG HilbertSeriesQA#
 ###
 
 GBNP.FormalSum:=function(CList,d) local RList,a0,i,j,k;
@@ -182,14 +173,6 @@ end;
 ### Edgeset             - The set of edges of the graph of normal
 ###                               words
 ###
-### Uses:
-###                     - GBNP.OccurInLstPTSLR
-###                     - GBNP.CreateOccurTreeLR
-###                     - GBNP.SuffixOfTree     (tree.gi)
-###
-### #GraphOfNormalWords uses: GBNP.CreateOccurTreeLR GBNP.OccurInLstPTSLR GBNP.SuffixOfTree#
-### #GraphOfNormalWords is used in: DetermineGrowthObs#
-###
 
 InstallGlobalFunction(
 GraphOfNormalWords,function(O,n)
@@ -255,9 +238,6 @@ end);
 ### [i1,i2,..,in]       - a cycle is encountered
 ###                       special case: Length=1: Loop
 ###
-### #GBNP.ReduceMatrix uses: GBNP.ReduceMatrix#
-### #GBNP.ReduceMatrix is used in: GBNP.DetermineGrowthQA GBNP.ReduceMatrix#
-###
 
 GBNP.ReduceMatrix:=function(M,l,i,cycle) local j,result,zero,pos;
 
@@ -302,9 +282,6 @@ end;
 ### 0                   - finite growth
 ### d   (d>0)           - polynomial growth of degree d
 ### "exponential"       - exponential growth
-###
-### #GBNP.DetermineGrowthQA uses: GBNP.ConstantRow GBNP.ReduceMatrix#
-### #GBNP.DetermineGrowthQA is used in: DetermineGrowthObs#
 ###
 
 GBNP.DetermineGrowthQA:=function(M) local l,r,i,j,k,k2,result,max;
@@ -411,14 +388,6 @@ end;
 ### d   (d>0)           - polynomial growth of degree d
 ### "exponential"       - exponential growth
 ###
-### Uses:
-###                     - GraphOfNormalWords    (graphs.gi)
-###                     - GBNP.IncidenceMatrix  (graphs.gi)
-###                     - GBNP.DetermineGrowthQA        (graphs.gi)
-###
-### #DetermineGrowthObs uses: GBNP.DetermineGrowthQA GBNP.IncidenceMatrix GBNP.NumAlgGensNPmonList GraphOfNormalWords#
-### #DetermineGrowthObs is used in: DetermineGrowthQA#
-###
 
 InstallGlobalFunction(
 DetermineGrowthObs,function(O,t) local D,n;
@@ -473,14 +442,6 @@ end);
 ###                       [j1,...,jk] s.t. i->j1,..., i->jk
 ###     LSet            - Set of lengths, where LSet[i] is the length
 ###                       of vertex i.
-###
-### Uses:
-###                     - GBNP.CreateOccurTreeLR
-###                     - GBNP.LookUpOccurTreeForObsPTSLR
-###                     - GBNP.SubOccurInTree (tree.g)
-###
-### #GraphOfChains uses: GBNP.CreateOccurTreeLR GBNP.LookUpOccurTreeForObsPTSLR GBNP.OccurInLstPTSLR#
-### #GraphOfChains is used in:#
 ###
 
 InstallGlobalFunction(
@@ -559,9 +520,6 @@ end);
 ### Returns:
 ### - List of coefficients of the Hilbert series up to
 ###   degree d
-###
-### #HilbertSeriesG uses: GBNP.FormalSum#
-### #HilbertSeriesG is used in:#
 ###
 
 InstallGlobalFunction(

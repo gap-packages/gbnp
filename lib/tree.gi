@@ -62,9 +62,6 @@
 ### true:               - Tree[1]..Tree[n] are leaves
 ### false:              - Otherwise
 ###
-### #GBNP.IsFullTree uses:#
-### #GBNP.IsFullTree is used in: GBNP.RedAddToTree#
-###
 
 GBNP.IsFullTree:=function(Tree,alphabetsize) local i;
         i:=1;
@@ -93,14 +90,6 @@ end;
 ###                     - nothing. called for its side effect.
 ###                       Alters Tree as to add u to it.
 ###
-### Uses:
-###                     - GBNP.RedAddToTree     (tree.gi)
-###                     - GBNP.CreateOccurTreeLR
-###                     - GBNP.IsFullTree       (tree.gi)
-###
-### #GBNP.RedAddToTree uses: GBNP.CreateOccurTreeLR GBNP.IsFullTree GBNP.RedAddToTree#
-### #GBNP.RedAddToTree is used in: GBNP.IncrT GBNP.RedAddListToTree GBNP.RedAddToTree PreprocessAnalysisQA#
-###
 
 GBNP.RedAddToTree:=function(u,T,n) local i;
         i:=Length(u);
@@ -120,8 +109,6 @@ GBNP.RedAddToTree:=function(u,T,n) local i;
         fi;
 end;;
 
-### #GBNP.RedAddListToTree uses: GBNP.RedAddToTree#
-### #GBNP.RedAddListToTree is used in:#
 ###
 
 GBNP.RedAddListToTree:=function(ulist,Tree,alphabetsize) local u;
@@ -147,9 +134,6 @@ end;;
 ### true                - u is strict suffix of some relation
 ### false               - otherwise
 ###
-### #GBNP.SuffixOfTree uses:#
-### #GBNP.SuffixOfTree is used in: GraphOfNormalWords#
-###
 
 GBNP.SuffixOfTree:=function(u,l,Tree) local T;
         if Tree=[] then return(false); fi;
@@ -173,16 +157,12 @@ end;;
 #######################
 ### - Gives the relations from the tree
 ###
-###
 ### Arguments:
 ### Tree                - a tree of reversed relations.
 ### Rels, Temp          - should both be [];
 ###
 ### Returns:
 ### a list of the relations
-###
-### #GBNP.TreeToList uses: GBNP.TreeToList#
-### #GBNP.TreeToList is used in: GBNP.TreeToList PreprocessAnalysisQA#
 ###
 
 GBNP.TreeToList:=function(Tree,Rels,Temp) local i;

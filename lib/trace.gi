@@ -119,9 +119,6 @@ end);
 ###
 ###***further sorting is possible, eg by right pol factor...***
 ###
-### #GBNP.SortTP uses:#
-### #GBNP.SortTP is used in: GBNP.SortTPList#
-###
 
 GBNP.SortTP := function (p) local i,k,h;
     h := p.trace;
@@ -147,9 +144,6 @@ end;
 ### G           - set of non-commutative traced polynomials
 ###               with sorted trace
 ###
-### #GBNP.SortTPList uses: GBNP.SortTP#
-### #GBNP.SortTPList is used in: SGrobnerTrace#
-###
 
 GBNP.SortTPList := function (GB) local i,k,h;
     for i in [1..Length(GB)] do
@@ -170,9 +164,6 @@ end;
 ###
 ### Returns:
 ### pol         - cleaned S-polynomial in the basis G w.r.t. the obstruction l
-###
-### #GBNP.SpolyTrace uses: AddNP BimulNP GBNP.AddTrace#
-### #GBNP.SpolyTrace is used in: GBNP.CentralTrace GBNP.ObsTrace#
 ###
 
 GBNP.SpolyTrace:=function(l,G) local k,ans,first,second;
@@ -208,9 +199,6 @@ end;;
 ###
 ### Returns:
 ### pol         - strong normalform of f w.r.t. G
-###
-### #GBNP.StrongNormalFormTrace2 uses: AddNP BimulNP GBNP.AddTrace GBNP.LTermsTrace GBNP.OccurInLst GBNP.ReduceCancellationTrace#
-### #GBNP.StrongNormalFormTrace2 is used in: GBNP.CentralTrace GBNP.ObsTrace GBNP.ReducePolTailsTrace GBNP.ReducePolTrace2 GBNP.SGrobnerTraceLoop StrongNormalFormTraceDiff#
 ###
 
 GBNP.StrongNormalFormTrace2:=function(f,G,G2) local g,h,i,i2,j,hh,k,l,l2,m,dr,ga,tt,lth,iid,ltsG,ltsG2,trace;
@@ -308,7 +296,6 @@ end;;
 ### </ManSection>
 ### <#/GAPDoc>
 ###
-###
 ### StrongNormalFormTraceDiff
 ### - Computes the difference with the strong normal form of a non-commutative
 ###   polynomial as a trace
@@ -324,9 +311,6 @@ end;;
 ###
 ### Returns:
 ### pol         - strong normalform of f w.r.t. G
-###
-### #StrongNormalFormTraceDiff uses: AddNP GBNP.StrongNormalFormTrace2#
-### #StrongNormalFormTraceDiff is used in:#
 ###
 
 InstallGlobalFunction(
@@ -374,9 +358,6 @@ end);;
 ### Returns:
 ### todo        - new list of S-polynomials. S-polynomials with G[j] added
 ###
-### #GBNP.ObsTrace uses: GBNP.LTermsTrace GBNP.LeftObs GBNP.MkMonicNPTrace GBNP.RightObs GBNP.SelfObs GBNP.SpolyTrace GBNP.StrongNormalFormTrace2#
-### #GBNP.ObsTrace is used in: GBNP.AllObsTrace GBNP.SGrobnerTraceLoop#
-###
 
 GBNP.ObsTrace:=function(j,G,todo) local R,obs,sob,ob,temp;
 
@@ -414,9 +395,6 @@ end;;
 ### Returns:
 ### todo        - new list of S-polynomials. S-polynomials with G[j] added
 ###
-### #GBNP.CentralTrace uses: GBNP.LTermsTrace GBNP.MkMonicNPTrace GBNP.Occur GBNP.SpolyTrace GBNP.StrongNormalFormTrace2#
-### #GBNP.CentralTrace is used in: GBNP.SGrobnerTraceLoop#
-###
 
 GBNP.CentralTrace:=function(j,G,todo) local R,ob,temp,i,o,u,v,lu,lv;
    R := GBNP.LTermsTrace(G);
@@ -448,9 +426,6 @@ end;;
 ###
 ### Returns:
 ### G           - Cleaned, reduced, ordered list of non trivial S-polynomials.
-###
-### #GBNP.ReducePolTrace2 uses: GBNP.LTermsTrace GBNP.MkMonicNPTrace GBNP.Occur GBNP.StrongNormalFormTrace2 LtNP#
-### #GBNP.ReducePolTrace2 is used in: GBNP.AllObsTrace GBNP.ReducePolTrace SGrobnerTrace#
 ###
 
 GBNP.ReducePolTrace2:=function(G) local i,j,h,ind,lts,new,lans,newind;
@@ -505,9 +480,6 @@ end;;
 ###
 ### Returns:
 ### G           - Cleaned, reduced, ordered list of non-commutative polynomials.
-###
-### #GBNP.ReducePolTrace uses: CleanNP GBNP.MkMonicNPTrace GBNP.ReducePolTrace2 GBNP.Traced#
-### #GBNP.ReducePolTrace is used in: SGrobnerTrace#
 ###
 
 GBNP.ReducePolTrace:=function(B) local ans;
@@ -568,9 +540,6 @@ end;
 ### Returns:
 ### todo        - list of non trivial S-polynomials.
 ###
-### #GBNP.AllObsTrace uses: GBNP.LTermsTrace GBNP.ObsTrace GBNP.ReducePolTrace2#
-### #GBNP.AllObsTrace is used in: SGrobnerTrace#
-###
 
 GBNP.AllObsTrace:=function(G) local k,ans,temp,temp2;
 
@@ -588,7 +557,6 @@ end;;
 ### GBNP.SGrobnerTraceLoop
 ### - Computing a grobner basis
 ### (loop of the algorithm).
-###
 ###
 ### Arguments:
 ### G           - set of non-commutative polynomials
@@ -641,8 +609,6 @@ end;;
 ###
 ### Quick observation, if todo is empty then G is a Grobner basis
 ###
-### #SGrobnerTrace uses: GBNP.AllObsTrace GBNP.ReducePolTailsTrace GBNP.ReducePolTrace GBNP.ReducePolTrace2 GBNP.SGrobnerTraceLoop GBNP.SortTPList#
-### #SGrobnerTrace is used in:#
 
 InstallGlobalFunction(
 SGrobnerTrace,function(KI) local G,tt,todo;
@@ -699,8 +665,6 @@ SGrobnerTrace,function(KI) local G,tt,todo;
      return(G);
 end);;
 
-### #GBNP.ReduceCancellationTrace uses: GBNP.GetOptions#
-### #GBNP.ReduceCancellationTrace is used in: GBNP.StrongNormalFormTrace2#
 ###
 
 GBNP.ReduceCancellationTrace:=function(old)

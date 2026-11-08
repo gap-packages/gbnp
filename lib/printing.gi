@@ -55,9 +55,6 @@
 ### </ManSection>
 ### <#/GAPDoc>
 ###
-### #PrintNP uses: GBNP.GetOptions GBNP.PrintNPM GBNP.TransWord#
-### #PrintNP is used in: PrintNPList#
-###
 
 InstallGlobalFunction(
 PrintNP,function(ff) local ans,hlp,j,addon,l,sgn, opt, pg;
@@ -122,9 +119,6 @@ end);;
 ### </ManSection>
 ### <#/GAPDoc>
 ###
-### #PrintNPList uses: PrintNP#
-### #PrintNPList is used in: PrintNPListTrace#
-###
 
 InstallGlobalFunction(
 PrintNPList,function(G) local f;
@@ -137,9 +131,6 @@ end);;
 ### GBNP.PrintNPnonewline ###
 ##############################
 ### Printing the polynomial np
-###
-### #GBNP.PrintNPnonewline uses: GBNP.TransWord#
-### #GBNP.PrintNPnonewline is used in: GBNP.PrintNPM#
 ###
 
 GBNP.PrintNPnonewline:=function(np) local ans,hlp,j,addon,l,sgn;
@@ -191,9 +182,6 @@ end;;
 ### </ManSection>
 ### <#/GAPDoc>
 ###
-### #GBNP.PrintNPM uses: GBNP.NPM2NPArray GBNP.PrintNPnonewline#
-### #GBNP.PrintNPM is used in: PrintNP#
-###
 
 GBNP.PrintNPM:=function(ff,mt)
 local   nparr,  # ff as an np array
@@ -217,9 +205,6 @@ end;
 ########################
 ### Converts a generator to a string
 ###
-### #GBNP.TransLetter uses: GBNP.GetOptions#
-### #GBNP.TransLetter is used in: GBNP.TransWord#
-###
 
 GBNP.TransLetter:=function(y)
     if IsBound(GBNP.GetOptions().PrintLetterFunction) then
@@ -238,9 +223,6 @@ end;
 ### GBNP.TransWord ###
 ######################
 ### Converts a monomial to a string
-###
-### #GBNP.TransWord uses: GBNP.TransLetter#
-### #GBNP.TransWord is used in: GBNP.PrintNPnonewline PrintNP wordfun#
 ###
 
 GBNP.TransWord:=function(wrd) local ans,x,e,y;
@@ -271,9 +253,6 @@ end;;
 ###
 ### Arguments:
 ### term        - One term of a trace of a non-commutative polynomial
-###
-### #GBNP.PrintTraceTerm uses: GBNP.GetOptions#
-### #GBNP.PrintTraceTerm is used in: GBNP.PrintTracePolCancel PrintTracePol#
 ###
 
 GBNP.PrintTraceTerm:=function(term) local k,options,wordfun,times,e;
@@ -331,9 +310,6 @@ end;
 ### Arguments:
 ### - pol               the polynomial to print
 ###
-### #GBNP.PrintTracePolCancel uses: GBNP.PrintTraceTerm#
-### #GBNP.PrintTracePolCancel is used in: wordfun#
-###
 
 GBNP.PrintTracePolCancel:=function(pol)
 local i,k;
@@ -368,9 +344,6 @@ end;
 ###
 ### Arguments:
 ### p           - traced NP polynomial
-###
-### #PrintTracePol uses: GBNP.PrintTraceTerm#
-### #PrintTracePol is used in: PrintTraceList#
 ###
 
 InstallGlobalFunction(
@@ -410,9 +383,6 @@ end);
 ### Arguments:
 ### G           - Set of traced non-commutative polynomials
 ###
-### #PrintTraceList uses: PrintTracePol#
-### #PrintTraceList is used in:#
-###
 
 InstallGlobalFunction(
 PrintTraceList,function(G) local i,lg;
@@ -446,9 +416,6 @@ end);
 ###
 ### Arguments:
 ### G           - Set of traced non-commutative polynomials
-###
-### #PrintNPListTrace uses: PrintNPList#
-### #PrintNPListTrace is is used in:#
 ###
 
 InstallGlobalFunction(

@@ -45,9 +45,6 @@
 ##################
 ### - gives the coefficients of a gap polynomial
 ###
-### #GBNP.Coefs  uses:#
-### #GBNP.Coefs is used in: GBNP.GP2NPM GP2NP#
-###
 
 GBNP.Coefs := function(gp) local ans, i,l, ea;
    ea := ExtRepOfObj(gp)[2];
@@ -63,9 +60,6 @@ end;
 ### GBNP.Mons ###
 #################
 ### - gives the monomials of a gap polynomial
-###
-### #GBNP.Mons uses:#
-### #GBNP.Mons is used in: GBNP.GP2NPM GP2NP
 ###
 
 GBNP.Mons := function(gp) local ans, i,j,k,l,m, ea, hlp;
@@ -115,9 +109,6 @@ end;
 ### <#/GAPDoc>
 ### - GAP poly to our NP
 ###
-### #GP2NP uses: CleanNP GBNP.Coefs GBNP.GP2NPM GBNP.Mons#
-### #GP2NP is used in: GBNP.AddGP2NPList GP2NPList#
-###
 
 InstallGlobalFunction(
 GP2NP , function(gp)
@@ -151,9 +142,6 @@ end);
 ### <#/GAPDoc>
 ### - List GAP poly to List our NP
 ###
-### #GP2NPList uses: GP2NP#
-### #GP2NPList is used in:#
-###
 
 InstallGlobalFunction(
 GP2NPList , function(Lgp) local gp,ans;
@@ -170,9 +158,6 @@ end);
 ### GBNP.AddGP2NPList ###
 #########################
 ### - Add GAP poly to List our NP
-###
-### #GBNP.AddGP2NPList uses: GP2NP#
-### #GBNP.AddGP2NPList is used in:#
 ###
 
 GBNP.AddGP2NPList := function(Lnp, gp) local ans;
@@ -206,9 +191,6 @@ end;
 ### </ManSection>
 ### <#/GAPDoc>
 ### - our NP to GAP poly
-###
-### #NP2GP uses: GBNP.NPM2GP#
-### #NP2GP is used in: NP2GPList wordfun#
 ###
 
 InstallGlobalFunction(
@@ -270,9 +252,6 @@ end);
 ### <#/GAPDoc>
 ### - List our NP poly to List GAP poly
 ###
-### #NP2GPList uses: NP2GP#
-### #NP2GPList is used in:#
-###
 
 InstallGlobalFunction(
 NP2GPList , function(Lnp, A) local np,ans;
@@ -294,9 +273,6 @@ end);
 ###                     array that will be returned)
 ###
 ### Returns: the array of polynomials in NP format
-###
-### #GBNP.NPM2NPArray uses: GBNP.IsNPMNotZero#
-### #GBNP.NPM2NPArray is used in: GBNP.PrintNPM#
 ###
 
 GBNP.NPM2NPArray:=function(arg)
@@ -349,9 +325,6 @@ end;
 ###
 ### Returns: the cleaned NPM polynomial
 ###
-### #GBNP.NPArray2NPM uses: CleanNP#
-### #GBNP.NPArray2NPM is used in:#
-###
 
 GBNP.NPArray2NPM:=function(nparr)
 local   npm,    # the npm polynomial to return
@@ -382,9 +355,6 @@ end;
 ### </ManSection>
 ### <#/GAPDoc>
 ### - GAP poly to our NP
-###
-### #GBNP.GP2NPM uses: AddNP CleanNP GBNP.Coefs GBNP.GetOptions GBNP.Mons GBNP.SetOption#
-### #GBNP.GP2NPM is used in: GP2NP#
 ###
 
 GBNP.GP2NPM:=function(gp)
@@ -425,9 +395,6 @@ end;
 ### <#/GAPDoc>
 ### - our NPM to GAP poly
 ### - this might not be very efficient
-###
-### #GBNP.NPM2GP uses:#
-### #GBNP.NPM2GP is used in: NP2GP#
 ###
 
 GBNP.NPM2GP:=function(np, D)
@@ -495,8 +462,6 @@ end;
 ###             non-empty)
 ### Returns:
 ### - v         np as a vector (np = sum(v[i]*i-th mon from B))
-### #GBNP.SplitNP uses:#
-### #GBNP.SplitNP is used in: MatrixQA#
 ###
 
 GBNP.SplitNP:=function(np,B)
@@ -548,8 +513,6 @@ end;
 ### - Given a basis B and a Gröbner basis (record) GB, this function
 ###   will return a matrix representation for the i-th generator of the
 ###   algebra.
-### #MatrixQA uses: GBNP.SplitNP MulQA MulQM#
-### #MatrixQA is used in: MatricesQA MatrixQAC#
 ###
 
 InstallGlobalFunction(
@@ -606,8 +569,6 @@ end);
 ### - Given a basis B and a Gröbner basis (record) GB, this function
 ###   will return matrix representations for all t generators of the
 ###   algebra.
-### #MatricesQA uses: MatrixQA#
-### #MatricesQA is used in:#
 ###
 
 InstallGlobalFunction(
@@ -645,8 +606,6 @@ end);
 ### - Given a basis B and a Gröbner basis (record) GB, this function
 ###   will return a matrix representation for the i-th generator of the
 ###   algebra.
-### #MatrixQAC uses: MatrixQA#
-### #MatrixQAC is used in: MatricesQAC#
 ###
 
 InstallGlobalFunction(
@@ -688,8 +647,6 @@ end);
 ### - Given a basis B and a Gröbner basis (record) GB, this function
 ###   will return matrix representations for all t generators of the
 ###   algebra.
-### #MatricesQAC uses: MatrixQAC#
-### #MatricesQAC is used in:#
 ###
 
 InstallGlobalFunction(

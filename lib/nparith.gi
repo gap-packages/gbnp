@@ -74,9 +74,6 @@
 ### Returns:
 ### pol         - the non-commutative polynomial c*u+d*v
 ###
-### #AddNP uses: LtNP#
-### #AddNP is used in: EvalTrace GBNP.GP2NPM GBNP.IsGrobnerBasisTest GBNP.NormalForm2 GBNP.NormalForm2T GBNP.Spoly GBNP.SpolyTrace GBNP.StrongNormalForm2 GBNP.StrongNormalForm2TS GBNP.StrongNormalForm2TSPTS GBNP.StrongNormalForm2Tall GBNP.StrongNormalForm3Dall GBNP.StrongNormalFormTrace2 GBNP.TraceNP StrongNormalFormTraceDiff#
-###
 
 InstallGlobalFunction( AddNP, function(u,v,c,d)
     local lans,ans,posu,posv,posans,ulen,vlen,co;
@@ -157,9 +154,6 @@ end);
 ### true        - if u < v
 ### false       - if u >= v
 ###
-### #LtNP uses:#
-### #LtNP is used in: AddNP GBNP.IsGrobnerBasisTest GBNP.LeftObsT GBNP.LeftOccur GBNP.Occur GBNP.ReducePol2 GBNP.ReducePolTrace2 GBNP.RightObsT GBNP.RightOccur GBNP.THeapOTBalanceDown GBNP.THeapOTBalanceUp GBNP.THeapOTCheck THeapOT#
-###
 
 InstallGlobalFunction(
 LtNP,function(u,v)
@@ -199,10 +193,6 @@ end);;
 ### Returns:
 ### true        - if u > v
 ### false       - if u <= v
-###
-### used in:    - CleanNP
-### #GtNP uses:#
-### #GtNP is used in:#
 ###
 
 InstallGlobalFunction( GtNP, function(u,v)
@@ -248,9 +238,6 @@ end);;
 ###
 ### Returns:
 ### - a list of leading monomials
-###
-### #LMonsNP uses:#
-### #LMonsNP is used in: BaseQA BaseQM DimQA DimQM GBNP.AllObs GBNP.AllObsTrunc GBNP.CentralT GBNP.CheckHom GBNP.IsGrobnerBasisTest GBNP.NormalForm2 GBNP.ObsTall GBNP.ObsTrunc GBNP.ReducePol2 GBNP.SGrobnerLoops GBNP.SGrobnerTrunc GBNP.StrongNormalForm2 IsGrobnerPair MakeGrobnerPair THeapOT#
 ###
 
 InstallGlobalFunction( LMonNP, function(pol)
@@ -308,9 +295,6 @@ InstallGlobalFunction(LMonsNP, lst -> List(lst,LMonNP));
 ### Returns:
 ### - a list of leading terms
 ###
-### #LTermNP uses:#
-### #LTermNP is used in:#
-###
 
 InstallGlobalFunction( LTermNP, function(pol)
     if IsZero(pol) then
@@ -347,9 +331,6 @@ InstallGlobalFunction(LTermsNP, lst -> List(lst,LTermNP));
 ###
 ### Returns:
 ### pol         - the cleaned version of the non-commutative polynomial
-###
-### #CleanNP uses:#
-### #CleanNP is used in: CheckHomogeneousNPs EvalTrace GBNP.GP2NPM GBNP.IsGrobnerBasisTest GBNP.MakeGrobnerPairMakeMonic GBNP.NPArray2NPM GBNP.ReducePol GBNP.ReducePolTrace GP2NP IsGrobnerPair MulNP StrongNormalFormNP#
 ###
 
 InstallGlobalFunction( CleanNP, function(pol)
@@ -408,9 +389,6 @@ end);;
 ### Returns:
 ### pol         - the monic version of the non-commutative polynomial
 ###
-### #MkMonicNP uses:#
-### #MkMonicNP is used in: GBNP.CentralT GBNP.IsGrobnerBasisTest GBNP.MakeGrobnerPairMakeMonic GBNP.ObsTall GBNP.ObsTrunc GBNP.ReducePol GBNP.ReducePol2 GBNP.SGrobnerLoops IsGrobnerPair StrongNormalFormNP#
-###
 
 InstallGlobalFunction( MkMonicNP, function(pol)
     if pol=[[],[]] then
@@ -455,9 +433,6 @@ end);;
 ### Returns:
 ### pol        - the non-commutative polynomial divided by Gcd(coefficients)
 ###
-### #FactorOutGcdNP uses:#
-### #FactorOutGcdNP is used in: #
-###
 
 InstallGlobalFunction( FactorOutGcdNP, function(pol)
     local g;
@@ -500,9 +475,6 @@ end);;
 ### Returns:
 ### pol         - the non-commutative polynomial ga*u*dr
 ###
-### #BimulNP uses:#
-### #BimulNP is used in: EvalTrace GBNP.NormalForm2 GBNP.NormalForm2T GBNP.Spoly GBNP.SpolyTrace GBNP.StrongNormalForm2 GBNP.StrongNormalForm2TS GBNP.StrongNormalForm2TSPTS GBNP.StrongNormalForm2Tall GBNP.StrongNormalForm3Dall GBNP.StrongNormalFormTrace2 GBNP.TraceNP#
-###
 
 InstallGlobalFunction( BimulNP, function(ga,u,dr)
     local i,ans;
@@ -534,12 +506,8 @@ end);;
 ### Arguments:
 ### u, v        - two non-commutative polynomials
 ###
-###
 ### Returns:
 ### pol         - the product u*v
-###
-### #MulNP uses: CleanNP#
-### #MulNP is used in: MulQA MulQM SGrobnerModule#
 ###
 
 InstallGlobalFunction( MulNP, function(u,v)
@@ -566,9 +534,6 @@ end);;
 ### Returns:
 ### - a list of leading terms. (monomials)
 ###
-### #GBNP.LTermsTrace uses:#
-### #GBNP.LTermsTrace is used in: GBNP.AllObsTrace GBNP.CentralTrace GBNP.ObsTrace GBNP.ReducePolTrace2 GBNP.StrongNormalFormTrace2#
-###
 
 GBNP.LTermsTrace:=function(G)
     return(List(G,i->i.pol[1][1]));
@@ -588,9 +553,6 @@ end;
 ###
 ### Returns:
 ### pol         - the monic version of the traced non-commutative polynomial
-###
-### #GBNP.MkMonicNPTrace uses:#
-### #GBNP.MkMonicNPTrace is used in: GBNP.CentralTrace GBNP.ObsTrace GBNP.ReducePolTrace GBNP.ReducePolTrace2 GBNP.SGrobnerTraceLoop#
 ###
 
 GBNP.MkMonicNPTrace:=function(mon) local i,ans,lc;
@@ -621,9 +583,6 @@ end;;
 ### Returns:
 ### trace       - new trace of the non-commutative polynomial after addition
 ###
-### #GBNP.AddTrace uses:#
-### #GBNP.AddTrace is used in: GBNP.SpolyTrace GBNP.StrongNormalFormTrace2#
-###
 
 GBNP.AddTrace:=function(trace,le,new,ri,scal) local ans,k,j;
 
@@ -649,9 +608,6 @@ GBNP.AddTrace:=function(trace,le,new,ri,scal) local ans,k,j;
 ###
 ### Returns:
 ### pol         - the non-commutative polynomial
-###
-### #GBNP.TraceNP uses: AddNP BimulNP GBNP.TraceNP#
-### #GBNP.TraceNP is used in: GBNP.TraceNP#
 ###
 
 GBNP.TraceNP:=function(trace,G) local i,l,ans,temp;
@@ -685,9 +641,6 @@ GBNP.TraceNP:=function(trace,G) local i,l,ans,temp;
 ### Returns:
 ### G           - set of traced non-commutative polynomials w.r.t. G
 ###
-### #GBNP.Traced uses:#
-### #GBNP.Traced is used in: GBNP.ReducePolTrace#
-###
 
 GBNP.Traced:=function(G) local ans,pol,i,n;
         i:=0;
@@ -711,8 +664,6 @@ end;;
 ### Returns: true if np is in NPM form (there is a monomial starting with a
 ###             negative number) and false otherwise (NP form or np = [[],[]] =
 ###             zero)
-### #GBNP.IsNPMNotZero uses:#
-### #GBNP.IsNPMNotZero is used in: GBNP.NPM2NPArray#
 ###
 
 GBNP.IsNPMNotZero:=function(np)
