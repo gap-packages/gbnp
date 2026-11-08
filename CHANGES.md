@@ -14,6 +14,8 @@ This file describes changes in the GBNP package.
   information, which differs from one computer to the next
 - Fix the description of `OrderingLtFunctionListRep` and
   `OrderingGtFunctionListRep` in the manual
+- Correct many typos, grammar mistakes, wrong function names and outdated
+  statements in the manual and README
 - Fix module elements being printed without their zero components, e.g.
   `[ b - 1 ]` instead of `[ b - 1 , 0]`, after an earlier computation used
   fewer module generators

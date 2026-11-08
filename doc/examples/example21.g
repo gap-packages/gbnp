@@ -95,7 +95,7 @@ PrintNPList(GBR.p);
 # with the function <Ref Func="BaseQM" Style="Text"/>. This function has as
 # arguments the Gröbner basis record <C>GBR</C>, the number of generators of
 # the algebra (here this is 4), the number of generators of
-# the module (here this is 1),  and
+# the module (here this is 1), and
 # a variable <C>maxno</C> for returning partial bases (0 means full
 # basis).
 

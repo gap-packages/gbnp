@@ -187,7 +187,7 @@ gap> Display(MatrixQA(2,B,GBR));
   [   0,   0,   0,   0,   0,   0,   1 ] ]
 ]]></Example>
 
-In order to compute the image of the vector  <M>2y[1]+3y[2]</M> of the two standard generators of the module
+In order to compute the image of the vector <M>2y[1]+3y[2]</M> of the two standard generators of the module
 under the action of the element <M>aab</M>, we use
 <Ref Func="StrongNormalFormNPM" Style="Text"/>. Its first argument will be the vector
 and its second the Gröbner basis.

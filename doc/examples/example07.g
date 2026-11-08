@@ -55,7 +55,7 @@ GBNP.ConfigPrint("g1","g2","g3","e1","e2","e3");
 
 
 # Now enter the relations. This will be done in NP form (see <Ref Sect="NP"/>).
-# The inderminates <M>m</M> and <M>l</M>
+# The indeterminates <M>m</M> and <M>l</M>
 # in the coefficient ring of the Birman-Murakami-Wenzl algebra
 # are specialized to 7 and 11 in order to make the computations more efficient.
 # <L>
@@ -116,6 +116,6 @@ PrintNPList(GB);
 DimQA(GB,6);
 # </L>
 
-# The conclusion is that the BMW algebra of type A3 has dimension 105.
+# The conclusion is that the BMW algebra of type A<M>_3</M> has dimension 105.
 # </Section>
 # <#/GAPDoc>

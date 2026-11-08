@@ -45,7 +45,7 @@ DeclareOperation("NCLessThanByOrdering",
 ##  <Description>
 ##  Given a <C>&lt;NoncommutativeMonomialOrdering></C> on an algebra <M>A</M>
 ##  and <M>a,b \in A</M>,
-##  <C>NCLessThanByOrdering</C> returns the (boolean) result of
+##  <C>NCGreaterThanByOrdering</C> returns the (boolean) result of
 ##  <M>a > b</M>, where <M>></M> represents the comparison operator
 ##  determined by <C>&lt;NoncommutativeMonomialOrdering></C>.
 ##  <P/>
@@ -70,7 +70,7 @@ DeclareOperation("NCGreaterThanByOrdering",
 ##  <Description>
 ##  Given a <C>&lt;NoncommutativeMonomialOrdering></C> on an algebra <M>A</M>
 ##  and <M>a,b \in A</M>,
-##  <C>NCLessThanByOrdering</C> returns the (boolean) result of
+##  <C>NCEquivalentByOrdering</C> returns the (boolean) result of
 ##  <M>a = b</M>, where <M>=</M> represents the comparison operator
 ##  determined by <C>&lt;NoncommutativeMonomialOrdering></C>.
 ##  <P/>
@@ -131,7 +131,7 @@ DeclareOperation("NCEquivalentByOrdering",
 ##  <#GAPDoc Label="NCSortNP">
 ##  <ManSection>
 ##  <Oper Name="NCSortNP"
-##        Arg="&lt;NoncommutativeMonomialOrdering>, &lt;list>, &lt;function>"/>
+##        Arg="&lt;list>, &lt;function>"/>
 ##
 ##  <Description>
 ##  Given a <C>&lt;list></C> of NP `list' representations for monomials from

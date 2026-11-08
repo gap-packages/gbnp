@@ -37,7 +37,7 @@ The functions <Ref Func="PreprocessAnalysisQA" Style="Text"/>
 and <Ref Func="FinCheckQA" Style="Text"/> are used for the computations. Even
 without preprocessing this already goes fast. Still, preprocessing can speed
 up more involved cases. For instance, after adapting this example to run
-for E7,  we found that
+for E7, we found that
 preprocessing speeds up the computation from 400 secs to about 40 secs. (Be
 aware that Gröbner basis computation will take a while for E7.)
 <P/>
@@ -108,7 +108,7 @@ We will check whether it is finite dimensional or infinite
 dimensional. In case of finite dimensionality we can compute this dimension.
 <P/>
 The function <Ref Func="FinCheckQA" Style="Text"/>, which is used to check
-finite dimensionality has as first argument the list of
+finite dimensionality, has as first argument the list of
 leading monomials of a
 Gröbner basis and as second argument the number of symbols. The monomials
 can be calculated with <Ref Func="LMonsNP" Style="Text"/>. They then will be
@@ -123,7 +123,7 @@ true
 ]]></Example>
 
 If a quotient algebra is finite dimensional, the dimension can be calculated
-with <Ref Func="DimQA" Style="Text"/>, the arguments are the Gröbner basis
+with <Ref Func="DimQA" Style="Text"/>; the arguments are the Gröbner basis
 <C>GB</C> and the number of symbols <C>6</C>:
 
 <Example><![CDATA[

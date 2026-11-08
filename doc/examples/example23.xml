@@ -25,14 +25,14 @@ gap> ### THIS IS A GAP PACKAGE FOR COMPUTING NON-COMMUTATIVE GROBNER BASES
 <#GAPDoc Label="Example23">
 <Section Label="Example23"><Heading>Generalized Temperley-Lieb algebras</Heading>
 This example shows how the dimension of a Generalized Temperley-Lieb
-Algebra of type A, D, or E can be calculated. For <M>\textrm{A}_{n-1}</M>
-this is the usual Temperley-Lieb Algebra on <M>n</M> strands with dimension
+algebra of type A, D, or E can be calculated. For <M>\textrm{A}_{n-1}</M>
+this is the usual Temperley-Lieb algebra on <M>n</M> strands with dimension
 <M>\textrm{dim TL}(A_{n-1})={{2n \choose n}}/{(n+1)}</M>. For more
 information see <Cite Key="Graham1995"/>.
 <P/>
 First load the package and set the standard infolevel <Ref
 InfoClass="InfoGBNP" Style="Text"/> to 0 and the time infolevel <Ref
-Func="InfoGBNPTime" Style="Text"/> to 0 (for more information about timing;
+Func="InfoGBNPTime" Style="Text"/> to 0 (for more information about timing,
 see Chapter <Ref Chap="Info"/>).
 
 <Example><![CDATA[
@@ -62,9 +62,9 @@ calculated. For <M>\textrm{A}_{1\ldots 10}</M> the command
 <P/>
 can be used. For <M>\textrm{D}_{1\ldots 10}</M> the command
 <P/>
-<C>edges:=[[1,3],[2,3],[3,4],[4,5],[5,6],[6,7],[7,8],[8,9],[9,10]];</C> can
+<C>edges:=[[1,3],[2,3],[3,4],[4,5],[5,6],[6,7],[7,8],[8,9],[9,10]];</C>
 <P/>
-be used.
+can be used.
 
 <Example><![CDATA[
 gap> edges:=[[1,3],[2,4],[3,4],[4,5],[5,6],[6,7],[7,8]]; # for E6..8
@@ -72,7 +72,7 @@ gap> edges:=[[1,3],[2,4],[3,4],[4,5],[5,6],[6,7],[7,8]]; # for E6..8
 ]]></Example>
 
 Now enter the relations as GAP polynomials. First a free associative algebra
-with identity element is created over the Rationals (see also <Ref BookName="Reference"
+with identity element is created over the rationals (see also <Ref BookName="Reference"
 Label="FreeAssociativeAlgebraWithOne"/>). For convenience the generators are
 stored in <C>gens</C>.
 

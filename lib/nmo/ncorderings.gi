@@ -15,9 +15,9 @@
 # be two functions here, one for an index of generators,
 # and one with the default order.
 # Both functions expect 'list' representations
-# of a and b;
+# of a and b.
 #
-# Note: we return true if a < b;
+# Note: we return true if a < b.
 #
 InstallNoncommutativeMonomialOrdering( NCMonomialLeftLengthLexicographicOrdering,
   # Default ordering function, non-indexed

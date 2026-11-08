@@ -57,11 +57,11 @@ gap> PrintNPList(G);
 gap> DimQA(G,2);
 3
 
-# doc/../doc/examples/functions.xml:1214-1217
+# doc/../doc/examples/functions.xml:1215-1218
 gap> p1 := [[[1,1,1,2],[]],[1,-1]];;
 gap> p2 := [[[2,2,2,1],[]],[1,-1]];;
 
-# doc/../doc/examples/functions.xml:1225-1246
+# doc/../doc/examples/functions.xml:1226-1247
 gap> GB := Grobner([p1,p2]);;
 gap> B := BaseQA(GB,2,0);;
 gap> PrintNPList(B);
@@ -83,24 +83,24 @@ gap> Display(MatrixQA(1, B,GB));
   [  1,  0,  0,  0,  0,  0,  0,  0 ],
   [  0,  0,  1,  0,  0,  0,  0,  0 ] ]
 
-# doc/../doc/examples/functions.xml:1250-1253
+# doc/../doc/examples/functions.xml:1251-1254
 gap> v1 := [[[-1,1,2],[-1]],[1,-1]];;
 gap> v2 := [[[-2,2,2],[-2]],[1,-2]];;
 
-# doc/../doc/examples/functions.xml:1258-1261
+# doc/../doc/examples/functions.xml:1259-1262
 gap> GBR := SGrobnerModule([v1,v2],[p1,p2]);;
 gap> B := BaseQM(GBR,2,2,0);;
 
-# doc/../doc/examples/functions.xml:1265-1269
+# doc/../doc/examples/functions.xml:1266-1270
 gap> Display(MatrixQA(1,B,GBR));
 [ [  0,  1 ],
   [  1,  0 ] ]
 
-# doc/../doc/examples/functions.xml:1278-1281
+# doc/../doc/examples/functions.xml:1279-1282
 gap> p1 := [[[1,1,1,2],[]],[1,-1]];;
 gap> p2 := [[[2,2,2,1],[]],[1,-1]];;
 
-# doc/../doc/examples/functions.xml:1288-1311
+# doc/../doc/examples/functions.xml:1289-1312
 gap> GB := Grobner([p1,p2]);;
 gap> B := BaseQA(GB,2,0);;
 gap> mats := MatricesQA(2,B,GB);;
@@ -124,7 +124,7 @@ gap> for mat in mats do Display(mat); Print("\n"); od;
   [  0,  1,  0,  0,  0,  0,  0,  0 ] ]
 
 
-# doc/../doc/examples/functions.xml:1314-1317
+# doc/../doc/examples/functions.xml:1315-1318
 gap> MatricesQA(2,B,GB) = List([1,2], q -> MatrixQA(q,B,GB));
 true
 

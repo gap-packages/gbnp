@@ -1,5 +1,4 @@
 #!/bin/sh
-# This file is executed by the `release` script from
-# https://github.com/gap-system/ReleaseTools
+# This file is executed by .github/workflows/release.yml
 rm -rf .codecov.yml
 rm -rf etc README_AUTHORS

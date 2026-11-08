@@ -56,35 +56,35 @@ gap> PrintNPList(B);
 [ 1 , 0]
 [ a , 0]
 
-# doc/../doc/examples/functions.xml:1145-1150
+# doc/../doc/examples/functions.xml:1146-1151
 gap> B := BaseQM(GBR,0,0,0);;
 gap> PrintNPList(B);
 [ 1 , 0]
 [ a , 0]
 
-# doc/../doc/examples/functions.xml:1153-1158
+# doc/../doc/examples/functions.xml:1154-1159
 gap> B := BaseQM(GBR,2,2,3);;
 gap> PrintNPList(B);
 [ 1 , 0]
 [ a , 0]
 
-# doc/../doc/examples/functions.xml:1168-1171
+# doc/../doc/examples/functions.xml:1169-1172
 gap> p1 := [[[1,1,1,2],[]],[1,-1]];;
 gap> p2 := [[[2,2,2,1],[]],[1,-1]];;
 
-# doc/../doc/examples/functions.xml:1176-1179
+# doc/../doc/examples/functions.xml:1177-1180
 gap> v1 := [[[-1,1,2],[-2]],[1,-1]];;
 gap> v2 := [[[-2,2,2],[-1]],[1,-2]];;
 
-# doc/../doc/examples/functions.xml:1183-1185
+# doc/../doc/examples/functions.xml:1184-1186
 gap> GBR := SGrobnerModule([v1,v2],[p1,p2]);;
 
-# doc/../doc/examples/functions.xml:1193-1197
+# doc/../doc/examples/functions.xml:1194-1198
 gap> SetInfoLevel(InfoGBNP,2);
 gap> DimQM(GBR,2,2);
 0
 
-# doc/../doc/examples/functions.xml:1201-1205
+# doc/../doc/examples/functions.xml:1202-1206
 gap> DimQM(GBR,2,2) = Length(BaseQM(GBR,2,2,0));
 true
 gap> SetInfoLevel(InfoGBNP,0);

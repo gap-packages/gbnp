@@ -113,7 +113,7 @@ FinCheckQA(F,7);
 # by application of
 # <Ref Func="DetermineGrowthQA" Style="Text"/>, with the first two arguments
 # as for <C>FinCheckQA</C> above and third argument <C>false</C>, indicating
-# that an interval for the degree of the polynomial degree will suffice.
+# that an interval for the degree of the polynomial growth will suffice.
 # <L>
 DetermineGrowthQA(F,7,false);
 # </L>

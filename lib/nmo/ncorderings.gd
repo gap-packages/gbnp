@@ -16,7 +16,7 @@
 ##        Arg="&lt;algebra>, &lt;list>"/>
 ##
 ##  <Description>
-##  Given a free algebra <M>A</M>, and an optional ordered (possibly partial)
+##  Given a free algebra <M>A</M>, and an optional (possibly partial)
 ##  ordered list of generators for the algebra <M>A</M>,
 ##  <C>NCMonomialLeftLengthLexicographicOrdering</C> returns a noncommutative length
 ##  lexicographic ordering object.  If an ordered list of generators
@@ -64,7 +64,7 @@ DeclareGlobalFunction("NCMonomialLengthOrdering");
 ##        Arg="&lt;algebra>, &lt;list>"/>
 ##
 ##  <Description>
-##  Given a free algebra <M>A</M>, and an optional ordered (possibly partial)
+##  Given a free algebra <M>A</M>, and an optional (possibly partial)
 ##  ordered list of generators for the algebra <M>A</M>,
 ##  <C>NCMonomialLeftLexicographicOrdering</C> returns a simple noncommutative
 ##  left-lexicographic ordering object.
@@ -84,7 +84,7 @@ DeclareGlobalFunction("NCMonomialLeftLexicographicOrdering");
 ##        Arg="&lt;algebra>, &lt;list>"/>
 ##
 ##  <Description>
-##  Given a free algebra <M>A</M>, and an optional ordered (possibly partial)
+##  Given a free algebra <M>A</M>, and an optional (possibly partial)
 ##  ordered list of generators for the algebra <M>A</M>,
 ##  <C>NCMonomialCommutativeLexicographicOrdering</C> returns a commutative
 ##  left-lexicographic ordering object.
@@ -106,7 +106,7 @@ DeclareGlobalFunction("NCMonomialCommutativeLexicographicOrdering");
 ##        Arg="&lt;algebra>, &lt;list>, &lt;list2>"/>
 ##
 ##  <Description>
-##  Given a free algebra <M>A</M>, an ordered (possibly partial)
+##  Given a free algebra <M>A</M>, a (possibly partial)
 ##  ordered <C>&lt;list></C> of generators for the algebra <M>A</M>,
 ##  and a <C>&lt;list2></C> of respective weights for the generators,
 ##  <C>NCMonomialWeightOrdering</C> returns a noncommutative

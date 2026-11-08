@@ -112,6 +112,6 @@ gap> Factors(f);
 
 It turns out that there are three non-zero numbers <M>u,v,w</M>
 such that the eigenvalues of the sum are <M>0,u,v,w,-u,-v,-w</M>.
-This is the information used in  <Cite Key="MR2090062"/>.
+This is the information used in <Cite Key="MR2090062"/>.
 </Section>
 <#/GAPDoc>

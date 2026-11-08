@@ -21,7 +21,7 @@
 ### author: Chris Krook
 ### This is an add-on for the GBNP package, since version 0.8.3
 
-# This file contains some auxiliary functions used by the file fincheck.g
+# This file contains some auxiliary functions used by the file fincheck.gi
 # for the purpose of Hilbert Series calculations. Moreover it contains
 # functions for the creation of some graphs that are closely related to
 # monomial algebras.
@@ -33,7 +33,7 @@
 # computation faster. One can use the function HilbertSeriesG to calculate
 # partial Hilbert Series if the Graph Of Chains is given.
 # Without knowledge of this graph we use the function HilbertSeriesQA from
-# the file fincheck.g
+# the file fincheck.gi
 
 
 # functions that are defined in this file:
@@ -162,17 +162,17 @@ end;
 ### </Returns>
 ### <Description>
 ### Given some set of `obstructions' <A>O</A> and an alphabet size <A>n</A>
-### this function computes the graph of normalwords as defined in
-### <Q>On the Use of Graphs for Computing a Basis Growth, and Hilbert
+### this function computes the graph of normal words as defined in
+### <Q>On the Use of Graphs for Computing a Basis, Growth and Hilbert
 ### Series of Associative Algebras</Q> by V. Ufnarovski <Cite
 ### Key="MR91d:16053"/>.
 ### </Description>
 ### </ManSection>
 ### <#/GAPDoc>
 ### - Given some set of obstructions and an alphabet size
-### this function computes the graph of normalwords as defined in
-### "On the Use of Graphs for Computing a Basis Growth and Hilbert
-### Series of Associative Algebra's" by "V. Ufnarovski"
+### this function computes the graph of normal words as defined in
+### "On the Use of Graphs for Computing a Basis, Growth and Hilbert
+### Series of Associative Algebras" by "V. Ufnarovski"
 ###
 ### Arguments:
 ### O                   - a set of obstructions
@@ -185,7 +185,7 @@ end;
 ### Uses:
 ###                     - GBNP.OccurInLstPTSLR
 ###                     - GBNP.CreateOccurTreeLR
-###                     - GBNP.SuffixOfTree     (tree.g)
+###                     - GBNP.SuffixOfTree     (tree.gi)
 ###
 ### #GraphOfNormalWords uses: GBNP.CreateOccurTreeLR GBNP.OccurInLstPTSLR GBNP.SuffixOfTree#
 ### #GraphOfNormalWords is used in: DetermineGrowthObs#
@@ -206,7 +206,7 @@ local V, EdgeSet, i, j, k, obs, l, pos, w, T;
         for i in [1..n] do
           Add(V,[i]);
         od;
-        # 2. The proper suffices of obstructions
+        # 2. The proper suffixes of obstructions
         for i in [1..Length(O)] do
           obs:=O[i];
           l:=Length(obs);
@@ -320,7 +320,7 @@ GBNP.DetermineGrowthQA:=function(M) local l,r,i,j,k,k2,result,max;
         while i<=l do
           result:=GBNP.ReduceMatrix(M,l,i,[i]);
           if result=false then
-            # A all-zero row
+            # An all-zero row
             i:=i+1;
           elif Length(result)=1 then
             # A loop
@@ -363,7 +363,7 @@ GBNP.DetermineGrowthQA:=function(M) local l,r,i,j,k,k2,result,max;
                 od;
             od;
 
-            # Adjust for dubbelcounts
+            # Adjust for double counts
             M[j][j]:=M[j][j]-Length(result)+1;
           fi;
         od;
@@ -412,9 +412,9 @@ end;
 ### "exponential"       - exponential growth
 ###
 ### Uses:
-###                     - GraphOfNormalWords    (graphs.g)
-###                     - GBNP.IncidenceMatrix  (graphs.g)
-###                     - GBNP.DetermineGrowthQA        (graphs.g)
+###                     - GraphOfNormalWords    (graphs.gi)
+###                     - GBNP.IncidenceMatrix  (graphs.gi)
+###                     - GBNP.DetermineGrowthQA        (graphs.gi)
 ###
 ### #DetermineGrowthObs uses: GBNP.DetermineGrowthQA GBNP.IncidenceMatrix GBNP.NumAlgGensNPmonList GraphOfNormalWords#
 ### #DetermineGrowthObs is used in: DetermineGrowthQA#
@@ -538,9 +538,9 @@ end);
 ### Given a graph of chains (<A>ESet</A> is a set of edges, <C>ESet[i]</C> gives
 ### the vertices <C>j</C> such that <M>i\rightarrow j</M> is an edge and <A>LSet</A>
 ### is a set of lengths of the vertices: <C>LSet[i]</C> is the length of
-### vertex <C>i</C>), an alphabet size <A>n</A> this function
+### vertex <C>i</C>), and an alphabet size <A>n</A>, this function
 ### computes the Hilbert series up to a given degree <A>d</A>.
-### Doesn't remember the graph itself, only the Hilbert series
+### Doesn't remember the graph itself, only the Hilbert series.
 ### </Description>
 ### </ManSection>
 ### <#/GAPDoc>
@@ -554,7 +554,7 @@ end);
 ### LSet                - Set of lengths of the vertices: LSet[i] is
 ###                       the length of vertex i.
 ### n                   - The alphabet size
-### d                   - degree up to which you want hilbert series
+### d                   - degree up to which you want Hilbert series
 ###
 ### Returns:
 ### - List of coefficients of the Hilbert series up to
@@ -577,7 +577,7 @@ HilbertSeriesG,function(ESet,LSet,n,d) local C1,C2,i,j,k,m,CList,alpha,L;
         # compute the i-1 chains
         i:=2;   alpha:=1;
 
-        # Termination is obtained since you only want Hilberseries up to
+        # Termination is obtained since you only want Hilbert series up to
         # given degree and degree must be increased in finite number of
         # steps since number of vertices is finite and each vertex has
         # a length>0.

@@ -6,11 +6,11 @@
 ## Summary
 
 We provide algorithms, written in the GAP 4 programming language, for
-computing Grobner bases of non-commutative polynomials with coefficients from
+computing Gröbner bases of non-commutative polynomials with coefficients from
 a field implemented in GAP, and some variations, such as a weighted and
 truncated version and a tracing facility.
 
-The word algorithm is interpreted loosely: in general one cannot
+The word "algorithm" is interpreted loosely: in general one cannot
 expect such an algorithm to terminate, as it would imply solvability
 of the word problem for finitely presented (semi)groups.
 
@@ -26,15 +26,15 @@ of the word problem for finitely presented (semi)groups.
 The 'GBNP' package is Copyright The GAP Group, 2001-2020.
 
 'GBNP' is free software; you can redistribute it and/or modify
-it under the terms of the GNU General Public License as published by
-the Free Software Foundation; either version 2 of the License, or
+it under the terms of the GNU Lesser General Public License as published by
+the Free Software Foundation; either version 2.1 of the License, or
 (at your option) any later version.
 
-For details, see <https://www.gnu.org/licenses/gpl.html>
+For details, see <https://www.gnu.org/licenses/lgpl.html>
 
 ## Installation
 
- * unpack `gbnp-<version_number>.tar.gz` in the `pkg` subdirectory
+ * Unpack `gbnp-<version_number>.tar.gz` in the `pkg` subdirectory
 of the GAP root directory.
 
  * From within GAP load the package with:
@@ -43,7 +43,7 @@ of the GAP root directory.
 
  * The file `manual.pdf` is in the `doc` subdirectory.
 
-## Acknowledgments:
+## Acknowledgments
 
  * The package is based on an earlier version by Rosane Ushirobira.
 
@@ -52,9 +52,9 @@ of the GAP root directory.
  * The theory is mainly taken from literature by Teo Mora and Edward L. Green.
 
  * From Version 0.8.3 on the package has three additional files by Chris Krook,
-   based on work by Victor Ufnarovski. These files (`fincheck.g`, `tree.g`,
-   `graphs.g`) contain routines for finding the Hilbert function and testing
-   finite-dimensionality when given a GB.
+   based on work by Victor Ufnarovski. These files (`fincheck.gi`, `tree.gi`,
+   `graphs.gi`) contain routines for finding the Hilbert function and testing
+   finite-dimensionality when given a Gröbner basis.
 
  * From Version 0.9 on the package is enriched with support for GAP fields and
    additional prefix rules for quotient modules as well as some speed
@@ -64,10 +64,10 @@ of the GAP root directory.
  * From Version 1.0 on the package is extended with NMO (for Noncommutative
    Monomial Orderings) by Randall Cone. This enables the GBNP user to choose a
    wider selection of monomial orderings than the standard one built into GBNP
-   itself. The files of this extension can be found in `.../gbnp/doc/nmo`,
+   itself. The files of this extension can be found in `.../gbnp/doc/nmo.xml`,
    `.../gbnp/doc/examples/nmo`, and `.../gbnp/lib/nmo`.
 
-## Authors:
+## Authors
 
  *  Arjeh M. Cohen, A.M.Cohen@tue.nl
 

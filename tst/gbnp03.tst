@@ -10,14 +10,14 @@
 #
 gap> START_TEST("gbnp03.tst");
 
-# doc/../doc/examples/functions.xml:1939-1945
+# doc/../doc/examples/functions.xml:1940-1946
 gap> np := [[[2,2,2,1,1,1],[4],[3,2,3]],[1,-3,2]];;
 gap> PrintNP(np);
  b^3a^3 - 3d + 2cbc
 gap> NumAlgGensNP(np);
 4
 
-# doc/../doc/examples/functions.xml:1952-1960
+# doc/../doc/examples/functions.xml:1953-1961
 gap> p1 := [[[1,1,2,3,1],[2],[1]],[1,-2,1]];;
 gap> p2 := [[[2,2,1,4,3],[]],[1,-1]];;
 gap> PrintNPList([p1,p2]);
@@ -26,14 +26,14 @@ gap> PrintNPList([p1,p2]);
 gap> NumAlgGensNPList([p1,p2]);
 4
 
-# doc/../doc/examples/functions.xml:1968-1974
+# doc/../doc/examples/functions.xml:1969-1975
 gap> np := [[[-1,1,2,3,1],[-2],[-1]],[1,-2,1]];;
 gap> PrintNP(np);
 [ abca + 1 , - 2 ]
 gap> NumModGensNP(np);
 2
 
-# doc/../doc/examples/functions.xml:1982-1990
+# doc/../doc/examples/functions.xml:1983-1991
 gap> v1 := [[[-1,1,2,3,1],[-2],[-1]],[1,-2,1]];;
 gap> v2 := [[[-2,2,1,4,3],[-3]],[1,-1]];;
 gap> PrintNPList([v1,v2]);

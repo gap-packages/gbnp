@@ -31,14 +31,14 @@ SetInfoLevel(InfoGBNPTime,0);
 # </L>
 
 # In Serre's book <Cite Key="MR1954121"/> the following exercise can be found:
-# Prove  that the group
+# Prove that the group
 # <M> \left\langle \{a,b,c\}\mid \{ bab^{-1}a^{-2}, cbc^{-1}b^{-2}, aca^{-1}c^{-2}\}\right\rangle</M>
 # is the trivial group.
 # Here we solve the exercise by running the trace variant of the
 # Gröbner basis function with input the set of equations
 # <M>ba - a^2 b, cb - b^2c, ac - c^2a</M>
 # together with relations forcing that <M>a,b,c</M> are invertible
-# with inverse <M>A,B,C</M>.
+# with inverses <M>A,B,C</M>.
 
 # <L>
 KI := [ [[[2,1],[1,1,2]],[1,-1]],
@@ -72,7 +72,7 @@ DimQA(GBpols,6);
 
 # Since the output is large and might spoil the exercise,
 # we confine ourselves to
-# the printing first polynomial <C>GB[1]</C> and the length of its trace.
+# printing the first polynomial <C>GB[1]</C> and the length of its trace.
 # As the trace polynomial expresses
 # <C>GB[1]</C>, which is equal to <M>a-1</M>, as a combination of the binomials
 # in <C>KI</C>, it gives a proof that <M>a</M> can be rewritten within the

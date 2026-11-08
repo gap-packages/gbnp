@@ -43,7 +43,7 @@ library functions,
 a routine is called which overwrites the two <Package>GBNP</Package> functions
 "LtNP" and "GtNP".  In <Package>GBNP</Package>, these latter two functions are
 explicitly length-lexicographic monomial comparison functions,
-and are used in GBNP's Gröbner Basis routines.  Therefore <Package>NMO</Package>
+and are used in GBNP's Gröbner basis routines.  Therefore <Package>NMO</Package>
 allows for the creation of arbitrary monomial ordering comparison
 functions, which, after the patching process, will be used
 by GBNP in place of its native comparison functions.
@@ -80,7 +80,7 @@ and mechanisms, and are often related to operations involving
 <E>NP representations</E> of <Package>GAP</Package> algebraic elements, or they
 are related to attributes of monomial orderings.
 
-Many examples of basic code use are provided; with some examples
+Many examples of basic code use are provided, with some examples
 following the reference material for the functions or
 methods involved.
 <P/>
@@ -130,8 +130,8 @@ in the <C>gbnp/lib/nmo/</C> subdirectory:
   for use with an <Package>NMO</Package> ordering.</Item>
 </List>
 
-There is a documentation directory in <C>gbnp/doc/nmo</C> wherein
-the <Package>GAPDoc</Package> source for this chapter may be found.
+The <Package>GAPDoc</Package> source for this chapter is the file
+<C>gbnp/doc/nmo.xml</C>.
 <P/>
 
 Finally, there is an examples directory in <C>gbnp/doc/examples/nmo</C> where
@@ -210,7 +210,7 @@ gap> gb := NP2GPList( gbreps, A );
 [ (1)*d*a+(-1)*b*c, (1)*(c*b)^2+(-1)*c*b ]
 </Example>
 
-Create a (length left-lexicographic ordering, with generators
+Create a length left-lexicographic ordering, with generators
 ordered: a &lt; b  &lt; c &lt; d.  Note: this is the default
 ordering of generators by <Package>NMO</Package>, if none is provided:
 <Example>
@@ -330,7 +330,7 @@ gap> LexicographicTable( NextOrdering( lenlex2 ) );
 
 <Subsection><Heading>NMO Example 3</Heading>
 Example 3 is taken from the book <Q>Ideals, Varieties, and Algorithms</Q>,
-(<Cite Key="CLO97"/>, Example 2, p. 93-94); it is a commutative example.
+(<Cite Key="CLO97"/>, Example 2, pp. 93–94); it is a commutative example.
 <P/>
 
 First, set up the problem and find a Gröbner basis with respect to the length
@@ -425,7 +425,7 @@ gap> NP2GPList( gb4, A4 );
 <Section><Heading>Orderings - Internals</Heading>
 This section, and the following two, describe the current orderings
 built into the <Package>GAP</Package> package <Package>NMO</Package>,
-and describes some of the internals of the machinery involved.
+and describe some of the internals of the machinery involved.
 <P/>
 
 The orderings portion of <Package>NMO</Package> is divided codewise into the files
@@ -436,7 +436,7 @@ whereas the latter sets
 up actual orderings.  We will first describe
 the creation and use of length lexicographic ordering, afterward
 describing more of the details of the new <Package>GAP</Package> family
-`NoncommutativeMonomialOrdering'.
+<C>NoncommutativeMonomialOrdering</C>.
 <P/>
 
 The <Package>NMO</Package> package was built with the mindset of allowing great
@@ -447,7 +447,7 @@ non-indexed, and one indexed) and then call
 <C>InstallNoncommutativeMonomialOrdering</C> with the comparison functions
 as arguments.  The comparison functions should be written
 to compare simple lists of integers, these lists representing
-monomials as in <Package>GBNP</Package>'s `NP' format, or the letter representation
+monomials as in <Package>GBNP</Package>'s NP format, or the letter representation
 format in <Package>GAP</Package> (see
  "The External Representation for Associative Words"
 in the <Package>GAP</Package> reference manual).  An example follows the description
@@ -459,7 +459,7 @@ introduced by requiring that two functions
 <C>(&lt;function>, &lt;function2>)</C> need be supplied
 to <C>InstallNoncommutativeMonomialOrdering</C> to create an ordering.
 The first function <C>&lt;function></C> should be responsible for comparing
-two given monomial list representations in their unadultered forms.
+two given monomial list representations in their unadulterated forms.
 The second, indexed, function <C>&lt;function2></C> should be capable
 of using a provided index list corresponding to an order on generators,
 based on a different lexicographic ordering.
@@ -468,8 +468,8 @@ lexicographic tables can be applied to the same algebra in <Package>GAP</Package
 <P/>
 
 One more caveat: <C>InstallNoncommutativeMonomialOrdering</C> will
-create a default lexicographic table for all orderings, despite
-whether or not it will be used in the comparison function.
+create a default lexicographic table for all orderings, regardless of
+whether it will be used in the comparison function.
 It does this only out of convenience and ease of use.
 <P/>
 
@@ -517,7 +517,7 @@ NCMonomialLeftLexicographicOrdering([ (1)*b, (1)*c, (1)*a ])
 <Section><Heading>Orderings - Externals</Heading>
 
 All user-level interface routines in the descriptions following
-allow for the comparisonof not only monomials from a given algebra
+allow for the comparison of not only monomials from a given algebra
 with respect to a given ordering, but
 also compare general elements from an algebra by comparing their
 leading terms (again, with respect to the given ordering).

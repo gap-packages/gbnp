@@ -10,17 +10,17 @@
 #
 gap> START_TEST("gbnp06.tst");
 
-# doc/../doc/examples/functions.xml:1819-1822
+# doc/../doc/examples/functions.xml:1820-1823
 gap> DetermineGrowthQA([[1]],2,true);
 1
 
-# doc/../doc/examples/functions.xml:1827-1832
+# doc/../doc/examples/functions.xml:1828-1833
 gap> L := [[1,2,1],[2,2,1]];
 [ [ 1, 2, 1 ], [ 2, 2, 1 ] ]
 gap> DetermineGrowthQA(L,2,true);
 2
 
-# doc/../doc/examples/functions.xml:1839-1846
+# doc/../doc/examples/functions.xml:1840-1847
 gap> F := GF(256);
 GF(2^8)
 gap> z := GeneratorsOfField(F)[1];
@@ -28,7 +28,7 @@ Z(2^8)
 gap> p1 := [[[1,1,1,2],[]],[z,1]];;
 gap> p2 := [[[2,2,2,1],[]],[1,z]];;
 
-# doc/../doc/examples/functions.xml:1856-1866
+# doc/../doc/examples/functions.xml:1857-1867
 gap> GB := Grobner([p1,p2]);;
 gap> L := LMonsNP(GB);;
 gap> for lm  in L  do PrintNP( [ [ lm ], [ 1 ] ] ); od;
@@ -39,25 +39,25 @@ gap> for lm  in L  do PrintNP( [ [ lm ], [ 1 ] ] ); od;
 gap> DetermineGrowthQA(L,2,true);
 0
 
-# doc/../doc/examples/functions.xml:1877-1879
+# doc/../doc/examples/functions.xml:1878-1880
 gap> L := [[1,2,1],[2,2,1]];;
 
-# doc/../doc/examples/functions.xml:1887-1890
+# doc/../doc/examples/functions.xml:1888-1891
 gap> FinCheckQA(L,2);
 false
 
-# doc/../doc/examples/functions.xml:1895-1898
+# doc/../doc/examples/functions.xml:1896-1899
 gap> FinCheckQA([[1],[2,2]],2);
 true
 
-# doc/../doc/examples/functions.xml:1909-1911
+# doc/../doc/examples/functions.xml:1910-1912
 gap> L := [[1,2,1],[2,2,1]];;
 
-# doc/../doc/examples/functions.xml:1919-1922
+# doc/../doc/examples/functions.xml:1920-1923
 gap> HilbertSeriesQA(L,2,10);
 [ 1, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20 ]
 
-# doc/../doc/examples/functions.xml:1403-1412
+# doc/../doc/examples/functions.xml:1404-1413
 gap> p1 := [[[1,1,1,1,2],[]],[1,-1]];;
 gap> p2 := [[[2,2,2,1,1,1],[]],[1,-1]];;
 gap> GB := Grobner([p1,p2]);;
@@ -67,7 +67,7 @@ gap> PrintNPList(GB);
  b^2 - a
  a^5 - b
 
-# doc/../doc/examples/functions.xml:1416-1423
+# doc/../doc/examples/functions.xml:1417-1424
 gap> L := LMonsNP(GB);
 [ [ 1, 1, 1, 1, 2 ], [ 2, 1 ], [ 2, 2 ], [ 1, 1, 1, 1, 1 ] ]
 gap> L1 := PreprocessAnalysisQA(L,2,2);

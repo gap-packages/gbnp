@@ -55,7 +55,7 @@ GBNP.ConfigPrint(6,"r");
 # The relations are binomial and represent the group relations,
 # which express that the generators are involutions (that is,
 # have order 2) and that the orders of the products of any two generators
-# is specified by the Coxeter diagram (see any book on Coxeter groups for details).
+# are specified by the Coxeter diagram (see any book on Coxeter groups for details).
 # The relations will be
 # assigned to <C>KI</C>.
 
@@ -100,17 +100,17 @@ GB := SGrobner(KI);;
 PrintNPList(GB);
 # </L>
 
-# The base of the quotient algebra can be calculated with <Ref Func="BaseQA"
+# The basis of the quotient algebra can be calculated with <Ref Func="BaseQA"
 # Style="Text"/>, which has as arguments a Gröbner basis <C>GB</C>, a number
-# of symbols <C>6</C> and a maximum terms to be found (here 0 is entered, for
-# a full base) . Since it is very long we will not print it here.
+# of symbols <C>6</C> and a maximum number of terms to be found (here 0 is entered, for
+# a full basis). Since it is very long we will not print it here.
 
 # <L>
 B:=BaseQA(GB,6,0);;
 # </L>
 
 # The dimension of the quotient algebra can be calculated with
-# <Ref Func="DimQA" Style="Text"/>, the arguments are the Gröbner basis
+# <Ref Func="DimQA" Style="Text"/>; the arguments are the Gröbner basis
 # <C>GB</C> and the number of symbols <C>6</C>:
 
 # <L>
@@ -118,7 +118,7 @@ DimQA(GB,6);
 # </L>
 
 # Note that the calculation of the dimension takes almost as long as
-# calculating the base. Since we have already calculated a base <C>B</C> it is
+# calculating the basis. Since we have already calculated a basis <C>B</C> it is
 # much more efficient to calculate the dimension with <C>Length</C>:
 
 # <L>

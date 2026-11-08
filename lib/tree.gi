@@ -22,7 +22,7 @@
 ### This is an add-on for the GBNP package, version 0.9
 
 # This file contains auxiliary functions that are used by the file
-# fincheck.g. All functions in this file are constructors or operators on
+# fincheck.gi. All functions in this file are constructors or operators on
 # a tree structure, that can be used to store a set of monomials,
 # of which none divides another.
 #
@@ -51,7 +51,7 @@
 #######################
 ### GBNP.IsFullTree ###
 #######################
-### - Checks whether a given tree consists of precisely n leafs
+### - Checks whether a given tree consists of precisely n leaves
 ###   where n is alphabetsize.
 ###
 ### Arguments:
@@ -59,7 +59,7 @@
 ### alphabetsize        - the alphabetsize
 ###
 ### Returns:
-### true:               - Tree[1]..Tree[n] are leafs
+### true:               - Tree[1]..Tree[n] are leaves
 ### false:              - Otherwise
 ###
 ### #GBNP.IsFullTree uses:#
@@ -94,9 +94,9 @@ end;
 ###                       Alters Tree as to add u to it.
 ###
 ### Uses:
-###                     - GBNP.RedAddToTree     (tree.g)
+###                     - GBNP.RedAddToTree     (tree.gi)
 ###                     - GBNP.CreateOccurTreeLR
-###                     - GBNP.IsFullTree       (tree.g)
+###                     - GBNP.IsFullTree       (tree.gi)
 ###
 ### #GBNP.RedAddToTree uses: GBNP.CreateOccurTreeLR GBNP.IsFullTree GBNP.RedAddToTree#
 ### #GBNP.RedAddToTree is used in: GBNP.IncrT GBNP.RedAddListToTree GBNP.RedAddToTree PreprocessAnalysisQA#

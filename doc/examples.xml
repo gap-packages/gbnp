@@ -1,9 +1,6 @@
 <Appendix Label="Examples"><Heading>Examples</Heading>
 <Section Label="ExamplesIntroduction"><Heading>Introduction</Heading>
-In this chapter all available commented examples can be found.
-Those without comments are in the directory
-        <F>gbnp/examples</F>.
-        <#Include SYSTEM "timing.xml">
+In this appendix all available commented examples can be found.
 <List>
 <Item><Ref Sect="Example01"/> <Ref Sect="Example01"  Style="Text"/></Item>
 <Item><Ref Sect="Example02"/> <Ref Sect="Example02"  Style="Text"/></Item>

@@ -70,8 +70,8 @@ PrintNPList(GB);
 # </L>
 
 # Now calculate the dimension of the quotient algebra with <Ref Func="DimQA"
-# Style="Text"/> (2 symbols) and a base with <Ref Func="BaseQA" Style="Text"/>
-# (2 symbols, 0 for whole base) and print the base.
+# Style="Text"/> (2 symbols) and a basis with <Ref Func="BaseQA" Style="Text"/>
+# (2 symbols, 0 for whole basis) and print the basis.
 # This will give a list of elements of the group.
 
 # <L>
