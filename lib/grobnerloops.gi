@@ -193,12 +193,14 @@ GBNP.SGrobnerLoops := function(G,todo,funcs) local i,lG,count,ltspoly,spoly,slts
       Info(InfoGBNP,4,"elements are\n",todoheap!.list);
       Add(count,l);
 
-      if (GBNP.cleancount > 0) and (Length(count) mod GBNP.cleancount = 0) then
-        GBNP.cleanpolys:=true;
+      if IsBound(GBNP.GetOptions().cleancount)
+              and GBNP.GetOptions().cleancount > 0
+              and Length(count) mod GBNP.GetOptions().cleancount = 0 then
+        GBNP.SetOption("cleanpolys",true);
       fi;
 
-      if IsBound(GBNP.cleanpolys) then
-        Unbind(GBNP.cleanpolys);
+      if IsBound(GBNP.GetOptions().cleanpolys) then
+        GBNP.ClearOption("cleanpolys");
         GBNP.ReducePolTailsPTS(G,todoheap,OT,funcs);
       fi;
 

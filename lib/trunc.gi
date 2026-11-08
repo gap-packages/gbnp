@@ -303,19 +303,13 @@ end;;
 ### ans         - list of weights of the pols or false
 ###
 
-GBNP.CheckHom:=function(G,wtv) local i,j,k,l,mon,h1,h2,ans;
-        mon:=LMonsNP(G);
-        ans:=GBNP.WeightedDegreeList(mon,wtv);
+GBNP.CheckHom:=function(G,wtv) local i,j,ans;
+        ans:=GBNP.WeightedDegreeList(LMonsNP(G),wtv);
         for i in [1..Length(G)] do
-          h1:=ans[i];
-          l:=Length(G[i][1]);
-          for j in [2..l] do
-            mon:=G[i][1][j];
-            h2:=0;
-            for k in [1..Length(mon)] do
-              h2:=h2+wtv[mon[k]];
-            od;
-            if h2<>h1 then return(false); fi;
+          for j in [2..Length(G[i][1])] do
+            if GBNP.WeightedDegreeMon(G[i][1][j],wtv)<>ans[i] then
+              return(false);
+            fi;
           od;
         od;
         Info(InfoGBNP,1,"Input is homogeneous");

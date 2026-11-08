@@ -24,6 +24,7 @@
 
 #PrintNP:=function(np);
 #PrintNPList:=function(G);
+#GBNP.NPString:=function(np);
 #GBNP.PrintNPnonewline:=function(np);
 #GBNP.PrintNPM:=function(np);
 #GBNP.TransLetter:=function(y);
@@ -57,48 +58,19 @@
 ###
 
 InstallGlobalFunction(
-PrintNP,function(ff) local ans,hlp,j,addon,l,sgn, opt, pg;
-    ans:="";
-    l:=Length(ff[2]);
-    addon:=false;
-    if l=0 then
-           ans:="0";
-    else
-        if not Length(ff[1][1])=0 # (length=0->no module generators)
-                and ff[1][1][1]<0 # module generators
-                then
-                pg:=GBNP.GetOption("PrintModuleGenerators");
-                if pg = fail then
-                        pg:= GBNP.GetOptions().pg;
-                fi;
-                GBNP.PrintNPM(ff, pg);
-                return;
+PrintNP,function(ff) local pg;
+    if Length(ff[2]) > 0
+            and Length(ff[1][1]) > 0 # (length=0->no module generators)
+            and ff[1][1][1] < 0 # module generators
+            then
+        pg:=GBNP.GetOption("PrintModuleGenerators");
+        if pg = fail then
+            pg:= GBNP.GetOptions().pg;
         fi;
+        GBNP.PrintNPM(ff, pg);
+        return;
     fi;
-    for j in [1..l] do
-        hlp:=ff[2][j];
-        if not IsZero(hlp) then
-            if not(IsRat(hlp)) then
-                sgn:="+ ";
-            else if (SignInt(hlp)=1) then
-                     sgn:="+ ";
-                else
-                     sgn:="- ";
-                     hlp:=AbsInt(hlp);
-                fi;
-            fi;
-            if addon or sgn = "- " then
-                 Append(ans,sgn);
-            fi;
-            addon:=true;
-            if not IsOne(hlp) or ff[1][j]=[] then
-                Append(ans,String(hlp));
-            fi;
-            Append(ans,GBNP.TransWord(ff[1][j]));
-            Append(ans," ");
-        fi;
-      od;
-      Print(" ",ans,"\n");
+    Print(" ",GBNP.NPString(ff),"\n");
 end);;
 
 ###################
@@ -127,41 +99,52 @@ PrintNPList,function(G) local f;
     od;
 end);;
 
-##############################
-### GBNP.PrintNPnonewline ###
-##############################
-### Printing the polynomial np
+#####################
+### GBNP.NPString ###
+#####################
+### The polynomial np as a string, as printed by PrintNP
 ###
 
-GBNP.PrintNPnonewline:=function(np) local ans,hlp,j,addon,l,sgn;
+GBNP.NPString:=function(np) local ans,hlp,j,addon,l,sgn;
     ans:="";
     l:=Length(np[2]);
     addon:=false;
     if l=0 then
-           ans:="0";
+        ans:="0";
     fi;
     for j in [1..l] do
         hlp:=np[2][j];
         if not IsZero(hlp) then
             if (not IsRat(hlp)) or SignInt(hlp)=1 then
-                         sgn:="+ ";
-                  else sgn:="- ";
-                  fi;
+                sgn:="+ ";
+            else
+                sgn:="- ";
+            fi;
             if addon or sgn = "- " then
-                         Append(ans,sgn);
-               fi;
+                Append(ans,sgn);
+            fi;
             addon:=true;
             if IsRat(hlp) then
-              hlp:=AbsInt(hlp);
+                hlp:=AbsInt(hlp);
             fi;
             if not IsOne(hlp) or np[1][j]=[] then
                 Append(ans,String(hlp));
             fi;
             Append(ans,GBNP.TransWord(np[1][j]));
             Append(ans," ");
-         fi;
-      od;
-      Print(ans);
+        fi;
+    od;
+    return ans;
+end;;
+
+##############################
+### GBNP.PrintNPnonewline ###
+##############################
+### Printing the polynomial np
+###
+
+GBNP.PrintNPnonewline:=function(np)
+    Print(GBNP.NPString(np));
 end;;
 
 ################
