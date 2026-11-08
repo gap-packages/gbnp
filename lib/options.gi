@@ -40,9 +40,6 @@ GBNP.OptionsRec:=rec(pg:=0);
 ###
 ### Arguments: none
 ###
-### #GBNP.GetOptions uses:#
-### #GBNP.GetOptions is used in: GBNP.AllObs GBNP.CreateOccurTreePTSLR GBNP.GP2NPM GBNP.NondivMonsPTSenum GBNP.PrintTraceTerm GBNP.ReduceCancellation GBNP.ReduceCancellationTrace GBNP.ReducePol2 GBNP.SGrobnerLoops GBNP.TransLetter PrintNP SGrobnerModule#
-###
 
 GBNP.GetOptions:=function()
         return GBNP.OptionsRec;
@@ -56,9 +53,6 @@ end;
 ###
 ### Arguments:
 ### - name              the name of the option asked for (string)
-###
-### #GBNP.GetOption uses:#
-### #GBNP.GetOption is used in:#
 ###
 
 GBNP.GetOption:=function(name)
@@ -77,9 +71,6 @@ end;
 ### Arguments:
 ### - options           the new set of options
 ###
-### #GBNP.SetOptions uses:#
-### #GBNP.SetOptions is used in:#
-###
 
 GBNP.SetOptions:=function(options)
         GBNP.OptionsRec:=options;
@@ -95,9 +86,6 @@ end;
 ### - name              the name of the option to change (string)
 ### - value             the new value
 ###
-### #GBNP.SetOption uses:#
-### #GBNP.SetOption is used in: GBNP.ConfigPrint GBNP.GP2NPM GBNP.SGrobnerLoops SGrobnerModule#
-###
 
 GBNP.SetOption:=function(name,value)
         GBNP.OptionsRec.(name):=value;
@@ -110,9 +98,6 @@ end;
 ### function to clear all options
 ###
 ### Arguments: none
-###
-### #GBNP.ClearOptions uses:#
-### #GBNP.ClearOptions is used in:#
 ###
 
 GBNP.ClearOptions:=function(arg)
@@ -127,9 +112,6 @@ end;
 ###
 ### Arguments:
 ### - name               name of option to clear (string)
-###
-### #GBNP.ClearOption uses:#
-### #GBNP.ClearOption is used in:#
 ###
 
 GBNP.ClearOption:=function(name)
@@ -189,9 +171,6 @@ end;
 ### </Description>
 ### </ManSection>
 ### <#/GAPDoc>
-###
-### #GBNP.ConfigPrint uses: GBNP.SetOption#
-### #GBNP.ConfigPrint is used in:#
 ###
 
 GBNP.ConfigPrint:=function(arg)
@@ -272,9 +251,6 @@ end;
 ### Arguments:
 ### - L         list of polynomials
 ###
-### #GBNP.CalculatePG uses:#
-### #GBNP.CalculatePG is used in: GBNP.IsGrobnerBasisTest Grobner IsGrobnerPair MakeGrobnerPair SGrobner SGrobnerModule#
-###
 
 GBNP.CalculatePG:=function(L)
 local F;
@@ -295,9 +271,6 @@ end;
 ###
 ### Arguments:
 ### - L         list of leading terms
-###
-### #GBNP.CalculatePG uses:#
-### #GBNP.CalculatePG is used in: GBNP.IsGrobnerBasisTest Grobner IsGrobnerPair MakeGrobnerPair SGrobner SGrobnerModule#
 ###
 
 GBNP.CalculatePGlts:=function(L)

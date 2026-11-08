@@ -108,7 +108,7 @@ gap> PrintNPList(List(LMonsNP(Lnp), q -> [[q],[1]]));
  a^2b
  ab^2
 
-# doc/../lib/nparith.gi:286-297
+# doc/../lib/nparith.gi:273-284
 gap> p1 := [[[1,1,2],[1]],[6,-7]];;
 gap> p2 := [[[1,2,2],[2]],[8,-9]];;
 gap> Lnp := [p1,p2];;

@@ -38,7 +38,6 @@
 ### GBNP.SGrobnerLoops
 ### - The loop in the SGrobner basis computation
 ###
-###
 ### Assumptions:
 ### - G is a list of clean polynomials all of whose minimal S polynomials
 ###   have a rewritten form wrt G  lying in todo.
@@ -52,8 +51,6 @@
 ### observe:    - this loop may never end: the noncommutative GB is
 ###               not guaranteed to terminate: in general the word problem
 ###               is unsolvable.
-### #GBNP.SGrobnerLoops  uses:#
-### #GBNP.SGrobnerLoops is used in: GBNP.GrobnerLoop GBNP.GrobnerLoopAll GBNP.SGrobnerLoop GBNP.SGrobnerTruncLoop Grobner SGrobner#
 ###
 
 GBNP.SGrobnerLoops := function(G,todo,funcs) local i,lG,count,ltspoly,spoly,sltspoly,spo,l,h,Gset,genlist,b,OT,todoheap,iterations;
@@ -243,9 +240,6 @@ end;
 ### Returns:
 ### - a strong Gröbner basis of I
 ###
-### #GBNP.SGrobnerLoop uses: GBNP.SGrobnerLoops#
-### #GBNP.SGrobnerLoop is used in:#
-###
 
 GBNP.SGrobnerLoop:=function(G,todo)
         GBNP.SGrobnerLoops(G,todo,GBNP.SGrobnerLoopRec);
@@ -266,8 +260,6 @@ end;
 ### Returns:
 ###   a Gröbner basis of I
 ###
-### #GBNP.GrobnerLoop uses: GBNP.SGrobnerLoops#
-### #GBNP.GrobnerLoop is used in:#
 
 GBNP.GrobnerLoop:=function(G,todo)
         GBNP.SGrobnerLoops(G,todo,GBNP.GrobnerLoopRec);
@@ -291,8 +283,6 @@ end;
 ### Returns:
 ###   a Gröbner basis of I
 ###
-### #GBNP.SGrobnerTruncLoop uses: GBNP.SGrobnerLoops#
-### #GBNP.SGrobnerTruncLoop is used in: GBNP.SGrobnerTruncLevel#
 
 
 GBNP.SGrobnerTruncLoop:=function(G,todo,wtv,k)
@@ -326,8 +316,6 @@ end;
 ### Returns:
 ### - a strong Gröbner basis of I corresponding to the options chosen
 ###
-### #GBNP.GrobnerLoopAll uses: GBNP.SGrobnerLoops#
-### #GBNP.GrobnerLoopAll is used in:#
 
 GBNP.GrobnerLoopAll:=function(G,todo,options)
 local o,r;
@@ -376,16 +364,12 @@ GBNP.SGrobnerLoopPTSRec:=rec(
 ### - Computing a grobner basis
 ### (loop of the algorithm).
 ###
-###
 ### Arguments:
 ### G           - set of non-commutative polynomials
 ### todo        - list of non trivial S-polynomials.
 ###
 ### Returns:
 ### G           - non-commutative grobner basis
-###
-### #GBNP.SGrobnerTraceLoop uses: GBNP.CentralTrace GBNP.MkMonicNPTrace GBNP.ObsTrace GBNP.StrongNormalFormTrace2#
-### #GBNP.SGrobnerTraceLoop is used in: SGrobnerTrace#
 ###
 
 GBNP.SGrobnerTraceLoop:=function(G,todo) local i,j,count,ltspoly,spoly,spo,temp,lt;
@@ -485,9 +469,6 @@ end;;
 ### Returns:
 ### todo        - new list of S-polynomials. S-polynomials with G[j] added
 ###
-### #GBNP.ObsTall uses: GBNP.AddMonToTreePTSLR GBNP.LeftObsT GBNP.RightObsT GBNP.SortParallelOT GBNP.Spoly GBNP.StrongNormalForm2Tall GBNP.WeightedDegreeMon LMonsNP MkMonicNP#
-### #GBNP.ObsTall is used in: GBNP.AllObs GBNP.SGrobnerLoops#
-###
 
 GBNP.ObsTall:=function(j,G,todo,OT,funcs)
 local R,sob,ob,temp,temp2,obs,spo,added;
@@ -557,8 +538,6 @@ end;;
 ### GBNP.StrongNormalFormTall ###
 #################################
 ###
-###
-###
 ### Arguments:
 ### - f         non commutative polynomial
 ### - G         a list of non-commutative polynomials
@@ -567,9 +546,6 @@ end;;
 ###
 ### Returns:
 ### pol         - strong normalform of f w.r.t. G
-###
-### #GBNP.StrongNormalFormTall uses: GBNP.CreateOccurTreePTSLR GBNP.StrongNormalForm2Tall#
-### #GBNP.StrongNormalFormTall is used in: GBNP.AllObs GBNP.IsGrobnerBasisTest IsGrobnerPair MakeGrobnerPair#
 ###
 
 GBNP.StrongNormalFormTall:=function(f,G,GLOT,funcs)
@@ -603,9 +579,6 @@ end;
 ###
 ### Returns:
 ### pol         - strong normalform of f w.r.t. G
-###
-### #GBNP.StrongNormalForm2Tall uses: AddNP BimulNP GBNP.OccurInLstT GBNP.ReduceCancellation#
-### #GBNP.StrongNormalForm2Tall is used in: GBNP.CentralT GBNP.ObsTall GBNP.SGrobnerLoops GBNP.StrongNormalFormTall IsGrobnerPair MakeGrobnerPair#
 ###
 
 GBNP.StrongNormalForm2Tall:=function(f,G,G2,OT,funcs)
@@ -673,9 +646,6 @@ end;;
 ###
 ### Returns:
 ### pol         - strong normalform of f w.r.t. G
-###
-### #GBNP.StrongNormalForm2Tall uses: AddNP BimulNP GBNP.OccurInLstT GBNP.ReduceCancellation#
-### #GBNP.StrongNormalForm2Tall is used in: GBNP.CentralT GBNP.ObsTall GBNP.SGrobnerLoops GBNP.StrongNormalFormTall IsGrobnerPair MakeGrobnerPair#
 ###
 
 GBNP.StrongNormalForm3Dall:=function(f,G,G2,OT,funcs,skip)
@@ -748,9 +718,6 @@ end;;
 ### Returns:
 ### pol         - strong normalform of f w.r.t. G
 ###
-### #GBNP.StrongNormalForm2TSPTS uses: AddNP BimulNP GBNP.LookUpOccurTreeAllLstPTSLR#
-### #GBNP.StrongNormalForm2TSPTS is used in: GBNP.ReducePolTailsPTS#
-###
 
 GBNP.StrongNormalForm2TSPTS:=function(G,j,GLOT,prefix)
     local g,h,il,i1,l,dr,ga,lth,iid;
@@ -793,8 +760,6 @@ end;;
 ### GBNP.ReducePolTails ###
 ###########################
 ###
-###
-###
 ### Arguments:
 ### - G
 ### - todo
@@ -802,9 +767,6 @@ end;;
 ### - funcs
 ###
 ### Returns:
-###
-### #GBNP.ReducePolTails uses: GBNP.StrongNormalForm2TS#
-### #GBNP.ReducePolTails is used in: SGrobner#
 ###
 
 GBNP.ReducePolTails:=function(G,todo,GLOT)
@@ -835,8 +797,6 @@ end;
 ### GBNP.ReducePolTailsPTS ###
 ##############################
 ###
-###
-###
 ### Arguments:
 ### - G
 ### - todo
@@ -844,9 +804,6 @@ end;
 ### - funcs
 ###
 ### Returns:
-###
-### #GBNP.ReducePolTailsPTS uses: GBNP.StrongNormalForm2TSPTS#
-### #GBNP.ReducePolTailsPTS is used in: GBNP.SGrobnerLoops#
 ###
 
 GBNP.ReducePolTailsPTS:=function(G,todo,OT,funcs)
@@ -879,13 +836,9 @@ end;
 ### GBNP.ReduceCancellation ###
 ###############################
 ###
-###
-###
 ### Arguments:
 ### - pol
 ###
-### #GBNP.ReduceCancellation uses: GBNP.GetOptions#
-### #GBNP.ReduceCancellation is used in: GBNP.ReducePol2 GBNP.StrongNormalForm2Tall GBNP.StrongNormalForm3Dall#
 
 GBNP.ReduceCancellation:=function(pol)
 local   nummon, # the number of monomials in pol
@@ -959,16 +912,11 @@ end;
 ### GBNP.Find3Dnum ###
 ######################
 ###
-###
-###
 ### Arguments:
 ### - l
 ### -  skip
 ###
 ### Returns:
-###
-### #GBNP.Find3Dnum uses:#
-### #GBNP.Find3Dnum used in:#
 ###
 
 GBNP.Find3Dnum:=function(l, skip)

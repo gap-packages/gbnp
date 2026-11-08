@@ -76,9 +76,6 @@
 ### i         - position in v where the monomial u starts
 ### 0         - the monomial u is not contained in v
 ###
-### #GBNP.RightOccur uses: LtNP#
-### #GBNP.RightOccur is used in: GBNP.RightOccurInLst#
-###
 
 GBNP.RightOccur:=function(u,v) local lu,lv;
     if u = v then
@@ -108,9 +105,6 @@ end;;
 ### 1         - if u occurs at the left of v
 ### 0         - the monomial u is not contained in v
 ###
-### #GBNP.LeftOccur uses: LtNP#
-### #GBNP.LeftOccur is used in: GBNP.LeftObs GBNP.RightObs#
-###
 
 GBNP.LeftOccur:=function(u,v)
     local lu;
@@ -139,9 +133,6 @@ end;;
 ### Returns:
 ### i         - position in v where the monomial u starts
 ### 0         - the monomial u is not contained in v
-###
-### #GBNP.Occur uses: LtNP#
-### #GBNP.Occur is used in: FinCheckQA GBNP.CentralT GBNP.CentralTrace GBNP.OccurInLst GBNP.ReducePol2 GBNP.ReducePolTrace2 GBNP.SGrobnerLoops#
 ###
 
 GBNP.Occur:=function(u,v)
@@ -178,9 +169,6 @@ end;
 ###          is thus contained in u, starting at position j
 ### [0,0]    - no monomial of R divides the monomial u
 ###
-### #GBNP.RightOccurInLst uses: GBNP.RightOccur#
-### #GBNP.RightOccurInLst is used in:#
-###
 
 GBNP.RightOccurInLst:=function(u,Rlst)
     local i,j,lr;
@@ -207,9 +195,6 @@ end;;
 ### [i,j]    - the monomial R[i] is the first monomial in R dividing u and
 ###          is thus contained in u, starting at position j
 ### [0,0]    - no monomial of R divides the monomial u
-###
-### #GBNP.OccurInLst uses: GBNP.Occur#
-### #GBNP.OccurInLst is used in: GBNP.MakeArgumentLevel GBNP.NondivMonsByLevel GBNP.NondivMonsPTS GBNP.NondivMonsPTSenum GBNP.NormalForm2 GBNP.StrongNormalForm2 GBNP.StrongNormalFormTrace2#
 ###
 
 GBNP.OccurInLst:=function(u,Rlst) local i,j,lr;
@@ -243,8 +228,6 @@ end;;
 ### []            - if R[j] has no self obstructions
 ###
 ####Note: ***same form as left obs***
-### #GBNP.SelfObs uses:#
-### #GBNP.SelfObs is used in: GBNP.ObsTrace GBNP.ObsTrunc#
 ###
 
 GBNP.SelfObs:=function(j,R)
@@ -274,9 +257,6 @@ end;;
 ###
 ### Returns:
 ### ans        - List of found left-obstructions
-###
-### #GBNP.LeftObs uses: GBNP.LeftOccur#
-### #GBNP.LeftObs is used in: GBNP.ObsTrace GBNP.ObsTrunc#
 ###
 
 GBNP.LeftObs:=function(j,R,sob)
@@ -329,9 +309,6 @@ end;;
 ###
 ### Returns:
 ### ans        - List of found right-obstructions (not containing sob)
-###
-### #GBNP.RightObs uses: GBNP.LeftOccur#
-### #GBNP.RightObs is used in: GBNP.ObsTrace GBNP.ObsTrunc#
 ###
 
 GBNP.RightObs:=function(j,R,sob)
@@ -386,9 +363,6 @@ end;;
 ### Returns:
 ### pol        - cleaned S-polynomial in the basis G w.r.t. the obstruction l
 ###
-### #GBNP.Spoly uses: AddNP BimulNP#
-### #GBNP.Spoly is used in: GBNP.CentralT GBNP.ObsTall GBNP.ObsTrunc#
-###
 
 GBNP.Spoly:=function(l,G)
     return(AddNP(BimulNP(l[1],G[l[2]],l[3]),BimulNP(l[4],G[l[5]],l[6]),
@@ -412,9 +386,6 @@ end;;
 ###
 ### Returns:
 ### pol        - normal form of f w.r.t. G union G2
-###
-### #GBNP.NormalForm2 uses: AddNP BimulNP GBNP.OccurInLst LMonsNP#
-### #GBNP.NormalForm2 is used in: GBNP.NormalForm#
 ###
 
 GBNP.NormalForm2:=function(f,G,G2)
@@ -474,9 +445,6 @@ end;;
 ### Returns:
 ### pol        - normal form of f w.r.t. G
 ###
-### #GBNP.NormalForm uses: GBNP.NormalForm2#
-### #GBNP.NormalForm is used in:#
-###
 
 GBNP.NormalForm:=function(f,G)
     if f = [[],[]] then
@@ -503,9 +471,6 @@ end;;
 ###
 ### Returns:
 ### pol        - strong normalform of f w.r.t. G
-###
-### #GBNP.StrongNormalForm2 uses: AddNP BimulNP GBNP.OccurInLst LMonsNP#
-### #GBNP.StrongNormalForm2 is used in: GBNP.ObsTrunc StrongNormalFormNP StrongNormalFormNPM#
 ###
 
 GBNP.StrongNormalForm2:=function(f,G,G2)
@@ -589,16 +554,12 @@ end;;
 ### <#/GAPDoc>
 ### - Computes a strong normal form of a polynomial in NP format
 ###
-###
 ### Arguments:
 ### f         - a non-commutative polynomial
 ### G        - list of non-commutative polynomials
 ###
 ### Returns:
 ### pol        - a strong normalform of f with respect to G
-###
-### #StrongNormalFormNP uses: CleanNP GBNP.StrongNormalForm2 MkMonicNP#
-### #StrongNormalFormNP is used in: MulQA#
 ###
 
 InstallGlobalFunction( StrongNormalFormNP, function(f,G)
@@ -633,9 +594,6 @@ end);;
 ### G        - Cleaned, reduced, ordered list of non trivial S-polynomials.
 ### Returns:
 ### GLOT    - Updated occur tree
-###
-### #GBNP.ReducePol2 uses: GBNP.AddMonToTreePTSLR GBNP.CalculatePGlts GBNP.CreateOccurTreePTSLR GBNP.GetOptions GBNP.Occur GBNP.ReduceCancellation GBNP.RemoveMonFromTreePTSLR GBNP.StrongNormalForm2TS LMonsNP LtNP MkMonicNP#
-### #GBNP.ReducePol2 is used in: GBNP.AllObsTrunc GBNP.ReducePol GBNP.SGrobnerTruncLevel SGrobner#
 ###
 
 GBNP.ReducePol2:=function(arg)
@@ -720,9 +678,6 @@ end;;
 ### Returns:
 ### G        - Cleaned, reduced, ordered list of non-trivial S-polynomials.
 ###
-### #GBNP.ReducePol uses: CleanNP GBNP.ReducePol2 MkMonicNP#
-### #GBNP.ReducePol is used in: GBNP.SGrobnerTrunc GBNP.SGrobnerTruncLevel Grobner SGrobner#
-###
 
 GBNP.ReducePol:=function(B)
     local G,i,done,one,count;
@@ -788,9 +743,6 @@ end;;
 ###
 ### Returns:
 ### todo    - list of non trivial S-polynomials.
-###
-## #GBNP.AllObs uses: GBNP.AddMonToTreePTSLR GBNP.CreateOccurTreePTSLR GBNP.GetOptions GBNP.ObsTall GBNP.StrongNormalFormTall LMonsNP#
-### #GBNP.AllObs is used in: GBNP.IsGrobnerBasisTest Grobner IsGrobnerPair MakeGrobnerPair SGrobner#
 ###
 
 GBNP.AllObs:=function(G, funcs)
@@ -886,9 +838,6 @@ end;;
 ###
 ### Quick observation, if todo is empty then G is a Grobner basis
 ###
-### #Grobner uses: GBNP.AllObs GBNP.CalculatePG GBNP.ReducePol GBNP.SGrobnerLoops#
-### #Grobner is used in:#
-###
 
 InstallGlobalFunction( Grobner, function(arg)
     local tt,todo,G, funcs,KI,loop, withpair;
@@ -977,7 +926,6 @@ end);
 ### <Func Name="SGrobner" Comm="Buchberger's algorithm with strong normalform"
 ### Arg="Lnp [, todo ] [, max]" />
 ###
-###
 ### <Returns>
 ### If the algorithm terminates, a Gröbner Basis or a record
 ### if <A>max</A> is specified (see description).
@@ -1033,9 +981,6 @@ end);
 ### - all S-polynomials have a weak Grobner representation
 ###
 ### Observation: if todo is empty then G is a Grobner basis
-###
-### #SGrobner uses: GBNP.AllObs GBNP.CalculatePG GBNP.ReducePol GBNP.ReducePol2 GBNP.ReducePolTails GBNP.SGrobnerLoops#
-### #SGrobner is used in: SGrobnerModule#
 ###
 
 InstallGlobalFunction( SGrobner, function(arg)
@@ -1132,8 +1077,6 @@ end);
 ### Returns:
 ### ans        - List of nondiv. monomials
 ###
-### uses:    - GBNP.RightOccurInLst
-### used in:    - DimQA, BaseQA
 
 # new version in occurtree.gi
 
@@ -1172,10 +1115,6 @@ end);
 ###
 ### Returns:
 ### ans        - List of terms forming a basis of QA = NP algebra mod G
-###
-### uses:    - GBNP.NondivMons, LMonsNP
-### #BaseQA uses: GBNP.NondivMons LMonsNP#
-### #BaseQA is used in:#
 ###
 
 InstallGlobalFunction( BaseQA, function(G,t,maxno)
@@ -1239,9 +1178,6 @@ end);;
 ### Returns:
 ### s        - the dimension of the quotient algebra
 ###
-### #DimQA uses: GBNP.NondivMonsPTSenum LMonsNP#
-### #DimQA is used in:#
-###
 
 InstallGlobalFunction( DimQA, function(G,n)
     local s,t0;
@@ -1285,9 +1221,6 @@ end);;
 ### ans        - the strong normal form of the product p1*p2 with
 ###               respect to G
 ###
-### #MulQA uses: MulNP StrongNormalFormNP#
-### #MulQA is used in: MatrixQA#
-###
 
 InstallGlobalFunction( MulQA, function(p1,p2,G)
     return StrongNormalFormNP(MulNP(p1,p2),G);
@@ -1314,9 +1247,6 @@ end);;
 ###
 ### Returns:
 ### pol        - strong normalform of f w.r.t. G
-###
-### #GBNP.StrongNormalForm2TS uses: AddNP BimulNP GBNP.LookUpOccurTreeAllLstPTSLR#
-### #GBNP.StrongNormalForm2TS is used in: GBNP.ReducePol2 GBNP.ReducePolTails#
 ###
 
 GBNP.StrongNormalForm2TS:=function(G,j,GLOT)
@@ -1367,9 +1297,6 @@ end;;
 ###
 ### Returns:
 ### pol        - normal form of f w.r.t. G union G2
-###
-### #GBNP.NormalForm2T uses: AddNP BimulNP GBNP.OccurInLstT#
-### #GBNP.NormalForm2T is used in:#
 ###
 
 GBNP.NormalForm2T:=function(f,G,G2,GLOT,G2LOT)
@@ -1426,9 +1353,6 @@ end;;
 ### Returns:
 ### todo    - new list of S-polynomials. S-polynomials with G[j] added
 ###
-### #GBNP.CentralT uses: GBNP.AddMonToTreePTSLR GBNP.Occur GBNP.Spoly GBNP.StrongNormalForm2Tall LMonsNP MkMonicNP#
-### #GBNP.CentralT is used in:#
-###
 
 GBNP.CentralT:=function(j,G,todo,OT,funcs)
     local R,ob,temp,a,i,o,u,v,lu,lv,all;
@@ -1473,9 +1397,6 @@ end;;
 ###
 ### Returns:
 ### ans        - List of found left-obstructions
-###
-### #GBNP.LeftObsT uses: GBNP.AddMonToTreePTSLR GBNP.CreateOccurTreePTSLR GBNP.LookUpOccurTreeForObsPTSLR GBNP.LookUpOccurTreePTSLRPos LtNP#
-### #GBNP.LeftObsT is used in: GBNP.ObsTall#
 ###
 
 # XXX remove these comments
@@ -1543,9 +1464,6 @@ end;;
 ###
 ### Returns:
 ### ans        - List of found right-obstructions
-###
-### #GBNP.RightObsT uses: GBNP.AddMonToTreePTSLR GBNP.CreateOccurTreePTSLR GBNP.LookUpOccurTreeForObsPTSLR GBNP.LookUpOccurTreePTSLRPos LtNP#
-### #GBNP.RightObsT is used in: GBNP.ObsTall#
 ###
 
 # left k characters of u (k as large as possible) are end of v
@@ -1631,8 +1549,6 @@ end;;
 ### Arguments:
 ### - G        the list of polynomials in NP form to check
 ###
-### #IsStrongGrobnerBasis uses: GBNP.IsGrobnerBasisTest#
-### #IsStrongGrobnerBasis used in:#
 
 InstallGlobalFunction( IsStrongGrobnerBasis, function(G)
     return GBNP.IsGrobnerBasisTest(G,true);
@@ -1666,8 +1582,6 @@ end);
 ### Arguments:
 ### - G        the list of polynomials in NP form to check
 ###
-### #IsGrobnerBasis uses: GBNP.IsGrobnerBasisTest#
-### #IsGrobnerBasis used in:#
 
 InstallGlobalFunction( IsGrobnerBasis, function(G)
     return GBNP.IsGrobnerBasisTest(G,false);
@@ -1708,9 +1622,6 @@ end);
 ###         ("reduced") or "reduced strong" Gröbner basis
 ###
 ### Returns:
-###
-### #GBNP.IsGrobnerBasisTest uses: AddNP CleanNP GBNP.AddMonToTreePTSLR GBNP.AllObs GBNP.CalculatePG GBNP.CreateOccurTreePTSLR GBNP.StrongNormalFormTall LMonsNP LtNP MkMonicNP#
-### #GBNP.IsGrobnerBasisTest used in:#
 ###
 
 # TODO check special cases 0 [[],[]] (might be allowed if strong=false), 1
@@ -2133,9 +2044,6 @@ end);
 ### Returns:
 ### pol        - strong normalform of f w.r.t. G
 ###
-### #StrongNormalFormNPM uses: GBNP.StrongNormalForm2#
-### #StrongNormalFormNPM is used in: MulQM#
-###
 
 InstallGlobalFunction( StrongNormalFormNPM, function(v,GR)
     if v=[[],[]] then
@@ -2211,9 +2119,6 @@ end);
 ###
 ### -XXX assumed is that KI_ts is non-empty (is this needed here ?)
 ### Observation: if todo is empty then G is a Grobner basis
-###
-### #SGrobnerModule uses: GBNP.CalculatePG GBNP.GetOptions GBNP.SetOption MulNP SGrobner#
-### #SGrobnerModule is used in:#
 ###
 
 InstallGlobalFunction( SGrobnerModule, function(KI_p,KI_ts)
@@ -2291,10 +2196,6 @@ end);;
 ### Returns:
 ### ans        - the strong normal form of the product p1*p2 with
 ###               respect to GBR
-###
-### uses:    - MulNP, StrongNormalFormNPM
-### #MulQM uses: MulNP StrongNormalFormNPM#
-### #MulQM is used in: MatrixQA#
 ###
 
 InstallGlobalFunction( MulQM, function(p1,p2,GBR)
@@ -2374,9 +2275,6 @@ end);;
 ###
 ### Returns:
 ### ans        - List of terms forming a basis of QA = NP algebra mod G
-###
-### #BaseQM uses: GBNP.NondivMonsPTS LMonsNP#
-### #BaseQM is used in:#
 ###
 
 InstallGlobalFunction( BaseQM, function(GBR,t,mt,maxno)
@@ -2465,9 +2363,6 @@ end);;
 ###
 ### Returns:
 ### s        - the dimension of the quotient algebra
-###
-### #DimQM uses: GBNP.NondivMonsPTSenum LMonsNP#
-### #DimQM is used in:#
 ###
 
 InstallGlobalFunction( DimQM, function(GBR,n,mt)

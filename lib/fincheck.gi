@@ -70,9 +70,6 @@
 ### Returns:
 ###  incremented u.
 ###
-### #GBNP.Incr uses:#
-### #GBNP.Incr is used in: DetermineGrowthQA#
-###
 
 GBNP.Incr:=function(u,l,n);
         while u[l]=n do
@@ -101,11 +98,6 @@ end;
 ###
 ### Returns:
 ###  incremented u. As a side-effect it might alter the tree T
-###
-### uses:               - GBNP.RedAddToTree     (tree.g)
-###
-### #GBNP.IncrT uses: GBNP.RedAddToTree#
-### #GBNP.IncrT is used in: FinCheckQA#
 ###
 
 GBNP.IncrT:=function(u,l,n,Tree,lnorm);
@@ -161,9 +153,6 @@ end;
 ### Returns:
 ### - the left-reduced list of obstructions, obtained by applying
 ###   left-reduction recursively.
-###
-### #PreprocessAnalysisQA uses: GBNP.RedAddToTree GBNP.TreeToList#
-### #PreprocessAnalysisQA is used in:#
 ###
 
 InstallGlobalFunction(
@@ -261,8 +250,6 @@ end);;
 ### true                - if factor algebra is finite dimensional
 ### false               - else.
 ###
-### #FinCheckQA uses: GBNP.CreateOccurTreeLR GBNP.IncrT GBNP.LookUpOccurTreePTSLRPos GBNP.Occur#
-### #FinCheckQA is used in:#
 
 InstallGlobalFunction(
 FinCheckQA,function(F,n) local  j, word, marker, period,
@@ -396,9 +383,6 @@ end);
 ### Returns:
 ### true                - if factor algebra is finite dimensional
 ### false               - else.
-###
-### #DetermineGrowthQA uses: DetermineGrowthObs GBNP.CreateOccurTreeLR GBNP.Incr GBNP.LookUpOccurTreePTSLRPos GBNP.NumAlgGensNPmonList#
-### #DetermineGrowthQA is used in:#
 ###
 
 InstallGlobalFunction(
@@ -613,7 +597,6 @@ end);
 ### graphs.gi) is that in case of a big graph, only part needs to be
 ### constructed.
 ###
-###
 ### Arguments:
 ### O                   - Set of obstructions
 ### n                   - The alphabet size
@@ -622,9 +605,6 @@ end);
 ### Returns:
 ### - List of coefficients of the Hilbert series up to
 ###   degree d
-###
-### #HilbertSeriesQA uses: GBNP.CreateOccurTreeLR GBNP.FormalSum GBNP.LookUpOccurTreeForObsPTSLR GBNP.OccurInLstPTSLR#
-### #HilbertSeriesQA is used in:#
 ###
 
 InstallGlobalFunction(

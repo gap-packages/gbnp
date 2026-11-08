@@ -69,9 +69,6 @@
 ### Returns:
 ### - the occurtree formed
 ###
-### #GBNP.CreateOccurTreePTSLRimpl uses: GBNP.AddMonToTreePTSLR#
-### #GBNP.CreateOccurTreePTSLRimpl is used in: GBNP.CreateOccurTreeLR GBNP.CreateOccurTreePTSLR#
-###
 
 GBNP.CreateOccurTreePTSLRimpl:=function(L,pg,left)
 local i,OT;
@@ -94,9 +91,6 @@ end;
 ### Returns:
 ### - the occurtree formed
 ###
-### #GBNP.CreateOccurTreeLR uses: GBNP.CreateOccurTreePTSLRimpl#
-### #GBNP.CreateOccurTreeLR is used in: DetermineGrowthQA FinCheckQA GBNP.RedAddToTree GraphOfChains GraphOfNormalWords HilbertSeriesQA#
-###
 
 GBNP.CreateOccurTreeLR:=function(L,left)
         return GBNP.CreateOccurTreePTSLRimpl(L,0,left);
@@ -115,9 +109,6 @@ end;
 ###
 ### Returns:
 ### - the occurtree formed
-###
-### #GBNP.CreateOccurTreePTSLR uses: GBNP.CreateOccurTreePTSLRimpl GBNP.GetOptions#
-### #GBNP.CreateOccurTreePTSLR is used in: GBNP.AllObs GBNP.IsGrobnerBasisTest GBNP.LeftObsT GBNP.NondivMonsPTS GBNP.NondivMonsPTSenum GBNP.ReducePol2 GBNP.RightObsT GBNP.SGrobnerLoops GBNP.StrongNormalFormTall IsGrobnerPair MakeGrobnerPair#
 ###
 
 GBNP.CreateOccurTreePTSLR:=function(L,pg,left)
@@ -147,9 +138,6 @@ end;
 ###
 ### Returns:
 ### - the array indices of all matching monomials
-###
-### #GBNP.LookUpOccurTreeAllPTSLRPos uses:#
-### #GBNP.LookUpOccurTreeAllPTSLRPos is used in: GBNP.LookUpOccurTreeAllLstPTSLR#
 ###
 
 GBNP.LookUpOccurTreeAllPTSLRPos:=function(mon,OT,left,startpos)
@@ -220,9 +208,6 @@ end;
 ### Returns:
 ### - the array index of a monomial or 0 if no monomials can be found
 ###
-### #GBNP.LookUpOccurTreePTSLRPos uses:#
-### #GBNP.LookUpOccurTreePTSLRPos is used in: DetermineGrowthQA FinCheckQA GBNP.LeftObsT GBNP.NondivMonsPTS GBNP.OccurInLstPTSLR GBNP.OccurLeftInLstT GBNP.RightObsT countfun#
-###
 
 GBNP.LookUpOccurTreePTSLRPos:=function(mon,OT,left,startpos)
 local   pos,    # index of mon
@@ -287,9 +272,6 @@ end;
 ###     and i = the position from the left (i is as small as possible)
 ###     if nothing is found then [0,0] is returned.
 ###
-### #GBNP.OccurInLstT uses: GBNP.OccurInLstPTSLR#
-### #GBNP.OccurInLstT is used in: GBNP.NormalForm2T GBNP.SGrobnerLoops GBNP.StrongNormalForm2Tall GBNP.StrongNormalForm3Dall GBNP.THeapOTCheck#
-###
 
 GBNP.OccurInLstT:=function(mon,LOT)
         return GBNP.OccurInLstPTSLR(mon,LOT,true);
@@ -311,9 +293,6 @@ end;
 ###     Where nr = the array number of the monomial found
 ###     and i = the position from the left (right if left=false) (i is as small
 ###     as possible) if nothing is found then [0,0] is returned.
-###
-### #GBNP.OccurInLstPTSLR uses: GBNP.LookUpOccurTreePTSLRPos#
-### #GBNP.OccurInLstPTSLR is used in: GBNP.OccurInLstT GraphOfChains GraphOfNormalWords HilbertSeriesQA IsGrobnerPair MakeGrobnerPair#
 ###
 
 GBNP.OccurInLstPTSLR:=function(mon,LOT,left)
@@ -345,9 +324,6 @@ end;
 ###     and i = 1 if a monomial is found (compatible with GBNP.OccurInLstT)
 ###     if nothing is found then [0,0] is returned.
 ###
-### #GBNP.OccurLeftInLstT uses: GBNP.LookUpOccurTreePTSLRPos#
-### #GBNP.OccurLeftInLstT is used in:#
-###
 
 GBNP.OccurLeftInLstT:=function(mon,LOT)
 local ans;
@@ -372,9 +348,6 @@ end;
 ### Returns:
 ### - A list of matches in the form [nr, i], where nr is the monomial found and
 ###   i the left-most position where it is found
-###
-### #GBNP.LookUpOccurTreeAllLstPTSLR uses: GBNP.LookUpOccurTreeAllPTSLRPos#
-### #GBNP.LookUpOccurTreeAllLstPTSLR is used in: GBNP.SGrobnerLoops GBNP.StrongNormalForm2TS GBNP.StrongNormalForm2TSPTS GBNP.StrongNormalForm3Dall#
 ###
 
 GBNP.LookUpOccurTreeAllLstPTSLR:=function(mon,OT,left)
@@ -419,9 +392,6 @@ end;
 ###
 ### Returns:
 ### - A list of indices of monomials from the tree that match.
-###
-### #GBNP.LookUpOccurTreeForObsPTSLRPos uses:#
-### #GBNP.LookUpOccurTreeForObsPTSLRPos is used in: GBNP.LookUpOccurTreeForObsPTSLR#
 ###
 
 GBNP.LookUpOccurTreeForObsPTSLRPos:=function(mon,OT,left,startpos)
@@ -489,9 +459,6 @@ end;
 ### - an array of lists [nr,i], where nr is the index in the array and i the
 ###     position of the first 'Y'
 ###
-### #GBNP.LookUpOccurTreeForObsPTSLR uses: GBNP.LookUpOccurTreeForObsPTSLRPos#
-### #GBNP.LookUpOccurTreeForObsPTSLR is used in: GBNP.LeftObsT GBNP.RightObsT GraphOfChains HilbertSeriesQA#
-###
 
 GBNP.LookUpOccurTreeForObsPTSLR:=function(mon,j,GOT,left)
 local   i,o,
@@ -528,9 +495,6 @@ end;
 ###
 ### Returns:
 ###  - nothing returned (but the tree <OT> is updated)
-###
-### #GBNP.AddMonToTreePTSLR uses:#
-### #GBNP.AddMonToTreePTSLR is used in: GBNP.AllObs GBNP.CentralT GBNP.CreateOccurTreePTSLRimpl GBNP.IsGrobnerBasisTest GBNP.LeftObsT GBNP.ObsTall GBNP.ReducePol2 GBNP.RightObsT GBNP.SGrobnerLoops MakeGrobnerPair THeapOT#
 ###
 
 GBNP.AddMonToTreePTSLR:=function(mon,i,OT,left)
@@ -608,9 +572,6 @@ end;
 ###
 ### Returns:
 ###     nothing, but removes <mon> from <OT>
-###
-### #GBNP.RemoveMonFromTreePTSLR uses:#
-### #GBNP.RemoveMonFromTreePTSLR is used in: GBNP.ReducePol2 GBNP.SGrobnerLoops THeapOT#
 ###
 
 GBNP.RemoveMonFromTreePTSLR:=function(mon,i,OT,left)
@@ -711,9 +672,6 @@ end;
 ### Returns:
 ###     nothing, but changes the tree: sorts arr2tree (and updates tree2arr)
 ###
-### #GBNP.SortParallelOT uses:#
-### #GBNP.SortParallelOT is used in: GBNP.ObsTall THeapOT#
-###
 
 GBNP.SortParallelOT:=function(l,OT,searchfun)
 local i;
@@ -737,9 +695,6 @@ end;
 ### Returns:
 ### ans         - List of nondiv. monomials
 ###
-### #GBNP.NondivMons uses: GBNP.NondivMonsPTS#
-### #GBNP.NondivMons is used in: BaseQA#
-###
 
 GBNP.NondivMons := function(lts,t,maxno)
         return GBNP.NondivMonsPTS([],lts,t,0,maxno);
@@ -758,9 +713,6 @@ end;
 ###
 ### Returns:
 ### ans         - List of nondiv. monomials
-###
-### #GBNP.NondivMonsPTS uses: GBNP.CreateOccurTreePTSLR GBNP.LookUpOccurTreePTSLRPos GBNP.OccurInLst#
-### #GBNP.NondivMonsPTS is used in: BaseQM GBNP.NondivMons#
 ###
 
 GBNP.NondivMonsPTS := function(plts,lts,t,mt,maxno) local h,i,ct,hi,tt,ans,idf,lvl,cont,ROT,pLOT;
@@ -834,9 +786,6 @@ end;
 ###
 ### Returns:
 ### ans         - List of nondiv. monomials
-###
-### #GBNP.NondivMonsPTSenum uses: GBNP.CreateOccurTreePTSLR GBNP.GetOptions GBNP.OccurInLst#
-### #GBNP.NondivMonsPTSenum is used in: DimQA DimQM GBNP.SGrobnerLoops#
 ###
 
 GBNP.NondivMonsPTSenum := function(plts,lts,t,mt,max)

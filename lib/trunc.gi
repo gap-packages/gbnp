@@ -65,9 +65,6 @@
 ### Returns:
 ### ans         - weighted degree of the monomial
 ###
-### #GBNP.WeightedDegreeMon uses:#
-### #GBNP.WeightedDegreeMon is used in: GBNP.NewLevel GBNP.ObsTall GBNP.ObsTrunc GBNP.WeightedDegreeList#
-###
 
 GBNP.WeightedDegreeMon:=function(mon,lst) local i,ans;
   ans:=0;
@@ -88,9 +85,6 @@ end;;
 ###
 ### Returns:
 ### ans         - weighted degree of the monomial
-###
-### #GBNP.WeightedDegreeList uses: GBNP.WeightedDegreeMon#
-### #GBNP.WeightedDegreeList is used in: GBNP.CheckHom#
 ###
 
 GBNP.WeightedDegreeList:=function(GB,lst) local i,mon,pol,h,ans;
@@ -115,9 +109,6 @@ GBNP.WeightedDegreeList:=function(GB,lst) local i,mon,pol,h,ans;
 ###
 ### Output:
 ### ans - list of found monomials
-###
-### #GBNP.NondivMonsByLevel uses: GBNP.OccurInLst#
-### #GBNP.NondivMonsByLevel is used in: GBNP.SGrobnerTrunc#
 ###
 
 GBNP.NondivMonsByLevel:=function(low,lts,wtv,deg)
@@ -167,9 +158,6 @@ end;
 ### Returns:
 ### todo        - new list of S-polynomials. S-polynomials with G[j] added
 ###
-### #GBNP.ObsTrunc uses: GBNP.LeftObs GBNP.RightObs GBNP.SelfObs GBNP.Spoly GBNP.StrongNormalForm2 GBNP.WeightedDegreeMon LMonsNP MkMonicNP#
-### #GBNP.ObsTrunc is used in: GBNP.AllObsTrunc#
-###
 
 GBNP.ObsTrunc:=function(j,G,todo,wtv,k) local R,sob,ob,obs,spo,nfspo,temp;
    R:=LMonsNP(G);
@@ -211,9 +199,6 @@ end;;
 ### Returns:
 ### todo        - list of non trivial S-polynomials of (weighted) degree k.
 ###
-### #GBNP.AllObsTrunc uses: GBNP.ObsTrunc GBNP.ReducePol2 LMonsNP#
-### #GBNP.AllObsTrunc is used in: GBNP.SGrobnerTruncLevel#
-###
 
 GBNP.AllObsTrunc:=function(G,wtv,k) local j,ans,temp;
     ans:=[];
@@ -239,9 +224,6 @@ end;;
 ### Output: Grobner Basis of degree <= k
 ###
 ### For level k-1 this is a truncated grobner basis
-###
-### #GBNP.SGrobnerTruncLevel uses: GBNP.AllObsTrunc GBNP.ReducePol GBNP.ReducePol2 GBNP.SGrobnerTruncLoop#
-### #GBNP.SGrobnerTruncLevel is used in: GBNP.SGrobnerTrunc#
 ###
 
 GBNP.SGrobnerTruncLevel:=function(K,wtv,k) local tt,todo,G;
@@ -294,9 +276,6 @@ GBNP.SGrobnerTruncLevel:=function(K,wtv,k) local tt,todo,G;
 ###
 ### Returns:
 ###
-### #GBNP.NewLevel uses: GBNP.WeightedDegreeMon#
-### #GBNP.NewLevel is used in: GBNP.SGrobnerTrunc#
-###
 
 GBNP.NewLevel:=function(all,wtv,deg) local i,ans,l,lev;
         ans:=[];
@@ -322,9 +301,6 @@ end;;
 ###
 ### Returns:
 ### ans         - list of weights of the pols or false
-###
-### #GBNP.CheckHom uses: GBNP.WeightedDegreeList LMonsNP#
-### #GBNP.CheckHom is used in: CheckHomogeneousNPs GBNP.SGrobnerTrunc#
 ###
 
 GBNP.CheckHom:=function(G,wtv) local i,j,k,l,mon,h1,h2,ans;
@@ -384,9 +360,6 @@ end;
 ### Returns:
 ### ans         - list of weighted degrees of the pols or false
 ###
-### #CheckHomogeneousNPs uses: CleanNP GBNP.CheckHom#
-### #CheckHomogeneousNPs is used in:#
-###
 
 InstallGlobalFunction(
 CheckHomogeneousNPs, function(K,wtv) local x, hlp, KClean;
@@ -410,7 +383,6 @@ end);
 ### Sep 23 2008 redirected by amc
 ### Oct 22 2008 empty case handled by amc
 ###
-###
 ### Truncated Grobner Basis
 ###
 ### Input:
@@ -425,10 +397,6 @@ end);
 ### (input argument) out = 3  -> output is list of dimensions <= max. degree
 ###                             list by degree
 ### (input argument) out = 0  -> output is list of all above <= max. degree
-###
-###
-### #GBNP.SGrobnerTrunc uses: GBNP.CheckHom GBNP.NewLevel GBNP.NondivMonsByLevel GBNP.ReducePol GBNP.SGrobnerTruncLevel LMonsNP#
-### #GBNP.SGrobnerTrunc is used in: BaseQATrunc DimsQATrunc FreqsQATrunc SGrobnerTrunc#
 ###
 
 GBNP.SGrobnerTrunc :=
@@ -523,9 +491,6 @@ end;
 ### ans         - list of pairs of frequencies of the quotient algebra
 ###               ***check validity***
 ###
-### #GBNP.MakeArgumentLevel uses: GBNP.OccurInLst#
-### #GBNP.MakeArgumentLevel is used in: FreqsQATrunc#
-###
 
 GBNP.MakeArgumentLevel:=function(mons,n) local i,hlp,mon,ans,arg;
         if mons=[[]] then return([[[],1]]); fi;
@@ -590,8 +555,6 @@ GBNP.MakeArgumentLevel:=function(mons,n) local i,hlp,mon,ans,arg;
 ### Returns:
 ### G           - list of homogeneous pols wrt wtv forming a truncated Grobner
 ###               basis or false
-### #SGrobnerTrunc uses: GBNP.SGrobnerTrunc#
-### #SGrobnerTrunc is used in:#
 ###
 
 InstallGlobalFunction(
@@ -638,9 +601,6 @@ end);
 ### Returns:
 ### ans         - list of monomials or false
 ###
-### #BaseQATrunc uses: GBNP.SGrobnerTrunc#
-### #BaseQATrunc is used in:#
-###
 
 InstallGlobalFunction(
 BaseQATrunc, function(K,deg,wtv)
@@ -686,9 +646,6 @@ end);
 ###
 ### Returns:
 ### ans         - list of dimensions or false
-###
-### #DimsQATrunc uses: GBNP.SGrobnerTrunc#
-### #DimsQATrunc is used in:#
 ###
 
 InstallGlobalFunction(
@@ -747,9 +704,6 @@ end);
 ###
 ### Returns:
 ### ans         - list of frequencies or false
-###
-### #FreqsQATrunc uses: GBNP.MakeArgumentLevel GBNP.SGrobnerTrunc#
-### #FreqsQATrunc is used in:#
 ###
 
 InstallGlobalFunction(
