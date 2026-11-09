@@ -2,6 +2,7 @@ This file describes changes in the GBNP package.
 
 ## Unreleased
 
+- GBNP now requires GAP 4.12 or later
 - Fix compatibility with the development version of GAP, where `Grobner`,
   `SGrobner` and everything built on them failed with the error
   "`<type>` implies `IsDataObjectRep` but `<obj>` requires

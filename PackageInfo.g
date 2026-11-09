@@ -77,7 +77,7 @@ PackageDoc := rec(
 ),
 
 Dependencies := rec(
-  GAP := ">=4.8",
+  GAP := ">=4.12",
   NeededOtherPackages := [],
   SuggestedOtherPackages := [],
   ExternalConditions := [],
