@@ -1,6 +1,6 @@
 This file describes changes in the GBNP package.
 
-## Unreleased
+## 1.2.0 (2026-11-10)
 
 - GBNP now requires GAP 4.12 or later
 - Fix compatibility with the development version of GAP, where `Grobner`,
