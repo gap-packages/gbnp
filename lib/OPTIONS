@@ -19,10 +19,7 @@ CheckQA : if bound, the Gröbner basis loop reports the size of the
 lenGB : number of elements of the Gröbner basis already treated
 PrintTraceAsGP : if Algebra is also set, print the trace as GP
 Algebra : the FreeAssociativeAlgebraWithOne corresponding to the relations
-
-Not in the record but fields of GBNP:
-
 cleancount : clean the Gröbner basis with itself every cleancount
-    iterations (0: never)
+    iterations (unset or 0: never)
 cleanpolys : if bound, clean the Gröbner basis with itself after the
     next iteration

@@ -283,4 +283,3 @@ local F;
         fi;
 end;
 
-GBNP.cleancount:=0;
